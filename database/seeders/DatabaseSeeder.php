@@ -1,9 +1,10 @@
-<?php
+Data<?php
 
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Admin;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        //Dummy Administrator
+            //Admin::create(array('fullname' => 'Administrator', 'username' => 'admin', 'type' => '1', 'designation' => 'Super Admin', 'password' => bcrypt('Data@123'), 'is_active' => '1', 'created_by' => '0'));
     }
 }

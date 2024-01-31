@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="{{URL::to('/')}}" class="brand-link">
       <img src="{{URL::to('/public')}}/Icon-White.png" alt="Proware" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">roware</span>
+      <span class="brand-text font-weight-light"> DCM - Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -13,8 +13,8 @@
           <img src="{{URL::to('/public')}}/user-placeholder.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->name}}</a>
-          <span class="text-white">{{Auth::user()->type == '1' ? 'Sales Manager' : 'Sales Man'}}</span>
+          <a href="#" class="d-block">{{Auth::guard('admin')->user()->fullname}}</a>
+          <span class="text-white">{{Auth::guard('admin')->user()->designation}}</span>
         </div>
       </div>
 
@@ -24,7 +24,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{URL::to('/')}}" class="nav-link {{$menu == 'dashboard' ? 'active' : ''}}">
+            <a href="{{route('admin.dashboard')}}" class="nav-link {{$menu == 'dashboard' ? 'active' : ''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -32,97 +32,106 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{URL::to('/inquiries')}}" class="nav-link {{$menu == 'inquiries' ? 'active' : ''}}">
+            <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Inquiries
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{URL::to('/orders')}}" class="nav-link {{$menu == 'orders' ? 'active' : ''}}">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Orders
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('customers')}}" class="nav-link {{$menu == 'customers' ? 'active' : ''}}">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Customers
-              </p>
-            </a>
-          </li>
-          <li class="nav-item {{$menu == 'categories' || $menu == 'brands' || $menu == 'products' ? 'menu-open' : ''}}">
-            <a href="javascript:void(0)" class="nav-link">
-              <i class="nav-icon ion ion-bag"></i>
-              <p>
-                Products
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{URL::to('/products')}}" class="nav-link {{$menu == 'products' ? 'active' : ''}}">
-                  <i class="fas fa-minus nav-icon"></i>
-                  <p>Products</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('products.categories')}}" class="nav-link {{$menu == 'categories' ? 'active' : ''}}">
-                  <i class="fas fa-minus nav-icon"></i>
-                  <p>Categories</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{URL::to('/products/brands')}}" class="nav-link {{$menu == 'brands' ? 'active' : ''}}">
-                  <i class="fas fa-minus nav-icon"></i>
-                  <p>Brands</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('salesmen')}}" class="nav-link {{$menu == 'salesmen' ? 'active' : ''}}">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Sales-Men
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="javascript:void(0)" class="nav-link">
-              <i class="nav-icon ion ion-stats-bars"></i>
-              <p>
-                Reports
+                CMS
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-minus nav-icon"></i>
-                  <p>Coming Soon..</p>
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Home</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-minus nav-icon"></i>
-                  <p>Coming Soon..</p>
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>About</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-minus nav-icon"></i>
-                  <p>Coming Soon..</p>
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Contact</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Footer</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{route('profile')}}" class="nav-link {{$menu == 'profile' ? 'active' : ''}}">
+            <a href="{{route('admin.retailer')}}" class="nav-link {{$menu == 'retailers' ? 'active' : ''}}">
+              <i class="nav-icon fas fa-store-alt"></i>
+              <p>
+                Retailers
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('admin.blog')}}" class="nav-link {{$menu == 'blogs' ? 'active' : ''}}">
+              <i class="nav-icon fa fa-pen"></i>
+              <p>
+                Blogs
+              </p>
+            </a>
+          </li>
+          <li class="nav-item {{$menu == 'seo.meta' || $menu == 'seo.snippet' ? 'menu-open' : ''}}">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-bullhorn"></i>
+              <p>
+                SEO Tools
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.seo.meta')}}" class="nav-link {{$menu == 'seo.meta' ? 'active' : ''}}">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Meta Tags</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.seo.snippet')}}" class="nav-link {{$menu == 'seo.snippet' ? 'active' : ''}}">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Snippet Code</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link {{$menu == 'users' ? 'active' : ''}}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Users
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Administrator
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-minus nav-icon"></i>
+                  <p>Users</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link {{$menu == 'profile' ? 'active' : ''}}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Profile Settings

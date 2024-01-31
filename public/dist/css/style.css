@@ -9,12 +9,12 @@
     margin-bottom: -4px !important;
 }
 .card-primary.card-outline {
-    border-top: 3px solid #2bb673 !important;
+    border-top: 3px solid #1caae2 !important;
 }
 .btn-primary {
     color: #fff;
-    background-color: #2bb673 !important;
-    border-color: #2bb673 !important;
+    background-color: #1caae2 !important;
+    border-color: #1caae2 !important;
 }
 .mt-32{
     margin-top: 32px;
@@ -38,14 +38,16 @@
     font-weight: normal !important;
 }
 
-.product-image-wrapper, .edit_product-image-wrapper{
-  width: 200px;
+
+
+.coupon-image-wrapper{
+  width: 600px;
   height: 200px;
   border: 2px solid gray;
   position:relative;
   margin-bottom: 50px;
 }
-.product-image-wrapper:after, .edit_product-image-wrapper:after{
+.coupon-image-wrapper:after{
   content: '+';
   position: absolute;
   top: 0; bottom: 0; left: 0; right: 0;margin: auto;
@@ -55,8 +57,8 @@
   font-weight: bolder;
   color: gray;
 }
-.product-image-wrapper:before, .edit_product-image-wrapper:before{
-  content: 'UPLOAD PRODUCT IMAGE';
+.coupon-image-wrapper:before{
+  content: 'UPLOAD COUPON BANNER';
   display: block;
   position: absolute;
   left: 0; right: 0;
@@ -67,8 +69,42 @@
   font-size: 0.75em;
   color: gray;
 }
-.product-image-wrapper:hover:after, .edit_product-image-wrapper:hover:after{font-size: 73px;}
-.product-image-wrapper .close-btn, .edit_product-image-wrapper .edit_close-btn {display: none;}
+.coupon-image-wrapper:hover:after{font-size: 73px;}
+.coupon-image-wrapper .close-btn {display: none;}
+
+
+
+.retailer-image-wrapper, .edit_product-image-wrapper{
+  width: 200px;
+  height: 200px;
+  border: 2px solid gray;
+  position:relative;
+  margin-bottom: 50px;
+}
+.retailer-image-wrapper:after, .edit_product-image-wrapper:after{
+  content: '+';
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;margin: auto;
+  width: max-content; height: max-content; display: block;
+  max-height: 105px;
+  font-size: 70px;
+  font-weight: bolder;
+  color: gray;
+}
+.retailer-image-wrapper:before, .edit_product-image-wrapper:before{
+  content: 'UPLOAD RETAILER LOGO';
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  margin: auto;
+  bottom: 35px;
+  width: max-content;
+  height: max-content;
+  font-size: 0.75em;
+  color: gray;
+}
+.retailer-image-wrapper:hover:after, .edit_product-image-wrapper:hover:after{font-size: 73px;}
+.retailer-image-wrapper .close-btn, .edit_product-image-wrapper .edit_close-btn {display: none;}
 input[type="file"]{
   position: absolute;
   width: 100%;
@@ -149,4 +185,70 @@ input[type="file"]{
 }
 .select2-selection__choice__remove {
     color: #fff !important;
+}
+
+.table thead tr th, .table tfoot tr th {
+    font-size: 13px;
+    padding: 5px 10px;
+}
+.table .table-img {
+    height: 30px;
+}
+.retailer-form {
+    padding-top: 60px;
+}
+.searchbar i {
+    float: right;
+    margin-top: -26px;
+    margin-right: 10px;
+    color: #e6e6e6;
+}
+.searchbar input {
+    padding-right: 40px;
+}
+.coupon-brand-image {
+    //border: 1px solid #e6e6e6;
+    height: 160px;
+    padding: 10px;
+}
+.coupon-brand-image img {
+    height: 140px;
+}
+.coupon-brand-detail label {
+    font-size: 14px;
+    margin-bottom: 0;
+    font-weight: normal !important;
+}
+.coupon-brand-detail p {
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+.coupon-row {
+    align-items: flex-end;
+}
+
+.slug-field .form-control {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #e2e2e2;
+}
+.slug-field input {
+    width: 200px;
+    height: 30px;
+    margin-top: -3px;
+    margin-left: 3px;
+    margin-right: -9px;
+    border: none;
+    border-radius: 4px;
+}
+[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:hover {
+    background-color: rgb(28 170 226) !important;
+    color: #ffffff !important;
+}
+.row-heading {
+    background-color: #e6e6e6;
+    padding: 15px;
+    border-radius: 7px;
+    margin-bottom: 20px;
 }

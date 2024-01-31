@@ -23,14 +23,16 @@
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
       <a href="{{URL::to('/')}}/" class="h1"><img src="{{URL::to('/public')}}/Logo-Black.png" height="50px"></a>
+      <br>
+      <span>Administration</span>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="{{route('login')}}">
+      <form action="{{route('admin.login')}}">
         @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email*">
+          <input type="text" class="form-control" name="username" placeholder="Username*">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -110,7 +112,7 @@
             title: data.message
           });
           setTimeout(function(){
-            window.location.href = "{{URL::to('/')}}";
+            window.location.href = "{{route('admin.dashboard')}}";
           }, 500)
         }else{
           Toast.fire({

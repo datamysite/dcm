@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{csrf_token()}}">
   <title>@yield('title') | {{env('APP_NAME')}}</title>
-    @include('layout.style')
+    @include('admin.layout.style')
     @yield('addStyle')
   
 </head>
@@ -18,21 +18,21 @@
   </div>
 
   <!-- Navbar -->
-    @include('layout.navbar')
+    @include('admin.layout.navbar')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-    @include('layout.sidebar')
+    @include('admin.layout.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
     @yield('content')
   <!-- /.content-wrapper -->
   
-    @include('layout.footer')
+    @include('admin.layout.footer')
 </div>
 <!-- ./wrapper -->
 
-    @include('layout.script')
+    @include('admin.layout.script')
     @yield('addScript')
 </body>
 </html>

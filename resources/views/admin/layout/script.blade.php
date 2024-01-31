@@ -34,3 +34,11 @@
 <script src="{{URL::to('/public')}}/dist/js/pages/dashboard.js"></script>
 <!-- SweetAlert2 -->
 <script src="{{URL::to('/public')}}/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script type="text/javascript">
+  var Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 5000
+  });
+</script>

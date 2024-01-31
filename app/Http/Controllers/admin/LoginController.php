@@ -9,8 +9,8 @@ use Auth;
 class LoginController extends Controller
 {
     public function index(){
-        if(Auth::gaurd('admin')->check()){
-            return redirect(route('dashboard'));
+        if(Auth::guard('admin')->check()){
+            return redirect(route('admin.dashboard'));
         }else{
             return view('admin.login');
         }
@@ -20,18 +20,18 @@ class LoginController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['email']) || empty($data['password'])) {
+        if (empty($data['username']) || empty($data['password'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         }else{
 
-            if(Auth::guard('admin')->attempt(['email' => $data['email'], 'password' => $data['password'], 'is_active' => '1'])){
+            if(Auth::guard('admin')->attempt(['username' => $data['username'], 'password' => $data['password'], 'is_active' => '1'])){
 
                 $response['success'] = true;
                 $response['message'] = 'Success!';
             }else{
                 $response['success'] = false;
-                $response['errors'] = 'Error! Incorrect email or password.';
+                $response['errors'] = 'Error! Incorrect username or password.';
             }
         }
 
@@ -41,6 +41,6 @@ class LoginController extends Controller
     public function logout(){
         Auth::logout();
 
-        return redirect(route('login'))->with('success', 'Successfully logged out.');
+        return redirect(route('admin.login'))->with('success', 'Successfully logged out.');
     }
 }
