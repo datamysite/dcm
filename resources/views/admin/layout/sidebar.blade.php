@@ -106,14 +106,14 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link {{$menu == 'users' ? 'active' : ''}}">
+            <a href="" class="nav-link {{$menu == 'web.users' ? 'active' : ''}}">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Users
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item  {{$menu == 'categories' || $menu == 'users' ? 'menu-open' : ''}}">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
@@ -123,8 +123,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="{{route('admin.categories')}}" class="nav-link {{$menu == 'categories' ? 'active' : ''}}">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Caterogies</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-minus nav-icon"></i>
+                  <i class="fas fa-angle-right nav-icon"></i>
                   <p>Users</p>
                 </a>
               </li>

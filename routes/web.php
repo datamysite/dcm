@@ -59,6 +59,9 @@ Route::prefix('admin')->namespace('admin')->group(function(){
                     Route::get('/snippet', 'SeoController@snippet')->name('admin.seo.snippet');
                 });
 
-
+            //Categories
+                Route::prefix('categories')->group(function(){
+                    Route::get('/', 'CategoryController@index')->name('admin.categories');
+                });
         });
 });
