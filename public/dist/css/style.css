@@ -300,3 +300,47 @@ input[type="file"]{
     font-size: 12px;
     line-height: 15px;
 }
+.card-chart-title {
+    font-size: 20px;
+    padding: 6px 10px;
+    border-left: 2px solid #777;
+}
+.card-item-div{
+    padding: 10px;
+}
+.card-item {
+    height: 62px;
+    border: 1px solid #e6e6e6;
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.card-item-div .card-item img {
+    position: absolute;
+    top: 0;
+    height: 60px;
+}
+.card-item-div .card-item p {
+    font-size: 16px;
+    padding-left: 60px;
+    font-weight: 600;
+    padding-top: 10px;
+    margin-bottom: -5px;
+}
+.card-item-div .card-item span {
+    font-size: 12px;
+    padding-left: 60px;
+}
+.small-box .icon img {
+    height: 80px;
+    margin-top: -70px;
+}
+.small-box>.small-box-footer {
+    border-top: 1px solid #e6e6e6e6 !important;
+    background-color: transparent !important;
+}
+.donut-block{
+    position: relative;
+    height: 270px;
+    width: 100%;
+}
