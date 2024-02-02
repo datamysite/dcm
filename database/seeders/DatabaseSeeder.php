@@ -14,6 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //Dummy Administrator
-            //Admin::create(array('fullname' => 'Administrator', 'username' => 'admin', 'type' => '1', 'designation' => 'Super Admin', 'password' => bcrypt('Data@123'), 'is_active' => '1', 'created_by' => '0'));
+            Admin::create(array('fullname' => 'Administrator', 'username' => 'admin', 'type' => '1', 'designation' => 'Super Admin', 'password' => bcrypt('Data@123'), 'is_active' => '1', 'created_by' => '0'));
     }
 }
