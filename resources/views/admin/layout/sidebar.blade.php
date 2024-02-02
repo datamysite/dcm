@@ -129,7 +129,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('admin.users')}}" class="nav-link {{$menu == 'users' ? 'active' : ''}}">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Users</p>
                 </a>

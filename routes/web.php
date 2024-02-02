@@ -12,6 +12,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Migration
+Route::get('/migrate', function(){
+    Artisan::call('migrate');
+    dd('migrated!');
+});
+Route::get('/seeder', function(){
+    Artisan::call('db:seed');
+    dd('Seeded!');
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -62,6 +71,11 @@ Route::prefix('admin')->namespace('admin')->group(function(){
             //Categories
                 Route::prefix('categories')->group(function(){
                     Route::get('/', 'CategoryController@index')->name('admin.categories');
+                });
+
+            //users
+                Route::prefix('users')->group(function(){
+                    Route::get('/', 'UserController@index')->name('admin.users');
                 });
         });
 });
