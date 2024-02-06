@@ -170,6 +170,38 @@
 .profile-image-wrapper:hover:after{font-size: 73px;}
 .profile-image-wrapper .close-btn{display: none;}
 
+.edit_profile-image-wrapper{
+  width: 200px;
+  height: 200px;
+  border: 2px solid gray;
+  position:relative;
+  margin-bottom: 50px;
+}
+.edit_profile-image-wrapper:after{
+  content: '+';
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;margin: auto;
+  width: max-content; height: max-content; display: block;
+  max-height: 105px;
+  font-size: 70px;
+  font-weight: bolder;
+  color: gray;
+}
+.edit_profile-image-wrapper:before{
+  content: 'UPLOAD IMAGE';
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  margin: auto;
+  bottom: 35px;
+  width: max-content;
+  height: max-content;
+  font-size: 0.75em;
+  color: gray;
+}
+.edit_profile-image-wrapper:hover:after{font-size: 73px;}
+.edit_profile-image-wrapper .close-btn{display: none;}
+
 .retailer-image-wrapper, .edit_product-image-wrapper{
   width: 200px;
   height: 200px;

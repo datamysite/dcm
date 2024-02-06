@@ -92,7 +92,9 @@ Route::prefix('admin')->namespace('admin')->group(function(){
                     Route::get('/load', 'UserController@load')->name('admin.users.load');
                     Route::post('/create', 'UserController@create')->name('admin.users.create');
                     Route::get('/edit/{id}', 'UserController@edit');
+                    Route::post('/update', 'UserController@update_user')->name('admin.users.update');
                     Route::get('/delete/{id}', 'UserController@delete');
+                    Route::get('/changeStatus/{id}/{status}', 'UserController@changeStatus');
 
                 });
         });

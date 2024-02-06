@@ -62,4 +62,66 @@ class UserController extends Controller
         echo json_encode($response);
         }
     }
+
+    public function update_user(Request $request){
+        $data = $request->all();
+        $response = [];
+
+        if (empty($data['name']) || empty($data['designation'])) {
+            $response['success'] = false;
+            $response['errors'] = 'Please Fill all required fields.';
+        }else{
+            $us = Admin::find(base64_decode($data['user_id']));
+            $us->fullname = $data['name'];
+            $us->designation = $data['designation'];
+
+            if($request->hasFile('edit_profile_image')){
+                $file = $request->file('edit_profile_image');
+                $ext = $file->getClientOriginalExtension();
+                $newname = $us->id.date('dmyhis').'.'.$ext;
+
+                $file->move(public_path().'/storage/users',$newname);
+
+                $us->image = $newname;
+
+            }
+            $us->save();
+
+            $response['success'] = 'success';
+            $response['message'] = 'Success! User information updated.';
+
+        echo json_encode($response);
+        }
+    }
+
+    public function changeStatus($id, $status){
+        $id = base64_decode($id);
+
+        $u = Admin::find($id);
+        $u->is_active = $status;
+        $u->save();
+
+        $response = 'success';
+
+        return $response;
+    }
+
+    public function edit($id){
+        $id = base64_decode($id);
+
+        $data = Admin::find($id);
+
+        return view('admin.users.edit', ['data' => $data]);
+    }
+
+
+    public function delete($id){
+        $id = base64_decode($id);
+
+        Admin::destroy($id);
+
+        $response = 'success';
+
+        return $response;
+    }
 }

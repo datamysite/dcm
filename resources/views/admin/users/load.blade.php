@@ -1,7 +1,7 @@
 @foreach($data as $key => $val)
   <tr>
     <td>{{++$key}}</td>
-    <td><img src="{{URL::to('/public/user-placeholder.jpg')}}" class="table-img"></td>
+    <td><img src="{{URL::to('/public/storage/users/'.$val->image)}}" onerror="this.src='{{URL::to('/public/user-placeholder.jpg')}}';" class="table-img"></td>
     <td>{{$val->fullname}}</td>
     <td>{{$val->username}}</td>
     <td>{{$val->designation}}</td>
@@ -17,9 +17,10 @@
       @endif
     </td>
     <td class="text-right">
-      <a href="javascript:void(0)" class="btn btn-sm btn-info" title="Edit User" data-id=""><i class="fas fa-edit"></i></a>
-      <a href="javascript:void(0)" class="btn btn-sm btn-danger" title="Delete User" data-id=""><i class="fas fa-trash"></i></a>
-      <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> -->
+      @if($val->id != '1')
+        <a href="javascript:void(0)" class="btn btn-sm btn-info editUser" title="Edit User" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i></a>
+        <a href="javascript:void(0)" class="btn btn-sm btn-danger deleteUser" title="Delete User" data-id="{{base64_encode($val->id)}}"><i class="fas fa-trash"></i></a>
+      @endif
     </td>
   </tr>
 @endforeach

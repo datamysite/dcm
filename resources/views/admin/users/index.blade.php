@@ -154,7 +154,7 @@
 
 
 <div class="modal fade" id="editUserFormModal">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog">
     <div class="modal-content">
       
     </div>
@@ -175,12 +175,20 @@
     $('input[name="profile_image"]').on('change', function(){
       readURL(this, $('.profile-image-wrapper'));  //Change the image
     });
+    $(document).on('change','input[name="edit_profile_image"]', function(){
+      readURL(this, $('.edit_profile-image-wrapper'));  //Change the image
+    });
 
-    $('.close-btn').on('click', function(){ //Unset the image
+    $(document).on('click','.close-btn', function(){ //Unset the image
        let file = $('input[name="profile_image"]');
        $('.profile-image-wrapper').css('background-image', 'unset');
        $('.profile-image-wrapper').removeClass('file-set');
        file.replaceWith( file = file.clone( true ) );
+
+       let file2 = $('input[name="edit_profile_image"]');
+       $('.edit_profile-image-wrapper').css('background-image', 'unset');
+       $('.edit_profile-image-wrapper').removeClass('file-set');
+       file2.replaceWith( file2 = file2.clone( true ) );
     });
 
 
@@ -218,6 +226,106 @@
     });
 
 
+    $(document).on('change', '.changeStatus', function() {
+      var id = $(this).data('id');
+      var status = '0';
+        if(this.checked) {
+          status = '1';
+        }else{
+          status = '0';
+        }   
+        $.get("{{URL::to('/admin/users/changeStatus')}}/"+id+"/"+status, function(data){
+              if(data == 'success'){
+                Toast.fire({
+                  icon: 'success',
+                  title: 'User`s status updated.'
+                });
+              }else{
+                Toast.fire({
+                  icon: 'error',
+                  title: "Alert! Something went wrong."
+                });
+              }
+          });     
+    });
+
+
+    $(document).on('click', '.deleteUser', function(){
+      var id = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/admin/users/delete')}}/"+id, function(data){
+              console.log(data);
+              if(data == 'success'){
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Success! User Successfully Deleted.'
+                });
+                loadUsers();
+              }else{
+                Toast.fire({
+                  icon: 'error',
+                  title: "Alert! Something went wrong."
+                });
+              }
+          });
+        }
+      });
+    });
+
+
+    $(document).on('click', '.editUser', function(){
+      var id = $(this).data('id');
+      $('#editUserFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
+      $('#editUserFormModal').modal('show');
+      $.get("{{URL::to('/admin/users/edit')}}/"+id, function(data){
+        $('#editUserFormModal .modal-content').html(data);
+      });
+    });
+
+
+
+    $(document).on('submit', "#edit_users_form", function (event) {
+      var form=$(this);
+      var formData = new FormData($("#edit_users_form")[0]);
+      //console.log(formData);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          $('.close-btn').click();
+          form.trigger("reset");
+          $('#editUserFormModal').modal('hide');
+          loadUsers();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
 
   });
 
