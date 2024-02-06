@@ -113,7 +113,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item  {{$menu == 'categories' || $menu == 'users' ? 'menu-open' : ''}}">
+          <li class="nav-item  {{$menu == 'categories' || $menu == 'countries' || $menu == 'users' ? 'menu-open' : ''}}">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
@@ -126,6 +126,12 @@
                 <a href="{{route('admin.categories')}}" class="nav-link {{$menu == 'categories' ? 'active' : ''}}">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Caterogies</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.countries')}}" class="nav-link {{$menu == 'countries' ? 'active' : ''}}">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Countries</p>
                 </a>
               </li>
               <li class="nav-item">

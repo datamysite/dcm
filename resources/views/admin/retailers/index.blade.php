@@ -161,6 +161,17 @@
                 <input type="text" class="form-control" name="name" required>
               </div>
               <div class="form-group">
+                <label>Operational Countries</label>
+                <select class="form-control" name="name" multiple required>
+                  <option>UAE</option>
+                  <option>KSA</option>
+                  <option>EGY</option>
+                  <option>Oman</option>
+                  <option>Kuwait</option>
+
+                </select>
+              </div>
+              <div class="form-group">
                 <label>Online Store Link#</label>
                 <input type="link" class="form-control" name="store_link" required>
               </div>

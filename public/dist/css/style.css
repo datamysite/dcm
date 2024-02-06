@@ -58,7 +58,7 @@
   color: gray;
 }
 .coupon-image-wrapper:before{
-  content: 'UPLOAD COUPON BANNER';
+  content: 'UPLOAD IMAGE';
   display: block;
   position: absolute;
   left: 0; right: 0;
@@ -91,7 +91,7 @@
   color: gray;
 }
 .category-image-wrapper:before{
-  content: 'UPLOAD CATEGORY LOGO';
+  content: 'UPLOAD IMAGE';
   display: block;
   position: absolute;
   left: 0; right: 0;
@@ -105,6 +105,70 @@
 .category-image-wrapper:hover:after{font-size: 73px;}
 .category-image-wrapper .close-btn{display: none;}
 
+.edit_category-image-wrapper{
+  width: 200px;
+  height: 200px;
+  border: 2px solid gray;
+  position:relative;
+  margin-bottom: 50px;
+}
+.edit_category-image-wrapper:after{
+  content: '+';
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;margin: auto;
+  width: max-content; height: max-content; display: block;
+  max-height: 105px;
+  font-size: 70px;
+  font-weight: bolder;
+  color: gray;
+}
+.edit_category-image-wrapper:before{
+  content: 'UPLOAD IMAGE';
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  margin: auto;
+  bottom: 35px;
+  width: max-content;
+  height: max-content;
+  font-size: 0.75em;
+  color: gray;
+}
+.edit_category-image-wrapper:hover:after{font-size: 73px;}
+.edit_category-image-wrapper .close-btn{display: none;}
+
+
+.profile-image-wrapper{
+  width: 200px;
+  height: 200px;
+  border: 2px solid gray;
+  position:relative;
+  margin-bottom: 50px;
+}
+.profile-image-wrapper:after{
+  content: '+';
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;margin: auto;
+  width: max-content; height: max-content; display: block;
+  max-height: 105px;
+  font-size: 70px;
+  font-weight: bolder;
+  color: gray;
+}
+.profile-image-wrapper:before{
+  content: 'UPLOAD IMAGE';
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  margin: auto;
+  bottom: 35px;
+  width: max-content;
+  height: max-content;
+  font-size: 0.75em;
+  color: gray;
+}
+.profile-image-wrapper:hover:after{font-size: 73px;}
+.profile-image-wrapper .close-btn{display: none;}
 
 .retailer-image-wrapper, .edit_product-image-wrapper{
   width: 200px;
@@ -124,7 +188,7 @@
   color: gray;
 }
 .retailer-image-wrapper:before, .edit_product-image-wrapper:before{
-  content: 'UPLOAD RETAILER LOGO';
+  content: 'UPLOAD IMAGE';
   display: block;
   position: absolute;
   left: 0; right: 0;
