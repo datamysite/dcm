@@ -33,8 +33,10 @@
               <div class="card-header">
                   <div class="row">
                     <div class="col-md-9 searchbar">
-                      <input type="text" name="retailer" placeholder="Search for Retailer..." class="form-control">
+                      <input type="text" placeholder="Search for Retailer..." class="form-control searchRetailer">
                       <i class="fas fa-search"></i>
+                      <div class="searchbar-suggestion">
+                      </div>
                     </div>
                     <div class="col-md-3">
                       <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Coupon" data-toggle="modal" data-target="#addCouponFormModal"><i class="fas fa-plus"></i> Add Coupon</a>
@@ -44,22 +46,30 @@
                   <div class="row coupon-row">
                     <div class="col-md-5">
                       <div class="coupon-brand-image">
-                        <img src="https://www.dealsandcouponsmena.com/slider_posters/Noon%20GCC.webp">
+                        <img src="{{URL::to('/public/storage/retailers/'.$retailer->logo)}}">
                       </div>
                     </div>
                     <div class="col-md-3 coupon-brand-detail">
                       <label>Name:</label>
-                      <p>Noon <a href=""><i class="fa fa-external-link"></i></a></p>
+                      <p>{{$retailer->name}} <a href="{{empty($retailer->store_link) ? 'javascript:void(0)' : $retailer->store_link}}" target="_blank"><i class="fa fa-external-link"></i></a></p>
 
                       <label>Countries:</label>
-                      <p>UAE, KSA, EGY</p>
+                      <p>
+                        @php
+                          $countries = '';
+                          foreach($retailer->countries as $cval){
+                            $countries .= empty($countries) ? $cval->country->shortname : ', '.$cval->country->shortname;
+                          }
+                          echo $countries;
+                        @endphp
+                      </p>
                     </div>
                     <div class="col-md-3 coupon-brand-detail">
                       <label>No. of Coupons:</label>
-                      <p>25 Coupons</p>
+                      <p>0 Coupons</p>
 
                       <label>Discount Upto %:</label>
-                      <p>50%</p>
+                      <p>{{$retailer->discount_upto}} %</p>
                     </div>
                   </div>
               </div>
@@ -281,6 +291,27 @@
 <script>
   $(function () {
     
+
+    $(document).on('keyup', '.searchRetailer', function(){
+      $('.searchbar-suggestion').html('<img src="{{URL::to('/public/loader-gif.gif')}}" height="30px">');
+      var val = $(this).val();
+      if(val != ''){
+        $.get("{{URL::to('/admin/retailer/coupon/search')}}/"+val, function(data){
+          $('.searchbar-suggestion').html(data);
+        });
+      }else{
+        $('.searchbar-suggestion').html('');
+      }
+    });
+
+
+    $(document).on('focusout', '.searchRetailer', function(){
+      var el = $(this);
+      setTimeout(function(){
+          el.val('');
+          $('.searchbar-suggestion').html('');
+        }, 200);
+    });
 
     $('input[name="coupon_image"]').on('change', function(){
       readURL(this, $('.coupon-image-wrapper'));  //Change the image

@@ -54,7 +54,8 @@ Route::prefix('admin')->namespace('admin')->group(function(){
 
                     //Coupons
                         Route::prefix('coupon')->group(function(){
-                            Route::get('/', 'CouponController@index')->name('admin.retailer.coupon');
+                            Route::get('/{id}', 'CouponController@index')->name('admin.retailer.coupon');
+                            Route::get('/search/{val}', 'CouponController@search_retailer');
                         });
 
                     //Blogs

@@ -13,7 +13,7 @@
     <td>{{$val->discount_upto}} %</td>
     <td>0 Coupons</td>
     <td class="text-right">
-      <a href="{{route('admin.retailer.coupon')}}" class="btn btn-sm btn-default" title="Coupons" data-id=""><i class="fas fa-tag"></i></a>
+      <a href="{{route('admin.retailer.coupon', base64_encode($val->id))}}" class="btn btn-sm btn-default" title="Coupons" data-id=""><i class="fas fa-tag"></i></a>
       <a href="{{route('admin.retailer.blog')}}" class="btn btn-sm btn-default" title="Blogs" data-id=""><i class="fas fa-book"></i></a>
       <a href="javascript:void(0)" class="btn btn-sm btn-info editRetailer" title="Edit Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i></a>
       <a href="javascript:void(0)" class="btn btn-sm btn-danger deleteRetailer" title="Delete Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-trash"></i></a>
