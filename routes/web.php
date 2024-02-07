@@ -45,6 +45,12 @@ Route::prefix('admin')->namespace('admin')->group(function(){
             //Retailers
                 Route::prefix('retailer')->group(function(){
                     Route::get('/', 'RetailerController@index')->name('admin.retailer');
+                    Route::get('/load', 'RetailerController@load')->name('admin.retailer.load');
+                    Route::post('/filter', 'RetailerController@retailers_filter')->name('admin.retailer.filter');
+                    Route::post('/create', 'RetailerController@create')->name('admin.retailer.create');
+                    Route::post('/update', 'RetailerController@update_retailer')->name('admin.retailer.update');
+                    Route::get('/edit/{id}', 'RetailerController@edit');
+                    Route::get('/delete/{id}', 'RetailerController@delete');
 
                     //Coupons
                         Route::prefix('coupon')->group(function(){

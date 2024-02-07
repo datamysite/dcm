@@ -30,7 +30,7 @@
 
             <div class="card">
               <div class="card-header">
-                <form id="filterInquiries">
+                <form id="filterRetailers">
                   @csrf
                   <div class="row">
                     <div class="col-md-3">
@@ -41,7 +41,9 @@
                       <label>Country</label>
                       <select class="form-control" name="country">
                         <option value="">All</option>
-                        
+                        @foreach($countries as $val)
+                          <option value="{{$val->id}}">{{$val->shortname}}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="col-md-2">
@@ -58,7 +60,7 @@
                       
                     </div>
                     <div class="col-md-2">
-                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Retailer" data-toggle="modal" data-target="#addInquiryFormModal"><i class="fas fa-plus"></i> Add Retailer</a>
+                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Retailer" data-toggle="modal" data-target="#addRetailerFormModal"><i class="fas fa-plus"></i> Add Retailer</a>
                     </div>
                   </div>
                 </form>
@@ -80,36 +82,6 @@
                   </tr>
                   </thead>
                   <tbody id="retailersTableBody">
-                    <tr>
-                      <td>1</td>
-                      <td><img src="https://www.dealsandcouponsmena.com/slider_posters/Noon%20GCC.webp" class="table-img"></td>
-                      <td>Noon</td>
-                      <td>UAE, KSA, EGY</td>
-                      <td>50%</td>
-                      <td>25 Coupons</td>
-                      <td class="text-right">
-                        <a href="{{route('admin.retailer.coupon')}}" class="btn btn-sm btn-default" title="Coupons" data-id=""><i class="fas fa-tag"></i></a>
-                        <a href="{{route('admin.retailer.blog')}}" class="btn btn-sm btn-default" title="Blogs" data-id=""><i class="fas fa-book"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-info" title="Edit Retailer" data-id=""><i class="fas fa-edit"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" title="Delete Retailer" data-id=""><i class="fas fa-trash"></i></a>
-                        <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> -->
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td><img src="https://www.dealsandcouponsmena.com/slider_posters/Lacoste.webp" class="table-img"></td>
-                      <td>Lacoste</td>
-                      <td>UAE, KSA</td>
-                      <td>40%</td>
-                      <td>5 Coupons</td>
-                      <td class="text-right">
-                        <a href="{{route('admin.retailer.coupon')}}" class="btn btn-sm btn-default" title="Coupons" data-id=""><i class="fas fa-tag"></i></a>
-                        <a href="{{route('admin.retailer.blog')}}" class="btn btn-sm btn-default" title="Blogs" data-id=""><i class="fas fa-book"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-info" title="Edit Retailer" data-id=""><i class="fas fa-edit"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" title="Delete Retailer" data-id=""><i class="fas fa-trash"></i></a>
-                        <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> -->
-                      </td>
-                    </tr>
                   </tbody>
                   <tfoot>
                   <tr>
@@ -136,10 +108,10 @@
   </div>
 
 
-<div class="modal fade" id="addInquiryFormModal">
+<div class="modal fade" id="addRetailerFormModal">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form id="add_retialer_form" action="">
+      <form id="add_retialer_form" action="{{route('admin.retailer.create')}}" enctype="multipart/form-data">
         @csrf
         <div class="modal-header">
           <h4 class="modal-title">Add Retailer</h4>
@@ -152,28 +124,29 @@
             <div class="col-md-12">
 
               <div class="retailer-image-wrapper">
-                <input type="file" name="retailer_image" accept="image/*" />
+                <input type="file" name="retailer_image" accept="image/*" required/>
                 <div class="close-btn">×</div>
               </div>
               <br>
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" name="name" required>
+                <input type="text" class="form-control retailerName" name="name" required>
+              </div>
+              <div class="form-group">
+                <label>Slug <span>{{env('APP_DOMAIN')}}store/<strong>"slug-here"</strong></span></label>
+                <input type="text" class="form-control retailerSlug" name="slug" required>
               </div>
               <div class="form-group">
                 <label>Operational Countries</label>
-                <select class="form-control" name="name" multiple required>
-                  <option>UAE</option>
-                  <option>KSA</option>
-                  <option>EGY</option>
-                  <option>Oman</option>
-                  <option>Kuwait</option>
-
+                <select class="form-control" name="country[]" multiple required>
+                  @foreach($countries as $val)
+                    <option value="{{$val->id}}">{{$val->shortname}}</option>
+                  @endforeach
                 </select>
               </div>
               <div class="form-group">
-                <label>Online Store Link#</label>
-                <input type="link" class="form-control" name="store_link" required>
+                <label>Online Store Link# <small>(Optional)</small></label>
+                <input type="url" class="form-control" name="store_link">
               </div>
               <div class="form-group">
                 <label>Discount Upto %</label>
@@ -200,7 +173,7 @@
 
 
 <div class="modal fade" id="editRetailerFormModal">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog">
     <div class="modal-content">
       
     </div>
@@ -224,41 +197,69 @@
 
 <script>
   $(function () {
-    $('.select2').select2();
-    //loadInquiries();
+    loadRetailers();
 
+
+    $(document).on('keyup', '.retailerName', function(){
+      var a = $(this).val();
+ 
+      var b = a.toLowerCase().replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
+      $('.retailerSlug').val(b);
+    });
+
+
+    $(document).on('keyup', '.editRetailerName', function(){
+      var a = $(this).val();
+ 
+      var b = a.toLowerCase().replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
+      $('.editRetailerSlug').val(b);
+    });
 
     $('input[name="retailer_image"]').on('change', function(){
       readURL(this, $('.retailer-image-wrapper'));  //Change the image
     });
 
-    $('.close-btn').on('click', function(){ //Unset the image
+    $(document).on('change','input[name="edit_retailer_image"]', function(){
+      readURL(this, $('.edit_retailer-image-wrapper'));  //Change the image
+    });
+
+    $(document).on('click','.close-btn', function(){ //Unset the image
        let file = $('input[name="retailer_image"]');
        $('.retailer-image-wrapper').css('background-image', 'unset');
        $('.retailer-image-wrapper').removeClass('file-set');
        file.replaceWith( file = file.clone( true ) );
+
+       let file2 = $('input[name="edit_retailer_image"]');
+       $('.edit_retailer-image-wrapper').css('background-image', 'unset');
+       $('.edit_retailer-image-wrapper').removeClass('file-set');
+       file2.replaceWith( file2 = file2.clone( true ) );
     });
 
 
-
-    $("#add_inquiry_form").submit(function (event) {
+    $(document).on('submit', "#add_retialer_form", function (event) {
       var form=$(this);
+      var formData = new FormData($("#add_retialer_form")[0]);
+      //console.log(formData);
       $.ajax({
         type: "POST",
         url: form.attr("action"),
-        data: form.serialize(),
+        data: formData,
         dataType: "json",
         encode: true,
+        processData: false,
+        contentType: false,
       }).done(function (data) {
-        //console.log(data);
         if(data.success == 'success'){
           Toast.fire({
             icon: 'success',
             title: data.message
           });
-          setTimeout(function(){
-            window.location.href = window.location.href;
-          }, 500);
+          $('.close-btn').click();
+          form.trigger("reset");
+          $('#addRetailerFormModal').modal('hide');
+          loadRetailers();
         }else{
           Toast.fire({
             icon: 'error',
@@ -271,52 +272,72 @@
     });
 
 
+    $(document).on('click', '.deleteRetailer', function(){
+      var id = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/admin/retailer/delete')}}/"+id, function(data){
+              if(data == 'success'){
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Success! Retailer Successfully Deleted.'
+                });
+                loadRetailers();
+              }else{
+                Toast.fire({
+                  icon: 'error',
+                  title: "Warning! This Retailer has coupons listed."
+                });
+              }
+          });
+        }
+      });
+    });
 
 
-    $(document).on('click', '.editInquiry', function(){
+    $(document).on('click', '.editRetailer', function(){
       var val = $(this).data('id');
 
-      $('#editInquiryFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
-      $('#editInquiryFormModal').modal('show');
+      $('#editRetailerFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
+      $('#editRetailerFormModal').modal('show');
 
-      $.get("{{URL::to('/inquiries/edit')}}/"+val, function(data){
-        $('#editInquiryFormModal .modal-content').html(data);
+      $.get("{{URL::to('/admin/retailer/edit')}}/"+val, function(data){
+        $('#editRetailerFormModal .modal-content').html(data);
         $('.select2').select2();
       });
     });
 
-    $(document).on('change', '#edit_customer_name_field', function(){
-      var val = $(this).val();
 
-      $.getJSON("{{URL::to('/inquiries/get_customer/')}}/"+val, function(data){
-        if(data.success == 'success'){
-          $('#edit_customer_email').val(data.data.email);
-          $('#edit_customer_phone').val(data.data.phone);
-          $('#edit_customer_address').val(data.data.address);
-          
-        }
-      });
-
-      //alert(val);
-    });
-
-
-    $(document).on("submit", "#edit_inquiry_form", function (event) {
+    $(document).on('submit', "#edit_retialer_form", function (event) {
       var form=$(this);
+      var formData = new FormData($("#edit_retialer_form")[0]);
+      //console.log(formData);
       $.ajax({
         type: "POST",
         url: form.attr("action"),
-        data: form.serialize(),
+        data: formData,
         dataType: "json",
         encode: true,
+        processData: false,
+        contentType: false,
       }).done(function (data) {
-        //console.log(data);
         if(data.success == 'success'){
           Toast.fire({
             icon: 'success',
             title: data.message
           });
-          $('#editInquiryFormModal').modal('hide');
+          form.trigger("reset");
+          $('#editRetailerFormModal').modal('hide');
+          loadRetailers();
         }else{
           Toast.fire({
             icon: 'error',
@@ -328,9 +349,9 @@
       event.preventDefault();
     });
 
-    $("#filterInquiries").submit(function (event) {
-      $('#inquiriesTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
-      var url = "";
+    $("#filterRetailers").submit(function (event) {
+      $('#retailersTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+      var url = "{{route('admin.retailer.filter')}}";
       var form=$(this);
       $.ajax({
         type: "POST",
@@ -338,8 +359,8 @@
         data: form.serialize(),
         encode: true,
       }).done(function (data) {
-        $('#inquiriesTableBody').html(data);
-        $("#inquiriesTable").DataTable();
+        $('#retailersTableBody').html(data);
+        $("#retailersTable").DataTable();
         $('.reset_button').html('<button type="button" class="btn btn-default mt-32 reset_filter" title="Reset Filter"><i class="fas fa-times"></i></button>')
       });
 
@@ -348,22 +369,22 @@
 
 
     $(document).on('click', '.reset_filter', function(){
-      loadInquiries();
-      $("#filterInquiries").trigger('reset');
+      loadRetailers();
+      $("#filterRetailers").trigger('reset');
       $('.reset_button').html('');
     });
   });
 
 
-  function loadInquiries(){
-    var url = "";
+  function loadRetailers(){
+    var url = "{{route('admin.retailer.load')}}";
 
-    $('#inquiriesTableBody').html('<tr class="text-center"><td colspan="7"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+    $('#retailersTableBody').html('<tr class="text-center"><td colspan="7"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data){
 
-      $('#inquiriesTableBody').html(data);
+      $('#retailersTableBody').html(data);
 
-      $("#inquiriesTable").DataTable();
+      $("#retailersTable").DataTable();
     });
   }
 

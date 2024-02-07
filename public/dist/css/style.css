@@ -202,14 +202,14 @@
 .edit_profile-image-wrapper:hover:after{font-size: 73px;}
 .edit_profile-image-wrapper .close-btn{display: none;}
 
-.retailer-image-wrapper, .edit_product-image-wrapper{
+.retailer-image-wrapper, .edit_retailer-image-wrapper{
   width: 200px;
   height: 200px;
   border: 2px solid gray;
   position:relative;
   margin-bottom: 50px;
 }
-.retailer-image-wrapper:after, .edit_product-image-wrapper:after{
+.retailer-image-wrapper:after, .edit_retailer-image-wrapper:after{
   content: '+';
   position: absolute;
   top: 0; bottom: 0; left: 0; right: 0;margin: auto;
@@ -219,7 +219,7 @@
   font-weight: bolder;
   color: gray;
 }
-.retailer-image-wrapper:before, .edit_product-image-wrapper:before{
+.retailer-image-wrapper:before, .edit_retailer-image-wrapper:before{
   content: 'UPLOAD IMAGE';
   display: block;
   position: absolute;
@@ -231,8 +231,8 @@
   font-size: 0.75em;
   color: gray;
 }
-.retailer-image-wrapper:hover:after, .edit_product-image-wrapper:hover:after{font-size: 73px;}
-.retailer-image-wrapper .close-btn, .edit_product-image-wrapper .edit_close-btn {display: none;}
+.retailer-image-wrapper:hover:after, .edit_retailer-image-wrapper:hover:after{font-size: 73px;}
+.retailer-image-wrapper .close-btn, .edit_retailer-image-wrapper .close-btn {display: none;}
 input[type="file"]{
   position: absolute;
   width: 100%;
@@ -439,4 +439,9 @@ input[type="file"]{
     position: relative;
     height: 270px;
     width: 100%;
+}
+.form-group label span {
+    font-size: 12px;
+    color: orangered;
+    display: flow-root;
 }
