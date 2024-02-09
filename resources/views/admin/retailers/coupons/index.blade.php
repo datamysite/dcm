@@ -92,36 +92,6 @@
                   </tr>
                   </thead>
                   <tbody id="couponsTableBody">
-                    <tr>
-                      <td>1</td>
-                      <td><img src="https://dealsandcouponsmena.com/slider_posters/Noon%20GCC-AAB87.webp" class="table-img"></td>
-                      <td><strong>DCM10</strong></td>
-                      <td>UAE</td>
-                      <td>Flat 10% Off on your App Order in UAE</td>
-                      <td>Fashion and Lifestyle</td>
-                      <td>10%</td>
-                      <td>2%</td>
-                      <td class="text-right">
-                        <a href="javascript:void(0)" class="btn btn-sm btn-info" title="Edit Coupon" data-id=""><i class="fas fa-edit"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" title="Delete Coupon" data-id=""><i class="fas fa-trash"></i></a>
-                        <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> -->
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td><img src="https://dealsandcouponsmena.com/slider_posters/Noon%20GCC-AAB87.webp" class="table-img"></td>
-                      <td><strong>DCM10</strong></td>
-                      <td>UAE</td>
-                      <td>Flat 10% Off on your App Order in UAE</td>
-                      <td>Fashion and Lifestyle</td>
-                      <td>10%</td>
-                      <td>2%</td>
-                      <td class="text-right">
-                        <a href="javascript:void(0)" class="btn btn-sm btn-info" title="Edit Coupon" data-id=""><i class="fas fa-edit"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" title="Delete Coupon" data-id=""><i class="fas fa-trash"></i></a>
-                        <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> -->
-                      </td>
-                    </tr>
                   </tbody>
                   <tfoot>
                   <tr>
@@ -153,8 +123,9 @@
 <div class="modal fade" id="addCouponFormModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <form id="add_retialer_form" action="">
+      <form id="add_retialer_coupon_form" action="{{route('admin.retailer.coupon.create')}}">
         @csrf
+        <input type="hidden" name="retailer_id" value="{{base64_encode($retailer->id)}}">
         <div class="modal-header">
           <h4 class="modal-title">Add Coupon</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -165,7 +136,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="coupon-image-wrapper">
-                <input type="file" name="coupon_image" accept="image/*" />
+                <input type="file" name="coupon_image" accept="image/*" required />
                 <div class="close-btn">×</div>
               </div>
             </div>
@@ -187,15 +158,18 @@
           <div class="row">
             <div class="col-md-7">
               <div class="form-group">
-                <label>Link#</label>
-                <input type="link" class="form-control" name="link" required>
+                <label>Link# <small>(Optional)</small></label>
+                <input type="link" class="form-control" name="link">
               </div>
             </div>
             <div class="col-md-5">
               <div class="form-group">
                 <label>Category</label>
                 <select class="form-control" name="category" required>
-                  <option>Select</option>
+                  <option value="">Select</option>
+                  @foreach($categories as $val)
+                    <option value="{{$val->id}}">{{$val->name}}</option>
+                  @endforeach
                 </select>
               </div>
             </div>
@@ -203,8 +177,8 @@
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
-                <label>Discount</label>
-                <input type="number" class="form-control" min="1" max="100" name="discount" required>
+                <label>Discount %</label>
+                <input type="number" class="form-control discountCalculate discount" min="1" max="100" name="discount" required>
               </div>
             </div>
             <div class="col-md-6">
@@ -215,16 +189,16 @@
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                <label>DCM Cashback</label>
-                <input type="number" class="form-control" min="1" max="100" name="dcm_cashback" required>
+                <label>DCM Cashback % <small>(Optional)</small></label>
+                <input type="number" class="form-control discountCalculate dcmCashback" value="0" min="1" max="100" name="dcm_cashback">
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
-                <label>Total Discount</label>
-                <input type="number" class="form-control" min="1" max="100" name="total_discount" readonly>
+                <label>Total Discount %</label>
+                <input type="number" class="form-control totalDiscount" min="1" max="100" name="total_discount" readonly>
               </div>
             </div>
             <div class="col-md-4">
@@ -237,7 +211,9 @@
               <div class="form-group">
                 <label>Country</label>
                 <select class="form-control" name="country" required>
-                  <option>Select</option>
+                  @foreach($country as $val)
+                    <option value="{{$val->id}}">{{$val->shortname}}</option>
+                  @endforeach
                 </select>
               </div>
             </div>
@@ -245,8 +221,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label>Description</label>
-                <textarea class="form-control" name="Description" rows="4">
+                <label>Description <small>(Optional)</small></label>
+                <textarea class="form-control" name="description" rows="4">
                 </textarea>
               </div>
             </div>
@@ -265,8 +241,8 @@
 
 
 
-<div class="modal fade" id="editRetailerFormModal">
-  <div class="modal-dialog modal-xl">
+<div class="modal fade" id="editCouponFormModal">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       
     </div>
@@ -290,7 +266,13 @@
 
 <script>
   $(function () {
-    
+    loadCoupon();    
+
+    $(document).on('keyup', '.discountCalculate', function(){
+      var discount = parseInt($('.discount').val());
+      var cashback = parseInt($('.dcmCashback').val());
+      $('.totalDiscount').val(discount+cashback);
+    });
 
     $(document).on('keyup', '.searchRetailer', function(){
       $('.searchbar-suggestion').html('<img src="{{URL::to('/public/loader-gif.gif')}}" height="30px">');
@@ -317,17 +299,145 @@
       readURL(this, $('.coupon-image-wrapper'));  //Change the image
     });
 
-    $('.close-btn').on('click', function(){ //Unset the image
+    $(document).on('change','input[name="edit_coupon_image"]', function(){
+      readURL(this, $('.edit_coupon-image-wrapper'));  //Change the image
+    });
+
+    $(document).on('click','.close-btn', function(){ //Unset the image
        let file = $('input[name="coupon_image"]');
        $('.coupon-image-wrapper').css('background-image', 'unset');
        $('.coupon-image-wrapper').removeClass('file-set');
        file.replaceWith( file = file.clone( true ) );
+
+       let file2 = $('input[name="edit_coupon_image"]');
+       $('.edit_coupon-image-wrapper').css('background-image', 'unset');
+       $('.edit_coupon-image-wrapper').removeClass('file-set');
+       file2.replaceWith( file2 = file2.clone( true ) );
     });
 
 
 
+
+    $(document).on('submit', "#add_retialer_coupon_form", function (event) {
+      var form=$(this);
+      var formData = new FormData($("#add_retialer_coupon_form")[0]);
+      //console.log(formData);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          $('.close-btn').click();
+          form.trigger("reset");
+          $('#addCouponFormModal').modal('hide');
+          loadCoupon();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+
+    $(document).on('click', '.deleteCoupon', function(){
+      var id = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/admin/retailer/coupon/delete')}}/"+id, function(data){
+            Toast.fire({
+              icon: 'success',
+              title: 'Success! Coupon Successfully Deleted.'
+            });
+            loadCoupon();
+          });
+        }
+      });
+    });
+
+
+
+    $(document).on('click', '.editCoupon', function(){
+      var val = $(this).data('id');
+
+      $('#editCouponFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
+      $('#editCouponFormModal').modal('show');
+
+      $.get("{{URL::to('/admin/retailer/coupon/edit')}}/"+val, function(data){
+        $('#editCouponFormModal .modal-content').html(data);
+      });
+    });
+    
+
+    $(document).on('submit', "#edit_retialer_coupon_form", function (event) {
+      var form=$(this);
+      var formData = new FormData($("#edit_retialer_coupon_form")[0]);
+      //console.log(formData);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          $('.close-btn').click();
+          form.trigger("reset");
+          $('#editCouponFormModal').modal('hide');
+          loadCoupon();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+
   });
 
+
+  function loadCoupon(){
+    var url = "{{route('admin.retailer.coupon.load', base64_encode($retailer->id))}}";
+
+    $('#couponsTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+    $.get(url, function(data){
+
+      $('#couponsTableBody').html(data);
+
+      //$("#couponsTable").DataTable();
+    });
+  }
 
 
   //FILE

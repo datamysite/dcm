@@ -32,11 +32,11 @@
               <div class="card-header">
                   <div class="row">
                     <div class="col-md-9 searchbar">
-                      <input type="text" name="retailer" placeholder="Search for Blogs..." class="form-control">
+                      <input type="text" name="retailer" placeholder="Search for Blogs..." class="form-control searchBlog">
                       <i class="fas fa-search"></i>
                     </div>
                     <div class="col-md-3">
-                      <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Blog" data-toggle="modal" data-target="#addCouponFormModal"><i class="fas fa-plus"></i> Add Blog</a>
+                      <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Blog" data-toggle="modal" data-target="#addBlogFormModal"><i class="fas fa-plus"></i> Add Blog</a>
                     </div>
                   </div>
               </div>
@@ -54,26 +54,6 @@
                   </tr>
                   </thead>
                   <tbody id="blogsTableBody">
-                    <tr>
-                      <td>1</td>
-                      <td>deals-and-coupons</td>
-                      <td>Flat 10% Off on your App Order in UAE</td>
-                      <td class="text-right">
-                        <a href="javascript:void(0)" class="btn btn-sm btn-info" title="Edit log" data-id=""><i class="fas fa-edit"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" title="Delete log" data-id=""><i class="fas fa-trash"></i></a>
-                        <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> -->
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>deals-and-coupons</td>
-                      <td>Flat 10% Off on your App Order in UAE</td>
-                      <td class="text-right">
-                        <a href="javascript:void(0)" class="btn btn-sm btn-info" title="Edit log" data-id=""><i class="fas fa-edit"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" title="Delete log" data-id=""><i class="fas fa-trash"></i></a>
-                        <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> -->
-                      </td>
-                    </tr>
                   </tbody>
                   <tfoot>
                   <tr>
@@ -97,10 +77,10 @@
   </div>
 
 
-<div class="modal fade" id="addCouponFormModal">
+<div class="modal fade" id="addBlogFormModal">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
-      <form id="add_retialer_form" action="">
+      <form id="add_blog_form" action="{{route('admin.blog.create')}}">
         @csrf
         <div class="modal-header">
           <h4 class="modal-title">Add Blog</h4>
@@ -112,7 +92,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="coupon-image-wrapper">
-                <input type="file" name="coupon_image" accept="image/*" />
+                <input type="file" name="coupon_image" accept="image/*" required />
                 <div class="close-btn">×</div>
               </div>
             </div>
@@ -121,7 +101,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Heading</label>
-                <input type="text" class="form-control" name="heading" required>
+                <input type="text" class="form-control blogHeading" name="heading" required>
               </div>
             </div>
             <div class="col-md-6">
@@ -129,7 +109,7 @@
                 <label>Slug</label>
                 <div class="form-control">
                   <span>{{env('APP_DOMAIN')}}blogs/</span>
-                  <input type="text" name="country" required>
+                  <input type="text" class="blogSlug" name="slug" required>
                 </div>
               </div>
             </div>
@@ -138,7 +118,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Description</label>
-                <textarea class="form-control" name="Description" id="content" rows="10">
+                <textarea class="form-control" name="description" id="content" rows="10">
                 </textarea>
               </div>
             </div>
@@ -157,7 +137,7 @@
 
 
 
-<div class="modal fade" id="editRetailerFormModal">
+<div class="modal fade" id="editBlogFormModal">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       
@@ -188,10 +168,30 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/super-build/ckeditor.js"></script>
 <script>
   $(function () {
-    
+    loadBlogs();
+
+    make_editor("content");
+
+    $(document).on('keyup', '.searchBlog', function(){
+      var val = $(this).val();
+      if(val == ''){
+        val = '--empty--';
+      }
+      var url = "{{URL::to('/admin/blogs/search')}}/"+val;
+
+      $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+      $.get(url, function(data){
+        $('#blogsTableBody').html(data);
+        //$('#categoryTable').DataTable();
+      });
+    });
 
     $('input[name="coupon_image"]').on('change', function(){
       readURL(this, $('.coupon-image-wrapper'));  //Change the image
+    });
+
+    $('input[name="edit_mblog_image"]').on('change', function(){
+      readURL(this, $('.edit-mblog-image-wrapper'));  //Change the image
     });
 
     $('.close-btn').on('click', function(){ //Unset the image
@@ -199,13 +199,116 @@
        $('.coupon-image-wrapper').css('background-image', 'unset');
        $('.coupon-image-wrapper').removeClass('file-set');
        file.replaceWith( file = file.clone( true ) );
+
+       let file2 = $('input[name="edit_mblog_image"]');
+       $('.edit-mblog-image-wrapper').css('background-image', 'unset');
+       $('.edit-mblog-image-wrapper').removeClass('file-set');
+       file2.replaceWith( file2 = file2.clone( true ) );
     });
 
+    $(document).on('keyup', '.blogHeading', function(){
+      var a = $(this).val();
+ 
+      var b = a.toLowerCase().replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
+      $('.blogSlug').val(b);
+    });
+
+    $(document).on('keyup', '.eblogHeading', function(){
+      var a = $(this).val();
+ 
+      var b = a.toLowerCase().replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
+      $('.eblogSlug').val(b);
+    });
+
+
+    $(document).on('submit', "#add_blog_form", function (event) {
+      var form=$(this);
+      var formData = new FormData($("#add_blog_form")[0]);
+      //console.log(formData);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          $('.close-btn').click();
+          form.trigger("reset");
+          $(".ck-blurred p").html("");
+          $('#addBlogFormModal').modal('hide');
+          loadBlogs();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+
+
+    $(document).on('click', '.deleteBlog', function(){
+      var id = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/admin/blogs/delete')}}/"+id, function(data){
+            Toast.fire({
+              icon: 'success',
+              title: 'Success! Blog Successfully Deleted.'
+            });
+            loadBlogs();
+          });
+        }
+      });
+    });
+
+
+    $(document).on('click', '.editBlog', function(){
+      var id = $(this).data('id');
+      $('#editBlogFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
+      $('#editBlogFormModal').modal('show');
+      $.get("{{URL::to('/admin/blogs/edit')}}/"+id, function(data){
+        $('#editBlogFormModal .modal-content').html(data);
+        make_editor("content2");
+      });
+    });
 
 
   });
 
 
+
+
+  function loadBlogs(){
+    var url = "{{route('admin.blog.load')}}";
+
+    $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+    $.get(url, function(data){
+      $('#blogsTableBody').html(data);
+      //$('#categoryTable').DataTable();
+    });
+  }
 
   //FILE
   function readURL(input, obj){
@@ -218,9 +321,9 @@
       reader.readAsDataURL(input.files[0]);
     }
   };
-</script>
-<script>
-    CKEDITOR.ClassicEditor.create(document.getElementById("content"), {
+
+  function make_editor(ele){
+    CKEDITOR.ClassicEditor.create(document.getElementById(ele), {
         toolbar: {
             items: [
                 'exportPDF','exportWord', '|',
@@ -330,38 +433,6 @@
             'WProofreader',
         ]
     });
-</script>
-<script>
-  $(function () {
-    
-
-    $('input[name="coupon_image"]').on('change', function(){
-      readURL(this, $('.coupon-image-wrapper'));  //Change the image
-    });
-
-    $('.close-btn').on('click', function(){ //Unset the image
-       let file = $('input[name="coupon_image"]');
-       $('.coupon-image-wrapper').css('background-image', 'unset');
-       $('.coupon-image-wrapper').removeClass('file-set');
-       file.replaceWith( file = file.clone( true ) );
-    });
-
-
-
-  });
-
-
-
-  //FILE
-  function readURL(input, obj){
-    if(input.files && input.files[0]){
-      var reader = new FileReader();
-      reader.onload = function(e){
-        obj.css('background-image', 'url('+e.target.result+')');
-        obj.addClass('file-set');
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
-  };
+  }
 </script>
 @endsection

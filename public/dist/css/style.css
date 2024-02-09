@@ -38,6 +38,37 @@
     font-weight: normal !important;
 }
 
+.edit-mblog-image-wrapper{
+  width: 600px;
+  height: 200px;
+  border: 2px solid gray;
+  position:relative;
+  margin-bottom: 50px;
+}
+.edit-mblog-image-wrapper:after{
+  content: '+';
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;margin: auto;
+  width: max-content; height: max-content; display: block;
+  max-height: 105px;
+  font-size: 70px;
+  font-weight: bolder;
+  color: gray;
+}
+.edit-mblog-image-wrapper:before{
+  content: 'UPLOAD IMAGE';
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  margin: auto;
+  bottom: 35px;
+  width: max-content;
+  height: max-content;
+  font-size: 0.75em;
+  color: gray;
+}
+.edit-mblog-image-wrapper:hover:after{font-size: 73px;}
+.edit-mblog-image-wrapper .close-btn {display: none;}
 
 
 .coupon-image-wrapper{
@@ -71,6 +102,39 @@
 }
 .coupon-image-wrapper:hover:after{font-size: 73px;}
 .coupon-image-wrapper .close-btn {display: none;}
+
+
+.edit_coupon-image-wrapper{
+  width: 600px;
+  height: 200px;
+  border: 2px solid gray;
+  position:relative;
+  margin-bottom: 50px;
+}
+.edit_coupon-image-wrapper:after{
+  content: '+';
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;margin: auto;
+  width: max-content; height: max-content; display: block;
+  max-height: 105px;
+  font-size: 70px;
+  font-weight: bolder;
+  color: gray;
+}
+.edit_coupon-image-wrapper:before{
+  content: 'UPLOAD IMAGE';
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  margin: auto;
+  bottom: 35px;
+  width: max-content;
+  height: max-content;
+  font-size: 0.75em;
+  color: gray;
+}
+.edit_coupon-image-wrapper:hover:after{font-size: 73px;}
+.edit_coupon-image-wrapper .close-btn {display: none;}
 
 
 .category-image-wrapper{

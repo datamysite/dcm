@@ -55,24 +55,47 @@ Route::prefix('admin')->namespace('admin')->group(function(){
                     //Coupons
                         Route::prefix('coupon')->group(function(){
                             Route::get('/{id}', 'CouponController@index')->name('admin.retailer.coupon');
+                            Route::get('/load/{id}', 'CouponController@load')->name('admin.retailer.coupon.load');
                             Route::get('/search/{val}', 'CouponController@search_retailer');
+                            Route::post('/create', 'CouponController@create')->name('admin.retailer.coupon.create');
+                            Route::get('/delete/{id}', 'CouponController@delete');
+                            Route::get('/edit/{id}', 'CouponController@edit');
+                            Route::post('/update', 'CouponController@update_coupon')->name('admin.retailer.coupon.update');
                         });
 
                     //Blogs
                         Route::prefix('blogs')->group(function(){
-                            Route::get('/', 'RetailerBlogController@index')->name('admin.retailer.blog');
+                            Route::get('/{id}', 'RetailerBlogController@index')->name('admin.retailer.blog');
+                            Route::get('/load/{id}', 'RetailerBlogController@load')->name('admin.retailer.blog.load');
+                            Route::get('/search/{val}', 'RetailerBlogController@search_retailer');
+                            Route::post('/create', 'RetailerBlogController@create')->name('admin.retailer.blog.create');
+                            Route::get('/delete/{id}', 'RetailerBlogController@delete');
+                            Route::get('/edit/{id}', 'RetailerBlogController@edit');
+                            Route::post('/update', 'RetailerBlogController@update_blog')->name('admin.retailer.blog.update');
                         });
                 });
 
             //Blogs
                 Route::prefix('blogs')->group(function(){
                     Route::get('/', 'BlogController@index')->name('admin.blog');
+                    Route::get('/load', 'BlogController@load')->name('admin.blog.load');
+                    Route::get('/search/{val}', 'BlogController@search');
+                    Route::post('/create', 'BlogController@create')->name('admin.blog.create');
+                    Route::get('/delete/{id}', 'BlogController@delete');
+                    Route::get('/edit/{id}', 'BlogController@edit');
+                    Route::post('/update', 'BlogController@update_blog')->name('admin.blog.update');
                 });
 
             //SEO Tools
                 Route::prefix('seo')->group(function(){
-                    Route::get('/meta', 'SeoController@meta')->name('admin.seo.meta');
-                    Route::get('/snippet', 'SeoController@snippet')->name('admin.seo.snippet');
+                    Route::prefix('meta')->group(function(){
+                        Route::get('/', 'SeoController@meta')->name('admin.seo.meta');
+                        Route::post('/check', 'SeoController@meta_check')->name('admin.seo.meta.check');
+                        Route::post('/update', 'SeoController@meta_update')->name('admin.seo.meta.update');
+                    });
+                    Route::prefix('snippet')->group(function(){    
+                        Route::get('/', 'SeoController@snippet')->name('admin.seo.snippet');
+                    });
                 });
 
             //Categories
