@@ -89,49 +89,49 @@
             <div class="item">
                <a href="categories.php?category=Mart" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public')}}/web_assets/images/category/mart_new.png" alt="Mart" class="img-fluid" />
-                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Mart</div>
+                  <div class="text-truncate">Mart</div>
                </a>
             </div>
 
             <div class="item">
                <a href="categories.php?category=Fashion" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public')}}/web_assets/images/category/fashion_new.png" alt="Fashion" class="" />
-                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Fashion & Accessories</div>
+                  <div class="text-truncate">Fashion & Accessories</div>
                </a>
             </div>
 
             <div class="item">
                <a href="categories.php?category=Beauty" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public')}}/web_assets/images/category/beauty_new.png" alt="Beauty" class="" />
-                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Beauty & Wellness</div>
+                  <div class="text-truncate">Beauty & Wellness</div>
                </a>
             </div>
 
             <div class="item">
                <a href="categories.php?category=Decor" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public')}}/web_assets/images/category/decor_new.png" alt="Decor" class="" />
-                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Decor</div>
+                  <div class="text-truncate">Decor</div>
                </a>
             </div>
 
             <div class="item">
                <a href="categories.php?category=Kids" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public')}}/web_assets/images/category/kids_new.png" alt="kids" class="" />
-                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Kids</div>
+                  <div class="text-truncate">Kids</div>
                </a>
             </div>
 
             <div class="item">
                <a href="categories.php?category=Sport" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="" />
-                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Sport</div>
+                  <div class="text-truncate">Sport</div>
                </a>
             </div>
 
             <div class="item">
                <a href="categories.php?category=Sport" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="" />
-                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Sport</div>
+                  <div class="text-truncate">Sport</div>
                </a>
             </div>
 
@@ -191,15 +191,14 @@
    <!-- How To Eearn Coupon Section End-->
 
    <!-- Online Stores Section Start-->
-   <section class="my-lg-14 my-8">
-      <div class="container">
+   <section class="my-lg-12 my-8">
+      <div class="container online-container">
          <!-- row -->
-         <div class="row align-items-center mb-6">
-            <div class="col-lg-12 col-12">
-               <!-- heading -->
-               <h3 class="text-center">
-                  <a href="categories.php?category=Online"><span class="ms-3"><b style="color: #000;">Online Stores</b></span></a>
-               </h3>
+         <div class="row">
+            <div class="col-12 mb-6 text-center">
+               <a href="javascript:void(0)">
+                  <h3 class="mb-0 page-title">Online Stores</h3>
+               </a>
             </div>
          </div>
          <!-- slider -->
@@ -350,8 +349,8 @@
    <!-- Online Stores Section End-->
 
    <!--Ads Section 1 Start Here-->
-   <section class="my-lg-14 my-8">
-      <div class="container">
+   <section class="my-lg-12 my-8">
+      <div class="container online-container">
          <div class="row">
             <div class="col-12">
                <div class="mb-4 bg-light d-lg-flex justify-content-between align-items-center rounded">
@@ -373,18 +372,14 @@
    <!--Ads Section 1 End Here-->
 
    <!-- Retailers Stories Section Start -->
-   <section class="my-lg-14 my-8">
-      <div class="container">
+   <section class="my-lg-12 my-8">
+      <div class="container online-container">
          <!-- row -->
-         <div class="row align-items-center mb-6">
-            <div class="col-lg-12 col-12">
-               <!-- heading -->
-               <h3 class="text-center">
-                  <a href="categories.php?category=Offline"><span class="ms-3"><b style="color: #000;">Retailers Stores</b></span></a>
-               </h3>
-            </div>
-            <div class="col-lg-2 col-2">
-               <div class="slider-arrow" id="slider-second-arrows"></div>
+         <div class="row">
+            <div class="col-12 mb-6 text-center">
+               <a href="javascript:void(0)">
+                  <h3 class="mb-0 page-title">Retail Stores</h3>
+               </a>
             </div>
          </div>
          <!-- slider -->

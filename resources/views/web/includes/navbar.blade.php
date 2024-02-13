@@ -5,7 +5,7 @@
          <div class="col-xxl-2 col-lg-3 col-md-6 col-5">
 
             <div class="d-flex justify-content-between w-100 d-lg-none">
-               <a class="navbar-brand" href="index.php">
+               <a class="navbar-brand" href="{{route('home')}}">
                   <img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" alt="dealsandcouponsmena" style="height: 50px; width: 50px;" />
                </a>
             </div>
@@ -32,7 +32,7 @@
 
       <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar-default" aria-labelledby="navbar-defaultLabel">
          <div class="offcanvas-header pb-1">
-            <a href="index.php"><img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" width="50px" height="50px" alt="DCM" /></a>
+            <a href="{{route('home')}}"><img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" width="50px" height="50px" alt="DCM" /></a>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
          </div>
 
@@ -40,7 +40,7 @@
 
             <!-- Desktop Menu Start Here -->
             <div class="d-flex align-items-center">
-               <a class="desktop-navbar-brand" href="index.php">
+               <a class="desktop-navbar-brand" href="{{route('home')}}">
                   <img src="{{URL::to('/public')}}/web_assets/images/logo/logo-DCM.png" alt="Logo" width="90px" height="50px">
                </a>
             </div>
