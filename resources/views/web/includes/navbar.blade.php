@@ -42,7 +42,7 @@
             <!-- Desktop Menu Start Here -->
             <div class="d-flex align-items-center">
                <a class="desktop-navbar-brand" href="index.php">
-                  <img src="./assets/images/logo/logo-DCM.png" alt="Logo" width="90px" height="50px">
+                  <img src="{{URL::to('/public')}}/web_assets/images/logo/logo-DCM.png" alt="Logo" width="90px" height="50px">
                </a>
             </div>
 

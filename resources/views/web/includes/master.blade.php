@@ -16,1061 +16,62 @@
 
 <body>
    <!-- navbar -->
-   <div class="border-bottom">
 
       @include('web.includes.navbar')
 
-      <?php
-      if ($page == 'home') {
-      ?>
-         <div class="emirates-section-nav">
-            <div class="row col-lg-12 text-center" style=" justify-content: center;">
+      @yield('content')
 
-               <div class="header_card">
-                  <img src="./assets/images/emirates/abu-dhabi.png" alt="Abu Dhabi" />
-                  ABU DHABI
-               </div>
+<!-- footer -->
 
-               <div class="header_card">
-                  <img src="./assets/images/emirates/dubai.png" alt="DUBAI" />
-                  DUBAI
-               </div>
 
-               <div class="header_card">
-                  <img src="./assets/images/emirates/sharjah.png" alt="SHARJAH" />
-                  SHARJAH
-               </div>
-
-               <div class="header_card">
-                  <img src="./assets/images/emirates/fujairah.png" alt="FUJAIRAH" />
-                  FUJAIRAH
-               </div>
-
-               <div class="header_card">
-                  <img src="./assets/images/emirates/ajman.png" alt="AJMAN" />
-                  AJMAN
-               </div>
-
-               <div class="header_card">
-                  <img src="./assets/images/emirates/umm_alquwain.png" alt="UMM AL QUWAIN" />
-                  UMM ALQUWAIN
-               </div>
-
-               <div class="header_card">
-                  <img src="./assets/images/emirates/ras_alkaimah.png" alt="RAS AL KHAIMAH" />
-                  RAS ALKHAIMAH
-               </div>
-            </div>
-         <div>
-            <?php
-         }
-            ?>
-
-   </div>
-            <!-- SignIn-Modal Desktop-->
-            <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
-               <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                     <div class="modal-body">
-                        <div class="modal_container" id="modal_container">
-                           <div class="form-modal_container sign-up-modal_container">
-                              <form action="#" class="form_modal">
-                                 <h1>Create Account</h1>
-                                 <div class="social-modal_container">
-                                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-
-                                 </div>
-                                 <span>or use your email for registration</span>
-                                 <input type="text" placeholder="Name" class="form_input" />
-                                 <input type="email" placeholder="Email" class="form_input" />
-                                 <input type="password" placeholder="Password" class="form_input" />
-                                 <button class="btn btn-primary shadow-gray">Sign Up</button>
-                              </form>
-                           </div>
-                           <div class="form-modal_container sign-in-modal_container">
-                              <form action="#" class="form_modal">
-                                 <h1 style="color:#1dace3">Sign in to DCM</h1>
-                                 <div class="social-modal_container">
-                                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-
-                                 </div>
-                                 <span>or use your account</span>
-                                 <input type="email" placeholder="Email" class="form_input" />
-                                 <input type="password" placeholder="Password" class="form_input" />
-                                 <p><a href="#" style="color:#1dace3">Forgot your password?</a></p>
-                                 <button class="btn btn-primary shadow-gray">Sign In</button>
-                              </form>
-                           </div>
-                           <div class="overlay_modal-modal_container">
-                              <div class="overlay_modal">
-                                 <div class="overlay_modal-panel overlay_modal-left" style="background-color: #1dace3;">
-                                    <h1 style="color:#fff">Welcome Back!</h1>
-                                    <p>To keep connected with us please login with your personal info</p>
-                                    <button class="btn btn-primary shadow-gray" id="signIn" style="background-color: #fff;color:#1dace3">Sign In</button>
-                                 </div>
-                                 <div class="overlay_modal-panel overlay_modal-right" style="background-color: #1dace3;color:#fff">
-                                    <h1 style="color:#fff">DCM</h1>
-                                    <h1 style="color:#fff">Hello, Friend!</h1>
-                                    <p>Enter your personal details and start journey with us. or you can <b>Sign Up</b> if you don't have an account</p>
-                                    <button class="btn btn-primary shadow-gray" style="background-color: #fff;color:#1dace3" id="signUp">Sign Up</button>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
-               <div class="modal-dialog modal-sm modal-dialog-centered">
-                  <div class="modal-content">
-                     <div class="modal-body p-6">
-                        <div class="d-flex justify-content-between align-items-start">
-                           <div>
-                              <h5 class="mb-1" id="locationModalLabel">Choose your Delivery Location</h5>
-                              <p class="mb-0 small">Enter your address and we will specify the offer you area.</p>
-                           </div>
-                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="my-5">
-                           <input type="search" class="form-control" placeholder="Search your area" />
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                           <h6 class="mb-0">Select Location</h6>
-                           <a href="#" class="btn btn-outline-gray-400 text-muted btn-sm">Clear All</a>
-                        </div>
-                        <div>
-                           <div data-simplebar style="height: 300px">
-                              <div class="list-group list-group-flush">
-                                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action active">
-                                    <span>Alabama</span>
-                                    <span>Min:$20</span>
-                                 </a>
-                                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Alaska</span>
-                                    <span>Min:$30</span>
-                                 </a>
-                                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Arizona</span>
-                                    <span>Min:$50</span>
-                                 </a>
-                                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>California</span>
-                                    <span>Min:$29</span>
-                                 </a>
-                                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Colorado</span>
-                                    <span>Min:$80</span>
-                                 </a>
-                                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Florida</span>
-                                    <span>Min:$90</span>
-                                 </a>
-                                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Arizona</span>
-                                    <span>Min:$50</span>
-                                 </a>
-                                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>California</span>
-                                    <span>Min:$29</span>
-                                 </a>
-                                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Colorado</span>
-                                    <span>Min:$80</span>
-                                 </a>
-                                 <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Florida</span>
-                                    <span>Min:$90</span>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-
-
-
-
-            <script src="{{URL::to('/public')}}/web_assets/js/vendors/validation.js"></script>
-
-            <main>
-
-
-   <div class="modal fade" id="modal-subscribe" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-         <div class="modal-content" style="background-color: azure;">
-            <div class="modal-body p-0">
-               <div class="d-flex align-items-center">
-                  <div class="d-none d-lg-block">
-                     <img src="./assets/images/icons/lang.png" alt="" class="img-fluid rounded-start" />
-                  </div>
-                  <div class="px-8 py-8 py-lg-0">
-                     <div class="position-absolute end-0 top-0 m-6">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                     </div>
-
-                     <h5 class="text-center mb-5">Dear customer , Use the language you prefer</h5>
-                     <h5 class="text-center mb-5">عزيزي العميل , إحتار اللغة التي تناسبك</h5>
-
-
-
-                     <div class="d-grid">
-                        <a href="#" class="btn btn-primary mb-5" data-bs-dismiss="modal">English</a>
-                        <a href="#" class="btn btn-primary mb-5" data-bs-dismiss="modal">عربي</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-
-   <!-- Slider Section Start-->
-   <section class="mb-lg-10 mt-lg-14 my-8">
-      <div class="container">
-         <div class="hero-slider">
-
-            <a href="#">
-               <div style="background: url(./assets/images/slider/b1.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
-            </a>
-
-            <a href="#">
-               <div style="background: url(./assets/images/slider/B2.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
-            </a>
-
-            <a href="#">
-               <div style="background: url(./assets/images/slider/B3.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
-            </a>
-
-            <a href="#">
-               <div style="background: url(./assets/images/slider/b4.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
-            </a>
-
-            <a href="#">
-               <div style="background: url(./assets/images/slider/B5.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
-            </a>
-
-            <a href="#">
-               <div style="background: url(./assets/images/slider/B6.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
-            </a>
-
-
-
-            <!-- <div style="background: url(./assets/images/slider/slider-2.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-               <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-                  <span class="badge text-bg-warning">Free Shipping - orders over $100</span>
-                  <h2 class="text-dark display-5 fw-bold mt-4">
-                     Free Shipping on
-                     <br />
-                     orders over
-                     <span class="text-primary">$100</span>
-                  </h2>
-                  <p class="lead">Free Shipping to First-Time Customers Only, After promotions and discounts are applied.</p>
-                  <a href="store-products.php" class="btn btn-dark mt-3">
-                     Shop Now
-                     <i class="feather-icon icon-arrow-right ms-1"></i>
-                  </a>
-               </div>
-            </div> -->
-         </div>
-      </div>
-   </section>
-   <!-- Slider Section End-->
-
-   <!-- Category Section Start-->
-   <section class="my-lg-14 my-8">
-      <div class="container">
-         <div class="row">
-            <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0">Categories</h3>
-            </div>
-         </div>
-         <div class="category-slider">
-
-            <div class="item">
-               <a href="categories.php?category=Mart" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/mart_new.png" alt="Mart" class="mb-3 img-fluid" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Mart</div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-
-            <div class="item">
-               <a href="categories.php?category=Fashion" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/fashion_new.png" alt="Fashion" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Fashion & Accessories</div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-
-            <div class="item">
-               <a href="categories.php?category=Beauty" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/beauty_new.png" alt="Beauty" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Beauty & Wellness</div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-
-
-
-
-            <div class="item">
-               <a href="categories.php?category=Decor" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/decor_new.png" alt="Decor" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Decor</div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-
-            <div class="item">
-               <a href="categories.php?category=Kids" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/kids_new.png" alt="kids" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Kids</div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-
-            <div class="item">
-               <a href="categories.php?category=Sport" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Sport</div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-
-         </div>
-
-      </div>
-   </section>
-   <!-- Category Section End-->
-
-   <!-- <div class="divider"></div> -->
-
-   <!-- How To Eearn Coupon Section Start-->
-   <section>
-      <div class="container">
-
-         <div class="row">
-            <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0">How To Earn Coupons With Mena ?</h3>
-            </div>
-         </div>
-
-         <div class="row  px-5 " style="border-radius: 20px; border: 1px solid #ccc;background-color:whitesmoke">
-            <div class="col-12 col-md-4 p-5 mt-3 d-flex flex-column align-items-center">
-               <a href="#"><img src="./assets/images/category/category_img_01.jpg" width="200px" height="200px" class="rounded-circle img-fluid border"></a>
-
-               <div class="text-center mt-3 mb-3">
-                  <h6>Select Your Preferred brand and go shoping</h6>
-               </div>
-
-               <div class="row col-lg-12 text-center">
-                  <p><a class="btn btn-primary px-5 py-1 mb-3 me-5">Sing Up</a></p>
-               </div>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3 d-flex flex-column align-items-center">
-               <a href="#"><img src="./assets/images/category/category_img_02.jpg" width="200px" height="200px" class="rounded-circle img-fluid border"></a>
-               <div class="text-center mt-3 mb-3">
-                  <h6>Apply the code and redem the discount...</h6>
-               </div>
-               <div class="row cols-lg-12 text-center">
-                  <p><a class="btn btn-primary px-5 py-1 mb-3 me-5">Go Shop</a></p>
-               </div>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3 d-flex flex-column align-items-center">
-               <a href="#"><img src="./assets/images/category/category_img_03.jpg" width="200px" height="200px" class="rounded-circle img-fluid border"></a>
-               <div class="text-center mt-3 mb-3">
-                  <h6>Upload your receipt an get you cash back !</h6>
-               </div>
-               <div class="row cols-lg-12 text-center">
-                  <p><a class="btn btn-primary px-5 py-1 mb-3 me-5">Earn</a></p>
-               </div>
-            </div>
-         </div>
-
-      </div>
-      </div>
-   </section>
-   <!-- How To Eearn Coupon Section End-->
-
-   <!-- Online Stores Section Start-->
-   <section class="my-lg-14 my-8">
-      <div class="container">
-         <!-- row -->
-         <div class="row align-items-center mb-6">
-            <div class="col-lg-12 col-12">
-               <!-- heading -->
-               <h3 class="text-center">
-                  <a href="categories.php?category=Online"><span class="ms-3"><b style="color: #000;">Online Stores</b></span></a>
-               </h3>
-            </div>
-         </div>
-         <!-- slider -->
-         <div class="product-slider-second" id="slider-second">
-            <!-- item -->
-            <div class="item">
-               <!-- <div class="card card-product mb-lg-4">
-                     <div class="card-body"> -->
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla_toys_store.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="store-products.php" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla-toys-backside.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- </div>
-                  </div> -->
-            </div>
-            <!-- item -->
-            <div class="item">
-               <!-- <div class="card card-product mb-lg-4">
-                     <div class="card-body"> -->
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store.png" alt="Homzmart Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="store-products.php" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store-backside.png" alt="Homzmart Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- </div>
-                  </div> -->
-            </div>
-            <!-- item -->
-            <!-- item -->
-            <div class="item">
-               <!-- <div class="card card-product mb-lg-4">
-                     <div class="card-body"> -->
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi_store.png" alt="Namshi Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="store-products.php" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi-store-backside.png" alt="Namshi Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- </div>
-                  </div> -->
-            </div>
-            <!-- item -->
-
-            <!-- item -->
-            <div class="item">
-               <!-- <div class="card card-product mb-lg-4">
-                     <div class="card-body"> -->
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/sivvi_store.png" alt="Sivvi Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="store-products.php" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/sivvi-store-backside.png" alt="Sivvi Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- </div>
-                  </div> -->
-            </div>
-
-            <!-- item -->
-            <div class="item">
-               <!-- <div class="card card-product mb-lg-4">
-                     <div class="card-body"> -->
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/aldo_store.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="store-products.php" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/aldo-store-backside.png" alt="" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- </div>
-                  </div> -->
-            </div>
-
-         </div>
-         <div class="row" style="justify-content: flex-end;">
-            <div class="col-lg-2 col-2">
-               <div class="slider-arrow" id="slider-second-arrows"></div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!-- Online Stores Section End-->
-
-   <!--Ads Section 1 Start Here-->
-   <section class="my-lg-14 my-8">
-      <div class="container">
-         <div class="row">
-            <div class="col-12">
-               <div class="mb-4 bg-light d-lg-flex justify-content-between align-items-center rounded">
-                  <div class="p-10">
-                     <h2 class="mb-1 fw-bold">One Stop Grocery Shop</h2>
-                     <p class="mb-0 lead">
-                        dummy text dummy text dummy text dummy text
-                        <br />
-                        dummy text , dummy text. dummy text , dummy text.
-                     </p>
-                     <a href="#" class="btn btn-dark mt-5">Get Discount on Share</a>
-                  </div>
-                  <div class="p-6 d-lg-block d-none"><img src="./assets/images/svg-graphics/store-graphics.svg" alt="" class="img-fluid" /></div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!--Ads Section 1 End Here-->
-
-   <!-- Retailers Stories Section Start -->
-   <section class="my-lg-14 my-8">
-      <div class="container">
-         <!-- row -->
-         <div class="row align-items-center mb-6">
-            <div class="col-lg-12 col-12">
-               <!-- heading -->
-               <h3 class="text-center">
-                  <a href="categories.php?category=Offline"><span class="ms-3"><b style="color: #000;">Retailers Stores</b></span></a>
-               </h3>
-            </div>
-            <div class="col-lg-2 col-2">
-               <div class="slider-arrow" id="slider-second-arrows"></div>
-            </div>
-         </div>
-         <!-- slider -->
-         <div class="product-slider-second" id="slider-third">
-
-            <!-- item -->
-            <div class="item">
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/aldo_store.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up" target="_blank">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="store-products.php" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/aldo_store.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- item -->
-
-            <!-- item -->
-            <div class="item">
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/sivvi_store.png" alt="Sivvi Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up" target="_blank">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="store-products.php" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/sivvi_store.png" alt="Sivvi Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- item -->
-
-            <!-- item -->
-            <div class="item">
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi_store.png" alt="Namshi Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up" target="_blank">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="store-products.php" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi_store.png" alt="Namshi Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- item -->
-
-            <!-- item -->
-            <div class="item">
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store.png" alt="Homzmart Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up" target="_blank">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="store-products.php" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store.png" alt="Homzmart Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- item -->
-
-            <!-- item -->
-            <div class="item">
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla_toys_store.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up" target="_blank">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="store-products.php" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla_toys_store.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- item -->
-
-         </div>
-      </div>
-   </section>
-   <!-- Retailers Stoires Section End-->
-
-   <!-- <div class="divider"></div> -->
-
-   <!-- All Stores Section Start-->
-   <section>
-      <div class="container" id="all-stores">
-
-         <div class="row">
-            <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0" style="position: relative;">
-                  All Stores
-               </h3>
-            </div>
-         </div>
-
-         <div class="row">
-
-            <div class="col-6 col-md-6 mb-3 mb-lg-0">
-
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/gucci_logo.png" alt="" style="border-radius: 20px;" /></a>
-                  <a href="store-products.php" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5" href="#">Browse</button>
-                     </div>
-                  </a>
-               </div>
-            </div>
-
-            <div class="col-3 col-md-3">
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/brand_for_less.png" alt="Brand For Less" style="border-radius: 20px;" /></a>
-                  <a href="store-products.php" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
-            </div>
-
-            <div class="col-3 col-md-3">
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store.png" alt="Homzmart Store" style="border-radius: 20px;" /></a>
-                  <a href="store-products.php" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
-            </div>
-
-         </div>
-
-         <!-- <div class="divider"></div> -->
-
-         <div class="row">
-
-            <div class="col-3 col-md-3 mb-3 mb-lg-0">
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla_toys_store.png" alt="Yalla Toys Store" style="border-radius: 20px;" /></a>
-                  <a href="store-products.php" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
-            </div>
-
-            <div class="col-3 col-md-3">
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi_store.png" alt="Namshi Store" style="border-radius: 20px;" /></a>
-                  <a href="store-products.php" class="img-pop-up">
-                     <div class="deal-details">
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
-            </div>
-
-            <div class="col-6 col-md-6 mb-3 mb-lg-0">
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/bloom.png" alt="Namshi Store" style="border-radius: 20px;" /></a>
-                  <a href="store-products.php" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
-            </div>
-         </div>
-
-      </div>
-   </section>
-   <!-- All Stores Section End-->
-
-   <!-- <div class="divider"></div> -->
-
-   <!-- ADS Section 2 Start here -->
-   <section>
-      <div class="container">
-
-         <div class="row">
-            <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0">Ads Section</h3>
-            </div>
-         </div>
-
-         <div class="row">
-            <div class="col-12 col-md-6 mb-3 mb-lg-0">
-               <div>
-                  <div class="py-10 px-8 rounded" style="background: url(assets/images/banner/grocery-banner.png) no-repeat; background-size: cover; background-position: center">
-                     <div>
-                        <h3 class="fw-bold mb-1">Fruits & Vegetables</h3>
-                        <p class="mb-4">
-                           Get Upto
-                           <span class="fw-bold">30%</span>
-                           Offz
-                        </p>
-                        <a href="#!" class="btn btn-dark">Shop Now</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6">
-               <div>
-                  <div class="py-10 px-8 rounded" style="background: url(assets/images/banner/grocery-banner-2.jpg) no-repeat; background-size: cover; background-position: center">
-                     <div>
-                        <h3 class="fw-bold mb-1">Freshly Baked Buns</h3>
-                        <p class="mb-4">
-                           Get Upto
-                           <span class="fw-bold">25%</span>
-                           Off
-                        </p>
-                        <a href="#!" class="btn btn-dark">Shop Now</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!-- ADS Section 2 End Here-->
-
-   <div class="divider"></div>
-
-</main>
-
-<!-- Modal -->
-<div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
-   <div class="modal-dialog modal-xl modal-dialog-centered">
+<!-- SignIn-Modal Desktop-->
+<div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-         <div class="modal-body p-8">
-            <div class="position-absolute top-0 end-0 me-3 mt-3">
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="row">
-               <div class="col-lg-6">
-                  <!-- img slide -->
-                  <div class="product productModal" id="productModal">
-                     <div class="zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-single-img-1.jpg)">
-                        <!-- img -->
-                        <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-1.jpg" alt="" />
+         <div class="modal-body">
+            <div class="modal_container" id="modal_container">
+               <div class="form-modal_container sign-up-modal_container">
+                  <form action="#" class="form_modal">
+                     <h1>Create Account</h1>
+                     <div class="social-modal_container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+
                      </div>
-                     <div>
-                        <div class="zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-single-img-2.jpg)">
-                           <!-- img -->
-                           <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-2.jpg" alt="" />
-                        </div>
-                     </div>
-                     <div>
-                        <div class="zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-single-img-3.jpg)">
-                           <!-- img -->
-                           <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-3.jpg" alt="" />
-                        </div>
-                     </div>
-                     <div>
-                        <div class="zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-single-img-4.jpg)">
-                           <!-- img -->
-                           <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-4.jpg" alt="" />
-                        </div>
-                     </div>
-                  </div>
-                  <!-- product tools -->
-                  <div class="product-tools">
-                     <div class="thumbnails row g-3" id="productModalThumbnails">
-                        <div class="col-3" class="tns-nav-active">
-                           <div class="thumbnails-img">
-                              <!-- img -->
-                              <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-1.jpg" alt="" />
-                           </div>
-                        </div>
-                        <div class="col-3">
-                           <div class="thumbnails-img">
-                              <!-- img -->
-                              <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-2.jpg" alt="" />
-                           </div>
-                        </div>
-                        <div class="col-3">
-                           <div class="thumbnails-img">
-                              <!-- img -->
-                              <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-3.jpg" alt="" />
-                           </div>
-                        </div>
-                        <div class="col-3">
-                           <div class="thumbnails-img">
-                              <!-- img -->
-                              <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-4.jpg" alt="" />
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                     <span>or use your email for registration</span>
+                     <input type="text" placeholder="Name" class="form_input" />
+                     <input type="email" placeholder="Email" class="form_input" />
+                     <input type="password" placeholder="Password" class="form_input" />
+                     <button class="btn btn-primary shadow-gray">Sign Up</button>
+                  </form>
                </div>
-               <div class="col-lg-6">
-                  <div class="ps-lg-8 mt-6 mt-lg-0">
-                     <a href="#!" class="mb-4 d-block">Bakery Biscuits</a>
-                     <h2 class="mb-1 h1">Napolitanke Ljesnjak</h2>
-                     <div class="mb-4">
-                        <small class="text-warning">
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-half"></i>
-                        </small>
-                        <a href="#" class="ms-2">(30 reviews)</a>
+               <div class="form-modal_container sign-in-modal_container">
+                  <form action="#" class="form_modal">
+                     <h1 style="color:#1dace3">Sign in to DCM</h1>
+                     <div class="social-modal_container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+
                      </div>
-                     <div class="fs-4">
-                        <span class="fw-bold text-dark">$32</span>
-                        <span class="text-decoration-line-through text-muted">$35</span>
-                        <span><small class="fs-6 ms-2 text-danger">26% Off</small></span>
+                     <span>or use your account</span>
+                     <input type="email" placeholder="Email" class="form_input" />
+                     <input type="password" placeholder="Password" class="form_input" />
+                     <p><a href="#" style="color:#1dace3">Forgot your password?</a></p>
+                     <button class="btn btn-primary shadow-gray">Sign In</button>
+                  </form>
+               </div>
+               <div class="overlay_modal-modal_container">
+                  <div class="overlay_modal">
+                     <div class="overlay_modal-panel overlay_modal-left" style="background-color: #1dace3;">
+                        <h1 style="color:#fff">Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="btn btn-primary shadow-gray" id="signIn" style="background-color: #fff;color:#1dace3">Sign In</button>
                      </div>
-                     <hr class="my-6" />
-                     <div class="mb-4">
-                        <button type="button" class="btn btn-outline-secondary">250g</button>
-                        <button type="button" class="btn btn-outline-secondary">500g</button>
-                        <button type="button" class="btn btn-outline-secondary">1kg</button>
-                     </div>
-                     <div>
-                        <!-- input -->
-                        <!-- input -->
-                        <div class="input-group input-spinner">
-                           <input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity" />
-                           <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input" />
-                           <input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity" />
-                        </div>
-                     </div>
-                     <div class="mt-3 row justify-content-start g-2 align-items-center">
-                        <div class="col-lg-4 col-md-5 col-6 d-grid">
-                           <!-- button -->
-                           <!-- btn -->
-                           <button type="button" class="btn btn-primary">
-                              <i class="feather-icon icon-shopping-bag me-2"></i>
-                              Add to cart
-                           </button>
-                        </div>
-                        <div class="col-md-4 col-5">
-                           <!-- btn -->
-                           <a class="btn btn-light" href="#" data-bs-toggle="tooltip" data-bs-html="true" aria-label="Compare"><i class="bi bi-arrow-left-right"></i></a>
-                           <a class="btn btn-light" href="#!" data-bs-toggle="tooltip" data-bs-html="true" aria-label="Wishlist"><i class="feather-icon icon-heart"></i></a>
-                        </div>
-                     </div>
-                     <hr class="my-6" />
-                     <div>
-                        <table class="table table-borderless">
-                           <tbody>
-                              <tr>
-                                 <td>Product Code:</td>
-                                 <td>FBB00255</td>
-                              </tr>
-                              <tr>
-                                 <td>Availability:</td>
-                                 <td>In Stock</td>
-                              </tr>
-                              <tr>
-                                 <td>Type:</td>
-                                 <td>Fruits</td>
-                              </tr>
-                              <tr>
-                                 <td>Shipping:</td>
-                                 <td>
-                                    <small>
-                                       01 day shipping.
-                                       <span class="text-muted">( Free pickup today)</span>
-                                    </small>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
+                     <div class="overlay_modal-panel overlay_modal-right" style="background-color: #1dace3;color:#fff">
+                        <h1 style="color:#fff">DCM</h1>
+                        <h1 style="color:#fff">Hello, Friend!</h1>
+                        <p>Enter your personal details and start journey with us. or you can <b>Sign Up</b> if you don't have an account</p>
+                        <button class="btn btn-primary shadow-gray" style="background-color: #fff;color:#1dace3" id="signUp">Sign Up</button>
                      </div>
                   </div>
                </div>
@@ -1079,7 +80,76 @@
       </div>
    </div>
 </div>
-<!-- footer -->
+
+<!-- Modal -->
+<div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content">
+         <div class="modal-body p-6">
+            <div class="d-flex justify-content-between align-items-start">
+               <div>
+                  <h5 class="mb-1" id="locationModalLabel">Choose your Delivery Location</h5>
+                  <p class="mb-0 small">Enter your address and we will specify the offer you area.</p>
+               </div>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="my-5">
+               <input type="search" class="form-control" placeholder="Search your area" />
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+               <h6 class="mb-0">Select Location</h6>
+               <a href="#" class="btn btn-outline-gray-400 text-muted btn-sm">Clear All</a>
+            </div>
+            <div>
+               <div data-simplebar style="height: 300px">
+                  <div class="list-group list-group-flush">
+                     <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action active">
+                        <span>Alabama</span>
+                        <span>Min:$20</span>
+                     </a>
+                     <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
+                        <span>Alaska</span>
+                        <span>Min:$30</span>
+                     </a>
+                     <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
+                        <span>Arizona</span>
+                        <span>Min:$50</span>
+                     </a>
+                     <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
+                        <span>California</span>
+                        <span>Min:$29</span>
+                     </a>
+                     <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
+                        <span>Colorado</span>
+                        <span>Min:$80</span>
+                     </a>
+                     <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
+                        <span>Florida</span>
+                        <span>Min:$90</span>
+                     </a>
+                     <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
+                        <span>Arizona</span>
+                        <span>Min:$50</span>
+                     </a>
+                     <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
+                        <span>California</span>
+                        <span>Min:$29</span>
+                     </a>
+                     <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
+                        <span>Colorado</span>
+                        <span>Min:$80</span>
+                     </a>
+                     <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
+                        <span>Florida</span>
+                        <span>Min:$90</span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 
 @include('web.includes.footer')
 
