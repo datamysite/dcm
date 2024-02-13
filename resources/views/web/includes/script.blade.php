@@ -10,3 +10,4 @@
 <script src="{{URL::to('/public')}}/web_assets/libs/tiny-slider/dist/min/tiny-slider.js"></script>
 <script src="{{URL::to('/public')}}/web_assets/js/vendors/tns-slider.js"></script>
 <script src="{{URL::to('/public')}}/web_assets/js/vendors/zoom.js"></script>
+<script src="{{URL::to('/public')}}/web_assets/js/app.js"></script>

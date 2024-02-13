@@ -1,243 +1,137 @@
 @extends('web.includes.master')
 
 @section('content')
-         <div class="emirates-section-nav">
-            <div class="row col-lg-12 text-center" style=" justify-content: center;">
+   <div class="nav-spacing"></div>
+   
+   <div class="container emirates-container">
+      <div class="emirates-section-nav">
+         <div class="header_card">
+            <img src="{{URL::to('/public')}}/web_assets/images/emirates/abu-dhabi.png" alt="Abu Dhabi" />
+            ABU DHABI
+         </div>
 
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/abu-dhabi.png" alt="Abu Dhabi" />
-                  ABU DHABI
-               </div>
+         <div class="header_card">
+            <img src="{{URL::to('/public')}}/web_assets/images/emirates/dubai.png" alt="DUBAI" />
+            DUBAI
+         </div>
 
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/dubai.png" alt="DUBAI" />
-                  DUBAI
-               </div>
+         <div class="header_card">
+            <img src="{{URL::to('/public')}}/web_assets/images/emirates/sharjah.png" alt="SHARJAH" />
+            SHARJAH
+         </div>
 
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/sharjah.png" alt="SHARJAH" />
-                  SHARJAH
-               </div>
+         <div class="header_card">
+            <img src="{{URL::to('/public')}}/web_assets/images/emirates/fujairah.png" alt="FUJAIRAH" />
+            FUJAIRAH
+         </div>
 
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/fujairah.png" alt="FUJAIRAH" />
-                  FUJAIRAH
-               </div>
+         <div class="header_card">
+            <img src="{{URL::to('/public')}}/web_assets/images/emirates/ajman.png" alt="AJMAN" />
+            AJMAN
+         </div>
 
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/ajman.png" alt="AJMAN" />
-                  AJMAN
-               </div>
+         <div class="header_card">
+            <img src="{{URL::to('/public')}}/web_assets/images/emirates/umm_alquwain.png" alt="UMM AL QUWAIN" />
+            UMM ALQUWAIN
+         </div>
 
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/umm_alquwain.png" alt="UMM AL QUWAIN" />
-                  UMM ALQUWAIN
-               </div>
-
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/ras_alkaimah.png" alt="RAS AL KHAIMAH" />
-                  RAS ALKHAIMAH
-               </div>
-            </div>
-         <div>
-
-
-
-
-
-
-            <script src="{{URL::to('/public')}}/web_assets/js/vendors/validation.js"></script>
-
-            <main>
-
-
-   <div class="modal fade" id="modal-subscribe" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-         <div class="modal-content" style="background-color: azure;">
-            <div class="modal-body p-0">
-               <div class="d-flex align-items-center">
-                  <div class="d-none d-lg-block">
-                     <img src="{{URL::to('/public')}}/web_assets/images/icons/lang.png" alt="" class="img-fluid rounded-start" />
-                  </div>
-                  <div class="px-8 py-8 py-lg-0">
-                     <div class="position-absolute end-0 top-0 m-6">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                     </div>
-
-                     <h5 class="text-center mb-5">Dear customer , Use the language you prefer</h5>
-                     <h5 class="text-center mb-5">عزيزي العميل , إحتار اللغة التي تناسبك</h5>
-
-
-
-                     <div class="d-grid">
-                        <a href="#" class="btn btn-primary mb-5" data-bs-dismiss="modal">English</a>
-                        <a href="#" class="btn btn-primary mb-5" data-bs-dismiss="modal">عربي</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
+         <div class="header_card">
+            <img src="{{URL::to('/public')}}/web_assets/images/emirates/ras_alkaimah.png" alt="RAS AL KHAIMAH" />
+            RAS ALKHAIMAH
          </div>
       </div>
    </div>
 
+
    <!-- Slider Section Start-->
-   <section class="mb-lg-10 mt-lg-14 my-8">
+   <section class="mb-lg-10 my-8">
       <div class="container">
          <div class="hero-slider">
 
             <a href="#">
-               <div style="background: url({{URL::to('/public')}}/web_assets/images/slider/b1.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
+               <img src="{{URL::to('/public')}}/web_assets/images/slider/b1.png">
             </a>
 
             <a href="#">
-               <div style="background: url({{URL::to('/public')}}/web_assets/images/slider/B2.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
+               <img src="{{URL::to('/public')}}/web_assets/images/slider/b2.png">
             </a>
 
             <a href="#">
-               <div style="background: url({{URL::to('/public')}}/web_assets/images/slider/B3.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
+               <img src="{{URL::to('/public')}}/web_assets/images/slider/b3.png">
             </a>
 
             <a href="#">
-               <div style="background: url({{URL::to('/public')}}/web_assets/images/slider/b4.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
+               <img src="{{URL::to('/public')}}/web_assets/images/slider/b4.png">
             </a>
 
             <a href="#">
-               <div style="background: url({{URL::to('/public')}}/web_assets/images/slider/B5.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
+               <img src="{{URL::to('/public')}}/web_assets/images/slider/B5.png">
             </a>
 
             <a href="#">
-               <div style="background: url({{URL::to('/public')}}/web_assets/images/slider/B6.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                  <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                     <p style="height: 300px;">
-                  </div>
-               </div>
+               <img src="{{URL::to('/public')}}/web_assets/images/slider/B6.png">
             </a>
-
-
-
-            <!-- <div style="background: url({{URL::to('/public')}}/web_assets/images/slider/slider-2.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-               <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-                  <span class="badge text-bg-warning">Free Shipping - orders over $100</span>
-                  <h2 class="text-dark display-5 fw-bold mt-4">
-                     Free Shipping on
-                     <br />
-                     orders over
-                     <span class="text-primary">$100</span>
-                  </h2>
-                  <p class="lead">Free Shipping to First-Time Customers Only, After promotions and discounts are applied.</p>
-                  <a href="store-products.php" class="btn btn-dark mt-3">
-                     Shop Now
-                     <i class="feather-icon icon-arrow-right ms-1"></i>
-                  </a>
-               </div>
-            </div> -->
          </div>
       </div>
    </section>
    <!-- Slider Section End-->
 
    <!-- Category Section Start-->
-   <section class="my-lg-14 my-8">
+   <section class="my-lg-12 my-8">
       <div class="container">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0">Categories</h3>
+               <h3 class="mb-0 page-title">Categories</h3>
             </div>
          </div>
          <div class="category-slider">
 
             <div class="item">
                <a href="categories.php?category=Mart" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/mart_new.png" alt="Mart" class="mb-3 img-fluid" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Mart</div>
-                     </div>
-                  </div>
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/mart_new.png" alt="Mart" class="img-fluid" />
+                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Mart</div>
                </a>
             </div>
 
             <div class="item">
                <a href="categories.php?category=Fashion" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/fashion_new.png" alt="Fashion" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Fashion & Accessories</div>
-                     </div>
-                  </div>
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/fashion_new.png" alt="Fashion" class="" />
+                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Fashion & Accessories</div>
                </a>
             </div>
 
             <div class="item">
                <a href="categories.php?category=Beauty" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/beauty_new.png" alt="Beauty" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Beauty & Wellness</div>
-                     </div>
-                  </div>
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/beauty_new.png" alt="Beauty" class="" />
+                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Beauty & Wellness</div>
                </a>
             </div>
 
-
-
-
             <div class="item">
                <a href="categories.php?category=Decor" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/decor_new.png" alt="Decor" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Decor</div>
-                     </div>
-                  </div>
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/decor_new.png" alt="Decor" class="" />
+                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Decor</div>
                </a>
             </div>
 
             <div class="item">
                <a href="categories.php?category=Kids" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/kids_new.png" alt="kids" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Kids</div>
-                     </div>
-                  </div>
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/kids_new.png" alt="kids" class="" />
+                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Kids</div>
                </a>
             </div>
 
             <div class="item">
                <a href="categories.php?category=Sport" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Sport</div>
-                     </div>
-                  </div>
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="" />
+                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Sport</div>
+               </a>
+            </div>
+
+            <div class="item">
+               <a href="categories.php?category=Sport" class="text-decoration-none text-inherit">
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="" />
+                  <div class="text-truncate" style="font-weight: bold; font-size:18px">Sport</div>
                </a>
             </div>
 

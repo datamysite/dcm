@@ -151,6 +151,35 @@
    </div>
 </div>
 
+<div class="modal fade" id="modal-subscribe" tabindex="-1" aria-hidden="true">
+   <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content" style="background-color: azure;">
+         <div class="modal-body p-0">
+            <div class="d-flex align-items-center">
+               <div class="d-none d-lg-block">
+                  <img src="{{URL::to('/public')}}/web_assets/images/icons/lang.png" alt="" class="img-fluid rounded-start" />
+               </div>
+               <div class="px-8 py-8 py-lg-0">
+                  <div class="position-absolute end-0 top-0 m-6">
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+
+                  <h5 class="text-center mb-5">Dear customer , Use the language you prefer</h5>
+                  <h5 class="text-center mb-5">عزيزي العميل , إحتار اللغة التي تناسبك</h5>
+
+
+
+                  <div class="d-grid">
+                     <a href="#" class="btn btn-primary mb-5" data-bs-dismiss="modal">English</a>
+                     <a href="#" class="btn btn-primary mb-5" data-bs-dismiss="modal">عربي</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
 @include('web.includes.footer')
 
 <!-- Javascript-->
