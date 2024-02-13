@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MetaTags;
+use App\Models\SnippetCode;
 use Auth;
 
 class SeoController extends Controller
@@ -48,8 +49,8 @@ class SeoController extends Controller
             $response['success'] = 'success';
             $response['message'] = 'Success! Meta Tags Successfully Updated.';
 
-            echo json_encode($response);
         }
+        echo json_encode($response);
     }
 
 
@@ -60,5 +61,65 @@ class SeoController extends Controller
         $data['menu'] = 'seo.snippet';
 
         return view('admin.seo.snippet.index')->with($data);
+    }
+
+    public function snippet_load(){
+        $data['data'] = SnippetCode::all();
+
+        return view('admin.seo.snippet.load')->with($data);
+    }
+
+    public function snippet_create(Request $request){
+        $data = $request->all();
+        $response = [];
+
+        if (empty($data['name']) || empty($data['position']) || empty($data['snippet_code'])) {
+            $response['success'] = false;
+            $response['errors'] = 'Please Fill all required fields.';
+        }else{
+            $id = SnippetCode::create($data);
+
+            $response['success'] = 'success';
+            $response['message'] = 'Success! New Snippet Code Added.';
+
+        }
+        echo json_encode($response);
+    }
+
+    public function snippet_edit($id){
+        $id = base64_decode($id);
+
+        $data = SnippetCode::find($id);
+
+        return view('admin.seo.snippet.edit', ['data' => $data]);
+    }
+
+    public function snippet_update(Request $request){
+        $data = $request->all();
+        $response = [];
+
+        if (empty($data['name']) || empty($data['position']) || empty($data['snippet_code'])) {
+            $response['success'] = false;
+            $response['errors'] = 'Please Fill all required fields.';
+        }else{
+            $id = SnippetCode::snippet_update(base64_decode($data['snippet_id']), $data);
+
+            $response['success'] = 'success';
+            $response['message'] = 'Success! Snippet Code Successfully Updated.';
+
+        }
+        echo json_encode($response);
+    }
+
+
+
+    public function snippet_delete($id){
+        $id = base64_decode($id);
+
+        SnippetCode::destroy($id);
+
+        $response = 'success';
+
+        return $response;
     }
 }

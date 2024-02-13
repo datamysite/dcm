@@ -45,7 +45,7 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="blogsTable" class="table table-bordered table-striped">
+                <table id="snippetTable" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th width="5%">#</th>
@@ -55,29 +55,8 @@
                     <th width="15%" class="text-right">Action</th>
                   </tr>
                   </thead>
-                  <tbody id="blogsTableBody">
-                    <tr>
-                      <td>1</td>
-                      <td>Google Analytics</td>
-                      <td>All Pages</td>
-                      <td>Header</td>
-                      <td class="text-right">
-                        <a href="javascript:void(0)" class="btn btn-sm btn-info" title="Edit Snippet" data-id=""><i class="fas fa-edit"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" title="Delete Snippet" data-id=""><i class="fas fa-trash"></i></a>
-                        <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> -->
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Google Tag Manager</td>
-                      <td>All Pages</td>
-                      <td>Footer</td>
-                      <td class="text-right">
-                        <a href="javascript:void(0)" class="btn btn-sm btn-info" title="Edit Snippet" data-id=""><i class="fas fa-edit"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" title="Delete Snippet" data-id=""><i class="fas fa-trash"></i></a>
-                        <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> -->
-                      </td>
-                    </tr>
+                  <tbody id="snippetTableBody">
+
                   </tbody>
                   <tfoot>
                   <tr>
@@ -105,7 +84,7 @@
 <div class="modal fade" id="addSnippetFormModal">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
-      <form id="add_retialer_form" action="">
+      <form id="add_snippet_form" action="{{route('admin.seo.snippet.create')}}">
         @csrf
         <div class="modal-header">
           <h4 class="modal-title">Add Snippet</h4>
@@ -125,20 +104,20 @@
               <div class="form-group">
                 <label>Position</label>
                 <select class="form-control" name="position" required>
-                  <option>Header</option>
-                  <option selected>Footer</option>
+                  <option>Head</option>
+                  <option selected>Body</option>
                 </select>
               </div>
             </div>
             <div class="col-md-3 stick-bottom">
               <div class="form-group form-radio-div">
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" type="radio" id="radio1" name="page_link" checked>
+                  <input class="custom-control-input pageCheck" type="radio" id="radio1" value="1" name="page_link" checked>
                   <label for="radio1" class="custom-control-label">All Pages</label>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" type="radio" id="radio2" name="page_link">
+                  <input class="custom-control-input pageCheck" type="radio" id="radio2" value="0" name="page_link">
                   <label for="radio2" class="custom-control-label">Specific Page</label>
                 </div>
               </div>
@@ -148,7 +127,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Page URL</label>
-                <input type="url" class="form-control" name="url" disabled>
+                <input type="url" class="form-control pageURL" name="page_url" disabled>
               </div>
             </div>
           </div>
@@ -156,7 +135,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Snippet Code</label>
-                <textarea class="form-control code-snippet" name="meta_description" placeholder="Paste code here..." required rows="30"></textarea>
+                <textarea class="form-control code-snippet" name="snippet_code" placeholder="Paste code here..." required rows="30"></textarea>
               </div>
             </div>
           </div>
@@ -172,11 +151,170 @@
   <!-- /.modal-dialog -->
 </div>
 
+
+
+<div class="modal fade" id="editSnippetFormModal">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
 @endsection
 @section('addStyle')
 
 @endsection
 @section('addScript')
 
+<script type="text/javascript">
+  $(document).ready(function (){
+    loadSnippet();
+
+    $('.pageCheck').change(function() {
+        if (this.value == '1') {
+          $('.pageURL').removeAttr('required');
+          $('.pageURL').prop('disabled', true);
+        }
+        else if (this.value == '0') {
+          $('.pageURL').removeAttr('disabled');
+          $('.pageURL').prop('required', true);
+        }
+    });
+
+    $(document).on('change', '.epageCheck', function() {
+        if (this.value == '1') {
+          $('.epageURL').val('');
+          $('.epageURL').removeAttr('required');
+          $('.epageURL').prop('disabled', true);
+        }
+        else if (this.value == '0') {
+          $('.epageURL').removeAttr('disabled');
+          $('.epageURL').prop('required', true);
+        }
+    });
+
+
+
+    $(document).on('submit', "#add_snippet_form", function (event) {
+      var form=$(this);
+      var formData = new FormData($("#add_snippet_form")[0]);
+      //console.log(formData);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          form.trigger("reset");
+          $('.pageURL').removeAttr('required');
+          $('.pageURL').prop('disabled', true);
+          $('#addSnippetFormModal').modal('hide');
+          loadSnippet();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+
+
+
+    $(document).on('click', '.deleteSnippet', function(){
+      var id = $(this).data('id');
+      console.log(id);
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/admin/seo/snippet/delete')}}/"+id, function(data){
+              console.log(data);
+              if(data == 'success'){
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Success! Snippet Code Successfully Deleted.'
+                });
+                loadSnippet();
+              }
+          });
+        }
+      });
+    });
+
+
+    $(document).on('click', '.editSnippet', function(){
+      var id = $(this).data('id');
+      $('#editSnippetFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
+      $('#editSnippetFormModal').modal('show');
+      $.get("{{URL::to('/admin/seo/snippet/edit')}}/"+id, function(data){
+        $('#editSnippetFormModal .modal-content').html(data);
+      });
+    });
+
+    $(document).on('submit', "#edit_snippet_form", function (event) {
+      var form=$(this);
+      var formData = new FormData($("#edit_snippet_form")[0]);
+      //console.log(formData);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          form.trigger("reset");
+          $('#editSnippetFormModal').modal('hide');
+          loadSnippet();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+  });
+
+  function loadSnippet(){
+    var url = "{{route('admin.seo.snippet.load')}}";
+
+    $('#snippetTableBody').html('<tr class="text-center"><td colspan="5"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+    $.get(url, function(data){
+      $('#snippetTableBody').html(data);
+      //$('#categoryTable').DataTable();
+    });
+  }
+</script>
 
 @endsection

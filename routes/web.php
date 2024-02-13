@@ -22,9 +22,13 @@ Route::get('/seeder', function(){
     dd('Seeded!');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Website
+    Route::namespace('web')->group(function(){
+
+        //Home
+        Route::get('/', 'HomeController@index')->name('home');
+    });
 
 
 
@@ -95,6 +99,11 @@ Route::prefix('admin')->namespace('admin')->group(function(){
                     });
                     Route::prefix('snippet')->group(function(){    
                         Route::get('/', 'SeoController@snippet')->name('admin.seo.snippet');
+                        Route::get('/load', 'SeoController@snippet_load')->name('admin.seo.snippet.load');
+                        Route::post('/create', 'SeoController@snippet_create')->name('admin.seo.snippet.create');
+                        Route::get('/delete/{id}', 'SeoController@snippet_delete');
+                        Route::get('/edit/{id}', 'SeoController@snippet_edit');
+                        Route::post('/update', 'SeoController@snippet_update')->name('admin.seo.snippet.update');
                     });
                 });
 
