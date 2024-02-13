@@ -144,8 +144,8 @@
    <!-- <div class="divider"></div> -->
 
    <!-- How To Eearn Coupon Section Start-->
-   <section>
-      <div class="container">
+   <section class="my-lg-12 my-8">
+      <div class="container np-container">
 
          <div class="row">
             <div class="col-12 mb-6 text-center">
@@ -192,7 +192,7 @@
 
    <!-- Online Stores Section Start-->
    <section class="my-lg-12 my-8">
-      <div class="container online-container">
+      <div class="container np-container">
          <!-- row -->
          <div class="row">
             <div class="col-12 mb-6 text-center">
@@ -350,21 +350,10 @@
 
    <!--Ads Section 1 Start Here-->
    <section class="my-lg-12 my-8">
-      <div class="container online-container">
+      <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-               <div class="mb-4 bg-light d-lg-flex justify-content-between align-items-center rounded">
-                  <div class="p-10">
-                     <h2 class="mb-1 fw-bold">One Stop Grocery Shop</h2>
-                     <p class="mb-0 lead">
-                        dummy text dummy text dummy text dummy text
-                        <br />
-                        dummy text , dummy text. dummy text , dummy text.
-                     </p>
-                     <a href="#" class="btn btn-dark mt-5">Get Discount on Share</a>
-                  </div>
-                  <div class="p-6 d-lg-block d-none"><img src="{{URL::to('/public')}}/web_assets/images/svg-graphics/store-graphics.svg" alt="" class="img-fluid" /></div>
-               </div>
+               <img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}">
             </div>
          </div>
       </div>
@@ -373,7 +362,7 @@
 
    <!-- Retailers Stories Section Start -->
    <section class="my-lg-12 my-8">
-      <div class="container online-container">
+      <div class="container np-container">
          <!-- row -->
          <div class="row">
             <div class="col-12 mb-6 text-center">
@@ -513,21 +502,19 @@
    <!-- <div class="divider"></div> -->
 
    <!-- All Stores Section Start-->
-   <section>
-      <div class="container" id="all-stores">
-
+   <section class="my-lg-12 my-8">
+      <div class="container np-container" id="all-stores">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0" style="position: relative;">
-                  All Stores
-               </h3>
+               <a href="javascript:void(0)">
+                  <h3 class="mb-0 page-title">All Stores</h3>
+               </a>
             </div>
          </div>
 
          <div class="row">
 
-            <div class="col-6 col-md-6 mb-3 mb-lg-0">
-
+            <div class="col-md-6 col-xs-12 mb-3">
                <div class="single-deal">
                   <div class="overlay"></div>
                   <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/gucci_logo.png" alt="" style="border-radius: 20px;" /></a>
@@ -540,7 +527,7 @@
                </div>
             </div>
 
-            <div class="col-3 col-md-3">
+            <div class="col-6 col-xs-6 col-sm-6 col-md-3">
                <div class="single-deal">
                   <div class="overlay"></div>
                   <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/brand_for_less.png" alt="Brand For Less" style="border-radius: 20px;" /></a>
@@ -553,7 +540,7 @@
                </div>
             </div>
 
-            <div class="col-3 col-md-3">
+            <div class="col-6 col-xs-6 col-sm-6 col-md-3">
                <div class="single-deal">
                   <div class="overlay"></div>
                   <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store.png" alt="Homzmart Store" style="border-radius: 20px;" /></a>
@@ -572,7 +559,7 @@
 
          <div class="row">
 
-            <div class="col-3 col-md-3 mb-3 mb-lg-0">
+            <div class="col-6 col-xs-6 col-sm-6 col-md-3">
                <div class="single-deal">
                   <div class="overlay"></div>
                   <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla_toys_store.png" alt="Yalla Toys Store" style="border-radius: 20px;" /></a>
@@ -585,7 +572,7 @@
                </div>
             </div>
 
-            <div class="col-3 col-md-3">
+            <div class="col-6 col-xs-6 col-sm-6 col-md-3">
                <div class="single-deal">
                   <div class="overlay"></div>
                   <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi_store.png" alt="Namshi Store" style="border-radius: 20px;" /></a>
@@ -597,7 +584,7 @@
                </div>
             </div>
 
-            <div class="col-6 col-md-6 mb-3 mb-lg-0">
+            <div class="col-md-6 col-xs-12 mb-3">
                <div class="single-deal">
                   <div class="overlay"></div>
                   <a href="store-products.php"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/bloom.png" alt="Namshi Store" style="border-radius: 20px;" /></a>
@@ -617,51 +604,17 @@
 
    <!-- <div class="divider"></div> -->
 
-   <!-- ADS Section 2 Start here -->
-   <section>
-      <div class="container">
-
+   <!--Ads Section 2 Start Here-->
+   <section class="my-lg-12 my-8">
+      <div class="container ad-container np-container">
          <div class="row">
-            <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0">Ads Section</h3>
-            </div>
-         </div>
-
-         <div class="row">
-            <div class="col-12 col-md-6 mb-3 mb-lg-0">
-               <div>
-                  <div class="py-10 px-8 rounded" style="background: url(assets/images/banner/grocery-banner.png) no-repeat; background-size: cover; background-position: center">
-                     <div>
-                        <h3 class="fw-bold mb-1">Fruits & Vegetables</h3>
-                        <p class="mb-4">
-                           Get Upto
-                           <span class="fw-bold">30%</span>
-                           Offz
-                        </p>
-                        <a href="#!" class="btn btn-dark">Shop Now</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6">
-               <div>
-                  <div class="py-10 px-8 rounded" style="background: url(assets/images/banner/grocery-banner-2.jpg) no-repeat; background-size: cover; background-position: center">
-                     <div>
-                        <h3 class="fw-bold mb-1">Freshly Baked Buns</h3>
-                        <p class="mb-4">
-                           Get Upto
-                           <span class="fw-bold">25%</span>
-                           Off
-                        </p>
-                        <a href="#!" class="btn btn-dark">Shop Now</a>
-                     </div>
-                  </div>
-               </div>
+            <div class="col-12">
+               <img src="{{URL::to('/public/web_assets/images/banner/ads.avif')}}">
             </div>
          </div>
       </div>
    </section>
-   <!-- ADS Section 2 End Here-->
+   <!--Ads Section 2 End Here-->
 
    <div class="divider"></div>
 

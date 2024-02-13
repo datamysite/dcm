@@ -1,17 +1,7 @@
 <div class="">
    <div class="container">
-      <div class="row w-100 align-items-center gx-lg-2 gx-0">
+      <div class="mobile-navbar">
 
-         <div class="col-xxl-2 col-lg-3 col-md-6 col-5">
-
-            <div class="d-flex justify-content-between w-100 d-lg-none">
-               <a class="navbar-brand" href="{{route('home')}}">
-                  <img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" alt="dealsandcouponsmena" style="height: 50px; width: 50px;" />
-               </a>
-            </div>
-         </div>
-
-         <div class="col-lg-2 col-xxl-2 text-end col-md-6 col-7">
             <div class="list-inline">
 
                <div class="list-inline-item d-inline-block d-lg-none">
@@ -21,8 +11,13 @@
                      </svg>
                   </button>
                </div>
+
+               <div class="d-flex justify-content-center w-100 d-lg-none">
+                  <a class="navbar-brand" href="{{route('home')}}">
+                     <img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" alt="dealsandcouponsmena" style="height: 135px; width: auto;" />
+                  </a>
+               </div>
             </div>
-         </div>
       </div>
    </div>
 </div>

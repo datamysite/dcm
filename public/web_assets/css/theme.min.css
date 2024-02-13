@@ -3387,7 +3387,7 @@ textarea.form-control-lg {
   ):not(.invalid-tooltip):not(.invalid-feedback) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-  margin-left: -1px;
+  margin-left: 1px;
 }
 .input-group > .form-floating:not(:first-child) > .form-control,
 .input-group > .form-floating:not(:first-child) > .form-select {
@@ -21787,7 +21787,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 a {
-  color: #0aad0a;
+  color: #1caae2;
 }
 a,
 a:hover {
@@ -22367,8 +22367,8 @@ h3 {
     0 12px 24px -4px rgba(145, 158, 171, 0.12);
 }
 .footer {
-  background-color: var(--fc-light);
-  padding: 4rem 0;
+  background-color: #f2f2f2;
+  padding: 40px 0 0 0;
 }
 .footer .nav .nav-item .nav-link {
   color: var(--fc-gray-600);

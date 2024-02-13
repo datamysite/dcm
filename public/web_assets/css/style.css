@@ -1,3 +1,4 @@
+  body, html { overflow-x:hidden; }
 .nav-spacing {
     width: 100%;
     height: 120px;
@@ -61,6 +62,106 @@
     margin: 0;
     padding: 0px 5px;
 }
-.online-container {
+.np-container {
     padding: 0 !important;
+}
+.ad-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+.footer-bottom {
+    background-color: #e1e1e1;
+    padding: 5px 0;
+}
+.newsletter p {
+    margin-bottom: 0;
+}
+.newsletter input {
+    font-size: 11px;
+    padding-left: 7px;
+    height: 38px;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid #7a7a7a;
+    padding-right: 35px;
+}
+.newsletter button {
+    background-color: #1caae2;
+    color: #fff;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    padding: 3px;
+    margin-left: -35px;
+}
+.footer-bottom a {
+    font-weight: 600;
+}
+.footer-bottom .social-media a {
+    padding: 0px 12px !important;
+    font-size: 19px !important;
+}
+.footer-bottom .social-media a:hover {
+    color: #1caae2;
+}
+.social-media li {
+    margin: 0 !important;
+}
+
+
+
+
+/* Responsives */
+@media (max-width: 990px) {
+
+    .navbar .container{
+        padding: 0;
+    }
+    .mobile-navbar .list-inline-item {
+        margin-top: 40px;
+    }
+    .mobile-navbar .list-inline .navbar-brand {
+        margin-top: -80px;
+    }
+    .nav-spacing{
+        display: none;
+    }
+    .slick-slider .slick-list {
+        width: 103%;
+    }
+    .my-8 {
+        margin-bottom: 1rem !important;
+        margin-top: 1rem !important;
+    }
+    .np-container{
+        padding: 0 20px !important;
+    }
+
+    .category-slider .slick-next {
+        margin-left: 10px !important;
+    }
+    .category-slider .slick-prev {
+        left: -14px;
+    }
+
+    .ad-container img {
+        width: 100%;
+        height: 100px;
+    }
+    .divider{
+        display: none;
+    }
+    .footer .container .row .col-6 {
+        padding-bottom: 15px;
+        border-bottom: 1px solid #777;
+        margin-top: 20px;
+    }
+    .social-media {
+        text-align: center;
+    }
+    .footer-bottom .container .row .col-md-6 {
+        text-align: center !important;
+        width: 100%;
+    }
 }
