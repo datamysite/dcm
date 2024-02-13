@@ -1,20 +1,6 @@
 <div class="">
    <div class="container">
       <div class="mobile-navbar">
-
-<<<<<<< HEAD
-=======
-         <div class="col-xxl-2 col-lg-3 col-md-6 col-5">
-
-            <div class="d-flex justify-content-between w-100 d-lg-none">
-               <a class="navbar-brand" href="Home">
-                  <img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" alt="dealsandcouponsmena" style="height: 50px; width: 50px;" />
-               </a>
-            </div>
-         </div>
-
-         <div class="col-lg-2 col-xxl-2 text-end col-md-6 col-7">
->>>>>>> 35c50490037fc6395cb9695ed93d55dd75a887c5
             <div class="list-inline">
 
                <div class="list-inline-item d-inline-block d-lg-none">
@@ -31,7 +17,6 @@
                   </a>
                </div>
             </div>
-      </div>
    </div>
 </div>
 
