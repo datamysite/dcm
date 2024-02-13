@@ -43,3 +43,24 @@
 .category-slider .item {
     text-align: center;
 }
+.category-slider .slick-prev {
+    position: absolute;
+    left: -23px;
+    top: 60px;
+    margin: 0 !important;
+}
+.category-slider .slick-next {
+    position: absolute;
+    margin-left: 32px !important;
+    top: 97px;
+}
+.category-slider .text-truncate {
+    font-size: 16px !important;
+}
+.category-slider .item {
+    margin: 0;
+    padding: 0px 5px;
+}
+.online-container {
+    padding: 0 !important;
+}
