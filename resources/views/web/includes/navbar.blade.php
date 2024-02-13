@@ -5,7 +5,7 @@
          <div class="col-xxl-2 col-lg-3 col-md-6 col-5">
 
             <div class="d-flex justify-content-between w-100 d-lg-none">
-               <a class="navbar-brand" href="index.php">
+               <a class="navbar-brand" href="Home">
                   <img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" alt="dealsandcouponsmena" style="height: 50px; width: 50px;" />
                </a>
             </div>
@@ -32,7 +32,7 @@
 
       <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar-default" aria-labelledby="navbar-defaultLabel">
          <div class="offcanvas-header pb-1">
-            <a href="index.php"><img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" width="50px" height="50px" alt="DCM" /></a>
+            <a href="Home"><img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" width="50px" height="50px" alt="DCM" /></a>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
          </div>
 
@@ -40,7 +40,7 @@
 
             <!-- Desktop Menu Start Here -->
             <div class="d-flex align-items-center">
-               <a class="desktop-navbar-brand" href="index.php">
+               <a class="desktop-navbar-brand" href="Home">
                   <img src="{{URL::to('/public')}}/web_assets/images/logo/logo-DCM.png" alt="Logo" width="90px" height="50px">
                </a>
             </div>
@@ -52,11 +52,11 @@
 
                      <li class="nav-item dropdown" style="padding: 10px;">
 
-                        <a class="nav-link dropdown-toggle" href="index_dump.php#all-stores" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Stores</a>
+                        <a class="nav-link dropdown-toggle" href="Home#all-stores" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Stores</a>
 
                         <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="categories.php?category=AllStores">Online</a></li>
-                           <li><a class="dropdown-item" href="categories.php?category=AllStores">Retail</a></li>
+                           <li><a class="dropdown-item" href="Categoires?category=AllStores">Online</a></li>
+                           <li><a class="dropdown-item" href="Categoires?category=AllStores">Retail</a></li>
                         </ul>
 
                      </li>
@@ -72,8 +72,8 @@
                               <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mart</a>
                               <ul class="dropdown-menu">
 
-                                 <li><a class="dropdown-item" href="categories.php?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="categories.php?category=Offline">Retail</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
 
                               </ul>
                            </li>
@@ -82,8 +82,8 @@
                               <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fashions</a>
                               <ul class="dropdown-menu">
 
-                                 <li><a class="dropdown-item" href="categories.php?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="categories.php?category=Offline">Retail</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
 
                               </ul>
                            </li>
@@ -92,8 +92,8 @@
                               <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Beauty & Wellness</a>
                               <ul class="dropdown-menu">
 
-                                 <li><a class="dropdown-item" href="categories.php?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="categories.php?category=Offline">Retail</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
 
                               </ul>
                            </li>
@@ -102,8 +102,8 @@
                               <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Decor</a>
                               <ul class="dropdown-menu">
 
-                                 <li><a class="dropdown-item" href="categories.php?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="categories.php?category=Offline">Retail</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
 
                               </ul>
                            </li>
@@ -113,8 +113,8 @@
                               <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kids</a>
                               <ul class="dropdown-menu">
 
-                                 <li><a class="dropdown-item" href="categories.php?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="categories.php?category=Offline">Retail</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
 
                               </ul>
                            </li>
@@ -123,22 +123,22 @@
                               <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sports</a>
                               <ul class="dropdown-menu">
 
-                                 <li><a class="dropdown-item" href="categories.php?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="categories.php?category=Offline">Retail</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
+                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
 
                               </ul>
                            </li>
 
-                           <li><a class="dropdown-item" href="categories.php?category=Home-Services">Home Services</a></li>
-                           <li><a class="dropdown-item" href="categories.php?category=Maintenance">Maintenance & Repairs</a></li>
-                           <li><a class="dropdown-item" href="categories.php?category=Entertainment">Entertainment</a></li>
-                           <li><a class="dropdown-item" href="categories.php?category=Business">Business</a></li>
-                           <li><a class="dropdown-item" href="categories.php?category=Food">Food & Dine In</a></li>
+                           <li><a class="dropdown-item" href="Categoires?category=Home-Services">Home Services</a></li>
+                           <li><a class="dropdown-item" href="Categoires?category=Maintenance">Maintenance & Repairs</a></li>
+                           <li><a class="dropdown-item" href="Categoires?category=Entertainment">Entertainment</a></li>
+                           <li><a class="dropdown-item" href="Categoires?category=Business">Business</a></li>
+                           <li><a class="dropdown-item" href="Categoires?category=Food">Food & Dine In</a></li>
                         </ul>
                      </li>
 
                      <li class="nav-item dropdown" style="padding: 10px;">
-                        <a class="nav-link" href="about-us.php" role="button" aria-expanded="false">About Us</a>
+                        <a class="nav-link" href="About-Us" role="button" aria-expanded="false">About Us</a>
                      </li>
                   </ul>
                   <form class="ms-auto d-flex align-items-center" style="padding: 10px;">
@@ -154,7 +154,7 @@
 
                   <ul class="navbar-nav">
                      <li class="nav-item dropdown" style="padding: 10px;">
-                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><b>SELL WITH DCM</b></a>
+                        <a class="nav-link" href="Sell-With-DCM" role="button" aria-expanded="false"><b>SELL WITH DCM</b></a>
                      </li>
                      <ul class="navbar-nav">
                         <li class="nav-item dropdown" style="padding: 10px;">
@@ -163,7 +163,7 @@
 
 
                         <li class="nav-item dropdown" style="padding: 10px;">
-                           <a class="nav-link" href="User-Profile.php" role="button" aria-expanded="false"><b>Profile</b></a>
+                           <a class="nav-link" href="User-Profile" role="button" aria-expanded="false"><b>Profile</b></a>
                         </li>
 
                         <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
@@ -213,13 +213,13 @@
                      <div class="collapse mt-2" id="collapseExample">
                         <div class="card card-body">
                            <ul class="mb-0 list-unstyled">
-                              <li><a class="dropdown-item" href="index.php">DUBAI</a></li>
-                              <li><a class="dropdown-item" href="index.php">ABU DAHBI</a></li>
-                              <li><a class="dropdown-item" href="index.php">SHARJAH</a></li>
-                              <li><a class="dropdown-item" href="index.php">AJMAN</a></li>
-                              <li><a class="dropdown-item" href="index.php">UMM ALQUWAIN</a></li>
-                              <li><a class="dropdown-item" href="index.php">RAS AL KHAIMAH</a></li>
-                              <li><a class="dropdown-item" href="index.php">FUJAIRA</a></li>
+                              <li><a class="dropdown-item" href="#">DUBAI</a></li>
+                              <li><a class="dropdown-item" href="#">ABU DAHBI</a></li>
+                              <li><a class="dropdown-item" href="#">SHARJAH</a></li>
+                              <li><a class="dropdown-item" href="#">AJMAN</a></li>
+                              <li><a class="dropdown-item" href="#">UMM ALQUWAIN</a></li>
+                              <li><a class="dropdown-item" href="#">RAS AL KHAIMAH</a></li>
+                              <li><a class="dropdown-item" href="#">FUJAIRA</a></li>
 
                            </ul>
                         </div>
@@ -230,10 +230,10 @@
                      <ul class="navbar-nav align-items-center">
 
                         <li class="nav-item dropdown w-100 w-lg-auto">
-                           <a class="nav-link dropdown-toggle" href="index_dump.php#all-stores" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Stores</a>
+                           <a class="nav-link dropdown-toggle" href="Home#all-stores" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Stores</a>
                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="categories.php?category=AllStores">Online</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=AllStores">Retail</a></li>
+                              <li><a class="dropdown-item" href="Categoires.php?category=AllStores">Online</a></li>
+                              <li><a class="dropdown-item" href="Categoires.php?category=AllStores">Retail</a></li>
                            </ul>
                         </li>
 
@@ -241,27 +241,27 @@
                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                            <ul class="dropdown-menu">
 
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Mart</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Fashion & Accessories</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Beauty & Wellness</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Decor</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Kids</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Sports</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Home Services</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Maintains & Repairs</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Entertainment</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Business</a></li>
-                              <li><a class="dropdown-item" href="categories.php?category=Online">Food & Dine In</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Mart</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Fashion & Accessories</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Beauty & Wellness</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Decor</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Kids</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Sports</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Home Services</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Maintains & Repairs</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Entertainment</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Business</a></li>
+                              <li><a class="dropdown-item" href="Categoires?category=Online">Food & Dine In</a></li>
 
                            </ul>
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
-                           <a class="nav-link" href="about-us.php">About Us</a>
+                           <a class="nav-link" href="About-Us">About Us</a>
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
-                           <a class="nav-link" href="#">SELL WITH DCM</a>
+                           <a class="nav-link" href="Sell-With-DCM">SELL WITH DCM</a>
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
@@ -270,7 +270,7 @@
 
 
                         <li class="nav-item w-100 w-lg-auto dropdown">
-                           <a class="nav-link" href="User-Profile.php">Profile</a>
+                           <a class="nav-link" href="User-Profile">Profile</a>
                         </li>
 
                         <div class="nav-item w-100 w-lg-auto">

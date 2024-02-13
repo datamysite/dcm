@@ -8,9 +8,9 @@
                <h6 class="mb-4"><strong>ABOUT DCM </strong></h6>
                <!-- list -->
                <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">About Us</a></li>
+                  <li class="nav-item mb-2"><a href="About-Us" class="nav-link">About Us</a></li>
                   <li class="nav-item mb-2"><a href="#!" class="nav-link">FAQ</a></li>
-                  <li class="nav-item mb-2"><a href="#1" class="nav-link">Blogs</a></li>
+                  <li class="nav-item mb-2"><a href="Blogs" class="nav-link">Blogs</a></li>
                   <li class="nav-item mb-2"><a href="#!" class="nav-link">Privacy Policy</a></li>
                   <li class="nav-item mb-2"><a href="#!" class="nav-link">Terms & Conditions</a></li>
                   <li class="nav-item mb-2"><a href="#!" class="nav-link">Refund Policy</a></li>
@@ -21,12 +21,12 @@
                <h6 class="mb-4"><strong>POPULAR STORES </strong></h6>
                <ul class="nav flex-column">
                   <!-- list -->
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Noon</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Namshi</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Ferns & Petails</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">SIVVI</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Yalla Toys</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Hozmart</a></li>
+                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">Noon</a></li>
+                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">Namshi</a></li>
+                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">Ferns & Petails</a></li>
+                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">SIVVI</a></li>
+                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">Yalla Toys</a></li>
+                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">Hozmart</a></li>
                </ul>
             </div>
 
@@ -62,7 +62,7 @@
                   <li class="nav-item mb-2">
                      <div class="d-flex align-items-center">
                         <a class="navbar-brand" href="#">
-                           <img src="./assets/images/logo/dcm-logo-r.png" alt="Logo" width="150px" height="150px">
+                           <img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" alt="Logo" width="150px" height="150px">
                         </a>
                      </div>
                   </li>
