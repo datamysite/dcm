@@ -230,4 +230,23 @@
     .mt-110 {
       margin-top: 15px !important;
     }
+    .main_div_container {
+        height: 160px;
+    }
+    .Lside_div img {
+        height: 225px !important;
+    }
+    .Rside_div {
+        height: 280px !important;
+    }
+    .product-para {
+        margin-left: -50px;
+        width: 200px;
+        color: #fff;
+        font-size: 12px;
+    }
+    .product-para .btn {
+        padding: 2px 10px;
+        margin-top: 8px;
+    }
 }

@@ -70,13 +70,14 @@
                     </div>
 
                     <div class="row col-6 mt-0 p-5" style="align-items: left;">
-                        <span style="color:#fff;">Namshi Accessoris Promo code - Up to 80% off + Extra 10% off in UAE</span>
+                        <p class="product-para">
+                            <span>Namshi Accessoris Promo code - Up to 80% off + Extra 10% off in UAE</span>
+                            <span>Expires On: 01 JAN 2025</span>
 
-                        <span style="color:#fff;">Expires On: 01 JAN 2025</span>
-
-                        <span class="col text-center">
-                            <input type="submit" name="sing-up" class="btn btn-white shadow-green " style="font-weight:bold; color:#1dace3;" value="SHOW COUPON">
-                        </span>
+                            <span class="col text-center">
+                                <input type="submit" name="sing-up" class="btn btn-white shadow-green " style="font-weight:bold; color:#1dace3;" value="SHOW COUPON">
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>
