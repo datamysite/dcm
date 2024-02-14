@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('image')->nullable();
             $table->string('name');
+            $table->integer('parent_id')->default('0');
+            $table->integer('type')->default('0');
             $table->double('max_discount')->nullable();
             $table->tinyInteger('status')->default('1');
             $table->integer('created_by');
