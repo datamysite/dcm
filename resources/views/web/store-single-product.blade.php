@@ -2,9 +2,29 @@
 
 @section('content')
 
+
+<div class="mt-110">
+    <div class="container np-container">
+        <!-- row -->
+        <div class="row">
+            <!-- col -->
+            <div class="col-12">
+                <!-- breadcrumb -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="Home" style="color: #000;"><strong>Home</strong></a></li>
+                        <li class="breadcrumb-item"><a href="Home" style="color: #000;"><strong>Products</strong></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="Store-Single-Product" style="color:#1DACE3;"><strong>Store Single Product</a></strong></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Slider Section Start-->
-<section class="mt-17">
-    <div class="container">
+<section class="mt-2">
+    <div class="container np-container">
         <div class="hero-slider">
             <div style="background: url(./public/web_assets/images/slider/hero-img-slider-1.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
                 <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
@@ -28,35 +48,17 @@
 </section>
 <!-- Slider Section End-->
 
-<div class="mt-0">
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <!-- col -->
-            <div class="col-12">
-                <!-- breadcrumb -->
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="Home" style="color: #000;"><strong>Home</strong></a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="Store-Single-Product" style="color:#1DACE3;"><strong>Store Single Product</a></strong></li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Single Prodcut Section Start-->
 <section class="mt-10">
-    <div class="container">
+    <div class="container np-container">
         <div class="row">
             <div class="col-12 mb- text-center">
-                <h3 class="mb-5">Store Product</h3>
+                <h3 class="mb-5 page-title">Store Product</h3>
             </div>
         </div>
 
-        <div class="row d-flex justify-content-center mt-10" style=" justify-content: center; align-items: center;">
-            <div class="col-lg-10">
+        <div class="row d-flex mt-12" style=" align-items: center;">
+            <div class="col-12">
                 <div class="main_div_container" style="background-color: #2dcc70;">
 
                     <div class="Lside_div">

@@ -3,10 +3,8 @@
 @section('content')
 
 
-<section class="mt-15">
-
-    <div class="mt-16">
-        <div class="container">
+<section class="mt-110">
+        <div class="container np-container">
             <!-- row -->
             <div class="row">
                 <!-- col -->
@@ -21,14 +19,12 @@
                 </div>
             </div>
         </div>
-    </div>
-
 </section>
 
 <!-- registration section Start Here -->
 <section class="my-lg-5 my-8">
     <!-- container -->
-    <div class="container">
+    <div class="container np-container">
 
         <div class="row">
             <div class="col-12">
@@ -134,26 +130,16 @@
 </section>
 <!-- registration section End Here -->
 
+
 <!--Ads Section 1 Start Here-->
-<section class="my-lg-14 my-8">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="mb-4 bg-light d-lg-flex justify-content-between align-items-center rounded">
-                    <div class="p-10">
-                        <h2 class="mb-1 fw-bold">One Stop Grocery Shop</h2>
-                        <p class="mb-0 lead">
-                            dummy text dummy text dummy text dummy text
-                            <br />
-                            dummy text , dummy text. dummy text , dummy text.
-                        </p>
-                        <a href="#" class="btn btn-dark mt-5">Get Discount on Share</a>
-                    </div>
-                    <div class="p-6 d-lg-block d-none"><img src="{{URL::to('/public')}}/web_assets/images/svg-graphics/store-graphics.svg" alt="" class="img-fluid" /></div>
-                </div>
-            </div>
+<section class="my-lg-12 my-8">
+  <div class="container ad-container np-container">
+     <div class="row">
+        <div class="col-12">
+           <img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}">
         </div>
-    </div>
+     </div>
+  </div>
 </section>
 <!--Ads Section 1 End Here-->
 

@@ -2,33 +2,8 @@
 
 @section('content')
 
-<!-- Slider Section Start-->
-<section class="mt-17">
-   <div class="container">
-      <div class="hero-slider">
-         <div style="background: url(./public/web_assets/images/slider/img_02.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-            <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center" style="float:right;">
-               <span class="badge text-bg-warning">Free Shipping - orders over $100</span>
-               <h2 class="text-dark display-5 fw-bold mt-4">
-                  Free Shipping on
-                  <br />
-                  orders over
-                  <span class="text-primary">$100</span>
-               </h2>
-               <p class="lead">Free Shipping to First-Time Customers Only, After promotions and discounts are applied.</p>
-               <a href="#!" class="btn btn-dark mt-3">
-                  Shop Now
-                  <i class="feather-icon icon-arrow-right ms-1"></i>
-               </a>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
-<!-- Slider Section End-->
-
-<div class="mt-0">
-   <div class="container">
+<div class="mt-110">
+   <div class="container np-container">
       <!-- row -->
       <div class="row">
          <!-- col -->
@@ -37,7 +12,7 @@
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item"><a href="Home" style="color: #000;"><strong>Home</strong></a></li>
-                  <li class="breadcrumb-item active" aria-current="page"><a href="Categoires" style="color:#1DACE3;"><strong>Categoires</a></strong></li>
+                  <li class="breadcrumb-item active" aria-current="page"><a href="Categoires" style="color:#1DACE3;"><strong>Categories</a></strong></li>
                </ol>
             </nav>
          </div>
@@ -45,106 +20,86 @@
    </div>
 </div>
 
-<?php
-// if ($category_name == 'Offline') {
-?>
 
+   
    <!-- Category Section Start-->
-   <section class="mb-lg-10 mt-lg-5 my-8">
+   <section class="">
       <div class="container">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0">Categories</h3>
+               <h3 class="mb-0 page-title">Categories</h3>
             </div>
          </div>
          <div class="category-slider">
 
             <div class="item">
-               <a href="#" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/mart_new.png" alt="Mart" class="mb-3 img-fluid" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Mart</div>
-                     </div>
-                  </div>
+               <a href="categories.php?category=Mart" class="text-decoration-none text-inherit">
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/mart_new.png" alt="Mart" class="img-fluid" />
+                  <div class="text-truncate">Mart</div>
                </a>
             </div>
 
             <div class="item">
-               <a href="#" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/fashion_new.png" alt="Fashion" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Fashion</div>
-                     </div>
-                  </div>
+               <a href="categories.php?category=Fashion" class="text-decoration-none text-inherit">
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/fashion_new.png" alt="Fashion" class="" />
+                  <div class="text-truncate">Fashion & Accessories</div>
                </a>
             </div>
 
             <div class="item">
-               <a href="#" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/beauty_new.png" alt="Beauty" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Beauty</div>
-                     </div>
-                  </div>
+               <a href="categories.php?category=Beauty" class="text-decoration-none text-inherit">
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/beauty_new.png" alt="Beauty" class="" />
+                  <div class="text-truncate">Beauty & Wellness</div>
                </a>
             </div>
 
             <div class="item">
-               <a href="#" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/decor_new.png" alt="Decor" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Decor</div>
-                     </div>
-                  </div>
+               <a href="categories.php?category=Decor" class="text-decoration-none text-inherit">
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/decor_new.png" alt="Decor" class="" />
+                  <div class="text-truncate">Decor</div>
                </a>
             </div>
 
             <div class="item">
-               <a href="#" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/kids_new.png" alt="kids" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Kids</div>
-                     </div>
-                  </div>
+               <a href="categories.php?category=Kids" class="text-decoration-none text-inherit">
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/kids_new.png" alt="kids" class="" />
+                  <div class="text-truncate">Kids</div>
                </a>
             </div>
 
             <div class="item">
-               <a href="#" class="text-decoration-none text-inherit">
-                  <div class="card card-product mb-lg-4">
-                     <div class="card-body text-center py-8">
-                        <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="mb-3" />
-                        <div class="text-truncate" style="font-weight: bold; font-size:18px">Sport</div>
-                     </div>
-                  </div>
+               <a href="categories.php?category=Sport" class="text-decoration-none text-inherit">
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="" />
+                  <div class="text-truncate">Sport</div>
                </a>
             </div>
+
+            <div class="item">
+               <a href="categories.php?category=Sport" class="text-decoration-none text-inherit">
+                  <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="" />
+                  <div class="text-truncate">Sport</div>
+               </a>
+            </div>
+
          </div>
+
       </div>
    </section>
    <!-- Category Section End-->
 
-<?php
-// }
-?>
 
 
    <!-- categoires section start-->
-   <div class="mt-8 mb-lg-14 mb-8">
+   <div class="mt-4 mb-lg-14 mb-8">
       <!-- container -->
-      <div class="container">
+      <div class="container np-container">
          <div class="row col-lg-3 col-md-4 mb-6 mb-md-0" style="border-radius:10px;">
-            <h5 class="mb-3">Filters</h5>
+            <h5 class="mb-1">FILTERS</h5>
          </div>
          <!-- row -->
          <div class="row gx-10">
             <!-- col -->
-            <aside class="col-lg-3 col-md-4 mb-6 mb-md-0" style="background-color:#f0f3f2;padding-top:0px; border-radius:10px;">
+            <aside class="col-lg-3 col-md-4 p-4 mb-6 mb-md-0" style="background-color:#f0f3f2;padding-top:0px; border-radius:10px;">
 
                <div class="offcanvas offcanvas-start offcanvas-collapse w-md-50" tabindex="-1" id="offcanvasCategory" aria-labelledby="offcanvasCategoryLabel">
 
@@ -391,7 +346,7 @@
                      <div class="d-flex mt-2 mt-lg-0">
                         <div class="me-2 flex-grow-1">
 
-                           <select class="form-select">
+                           <select class="form-control form-control-sm">
                               <option selected>Show: 50</option>
                               <option value="10">10</option>
                               <option value="20">20</option>
@@ -400,7 +355,7 @@
                         </div>
                         <div>
 
-                           <select class="form-select">
+                           <select class="form-control form-control-sm">
                               <option selected>Sort by: Featured</option>
                               <option value="Low to High">Price: Low to High</option>
                               <option value="High to Low">Price: High to Low</option>
@@ -414,15 +369,15 @@
 
                </div>
                <!-- row -->
-               <div class="row g-4 row-cols-xl-3 row-cols-lg-3 row-cols-2 row-cols-md-2 mt-1">
+               <div class="row mt-1">
 
                   <!-- col -->
-                  <div class="col">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                      <!-- card -->
                      <div class="card card-product">
                         <div class="card-body">
                            <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3 me-15">
+                           <div class="text-center position-relative px-1 py-1 mb-3">
                               <div class="position-absolute top-0 start-10">
                                  <span class="badge bg-danger">Sale 50%</span>
                               </div>
@@ -436,12 +391,12 @@
                   </div>
 
                   <!-- col -->
-                  <div class="col">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                      <!-- card -->
                      <div class="card card-product">
                         <div class="card-body">
                            <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3 me-15">
+                           <div class="text-center position-relative px-1 py-1 mb-3">
                               <div class="position-absolute top-0 start-10">
                                  <span class="badge bg-success">cashback 14%</span>
                               </div>
@@ -456,12 +411,12 @@
                   <!-- col -->
 
                   <!-- col -->
-                  <div class="col">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                      <!-- card -->
                      <div class="card card-product">
                         <div class="card-body">
                            <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3 me-15">
+                           <div class="text-center position-relative px-1 py-1 mb-3">
                               <div class="position-absolute top-0 start-10">
                                  <span class="badge bg-success">cashback 14%</span>
                               </div>
@@ -475,12 +430,12 @@
                   </div>
 
                   <!-- col -->
-                  <div class="col">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                      <!-- card -->
                      <div class="card card-product">
                         <div class="card-body">
                            <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3 me-15">
+                           <div class="text-center position-relative px-1 py-1 mb-3">
                               <div class="position-absolute top-0 start-10">
                                  <span class="badge bg-success">cashback 14%</span>
                               </div>
@@ -495,12 +450,12 @@
                   <!-- col -->
 
                   <!-- col -->
-                  <div class="col">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                      <!-- card -->
                      <div class="card card-product">
                         <div class="card-body">
                            <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3 me-15">
+                           <div class="text-center position-relative px-1 py-1 mb-3">
                               <div class="position-absolute top-0 start-10">
                                  <span class="badge bg-success">cashback 14%</span>
                               </div>
@@ -516,12 +471,12 @@
                   <!-- col -->
 
                   <!-- col -->
-                  <div class="col">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                      <!-- card -->
                      <div class="card card-product">
                         <div class="card-body">
                            <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3 me-15">
+                           <div class="text-center position-relative px-1 py-1 mb-3">
                               <div class="position-absolute top-0 start-10">
                                  <span class="badge bg-danger">Sale 50%</span>
                               </div>
@@ -537,12 +492,12 @@
                   <!-- col -->
 
                   <!-- col -->
-                  <div class="col">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                      <!-- card -->
                      <div class="card card-product">
                         <div class="card-body">
                            <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3 me-15">
+                           <div class="text-center position-relative px-1 py-1 mb-3">
                               <div class="position-absolute top-0 start-10">
                                  <span class="badge bg-danger">Sale 50%</span>
                               </div>
@@ -557,12 +512,12 @@
                   <!-- col -->
 
                   <!-- col -->
-                  <div class="col">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                      <!-- card -->
                      <div class="card card-product">
                         <div class="card-body">
                            <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3 me-15">
+                           <div class="text-center position-relative px-1 py-1 mb-3">
                               <div class="position-absolute top-0 start-10">
                                  <span class="badge bg-danger">Sale 50%</span>
                               </div>
@@ -577,12 +532,75 @@
                   <!-- col -->
 
                   <!-- col -->
-                  <div class="col">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                      <!-- card -->
                      <div class="card card-product">
                         <div class="card-body">
                            <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3 me-15">
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Brand-For-Less">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Brand-For-Less">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Brand-For-Less">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
                               <div class="position-absolute top-0 start-10">
                                  <span class="badge bg-danger">Sale 50%</span>
                               </div>
@@ -624,34 +642,23 @@
                </div>
             </section>
 
-            <!--Ads Section 1 Start Here-->
-            <section class="my-lg-14 my-8">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-12">
-                        <div class="mb-4 bg-light d-lg-flex justify-content-between align-items-center rounded">
-                           <div class="p-10">
-                              <h2 class="mb-1 fw-bold">One Stop Grocery Shop</h2>
-                              <p class="mb-0 lead">
-                                 dummy text dummy text dummy text dummy text
-                                 <br />
-                                 dummy text , dummy text.
-                              </p>
-                              <a href="#" class="btn btn-dark mt-5">Get Discount on Share</a>
-                           </div>
-                           <div class="p-6 d-lg-block d-none"><img src="{{URL::to('/public')}}/web_assets/images/svg-graphics/store-graphics.svg" alt="" class="img-fluid" /></div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </section>
-            <!--Ads Section 1 End Here-->
-
          </div>
       </div>
    </div>
    <!-- categoires section end-->
 
+
+<!--Ads Section 1 Start Here-->
+   <section class="my-lg-12 my-8">
+      <div class="container ad-container np-container">
+         <div class="row">
+            <div class="col-12">
+               <img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}">
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--Ads Section 1 End Here-->
 
 
 @endsection

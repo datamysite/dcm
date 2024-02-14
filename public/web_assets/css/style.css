@@ -5,6 +5,7 @@
 }
 .navbar-shadow {
     box-shadow: inset 0 -3em 3em rgb(255 255 255 / 30%), 0 0 0 2px white, 0.3em 0.3em 1em rgb(191 191 191 / 60%);
+    border-bottom: 0 !important;
 }
 .emirates-section-nav .header_card {
     display: flex;
@@ -108,6 +109,61 @@
 .social-media li {
     margin: 0 !important;
 }
+.slider_div2 h3 {
+    color: antiquewhite;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.slider_div2 h6 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
+.slider_div2 p {
+    font-size: 14px;
+    color: #fff;
+    margin: 10px 0;
+    line-height: 20px;
+}
+.slider_div2 a {
+    display: inline-block;
+    padding: 5px 14px;
+    background: #1caae2;
+    color: antiquewhite;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+}
+.blogItem h5 {
+    margin-top: 10px;
+    font-size: 16px;
+}
+.blogItem p {
+    font-size: 12px;
+    text-align: justify;
+}
+.blogItem p {
+    font-size: 12px;
+    text-align: justify;
+    margin-bottom: 20px;
+
+
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 4; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+.breadcrumb {
+    font-size: 10px;
+}
+
+
+
+
 
 
 
@@ -163,5 +219,15 @@
     .footer-bottom .container .row .col-md-6 {
         text-align: center !important;
         width: 100%;
+    }
+    .mt-16 {
+        margin-top: 0rem !important;
+    }
+    .text-sm-justified{
+        text-align: justify !important;
+    }
+
+    .mt-110 {
+      margin-top: 15px !important;
     }
 }

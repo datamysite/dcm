@@ -29,7 +29,6 @@ Route::namespace('web')->group(function () {
 
     //Home
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/Home', 'HomeController@index')->name('home');
 
     //About-Us
     Route::get('/About-Us', 'HomeController@About_Us')->name('About_Us');

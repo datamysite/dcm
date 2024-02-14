@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Slider Section Start-->
-<section class="mt-17">
+<section class="mt-110">
     <div class="container">
         <div class="hero-slider">
 
@@ -56,8 +56,8 @@
                         <!-- text -->
                         <div class="text-center text-md-start">
                             <h1 class="mb-6">About Us</h1>
-                            <p class="mb-0 lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                            <p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+                            <p class="mb-0 lead text-sm-justified">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p class=" text-sm-justified"> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
                                 Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                         </div>
                     </div>
@@ -76,8 +76,8 @@
                             <!-- heading -->
                             <h2 style="text-align: center;">WHY CHOOSE US</h2>
                         </div>
-                        <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+                        <p class="text-center text-sm-justified">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p class="text-sm-justified"> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
                             Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     </div>
                 </div>
@@ -131,23 +131,24 @@
                     <!-- heading -->
                     <h2 style="text-align: center;">Join With US</h2>
                 </div>
-                <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+                <p class="text-center text-sm-justified">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
             </div>
         </div>
 
         <!-- row -->
         <div class="row">
 
-            <div class="col-lg-6 col-6">
+            <div class="col-lg-6">
 
-                <div class="me-6" style="border-radius: 20px;">
+                <div class="" style="border-radius: 20px;">
                     <!-- img -->
                     <img src=" {{URL::to('/public')}}/web_assets/images/Adv/1.png" alt="" class="img-fluid rounded" />
+                    <br>
                 </div>
             </div>
 
 
-            <div class="col-lg-6 col-6">
+            <div class="col-lg-6">
 
                 <form action="#" class="form-control p-10">
                     <div class="input-group py-5">
