@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Countries;
+use App\Models\Admin;
 use Auth;
 
 class RetailerBlogs extends Model
@@ -41,5 +42,9 @@ class RetailerBlogs extends Model
 
     public function country(){
         return $this->belongsTo(Countries::class, 'country_id', 'id');
+    }
+
+    public function user(){
+        return $this->belongsTo(Admin::class, 'created_by', 'id');
     }
 }

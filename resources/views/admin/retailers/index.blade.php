@@ -74,11 +74,12 @@
                   <tr>
                     <th width="5%">#</th>
                     <th width="10%">Logo</th>
-                    <th width="25%">Name</th>
-                    <th width="25%">Countries</th>
+                    <th width="30%">Name</th>
+                    <th width="15%">Countries</th>
                     <th width="10%">Discount upto %</th>
                     <th width="10%">No. of Coupons</th>
-                    <th width="15%" class="text-right">Action</th>
+                    <th width="10%">Created by</th>
+                    <th width="10%" class="text-right">Action</th>
                   </tr>
                   </thead>
                   <tbody id="retailersTableBody">
@@ -91,6 +92,7 @@
                     <th>Countries</th>
                     <th>Discount upto %</th>
                     <th>No. of Coupons</th>
+                    <th>Created by</th>
                     <th class="text-right">Action</th>
                   </tr>
                   </tfoot>
@@ -109,7 +111,7 @@
 
 
 <div class="modal fade" id="addRetailerFormModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <form id="add_retialer_form" action="{{route('admin.retailer.create')}}" enctype="multipart/form-data">
         @csrf
@@ -121,37 +123,75 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-12">
-
+            <div class="col-md-6">
               <div class="retailer-image-wrapper">
                 <input type="file" name="retailer_image" accept="image/*" required/>
                 <div class="close-btn">×</div>
               </div>
-              <br>
+            </div>
+            <div class="col-md-6">
+              <div class="ar-retailer-image-wrapper">
+                <input type="file" name="ar-retailer_image" accept="image/*" required/>
+                <div class="ar-close-btn">×</div>
+              </div>
+            </div>
+            <div class="col-md-7">
               <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control retailerName" name="name" required>
               </div>
               <div class="form-group">
-                <label>Slug <span>{{env('APP_DOMAIN')}}store/<strong>"slug-here"</strong></span></label>
+                <label>Slug <span>{{env('APP_DOMAIN')}}<strong>"slug-here"</strong></span></label>
                 <input type="text" class="form-control retailerSlug" name="slug" required>
               </div>
               <div class="form-group">
                 <label>Operational Countries</label>
                 <select class="form-control" name="country[]" multiple required>
                   @foreach($countries as $val)
-                    <option value="{{$val->id}}">{{$val->shortname}}</option>
+                    <option value="{{$val->id}}" {{$val->shortname == 'UAE' ? 'selected' : ''}}>{{$val->shortname}}</option>
                   @endforeach
                 </select>
               </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-group retailerCategories">
+                <label>Categories</label>
+                <select class="form-control" name="categories[]" multiple required>
+                  @foreach($categories as $val)
+                    <option value="{{$val->id}}">{{$val->name}}</option>
+                    @if(count($val->subCategories) != 0)
+                      <optgroup>
+                        @foreach($val->subCategories as $sval)
+                          <option value="{{$sval->id}}">-&nbsp;&nbsp;{{$sval->name}}</option>
+                        @endforeach
+                      </optgroup>
+                    @endif
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-md-9">
               <div class="form-group">
-                <label>Online Store Link# <small>(Optional)</small></label>
+                <label>Link# <small>(Optional)</small></label>
                 <input type="url" class="form-control" name="store_link">
               </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Link Type </label>
+                <select class="form-control" name="link_type">
+                  <option>Whatsapp</option>
+                  <option>Website</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
               <div class="form-group">
                 <label>Discount Upto %</label>
                 <input type="number" class="form-control" name="discount_upto" required>
               </div>
+            </div>
+            <div class="col-md-8">
               <div class="form-group">
                 <label>Discount Tags</label>
                 <input type="text" class="form-control" name="discount_tags" required>
@@ -173,7 +213,7 @@
 
 
 <div class="modal fade" id="editRetailerFormModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       
     </div>
@@ -225,6 +265,15 @@
       readURL(this, $('.edit_retailer-image-wrapper'));  //Change the image
     });
 
+
+    $('input[name="ar-retailer_image"]').on('change', function(){
+      readURL(this, $('.ar-retailer-image-wrapper'));  //Change the image
+    });
+
+    $(document).on('change','input[name="ar-edit_retailer_image"]', function(){
+      readURL(this, $('.ar-edit_retailer-image-wrapper'));  //Change the image
+    });
+
     $(document).on('click','.close-btn', function(){ //Unset the image
        let file = $('input[name="retailer_image"]');
        $('.retailer-image-wrapper').css('background-image', 'unset');
@@ -234,6 +283,19 @@
        let file2 = $('input[name="edit_retailer_image"]');
        $('.edit_retailer-image-wrapper').css('background-image', 'unset');
        $('.edit_retailer-image-wrapper').removeClass('file-set');
+       file2.replaceWith( file2 = file2.clone( true ) );
+    });
+
+
+    $(document).on('click','.ar-close-btn', function(){ //Unset the image
+       let file = $('input[name="ar-retailer_image"]');
+       $('.ar-retailer-image-wrapper').css('background-image', 'unset');
+       $('.ar-retailer-image-wrapper').removeClass('file-set');
+       file.replaceWith( file = file.clone( true ) );
+
+       let file2 = $('input[name="ar-edit_retailer_image"]');
+       $('.ar-edit_retailer-image-wrapper').css('background-image', 'unset');
+       $('.ar-edit_retailer-image-wrapper').removeClass('file-set');
        file2.replaceWith( file2 = file2.clone( true ) );
     });
 

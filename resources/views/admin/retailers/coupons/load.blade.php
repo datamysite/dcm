@@ -8,6 +8,7 @@
     <td>{{@$val->category->name}}</td>
     <td>{{number_format($val->discount)}}%</td>
     <td>{{number_format($val->dcm_cashback)}}%</td>
+    <td>{{@$val->user->username}}</td>
     <td class="text-right">
       <a href="javascript:void(0)" class="btn btn-sm btn-info editCoupon" title="Edit Coupon" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i></a>
       <a href="javascript:void(0)" class="btn btn-sm btn-danger deleteCoupon" title="Delete Coupon" data-id="{{base64_encode($val->id)}}"><i class="fas fa-trash"></i></a>

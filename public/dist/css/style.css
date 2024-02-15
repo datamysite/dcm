@@ -284,7 +284,7 @@
   color: gray;
 }
 .retailer-image-wrapper:before, .edit_retailer-image-wrapper:before{
-  content: 'UPLOAD IMAGE';
+  content: 'UPLOAD IMAGE (English)';
   display: block;
   position: absolute;
   left: 0; right: 0;
@@ -297,6 +297,39 @@
 }
 .retailer-image-wrapper:hover:after, .edit_retailer-image-wrapper:hover:after{font-size: 73px;}
 .retailer-image-wrapper .close-btn, .edit_retailer-image-wrapper .close-btn {display: none;}
+
+.ar-retailer-image-wrapper, .ar-edit_retailer-image-wrapper{
+  width: 200px;
+  height: 200px;
+  border: 2px solid gray;
+  position:relative;
+  margin-bottom: 50px;
+}
+.ar-retailer-image-wrapper:after, .ar-edit_retailer-image-wrapper:after{
+  content: '+';
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;margin: auto;
+  width: max-content; height: max-content; display: block;
+  max-height: 105px;
+  font-size: 70px;
+  font-weight: bolder;
+  color: gray;
+}
+.ar-retailer-image-wrapper:before, .ar-edit_retailer-image-wrapper:before{
+  content: 'UPLOAD IMAGE (Arabic)';
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  margin: auto;
+  bottom: 35px;
+  width: max-content;
+  height: max-content;
+  font-size: 0.75em;
+  color: gray;
+}
+.ar-retailer-image-wrapper:hover:after, .ar-edit_retailer-image-wrapper:hover:after{font-size: 73px;}
+.ar-retailer-image-wrapper .ar-close-btn, .ar-edit_retailer-image-wrapper .ar-close-btn {display: none;}
+
 input[type="file"]{
   position: absolute;
   width: 100%;
@@ -318,7 +351,7 @@ input[type="file"]{
 }
 .file-set:before{color: transparent;}
 .file-set:after{color: transparent;}
-.file-set .close-btn, .file-set .edit_close-btn{
+.file-set .close-btn, .file-set .edit_close-btn, .file-set .ar-close-btn{
   position: absolute;
   width: 35px;
   height: 35px;
@@ -532,4 +565,39 @@ input[type="file"]{
     background-color: #1caae2;
     color: #fff;
     font-size: 20px;
+}
+.table-dropdown {
+    padding: 0;
+}
+.table-dropdown .dropdown-item {
+    padding: 2px 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+.table-dropdown .dropdown-item:hover {
+    background-color: #1caae2c7;
+    color: #fff !important;
+}
+.table-dropdown .dropdown-item i {
+    font-size: 12px;
+    padding: 4px 0px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.retailerCategories{
+    height: 100%
+}
+.retailerCategories .form-control{
+    height: 90% !important;
+}
+.retailerCategories .form-control optgroup{
+    margin-top: -18px;
+    margin-left: -10px;
+}
+.form-control option:checked {
+    background-color: #1967d2;
+    color: #fff;
 }

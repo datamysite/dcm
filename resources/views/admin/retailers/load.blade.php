@@ -12,11 +12,22 @@
     <td>{{$countries}}</td>
     <td>{{$val->discount_upto}} %</td>
     <td>0 Coupons</td>
+    <td>{{@$val->user->username}}</td>
     <td class="text-right">
-      <a href="{{route('admin.retailer.coupon', base64_encode($val->id))}}" class="btn btn-sm btn-default" title="Coupons" data-id=""><i class="fas fa-tag"></i></a>
-      <a href="{{route('admin.retailer.blog', base64_encode($val->id))}}" class="btn btn-sm btn-default" title="Blogs" data-id=""><i class="fas fa-book"></i></a>
-      <a href="javascript:void(0)" class="btn btn-sm btn-info editRetailer" title="Edit Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i></a>
-      <a href="javascript:void(0)" class="btn btn-sm btn-danger deleteRetailer" title="Delete Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-trash"></i></a>
+      <div class="btn-group">
+        <button type="button" class="btn btn-info btn-sm">Action</button>
+        <button type="button" class="btn btn-info btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
+          <span class="sr-only">Action</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right table-dropdown" role="menu" style="">
+          <a class="dropdown-item" href="{{route('admin.retailer.offer', base64_encode($val->id))}}" title="Retail offers" ><i class="fas fa-hand-holding-usd"></i> Retail Offers</a>
+          <a class="dropdown-item" href="{{route('admin.retailer.coupon', base64_encode($val->id))}}" title="Online Coupons" ><i class="fas fa-tag"></i> Online Coupons</a>
+          <a class="dropdown-item" href="{{route('admin.retailer.blog', base64_encode($val->id))}}" title="Blogs"><i class="fas fa-book"></i> Blogs</a>
+          <a class="dropdown-item editRetailer" href="javascript:void(0)" title="Edit Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i> Edit</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-danger deleteRetailer" href="javascript:void(0)" title="Delete Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-trash"></i> Delete</a>
+        </div>
+      </div>
     </td>
   </tr>
 @endforeach

@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-@section('title', 'Coupons | Retailers')
+@section('title', 'Retail Offers | Retailers')
 @section('content')
 
 <div class="content-wrapper">
@@ -8,13 +8,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Coupons | Retailers</h1>
+            <h1 class="m-0">Retail Offers | Retailers</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
               <li class="breadcrumb-item"><a href="{{route('admin.retailer')}}">Retailers</a></li>
-              <li class="breadcrumb-item active">Coupons</li>
+              <li class="breadcrumb-item active">Retail Offers</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,7 +39,7 @@
                       </div>
                     </div>
                     <div class="col-md-3">
-                      <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Coupon" data-toggle="modal" data-target="#addCouponFormModal"><i class="fas fa-plus"></i> Add Coupon</a>
+                      <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Offer" data-toggle="modal" data-target="#addOffersFormModal"><i class="fas fa-plus"></i> Add Offer</a>
                     </div>
                   </div>
                   <br>
@@ -81,15 +81,12 @@
                   <thead>
                   <tr>
                     <th width="5%">#</th>
-                    <th>Image</th>
-                    <th>Coupon Code</th>
-                    <th>Country</th>
-                    <th>Heading</th>
-                    <th>Category</th>
-                    <th>Discount</th>
-                    <th>DCM Cashback</th>
-                    <th>Created by</th>
-                    <th class="text-right">Action</th>
+                    <th width="25%">Title</th>
+                    <th width="15%">Discount</th>
+                    <th width="15%">Country</th>
+                    <th width="20%">Category</th>
+                    <th width="10%">Created By</th>
+                    <th width="10%" class="text-right">Action</th>
                   </tr>
                   </thead>
                   <tbody id="couponsTableBody">
@@ -97,14 +94,11 @@
                   <tfoot>
                   <tr>
                     <th>#</th>
-                    <th>Image</th>
-                    <th>Coupon Code</th>
-                    <th>Country</th>
-                    <th>Heading</th>
-                    <th>Category</th>
+                    <th>Title</th>
                     <th>Discount</th>
-                    <th>DCM Cashback</th>
-                    <th>Created by</th>
+                    <th>Country</th>
+                    <th>Category</th>
+                    <th>Created By</th>
                     <th class="text-right">Action</th>
                   </tr>
                   </tfoot>
@@ -122,14 +116,14 @@
   </div>
 
 
-<div class="modal fade" id="addCouponFormModal">
+<div class="modal fade" id="addOffersFormModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <form id="add_retialer_coupon_form" action="{{route('admin.retailer.coupon.create')}}">
+      <form id="add_retialer_offer_form" action="{{route('admin.retailer.offer.create')}}">
         @csrf
         <input type="hidden" name="retailer_id" value="{{base64_encode($retailer->id)}}">
         <div class="modal-header">
-          <h4 class="modal-title">Add Coupon</h4>
+          <h4 class="modal-title">Add Offer</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -138,78 +132,23 @@
           <div class="row">
             <div class="col-md-12">
               <div class="coupon-image-wrapper">
-                <input type="file" name="coupon_image" accept="image/*" required />
+                <input type="file" name="coupon_image" accept="image/*"/>
                 <div class="close-btn">×</div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Coupon Code</label>
-                <input type="text" class="form-control" name="code" required>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="form-group">
-                <label>Heading</label>
-                <input type="text" class="form-control" name="heading" required>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-7">
               <div class="form-group">
-                <label>Link# <small>(Optional)</small></label>
-                <input type="link" class="form-control" name="link">
+                <label>Title</label>
+                <input type="text" class="form-control" name="title" required>
               </div>
-            </div>
-            <div class="col-md-5">
-              <div class="form-group">
-                <label>Category</label>
-                <select class="form-control" name="category" required>
-                  <option value="">Select</option>
-                  @foreach($categories as $val)
-                    <option value="{{$val->id}}">{{$val->name}}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3">
+
               <div class="form-group">
                 <label>Discount %</label>
-                <input type="number" class="form-control discountCalculate discount" min="1" max="100" name="discount" required>
+                <input type="number" class="form-control" min="1" max="100" name="discount" required>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Discount Tags</label>
-                <input type="text" class="form-control" name="discount_tags" required>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>DCM Cashback % <small>(Optional)</small></label>
-                <input type="number" class="form-control discountCalculate dcmCashback" value="0" min="1" max="100" name="dcm_cashback">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Total Discount %</label>
-                <input type="number" class="form-control totalDiscount" min="1" max="100" name="total_discount" readonly>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>People Used</label>
-                <input type="number" class="form-control" name="people_used" required>
-              </div>
-            </div>
-            <div class="col-md-5">
+
               <div class="form-group">
                 <label>Country</label>
                 <select class="form-control" name="country" required>
@@ -219,13 +158,28 @@
                 </select>
               </div>
             </div>
+            <div class="col-md-5">
+              <div class="form-group retailerCategories">
+                <label>Categories</label>
+                <select class="form-control" name="categories[]" multiple required>
+                  @foreach($categories as $val)
+                    @if($val->category->parent_id == 0)
+                      <option value="{{$val->category_id}}">{{@$val->category->name}}</option>
+                    @else
+                      <optgroup>
+                        <option value="{{$val->category_id}}">-&nbsp;&nbsp;{{@$val->category->name}}</option>
+                      </optgroup>
+                    @endif
+                  @endforeach
+                </select>
+              </div>
+            </div>
           </div>
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
                 <label>Description <small>(Optional)</small></label>
-                <textarea class="form-control" name="description" rows="4">
-                </textarea>
+                <textarea class="form-control" name="description" rows="4"></textarea>
               </div>
             </div>
           </div>
@@ -243,7 +197,7 @@
 
 
 
-<div class="modal fade" id="editCouponFormModal">
+<div class="modal fade" id="editofferFormModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       
@@ -268,7 +222,7 @@
 
 <script>
   $(function () {
-    loadCoupon();    
+    loadOffers();    
 
     $(document).on('keyup', '.discountCalculate', function(){
       var discount = parseInt($('.discount').val());
@@ -280,7 +234,7 @@
       $('.searchbar-suggestion').html('<img src="{{URL::to('/public/loader-gif.gif')}}" height="30px">');
       var val = $(this).val();
       if(val != ''){
-        $.get("{{URL::to('/admin/retailer/coupon/search')}}/"+val, function(data){
+        $.get("{{URL::to('/admin/retailer/offers/search')}}/"+val, function(data){
           $('.searchbar-suggestion').html(data);
         });
       }else{
@@ -320,9 +274,9 @@
 
 
 
-    $(document).on('submit', "#add_retialer_coupon_form", function (event) {
+    $(document).on('submit', "#add_retialer_offer_form", function (event) {
       var form=$(this);
-      var formData = new FormData($("#add_retialer_coupon_form")[0]);
+      var formData = new FormData($("#add_retialer_offer_form")[0]);
       //console.log(formData);
       $.ajax({
         type: "POST",
@@ -340,8 +294,8 @@
           });
           $('.close-btn').click();
           form.trigger("reset");
-          $('#addCouponFormModal').modal('hide');
-          loadCoupon();
+          $('#addOffersFormModal').modal('hide');
+          loadOffers();
         }else{
           Toast.fire({
             icon: 'error',
@@ -354,7 +308,7 @@
     });
 
 
-    $(document).on('click', '.deleteCoupon', function(){
+    $(document).on('click', '.deleteOffer', function(){
       var id = $(this).data('id');
 
       Swal.fire({
@@ -367,12 +321,12 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/retailer/coupon/delete')}}/"+id, function(data){
+          $.get("{{URL::to('/admin/retailer/offers/delete')}}/"+id, function(data){
             Toast.fire({
               icon: 'success',
-              title: 'Success! Coupon Successfully Deleted.'
+              title: 'Success! Offer Successfully Deleted.'
             });
-            loadCoupon();
+            loadOffers();
           });
         }
       });
@@ -380,21 +334,21 @@
 
 
 
-    $(document).on('click', '.editCoupon', function(){
+    $(document).on('click', '.editOffer', function(){
       var val = $(this).data('id');
 
-      $('#editCouponFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
-      $('#editCouponFormModal').modal('show');
+      $('#editofferFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
+      $('#editofferFormModal').modal('show');
 
-      $.get("{{URL::to('/admin/retailer/coupon/edit')}}/"+val, function(data){
-        $('#editCouponFormModal .modal-content').html(data);
+      $.get("{{URL::to('/admin/retailer/offers/edit')}}/"+val, function(data){
+        $('#editofferFormModal .modal-content').html(data);
       });
     });
     
 
-    $(document).on('submit', "#edit_retialer_coupon_form", function (event) {
+    $(document).on('submit', "#edit_retialer_offer_form", function (event) {
       var form=$(this);
-      var formData = new FormData($("#edit_retialer_coupon_form")[0]);
+      var formData = new FormData($("#edit_retialer_offer_form")[0]);
       //console.log(formData);
       $.ajax({
         type: "POST",
@@ -412,8 +366,8 @@
           });
           $('.close-btn').click();
           form.trigger("reset");
-          $('#editCouponFormModal').modal('hide');
-          loadCoupon();
+          $('#editofferFormModal').modal('hide');
+          loadOffers();
         }else{
           Toast.fire({
             icon: 'error',
@@ -429,8 +383,8 @@
   });
 
 
-  function loadCoupon(){
-    var url = "{{route('admin.retailer.coupon.load', base64_encode($retailer->id))}}";
+  function loadOffers(){
+    var url = "{{route('admin.retailer.offer.load', base64_encode($retailer->id))}}";
 
     $('#couponsTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data){

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Countries;
 use App\Models\Categories;
+use App\Models\Admin;
 use Auth;
 
 class Coupon extends Model
@@ -63,5 +64,9 @@ class Coupon extends Model
 
     public function category(){
         return $this->belongsTo(Categories::class, 'category_id', 'id');
+    }
+
+    public function user(){
+        return $this->belongsTo(Admin::class, 'created_by', 'id');
     }
 }

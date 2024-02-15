@@ -82,8 +82,9 @@
                   <tr>
                     <th width="5%">#</th>
                     <th width="10%">Country</th>
-                    <th width="70%">Blog Heading</th>
-                    <th width="15%" class="text-right">Action</th>
+                    <th width="65%">Blog Heading</th>
+                    <th width="10%">Created by</th>
+                    <th width="10%" class="text-right">Action</th>
                   </tr>
                   </thead>
                   <tbody id="blogsTableBody">
@@ -93,6 +94,7 @@
                     <th>#</th>
                     <th>Country</th>
                     <th>Blog Heading</th>
+                    <th>Created by</th>
                     <th class="text-right">Action</th>
                   </tr>
                   </tfoot>

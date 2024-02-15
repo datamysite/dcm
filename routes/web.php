@@ -97,6 +97,17 @@ Route::prefix('admin')->namespace('admin')->group(function () {
             Route::get('/edit/{id}', 'RetailerController@edit');
             Route::get('/delete/{id}', 'RetailerController@delete');
 
+            //offers
+            Route::prefix('offers')->group(function () {
+                Route::get('/{id}', 'OfferController@index')->name('admin.retailer.offer');
+                Route::get('/load/{id}', 'OfferController@load')->name('admin.retailer.offer.load');
+                Route::get('/search/{val}', 'OfferController@search_retailer');
+                Route::post('/create', 'OfferController@create')->name('admin.retailer.offer.create');
+                Route::get('/delete/{id}', 'OfferController@delete');
+                Route::get('/edit/{id}', 'OfferController@edit');
+                Route::post('/update', 'OfferController@update_coupon')->name('admin.retailer.offer.update');
+            });
+
             //Coupons
             Route::prefix('coupon')->group(function () {
                 Route::get('/{id}', 'CouponController@index')->name('admin.retailer.coupon');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Countries;
+use App\Models\Categories;
 use App\Models\Retailers;
 use App\Models\RetailerCountries;
 use Auth;
@@ -14,6 +15,7 @@ class RetailerController extends Controller
     public function index(){
         $data['menu'] = 'retailers';
         $data['countries'] = Countries::all();
+        $data['categories'] = Categories::where('parent_id', 0)->get();
 
         return view('admin.retailers.index')->with($data);
     }
@@ -63,6 +65,19 @@ class RetailerController extends Controller
 
             }
 
+            if($request->hasFile('ar-retailer_image')){
+                $file = $request->file('ar-retailer_image');
+                $ext = $file->getClientOriginalExtension();
+                $newname = $id.date('dmyhis').'.'.$ext;
+
+                $file->move(public_path().'/storage/retailers/ar',$newname);
+
+                $c = Retailers::find($id);
+                $c->ar_logo = $newname;
+                $c->save();
+
+            }
+
             $response['success'] = 'success';
             $response['message'] = 'Success! New Retailer Added.';
 
@@ -74,6 +89,7 @@ class RetailerController extends Controller
         $id = base64_decode($id);
 
         $data['countries'] = Countries::all();
+        $data['categories'] = Categories::where('parent_id', 0)->get();
         $data['data'] = Retailers::find($id);
 
         return view('admin.retailers.edit')->with($data);
@@ -99,6 +115,19 @@ class RetailerController extends Controller
 
                 $c = Retailers::find($id);
                 $c->logo = $newname;
+                $c->save();
+
+            }
+
+            if($request->hasFile('ar-edit_retailer_image')){
+                $file = $request->file('ar-edit_retailer_image');
+                $ext = $file->getClientOriginalExtension();
+                $newname = $id.date('dmyhis').'.'.$ext;
+
+                $file->move(public_path().'/storage/retailers/ar',$newname);
+
+                $c = Retailers::find($id);
+                $c->ar_logo = $newname;
                 $c->save();
 
             }
