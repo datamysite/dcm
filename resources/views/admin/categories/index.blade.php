@@ -47,12 +47,12 @@
                   <tr>
                     <th width="5%">#</th>
                     <th width="10%">Logo</th>
-                    <th width="20%">Name</th>
+                    <th width="25%">Name</th>
                     <th width="20%">Parent Category</th>
                     <th width="10%">Category Type</th>
-                    <th width="15%">Max. Discount %</th>
-                    <th width="15%">No. of Brands</th>
-                    <th width="15%" class="text-right">Action</th>
+                    <th width="10%">Max. Discount %</th>
+                    <th width="10%">No. of Brands</th>
+                    <th width="20%" class="text-right">Action</th>
                   </tr>
                 </thead>
                 <tbody id="categoryTableBody">
