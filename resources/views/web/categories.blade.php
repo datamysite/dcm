@@ -21,13 +21,13 @@
 </div>
 
 
-   
+@if($_GET['category'] != 'AllStores')
    <!-- Category Section Start-->
    <section class="">
       <div class="container">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0 page-title">Categories</h3>
+               <h3 class="mb-0 page-title">Sub Categories</h3>
             </div>
          </div>
          <div class="category-slider">
@@ -86,7 +86,7 @@
       </div>
    </section>
    <!-- Category Section End-->
-
+@endif
 
 
    <!-- categoires section start-->

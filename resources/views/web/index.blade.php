@@ -85,55 +85,14 @@
             </div>
          </div>
          <div class="category-slider">
-
+            @foreach($categories as $val)
             <div class="item">
-               <a href="categories.php?category=Mart" class="text-decoration-none text-inherit">
-                  <img src="{{URL::to('/public')}}/web_assets/images/category/mart_new.png" alt="Mart" class="img-fluid" />
-                  <div class="text-truncate">Mart</div>
+               <a href="javascript:void(0)" class="text-decoration-none text-inherit">
+                  <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="{{$val->name}}" class="img-fluid" />
+                  <div class="text-truncate">{{$val->name}}</div>
                </a>
             </div>
-
-            <div class="item">
-               <a href="categories.php?category=Fashion" class="text-decoration-none text-inherit">
-                  <img src="{{URL::to('/public')}}/web_assets/images/category/fashion_new.png" alt="Fashion" class="" />
-                  <div class="text-truncate">Fashion & Accessories</div>
-               </a>
-            </div>
-
-            <div class="item">
-               <a href="categories.php?category=Beauty" class="text-decoration-none text-inherit">
-                  <img src="{{URL::to('/public')}}/web_assets/images/category/beauty_new.png" alt="Beauty" class="" />
-                  <div class="text-truncate">Beauty & Wellness</div>
-               </a>
-            </div>
-
-            <div class="item">
-               <a href="categories.php?category=Decor" class="text-decoration-none text-inherit">
-                  <img src="{{URL::to('/public')}}/web_assets/images/category/decor_new.png" alt="Decor" class="" />
-                  <div class="text-truncate">Decor</div>
-               </a>
-            </div>
-
-            <div class="item">
-               <a href="categories.php?category=Kids" class="text-decoration-none text-inherit">
-                  <img src="{{URL::to('/public')}}/web_assets/images/category/kids_new.png" alt="kids" class="" />
-                  <div class="text-truncate">Kids</div>
-               </a>
-            </div>
-
-            <div class="item">
-               <a href="categories.php?category=Sport" class="text-decoration-none text-inherit">
-                  <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="" />
-                  <div class="text-truncate">Sport</div>
-               </a>
-            </div>
-
-            <div class="item">
-               <a href="categories.php?category=Sport" class="text-decoration-none text-inherit">
-                  <img src="{{URL::to('/public')}}/web_assets/images/category/sport_new.png" alt="Sport" class="" />
-                  <div class="text-truncate">Sport</div>
-               </a>
-            </div>
+            @endforeach
 
          </div>
 
