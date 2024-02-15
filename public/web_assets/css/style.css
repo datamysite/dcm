@@ -160,14 +160,36 @@
 .breadcrumb {
     font-size: 10px;
 }
-
 .product-para {
     color: #fff;
     display: grid;
 }
-
-
-
+.feedback-comment input {
+    width: 100% !important;
+    padding-left: 55px;
+}
+.feedback-comment div {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    margin-top: -36px;
+    z-index: 99;
+}
+.feedback-comment img {
+    margin-top: -36px;
+    z-index: 99;
+    height: 30px;
+    width: auto;
+    border-radius: 50% !important;
+}
+.feedback-comment button {
+    margin-top: -36px;
+    z-index: 99;
+    float: right;
+    padding: 0px 10px;
+    height: 30px;
+}
 
 
 

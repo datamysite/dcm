@@ -2,30 +2,8 @@
 
 @section('content')
 
-<!-- Slider Section Start-->
-<section class="mt-17">
-    <div class="container">
-        <div class="hero-slider">
 
-            <div style="background: url(./public/web_assets/images/slider/single_post.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                    <div class="slider_div2">
-
-                        <h3 style="color:antiquewhite;">Featured</3>
-                            <h6 style="font-size: 36px; font-weight: bold; color: #fff; margin: 0;">Breaking Into Product Design: Advice from Untitled Founder, Frankie</h6>
-                            <p style="font-size: 18px; color: #fff; margin: 10px 0;">Let’s get one thing out of the way: you don’t need a fancy Bachelor’s Degree to get into Product Design. We sat down with Frankie Sullivan to talk about gatekeeping in</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Slider Section End-->
-
-
-<div class="mt-0">
+<div class="mt-110">
     <div class="container">
         <!-- row -->
         <div class="row">
@@ -42,6 +20,29 @@
         </div>
     </div>
 </div>
+
+<!-- Slider Section Start-->
+<section class="mt-2">
+    <div class="container">
+        <div class="hero-slider">
+
+            <div style="background: url(./public/web_assets/images/slider/single_post.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
+                <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
+
+                    <div class="slider_div2">
+
+                        <h3>Featured</h3>
+                            <h6>Breaking Into Product Design: Advice from Untitled Founder, Frankie</h6>
+                            <p>Let’s get one thing out of the way: you don’t need a fancy Bachelor’s Degree to get into Product Design. We sat down with Frankie Sullivan to talk about gatekeeping in</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Slider Section End-->
+
 
     <!-- Single Blog section Start Here -->
     <section class="my-lg-5 my-8">
@@ -255,21 +256,13 @@
             <div class="row">
 
                 <!-- col -->
-                <div class="col-lg-8">
+                <div class="col-lg-12">
 
-                    <div class="input-group py-5">
-                        <img src="{{URL::to('/public')}}/web_assets/images/avatar/avatar-10.jpg" alt="" width="50px" height="50px" class="rounded">
-                        <input type="text" class="form-control rounded" name="user_msg" placeholder="Your message and feedback here" required="required">
-                        <input type="submit" name="sing-up" class="btn btn-primary shadow-gray" style="font-weight: lighter;" value="SUBMIT">
+                    <div class="input-group feedback-comment py-5">
+                        <input type="text" class="form-control rounded" name="user_msg" placeholder="Type here .. " required="required">
+                        <img src="{{URL::to('/public')}}/web_assets/images/avatar/avatar-10.jpg" alt="" class="rounded">
+                        <button type="submit" class="btn btn-primary shadow-gray" style="font-weight: lighter;" value="">SUBMIT</button>
                     </div>
-
-                </div>
-                <div class="col-lg-6 col-6">
-
-
-
-
-
 
                 </div>
 
