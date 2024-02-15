@@ -46,10 +46,10 @@
                 <thead>
                   <tr>
                     <th width="5%">#</th>
-                    <th width="20%">Logo</th>
-                    <th width="30%">Name</th>
-                    <th width="30%">Parent Category</th>
-                    <th width="30%">Category Type</th>
+                    <th width="10%">Logo</th>
+                    <th width="20%">Name</th>
+                    <th width="20%">Parent Category</th>
+                    <th width="10%">Category Type</th>
                     <th width="15%">Max. Discount %</th>
                     <th width="15%">No. of Brands</th>
                     <th width="15%" class="text-right">Action</th>

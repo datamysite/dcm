@@ -3,7 +3,7 @@
   <td>{{++$key}}</td>
   <td><img src="{{URL::to('/public/storage/categories/'.$val->image)}}" class="table-img"></td>
   <td>{{$val->name}}</td>
-  <td>{{$val->parentCategory ? $val->parentCategory->name : "NONE"}}</td>
+  <td>{{$val->parentCategory ? $val->parentCategory->name : ""}}</td>
   <td> @if($val->type == 1)
     Online
     @elseif($val->type == 2)
