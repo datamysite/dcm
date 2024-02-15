@@ -28,10 +28,12 @@
       <div class="col-md-12">
         <div class="form-group">
           <label>Parent Category</label>
+
           <select class="form-control" name="parent_id">
-            <option value="0">Select Partent Category</option>
             @foreach ($parent_categories as $parent_category)
+            @if ($parent_category->id != $data->id)
             <option value="{{ $parent_category->id }}">{{ $parent_category->name }}</option>
+            @endif
             @endforeach
           </select>
 
@@ -41,7 +43,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group text-center">
-          <input type="radio" id="category_type" name="category_type" value="1" {{ $data->type  == 1 ? 'checked' : '' }} ><label style="padding-left: 5px;">Online</label>
+          <input type="radio" id="category_type" name="category_type" value="1" {{ $data->type  == 1 ? 'checked' : '' }}><label style="padding-left: 5px;">Online</label>
           <input type="radio" id="category_type" name="category_type" value="2" {{ $data->type  == 2 ? 'checked' : '' }}><label style="padding-left: 5px;">Retail</label>
           <input type="radio" id="category_type" name="category_type" value="3" {{ $data->type  == 3 ? 'checked' : '' }}><label style="padding-left: 5px;">Both</label>
         </div>
