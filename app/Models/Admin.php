@@ -26,12 +26,11 @@ class Admin extends Authenticatable
 
     public static function create(array $data){
         $u = new Admin;
-        $u->fullname = $data['fullname'];
+        $u->fullname = $data['name'];
         $u->username = $data['username'];
         $u->designation = $data['designation'];
         $u->type = '1';
-        //$u->created_by = Auth::guard('admin')->id();
-        $u->created_by = '1';
+        $u->created_by = Auth::guard('admin')->id();
         $u->password = bcrypt($data['password']);
         $u->is_active = '1';
         $u->save();
