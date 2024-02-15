@@ -22,3 +22,8 @@
   </td>
 </tr>
 @endforeach
+@if(count($data) == 0)
+  <tr>
+    <td colspan="8">No Categories found.</td>
+  </tr>
+@endif
