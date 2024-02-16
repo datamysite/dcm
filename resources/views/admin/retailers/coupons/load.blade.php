@@ -5,7 +5,11 @@
     <td><strong>{{$val->code}}</strong></td>
     <td>{{@$val->country->shortname}}</td>
     <td>{{$val->heading}}</td>
-    <td>{{@$val->category->name}}</td>
+    <td>
+      @foreach($val->categories as $cval)
+        <span class="badge badge-primary">{{@$cval->category->name}}</span>
+      @endforeach
+    </td>
     <td>{{number_format($val->discount)}}%</td>
     <td>{{number_format($val->dcm_cashback)}}%</td>
     <td>{{@$val->user->username}}</td>
@@ -17,6 +21,6 @@
 @endforeach
 @if(count($data) == 0)
   <tr>
-    <td colspan="9">No Coupons Available.</td>
+    <td colspan="10">No Coupons Available.</td>
   </tr>
 @endif

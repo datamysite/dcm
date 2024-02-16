@@ -5,9 +5,11 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Retailers;
+use App\Models\RetailerCategories;
 use App\Models\Categories;
 use App\Models\Countries;
 use App\Models\Coupon;
+use App\Models\CouponCategories;
 use URL;
 
 class CouponController extends Controller
@@ -15,7 +17,7 @@ class CouponController extends Controller
     public function index($id){
         $data['menu'] = 'retailers';
         $data['retailer'] = Retailers::find(base64_decode($id));
-        $data['categories'] = Categories::all();
+        $data['categories'] = RetailerCategories::where('retailer_id', base64_decode($id))->get();
         $data['country'] = Countries::all();
         //dd($data['countries']);
         return view('admin.retailers.coupons.index')->with($data);
@@ -49,7 +51,7 @@ class CouponController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['code']) || empty($data['heading']) || empty($data['discount']) || empty($data['discount_tags']) || empty($data['category']) || empty($data['country']) || empty($data['people_used'])) {
+        if (empty($data['code']) || empty($data['heading']) || empty($data['discount']) || empty($data['country']) || empty($data['people_used'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         }else{
@@ -80,7 +82,7 @@ class CouponController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['code']) || empty($data['heading']) || empty($data['discount']) || empty($data['discount_tags']) || empty($data['category']) || empty($data['country']) || empty($data['people_used'])) {
+        if (empty($data['code']) || empty($data['heading']) || empty($data['discount']) || empty($data['country']) || empty($data['people_used'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         }else{
@@ -109,9 +111,9 @@ class CouponController extends Controller
     public function edit($id){
         $id = base64_decode($id);
 
-        $data['categories'] = Categories::all();
         $data['country'] = Countries::all();
         $data['data'] = Coupon::find($id);
+        $data['categories'] = RetailerCategories::where('retailer_id', $data['data']->retailer_id)->get();
 
         return view('admin.retailers.coupons.edit')->with($data);
     }

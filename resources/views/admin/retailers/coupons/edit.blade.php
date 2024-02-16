@@ -17,33 +17,38 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-8">
         <div class="form-group">
           <label>Coupon Code</label>
           <input type="text" class="form-control" name="code" value="{{$data->code}}" required>
         </div>
-      </div>
-      <div class="col-md-8">
+
         <div class="form-group">
           <label>Heading</label>
           <input type="text" class="form-control" name="heading" value="{{$data->heading}}" required>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-7">
+
         <div class="form-group">
           <label>Link# <small>(Optional)</small></label>
           <input type="link" class="form-control" value="{{$data->link}}" name="link">
         </div>
       </div>
-      <div class="col-md-5">
-        <div class="form-group">
-          <label>Category</label>
-          <select class="form-control" name="category" required>
-            <option value="">Select</option>
+      <div class="col-md-4">
+        <div class="form-group retailerCategories">
+          <label>Categories</label>
+          <select class="form-control" name="categories[]" multiple required>
             @foreach($categories as $val)
-              <option value="{{$val->id}}" {{$val->id == $data->category_id ? 'selected' : ''}}>{{$val->name}}</option>
+              @php $check = 0; @endphp
+              @foreach($data->categories as $cval)
+                @php if($val->category_id == $cval->category_id){ $check = 1;} @endphp
+              @endforeach
+              @if($val->category->parent_id == 0)
+                <option value="{{$val->category_id}}" {{$check == 1 ? 'selected' : ''}}>{{@$val->category->name}}</option>
+              @else
+                <optgroup>
+                  <option value="{{$val->category_id}}" {{$check == 1 ? 'selected' : ''}}>-&nbsp;&nbsp;{{@$val->category->name}}</option>
+                </optgroup>
+              @endif
             @endforeach
           </select>
         </div>
@@ -59,7 +64,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Discount Tags</label>
-          <input type="text" class="form-control" name="discount_tags" value="{{$data->discount_tags}}" required>
+          <input type="text" class="form-control" name="discount_tags" value="{{$data->discount_tags}}">
         </div>
       </div>
       <div class="col-md-3">

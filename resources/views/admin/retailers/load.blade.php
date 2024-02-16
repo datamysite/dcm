@@ -33,6 +33,6 @@
 @endforeach
 @if(count($data) == 0)
   <tr>
-    <td colspan="7">No Result Found.</td>
+    <td colspan="8">No Result Found.</td>
   </tr>
 @endif
