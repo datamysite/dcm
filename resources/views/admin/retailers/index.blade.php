@@ -319,6 +319,7 @@
             title: data.message
           });
           $('.close-btn').click();
+          $('.ar-close-btn').click();
           form.trigger("reset");
           $('#addRetailerFormModal').modal('hide');
           loadRetailers();
