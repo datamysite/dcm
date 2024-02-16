@@ -19,90 +19,90 @@ class HomeController extends Controller
     public function About_Us()
     {
 
-        return view('web.about-us');
+        return view('web.content.about-us');
     }
 
     //Sell With DCM Controller
     public function Sell_With_DCM()
     {
 
-        return view('web.sell-with-dcm');
+        return view('web.content.sell-with-dcm');
     }
 
     //Store Products Controller
     public function Store_Products()
     {
 
-        return view('web.store-products');
+        return view('web.listing.store-products');
     }
 
     //Store Single Product Controller
     public function Store_Single_Product()
     {
 
-        return view('web.store-single-product');
+        return view('web.listing.store-single-product');
     }
 
     //Blogs Controller
     public function Blogs()
     {
 
-        return view('web.blogs');
+        return view('web.blogs.blogs');
     }
 
     //Single Blog Controller
     public function Single_Blog()
     {
 
-        return view('web.single-blog');
+        return view('web.blogs.single-blog');
     }
 
     //User Profile Controller
     public function User_Profile()
     {
 
-        return view('web.user-profile');
+        return view('web.user.user-profile');
     }
 
     //User Claim Cashback Controller
     public function Claim_Cashback()
     {
 
-        return view('web.user-claim-cashback');
+        return view('web.user.user-claim-cashback');
     }
 
     //User Payment History Controller
     public function Paymeny_History()
     {
 
-        return view('web.user-payment-history');
+        return view('web.user.user-payment-history');
     }
 
     //User Referral Earn Controller
     public function Referral_Earn()
     {
 
-        return view('web.user-referral-earn');
+        return view('web.user.user-referral-earn');
     }
 
     //User Referral Earn Controller
     public function Withdraw_Payment()
     {
 
-        return view('web.user-withdraw-payment');
+        return view('web.user.user-withdraw-payment');
     }
 
     //User Settings Controller
     public function User_Settings()
     {
 
-        return view('web.user-settings');
+        return view('web.uuser.ser-settings');
     }
 
     //User Settings Controller
     public function Categoires()
     {
 
-        return view('web.categories');
+        return view('web.listing.categories');
     }
 }

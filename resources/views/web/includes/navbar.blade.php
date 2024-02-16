@@ -45,11 +45,11 @@
 
                      <li class="nav-item dropdown" style="padding: 10px;">
 
-                        <a class="nav-link dropdown-toggle" href="Home#all-stores" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Stores</a>
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Stores</a>
 
                         <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="Categoires?category=AllStores">Online</a></li>
-                           <li><a class="dropdown-item" href="Categoires?category=AllStores">Retail</a></li>
+                           <li><a class="dropdown-item" href="{{route('stores', 'online')}}">Online</a></li>
+                           <li><a class="dropdown-item" href="{{route('stores', 'retail')}}">Retail</a></li>
                         </ul>
 
                      </li>
@@ -61,72 +61,23 @@
 
                         <ul class="dropdown-menu">
 
-                           <li class="dropdown-submenu dropend">
-                              <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mart</a>
-                              <ul class="dropdown-menu">
+                           @foreach($navbarCategories as $val)
+                              @if($val->type == 3)
+                                 <li class="dropdown-submenu dropend">
+                                    <a class="dropdown-item dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{$val->name}}</a>
+                                    <ul class="dropdown-menu">
 
-                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
+                                       <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
+                                       <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
 
-                              </ul>
-                           </li>
+                                    </ul>
+                                 </li>
+                              @else
+                                 <li><a class="dropdown-item" href="Categoires?category=Home-Services">{{$val->name}}</a></li>
+                              @endif
+                           @endforeach
 
-                           <li class="dropdown-submenu dropend">
-                              <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fashions</a>
-                              <ul class="dropdown-menu">
-
-                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
-
-                              </ul>
-                           </li>
-
-                           <li class="dropdown-submenu dropend">
-                              <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Beauty & Wellness</a>
-                              <ul class="dropdown-menu">
-
-                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
-
-                              </ul>
-                           </li>
-
-                           <li class="dropdown-submenu dropend">
-                              <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Decor</a>
-                              <ul class="dropdown-menu">
-
-                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
-
-                              </ul>
-                           </li>
-
-
-                           <li class="dropdown-submenu dropend">
-                              <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kids</a>
-                              <ul class="dropdown-menu">
-
-                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
-
-                              </ul>
-                           </li>
-
-                           <li class="dropdown-submenu dropend">
-                              <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sports</a>
-                              <ul class="dropdown-menu">
-
-                                 <li><a class="dropdown-item" href="Categoires?category=Online">Online</a></li>
-                                 <li><a class="dropdown-item" href="Categoires?category=Offline">Retail</a></li>
-
-                              </ul>
-                           </li>
-
-                           <li><a class="dropdown-item" href="Categoires?category=Home-Services">Home Services</a></li>
-                           <li><a class="dropdown-item" href="Categoires?category=Maintenance">Maintenance & Repairs</a></li>
-                           <li><a class="dropdown-item" href="Categoires?category=Entertainment">Entertainment</a></li>
-                           <li><a class="dropdown-item" href="Categoires?category=Business">Business</a></li>
-                           <li><a class="dropdown-item" href="Categoires?category=Food">Food & Dine In</a></li>
+                           
                         </ul>
                      </li>
 
@@ -167,7 +118,6 @@
                      </ul>
                </div>
 
-
             </div>
             <!-- Desktop Menu End Here -->
 
@@ -206,13 +156,13 @@
                      <div class="collapse mt-2" id="collapseExample">
                         <div class="card card-body">
                            <ul class="mb-0 list-unstyled">
-                              <li><a class="dropdown-item" href="#">DUBAI</a></li>
-                              <li><a class="dropdown-item" href="#">ABU DAHBI</a></li>
-                              <li><a class="dropdown-item" href="#">SHARJAH</a></li>
-                              <li><a class="dropdown-item" href="#">AJMAN</a></li>
-                              <li><a class="dropdown-item" href="#">UMM ALQUWAIN</a></li>
-                              <li><a class="dropdown-item" href="#">RAS AL KHAIMAH</a></li>
-                              <li><a class="dropdown-item" href="#">FUJAIRA</a></li>
+                              <li><a class="dropdown-item" href="javascript:void(0)">DUBAI</a></li>
+                              <li><a class="dropdown-item" href="javascript:void(0)">ABU DAHBI</a></li>
+                              <li><a class="dropdown-item" href="javascript:void(0)">SHARJAH</a></li>
+                              <li><a class="dropdown-item" href="javascript:void(0)">AJMAN</a></li>
+                              <li><a class="dropdown-item" href="javascript:void(0)">UMM ALQUWAIN</a></li>
+                              <li><a class="dropdown-item" href="javascript:void(0)">RAS AL KHAIMAH</a></li>
+                              <li><a class="dropdown-item" href="javascript:void(0)">FUJAIRA</a></li>
 
                            </ul>
                         </div>
@@ -223,29 +173,19 @@
                      <ul class="navbar-nav align-items-center">
 
                         <li class="nav-item dropdown w-100 w-lg-auto">
-                           <a class="nav-link dropdown-toggle" href="Home#all-stores" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Stores</a>
+                           <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Stores</a>
                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="Categoires.php?category=AllStores">Online</a></li>
-                              <li><a class="dropdown-item" href="Categoires.php?category=AllStores">Retail</a></li>
+                              <li><a class="dropdown-item" href="{{route('stores', 'online')}}">Online</a></li>
+                              <li><a class="dropdown-item" href="{{route('stores', 'retail')}}">Retail</a></li>
                            </ul>
                         </li>
 
                         <li class="nav-item dropdown w-100 w-lg-auto">
                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                            <ul class="dropdown-menu">
-
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Mart</a></li>
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Fashion & Accessories</a></li>
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Beauty & Wellness</a></li>
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Decor</a></li>
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Kids</a></li>
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Sports</a></li>
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Home Services</a></li>
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Maintains & Repairs</a></li>
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Entertainment</a></li>
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Business</a></li>
-                              <li><a class="dropdown-item" href="Categoires?category=Online">Food & Dine In</a></li>
-
+                              @foreach($navbarCategories as $val)
+                                 <li><a class="dropdown-item" href="Categoires?category=Online">{{$val->name}}</a></li>
+                              @endforeach
                            </ul>
                         </li>
 

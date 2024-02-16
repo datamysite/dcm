@@ -5950,7 +5950,7 @@ fieldset:disabled .btn {
   padding-right: 5px;
 }
 .breadcrumb-item.active {
-  color: var(--fc-red);
+  color: #1caae2;
 }
 
 .pagination {
@@ -21679,7 +21679,7 @@ fieldset:disabled .btn {
     0 12px 24px -4px rgba(145, 158, 171, 0.12);
   color: var(--fc-gray-600);
   line-height: 1.2rem;
-  min-width: 12rem;
+  min-width: 15rem;
   top: 40px;
 }
 .navbar .dropdown-menu .dropdown-list-group-item {
@@ -21687,7 +21687,7 @@ fieldset:disabled .btn {
 }
 .navbar .dropdown-menu .dropdown-submenu a:after {
   position: absolute;
-  right: 1rem;
+  right: 0rem;
   transform: rotate(-90deg);
 }
 .navbar .dropdown-menu .dropdown-submenu.dropend .dropdown-menu {

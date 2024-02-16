@@ -1,0 +1,600 @@
+@extends('web.includes.master')
+
+@section('content')
+
+<div class="mt-110">
+   <div class="container np-container">
+      <!-- row -->
+      <div class="row">
+         <!-- col -->
+         <div class="col-12">
+            <!-- breadcrumb -->
+            <nav aria-label="breadcrumb">
+               <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
+                  <li class="breadcrumb-item"><a href="javascript:void(0)" style="color: #000;"><strong>All Stores</strong></a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><strong>{{$type}}</strong></li>
+               </ol>
+            </nav>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+   <!-- categoires section start-->
+   <div class="mt-4 mb-lg-14 mb-8">
+      <!-- container -->
+      <div class="container np-container">
+         <div class="row col-lg-3 col-md-4 mb-6 mb-md-0" style="border-radius:10px;">
+            <h5 class="mb-1">FILTERS</h5>
+         </div>
+         <!-- row -->
+         <div class="row gx-10">
+            <!-- col -->
+            <aside class="col-lg-3 col-md-4 p-4 mb-6 mb-md-0" style="background-color:#f0f3f2;padding-top:0px; border-radius:10px;">
+
+               <div class="offcanvas offcanvas-start offcanvas-collapse w-md-50" tabindex="-1" id="offcanvasCategory" aria-labelledby="offcanvasCategoryLabel">
+
+                  <div class="offcanvas-header d-lg-none">
+                     <h5 class="offcanvas-title" id="offcanvasCategoryLabel">Filter</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+
+                  <div class="offcanvas-body ps-lg-2 pt-lg-0 mb-6 mb-md-0">
+                     <div class="mb-8">
+                        <!-- title -->
+                        <h5 class="mb-3">Categories</h5>
+                        <!-- nav -->
+                        <ul class="nav nav-category" id="categoryCollapseMenu">
+                           <li class="nav-item border-bottom w-100">
+
+                              <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#categoryFlushOne" aria-expanded="false" aria-controls="categoryFlushOne">
+                                 Decor
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                    <path fill="currentColor" fill-rule="evenodd" d="M12 16a4 4 0 1 0 0-8a4 4 0 0 0 0 8m0 6C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-18h2v2h-2zm6 5h2v2h-2zM5 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4-7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m8 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m2 7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4 2h2v2h-2zm-4 3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-5-4h2v2H6zM5 8h2v2H5z" />
+                                 </svg>
+                              </a>
+                           </li>
+                           <!-- nav item -->
+                           <li class="nav-item border-bottom w-100">
+                              <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                 Kids
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                    <path fill="currentColor" fill-rule="evenodd" d="M12 16a4 4 0 1 0 0-8a4 4 0 0 0 0 8m0 6C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-18h2v2h-2zm6 5h2v2h-2zM5 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4-7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m8 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m2 7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4 2h2v2h-2zm-4 3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-5-4h2v2H6zM5 8h2v2H5z" />
+                                 </svg>
+                              </a>
+
+                           </li>
+                           <li class="nav-item border-bottom w-100">
+                              <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                 Mart
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                    <path fill="currentColor" fill-rule="evenodd" d="M12 16a4 4 0 1 0 0-8a4 4 0 0 0 0 8m0 6C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-18h2v2h-2zm6 5h2v2h-2zM5 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4-7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m8 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m2 7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4 2h2v2h-2zm-4 3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-5-4h2v2H6zM5 8h2v2H5z" />
+                                 </svg>
+                              </a>
+
+                           </li>
+
+                           <li class="nav-item border-bottom w-100">
+                              <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                 Fashion
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                    <path fill="currentColor" fill-rule="evenodd" d="M12 16a4 4 0 1 0 0-8a4 4 0 0 0 0 8m0 6C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-18h2v2h-2zm6 5h2v2h-2zM5 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4-7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m8 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m2 7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4 2h2v2h-2zm-4 3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-5-4h2v2H6zM5 8h2v2H5z" />
+                                 </svg>
+                              </a>
+
+                           </li>
+                        </ul>
+                     </div>
+
+                     <div class="mb-8">
+                        <!-- title -->
+                        <h5 class="mb-3">Stores</h5>
+                        <!-- nav -->
+                        <ul class="nav nav-category" id="categoryCollapseMenu">
+                           <li class="nav-item border-bottom w-100">
+                              <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                 Offline
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                    <path fill="currentColor" fill-rule="evenodd" d="M12 16a4 4 0 1 0 0-8a4 4 0 0 0 0 8m0 6C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-18h2v2h-2zm6 5h2v2h-2zM5 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4-7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m8 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m2 7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4 2h2v2h-2zm-4 3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-5-4h2v2H6zM5 8h2v2H5z" />
+                                 </svg>
+                              </a>
+
+                           </li>
+                           <!-- nav item -->
+                           <li class="nav-item border-bottom w-100">
+                              <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                                 Online
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                    <path fill="currentColor" fill-rule="evenodd" d="M12 16a4 4 0 1 0 0-8a4 4 0 0 0 0 8m0 6C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-18h2v2h-2zm6 5h2v2h-2zM5 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4-7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m8 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m2 7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4 2h2v2h-2zm-4 3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-5-4h2v2H6zM5 8h2v2H5z" />
+                                 </svg>
+                              </a>
+
+                           </li>
+                        </ul>
+                     </div>
+
+                     <div class="mb-8">
+                        <!-- title -->
+                        <h5 class="mb-3">Location</h5>
+                        <!-- nav -->
+                        <ul class="nav nav-category" id="">
+
+
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="location" checked />
+                                 <label class="form-check-label" for="location">Dubai</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="location" checked />
+                                 <label class="form-check-label" for="location">Sharjah</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="location" checked />
+                                 <label class="form-check-label" for="location">Abu dhabi</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="location" checked />
+                                 <label class="form-check-label" for="location">Al ain</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="location" checked />
+                                 <label class="form-check-label" for="location">Ras al kahima</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="location" checked />
+                                 <label class="form-check-label" for="location">Furjan</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+
+                        </ul>
+                     </div>
+
+                     <div class="mb-8">
+                        <!-- title -->
+                        <h5 class="mb-3">Discount Off</h5>
+                        <!-- nav -->
+                        <ul class="nav nav-category" id="">
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="discount" checked />
+                                 <label class="form-check-label" for="discount">10%</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="discount" checked />
+                                 <label class="form-check-label" for="discount">Flat Amount</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="discount" checked />
+                                 <label class="form-check-label" for="discount">BIGI</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+                        </ul>
+                     </div>
+
+                     <div class="mb-8">
+                        <!-- title -->
+                        <h5 class="mb-3">Gender</h5>
+                        <!-- nav -->
+                        <ul class="nav nav-category" id="">
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="gender" checked />
+                                 <label class="form-check-label" for="gender">Male</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+
+                           <li class="nav-item border-bottom w-100">
+                              <div class="form-check mb-2">
+                                 <!-- input -->
+                                 <input class="form-check-input" type="radio" value="" id="gender" checked />
+                                 <label class="form-check-label" for="gender">Female</label>
+                              </div>
+                              <!-- accordion collapse -->
+                           </li>
+
+                        </ul>
+                     </div>
+
+                  </div>
+               </div>
+            </aside>
+
+            <section class="col-lg-9 col-md-12">
+               <!-- card -->
+
+               <!-- list icon -->
+
+               <div class="d-lg-flex justify-content-between align-items-center">
+
+                  <div class="mb-3 mb-lg-0">
+                     <p class="mb-0">
+                        <span class="text-dark">9</span>
+                        Items found
+                     </p>
+                  </div>
+
+                  <!-- icon -->
+                  <div class="d-md-flex justify-content-between align-items-center">
+
+                     <div class="d-flex align-items-center justify-content-between">
+
+                        <div class="ms-2 d-lg-none">
+                           <a class="btn btn-outline-gray-400 text-muted" data-bs-toggle="offcanvas" href="#offcanvasCategory" role="button" aria-controls="offcanvasCategory">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter me-2">
+                                 <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                              </svg>
+                              Filters
+                           </a>
+                        </div>
+                     </div>
+
+                     <div class="d-flex mt-2 mt-lg-0">
+                        <div class="me-2 flex-grow-1">
+
+                           <select class="form-control form-control-sm">
+                              <option selected>Show: 50</option>
+                              <option value="10">10</option>
+                              <option value="20">20</option>
+                              <option value="30">30</option>
+                           </select>
+                        </div>
+                        <div>
+
+                           <select class="form-control form-control-sm">
+                              <option selected>Sort by: Featured</option>
+                              <option value="Low to High">Price: Low to High</option>
+                              <option value="High to Low">Price: High to Low</option>
+                              <option value="Release Date">Release Date</option>
+                              <option value="Avg. Rating">Avg. Rating</option>
+                           </select>
+                        </div>
+                     </div>
+
+                  </div>
+
+               </div>
+               <!-- row -->
+               <div class="row mt-1">
+
+                  @foreach($retailers as $val)
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Namshi">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/nmshi.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  @endforeach
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-success">cashback 14%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Noonz">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/noonz.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-success">cashback 14%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Aldo">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/aldo.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-success">cashback 14%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Alsaif-Gallery">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/alsaif_gallery.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-success">cashback 14%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Brand-For-Less">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product?store_name=Homzmart">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/homzmart.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Anotah">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/anotah.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Aldo">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/aldo.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Brand-For-Less">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Brand-For-Less">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Brand-For-Less">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+
+                  <!-- col -->
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                     <!-- card -->
+                     <div class="card card-product">
+                        <div class="card-body">
+                           <!-- badge -->
+                           <div class="text-center position-relative px-1 py-1 mb-3">
+                              <div class="position-absolute top-0 start-10">
+                                 <span class="badge bg-danger">Sale 50%</span>
+                              </div>
+                              <a href="store-single-product.php?store_name=Brand-For-Less">
+                                 <!-- img -->
+                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
+                              </a>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+                  <!-- col -->
+               </div>
+               <!-- row -->
+               <div class="row mt-8 text-center">
+                  <div class="col">
+                     <!-- nav -->
+                     <nav>
+                        <ul class="pagination">
+                           <li class="page-item disabled">
+                              <a class="page-link mx-1" href="#" aria-label="Previous">
+                                 <i class="feather-icon icon-chevron-left"></i>
+                              </a>
+                           </li>
+                           <li class="page-item"><a class="page-link mx-1 active" href="#">1</a></li>
+                           <li class="page-item"><a class="page-link mx-1" href="#">2</a></li>
+
+                           <li class="page-item"><a class="page-link mx-1" href="#">...</a></li>
+                           <li class="page-item"><a class="page-link mx-1" href="#">12</a></li>
+                           <li class="page-item">
+                              <a class="page-link mx-1" href="#" aria-label="Next">
+                                 <i class="feather-icon icon-chevron-right"></i>
+                              </a>
+                           </li>
+                        </ul>
+                     </nav>
+                  </div>
+               </div>
+            </section>
+
+         </div>
+      </div>
+   </div>
+   <!-- categoires section end-->
+
+
+<!--Ads Section 1 Start Here-->
+   <section class="my-lg-12 my-8">
+      <div class="container ad-container np-container">
+         <div class="row">
+            <div class="col-12">
+               <img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}">
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--Ads Section 1 End Here-->
+
+
+@endsection

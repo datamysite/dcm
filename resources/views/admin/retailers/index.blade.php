@@ -144,6 +144,20 @@
                 <label>Slug <span>{{env('APP_DOMAIN')}}<strong>"slug-here"</strong></span></label>
                 <input type="text" class="form-control retailerSlug" name="slug" required>
               </div>
+              <div class="form-group form-control type-radio">
+                <div class="custom-radio">
+                  <input class="custom-control-input" type="radio" id="type1" name="type" value="1" checked="">
+                  <label for="type1" class="custom-control-label">Online</label>
+                </div>
+                <div class="custom-radio">
+                  <input class="custom-control-input" type="radio" id="type2" name="type" value="2">
+                  <label for="type2" class="custom-control-label">Retail</label>
+                </div>
+                <div class="custom-radio">
+                  <input class="custom-control-input" type="radio" id="type3" name="type" value="3">
+                  <label for="type3" class="custom-control-label">Both</label>
+                </div>
+              </div>
               <div class="form-group">
                 <label>Operational Countries</label>
                 <select class="form-control" name="country[]" multiple required>

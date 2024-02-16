@@ -30,6 +30,16 @@ Route::namespace('web')->group(function () {
     //Home
     Route::get('/', 'HomeController@index')->name('home');
 
+
+    //Listing
+    Route::prefix('stores')->group(function(){
+        Route::get('/{type}', 'ListingController@index')->name('stores');
+    });
+
+
+
+
+
     //About-Us
     Route::get('/About-Us', 'HomeController@About_Us')->name('About_Us');
 

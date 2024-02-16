@@ -30,6 +30,20 @@
           <label>Slug <span>{{env('APP_DOMAIN')}}<strong>"slug-here"</strong></span></label>
           <input type="text" class="form-control editRetailerSlug" value="{{$data->slug}}" name="slug" required>
         </div>
+        <div class="form-group form-control type-radio">
+          <div class="custom-radio">
+            <input class="custom-control-input" type="radio" id="type4" name="type" value="1" {{$data->type == '1' ? 'checked' : ''}}>
+            <label for="type4" class="custom-control-label">Online</label>
+          </div>
+          <div class="custom-radio">
+            <input class="custom-control-input" type="radio" id="type5" name="type" value="2" {{$data->type == '2' ? 'checked' : ''}}>
+            <label for="type5" class="custom-control-label">Retail</label>
+          </div>
+          <div class="custom-radio">
+            <input class="custom-control-input" type="radio" id="type6" name="type" value="3" {{$data->type == '3' ? 'checked' : ''}}>
+            <label for="type6" class="custom-control-label">Both</label>
+          </div>
+        </div>
         <div class="form-group">
           <label>Operational Countries</label>
           <select class="form-control" name="country[]" multiple required>
