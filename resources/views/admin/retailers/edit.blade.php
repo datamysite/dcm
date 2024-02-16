@@ -76,7 +76,7 @@
       </div>
       <div class="col-md-9">
         <div class="form-group">
-          <label>Online Store Link# <small>(Optional)</small></label>
+          <label>Link# <small>(Optional)</small></label>
           <input type="url" class="form-control" name="store_link" value="{{$data->store_link}}">
         </div>
       </div>
@@ -97,8 +97,8 @@
       </div>
       <div class="col-md-8">
         <div class="form-group">
-          <label>Discount Tags</label>
-          <input type="text" class="form-control" name="discount_tags" value="{{$data->discount_tags}}" required>
+          <label>Discount Tags <small>(Optional)</small></label>
+          <input type="text" class="form-control" name="discount_tags" value="{{$data->discount_tags}}">
         </div>
       </div>
     </div>

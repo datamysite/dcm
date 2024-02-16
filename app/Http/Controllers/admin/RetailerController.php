@@ -46,7 +46,7 @@ class RetailerController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['name']) || empty($data['slug']) || empty($data['discount_upto']) || empty($data['discount_tags'])) {
+        if (empty($data['name']) || empty($data['slug']) || empty($data['discount_upto'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         }else{
@@ -100,7 +100,7 @@ class RetailerController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['name']) || empty($data['slug']) || empty($data['discount_upto']) || empty($data['discount_tags'])) {
+        if (empty($data['name']) || empty($data['slug']) || empty($data['discount_upto'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         }else{

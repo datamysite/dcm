@@ -63,14 +63,14 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label>Discount Tags</label>
+          <label>Discount Tags <small>(Optional)</small></label>
           <input type="text" class="form-control" name="discount_tags" value="{{$data->discount_tags}}">
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <label>DCM Cashback % <small>(Optional)</small></label>
-          <input type="number" class="form-control discountCalculate dcmCashback" value="{{$data->dcm_cashback}}" value="0" min="1" max="100" name="dcm_cashback">
+          <input type="number" class="form-control discountCalculate dcmCashback" value="{{$data->dcm_cashback}}" value="0" min="0" max="100" name="dcm_cashback">
         </div>
       </div>
     </div>

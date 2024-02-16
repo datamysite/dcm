@@ -193,8 +193,8 @@
             </div>
             <div class="col-md-8">
               <div class="form-group">
-                <label>Discount Tags</label>
-                <input type="text" class="form-control" name="discount_tags" required>
+                <label>Discount Tags <small>(Optional)</small></label>
+                <input type="text" class="form-control" name="discount_tags">
               </div>
             </div>
           </div>

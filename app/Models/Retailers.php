@@ -23,7 +23,7 @@ class Retailers extends Model
         $r->store_link = empty($data['store_link']) ? '' : $data['store_link'];
         $r->link_type = empty($data['store_link']) ? '' : $data['link_type'];
         $r->discount_upto = $data['discount_upto'];
-        $r->discount_tags = $data['discount_tags'];
+        $r->discount_tags = empty($data['discount_tags']) ? '' : $data['discount_tags'];
         $r->status = '1';
         $r->created_by = Auth::guard('admin')->id();
         $r->save();
@@ -54,7 +54,7 @@ class Retailers extends Model
         $r->store_link = empty($data['store_link']) ? '' : $data['store_link'];
         $r->link_type = empty($data['store_link']) ? '' : $data['link_type'];
         $r->discount_upto = $data['discount_upto'];
-        $r->discount_tags = $data['discount_tags'];
+        $r->discount_tags = empty($data['discount_tags']) ? '' : $data['discount_tags'];
         $r->save();
 
         RetailerCountries::where('retailer_id', $id)->delete();
