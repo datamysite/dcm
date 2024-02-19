@@ -25,6 +25,8 @@ class ListingController extends Controller
         $data['retailer'] = Retailers::where('slug', $brand_slug)->first();
         $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)->where('status', '1')->get();
         
+        ClicksCounter::hitCount('1', $data['retailer']->id);
+
         return view('web.listing.brand')->with($data);
     }
 
