@@ -47,7 +47,7 @@
                             <span style="color:#fff;"></span>
 
                             <span class="col text-center">
-                                <input type="submit" name="sing-up" class="btn btn-white shadow-green " style="font-weight:bold; color:#1dace3;" value="SHOW COUPON">
+                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">SHOW COUPON</a>
                             </span>
                         </div>
                     </div>
@@ -149,4 +149,40 @@
 </section>
 <!-- Store Prodcut Section End-->
 
+
+
+<div class="modal fade" id="ShowCouponModal" tabindex="-1" aria-labelledby="ShowCouponModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content" style="background-color: #fff;">
+
+        <div class="grap_deal_container">
+           <div class="grap_deal_header">
+              <h1>ONLINE</h1>
+           </div>
+           <div class="grap_deal_main">
+              
+           </div>
+        </div>
+
+     </div>
+  </div>
+</div>
+@endsection
+
+@section('addScript')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            'use strict'
+
+            $(document).on('click', '.showCoupon', function(){
+                var id = $(this).data('id');
+                $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
+                $('#ShowCouponModal').modal('show');
+                $.get("{{URL::to('/store/coupon')}}/"+id, function(data){
+                    $('#ShowCouponModal .grap_deal_main').html(data);
+                });
+            });
+
+        });
+    </script>
 @endsection

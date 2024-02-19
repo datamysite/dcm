@@ -185,7 +185,7 @@
 <!-- Javascript-->
 
 @include('web.includes.script')
-
+@yield('addScript')
 </body>
 
 </html>

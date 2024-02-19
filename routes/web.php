@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
 //Migration
@@ -35,9 +31,17 @@ Route::namespace('web')->group(function () {
     Route::prefix('stores')->group(function(){
         Route::get('/{type}', 'ListingController@index')->name('stores');
     });
+
     Route::prefix('store')->group(function(){
         Route::get('/{brand_slug}', 'ListingController@brand')->name('brand');
+
+
+        Route::get('/coupon/{id}', 'ListingController@show_coupon')->name('brand');
     });
+
+    $suffix_category = '/c';
+    Route::get('{cat_slug}'.$suffix_category, 'ListingController@category')->name('category');
+    Route::get('{cat_slug}/{type}'.$suffix_category, 'ListingController@category_sub')->name('category.sub');
 
 
 

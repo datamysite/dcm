@@ -12,7 +12,8 @@
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
-                  <li class="breadcrumb-item active"><a href="javascript:void(0)" style="color: #000;"><strong>{{$category->name}}</strong></a></li>
+                  <li class="breadcrumb-item"><a href="javascript:void(0)" style="color: #000;"><strong>{{$category->name}}</strong></a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><strong>{{$type}}</strong></li>
                </ol>
             </nav>
          </div>
@@ -37,7 +38,7 @@
                    $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                @endphp
                <div class="item {{$val->id == $category->id ? 'active' : ''}}">
-                  <a href="{{route('category', $slug)}}" class="text-decoration-none text-inherit">
+                  <a href="{{route('category.sub', [$slug, $type])}}" class="text-decoration-none text-inherit">
                      <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="Mart" class="img-fluid" />
                      <div class="text-truncate">{{$val->name}}</div>
                   </a>
