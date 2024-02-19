@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\RetailerCountries;
 use App\Models\RetailerCategories;
+use App\Models\RetailerBlogs;
 use App\Models\Admin;
 use Auth;
 
@@ -85,6 +86,10 @@ class Retailers extends Model
 
     public function categories(){
         return $this->hasMany(RetailerCategories::class, 'retailer_id', 'id');
+    }
+
+    public function blogs(){
+        return $this->hasMany(RetailerBlogs::class, 'retailer_id', 'id');
     }
 
     public function user(){

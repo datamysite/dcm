@@ -250,332 +250,115 @@
             <section class="col-lg-9 col-md-12">
                <!-- card -->
 
-               <!-- list icon -->
+               @if(count($retailers) != 0)
+                  <!-- list icon -->
 
-               <div class="d-lg-flex justify-content-between align-items-center">
+                  <div class="d-lg-flex justify-content-between align-items-center">
 
-                  <div class="mb-3 mb-lg-0">
-                     <p class="mb-0">
-                        <span class="text-dark">9</span>
-                        Items found
-                     </p>
-                  </div>
-
-                  <!-- icon -->
-                  <div class="d-md-flex justify-content-between align-items-center">
-
-                     <div class="d-flex align-items-center justify-content-between">
-
-                        <div class="ms-2 d-lg-none">
-                           <a class="btn btn-outline-gray-400 text-muted" data-bs-toggle="offcanvas" href="#offcanvasCategory" role="button" aria-controls="offcanvasCategory">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter me-2">
-                                 <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-                              </svg>
-                              Filters
-                           </a>
-                        </div>
+                     <div class="mb-3 mb-lg-0">
+                        <p class="mb-0">
+                           <span class="text-dark">9</span>
+                           Items found
+                        </p>
                      </div>
 
-                     <div class="d-flex mt-2 mt-lg-0">
-                        <div class="me-2 flex-grow-1">
+                     <!-- icon -->
+                     <div class="d-md-flex justify-content-between align-items-center">
 
-                           <select class="form-control form-control-sm">
-                              <option selected>Show: 50</option>
-                              <option value="10">10</option>
-                              <option value="20">20</option>
-                              <option value="30">30</option>
-                           </select>
-                        </div>
-                        <div>
+                        <div class="d-flex align-items-center justify-content-between">
 
-                           <select class="form-control form-control-sm">
-                              <option selected>Sort by: Featured</option>
-                              <option value="Low to High">Price: Low to High</option>
-                              <option value="High to Low">Price: High to Low</option>
-                              <option value="Release Date">Release Date</option>
-                              <option value="Avg. Rating">Avg. Rating</option>
-                           </select>
-                        </div>
-                     </div>
-
-                  </div>
-
-               </div>
-               <!-- row -->
-               <div class="row mt-1">
-
-                  @foreach($retailers as $val)
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-danger">Sale 50%</span>
-                              </div>
-                              <a href="store-single-product.php?store_name=Namshi">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/nmshi.png" alt="" class="mb-5 img-fluid" />
+                           <div class="ms-2 d-lg-none">
+                              <a class="btn btn-outline-gray-400 text-muted" data-bs-toggle="offcanvas" href="#offcanvasCategory" role="button" aria-controls="offcanvasCategory">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter me-2">
+                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                 </svg>
+                                 Filters
                               </a>
                            </div>
                         </div>
-                     </div>
-                  </div>
 
-                  @endforeach
+                        <div class="d-flex mt-2 mt-lg-0">
+                           <div class="me-2 flex-grow-1">
 
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-success">cashback 14%</span>
-                              </div>
-                              <a href="store-single-product.php?store_name=Noonz">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/noonz.png" alt="" class="mb-5 img-fluid" />
-                              </a>
+                              <select class="form-control form-control-sm">
+                                 <option selected>Show: 50</option>
+                                 <option value="10">10</option>
+                                 <option value="20">20</option>
+                                 <option value="30">30</option>
+                              </select>
+                           </div>
+                           <div>
+
+                              <select class="form-control form-control-sm">
+                                 <option selected>Sort by: Featured</option>
+                                 <option value="Low to High">Price: Low to High</option>
+                                 <option value="High to Low">Price: High to Low</option>
+                                 <option value="Release Date">Release Date</option>
+                                 <option value="Avg. Rating">Avg. Rating</option>
+                              </select>
                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <!-- col -->
 
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-success">cashback 14%</span>
+                     </div>
+
+                  </div>
+                  <!-- row -->
+                  <div class="row mt-1">
+
+                     @foreach($retailers as $val)
+                        <!-- col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                           <!-- card -->
+                           <div class="card card-product">
+                              <div class="card-body">
+                                 <!-- badge -->
+                                 <div class="text-center position-relative px-1 py-1 mb-3">
+                                    <div class="position-absolute top-0 start-10">
+                                       <span class="badge bg-danger">Discount Upto {{$val->discount_upto}}%</span>
+                                    </div>
+                                    <a href="{{route('brand', $val->slug)}}">
+                                       <!-- img -->
+                                       <img src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="" class="mb-5 img-fluid" />
+                                    </a>
+                                 </div>
                               </div>
-                              <a href="store-single-product.php?store_name=Aldo">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/aldo.png" alt="" class="mb-5 img-fluid" />
-                              </a>
                            </div>
                         </div>
+                     @endforeach
+
+                  </div>
+                  <!-- row -->
+                  <div class="row mt-8 text-center">
+                     <div class="col">
+                        <!-- nav -->
+                        <nav>
+                           <ul class="pagination">
+                              <li class="page-item disabled">
+                                 <a class="page-link mx-1" href="#" aria-label="Previous">
+                                    <i class="feather-icon icon-chevron-left"></i>
+                                 </a>
+                              </li>
+                              <li class="page-item"><a class="page-link mx-1 active" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link mx-1" href="#">2</a></li>
+
+                              <li class="page-item"><a class="page-link mx-1" href="#">...</a></li>
+                              <li class="page-item"><a class="page-link mx-1" href="#">12</a></li>
+                              <li class="page-item">
+                                 <a class="page-link mx-1" href="#" aria-label="Next">
+                                    <i class="feather-icon icon-chevron-right"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </nav>
                      </div>
                   </div>
-
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-success">cashback 14%</span>
-                              </div>
-                              <a href="store-single-product.php?store_name=Alsaif-Gallery">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/alsaif_gallery.png" alt="" class="mb-5 img-fluid" />
-                              </a>
-                           </div>
-                        </div>
+               @else
+                  <div class="row">
+                     <div class="col-lg-12 brand-coming">
+                        <img src="{{URL::to('/public/product-loader.webp')}}">
                      </div>
                   </div>
-                  <!-- col -->
-
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-success">cashback 14%</span>
-                              </div>
-                              <a href="store-single-product.php?store_name=Brand-For-Less">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
-                              </a>
-                           </div>
-
-                        </div>
-                     </div>
-                  </div>
-                  <!-- col -->
-
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-danger">Sale 50%</span>
-                              </div>
-                              <a href="store-single-product?store_name=Homzmart">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/homzmart.png" alt="" class="mb-5 img-fluid" />
-                              </a>
-                           </div>
-
-                        </div>
-                     </div>
-                  </div>
-                  <!-- col -->
-
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-danger">Sale 50%</span>
-                              </div>
-                              <a href="store-single-product.php?store_name=Anotah">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/anotah.png" alt="" class="mb-5 img-fluid" />
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- col -->
-
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-danger">Sale 50%</span>
-                              </div>
-                              <a href="store-single-product.php?store_name=Aldo">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/aldo.png" alt="" class="mb-5 img-fluid" />
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- col -->
-
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-danger">Sale 50%</span>
-                              </div>
-                              <a href="store-single-product.php?store_name=Brand-For-Less">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
-                              </a>
-                           </div>
-
-                        </div>
-                     </div>
-                  </div>
-                  <!-- col -->
-
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-danger">Sale 50%</span>
-                              </div>
-                              <a href="store-single-product.php?store_name=Brand-For-Less">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
-                              </a>
-                           </div>
-
-                        </div>
-                     </div>
-                  </div>
-                  <!-- col -->
-
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-danger">Sale 50%</span>
-                              </div>
-                              <a href="store-single-product.php?store_name=Brand-For-Less">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
-                              </a>
-                           </div>
-
-                        </div>
-                     </div>
-                  </div>
-                  <!-- col -->
-
-                  <!-- col -->
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                     <!-- card -->
-                     <div class="card card-product">
-                        <div class="card-body">
-                           <!-- badge -->
-                           <div class="text-center position-relative px-1 py-1 mb-3">
-                              <div class="position-absolute top-0 start-10">
-                                 <span class="badge bg-danger">Sale 50%</span>
-                              </div>
-                              <a href="store-single-product.php?store_name=Brand-For-Less">
-                                 <!-- img -->
-                                 <img src="{{URL::to('/public')}}/web_assets/images/Adv/brand_for_less.png" alt="" class="mb-5 img-fluid" />
-                              </a>
-                           </div>
-
-                        </div>
-                     </div>
-                  </div>
-                  <!-- col -->
-               </div>
-               <!-- row -->
-               <div class="row mt-8 text-center">
-                  <div class="col">
-                     <!-- nav -->
-                     <nav>
-                        <ul class="pagination">
-                           <li class="page-item disabled">
-                              <a class="page-link mx-1" href="#" aria-label="Previous">
-                                 <i class="feather-icon icon-chevron-left"></i>
-                              </a>
-                           </li>
-                           <li class="page-item"><a class="page-link mx-1 active" href="#">1</a></li>
-                           <li class="page-item"><a class="page-link mx-1" href="#">2</a></li>
-
-                           <li class="page-item"><a class="page-link mx-1" href="#">...</a></li>
-                           <li class="page-item"><a class="page-link mx-1" href="#">12</a></li>
-                           <li class="page-item">
-                              <a class="page-link mx-1" href="#" aria-label="Next">
-                                 <i class="feather-icon icon-chevron-right"></i>
-                              </a>
-                           </li>
-                        </ul>
-                     </nav>
-                  </div>
-               </div>
+               @endif
             </section>
 
          </div>

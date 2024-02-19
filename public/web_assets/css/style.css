@@ -191,6 +191,26 @@
     padding: 0px 10px;
     height: 30px;
 }
+.card-product img {
+    border-radius: 12px;
+}
+.brand-coming {
+    display: flex;
+    justify-content: center;
+}
+.brand-coming img {
+    width: 500px;
+    margin-top: 50px;
+}
+.Lside_div img {
+    box-shadow: inset 0 -3em 3em rgb(255 255 255 / 30%), 0 0 0 2px #ffffff00, 0.3em 0.3em 1em rgb(0 0 0 / 45%);
+}
+.main_div_container .row span {
+    font-size: 24px;
+}
+.retailer-blog-content {
+    margin-bottom: 45px;
+}
 
 
 
