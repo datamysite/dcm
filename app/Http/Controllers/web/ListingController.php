@@ -66,12 +66,12 @@ class ListingController extends Controller
          $response = $client->get("https://ipinfo.io/{$userIp}?token=91b28de1f957f7");
         // Parse the JSON response
          $data = json_decode($response->getBody());
+         return json_encode($data);
         // Extract user information
          $data_l['location'] = $data->loc;
          $data_l['country'] = $data->country;
          $data_l['currency'] = $data->currency;
 
-         return json_encode($data_l);
         $id = base64_decode($id);
         $data['coupon'] = Coupon::find($id);
 
