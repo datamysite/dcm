@@ -34,8 +34,8 @@ Route::namespace('web')->group(function () {
     //Listing
     Route::prefix('stores')->group(function(){
         Route::get('/{type}', 'ListingController@index')->name('stores');
+        Route::get('/{brand_slug}', 'ListingController@brand')->name('brand');
     });
-    Route::get('/{brand_slug}', 'ListingController@brand')->name('brand');
 
 
 

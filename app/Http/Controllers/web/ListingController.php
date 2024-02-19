@@ -13,7 +13,7 @@ class ListingController extends Controller
         $data['type'] = $type;
         $type = ($type == 'online' ? '1' : '2');
 
-        $data['retailers'] = Retailers::where('type', $type)->get();
+        $data['retailers'] = Retailers::where('type', $type)->paginate(12);
 
         return view('web.listing.index')->with($data);
     }

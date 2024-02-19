@@ -255,13 +255,8 @@
 
                   <div class="d-lg-flex justify-content-between align-items-center">
 
-                     <div class="mb-3 mb-lg-0">
-                        <p class="mb-0">
-                           <span class="text-dark">9</span>
-                           Items found
-                        </p>
-                     </div>
-
+                     {{ $retailers->links('vendor.pagination.label') }}
+                     
                      <!-- icon -->
                      <div class="d-md-flex justify-content-between align-items-center">
 
@@ -312,10 +307,8 @@
                            <div class="card card-product">
                               <div class="card-body">
                                  <!-- badge -->
-                                 <div class="text-center position-relative px-1 py-1 mb-3">
-                                    <div class="position-absolute top-0 start-10">
-                                       <span class="badge bg-danger">Discount Upto {{$val->discount_upto}}%</span>
-                                    </div>
+                                 <div class="text-center position-relative py-1 mb-3 box">
+                                    <div class="ribbon-2">Discount Upto {{$val->discount_upto}}%</div>
                                     <a href="{{route('brand', $val->slug)}}">
                                        <!-- img -->
                                        <img src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="" class="mb-5 img-fluid" />
@@ -328,28 +321,11 @@
 
                   </div>
                   <!-- row -->
+
                   <div class="row mt-8 text-center">
                      <div class="col">
                         <!-- nav -->
-                        <nav>
-                           <ul class="pagination">
-                              <li class="page-item disabled">
-                                 <a class="page-link mx-1" href="#" aria-label="Previous">
-                                    <i class="feather-icon icon-chevron-left"></i>
-                                 </a>
-                              </li>
-                              <li class="page-item"><a class="page-link mx-1 active" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link mx-1" href="#">2</a></li>
-
-                              <li class="page-item"><a class="page-link mx-1" href="#">...</a></li>
-                              <li class="page-item"><a class="page-link mx-1" href="#">12</a></li>
-                              <li class="page-item">
-                                 <a class="page-link mx-1" href="#" aria-label="Next">
-                                    <i class="feather-icon icon-chevron-right"></i>
-                                 </a>
-                              </li>
-                           </ul>
-                        </nav>
+                        {{ $retailers->links() }}
                      </div>
                   </div>
                @else

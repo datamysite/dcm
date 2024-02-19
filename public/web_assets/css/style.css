@@ -213,6 +213,27 @@
 }
 
 
+.ribbon-2 {
+    --f: 10px;
+    --r: 10px;
+    --t: 26px;
+    position: absolute;
+    inset: var(--t) calc(-1*var(--f)) auto auto;
+    padding: 0 10px var(--f) calc(10px + var(--r));
+    clip-path: polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%, calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)), var(--r) calc(50% - var(--f)/2));
+    background: #fa6900;
+    box-shadow: 0 calc(-1*var(--f)) 0 inset #00000054;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.box {
+  position:relative;
+}
+
+
 
 /* Responsives */
 @media (max-width: 990px) {
