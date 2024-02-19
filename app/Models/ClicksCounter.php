@@ -13,7 +13,7 @@ class ClicksCounter extends Model
     protected $table = 'clicks_counter';
 
 
-    public static function hitCount($type, $id){
+    public static function hitCount($type, $id, $coup_id = null){
 
         $userIp = ClicksCounter::getIPAddress();
         $client = new Client();
@@ -22,6 +22,11 @@ class ClicksCounter extends Model
 
          $cc = new ClicksCounter;
          $cc->retailer_id = $id;
+         if($type == 2){
+            $cc->coupon_id = $coup_id;
+         }elseif(){
+            $cc->offer_id = $coup_id;
+         }
          $cc->type = $type;
          $cc->ipaddress = $data->ip;
          $cc->coordinates = empty($data->loc) ? '' : $data->loc;

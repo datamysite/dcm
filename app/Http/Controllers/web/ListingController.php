@@ -64,8 +64,8 @@ class ListingController extends Controller
         $id = base64_decode($id);
         $data['coupon'] = Coupon::find($id);
 
-        ClicksCounter::hitCount('2', $data['coupon']->retailer_id);
-        
+        ClicksCounter::hitCount('2', $data['coupon']->retailer_id, $data['coupon']->id);
+
         return view('web.listing.modal.coupon')->with($data);
     }
 
