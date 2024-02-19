@@ -36,7 +36,7 @@ Route::namespace('web')->group(function () {
         Route::get('/{brand_slug}', 'ListingController@brand')->name('brand');
 
 
-        Route::get('/coupon/{id}', 'ListingController@show_coupon')->name('brand');
+        Route::get('/coupon/{id}', 'ListingController@show_coupon');
     });
 
     $suffix_category = '/c';
