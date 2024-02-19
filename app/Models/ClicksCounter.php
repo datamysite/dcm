@@ -24,7 +24,7 @@ class ClicksCounter extends Model
          $cc->retailer_id = $id;
          if($type == 2){
             $cc->coupon_id = $coup_id;
-         }elseif(){
+         }elseif($type == 3){
             $cc->offer_id = $coup_id;
          }
          $cc->type = $type;
