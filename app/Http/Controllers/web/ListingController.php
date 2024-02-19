@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Retailers;
 use App\Models\Coupon;
 use App\Models\Categories;
+use App\Models\ClicksCounter;
 
 class ListingController extends Controller
 {
@@ -60,21 +61,11 @@ class ListingController extends Controller
     }
 
     public function show_coupon($id){
-        $userIp = ListingController::getIPAddress();
-        //dd($userIp);
-        $client = new Client();
-         $response = $client->get("https://ipinfo.io/{$userIp}?token=91b28de1f957f7");
-        // Parse the JSON response
-         $data = json_decode($response->getBody());
-         return json_encode($data);
-        // Extract user information
-         $data_l['location'] = $data->loc;
-         $data_l['country'] = $data->country;
-         $data_l['currency'] = $data->currency;
-
         $id = base64_decode($id);
         $data['coupon'] = Coupon::find($id);
 
+        ClicksCounter::hitCount('2', $data['coupon']->retailer_id);
+        
         return view('web.listing.modal.coupon')->with($data);
     }
 
@@ -85,20 +76,5 @@ class ListingController extends Controller
         $string = str_replace('and','&',$string);
         $string = ucwords($string);
         return $string;
-    }
-    function getIPAddress() {  
-        //whether ip is from the share internet  
-         if(!empty($_SERVER['HTTP_CLIENT_IP'])) {  
-                    $ip = $_SERVER['HTTP_CLIENT_IP'];  
-            }  
-        //whether ip is from the proxy  
-        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
-                    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];  
-         }  
-    //whether ip is from the remote address  
-        else{  
-                 $ip = $_SERVER['REMOTE_ADDR'];  
-         }  
-         return $ip;  
-    }  
+    } 
 }
