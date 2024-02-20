@@ -10,6 +10,7 @@ use App\Models\Coupon;
 use App\Models\Categories;
 use App\Models\Countries;
 use App\Models\ClicksCounter;
+use App\Models\Testimonials;
 use App\Models\States;
 
 class ListingController extends Controller
@@ -26,6 +27,7 @@ class ListingController extends Controller
     public function brand($brand_slug){
         $data['retailer'] = Retailers::where('slug', $brand_slug)->first();
         $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)->where('status', '1')->get();
+        $data['testimonials'] = Testimonials::where('status', '1')->get();
         
         ClicksCounter::hitCount('1', $data['retailer']->id);
 

@@ -469,6 +469,15 @@
 .modal {
     z-index: 99999999;
 }
+#slider-reviews .item .bg-light {
+    height: 270px;
+}
+#retailerBlogs{
+    display: none;
+}
+.blogToggle{
+    cursor: pointer;
+}
 
 
 

@@ -26534,10 +26534,10 @@ span.flatpickr-weekday {
 .avatar {
   width: 100px;
   height: 100px;
-  background: url("../images/avatar/avatar-4.jpg");
   background-size: cover;
   position: relative;
   margin: 0 auto;
+  border: 2px solid #1caae2;
 }
 
 .cus_profile .avatar .camera {

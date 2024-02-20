@@ -57,89 +57,49 @@
         @endforeach
 
 
-        <div> 
+        <div class="container np-container"> 
             <div class="row mt-16">
                 <div class="col-12 mb- text-center">
                     <h3 class="mb-5">Feedback</h3>
                 </div>
             </div>
 
-            <div class="row col-lg-12 mt-10">
+            <div class="mt-10 review-slider-second" id="slider-reviews">
 
-                <div class="col-lg-4">
-                    <div class="mb-8">
+                @foreach($testimonials as $val)
+                    <div class="item">
+                        <div class="mb-8">
 
-                        <div class="card bg-light border-0" style="border-radius: 10px;">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <img src="{{URL::to('/public')}}/web_assets/images/avatar/avatar-10.jpg" alt="" class="avatar avatar-md rounded-circle" />
+                            <div class="card bg-light border-0" style="border-radius: 10px;">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <img src="{{URL::to('/public')}}/web_assets/images/reviews/{{$val->gender}}/{{rand(1,3)}}.png" alt="" class="avatar avatar-md rounded-circle" />
+                                    </div>
+                                    <div class="ms-3 lh-1">
+                                        <h6 class="mb-0">{{$val->name}}</h6>
+                                        <small>Customer</small>
+                                    </div>
                                 </div>
-                                <div class="ms-3 lh-1">
-                                    <h6 class="mb-0">Alishia Jones</h6>
-                                    <small>Customer</small>
+                                <div class="card-body p-5">
+                                    <p>{{$val->description}}</p>
                                 </div>
-                            </div>
-                            <div class="card-body p-5">
-                                <h6>Lorem ipsum dolor</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipis cing elit. Curabitur iaculis maximus purus, a gravida dui tempor eget.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="mb-8">
-
-                        <div class="card bg-light border-0" style="border-radius: 10px;">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <img src="{{URL::to('/public')}}/web_assets/images/avatar/avatar-5.jpg" alt="" class="avatar avatar-md rounded-circle" />
-                                </div>
-                                <div class="ms-3 lh-1">
-                                    <h6 class="mb-0">Alishia Jones</h6>
-                                    <small>Customer</small>
-                                </div>
-                            </div>
-                            <div class="card-body p-5">
-                                <h6>Lorem ipsum dolor</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipis cing elit. Curabitur iaculis maximus purus, a gravida dui tempor eget.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="mb-8">
-
-                        <div class="card bg-light border-0" style="border-radius: 10px;">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <img src="{{URL::to('/public')}}/web_assets/images/avatar/avatar-4.jpg" alt="" class="avatar avatar-md rounded-circle" />
-                                </div>
-                                <div class="ms-3 lh-1">
-                                    <h6 class="mb-0">Alishia Jones</h6>
-                                    <small>Customer</small>
-                                </div>
-                            </div>
-                            <div class="card-body p-5">
-                                <h6>Lorem ipsum dolor</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipis cing elit. Curabitur iaculis maximus purus, a gravida dui tempor eget.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 
 
 
-        <div>
+        <div class=" mb-14 ">
             <div class="row mt-10">
-                <div class="col-12 mb- text-center">
+                <div class="col-12 text-center blogToggle">
                     <h3 class="mb-5 page-title">About {{$retailer->name}}</h3>
+                    <span><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
                 </div>
             </div>
-            <div class="retailer-blog-content">
+            <div class="retailer-blog-content" id="retailerBlogs">
                 @foreach($retailer->blogs as $val)
                     {!! $val->description !!}
                 @endforeach
@@ -178,6 +138,10 @@
                 $.get("{{URL::to('/store/coupon')}}/"+id, function(data){
                     $('#ShowCouponModal .grap_deal_main').html(data);
                 });
+            });
+
+            $(document).on('click', '.blogToggle', function(){
+                $('#retailerBlogs').toggle();
             });
 
         });
