@@ -152,13 +152,10 @@
 
 
 <div class="modal fade" id="ShowCouponModal" tabindex="-1" aria-labelledby="ShowCouponModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-     <div class="modal-content" style="background-color: #fff;">
+  <div class="modal-dialog modal-dialog-centered" style="justify-content: center;">
+     <div class="modal-content">
 
         <div class="grap_deal_container">
-           <div class="grap_deal_header">
-              <h1>ONLINE</h1>
-           </div>
            <div class="grap_deal_main">
               
            </div>

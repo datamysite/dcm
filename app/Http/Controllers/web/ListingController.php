@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use App\Models\Retailers;
 use App\Models\Coupon;
 use App\Models\Categories;
+use App\Models\Countries;
 use App\Models\ClicksCounter;
+use App\Models\States;
 
 class ListingController extends Controller
 {
@@ -34,12 +36,27 @@ class ListingController extends Controller
     public function category_sub($cat_slug, $type){
         $data['type'] = $type;
         $type = ($type == 'online' ? '1' : '2');
+
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
+        //dd(ListingController::sanitizeStringForUrl($cat_slug));
+        //Filters -- start
+        $data['categories_f'] = Categories::select('id', 'name', 'type')
+                                                ->where('parent_id', 0)
+                                                ->where('status', '1')
+                                                ->when($type == '1', function($q){
+                                                    return $q->where('type', 3);
+                                                })
+                                                ->get();
+        $data['subcategories_f'] = Categories::select('id', 'name', 'type')->where('parent_id', $data['category']->id)->where('status', '1')->get();
+        $data['countries_f'] = Countries::select('id', 'name')->get();
+        $data['states_f'] = States::select('id', 'name')->get();
+        //Filter -- end
+
         if($type == '1'){
-            $data['categories'] = Categories::where('parent_id', 0)->where('type', 3)->get();
+            $data['categories'] = Categories::where('parent_id', 0)->where('type', 3)->where('status', '1')->get();
                                     //dd($data);
         }else{
-            $data['categories'] = Categories::where('parent_id', $data['category']->id)->get();
+            $data['categories'] = Categories::where('parent_id', $data['category']->id)->where('status', '1')->get();
             //dd($type);
         }
         $data['retailers'] = Retailers::where('type', $type)
@@ -53,6 +70,18 @@ class ListingController extends Controller
 
     public function category($cat_slug){
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
+
+        
+        //Filters -- start
+        $data['categories_f'] = Categories::select('id', 'name', 'type')
+                                                ->where('parent_id', 0)
+                                                ->where('status', '1')
+                                                ->get();
+        $data['subcategories_f'] = Categories::select('id', 'name', 'type')->where('parent_id', $data['category']->id)->where('status', '1')->get();
+        $data['countries_f'] = Countries::select('id', 'name')->get();
+        $data['states_f'] = States::select('id', 'name')->get();
+        //Filter -- end
+
         $data['categories'] = Categories::where('parent_id', $data['category']->id)->get();
         $data['retailers'] = Retailers::whereHas('categories', function($q) use ($data){
                                             return $q->where('category_id', $data['category']->id);

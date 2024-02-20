@@ -1,9 +1,4 @@
-<div class="grap_deal_row">
-  <div class="grap_deal_icon">
-     <span>✔</span>
-  </div>
-</div>
-
+<img src="{{URL::to('/public/ticket.png')}}">
 <div class="grap_deal_row">
   <div class="grap_deal_message">
      <p>THANK YOU!</p>
@@ -11,7 +6,6 @@
   </div>
 </div>
 
-<!-- </div> -->
 
 <div class="grap_deal_coupon">
   <div class="grap_deal_code">
@@ -25,15 +19,17 @@
 </div>
 
 <div class="grap_deal_social">
-  <p>Share With Your Friends</p>
+   <p>Share With Your Friends</p>
+   <div>
      <a href="javascript:void(0)" class="grap_deal_icon"><i class="fa fa-whatsapp"></i></a>
      <a href="javascript:void(0)" class="grap_deal_icon"><i class="fa fa-facebook-square"></i></a>
+   </div>
 </div>
 
 <div class="grap_deal_disclaimer">
-  <p>Disclaimer</p>
+  <p><strong>Disclaimer</strong></p>
 
   Lorem ipsum is simply dummy text of the printing and typesetting
   industry. Lorem Ipsum has been the industry's standard dummy text
 
-</div>
+</div> 

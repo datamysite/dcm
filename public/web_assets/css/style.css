@@ -288,26 +288,21 @@
 }
 
 .grap_deal_container {
-  width: 400px;
-    height: 575px;
+    width: 350px;
+    height: 550px;
     margin: 0 auto;
-    border: 2px solid #1dace3;
     font-family: Arial, sans-serif;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
 }
 
-.grap_deal_header {
-  background-color: #1dace3;
-  text-align: center;
-  border-radius: 10px 10px 0 0;
-}
-
-.grap_deal_header h1 {
-  color: white;
-  font-size: 36px;
-  margin: 0;
-  padding: 10px;
+.grap_deal_container img{
+    width: 350px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    z-index: -1;
 }
 
 .grap_deal_main {
@@ -338,8 +333,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 125px;
 }
-
+.grap_deal_message p:nth-child(1) {
+    font-size: 30px;
+    font-weight: 600;
+}
+.grap_deal_message p:nth-child(2) {
+    font-size: 22px;
+    margin-top: -12px;
+}
 .grap_deal_icon {
   padding: 10px;
   border-radius: 50%;
@@ -366,7 +369,7 @@
 
 .grap_deal_coupon {
   border: 2px dashed #1dace3;
-  margin: 20px;
+  margin: 28px 0 0 0;
   padding: 10px;
   position: relative;
   border-radius: 10px;
@@ -408,17 +411,18 @@
 }
 
 .grap_deal_social {
-  width: 100%;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
     margin-top: 70px;
     margin-bottom: 20px;
     text-align: center;
-    align-content: center;
+    flex-direction: column;
     align-items: center;
 
 }
-
+.grap_deal_social div {
+    display: flex;
+}
 .grap_deal_social p {
   font-size: 18px;
   margin-bottom: 0 !important;
@@ -442,7 +446,6 @@
 .grap_deal_disclaimer {
   /* font-size: 18px; */
   margin: 0px;
-  background-color: #ebebeb;
   text-align: center;
 
 }
