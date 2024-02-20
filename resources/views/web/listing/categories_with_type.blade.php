@@ -154,7 +154,7 @@
                                  <li class="nav-item border-bottom w-100">
                                     <div class="form-check mb-2">
                                        <!-- input -->
-                                       <input class="form-check-input" type="radio" id="type2" {{!empty($type) && $type == 'retail' ? 'checked' : 'disabled'}} {{empty($type) ? 'checked' : 'disabled'}}/>
+                                       <input class="form-check-input" type="radio" id="type2" {{!empty($type) && $type == 'retail' ? 'checked' : 'disabled'}} {{empty($type) ? 'checked' : ''}}/>
                                        <label class="form-check-label" for="type2">Retail</label>
                                     </div>
                                     <!-- accordion collapse -->
@@ -235,32 +235,34 @@
                         @endif
 
                         @if($type == 'retail')
-                           <div class="mb-8">
-                              <!-- title -->
-                              <h5 class="mb-3">Gender</h5>
-                              <!-- nav -->
-                              <ul class="nav nav-category" id="">
+                           @if($category->id == '2' || $category->id == '3' || $category->id == '10')
+                              <div class="mb-8">
+                                 <!-- title -->
+                                 <h5 class="mb-3">Gender</h5>
+                                 <!-- nav -->
+                                 <ul class="nav nav-category" id="">
 
-                                 <li class="nav-item border-bottom w-100">
-                                    <div class="form-check mb-2">
-                                       <!-- input -->
-                                       <input class="form-check-input" type="radio" value="male" name="g" id="gender1" {{!empty($_GET['g']) && $_GET['g'] == 'male' ? 'checked' : ''}}/>
-                                       <label class="form-check-label" for="gender1">Male</label>
-                                    </div>
-                                    <!-- accordion collapse -->
-                                 </li>
+                                    <li class="nav-item border-bottom w-100">
+                                       <div class="form-check mb-2">
+                                          <!-- input -->
+                                          <input class="form-check-input" type="radio" value="male" name="g" id="gender1" {{!empty($_GET['g']) && $_GET['g'] == 'male' ? 'checked' : ''}}/>
+                                          <label class="form-check-label" for="gender1">Male</label>
+                                       </div>
+                                       <!-- accordion collapse -->
+                                    </li>
 
-                                 <li class="nav-item border-bottom w-100">
-                                    <div class="form-check mb-2">
-                                       <!-- input -->
-                                       <input class="form-check-input" type="radio" value="female" name="g" id="gender1" {{!empty($_GET['g']) && $_GET['g'] == 'female' ? 'checked' : ''}}/>
-                                       <label class="form-check-label" for="gender1">Female</label>
-                                    </div>
-                                    <!-- accordion collapse -->
-                                 </li>
+                                    <li class="nav-item border-bottom w-100">
+                                       <div class="form-check mb-2">
+                                          <!-- input -->
+                                          <input class="form-check-input" type="radio" value="female" name="g" id="gender1" {{!empty($_GET['g']) && $_GET['g'] == 'female' ? 'checked' : ''}}/>
+                                          <label class="form-check-label" for="gender1">Female</label>
+                                       </div>
+                                       <!-- accordion collapse -->
+                                    </li>
 
-                              </ul>
-                           </div>
+                                 </ul>
+                              </div>
+                           @endif
                         @endif
 
 

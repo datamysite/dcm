@@ -33,7 +33,8 @@ class ListingController extends Controller
     }
 
 
-    public function category_sub($cat_slug, $type){
+    public function category_sub($cat_slug, $type, Request $request){
+        $req = $request->all();
         $data['type'] = $type;
         $type = ($type == 'online' ? '1' : '2');
 
@@ -63,12 +64,21 @@ class ListingController extends Controller
                                         ->whereHas('categories', function($q) use ($data){
                                             return $q->where('category_id',$data['category']->id);
                                         })
+                                        ->when(!empty($req['country']), function($q) use ($req){
+                                            return $q->whereHas('countries', function($qq) use ($req){
+                                                return $qq->where('country_id', $req['country']);
+                                            });
+                                        })
+                                        ->when(!empty($req['discount']), function($q) use ($req){
+                                                return $q->where('discount_upto', '<=', $req['discount']);
+                                        })
                                         ->paginate(12);
 
         return view('web.listing.categories_with_type')->with($data);
     }
 
-    public function category($cat_slug){
+    public function category($cat_slug, Request $request){
+        $req = $request->all();
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
 
         
@@ -85,6 +95,14 @@ class ListingController extends Controller
         $data['categories'] = Categories::where('parent_id', $data['category']->id)->get();
         $data['retailers'] = Retailers::whereHas('categories', function($q) use ($data){
                                             return $q->where('category_id', $data['category']->id);
+                                        })
+                                        ->when(!empty($req['country']), function($q) use ($req){
+                                            return $q->whereHas('countries', function($qq) use ($req){
+                                                return $qq->where('country_id', $req['country']);
+                                            });
+                                        })
+                                        ->when(!empty($req['discount']), function($q) use ($req){
+                                                return $q->where('discount_upto', '<=', $req['discount']);
                                         })
                                         ->paginate(12);
 
