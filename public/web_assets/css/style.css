@@ -478,8 +478,37 @@
 .blogToggle{
     cursor: pointer;
 }
+#loading {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+    opacity: .95;
+  text-align: center;
+  background-color: #000;
+  z-index: 99999;
+}
 
-
+#loading-image {
+    height: 150px;
+    position: absolute;
+    top: 40%;
+    left: 47%;
+    animation: blinking .3s infinite;
+}
+@keyframes blinking {
+    0% {
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
 
 

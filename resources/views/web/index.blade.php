@@ -86,8 +86,16 @@
          </div>
          <div class="category-slider">
             @foreach($categories as $val)
+            @php 
+               $string = strtolower(trim($val->name));
+               $string = str_replace('&', 'and', $string);
+               $string = str_replace(' ', '-', $string);
+               $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+
+               $url = $val->type == '3' ? route('category.sub', [$slug, 'online']) : route('category.sub', [$slug, 'retail']);
+            @endphp
             <div class="item">
-               <a href="javascript:void(0)" class="text-decoration-none text-inherit">
+               <a href="{{$url}}" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="{{$val->name}}" class="img-fluid" />
                   <div class="text-truncate">{{$val->name}}</div>
                </a>

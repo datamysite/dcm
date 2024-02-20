@@ -15,6 +15,9 @@
 
 
 <body>
+   <div id="loading">
+     <img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" alt="Loading..." />
+   </div>
    <!-- navbar -->
 
       @include('web.includes.navbar')

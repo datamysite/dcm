@@ -8,6 +8,7 @@ use App\Models\Countries;
 use App\Models\Categories;
 use App\Models\Admin;
 use App\Models\CouponCategories;
+use App\Models\Retailers;
 use Auth;
 
 class Coupon extends Model
@@ -75,6 +76,10 @@ class Coupon extends Model
 
         return $r->id;
 
+    }
+
+    public function retailer(){
+        return $this->belongsTo(Retailers::class, 'retailer_id', 'id');
     }
 
     public function country(){

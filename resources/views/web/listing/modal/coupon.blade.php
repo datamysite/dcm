@@ -21,15 +21,13 @@
 <div class="grap_deal_social">
    <p>Share With Your Friends</p>
    <div>
-     <a href="javascript:void(0)" class="grap_deal_icon"><i class="fa fa-whatsapp"></i></a>
-     <a href="javascript:void(0)" class="grap_deal_icon"><i class="fa fa-facebook-square"></i></a>
+     <a href="https://wa.me/?text={{route('brand', $coupon->retailer->slug)}}" data-action="share/whatsapp/share" class="grap_deal_icon" target="_blank"><i class="fa fa-whatsapp"></i></a>
+     <a href="https://www.facebook.com/share.php?u={{route('brand', $coupon->retailer->slug)}}" target="_blank" class="grap_deal_icon"><i class="fa fa-facebook-square"></i></a>
+     <a href="https://www.instagram.com/?url={{route('brand', $coupon->retailer->slug)}}" target="_blank" class="grap_deal_icon"><i class="fa fa-instagram-square"></i></a>
    </div>
 </div>
 
 <div class="grap_deal_disclaimer">
-  <p><strong>Disclaimer</strong></p>
-
-  Lorem ipsum is simply dummy text of the printing and typesetting
-  industry. Lorem Ipsum has been the industry's standard dummy text
-
+  <p><strong>Attention!</strong></p>
+  <p>Copy this exclusive code to unlock special savings when you check out! Don't forget to claim your cashback from us!</p>
 </div> 
