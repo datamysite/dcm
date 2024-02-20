@@ -15,11 +15,33 @@ use App\Models\States;
 
 class ListingController extends Controller
 {
-    public function index($type){
+    public function index($type, Request $request){
+        $req = $request->all();
         $data['type'] = $type;
         $type = ($type == 'online' ? '1' : '2');
 
-        $data['retailers'] = Retailers::where('type', $type)->paginate(12);
+        //Filters -- start
+        $data['categories_f'] = Categories::select('id', 'name', 'type')
+                                                ->where('parent_id', 0)
+                                                ->where('status', '1')
+                                                ->when($type == '1', function($q){
+                                                    return $q->where('type', 3);
+                                                })
+                                                ->get();
+        $data['countries_f'] = Countries::select('id', 'name')->get();
+        $data['states_f'] = States::select('id', 'name')->get();
+        //Filter -- end
+
+        $data['retailers'] = Retailers::where('type', $type)
+                                        ->when(!empty($req['country']), function($q) use ($req){
+                                            return $q->whereHas('countries', function($qq) use ($req){
+                                                return $qq->where('country_id', $req['country']);
+                                            });
+                                        })
+                                        ->when(!empty($req['discount']), function($q) use ($req){
+                                                return $q->where('discount_upto', '<=', $req['discount']);
+                                        })
+                                        ->paginate(12);
 
         return view('web.listing.index')->with($data);
     }

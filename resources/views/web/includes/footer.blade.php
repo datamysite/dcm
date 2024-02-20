@@ -33,12 +33,15 @@
                <h6 class="mb-4"><strong>POPULAR CATEGOIRES</strong></h6>
                <ul class="nav flex-column">
                   <!-- list -->
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Sports</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Kids</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Decor</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Beauty</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Fashion</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Mart</a></li>
+                  @foreach($footCat as $val)
+                     @php
+                        $string = strtolower(trim($val->name));
+                         $string = str_replace('&', 'and', $string);
+                         $string = str_replace(' ', '-', $string);
+                         $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                     @endphp
+                     <li class="nav-item mb-2"><a href="{{route('category.sub', [$slug, 'online'])}}" class="nav-link">{{$val->name}}</a></li>
+                  @endforeach
                </ul>
             </div>
 
