@@ -58,46 +58,8 @@ class HomeController extends Controller
     }
 
     //User Profile Controller
-    public function User_Profile()
-    {
+    
 
-        return view('web.user.user-profile');
-    }
-
-    //User Claim Cashback Controller
-    public function Claim_Cashback()
-    {
-
-        return view('web.user.user-claim-cashback');
-    }
-
-    //User Payment History Controller
-    public function Paymeny_History()
-    {
-
-        return view('web.user.user-payment-history');
-    }
-
-    //User Referral Earn Controller
-    public function Referral_Earn()
-    {
-
-        return view('web.user.user-referral-earn');
-    }
-
-    //User Referral Earn Controller
-    public function Withdraw_Payment()
-    {
-
-        return view('web.user.user-withdraw-payment');
-    }
-
-    //User Settings Controller
-    public function User_Settings()
-    {
-
-        return view('web.uuser.ser-settings');
-    }
 
     //User Settings Controller
     public function Categoires()

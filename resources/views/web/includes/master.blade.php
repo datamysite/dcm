@@ -34,7 +34,8 @@
          <div class="modal-body">
             <div class="modal_container" id="modal_container">
                <div class="form-modal_container sign-up-modal_container">
-                  <form action="#" class="form_modal">
+                  <form action="{{route('user.create')}}" id="create_user_form" class="form_modal">
+                     @csrf
                      <h1>Create Account</h1>
                      <div class="social-modal_container">
                         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -42,14 +43,19 @@
 
                      </div>
                      <span>or use your email for registration</span>
-                     <input type="text" placeholder="Name" class="form_input" />
-                     <input type="email" placeholder="Email" class="form_input" />
-                     <input type="password" placeholder="Password" class="form_input" />
-                     <button class="btn btn-primary shadow-gray">Sign Up</button>
+                     <input type="text" placeholder="Name" name="name" class="form_input" required/>
+                     <label class="errors name_error"></label>
+                     <input type="email" placeholder="Email" name="email" class="form_input" required/>
+                     <label class="errors email_error"></label>
+                     <input type="password" placeholder="Password" name="password" class="form_input" required/>
+                     <label class="errors password_error"></label>
+                     <br>
+                     <button type="submit" class="btn btn-primary shadow-gray">Sign Up</button>
                   </form>
                </div>
                <div class="form-modal_container sign-in-modal_container">
-                  <form action="#" class="form_modal">
+                  <form action="{{route('user.login')}}" id="login_user_form" class="form_modal">
+                     @csrf
                      <h1 style="color:#1dace3">Sign in to DCM</h1>
                      <div class="social-modal_container">
                         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -57,10 +63,12 @@
 
                      </div>
                      <span>or use your account</span>
-                     <input type="email" placeholder="Email" class="form_input" />
-                     <input type="password" placeholder="Password" class="form_input" />
-                     <p><a href="#" style="color:#1dace3">Forgot your password?</a></p>
-                     <button class="btn btn-primary shadow-gray">Sign In</button>
+                     <input type="email" placeholder="Email" name="email" class="form_input" required/>
+                     <label class="errors email_error_l"></label>
+                     <input type="password" placeholder="Password" name="password" class="form_input" required />
+                     <label class="errors password_error_l"></label>
+                     <p><a href="javascript:void(0)" style="color:#1dace3">Forgot your password?</a></p>
+                     <button type="submit" class="btn btn-primary shadow-gray">Sign In</button>
                   </form>
                </div>
                <div class="overlay_modal-modal_container">

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="mt-15">
+<div class="mt-110">
     <div class="container">
         <!-- row -->
         <div class="row">
@@ -11,8 +11,9 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="Home" style="color: #000;"><strong>Home</strong></a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="User-Settings" style="color:#1DACE3;"><strong>Settings</a></strong></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('user.profile')}}" style="color: #000;"><strong>Profile</strong></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>Settings</a></strong></li>
                     </ol>
                 </nav>
             </div>

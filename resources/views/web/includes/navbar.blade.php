@@ -107,14 +107,16 @@
                         <a class="nav-link" href="Sell-With-DCM" role="button" aria-expanded="false"><b>SELL WITH DCM</b></a>
                      </li>
                      <ul class="navbar-nav">
-                        <li class="nav-item dropdown" style="padding: 10px;">
-                           <a class="nav-link" href="#" role="button" data-bs-toggle="modal" data-bs-target="#userModal"><b>SIGN UP</b></a>
-                        </li>
 
-
-                        <li class="nav-item dropdown" style="padding: 10px;">
-                           <a class="nav-link" href="User-Profile" role="button" aria-expanded="false"><b>Profile</b></a>
-                        </li>
+                        @if(Auth::check())
+                           <li class="nav-item dropdown" style="padding: 10px;">
+                              <a class="nav-link" href="{{route('user.profile')}}" role="button" aria-expanded="false"><b>Profile</b></a>
+                           </li>
+                        @else
+                           <li class="nav-item dropdown" style="padding: 10px;">
+                              <a class="nav-link" href="#" role="button" data-bs-toggle="modal" data-bs-target="#userModal"><b>SIGN IN</b></a>
+                           </li>
+                        @endif
 
                         <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
                            <i class="bi bi-globe"></i>&nbsp;&nbsp;

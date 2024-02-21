@@ -2,29 +2,7 @@
 
 @section('content')
 
-<!-- Slider Section Start-->
-<section class="mt-17">
-    <div class="container">
-        <div class="hero-slider">
-
-            <div style="background: url(./public/web_assets/images/slider/about.jpg) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-                <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
-                    <div class="slider_div">
-                        <h3>How To Earn With</3>
-                            <h6 style="font-size: 36px; font-weight: bold; color: black; margin: 0;"> Deals & Coupons Mena </h6>
-                            <p style="font-size: 18px; color: black; margin: 10px 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-                            <a href="#" style="display: inline-block; padding: 10px 20px; background: #1DACE3; color: white; font-weight: bold; border-radius: 10px; text-decoration: none;">EARN NOW</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Slider Section End-->
-
-<div class="mt-0">
+<div class="mt-110">
     <div class="container">
         <!-- row -->
         <div class="row">
@@ -41,6 +19,28 @@
         </div>
     </div>
 </div>
+
+<!-- Slider Section Start-->
+<section class="mt-2">
+    <div class="container">
+        <div class="hero-slider">
+
+            <div style="background: url({{URL::to('public/web_assets/images/slider/about.jpg')}}) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
+                <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
+
+                    <div class="slider_div">
+                        <h3>How To Earn With</3>
+                            <h6 style="font-size: 36px; font-weight: bold; color: black; margin: 0;"> Deals & Coupons Mena </h6>
+                            <p style="font-size: 18px; color: black; margin: 10px 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                            <a href="#" style="display: inline-block; padding: 10px 20px; background: #1DACE3; color: white; font-weight: bold; border-radius: 10px; text-decoration: none;">EARN NOW</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Slider Section End-->
 
 <!-- Total Earnings section start-->
 <section class="my-lg-5 my-8">
@@ -90,7 +90,7 @@
                             <div class="about-us-icon"></div>
                             <div class="about-us-title">Claim Cashback</div>
                             <div class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                            <a href="Claim-Cashback" class="btn btn-primary shadow-gray" style="float: right;">View More</a>
+                            <a href="{{route('user.claimCashback')}}" class="btn btn-primary shadow-gray" style="float: right;">View More</a>
                             <p></p>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                             <div class="about-us-icon"></div>
                             <div class="about-us-title">Withdraw</div>
                             <div class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                            <a href="Withdraw-Payment" class="btn btn-primary shadow-gray" style="float: right;">View More</a>
+                            <a href="{{route('user.withdrawPayment')}}" class="btn btn-primary shadow-gray" style="float: right;">View More</a>
                             <p></p>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
                             <div class="about-us-icon"></div>
                             <div class="about-us-title">Payment History</div>
                             <div class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                            <a href="Payment-History" class="btn btn-primary shadow-gray" style="float: right;">View More</a>
+                            <a href="{{route('user.paymenyHistory')}}" class="btn btn-primary shadow-gray" style="float: right;">View More</a>
                             <p></p>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                             <div class="about-us-icon"></div>
                             <div class="about-us-title">Refer & Earn</div>
                             <div class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                            <a href="Referral-Earn" class="btn btn-primary shadow-gray" style="float: right;">View More</a>
+                            <a href="{{route('user.referralEarn')}}" class="btn btn-primary shadow-gray" style="float: right;">View More</a>
                             <p></p>
                         </div>
                     </div>

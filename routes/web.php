@@ -44,6 +44,30 @@ Route::namespace('web')->group(function () {
     Route::get('{cat_slug}/{type}'.$suffix_category, 'ListingController@category_sub')->name('category.sub');
 
 
+    //Users
+    Route::prefix('user')->group(function(){
+        Route::post('create', 'UserController@create')->name('user.create');
+        Route::post('login', 'UserController@login')->name('user.login');
+
+        Route::get('logout', 'UserController@logout')->name('user.logout');
+
+        Route::middleware('userAuth')->group(function(){
+
+            Route::get('profile', 'UserController@profile')->name('user.profile');
+
+            Route::get('claim-cashback', 'UserController@claimCashback')->name('user.claimCashback');
+
+            Route::get('payment-history', 'UserController@paymenyHistory')->name('user.paymenyHistory');
+
+            Route::get('referral-earn', 'UserController@referralEarn')->name('user.referralEarn');
+
+            Route::get('withdraw-payment', 'UserController@withdrawPayment')->name('user.withdrawPayment');
+
+            Route::get('settings', 'UserController@settings')->name('user.settings');
+        });
+    });
+
+
 
 
 
@@ -65,23 +89,6 @@ Route::namespace('web')->group(function () {
     //Single Blog Post 
     Route::get('/Single-Blog', 'HomeController@Single_Blog')->name('Single_Blog');
 
-    //User Profile
-    Route::get('/User-Profile', 'HomeController@User_Profile')->name('User_Profile');
-
-    //User Claim Cashback
-    Route::get('/Claim-Cashback', 'HomeController@Claim_Cashback')->name('Claim_Cashback');
-
-    //User Payment History
-    Route::get('/Payment-History', 'HomeController@Paymeny_History')->name('Paymeny_History');
-
-    //User Referral Earn
-    Route::get('/Referral-Earn', 'HomeController@Referral_Earn')->name('Referral_Earn');
-
-    //User Withdraw Payment
-    Route::get('/Withdraw-Payment', 'HomeController@Withdraw_Payment')->name('Withdraw_Payment');
-
-    //User Settings
-    Route::get('/User-Settings', 'HomeController@User_Settings')->name('User_Settings');
 
     //Categoires
     Route::get('/Categoires', 'HomeController@Categoires')->name('Categoires');

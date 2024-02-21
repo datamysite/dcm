@@ -11,9 +11,37 @@
 <script src="{{URL::to('/public')}}/web_assets/libs/tiny-slider/dist/min/tiny-slider.js"></script>
 <script src="{{URL::to('/public')}}/web_assets/js/vendors/tns-slider.js"></script>
 <script src="{{URL::to('/public')}}/web_assets/js/vendors/zoom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+  var Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 5000
+  });
+</script>
 <script src="{{URL::to('/public')}}/web_assets/js/app.js"></script>
 <script type="text/javascript">
 	$(window).on('load', function () {
 	    $('#loading').hide();
 	 }); 
+</script>
+<script>
+  const signUpButton = document.getElementById("signUp");
+  const signInButton = document.getElementById("signIn");
+  const modal_container = document.getElementById("modal_container");
+
+  signUpButton.addEventListener("click", () => {
+     modal_container.classList.add("right-panel-active");
+  });
+
+  signInButton.addEventListener("click", () => {
+     modal_container.classList.remove("right-panel-active");
+  });
+
+  window.addEventListener("load", function() {
+     setTimeout(function() {
+        //new bootstrap.Modal(document.getElementById("modal-subscribe")).show();
+     }, 1000);
+  });
 </script>
