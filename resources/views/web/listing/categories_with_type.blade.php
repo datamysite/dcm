@@ -337,7 +337,7 @@
                                  <!-- badge -->
                                  <div class="text-center position-relative py-1 mb-3 box">
                                     <div class="ribbon-2"><span>Discount Upto</span> {{$val->discount_upto}}%</div>
-                                    <a href="{{route('brand', $val->slug)}}">
+                                    <a href="{{route('category.brand', [$category_slug, $val->slug])}}">
                                        <!-- img -->
                                        <img src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="" class="mb-5 img-fluid" />
                                     </a>

@@ -13,6 +13,9 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
+                        @if(!empty($category_slug))
+                            <li class="breadcrumb-item"><a href="{{route('category', $category_slug)}}" style="color: #000;"><strong>{{$category->name}}</strong></a></li>
+                        @endif
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$retailer->name}}</a></strong></li>
                     </ol>
                 </nav>
@@ -27,7 +30,7 @@
     <div class="container np-container">
         <div class="row">
             <div class="col-12 text-center">
-                <h3 class=" page-title">{{$retailer->name}}</h3>
+                <a href="{{route('brand', $retailer->slug)}}"><h3 class=" page-title">{{$retailer->name}}</h3></a>
             </div>
         </div>
         @php $bg = 0; @endphp
@@ -96,7 +99,7 @@
             <div class="row mt-10">
                 <div class="col-12 text-center blogToggle">
                     <h3 class="mb-5 page-title">About {{$retailer->name}}</h3>
-                    <span><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+                    <span class="arr"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
                 </div>
             </div>
             <div class="retailer-blog-content" id="retailerBlogs">
@@ -130,17 +133,24 @@
     <script type="text/javascript">
         $(document).ready(function(){
             'use strict'
-
+            let ar = 0;
             $(document).on('click', '.showCoupon', function(){
                 var id = $(this).data('id');
                 $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
                 $('#ShowCouponModal').modal('show');
-                $.get("{{URL::to('/store/coupon')}}/"+id, function(data){
+                $.get("{{URL::to('/coupon')}}/"+id, function(data){
                     $('#ShowCouponModal .grap_deal_main').html(data);
                 });
             });
 
             $(document).on('click', '.blogToggle', function(){
+                if(ar == 0){
+                    $('.blogToggle .arr').html('<i class="fa fa-arrow-up" aria-hidden="true"></i>');
+                    ar = 1;
+                }else{
+                    $('.blogToggle .arr').html('<i class="fa fa-arrow-down" aria-hidden="true"></i>');
+                    ar = 0;
+                }
                 $('#retailerBlogs').toggle();
             });
 

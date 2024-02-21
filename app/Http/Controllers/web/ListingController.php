@@ -57,7 +57,25 @@ class ListingController extends Controller
     }
 
 
+    public function category_brand($cat_slug, $brand_slug){
+        $data['category_slug'] = $cat_slug;
+        $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
+        $data['retailer'] = Retailers::where('slug', $brand_slug)->first();
+        $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)
+                                ->whereHas('categories', function($q) use ($data){
+                                    return $q->where('category_id',$data['category']->id);
+                                })
+                                ->where('status', '1')->get();
+        $data['testimonials'] = Testimonials::where('status', '1')->get();
+        
+        ClicksCounter::hitCount('1', $data['retailer']->id);
+
+        return view('web.listing.brand')->with($data);
+    }
+
+
     public function category_sub($cat_slug, $type, Request $request){
+        $data['category_slug'] = $cat_slug;
         $req = $request->all();
         $data['type'] = $type;
         $type = ($type == 'online' ? '1' : '2');
@@ -102,6 +120,7 @@ class ListingController extends Controller
     }
 
     public function category($cat_slug, Request $request){
+        $data['category_slug'] = $cat_slug;
         $req = $request->all();
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
 

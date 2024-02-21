@@ -34,15 +34,16 @@ Route::namespace('web')->group(function () {
 
     Route::prefix('store')->group(function(){
         Route::get('/{brand_slug}', 'ListingController@brand')->name('brand');
-
-
-        Route::get('/coupon/{id}', 'ListingController@show_coupon');
+        Route::get('{cat_slug}/{brand_slug}', 'ListingController@category_brand')->name('category.brand');
+    });
+    Route::prefix('coupon')->group(function(){
+        Route::get('/{id}', 'ListingController@show_coupon');
     });
 
-    $suffix_category = '/c';
-    Route::get('{cat_slug}'.$suffix_category, 'ListingController@category')->name('category');
-    Route::get('{cat_slug}/{type}'.$suffix_category, 'ListingController@category_sub')->name('category.sub');
-
+    Route::prefix('category')->group(function(){
+        Route::get('{cat_slug}', 'ListingController@category')->name('category');
+        Route::get('{cat_slug}/{type}', 'ListingController@category_sub')->name('category.sub');
+    });
 
     //Users
     Route::prefix('user')->group(function(){
