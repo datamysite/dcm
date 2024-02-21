@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    $('#loading').css({display: 'none'});
+    
     $(window).scroll(function() {
         if ($(document).scrollTop() > 70) {
             $('.navbar').addClass('navbar-shadow');
@@ -7,6 +9,7 @@ $(document).ready(function() {
             $('.navbar').removeClass('navbar-shadow');
         }
     });
+
 
 
 

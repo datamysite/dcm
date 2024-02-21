@@ -112,46 +112,26 @@
    <!-- How To Eearn Coupon Section Start-->
    <section class="my-lg-12 my-8">
       <div class="container np-container">
-
-         <div class="row">
-            <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0">How To Earn Coupons With Mena ?</h3>
+         <div class="animated-banner">
+            <img src="{{URL::to('public/web_assets/images/animated/background.png')}}" style="width:100%; height: 100%;">
+            <div class="content">
+               <h1>How to Earn with <br>Deals & Coupon Mena?</h1>
+               <ol>
+                  <li>Select your Perferd Brand & Click Show Coupons</li>
+                  <li>Apply The Code and Redeem the Discount</li>
+                  <li>Upload your Reciept and Get your Cashback</li>
+               </ol>
+               <a href="javascript:void(0)" class="btn btn-white btn-sm">EARN NOW</a>
+            </div>
+            <div class="object-section">
+               <img class="light" src="{{URL::to('public/web_assets/images/animated/lights-1.png')}}" style="width:100%; height: auto;">
+               <img class="box-1" src="{{URL::to('public/web_assets/images/animated/box-3.png')}}">
+               <img class="money-1" src="{{URL::to('public/web_assets/images/animated/money1.png')}}">
+               <img class="cover-1" src="{{URL::to('public/web_assets/images/animated/cover-1.png')}}">
+               <img class="box-2" src="{{URL::to('public/web_assets/images/animated/box-2-small.png')}}">
+               <img class="box-3" src="{{URL::to('public/web_assets/images/animated/box-1.png')}}">
             </div>
          </div>
-
-         <div class="row  px-5 " style="border-radius: 20px; border: 1px solid #ccc;background-color:whitesmoke">
-            <div class="col-12 col-md-4 p-5 mt-3 d-flex flex-column align-items-center">
-               <a href="#"><img src="{{URL::to('/public')}}/web_assets/images/category/category_img_01.jpg" width="200px" height="200px" class="rounded-circle img-fluid border"></a>
-
-               <div class="text-center mt-3 mb-3">
-                  <h6>Select Your Preferred brand and go shoping</h6>
-               </div>
-
-               <div class="row col-lg-12 text-center">
-                  <p><a class="btn btn-primary px-5 py-1 mb-3 me-5">Sing Up</a></p>
-               </div>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3 d-flex flex-column align-items-center">
-               <a href="#"><img src="{{URL::to('/public')}}/web_assets/images/category/category_img_02.jpg" width="200px" height="200px" class="rounded-circle img-fluid border"></a>
-               <div class="text-center mt-3 mb-3">
-                  <h6>Apply the code and redem the discount...</h6>
-               </div>
-               <div class="row cols-lg-12 text-center">
-                  <p><a class="btn btn-primary px-5 py-1 mb-3 me-5">Go Shop</a></p>
-               </div>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3 d-flex flex-column align-items-center">
-               <a href="#"><img src="{{URL::to('/public')}}/web_assets/images/category/category_img_03.jpg" width="200px" height="200px" class="rounded-circle img-fluid border"></a>
-               <div class="text-center mt-3 mb-3">
-                  <h6>Upload your receipt an get you cash back !</h6>
-               </div>
-               <div class="row cols-lg-12 text-center">
-                  <p><a class="btn btn-primary px-5 py-1 mb-3 me-5">Earn</a></p>
-               </div>
-            </div>
-         </div>
-
-      </div>
       </div>
    </section>
    <!-- How To Eearn Coupon Section End-->
