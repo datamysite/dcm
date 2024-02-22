@@ -55,7 +55,7 @@
             @foreach($blogs as $val)
                 <div class="col-lg-4 blogItem mt-5">
                     <div class="post-feather" style="background-image: url({{URL::to('/public/storage/blogs/'.$val->banner)}});">
-                        <div class="feather-image" style=" background-image: url({{URL::to('/public/web_assets/images/reviews/male/1.png')}});">
+                        <div class="feather-image">
                         </div>
                         <a href="{{route('blog.details', $val->slug)}}" target="blank" class="readMorebutton">Read More</a>
                     </div>
