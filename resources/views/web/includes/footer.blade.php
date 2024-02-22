@@ -19,13 +19,9 @@
             <div class="col-6 col-sm-6 col-md-3">
                <h6 class="mb-4"><strong>POPULAR STORES </strong></h6>
                <ul class="nav flex-column">
-                  <!-- list -->
-                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">Noon</a></li>
-                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">Namshi</a></li>
-                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">Ferns & Petails</a></li>
-                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">SIVVI</a></li>
-                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">Yalla Toys</a></li>
-                  <li class="nav-item mb-2"><a href="Store-Products" class="nav-link">Hozmart</a></li>
+                  @foreach($footBrand as $val)
+                     <li class="nav-item mb-2"><a href="{{route('brand', $val->slug)}}" class="nav-link">{{$val->name}}</a></li>
+                  @endforeach
                </ul>
             </div>
 
@@ -40,7 +36,7 @@
                          $string = str_replace(' ', '-', $string);
                          $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                      @endphp
-                     <li class="nav-item mb-2"><a href="{{route('category.sub', [$slug, 'online'])}}" class="nav-link">{{$val->name}}</a></li>
+                     <li class="nav-item mb-2"><a href="{{route('category', $slug)}}" class="nav-link">{{$val->name}}</a></li>
                   @endforeach
                </ul>
             </div>
