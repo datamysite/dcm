@@ -32,7 +32,7 @@
 
                     <div class="slider_div2">
 
-                        <br><br><br>
+                        <br><br><br><br><br><br>
                     </div>
 
                 </div>
