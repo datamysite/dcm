@@ -59,8 +59,8 @@
                         </div>
                         <a href="{{route('blog.details', $val->slug)}}" target="blank" class="readMorebutton">Read More</a>
                     </div>
-                    <h5>{{$val->heading}}</h5>
-                    <p>{{ $val->short_description }}</p>
+                    <h5 title="{{$val->heading}}">{{$val->heading}}</h5>
+                    <p title="{{ $val->short_description }}">{{ $val->short_description }}</p>
                 </div>
             @endforeach
 
