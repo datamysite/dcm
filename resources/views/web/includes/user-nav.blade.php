@@ -8,12 +8,12 @@
 
             <div class="row">
                 <div class="col">
-                    <img src="{{URL::to('/public')}}/web_assets/images/avatar/avatar-4.jpg" alt="Circle Image" class="circle-image">
+                    <img src="{{URL::to('/public')}}/web_assets/images/reviews/male/1.png" alt="Circle Image" class="circle-image">
                 </div>
                 <div class="mt-2">
-                    <h6>Furqan Shakir Furqan Shakir</h6>
+                    <h6>{{Auth::user()->name}}</h6>
+                    <span>{{Auth::user()->email}}</span>
                 </div>
-                <p></p>
             </div>
         </div>
 

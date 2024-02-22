@@ -56,7 +56,10 @@ Route::namespace('web')->group(function () {
 
             Route::get('profile', 'UserController@profile')->name('user.profile');
 
-            Route::get('claim-cashback', 'UserController@claimCashback')->name('user.claimCashback');
+            Route::prefix('claim-cashback')->group(function(){
+                Route::get('/', 'UserController@claimCashback')->name('user.claimCashback');
+                Route::post('/request', 'UserController@claimCashbackRequest')->name('user.claimCashback.request');
+            });
 
             Route::get('payment-history', 'UserController@paymenyHistory')->name('user.paymenyHistory');
 

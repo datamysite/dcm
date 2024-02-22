@@ -48,16 +48,18 @@
                         <div class="mt-5">
                             <h6>Upload Invoice File</h6>
                         </div>
-                        <!-- col -->
-                        <div class="col-6">
-                            <div class="input-group ">
-                                <input type="file" class="form-control rounded" name="user_invoice" required="required">
+                        <form id="cashback_form">
+                            @csrf
+                            <!-- col -->
+                            <div class="col-6">
+                                <div class="input-group ">
+                                    <input type="file" class="form-control rounded" name="user_invoice" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" style="float: right;" value="UPLOAD">
-                        </div>
-                        <p></p>
+                            <div class="col-6">
+                                <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" style="float: right;" value="UPLOAD">
+                            </div>
+                        </form>
                     </div>
 
                     <div class="row mt-5" style="border-radius: 10px ; background-color:#f0f3f2;">

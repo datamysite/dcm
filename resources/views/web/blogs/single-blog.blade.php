@@ -52,7 +52,7 @@
                 <div class="col-12">
                     <div class="mb-8">
                         <!-- heading -->
-                        <h2 style="text-align: left;">{{$blog->heading}}</h2>
+                        <h1 style="text-align: left;">{{$blog->heading}}</h1>
                     </div>
                 </div>
             </div>

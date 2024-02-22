@@ -85,4 +85,36 @@ $(document).ready(function() {
 
       event.preventDefault();
     });
+
+
+
+
+    //Login Account
+    $(document).on('submit', "#cashback_form", function(event) {
+      var form = $(this);
+      var formData = new FormData($("#cashback_form")[0]);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function(data) {
+        if (data.success == 'success') {
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          setTimeout(function(){
+            location.reload();
+          }, 700);
+        }
+      }).fail(function(e){
+        console.log(e);
+      });
+
+      event.preventDefault();
+    });
 });
