@@ -11,15 +11,16 @@ class BlogController extends Controller
     
     public function index()
     {
-        $data['featured'] = Blogs::find('5');
-        $data['blogs'] = Blogs::where('id', '!=', '5')->get();
+        $data['featured'] = Blogs::select('id', 'banner', 'heading', 'slug', 'short_description')->where('id', '5')->first();
+        $data['blogs'] = Blogs::select('id', 'banner', 'heading', 'slug', 'short_description')->where('id', '!=', '5')->get();
 
         return view('web.blogs.blogs')->with($data);
     }
 
-    public function Single_Blog()
+    public function detail($slug)
     {
+        $data['blog'] = Blogs::where('slug', $slug)->first();
 
-        return view('web.blogs.single-blog');
+        return view('web.blogs.single-blog')->with($data);
     }
 }

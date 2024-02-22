@@ -52,74 +52,17 @@
     <div class="container np-container">
 
         <div class="row" style="align-items: center;justify-content: center;">
-            <div class="col-lg-4 blogItem mt-5">
-                <div class="post-feather" style="background-image: url('{{URL::to('/public')}}/web_assets/images/slider/img_03.png');">
-                    <div class="feather-image" style=" background-image: url('./public/web_assets/images/avatar/avatar-4.jpg');">
+            @foreach($blogs as $val)
+                <div class="col-lg-4 blogItem mt-5">
+                    <div class="post-feather" style="background-image: url({{URL::to('/public/storage/blogs/'.$val->banner)}});">
+                        <div class="feather-image" style=" background-image: url({{URL::to('/public/web_assets/images/reviews/male/1.png')}});">
+                        </div>
+                        <a href="{{route('blog.details', $val->slug)}}" target="blank" class="readMorebutton">Read More</a>
                     </div>
-                    <a href="Single-Blog" target="blank" class="readMorebutton">Read More</a>
+                    <h5>{{$val->heading}}</h5>
+                    <p>{{ $val->short_description }}</p>
                 </div>
-                <h5>Maniging to linear 101</h5>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's,
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's,
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                </p>
-            </div>
-            <div class="col-lg-4 blogItem mt-5">
-                <div class="post-feather" style="background-image: url('{{URL::to('/public')}}/web_assets/images/slider/img_03.png');">
-                    <div class="feather-image" style=" background-image: url('./public/web_assets/images/avatar/avatar-4.jpg');">
-                    </div>
-                    <a href="Single-Blog" target="blank" class="readMorebutton">Read More</a>
-                </div>
-                <h5>Maniging to linear 101</h5>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's,
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                </p>
-            </div>
-            <div class="col-lg-4 blogItem mt-5">
-                <div class="post-feather" style="background-image: url('{{URL::to('/public')}}/web_assets/images/slider/img_03.png');">
-                    <div class="feather-image" style=" background-image: url('./public/web_assets/images/avatar/avatar-4.jpg');">
-                    </div>
-                    <a href="Single-Blog" target="blank" class="readMorebutton">Read More</a>
-                </div>
-                <h5>Maniging to linear 101</h5>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's,
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                </p>
-            </div>
-            <div class="col-lg-4 blogItem mt-5">
-                <div class="post-feather" style="background-image: url('{{URL::to('/public')}}/web_assets/images/slider/img_03.png');">
-                    <div class="feather-image" style=" background-image: url('./public/web_assets/images/avatar/avatar-4.jpg');">
-                    </div>
-                    <a href="Single-Blog" target="blank" class="readMorebutton">Read More</a>
-                </div>
-                <h5>Maniging to linear 101</h5>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's,
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                </p>
-            </div>
-            <div class="col-lg-4 blogItem mt-5">
-                <div class="post-feather" style="background-image: url('{{URL::to('/public')}}/web_assets/images/slider/img_03.png');">
-                    <div class="feather-image" style=" background-image: url('./public/web_assets/images/avatar/avatar-4.jpg');">
-                    </div>
-                    <a href="Single-Blog" target="blank" class="readMorebutton">Read More</a>
-                </div>
-                <h5>Maniging to linear 101</h5>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's,
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                </p>
-            </div>
-            <div class="col-lg-4 blogItem mt-5">
-                <div class="post-feather" style="background-image: url('{{URL::to('/public')}}/web_assets/images/slider/img_03.png');">
-                    <div class="feather-image" style=" background-image: url('./public/web_assets/images/avatar/avatar-4.jpg');">
-                    </div>
-                    <a href="Single-Blog" target="blank" class="readMorebutton">Read More</a>
-                </div>
-                <h5>Maniging to linear 101</h5>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's,
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                </p>
-            </div>
+            @endforeach
 
         </div>
 
