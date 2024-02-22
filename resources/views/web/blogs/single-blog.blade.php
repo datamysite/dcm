@@ -30,7 +30,7 @@
             <div style="background: url({{URL::to('/public/storage/blogs/'.$blog->banner)}}) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
                 <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
 
-                    <div class="slider_div2">
+                    <div class="slider_div2" style="box-shadow: none; background-color: transparent;">
 
                         <br><br><br><br><br><br>
                     </div>
