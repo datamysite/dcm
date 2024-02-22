@@ -13,6 +13,7 @@
                 <div class="mt-2">
                     <h6>{{Auth::user()->name}}</h6>
                     <span>{{Auth::user()->email}}</span>
+                    <br><br>
                 </div>
             </div>
         </div>
@@ -40,7 +41,7 @@
                             <ul class="mb-0 list-unstyled">
                                 <li><a class="dropdown-item" href="{{route('user.claimCashback')}}">Claim Cashback</a></li>
                                 <li><a class="dropdown-item" href="{{route('user.paymenyHistory')}}">Payment History</a></li>
-                                <li><a class="dropdown-item" href="{{route('user.referralEarn')}}">Refer & Earn</a></li>
+                              <!--   <li><a class="dropdown-item" href="{{route('user.referralEarn')}}">Refer & Earn</a></li> -->
                                 <li><a class="dropdown-item" href="{{route('user.withdrawPayment')}}">Withdraw Payment</a></li>
                                 <li><a class="dropdown-item" href="{{route('user.settings')}}">Settings</a></li>
                                 <li><a class="dropdown-item" href="{{route('user.logout')}}">Log Out</a></li>
@@ -58,7 +59,7 @@
                         <ul>
                             <li class="nav-item border-bottom w-100"><a href="{{route('user.claimCashback')}}" class="nav-link collapsed">Claim Cashback</a></li>
                             <li class="nav-item border-bottom"><a href="{{route('user.paymenyHistory')}}" class="nav-link collapsed">Payment History</a></li>
-                            <li class="nav-item border-bottom"><a href="{{route('user.referralEarn')}}" class="nav-link collapsed">Refer & Earn</a></li>
+                            <!-- <li class="nav-item border-bottom"><a href="{{route('user.referralEarn')}}" class="nav-link collapsed">Refer & Earn</a></li> -->
                             <li class="nav-item border-bottom"><a href="{{route('user.withdrawPayment')}}" class="nav-link collapsed">Withdraw Payment</a></li>
                             <li class="nav-item border-bottom"><a href="{{route('user.settings')}}" class="nav-link collapsed">Settings</a></li>
                             <li class="nav-item border-bottom"><a href="{{route('user.logout')}}" class="nav-link collapsed"><b>Log Out</b></a></li>

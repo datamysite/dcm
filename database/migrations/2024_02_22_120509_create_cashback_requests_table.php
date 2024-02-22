@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('cashback_requests', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->integer('user_id');
+            $table->string('invoice_file')->nullable();
+            $table->tinyInteger('status')->default('1');
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

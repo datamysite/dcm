@@ -67,7 +67,10 @@ Route::namespace('web')->group(function () {
 
             Route::get('withdraw-payment', 'UserController@withdrawPayment')->name('user.withdrawPayment');
 
-            Route::get('settings', 'UserController@settings')->name('user.settings');
+            Route::prefix('settings')->group(function(){
+                Route::get('/', 'UserController@settings')->name('user.settings');
+                Route::post('/update', 'UserController@settings_update')->name('user.settings.update');
+            });
         });
     });
 

@@ -48,7 +48,7 @@
                         <div class="mt-5">
                             <h6>Upload Invoice File</h6>
                         </div>
-                        <form id="cashback_form">
+                        <form id="cashback_form" action="{{route('user.claimCashback.request')}}">
                             @csrf
                             <!-- col -->
                             <div class="col-6">
@@ -78,43 +78,35 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Table body -->
-                                    <tr>
+                                    @foreach($requests as $key => $val)
+                                        <tr>
 
-                                        <td class="align-middle border-top-0">1</td>
-                                        <td class="align-middle border-top-0">
-                                            #14899
-                                        </td>
-                                        <td class="align-middle border-top-0">
-                                            <span class="badge bg-warning">Processing</span>
-                                        </td>
-                                        <td class="align-middle border-top-0">March 5, 2023</td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <td class="align-middle border-top-0">2</td>
-                                        <td class="align-middle border-top-0">
-                                            #14899
-                                        </td>
-                                        <td class="align-middle border-top-0">
-                                            <span class="badge bg-success">Completed</span>
-                                        </td>
-                                        <td class="align-middle border-top-0">March 5, 2023</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td class="align-middle border-top-0">3</td>
-                                        <td class="align-middle border-top-0">
-                                            #14899
-                                        </td>
-                                        <td class="align-middle border-top-0">
-                                            <span class="badge bg-danger">Not Completed</span>
-                                        </td>
-                                        <td class="align-middle border-top-0">March 5, 2023</td>
-                                    </tr>
-
+                                            <td class="align-middle border-top-0">{{++$key}}</td>
+                                            <td class="align-middle border-top-0">
+                                                #{{str_pad($val->id, 5, '0', STR_PAD_LEFT);}}
+                                            </td>
+                                            <td class="align-middle border-top-0">
+                                                @switch($val->status)
+                                                    @case('1')
+                                                        <span class="badge bg-warning">Processing</span>
+                                                        @break
+                                                    @case('2')
+                                                        <span class="badge bg-success">Completed</span>
+                                                        @break
+                                                    @case('3')
+                                                        <span class="badge bg-danger">Rejected</span>
+                                                        @break
+                                                @endswitch
+                                            </td>
+                                            <td class="align-middle border-top-0">{{date('M d, Y', strtotime($val->date))}}</td>
+                                        </tr>
+                                    @endforeach
+                                    @if(count($requests) == 0)
+                                        <tr>
+                                            <td colspan="4">No Data Found.</td>
+                                        </tr>
+                                    @endif
+                                    
                                 </tbody>
                             </table>
                         </div>

@@ -716,6 +716,9 @@ label.errors {
     display: flex;
     margin-bottom: 12px;
 }
+.user_errors{
+    margin-top: 1px !important;
+}
 
 
 

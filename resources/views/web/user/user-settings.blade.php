@@ -40,56 +40,62 @@
                     <h4 class="mb-5 mt-5"> <b>SETTINGS</b></h4>
                 </div>
 
-                <div class="row mt-5" style="background-color: #F2F2F2;border-radius: 10px">
+                <form action="{{route('user.settings.update')}}" id="settings_update_form">
+                    @csrf
+                    <div class="row mt-5" style="background-color: #F2F2F2;border-radius: 10px">
 
-                    <div class="col-lg-6">
-                        <h4 class="mb-2 mt-5">Personal Details</h4>
-                        <form action="#">
+                            <div class="col-lg-6">
+                                <h4 class="mb-2 mt-5">Personal Details</h4>
 
-                            <div class="input-group py-2">
-                                <input class="form-control rounded " type="text" name="user_name" placeholder="Your Name" required="required" />
+                                    <div class="input-group py-2">
+                                        <input class="form-control rounded " type="text" name="name" placeholder="Your Name" value="{{Auth::user()->name}}" required="required" />
+                                        <label class="errors user_errors name_error"></label>
 
+                                    </div>
+
+                                    <div class="input-group py-2">
+                                        <input class="form-control rounded" type="text" name="phone" placeholder="Your Phone Number" value="{{Auth::user()->phone}}" required="required" />
+                                        <label class="errors user_errors phone_error"></label>
+
+                                    </div>
+
+                                    <div class="input-group py-2">
+                                        <input class="form-control rounded" type="email" value="{{Auth::user()->email}}" disabled />
+                                    </div>
+
+                                    <div class="py-2">
+                                        <input type="checkbox" id="other" name="newsletter" value="1" {{Auth::user()->newsletter == '1' ? 'checked' : ''}}><label for="other" style="padding-left: 5px;"> Receive email when I get referral earnings.</label><br>
+
+                                    </div>
                             </div>
 
-                            <div class="input-group py-2">
-                                <input class="form-control rounded" type="text" name="user_phone" placeholder="Your Phone Number" required="required" />
+                            <div class="col-lg-6">
+                                <h4 class="mb-2 mt-5">Change Password</h4>
 
+                                <div class="input-group py-2">
+                                    <input class="form-control rounded " type="password" name="current_password" placeholder="Current Password" />
+                                    <label class="errors user_errors current_password_error"></label>
+
+                                </div>
+
+                                <div class="input-group py-2">
+                                    <input class="form-control rounded" type="password" name="password" placeholder="New Password" />
+                                    <label class="errors user_errors password_error"></label>
+
+                                </div>
+
+                                <div class="input-group py-2">
+                                    <input class="form-control rounded" type="password" name="password_confirmation" placeholder="Confirm New Password" />
+                                    <label class="errors user_errors password_confirmation_error"></label>
+                                </div>
+
+                                <div class="py-2">
+                                    <input type="submit" name="sing-up" class="btn btn-primary shadow-gray" style="font-weight: lighter; float:right;" value="Save Changes">
+                                </div>
                             </div>
-
-                            <div class="input-group py-2">
-                                <input class="form-control rounded" type="email" name="user_email" placeholder="Your Email" required="required" />
-                            </div>
-
-                            <div class="py-2">
-                                <input type="radio" id="other" name="other" value="other"><label for="other" style="padding-left: 5px;"> Receive email when I get referral earnings.</label><br>
-
-                            </div>
+                        <p></p>
                     </div>
-
-                    <div class="col-lg-6">
-                        <h4 class="mb-2 mt-5">Change Password</h4>
-
-                        <div class="input-group py-2">
-                            <input class="form-control rounded " type="password" name="current_password" placeholder="Current Password" required="required" />
-
-                        </div>
-
-                        <div class="input-group py-2">
-                            <input class="form-control rounded" type="password" name="new_password" placeholder="New Password" required="required" />
-
-                        </div>
-
-                        <div class="input-group py-2">
-                            <input class="form-control rounded" type="password" name="new_password" placeholder="Confirm New Password" required="required" />
-                        </div>
-
-                        <div class="py-2">
-                            <input type="submit" name="sing-up" class="btn btn-primary shadow-gray" style="font-weight: lighter; float:right;" value="Save Changes">
-                        </div>
-                        </form>
-                    </div>
-                    <p></p>
-                </div>
+                </form>
             </div>
 
         </div>

@@ -77,50 +77,7 @@
                                 <!-- Table body -->
                                 <tr>
 
-                                    <td class="align-middle border-top-0">1</td>
-                                    <td class="align-middle border-top-0">
-                                        #14899
-                                    </td>
-                                    <td class="align-middle border-top-0">1</td>
-                                    <td class="align-middle border-top-0">
-                                        #14899
-                                    </td>
-                                    <td class="align-middle border-top-0">
-                                        <span class="badge bg-warning">Processing</span>
-                                    </td>
-                                    <td class="align-middle border-top-0">March 5, 2023</td>
-                                </tr>
-
-                                <tr>
-
-                                    <td class="align-middle border-top-0">1</td>
-                                    <td class="align-middle border-top-0">
-                                        #14899
-                                    </td>
-                                    <td class="align-middle border-top-0">1</td>
-                                    <td class="align-middle border-top-0">
-                                        #14899
-                                    </td>
-                                    <td class="align-middle border-top-0">
-                                        <span class="badge bg-warning">Processing</span>
-                                    </td>
-                                    <td class="align-middle border-top-0">March 5, 2023</td>
-
-                                </tr>
-                                <tr>
-
-                                    <td class="align-middle border-top-0">1</td>
-                                    <td class="align-middle border-top-0">
-                                        #14899
-                                    </td>
-                                    <td class="align-middle border-top-0">1</td>
-                                    <td class="align-middle border-top-0">
-                                        #14899
-                                    </td>
-                                    <td class="align-middle border-top-0">
-                                        <span class="badge bg-danger">Not Done</span>
-                                    </td>
-                                    <td class="align-middle border-top-0">March 5, 2023</td>
+                                    <td colspan="6" class="align-middle border-top-0">No Data Found.</td>
                                 </tr>
 
                             </tbody>
