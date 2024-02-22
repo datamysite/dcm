@@ -154,7 +154,16 @@
 
     display: -webkit-box; 
     -webkit-box-orient: vertical; 
-    -webkit-line-clamp: 4; 
+    -webkit-line-clamp: 3; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.blogItem h5 {
+
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 1; 
     overflow: hidden; 
     text-overflow: ellipsis;
 }
