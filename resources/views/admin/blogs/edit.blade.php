@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="edit-mblog-image-wrapper file-set" style="background-image: url({{URL::to('/public/storage/blogs/'.$data->banner)}});">
-          <input type="file" name="edit_mblog_image" accept="image/*" required />
+          <input type="file" name="edit_mblog_image" accept="image/*" />
           <div class="close-btn">×</div>
         </div>
       </div>
@@ -30,6 +30,14 @@
             <span>{{env('APP_DOMAIN')}}blogs/</span>
             <input type="text" class="eblogSlug" name="slug" value="{{$data->slug}}" required>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Short Description</label>
+          <textarea class="form-control" name="short_description" rows="3">{{$data->short_description}}</textarea>
         </div>
       </div>
     </div>

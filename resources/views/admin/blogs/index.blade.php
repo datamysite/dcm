@@ -117,9 +117,16 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
+                <label>Short Description</label>
+                <textarea class="form-control" name="short_description" rows="3"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
                 <label>Description</label>
-                <textarea class="form-control" name="description" id="content" rows="10">
-                </textarea>
+                <textarea class="form-control" name="description" id="content" rows="10"></textarea>
               </div>
             </div>
           </div>
@@ -190,11 +197,11 @@
       readURL(this, $('.coupon-image-wrapper'));  //Change the image
     });
 
-    $('input[name="edit_mblog_image"]').on('change', function(){
+    $(document).on('change', 'input[name="edit_mblog_image"]', function(){
       readURL(this, $('.edit-mblog-image-wrapper'));  //Change the image
     });
 
-    $('.close-btn').on('click', function(){ //Unset the image
+    $(document).on('click','.close-btn', function(){ //Unset the image
        let file = $('input[name="coupon_image"]');
        $('.coupon-image-wrapper').css('background-image', 'unset');
        $('.coupon-image-wrapper').removeClass('file-set');
@@ -245,6 +252,41 @@
           form.trigger("reset");
           $(".ck-blurred p").html("");
           $('#addBlogFormModal').modal('hide');
+          loadBlogs();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+    
+
+    $(document).on('submit', "#edit_blog_form", function (event) {
+      var form=$(this);
+      var formData = new FormData($("#edit_blog_form")[0]);
+      //console.log(formData);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          $('.close-btn').click();
+          form.trigger("reset");
+          $(".ck-blurred p").html("");
+          $('#editBlogFormModal').modal('hide');
           loadBlogs();
         }else{
           Toast.fire({

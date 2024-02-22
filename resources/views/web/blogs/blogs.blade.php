@@ -2,20 +2,39 @@
 
 @section('content')
 
+
+<div class="mt-110">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- col -->
+            <div class="col-12">
+                <!-- breadcrumb -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="Blogs" style="color:#1DACE3;"><strong>Blogs</a></strong></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Slider Section Start-->
-<section class="mt-110">
+<section class="mt-2">
     <div class="container np-container">
         <div class="hero-slider">
 
-            <div style="background: url({{URL::to('/public')}}/web_assets/images/slider/img_03.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
+            <div style="background: url({{URL::to('/public/storage/blogs/'.$featured->banner)}}) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
                 <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
 
                     <div class="slider_div2">
 
                         <h3>Featured</h3>
-                        <h6>Breaking Into Product Design: Advice from Untitled Founder, Frankie</h6>
-                        <p>Let’s get one thing out of the way: you don’t need a fancy Bachelor’s Degree to get into Product Design. We sat down with Frankie Sullivan to talk about gatekeeping in...</p>
-                        <a href="single-blog.php" target="_blank">Read More</a>
+                        <h6>{{$featured->heading}}</h6>
+                        <p>{{ $featured->short_description }}</p>
+                        <a href="{{route('blog.details', $featured->slug)}}" target="_blank">Read More</a>
 
                     </div>
 
@@ -25,25 +44,6 @@
     </div>
 </section>
 <!-- Slider Section End-->
-
-
-<div class="mt-0">
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <!-- col -->
-            <div class="col-12">
-                <!-- breadcrumb -->
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="Home" style="color: #000;"><strong>Home</strong></a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="Blogs" style="color:#1DACE3;"><strong>Blogs</a></strong></li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <!-- Blogs section Start Here -->

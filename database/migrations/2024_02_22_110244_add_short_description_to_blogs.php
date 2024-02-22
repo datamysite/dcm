@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('clicks_counter', function (Blueprint $table) {
-            $table->integer('coupon_id')->after('retailer_id')->nullable();
-            $table->integer('offer_id')->after('coupon_id')->nullable();
+        Schema::table('blogs', function (Blueprint $table) {
+            $table->longText('short_description')->after('slug')->nullable();
         });
     }
 
@@ -22,9 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('clicks_counter', function (Blueprint $table) {
-            $table->dropColumn('coupon_id');
-            $table->dropColumn('offer_id');
+        Schema::table('blogs', function (Blueprint $table) {
+            $table->dropColumn('short_description');
         });
     }
 };

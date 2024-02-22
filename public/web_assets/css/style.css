@@ -698,6 +698,11 @@ label.errors {
     object-fit: cover;
 
 }
+.slider_div2 div {
+    height: 80px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
 
 
 

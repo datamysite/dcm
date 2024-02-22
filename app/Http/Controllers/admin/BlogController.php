@@ -35,7 +35,7 @@ class BlogController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['slug']) || empty($data['description'])) {
+        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['short_description'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         }else{
@@ -56,6 +56,36 @@ class BlogController extends Controller
 
             $response['success'] = 'success';
             $response['message'] = 'Success! New Blog Added.';
+        }
+
+        echo json_encode($response);
+    }
+
+    public function update_blog(Request $request){
+        $data = $request->all();
+        $response = [];
+
+        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['short_description'])) {
+            $response['success'] = false;
+            $response['errors'] = 'Please Fill all required fields.';
+        }else{
+
+            $id = Blogs::blog_update(base64_decode($data['blog_id']), $data);
+
+            if($request->hasFile('edit_mblog_image')){
+                $file = $request->file('edit_mblog_image');
+                $ext = $file->getClientOriginalExtension();
+                $newname = $id.date('dmyhis').'.'.$ext;
+
+                $file->move(public_path().'/storage/blogs',$newname);
+
+                $b = Blogs::find($id);
+                $b->banner = $newname;
+                $b->save();
+            }
+
+            $response['success'] = 'success';
+            $response['message'] = 'Success! Blog Successfully Updated.';
         }
 
         echo json_encode($response);

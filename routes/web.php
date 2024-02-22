@@ -68,6 +68,14 @@ Route::namespace('web')->group(function () {
         });
     });
 
+    //Blogs
+    Route::prefix('blogs')->group(function(){
+
+        Route::get('/', 'BlogController@index')->name('Blogs');
+ 
+        Route::get('/{slug}', 'BlogController@detail')->name('blog.details');
+    });
+
 
 
 
@@ -84,11 +92,6 @@ Route::namespace('web')->group(function () {
     //Store Single Product
     Route::get('/Store-Single-Product', 'HomeController@Store_Single_Product')->name('Store_Single_Product');
 
-    //Blogs 
-    Route::get('/Blogs', 'HomeController@Blogs')->name('Blogs');
-
-    //Single Blog Post 
-    Route::get('/Single-Blog', 'HomeController@Single_Blog')->name('Single_Blog');
 
 
     //Categoires

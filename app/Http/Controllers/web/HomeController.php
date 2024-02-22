@@ -45,23 +45,6 @@ class HomeController extends Controller
         return view('web.listing.store-single-product');
     }
 
-    //Blogs Controller
-    public function Blogs()
-    {
-
-        return view('web.blogs.blogs');
-    }
-
-    //Single Blog Controller
-    public function Single_Blog()
-    {
-
-        return view('web.blogs.single-blog');
-    }
-
-    //User Profile Controller
-    
-
 
     //User Settings Controller
     public function Categoires()
