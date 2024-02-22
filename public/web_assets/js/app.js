@@ -33,8 +33,8 @@ $(document).ready(function() {
             title: data.message
           });
           setTimeout(function(){
-            window.location.href = window.location.href;
-          }, 1000);
+            location.reload();
+          }, 700);
         } else {
           Toast.fire({
             icon: 'error',
@@ -72,7 +72,7 @@ $(document).ready(function() {
             title: data.message
           });
           setTimeout(function(){
-            window.location.href = window.location.href;
+            location.reload();
           }, 700);
         } else {
           $('.password_error_l').css({display: 'flex'}).html(data.message);

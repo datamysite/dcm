@@ -91,11 +91,9 @@
                $string = str_replace('&', 'and', $string);
                $string = str_replace(' ', '-', $string);
                $slug = preg_replace('/[^a-z0-9-]/', '', $string);
-
-               $url = $val->type == '3' ? route('category.sub', [$slug, 'online']) : route('category.sub', [$slug, 'retail']);
             @endphp
             <div class="item">
-               <a href="{{$url}}" class="text-decoration-none text-inherit">
+               <a href="{{route('category', $slug)}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="{{$val->name}}" class="img-fluid" />
                   <div class="text-truncate">{{$val->name}}</div>
                </a>
@@ -158,14 +156,14 @@
                      <div class="flipper">
                         <div class="front">
                            <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla_toys_store.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up">
+                           <a href="javascript:void(0)" class="img-pop-up">
                               <div class="custom_arrow-button2">
                                  <i class="bi bi-arrow-right-circle"></i>
                               </div>
                            </a>
                         </div>
                         <div class="back">
-                           <a href="Store-Products" class="img-pop-up">
+                           <a href="{{route('brand', 'yalla-toys')}}" class="img-pop-up">
                               <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla-toys-backside.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
                            </a>
                         </div>
@@ -184,14 +182,14 @@
                      <div class="flipper">
                         <div class="front">
                            <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store.png" alt="Homzmart Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up">
+                           <a href="javascript:void(0)" class="img-pop-up">
                               <div class="custom_arrow-button2">
                                  <i class="bi bi-arrow-right-circle"></i>
                               </div>
                            </a>
                         </div>
                         <div class="back">
-                           <a href="Store-Products" class="img-pop-up">
+                           <a href="{{route('brand', 'homzmart')}}" class="img-pop-up">
                               <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store-backside.png" alt="Homzmart Store" style="border-radius: 20px;" />
                            </a>
                         </div>
@@ -218,7 +216,7 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="Store-Products" class="img-pop-up">
+                           <a href="{{route('brand', 'namshi')}}" class="img-pop-up">
                               <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi-store-backside.png" alt="Namshi Store" style="border-radius: 20px;" />
                            </a>
                         </div>
@@ -246,7 +244,7 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="Store-Products" class="img-pop-up">
+                           <a href="{{route('brand', 'sivvi')}}" class="img-pop-up">
                               <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/sivvi-store-backside.png" alt="Sivvi Store" style="border-radius: 20px;" />
                            </a>
                         </div>
@@ -265,7 +263,7 @@
                   <div class="flip-container">
                      <div class="flipper">
                         <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/aldo_store.png" alt="Aldo Store" style="border-radius: 20px;" />
+                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/noon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            <a href="#" class="img-pop-up">
                               <div class="custom_arrow-button2">
                                  <i class="bi bi-arrow-right-circle"></i>
@@ -273,8 +271,8 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="Store-Products" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/aldo-store-backside.png" alt="" style="border-radius: 20px;" />
+                           <a href="{{route('brand', 'noon')}}" class="img-pop-up">
+                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/noon-backside.png" alt="" style="border-radius: 20px;" />
                            </a>
                         </div>
                      </div>
@@ -326,7 +324,7 @@
                   <div class="flip-container">
                      <div class="flipper">
                         <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/aldo_store.png" alt="Aldo Store" style="border-radius: 20px;" />
+                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            <a href="Store-Products" class="img-pop-up" target="_blank">
                               <div class="custom_arrow-button2">
                                  <i class="bi bi-arrow-right-circle"></i>
@@ -334,8 +332,8 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="Store-Products" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/aldo_store.png" alt="Aldo Store" style="border-radius: 20px;" />
+                           <a href="javascript:void(0)" class="img-pop-up">
+                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            </a>
                         </div>
                      </div>
@@ -350,7 +348,7 @@
                   <div class="flip-container">
                      <div class="flipper">
                         <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/sivvi_store.png" alt="Sivvi Store" style="border-radius: 20px;" />
+                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            <a href="Store-Products" class="img-pop-up" target="_blank">
                               <div class="custom_arrow-button2">
                                  <i class="bi bi-arrow-right-circle"></i>
@@ -358,8 +356,8 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="Store-Products" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/sivvi_store.png" alt="Sivvi Store" style="border-radius: 20px;" />
+                           <a href="javascript:void(0)" class="img-pop-up">
+                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            </a>
                         </div>
                      </div>
@@ -367,14 +365,13 @@
                </div>
             </div>
             <!-- item -->
-
             <!-- item -->
             <div class="item">
                <div class="custom_col">
                   <div class="flip-container">
                      <div class="flipper">
                         <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi_store.png" alt="Namshi Store" style="border-radius: 20px;" />
+                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            <a href="Store-Products" class="img-pop-up" target="_blank">
                               <div class="custom_arrow-button2">
                                  <i class="bi bi-arrow-right-circle"></i>
@@ -382,8 +379,8 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="Store-Products" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi_store.png" alt="Namshi Store" style="border-radius: 20px;" />
+                           <a href="javascript:void(0)" class="img-pop-up">
+                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            </a>
                         </div>
                      </div>
@@ -391,14 +388,13 @@
                </div>
             </div>
             <!-- item -->
-
             <!-- item -->
             <div class="item">
                <div class="custom_col">
                   <div class="flip-container">
                      <div class="flipper">
                         <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store.png" alt="Homzmart Store" style="border-radius: 20px;" />
+                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            <a href="Store-Products" class="img-pop-up" target="_blank">
                               <div class="custom_arrow-button2">
                                  <i class="bi bi-arrow-right-circle"></i>
@@ -406,8 +402,8 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="Store-Products" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store.png" alt="Homzmart Store" style="border-radius: 20px;" />
+                           <a href="javascript:void(0)" class="img-pop-up">
+                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            </a>
                         </div>
                      </div>
@@ -415,14 +411,13 @@
                </div>
             </div>
             <!-- item -->
-
             <!-- item -->
             <div class="item">
                <div class="custom_col">
                   <div class="flip-container">
                      <div class="flipper">
                         <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla_toys_store.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
+                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            <a href="Store-Products" class="img-pop-up" target="_blank">
                               <div class="custom_arrow-button2">
                                  <i class="bi bi-arrow-right-circle"></i>
@@ -430,8 +425,8 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="Store-Products" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla_toys_store.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
+                           <a href="javascript:void(0)" class="img-pop-up">
+                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
                            </a>
                         </div>
                      </div>
@@ -460,24 +455,12 @@
 
          <div class="row">
 
-            <div class="col-md-6 col-xs-12 mb-3">
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="Store-Products"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/gucci_logo.png" alt="" style="border-radius: 20px;" /></a>
-                  <a href="Store-Products" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5" href="#">Browse</button>
-                     </div>
-                  </a>
-               </div>
-            </div>
 
-            <div class="col-6 col-xs-6 col-sm-6 col-md-3">
-               <div class="single-deal">
+            <div class="col-md-6 col-xs-12 mb-3">
+               <div class="single-deal v-tile">
                   <div class="overlay"></div>
-                  <a href="Store-Products"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/brand_for_less.png" alt="Brand For Less" style="border-radius: 20px;" /></a>
-                  <a href="#" class="img-pop-up">
+                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[0]->logo)}}" alt="" style="border-radius: 20px;" /></a>
+                  <a href="{{route('brand', $allstores[0]->slug)}}" class="img-pop-up">
                      <div class="deal-details">
                         <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
                         <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
@@ -489,8 +472,21 @@
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
                <div class="single-deal">
                   <div class="overlay"></div>
-                  <a href="Store-Products"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store.png" alt="Homzmart Store" style="border-radius: 20px;" /></a>
-                  <a href="Store-Products" class="img-pop-up">
+                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[1]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" /></a>
+                  <a href="{{route('brand', $allstores[1]->slug)}}" class="img-pop-up">
+                     <div class="deal-details">
+                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
+                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
+                     </div>
+                  </a>
+               </div>
+            </div>
+
+            <div class="col-6 col-xs-6 col-sm-6 col-md-3">
+               <div class="single-deal">
+                  <div class="overlay"></div>
+                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[2]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" /></a>
+                  <a href="{{route('brand', $allstores[2]->slug)}}" class="img-pop-up">
                      <div class="deal-details">
                         <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
                         <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
@@ -508,8 +504,8 @@
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
                <div class="single-deal">
                   <div class="overlay"></div>
-                  <a href="Store-Products"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla_toys_store.png" alt="Yalla Toys Store" style="border-radius: 20px;" /></a>
-                  <a href="Store-Products" class="img-pop-up">
+                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[3]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" /></a>
+                  <a href="{{route('brand', $allstores[3]->slug)}}" class="img-pop-up">
                      <div class="deal-details">
                         <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
                         <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
@@ -521,9 +517,10 @@
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
                <div class="single-deal">
                   <div class="overlay"></div>
-                  <a href="Store-Products"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi_store.png" alt="Namshi Store" style="border-radius: 20px;" /></a>
-                  <a href="Store-Products" class="img-pop-up">
+                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[4]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" /></a>
+                  <a href="{{route('brand', $allstores[4]->slug)}}" class="img-pop-up">
                      <div class="deal-details">
+                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
                         <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
                      </div>
                   </a>
@@ -531,10 +528,10 @@
             </div>
 
             <div class="col-md-6 col-xs-12 mb-3">
-               <div class="single-deal">
+               <div class="single-deal v-tile">
                   <div class="overlay"></div>
-                  <a href="Store-Products"><img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/bloom.png" alt="Namshi Store" style="border-radius: 20px;" /></a>
-                  <a href="Store-Products" class="img-pop-up">
+                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[5]->logo)}}" alt="" style="border-radius: 20px;" /></a>
+                  <a href="{{route('brand', $allstores[5]->slug)}}" class="img-pop-up">
                      <div class="deal-details">
                         <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
                         <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>

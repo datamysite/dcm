@@ -690,6 +690,17 @@ label.errors {
 .animated-banner .content ol {
     margin: 55px 0;
 }
+#all-stores .row .col-md-6 {
+    max-height: 399px;
+}
+#all-stores .v-tile img {
+    aspect-ratio: 13/8;
+    object-fit: cover;
+
+}
+
+
+
 
 
 

@@ -26122,7 +26122,10 @@ span.flatpickr-weekday {
 
 .single-deal {
   position: relative;
-  margin-bottom: 30px;
+    margin-bottom: 30px;
+    max-height: 385px;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 .single-deal .overlay {

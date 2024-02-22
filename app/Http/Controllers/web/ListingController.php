@@ -135,7 +135,13 @@ class ListingController extends Controller
         $data['states_f'] = States::select('id', 'name')->get();
         //Filter -- end
 
-        $data['categories'] = Categories::where('parent_id', $data['category']->id)->get();
+        if(!empty($req['type']) && $req['type'] == '1'){
+            $data['categories'] = Categories::where('parent_id', 0)->where('type', 3)->where('status', '1')->get();
+                                    //dd($data);
+        }else{
+            $data['categories'] = Categories::where('parent_id', $data['category']->id)->where('status', '1')->get();
+            //dd($type);
+        }
         $data['retailers'] = Retailers::whereHas('categories', function($q) use ($data){
                                             return $q->where('category_id', $data['category']->id);
                                         })
@@ -146,6 +152,10 @@ class ListingController extends Controller
                                         })
                                         ->when(!empty($req['discount']), function($q) use ($req){
                                                 return $q->where('discount_upto', '<=', $req['discount']);
+                                        })
+                                        ->when(!empty($req['type']), function($q) use ($req){
+                                                return $q->where('type', $req['type'])
+                                                            ->orWhere('type', '3');
                                         })
                                         ->paginate(12);
 

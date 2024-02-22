@@ -73,6 +73,37 @@
                      </div>
 
                      <div class="offcanvas-body ps-lg-2 pt-lg-0 mb-6 mb-md-0">
+
+                        @if($type == 'online' || $type == 'retail')
+                           <div class="mb-8">
+                              <!-- title -->
+                              <h5 class="mb-3">Store</h5>
+                              <!-- nav -->
+                              <ul class="nav nav-category" id="">
+
+
+
+                                 <li class="nav-item border-bottom w-100">
+                                    <div class="form-check mb-2">
+                                       <!-- input -->
+                                       <input class="form-check-input" type="radio" id="type1" {{!empty($type) && $type == 'online' ? 'checked' : 'disabled'}}/>
+                                       <label class="form-check-label" for="type">Online</label>
+                                    </div>
+                                    <!-- accordion collapse -->
+                                 </li>
+
+                                 <li class="nav-item border-bottom w-100">
+                                    <div class="form-check mb-2">
+                                       <!-- input -->
+                                       <input class="form-check-input" type="radio" id="type2" {{!empty($type) && $type == 'retail' ? 'checked' : 'disabled'}} {{empty($type) ? 'checked' : ''}}/>
+                                       <label class="form-check-label" for="type2">Retail</label>
+                                    </div>
+                                    <!-- accordion collapse -->
+                                 </li>
+
+                              </ul>
+                           </div>
+                        @endif
                         
                         @if($type == 'online')
                            <div class="mb-8">
@@ -136,79 +167,6 @@
                         @if($type == 'online' || $type == 'retail')
                            <div class="mb-8">
                               <!-- title -->
-                              <h5 class="mb-3">Store</h5>
-                              <!-- nav -->
-                              <ul class="nav nav-category" id="">
-
-
-
-                                 <li class="nav-item border-bottom w-100">
-                                    <div class="form-check mb-2">
-                                       <!-- input -->
-                                       <input class="form-check-input" type="radio" id="type1" {{!empty($type) && $type == 'online' ? 'checked' : 'disabled'}}/>
-                                       <label class="form-check-label" for="type">Online</label>
-                                    </div>
-                                    <!-- accordion collapse -->
-                                 </li>
-
-                                 <li class="nav-item border-bottom w-100">
-                                    <div class="form-check mb-2">
-                                       <!-- input -->
-                                       <input class="form-check-input" type="radio" id="type2" {{!empty($type) && $type == 'retail' ? 'checked' : 'disabled'}} {{empty($type) ? 'checked' : ''}}/>
-                                       <label class="form-check-label" for="type2">Retail</label>
-                                    </div>
-                                    <!-- accordion collapse -->
-                                 </li>
-
-                              </ul>
-                           </div>
-                        @endif
-
-                        @if($type == 'online')
-                        <div class="mb-8">
-                           <!-- title -->
-                           <h5 class="mb-3">Location</h5>
-                           <!-- nav -->
-                           <ul class="nav nav-category" id="">
-                              @foreach($countries_f as $val)
-                                 <li class="nav-item border-bottom w-100">
-                                    <div class="form-check mb-2">
-                                       <!-- input -->
-                                       <input class="form-check-input" type="radio" name="country" value="{{$val->id}}" id="countries{{$val->id}}" {{!empty($_GET['country']) && $_GET['country'] == $val->id ? 'checked' : ''}} {{empty($_GET['country']) && $val->id == '1' ? 'checked' : ''}}/>
-                                       <label class="form-check-label" for="countries{{$val->id}}">{{$val->name}}</label>
-                                    </div>
-                                    <!-- accordion collapse -->
-                                 </li>
-                              @endforeach
-
-                           </ul>
-                        </div>
-                        @endif
-
-                        @if($type == 'retail')
-                        <div class="mb-8">
-                           <!-- title -->
-                           <h5 class="mb-3">Location</h5>
-                           <!-- nav -->
-                           <ul class="nav nav-category" id="">
-                              @foreach($states_f as $val)
-                                 <li class="nav-item border-bottom w-100">
-                                    <div class="form-check mb-2">
-                                       <!-- input -->
-                                       <input class="form-check-input" type="radio" name="state" value="{{$val->id}}" id="states{{$val->id}}" {{!empty($_GET['state']) && $_GET['state'] == $val->id ? 'checked' : ''}}/>
-                                       <label class="form-check-label" for="states{{$val->id}}">{{$val->name}}</label>
-                                    </div>
-                                    <!-- accordion collapse -->
-                                 </li>
-                              @endforeach
-
-                           </ul>
-                        </div>
-                        @endif
-
-                        @if($type == 'online' || $type == 'retail')
-                           <div class="mb-8">
-                              <!-- title -->
                               <h5 class="mb-3">Discount Off</h5>
                               <!-- nav -->
                               <ul class="nav nav-category" id="">
@@ -263,6 +221,48 @@
                                  </ul>
                               </div>
                            @endif
+                        @endif
+
+                        @if($type == 'online')
+                        <div class="mb-8">
+                           <!-- title -->
+                           <h5 class="mb-3">Location</h5>
+                           <!-- nav -->
+                           <ul class="nav nav-category" id="">
+                              @foreach($countries_f as $val)
+                                 <li class="nav-item border-bottom w-100">
+                                    <div class="form-check mb-2">
+                                       <!-- input -->
+                                       <input class="form-check-input" type="radio" name="country" value="{{$val->id}}" id="countries{{$val->id}}" {{!empty($_GET['country']) && $_GET['country'] == $val->id ? 'checked' : ''}} {{empty($_GET['country']) && $val->id == '1' ? 'checked' : ''}}/>
+                                       <label class="form-check-label" for="countries{{$val->id}}">{{$val->name}}</label>
+                                    </div>
+                                    <!-- accordion collapse -->
+                                 </li>
+                              @endforeach
+
+                           </ul>
+                        </div>
+                        @endif
+
+                        @if($type == 'retail')
+                        <div class="mb-8">
+                           <!-- title -->
+                           <h5 class="mb-3">Location</h5>
+                           <!-- nav -->
+                           <ul class="nav nav-category" id="">
+                              @foreach($states_f as $val)
+                                 <li class="nav-item border-bottom w-100">
+                                    <div class="form-check mb-2">
+                                       <!-- input -->
+                                       <input class="form-check-input" type="radio" name="state" value="{{$val->id}}" id="states{{$val->id}}" {{!empty($_GET['state']) && $_GET['state'] == $val->id ? 'checked' : ''}}/>
+                                       <label class="form-check-label" for="states{{$val->id}}">{{$val->name}}</label>
+                                    </div>
+                                    <!-- accordion collapse -->
+                                 </li>
+                              @endforeach
+
+                           </ul>
+                        </div>
                         @endif
 
 

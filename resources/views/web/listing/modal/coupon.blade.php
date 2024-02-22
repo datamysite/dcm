@@ -23,7 +23,6 @@
    <div>
      <a href="https://wa.me/?text={{route('brand', $coupon->retailer->slug)}}" data-action="share/whatsapp/share" class="grap_deal_icon" target="_blank"><i class="fa fa-whatsapp"></i></a>
      <a href="https://www.facebook.com/share.php?u={{route('brand', $coupon->retailer->slug)}}" target="_blank" class="grap_deal_icon"><i class="fa fa-facebook-square"></i></a>
-     <a href="https://www.instagram.com/?url={{route('brand', $coupon->retailer->slug)}}" target="_blank" class="grap_deal_icon"><i class="fa fa-instagram-square"></i></a>
    </div>
 </div>
 

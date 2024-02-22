@@ -5,12 +5,14 @@ namespace App\Http\Controllers\web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
+use App\Models\Retailers;
 
 class HomeController extends Controller
 {
     public function index()
     {   
         $data['categories'] = Categories::where('parent_id', 0)->get();
+        $data['allstores'] = Retailers::inRandomOrder()->where('status', '1')->limit(6)->get();
 
         return view('web.index')->with($data);
     }

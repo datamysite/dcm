@@ -7,12 +7,11 @@
                <h6 class="mb-4"><strong>ABOUT DCM </strong></h6>
                <!-- list -->
                <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="About-Us" class="nav-link">About Us</a></li>
+                  <li class="nav-item mb-2"><a href="{{route('About_Us')}}" class="nav-link">About Us</a></li>
                   <li class="nav-item mb-2"><a href="#!" class="nav-link">FAQ</a></li>
-                  <li class="nav-item mb-2"><a href="Blogs" class="nav-link">Blogs</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Privacy Policy</a></li>
+                  <li class="nav-item mb-2"><a href="{{route('Blogs')}}" class="nav-link">Blogs</a></li>
+                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Privacy & Cookie Policy</a></li>
                   <li class="nav-item mb-2"><a href="#!" class="nav-link">Terms & Conditions</a></li>
-                  <li class="nav-item mb-2"><a href="#!" class="nav-link">Refund Policy</a></li>
                </ul>
             </div>
 

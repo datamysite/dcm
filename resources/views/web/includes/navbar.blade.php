@@ -88,7 +88,7 @@
                      </li>
 
                      <li class="nav-item dropdown" style="padding: 10px;">
-                        <a class="nav-link" href="About-Us" role="button" aria-expanded="false">About Us</a>
+                        <a class="nav-link" href="{{route('About_Us')}}" role="button" aria-expanded="false">About Us</a>
                      </li>
                   </ul>
                   <form class="ms-auto d-flex align-items-center" style="padding: 10px;">
@@ -104,7 +104,7 @@
 
                   <ul class="navbar-nav">
                      <li class="nav-item dropdown" style="padding: 10px;">
-                        <a class="nav-link" href="Sell-With-DCM" role="button" aria-expanded="false"><b>SELL WITH DCM</b></a>
+                        <a class="nav-link" href="{{route('Sell_With_DCM')}}" role="button" aria-expanded="false"><b>SELL WITH DCM</b></a>
                      </li>
                      <ul class="navbar-nav">
 
@@ -114,7 +114,7 @@
                            </li>
                         @else
                            <li class="nav-item dropdown" style="padding: 10px;">
-                              <a class="nav-link" href="#" role="button" data-bs-toggle="modal" data-bs-target="#userModal"><b>SIGN IN</b></a>
+                              <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal"><b>SIGN IN</b></a>
                            </li>
                         @endif
 
@@ -192,31 +192,41 @@
                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                            <ul class="dropdown-menu">
                               @foreach($navbarCategories as $val)
-                                 <li><a class="dropdown-item" href="Categoires?category=Online">{{$val->name}}</a></li>
+                                 @php
+                                    $string = strtolower(trim($val->name));
+                                     $string = str_replace('&', 'and', $string);
+                                     $string = str_replace(' ', '-', $string);
+                                     $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                                 @endphp
+                                 <li><a class="dropdown-item" href="{{route('category', $slug)}}">{{$val->name}}</a></li>
                               @endforeach
                            </ul>
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
-                           <a class="nav-link" href="About-Us">About Us</a>
+                           <a class="nav-link" href="{{route('About_Us')}}">About Us</a>
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
-                           <a class="nav-link" href="Sell-With-DCM">SELL WITH DCM</a>
+                           <a class="nav-link" href="{{route('Sell_With_DCM')}}">SELL WITH DCM</a>
                         </li>
 
-                        <li class="nav-item w-100 w-lg-auto">
-                           <a class="nav-link" href="#" id="userModalLabel">SIGN UP</a>
-                        </li>
+                        @if(Auth::check())
+                           <li class="nav-item w-100 w-lg-auto dropdown">
+                              <a class="nav-link" href="{{route('user.profile')}}">Profile</a>
+                           </li>
+                        @else
+
+                           <li class="nav-item w-100 w-lg-auto">
+                              <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal">SIGN IN</a>
+                           </li>
+                        @endif
 
 
-                        <li class="nav-item w-100 w-lg-auto dropdown">
-                           <a class="nav-link" href="User-Profile">Profile</a>
-                        </li>
 
                         <div class="nav-item w-100 w-lg-auto">
-                           <span class="me-2">ENG</span>
                            <i class="bi bi-globe"></i>
+                           <span class="me-2">ENG</span>
                         </div>
 
                      </ul>
