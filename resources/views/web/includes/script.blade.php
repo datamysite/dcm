@@ -15,11 +15,15 @@
 <script type="text/javascript">
 
     $(document).on('keyup', '.main-search', function(){
-      $('.main-search-result').html("<img src='{{URL::to('/public/loader-gif.gif')}}' height='25px'/>");
       var val = $(this).val();
-      $.get("{{URL::to('/search')}}/"+val, function(data){
-         $('.main-search-result').html(data);
-      });
+      if(val != ''){
+         $('.main-search-result').html("<img src='{{URL::to('/public/loader-gif.gif')}}' height='25px'/>");
+         $.get("{{URL::to('/search')}}/"+val, function(data){
+            $('.main-search-result').html(data);
+         });
+      }else{
+         $('.main-search-result').html("");
+      }
     });
 
 
