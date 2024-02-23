@@ -69,7 +69,7 @@ Route::namespace('web')->group(function () {
 
             Route::prefix('settings')->group(function(){
                 Route::get('/', 'UserController@settings')->name('user.settings');
-                Route::post('/update', 'UserController@settings_update')->name('user.settings.update');
+                Route::post('/update', 'UserController@settings_updates')->name('user.settings.update');
             });
         });
     });
