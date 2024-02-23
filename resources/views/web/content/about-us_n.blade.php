@@ -42,7 +42,7 @@
       <div class="container">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0 page-title">About Us</h3>
+               <h3 class="mb-0 page-title">About Us test</h3>
             </div>
          </div>
       </div>
