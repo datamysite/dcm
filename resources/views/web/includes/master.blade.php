@@ -29,6 +29,13 @@
 
 <!-- SignIn-Modal Desktop-->
 <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+   <div class="signin-mobile-nav">
+         <p>Let`s get you signed in!</p>
+         <div class="nav-btn">
+            <button class="btn bg-white signIn act">Sign In</button>
+            <button class="btn bg-white signUp">Register</button>
+         </div>
+   </div>
    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
          <div class="modal-body">
@@ -76,13 +83,13 @@
                      <div class="overlay_modal-panel overlay_modal-left" style="background-color: #1dace3;">
                         <h1 style="color:#fff">Welcome Back!</h1>
                         <p>To keep connected with us please login with your personal info</p>
-                        <button class="btn btn-primary shadow-gray" id="signIn" style="background-color: #fff;color:#1dace3">Sign In</button>
+                        <button class="btn btn-primary shadow-gray signIn" style="background-color: #fff;color:#1dace3">Sign In</button>
                      </div>
                      <div class="overlay_modal-panel overlay_modal-right" style="background-color: #1dace3;color:#fff">
                         <h1 style="color:#fff">DCM</h1>
                         <h1 style="color:#fff">Hello, Friend!</h1>
                         <p>Enter your personal details and start journey with us. or you can <b>Sign Up</b> if you don't have an account</p>
-                        <button class="btn btn-primary shadow-gray" style="background-color: #fff;color:#1dace3" id="signUp">Sign Up</button>
+                        <button class="btn btn-primary shadow-gray signUp" style="background-color: #fff;color:#1dace3">Sign Up</button>
                      </div>
                   </div>
                </div>

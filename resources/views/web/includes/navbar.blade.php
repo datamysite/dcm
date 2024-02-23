@@ -1,24 +1,114 @@
-<div class="">
-   <div class="container">
+
+   <div class="">
       <div class="mobile-navbar">
-            <div class="list-inline">
+         <div class="list-inline d-flex ">
 
-               <div class="list-inline-item d-inline-block d-lg-none">
-                  <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#1DACE3" class="bi bi-text-indent-left text-primary" viewBox="0 0 16 16">
-                        <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-                     </svg>
-                  </button>
-               </div>
+            <div class="justify-content-center w-100 d-lg-none">
+               <a class="navbar-brand" href="{{route('home')}}">
+                  <img src="{{URL::to('/public')}}/web_assets/images/logo/m-logo.png" alt="dealsandcouponsmena" style="width: 140px;" />
+               </a>
+            </div>
 
-               <div class="d-flex justify-content-center w-100 d-lg-none">
-                  <a class="navbar-brand" href="{{route('home')}}">
-                     <img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" alt="dealsandcouponsmena" style="height: 135px; width: auto;" />
-                  </a>
+            <div class="d-flex align-items-center" style="padding: 10px;">
+               <i class="bi bi-globe"></i>&nbsp;&nbsp;
+               <span><b>ENG</b></span>
+            </div>
+
+            <div class="list-inline-item d-inline-block d-lg-none">
+               <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000" class="bi bi-text-indent-left text-primary" viewBox="0 0 16 16">
+                     <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                  </svg>
+               </button>
+            </div>
+         </div>
+         <div class="nav-tray">
+
+            <div class="tray-item tray-search">
+               <div class="input-group">
+                  <input class="form-control rounded" type="search" placeholder="Search..." />
+                  <span class="input-group-append">
+                     <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                           <circle cx="11" cy="11" r="8"></circle>
+                           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                     </button>
+                  </span>
                </div>
             </div>
+
+            
+            <div class="tray-item tray-emirates">
+               <div class="header_card">
+                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/abu-dhabi.png" alt="Abu Dhabi" />
+                  AUH
+               </div>
+
+               <div class="header_card">
+                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/dubai.png" alt="DUBAI" />
+                  DXB
+               </div>
+
+               <div class="header_card">
+                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/sharjah.png" alt="SHARJAH" />
+                  SHJ
+               </div>
+
+               <div class="header_card">
+                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/fujairah.png" alt="FUJAIRAH" />
+                  FUJ
+               </div>
+
+               <div class="header_card">
+                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/ajman.png" alt="AJMAN" />
+                  AJM
+               </div>
+
+               <div class="header_card">
+                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/umm_alquwain.png" alt="UMM AL QUWAIN" />
+                  UAQ
+               </div>
+
+               <div class="header_card">
+                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/ras_alkaimah.png" alt="RAS AL KHAIMAH" />
+                  RAK
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="mobile-footbar">
+         <div class="list-inline d-flex ">
+               <a href="{{route('home')}}" class="" data-option="home">
+                  <i class="fa fa-home"></i>
+                  Home
+               </a>
+
+               <a href="javascript:void(0)" class="mobile-nav-button" data-option="search">
+                  <i class="fa fa-search"></i>
+                  Search
+               </a>
+
+               <a href="javascript:void(0)" class="mobile-nav-button" data-option="emirates">
+                  <i class="fa fa-crosshairs"></i>
+                  All Emirates
+               </a>
+
+               @if(Auth::check())
+                  <a href="{{route('user.profile')}}">
+                     <i class="fa fa-user"></i>
+                     Profile
+                  </a>
+               @else
+                  <a href="javascript:void(0)" class="" data-option="login"  data-bs-toggle="modal" data-bs-target="#userModal">
+                     <i class="fa fa-user-circle-o"></i>
+                     Sign In
+                  </a>
+               @endif
+         </div>
+      </div>
    </div>
-</div>
 
 <nav class="navbar navbar-expand-lg navbar-light navbar-default py-0" aria-label="Offcanvas navbar large">
    <div class="container">
@@ -133,49 +223,6 @@
             <div class="mobile-nav">
 
                <div class="offcanvas-body">
-                  <div class="d-block d-lg-none mb-4">
-                     <form action="#">
-                        <div class="input-group">
-                           <input class="form-control rounded" type="search" placeholder="Search..." />
-                           <span class="input-group-append">
-                              <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                 </svg>
-                              </button>
-                           </span>
-                        </div>
-                     </form>
-
-                  </div>
-                  <div class="d-block d-lg-none mb-4">
-                     <a class="btn btn-primary w-100 d-flex justify-content-center align-items-center" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <span class="me-2">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
-                              <rect x="3" y="3" width="7" height="7"></rect>
-                              <rect x="14" y="3" width="7" height="7"></rect>
-                              <rect x="14" y="14" width="7" height="7"></rect>
-                              <rect x="3" y="14" width="7" height="7"></rect>
-                           </svg>
-                        </span>
-                        All Emirates
-                     </a>
-                     <div class="collapse mt-2" id="collapseExample">
-                        <div class="card card-body">
-                           <ul class="mb-0 list-unstyled">
-                              <li><a class="dropdown-item" href="javascript:void(0)">DUBAI</a></li>
-                              <li><a class="dropdown-item" href="javascript:void(0)">ABU DAHBI</a></li>
-                              <li><a class="dropdown-item" href="javascript:void(0)">SHARJAH</a></li>
-                              <li><a class="dropdown-item" href="javascript:void(0)">AJMAN</a></li>
-                              <li><a class="dropdown-item" href="javascript:void(0)">UMM ALQUWAIN</a></li>
-                              <li><a class="dropdown-item" href="javascript:void(0)">RAS AL KHAIMAH</a></li>
-                              <li><a class="dropdown-item" href="javascript:void(0)">FUJAIRA</a></li>
-
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
 
                   <div>
                      <ul class="navbar-nav align-items-center">
@@ -213,7 +260,7 @@
 
                         @if(Auth::check())
                            <li class="nav-item w-100 w-lg-auto dropdown">
-                              <a class="nav-link" href="{{route('user.profile')}}">Profile</a>
+                              <a class="nav-link" href="{{route('user.logout')}}">Logout</a>
                            </li>
                         @else
 
@@ -222,12 +269,9 @@
                            </li>
                         @endif
 
-
-
-                        <div class="nav-item w-100 w-lg-auto">
-                           <i class="bi bi-globe"></i>
-                           <span class="me-2">ENG</span>
-                        </div>
+                        <li>
+                           <button type="button" class="btn btn-primary menu-close" data-bs-dismiss="offcanvas">Close</button>
+                        </li>
 
                      </ul>
                   </div>

@@ -330,7 +330,7 @@
 
                      @foreach($retailers as $val)
                         <!-- col -->
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6">
                            <!-- card -->
                            <div class="card card-product">
                               <div class="card-body">

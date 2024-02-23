@@ -10,6 +10,33 @@ $(document).ready(function() {
         }
     });
 
+    $(document).on('click', '.mobile-nav-button', function(){
+      $('.tray-item').css({display: 'none'});
+      var option = $(this).data('option');
+      if(option == 'search'){
+        if($(this).hasClass('active')){
+          $(this).removeClass("active");
+          $('.nav-tray').css({height: '0px'});
+          $('.tray-search').css({display: 'none'});
+        }else{
+          $('.tray-search').css({display: 'block'});
+          $('.nav-tray').css({height: '60px'});
+          $(".mobile-nav-button").removeClass("active");
+          $(this).addClass('active');
+        }
+      }else if(option == 'emirates'){
+        if($(this).hasClass('active')){
+          $(this).removeClass("active");
+          $('.nav-tray').css({height: '0px'});
+          $('.tray-emirates').css({display: 'none'});
+        }else{
+          $('.tray-emirates').css({display: 'flex'});
+          $('.nav-tray').css({height: '60px'});
+          $(".mobile-nav-button").removeClass("active");
+          $(this).addClass('active');
+        }
+      }
+    });
 
 
 

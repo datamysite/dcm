@@ -17,20 +17,38 @@
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
-    timer: 5000
+    timer: 2000
   });
 </script>
 <script src="{{URL::to('/public')}}/web_assets/js/app.js"></script>
 <script>
-  const signUpButton = document.getElementById("signUp");
-  const signInButton = document.getElementById("signIn");
+  const signUpButton = document.getElementsByClassName("signUp")[0];
+  const signInButton = document.getElementsByClassName("signIn")[0];
+  const signUpCon = document.getElementsByClassName("sign-up-modal_container")[0];
+  const signUpButton2 = document.getElementsByClassName("signUp")[1];
+  const signInButton2 = document.getElementsByClassName("signIn")[1];
   const modal_container = document.getElementById("modal_container");
 
   signUpButton.addEventListener("click", () => {
      modal_container.classList.add("right-panel-active");
+     signInButton.classList.remove('act');
+     signUpButton.classList.add('act');
+     signUpCon.style.zIndex = "999";
+
   });
 
   signInButton.addEventListener("click", () => {
+     modal_container.classList.remove("right-panel-active");
+     signUpButton.classList.remove('act');
+     signInButton.classList.add('act');
+     signUpCon.style.zIndex = "1";
+  });
+
+  signUpButton2.addEventListener("click", () => {
+     modal_container.classList.add("right-panel-active");
+  });
+
+  signInButton2.addEventListener("click", () => {
      modal_container.classList.remove("right-panel-active");
   });
 

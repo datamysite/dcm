@@ -36,7 +36,7 @@
         @php $bg = 0; @endphp
         @foreach($coupons as $val)
             @php if($bg == count($stripColors)){ $bg = 0;} @endphp
-            <div class="row d-flex mt-16" style="align-items: center;">
+            <div class="row d-flex  m-mt-16 mt-16" style="align-items: center;">
                 <div class="col-12">
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
@@ -44,7 +44,7 @@
                             <img src="{{URL::to('/public/storage/retailers/'.$retailer->logo)}}" alt="Product Image" class="img" style="height:80%">
                         </div>
 
-                        <div class="row col-6 mt-0 p-5" style="align-items: left;">
+                        <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
                             <span style="color:#fff;">{{$val->heading}}</span>
 
                             <span style="color:#fff;"></span>
