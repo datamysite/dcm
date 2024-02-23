@@ -869,12 +869,6 @@ label.errors {
 
 
 
-
-
-
-
-
-
 /* Responsives */
 @media (max-width: 990px) {
     ul.dropdown-menu.show {
@@ -1049,9 +1043,11 @@ label.errors {
         flex-direction: column;
         align-items: center;
         color: #000;
+        font-size: 11px;
     }
     .mobile-footbar .d-flex a i {
-        font-size: 30px;
+        font-size: 24px;
+        margin-bottom: 4px;
     }
     .nav-spacing {
         height: 70px;

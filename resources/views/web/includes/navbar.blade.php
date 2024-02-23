@@ -90,6 +90,11 @@
                   Search
                </a>
 
+               <a href="{{route('Sell_With_DCM')}}" class="" data-option="home">
+                  <i class="fa fa-bullseye"></i>
+                  Sell with Us
+               </a>
+
                <a href="javascript:void(0)" class="mobile-nav-button" data-option="emirates">
                   <i class="fa fa-crosshairs"></i>
                   All Emirates
@@ -97,7 +102,7 @@
 
                @if(Auth::check())
                   <a href="{{route('user.profile')}}">
-                     <i class="fa fa-user"></i>
+                     <i class="fa fa-user-o"></i>
                      Profile
                   </a>
                @else
