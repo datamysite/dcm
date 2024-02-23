@@ -187,13 +187,16 @@
                      </li>
                   </ul>
                   <form class="ms-auto d-flex align-items-center" style="padding: 10px;">
-                     <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Search..." style="width: 420px;">
+                     <div class="input-group main-search-div">
+                        <input class="form-control main-search" type="text" placeholder="Search..." style="width: 420px;">
                         <span class="input-group-append">
                            <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
                               <i class="fa fa-search"></i>
                            </button>
                         </span>
+
+                        <div class="main-search-result">
+                        </div>
                      </div>
                   </form>
 

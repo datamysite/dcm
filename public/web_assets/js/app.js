@@ -45,6 +45,7 @@ $(document).ready(function() {
 
 
 
+
     //Create Account
     $(document).on('submit', "#create_user_form", function(event) {
       var form = $(this);

@@ -26,6 +26,7 @@ Route::namespace('web')->group(function () {
     //Home
     Route::get('/', 'HomeController@index')->name('home');
 
+    Route::get('/search/{value}', 'HomeController@search');
 
     //Listing
     Route::prefix('stores')->group(function(){

@@ -13,6 +13,16 @@
 <script src="{{URL::to('/public')}}/web_assets/js/vendors/zoom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
+
+    $(document).on('keyup', '.main-search', function(){
+      $('.main-search-result').html("<img src='{{URL::to('/public/loader-gif.gif')}}' height='25px'/>");
+      var val = $(this).val();
+      $.get("{{URL::to('/search')}}/"+val, function(data){
+         $('.main-search-result').html(data);
+      });
+    });
+
+
   var Toast = Swal.mixin({
     toast: true,
     position: 'top-end',

@@ -847,8 +847,29 @@ label.errors {
     width: 110px;
     border-radius: 25px;
 }
-
-
+.main-search-div{
+    position: relative;
+}
+.main-search-result {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+.main-search-result-item {
+    padding: 2px 5px;
+    background-color: #e6e6e6d4;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    color: #000;
+}
+.main-search-result-item:hover {
+    color: #22afe0;
+}
 
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Retailers;
+use URL;
 
 class HomeController extends Controller
 {
@@ -15,6 +16,20 @@ class HomeController extends Controller
         $data['allstores'] = Retailers::inRandomOrder()->where('status', '1')->limit(6)->get();
 
         return view('web.index')->with($data);
+    }
+
+    public function search($value){
+        $re = Retailers::where('name', 'like', '%'.$value.'%')->limit(6)->get();
+        $html = '';
+        foreach ($re as $key => $val) {
+            $html .= '<a href="'.route('brand', $val->slug).'" class="main-search-result-item">
+                              <img src="'.URL::to('public/storage/retailers/'.$val->logo).'" height="40px">
+                              | '.$val->name.'
+                           </a>';
+        }
+
+        echo $html;
+
     }
 
     //About Us Controller
