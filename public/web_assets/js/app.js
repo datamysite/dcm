@@ -10,6 +10,11 @@ $(document).ready(function() {
         }
     });
 
+    $('.dropdown-item').click(function(){
+      $(".mob-nav .dropdown-menu").removeClass('show');
+      $(this).siblings(".dropdown-menu").toggleClass('show');
+    });
+
     $(document).on('click', '.mobile-nav-button', function(){
       $('.tray-item').css({display: 'none'});
       var option = $(this).data('option');

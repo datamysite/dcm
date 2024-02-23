@@ -877,6 +877,9 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    ul.dropdown-menu.show {
+        display: block;
+    }
     .Lside_div {
         width: 160px;
         height: auto;

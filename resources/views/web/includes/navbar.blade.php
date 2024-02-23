@@ -236,7 +236,7 @@
                         </li>
 
                         <li class="nav-item dropdown w-100 w-lg-auto">
-                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+                           <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                            <ul class="dropdown-menu">
                               @foreach($navbarCategories as $val)
                                  @php
@@ -245,7 +245,19 @@
                                      $string = str_replace(' ', '-', $string);
                                      $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                                  @endphp
-                                 <li><a class="dropdown-item" href="{{route('category', $slug)}}">{{$val->name}}</a></li>
+                                 @if($val->type == 3)
+                                    <li class="dropdown-submenu dropend mob-nav">
+                                       <a class="dropdown-item dropdown-toggle nested-link" href="javascript:void(0)" data-link="{{$val->id}}" role="button" data-bs-toggle="dropdown">{{$val->name}}</a>
+                                       <ul class="dropdown-menu cat_{{$val->id}}">
+
+                                          <li><a class="dropdown-item" href="{{route('category.sub', [$slug, 'online'])}}">Online</a></li>
+                                          <li><a class="dropdown-item" href="{{route('category.sub', [$slug, 'retail'])}}">Retail</a></li>
+
+                                       </ul>
+                                    </li>
+                                 @else
+                                    <li><a class="dropdown-item" href="{{route('category', $slug)}}">{{$val->name}}</a></li>
+                                 @endif
                               @endforeach
                            </ul>
                         </li>
