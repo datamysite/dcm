@@ -21,14 +21,14 @@ class HomeController extends Controller
     public function About_Us()
     {
 
-        return view('web.content.about-us');
+        return view('web.content.about-us_n');
     }
 
     //Sell With DCM Controller
     public function Sell_With_DCM()
     {
 
-        return view('web.content.sell-with-dcm');
+        return view('web.content.sell-with-dcm_n');
     }
 
     //FAQS
