@@ -94,7 +94,7 @@
                             <p></p>
                         </div>
                     </div>
-
+<!-- 
                     <div class="col-lg-4 py-5">
                         <div class="about-us-feature">
                             <div class="about-us-icon"></div>
@@ -103,7 +103,7 @@
                             <a href="Referral-Earn" class="btn btn-primary shadow-gray" style="float: right;">View More</a>
                             <p></p>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-lg-4 py-5">
                         <div class="about-us-feature">
@@ -114,13 +114,7 @@
                             <p></p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12 col-12">
-                <div class="row">
+                    
                     <div class="col-lg-4 py-5">
                         <div class="about-us-feature">
                             <div class="about-us-icon"></div>
@@ -130,8 +124,15 @@
                             <p></p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="col-lg-4 py-5">
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <div class="row">
+
+                    <!-- <div class="col-lg-4 py-5">
                         <div class="about-us-feature">
                             <div class="about-us-icon"></div>
                             <div class="about-us-title">Refer & Earn</div>
@@ -149,7 +150,7 @@
                             <a href="#" class="btn btn-primary shadow-gray" style="float: right;">View More</a>
                             <p></p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
