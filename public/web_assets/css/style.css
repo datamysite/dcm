@@ -976,6 +976,8 @@ label.errors {
         background-color: transparent;
         font-size: 12px;
         font-weight: 600;
+        display: flex;
+    flex-direction: column;
     }
 
     .tray-emirates .header_card img {
