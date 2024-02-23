@@ -87,21 +87,22 @@ Route::namespace('web')->group(function () {
 
 
     //About-Us
-    Route::get('/About-Us', 'HomeController@About_Us')->name('About_Us');
+    Route::get('/about-Us', 'HomeController@About_Us')->name('About_Us');
 
     //Sell-With-DCM
-    Route::get('/Sell-With-DCM', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
-
-    //Store Products
-    Route::get('/Store-Products', 'HomeController@Store_Products')->name('Store_Products');
-
-    //Store Single Product
-    Route::get('/Store-Single-Product', 'HomeController@Store_Single_Product')->name('Store_Single_Product');
+    Route::get('/sell-sith-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
 
 
+    Route::get('/faqs', 'HomeController@FAQS')->name('FAQS');
 
-    //Categoires
-    Route::get('/Categoires', 'HomeController@Categoires')->name('Categoires');
+    //Terms
+    Route::get('/terms', 'HomeController@Terms')->name('Terms');
+
+    //Privacy-Policy
+    Route::get('/privacy-policy', 'HomeController@Privacy_Policy')->name('Privacy_Policy');
+
+    //Anti-Spam
+    Route::get('/anti-spam', 'HomeController@Anti_Spam')->name('Anti_Spam');
 
 });
 

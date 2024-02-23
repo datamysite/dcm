@@ -31,25 +31,27 @@ class HomeController extends Controller
         return view('web.content.sell-with-dcm');
     }
 
-    //Store Products Controller
-    public function Store_Products()
+    //FAQS
+    public function FAQS()
     {
-
-        return view('web.listing.store-products');
+        return view('web.content.faqs');
     }
 
-    //Store Single Product Controller
-    public function Store_Single_Product()
+    //Terms
+    public function Terms()
     {
-
-        return view('web.listing.store-single-product');
+        return view('web.content.terms-conditions');
     }
 
-
-    //User Settings Controller
-    public function Categoires()
+    //Privacy_Policy
+    public function Privacy_Policy()
     {
+        return view('web.content.privacy-policy');
+    }
 
-        return view('web.listing.categories');
+    //Anti_Spam
+    public function Anti_Spam()
+    {
+        return view('web.content.anti-spam-policy');
     }
 }
