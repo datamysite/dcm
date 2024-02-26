@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\Categories;
 use App\Models\Retailers;
 use App\Models\SnippetCode;
+use App\Models\MetaTags;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,9 @@ class ViewServiceProvider extends ServiceProvider
             $data['footBrand'] = Retailers::select('id', 'name', 'slug')->where('status', '1')->limit(6)->get();
             $data['headSnippet'] = SnippetCode::where('position', 'Head')->get();
             $data['bodySnippet'] = SnippetCode::where('position', 'Body')->get();
+
+            $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            $data['metaTags'] = MetaTags::where('url', $actual_link)->first();
 
             $view->with($data);
         });
