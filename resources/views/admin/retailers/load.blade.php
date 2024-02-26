@@ -13,6 +13,11 @@
     <td>{{$val->discount_upto}} %</td>
     <td>0 Coupons</td>
     <td>{{@$val->user->username}}</td>
+    <td class="text-center text-success">
+      @if(!empty($val->sellerPanel->id))
+        <i class="fa fa-check"></i>
+      @endif
+    </td>
     <td class="text-right">
       <div class="btn-group">
         <button type="button" class="btn btn-info btn-sm">Action</button>
@@ -25,6 +30,10 @@
           <a class="dropdown-item" href="{{route('admin.retailer.blog', base64_encode($val->id))}}" title="Blogs"><i class="fas fa-book"></i> Blogs</a>
           <a class="dropdown-item editRetailer" href="javascript:void(0)" title="Edit Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i> Edit</a>
           <div class="dropdown-divider"></div>
+          @if(empty($val->sellerPanel->id))
+            <a class="dropdown-item sellerPanel" href="javascript:void(0)" title="Create Seller Panel" data-id="{{base64_encode($val->id)}}" data-name="{{$val->name}}"><i class="fas fa-tachometer-alt"></i> Seller panel</a>
+            <div class="dropdown-divider"></div>
+          @endif
           <a class="dropdown-item text-danger deleteRetailer" href="javascript:void(0)" title="Delete Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-trash"></i> Delete</a>
         </div>
       </div>

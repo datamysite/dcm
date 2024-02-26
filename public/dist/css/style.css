@@ -1,6 +1,8 @@
 .user-panel img {
     width: 40px !important;
     margin-top: 8px !important;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 .user-panel .info span {
     font-size: 13px;
@@ -604,4 +606,15 @@ input[type="file"]{
 .type-radio {
     display: flex;
     justify-content: space-around;
+}
+.text-underline {
+    text-decoration: underline;
+}
+.main-footer {
+    padding: 5px 15px !important;
+    font-size: 12px !important;
+}
+g.highcharts-legend.highcharts-no-tooltip, .highcharts-credits, g.highcharts-exporting-group {
+    display: none;
+    visibility: hidden;
 }

@@ -74,11 +74,12 @@
                   <tr>
                     <th width="5%">#</th>
                     <th width="10%">Logo</th>
-                    <th width="30%">Name</th>
+                    <th width="20%">Name</th>
                     <th width="15%">Countries</th>
                     <th width="10%">Discount upto %</th>
                     <th width="10%">No. of Coupons</th>
                     <th width="10%">Created by</th>
+                    <th width="10%">Seller Panel</th>
                     <th width="10%" class="text-right">Action</th>
                   </tr>
                   </thead>
@@ -93,6 +94,7 @@
                     <th>Discount upto %</th>
                     <th>No. of Coupons</th>
                     <th>Created by</th>
+                    <th>Seller Panel</th>
                     <th class="text-right">Action</th>
                   </tr>
                   </tfoot>
@@ -230,6 +232,48 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="createSellerPanelFormModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="add_sellerPanel_form" action="{{route('admin.retailer.sellerpanel.create')}}" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="retailer_id" class="sp-retailerId">
+        <div class="modal-header">
+          <h4 class="modal-title">Create Seller Panel</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Retailer Name</label>
+                <input type="text" class="form-control sp-retailerName" disabled>
+              </div>
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control sp-userName" name="username" required>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="text" class="form-control" name="password" required>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
     </div>
     <!-- /.modal-content -->
   </div>
@@ -414,6 +458,60 @@
           });
           form.trigger("reset");
           $('#editRetailerFormModal').modal('hide');
+          loadRetailers();
+        }else{
+          Toast.fire({
+            icon: 'error',
+            title: data.errors
+          });
+        }
+      });
+
+      event.preventDefault();
+    });
+
+
+    $(document).on('click', '.sellerPanel', function(){
+      var val_id = $(this).data('id');
+      var val_name = $(this).data('name');
+      $('.sp-retailerId').val(val_id);
+      $('.sp-retailerName').val(val_name);
+
+      $('#createSellerPanelFormModal').modal('show');
+
+    });
+
+
+    $(document).on('submit', "#add_sellerPanel_form", function (event) {
+      var form=$(this);
+      var formData = new FormData($("#add_sellerPanel_form")[0]);
+      //console.log(formData);
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function (data) {
+        if(data.success == 'success'){
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          $('#createSellerPanelFormModal').modal('hide');
+          Swal.fire({
+            title: "Credentials",
+            icon: "success",
+            html: '<textarea class="form-control" readonly rows="4">'+data.data+'</textarea><br><p>Please copy these credentials and share with Retailer.</p>',
+            showCloseButton: false,
+            showCancelButton: false,
+            focusConfirm: false,
+            confirmButtonText: `
+              <i class="fa fa-thumbs-up"></i> Done!
+            `,
+          });
           loadRetailers();
         }else{
           Toast.fire({

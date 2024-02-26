@@ -8,6 +8,7 @@ use App\Models\Countries;
 use App\Models\Categories;
 use App\Models\Retailers;
 use App\Models\RetailerCountries;
+use App\Models\Seller;
 use Auth;
 
 class RetailerController extends Controller
@@ -149,5 +150,38 @@ class RetailerController extends Controller
         $response = 'success';
 
         return $response;
+    }
+
+    public function create_seller_panel(Request $request){
+        $data = $request->all();
+        $response = [];
+
+        if (empty($data['username']) || empty($data['password'])) {
+            $response['success'] = false;
+            $response['errors'] = 'Please Fill all required fields.';
+        }else{
+            $check = Seller::where('username', $data['username'])->first();
+            if(empty($check->id)){
+
+                $seller = new Seller;
+                $seller->retailer_id = base64_decode($data['retailer_id']);
+                $seller->username = $data['username'];
+                $seller->password = bcrypt($data['password']);
+                $seller->created_by = Auth::guard('admin')->id();
+                $seller->save();
+
+                $response['success'] = 'success';
+                $response['message'] = 'Success! Seller Panel Successfully Created.';
+                $response['data'] = 'Panel Link: '.route('seller.dashboard').'
+Username: '.$data['username'].'
+password: '.$data['password'].'
+                ';
+            }else{
+                $response['success'] = false;
+                $response['errors'] = 'This Username already exist.';
+            }
+
+        echo json_encode($response);
+        }
     }
 }

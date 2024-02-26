@@ -112,6 +112,23 @@ Route::namespace('web')->group(function () {
 
 //Administration
 
+Route::prefix('seller')->namespace('seller')->group(function () {
+
+    //Authentication
+    Route::get('/login', 'LoginController@index')->name('seller.login');
+    Route::post('/login', 'LoginController@authenticate');
+    Route::get('/logout', 'LoginController@logout')->name('seller.logout');
+
+    //Authenticated
+    Route::middleware('sellerAuth')->group(function () {
+        Route::get('/', 'MainController@index')->name('seller.dashboard');
+
+    });
+});
+
+
+//Administration
+
 Route::prefix('admin')->namespace('admin')->group(function () {
 
     //Authentication
@@ -132,6 +149,11 @@ Route::prefix('admin')->namespace('admin')->group(function () {
             Route::post('/update', 'RetailerController@update_retailer')->name('admin.retailer.update');
             Route::get('/edit/{id}', 'RetailerController@edit');
             Route::get('/delete/{id}', 'RetailerController@delete');
+
+            //Seller Panel
+            Route::prefix('sellerPanel')->group(function(){
+                Route::post('/create', 'RetailerController@create_seller_panel')->name('admin.retailer.sellerpanel.create');
+            });
 
             //offers
             Route::prefix('offers')->group(function () {

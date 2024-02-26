@@ -8,6 +8,7 @@ use App\Models\RetailerCountries;
 use App\Models\RetailerCategories;
 use App\Models\RetailerBlogs;
 use App\Models\Admin;
+use App\Models\Seller;
 use Auth;
 
 class Retailers extends Model
@@ -94,5 +95,9 @@ class Retailers extends Model
 
     public function user(){
         return $this->belongsTo(Admin::class, 'created_by', 'id');
+    }
+
+    public function sellerPanel(){
+        return $this->belongsTo(Seller::class, 'id', 'retailer_id');
     }
 }
