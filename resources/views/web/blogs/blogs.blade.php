@@ -66,6 +66,13 @@
 
         </div>
 
+        <div class="row mt-8 text-center">
+            <div class="col">
+                <!-- nav -->
+                {{ $blogs->links() }}
+            </div>
+        </div>
+
     </div>
 </section>
 <!-- Blogs section End Here -->
