@@ -11,8 +11,8 @@ class BlogController extends Controller
     
     public function index()
     {
-        $data['featured'] = Blogs::select('id', 'banner', 'heading', 'slug', 'short_description')->where('id', '5')->first();
-        $data['blogs'] = Blogs::select('id', 'banner', 'heading', 'slug', 'short_description')->where('id', '!=', '5')->get();
+        $data['featured'] = Blogs::select('id', 'banner', 'heading', 'slug', 'short_description')->orderBy('id', 'desc')->first();
+        $data['blogs'] = Blogs::select('id', 'banner', 'heading', 'slug', 'short_description')->where('id', '!=', $data['featured']->id)->orderBy('id', 'desc')->get();
 
         return view('web.blogs.blogs')->with($data);
     }
