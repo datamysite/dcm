@@ -48,27 +48,27 @@
       <div class="container">
          <div class="hero-slider">
 
-            <a href="#">
+            <a href="javascript:void(0)">
                <img src="{{URL::to('/public')}}/web_assets/images/slider/b1.png">
             </a>
 
-            <a href="#">
+            <a href="https://homzmart.com/en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
                <img src="{{URL::to('/public')}}/web_assets/images/slider/b2.png">
             </a>
 
-            <a href="#">
+            <a href="https://www.namshi.com/uae-en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
                <img src="{{URL::to('/public')}}/web_assets/images/slider/b3.png">
             </a>
 
-            <a href="#">
+            <a href="https://www.sivvi.com" target="_blank">
                <img src="{{URL::to('/public')}}/web_assets/images/slider/b4.png">
             </a>
 
-            <a href="#">
+            <a href="https://yallatoys.com/qa_en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
                <img src="{{URL::to('/public')}}/web_assets/images/slider/B5.png">
             </a>
 
-            <a href="#">
+            <a href="https://www.firstcry.ae?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
                <img src="{{URL::to('/public')}}/web_assets/images/slider/B6.png">
             </a>
          </div>
