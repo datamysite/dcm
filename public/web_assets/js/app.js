@@ -28,6 +28,7 @@ $(document).ready(function() {
           $('.nav-tray').css({height: '60px'});
           $(".mobile-nav-button").removeClass("active");
           $(this).addClass('active');
+          $('.mob-main-search').focus();
         }
       }else if(option == 'emirates'){
         if($(this).hasClass('active')){

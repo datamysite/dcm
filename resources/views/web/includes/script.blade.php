@@ -26,6 +26,20 @@
       }
     });
 
+     $(document).on('keyup', '.mob-main-search', function(){
+      var val = $(this).val();
+      if(val != ''){
+         $('.mob-main-search-result').html("<img src='{{URL::to('/public/loader-gif.gif')}}' height='25px'/>");
+         $.get("{{URL::to('/search')}}/"+val, function(data){
+            $('.nav-tray').css({overflow: 'visible'});
+            $('.mob-main-search-result').html(data);
+         });
+      }else{
+         $('.mob-main-search-result').html("");
+         $('.nav-tray').css({overflow: 'hidden'});
+      }
+    });
+
 
   var Toast = Swal.mixin({
     toast: true,

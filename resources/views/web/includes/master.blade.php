@@ -11,6 +11,15 @@
    @include('web.includes.style')
    @yield('addStyle')
 
+
+
+   @foreach($headSnippet as $val)
+
+      <!-- {{$val->name}} // Start -->
+         {!! $val->snippet_code !!}
+      <!-- {{$val->name}} // End -->
+
+   @endforeach
 </head>
 
 
@@ -203,6 +212,15 @@
 <!-- Javascript-->
 
 @include('web.includes.script')
+
+@foreach($bodySnippet as $val)
+
+   <!-- {{$val->name}} // Start -->
+      {!! $val->snippet_code !!}
+   <!-- {{$val->name}} // End -->
+
+@endforeach
+
 @yield('addScript')
 </body>
 

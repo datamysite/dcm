@@ -871,6 +871,14 @@ label.errors {
     color: #22afe0;
 }
 
+.mob-main-search-result {
+    width: 100%;
+    position: absolute;
+    top: 47px;
+        display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
 
 
@@ -892,6 +900,21 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .mob-main-search-result .main-search-result-item {
+    background-color: #e6e6e6fc;
+    border-bottom: 1px solid #FFF;
+}
+    .center-nav-mob {
+        background-color: #e6e6e6;
+        padding: 11px;
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+        margin-top: -34px;
+        margin-bottom: -10px;
+    }
+    .center-nav-mob i {
+        font-size: 44px !important;
+    }
     ul.dropdown-menu.show {
         display: block;
     }

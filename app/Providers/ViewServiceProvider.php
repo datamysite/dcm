@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Categories;
 use App\Models\Retailers;
+use App\Models\SnippetCode;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -24,12 +25,14 @@ class ViewServiceProvider extends ServiceProvider
     {
         // Using Closure based composers...
         view()->composer('*', function ($view) {
-            $stripColors = array('#f11e4b' , '#151313', '#2dcc70', '#1dace3');
-            $navcat = Categories::select('id', 'image','name', 'type', 'parent_id')->where('parent_id', 0)->get();
-            $footcat = Categories::select('id', 'image','name', 'type', 'parent_id')->where('parent_id', 0)->where('type', '3')->get();
-            $footBrand = Retailers::select('id', 'name', 'slug')->where('status', '1')->limit(6)->get();
+            $data['stripColors'] = array('#f11e4b' , '#151313', '#2dcc70', '#1dace3');
+            $data['navbarCategories'] = Categories::select('id', 'image','name', 'type', 'parent_id')->where('parent_id', 0)->get();
+            $data['footCat'] = Categories::select('id', 'image','name', 'type', 'parent_id')->where('parent_id', 0)->where('type', '3')->get();
+            $data['footBrand'] = Retailers::select('id', 'name', 'slug')->where('status', '1')->limit(6)->get();
+            $data['headSnippet'] = SnippetCode::where('position', 'Head')->get();
+            $data['bodySnippet'] = SnippetCode::where('position', 'Body')->get();
 
-            $view->with(['navbarCategories' => $navcat, 'stripColors' => $stripColors, 'footCat' => $footcat, 'footBrand' => $footBrand]);
+            $view->with($data);
         });
     }
 }

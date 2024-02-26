@@ -25,8 +25,8 @@
          <div class="nav-tray">
 
             <div class="tray-item tray-search">
-               <div class="input-group">
-                  <input class="form-control rounded" type="search" placeholder="Search..." />
+               <div class="input-group  main-search-div">
+                  <input class="form-control rounded mob-main-search" type="search" placeholder="Search..." />
                   <span class="input-group-append">
                      <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
@@ -35,6 +35,10 @@
                         </svg>
                      </button>
                   </span>
+
+
+                  <div class="mob-main-search-result">
+                  </div>
                </div>
             </div>
 
@@ -90,7 +94,7 @@
                   Search
                </a>
 
-               <a href="{{route('Sell_With_DCM')}}" class="" data-option="home">
+               <a href="{{route('Sell_With_DCM')}}" class="center-nav-mob" data-option="home">
                   <i class="fa fa-bullseye"></i>
                   Sell with Us
                </a>
