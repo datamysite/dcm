@@ -968,6 +968,7 @@ label.errors {
         color: #fff;
         font-size: 26px;
         font-weight: 600;
+        z-index: 9999;
     }
     .nav-btn {
         width: 70%;
@@ -1079,8 +1080,12 @@ label.errors {
         margin-top: -50px;
     }
     .mobile-footbar .d-flex {
-        display: flex !important;
-        justify-content: space-between;
+            display: flex !important;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            width: 105%;
+            margin-left: -3%;;
     }
     .mobile-footbar .d-flex a {
         display: flex;
@@ -1088,6 +1093,7 @@ label.errors {
         align-items: center;
         color: #000;
         font-size: 11px;
+        flex: 1;
     }
     .mobile-footbar .d-flex a i {
         font-size: 24px;
@@ -1368,5 +1374,34 @@ label.errors {
         bottom: 4px;
         position: absolute;
         right: 3px;
+    }
+    .footer-bottom {
+        padding-bottom: 80px !important;
+    }
+    .footer-bottom .social-media {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+
+/* Responsives */
+@media (max-width: 390px) {
+    .sign-in-modal_container .form_modal, .sign-up-modal_container .form_modal{
+        padding: 0 41px 0 65px;
+        height: 80%;
+        margin-top: 90px;
+        margin-left: -45px;
+    }
+    .sign-up-modal_container h1{
+        margin-bottom: 0;
+    }
+    .social-modal_container {
+        margin: 5px 0;
+    }
+    .tray-item.tray-emirates {
+        margin-left: -10px;
     }
 }

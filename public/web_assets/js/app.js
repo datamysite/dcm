@@ -15,11 +15,18 @@ $(document).ready(function() {
       $(this).siblings(".dropdown-menu").toggleClass('show');
     });
 
+    $(document).on('focusout', '.mob-main-search', function(){
+          $('.mobile-nav-button').removeClass("active");
+          $('.nav-tray').css({height: '0px'});
+          $('.tray-search').css({display: 'none'});
+    });
+
     $(document).on('click', '.mobile-nav-button', function(){
       $('.tray-item').css({display: 'none'});
       var option = $(this).data('option');
       if(option == 'search'){
         if($(this).hasClass('active')){
+      console.log(option);
           $(this).removeClass("active");
           $('.nav-tray').css({height: '0px'});
           $('.tray-search').css({display: 'none'});

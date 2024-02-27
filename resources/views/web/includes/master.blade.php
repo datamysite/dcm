@@ -53,7 +53,7 @@
                <div class="form-modal_container sign-up-modal_container">
                   <form action="{{route('user.create')}}" id="create_user_form" class="form_modal">
                      @csrf
-                     <h1>Create Account</h1>
+                     <h1 style="color:#1dace3">Create Account</h1>
                      <div class="social-modal_container">
                         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
