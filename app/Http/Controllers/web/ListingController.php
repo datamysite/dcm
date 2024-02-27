@@ -172,6 +172,15 @@ class ListingController extends Controller
     }
 
 
+    public function coupon_grab_deal($id){
+        $data['coupon'] = Coupon::find($id);
+        ClicksCounter::hitCount('4', $data['coupon']->retailer_id, $data['coupon']->id, '1');
+        //dd($data);
+
+        return 'success';
+    }
+
+
 
     function sanitizeStringForUrl($string){
         $string = str_replace('-',' ',$string);

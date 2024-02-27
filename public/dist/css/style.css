@@ -614,7 +614,7 @@ input[type="file"]{
     padding: 5px 15px !important;
     font-size: 12px !important;
 }
-g.highcharts-legend.highcharts-no-tooltip, .highcharts-credits, g.highcharts-exporting-group {
+.highcharts-credits, g.highcharts-exporting-group {
     display: none;
     visibility: hidden;
 }

@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use GuzzleHttp\Client;
+use App\Models\Retailers;
+use App\Models\Coupon;
+use App\Models\Offers;
 
 class ClicksCounter extends Model
 {
@@ -13,8 +16,8 @@ class ClicksCounter extends Model
     protected $table = 'clicks_counter';
 
 
-    public static function hitCount($type, $id, $coup_id = null){
-
+    public static function hitCount($type, $id, $coup_id = null, $coup_type = null){
+        //dd($coup_type);
         $userIp = ClicksCounter::getIPAddress();
         $client = new Client();
          $response = $client->get("https://ipinfo.io/{$userIp}?token=91b28de1f957f7");
@@ -22,9 +25,9 @@ class ClicksCounter extends Model
 
          $cc = new ClicksCounter;
          $cc->retailer_id = $id;
-         if($type == 2){
+         if($coup_type == '1'){
             $cc->coupon_id = $coup_id;
-         }elseif($type == 3){
+         }elseif($coup_type == '2'){
             $cc->offer_id = $coup_id;
          }
          $cc->type = $type;
@@ -48,4 +51,18 @@ class ClicksCounter extends Model
         }  
         return $ip;  
     } 
+
+
+
+    public function retailer(){
+        return $this->belongsTo(Retailers::class, 'retailer_id', 'id');
+    }
+
+    public function coupon(){
+        return $this->belongsTo(Coupon::class, 'coupon_id', 'id');
+    }
+
+    public function offer(){
+        return $this->belongsTo(Offers::class, 'offer_id', 'id');
+    }
 }

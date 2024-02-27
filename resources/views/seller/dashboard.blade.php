@@ -32,7 +32,7 @@
                 <!-- small box -->
                 <div class="small-box bg-white">
                   <div class="inner">
-                    <h3>7367</h3>
+                    <h3>{{number_format($total_traffic)}}</h3>
 
                     <p> Total Traffic</p>
                   </div>
@@ -42,12 +42,32 @@
                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
               </div>
+
+              @if(Auth::guard('seller')->user()->retailer->type == '1')
               <!-- ./col -->
               <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-white">
                   <div class="inner">
-                    <h3>132</h3>
+                    <h3>{{number_format($total_show_coupon)}}</h3>
+                    <p>Total Show Coupons</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/downloaded-coupons.png')}}"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+              @endif
+
+
+              @if(Auth::guard('seller')->user()->retailer->type == '2')
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3>{{number_format($total_downloads)}}</h3>
                     <p>Total Downloads</p>
                   </div>
                   <div class="icon">
@@ -56,12 +76,31 @@
                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
               </div>
+              @endif
+
+              @if(Auth::guard('seller')->user()->retailer->type == '1')
               <!-- ./col -->
               <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-white">
                   <div class="inner">
-                    <h3>568</h3>
+                    <h3>{{number_format($total_grab_deal)}}</h3>
+                    <p>Total Grab Deals</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/grab-deal.png')}}"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+              @endif
+              @if(Auth::guard('seller')->user()->retailer->type == '2')
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3>{{number_format($total_whatsapp_visits)}}</h3>
                     <p>Total Whatsapp Visits</p>
                   </div>
                   <div class="icon">
@@ -70,13 +109,17 @@
                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
               </div>
+              @endif
+
+
+              @if(Auth::guard('seller')->user()->retailer->type == '1')
               <!-- ./col -->
               <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-white">
                   <div class="inner">
-                    <h3>1590</h3>
-                    <p>Total Offers</p>
+                    <h3>{{number_format($active_coupons)}}</h3>
+                    <p>Active Coupons</p>
                   </div>
                   <div class="icon">
                     <i><img src="{{URL::to('/public/icons/all-coupons.png')}}"></i>
@@ -85,10 +128,57 @@
                 </div>
               </div>
               <!-- ./col -->
+              @endif
+
+              @if(Auth::guard('seller')->user()->retailer->type == '2')
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3>{{number_format($active_offers)}}</h3>
+                    <p>Active Offers</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/all-coupons.png')}}"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+              <!-- ./col -->
+              @endif
             </div>
 
 
             <div class="row">
+
+              @if(Auth::guard('seller')->user()->retailer->type == '1')
+              <div class="col-lg-4">
+                <div class="card card-default">
+                  <div class="card-body p-0">
+                    <h3 class="card-chart-title">Show Coupon Analytics</h3>
+                    <div class="chart">
+                      <canvas class="chart" id="showCouponAnalytics" style="min-height: 240px; height: 240px; max-height: 240px; max-width: 100%;"></canvas>
+                      <br>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <!-- /.card-header -->
+                  <div class="card-body p-0">
+                    <h3 class="card-chart-title">Grab Deal Analytics</h3>
+                    <canvas id="grabDealAnalytics" style="min-height: 240px; height: 240px; max-height: 240px; max-width: 100%;"></canvas>
+                    <br>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+              </div>
+              @endif
+
+              @if(Auth::guard('seller')->user()->retailer->type == '2')
               <div class="col-lg-4">
                 <div class="card card-default">
                   <div class="card-body p-0">
@@ -112,12 +202,13 @@
                   <!-- /.card-body -->
                 </div>
               </div>
+              @endif
               <div class="col-lg-4">
                 <div class="card card-default">
                   <div class="card-body p-0">
                     <h3 class="card-chart-title">Traffic Analytics</h3>
                     <div class="chart">
-                      <canvas class="chart" id="topRatedRetailer" style="min-height: 240px; height: 240px; max-height: 240px; max-width: 100%;"></canvas>
+                      <canvas class="chart" id="totalTraficAnalytics" style="min-height: 240px; height: 240px; max-height: 240px; max-width: 100%;"></canvas>
                       <br>
                     </div>
                   </div>
@@ -175,13 +266,13 @@
         // property by default. See API docs for 'joinBy' for more info on linking
         // data and map.
         const data = [
-            ['ae-az', 10], //Abu dhabi
-            ['ae-du', 11], // Dubai
-            ['ae-sh', 12], //Sharjah
-            ['ae-rk', 13], //Ras Al Khaimah
-            ['ae-uq', 14], //Umm Ul Quwein
-            ['ae-fu', 15], //Fujairah
-            ['ae-aj', 17], //Ajman
+            ['ae-az', {{@$visiter_regional['Abu Dhabi']}}], //Abu dhabi
+            ['ae-du', {{@$visiter_regional['Dubai']}}], // Dubai
+            ['ae-sh', {{@$visiter_regional['Sharjah']}}], //Sharjah
+            ['ae-rk', {{@$visiter_regional['Ras Al-Khaimah']}}], //Ras Al Khaimah
+            ['ae-uq', {{@$visiter_regional['Umm Ul Quwein']}}], //Umm Ul Quwein
+            ['ae-fu', {{@$visiter_regional['Fujairah']}}], //Fujairah
+            ['ae-aj', {{@$visiter_regional['Ajman']}}], //Ajman
         ];
 
         // Create the chart
@@ -223,52 +314,93 @@
 
 
   <script type="text/javascript">
-    //-------------
-    //- PIE CHART -
-    //-------------
-    var donutData        = {
-      labels: [
-          'Mart and Cleaning',
-          'Fashion and Lifestyle',
-          'Beauty and Health',
-          'Kids',
-          'Sports',
-      ],
-      datasets: [
-        {
-          data: [53,20,90,72,10],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc'],
-        }
-      ]
-    }
-    // Get context with jQuery - using jQuery's .get() method.
-    var pieChartCanvas = $('#brandsChart').get(0).getContext('2d')
-    var pieData        = donutData;
-    var pieOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-      legend: {
-        display: false
-      }
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    new Chart(pieChartCanvas, {
-      type: 'pie',
-      data: pieData,
-      options: pieOptions
-    });
+    @if(Auth::guard('seller')->user()->retailer->type == '1')
 
+
+
+
+      //-------------
+      //- Show Coupon CHART -
+      //-------------
+      var donutChartCanvas = $('#showCouponAnalytics').get(0).getContext('2d')
+      var donutData        = {
+        labels: [
+            @foreach($coupon_analytics as $val)
+            '{{@$val->coupon->code}}',
+            @endforeach
+        ],
+        datasets: [
+          {
+            data: [@foreach($coupon_analytics as $val) {{$val->total}}, @endforeach],
+            backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+          }
+        ]
+      }
+      var donutOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+        cutoutPercentage: 50,
+        legend: {
+          display: false
+        }
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      new Chart(donutChartCanvas, {
+        type: 'doughnut',
+        data: donutData,
+        options: donutOptions
+      });
+
+
+
+      //-------------
+      //- Grab Deal CHART -
+      //-------------
+      var donutData        = {
+        labels: [
+            @foreach($grabDeal_analytics as $val)
+            '{{@$val->coupon->code}}',
+            @endforeach
+        ],
+        datasets: [
+          {
+            data: [@foreach($grabDeal_analytics as $val) {{$val->total}}, @endforeach],
+            backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+          }
+        ]
+      }
+      // Get context with jQuery - using jQuery's .get() method.
+      var pieChartCanvas = $('#grabDealAnalytics').get(0).getContext('2d')
+      var pieData        = donutData;
+      var pieOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+        legend: {
+          display: false
+        }
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions
+      });
+
+    @endif
    
+
+
+
     // Sales graph chart
     var salesGraphChartCanvas = $('#line-chart').get(0).getContext('2d')
     // $('#revenue-chart').get(0).getContext('2d');
-
     var salesGraphChartData = {
-      labels: ['23-Jan', '24-Jan', '25-Jan', '26-Jan', '27-Jan', '28-Jan', '29-Jan', '30-Jan', '31-Jan', '1-Feb'],
+      labels: [@foreach($daily_analytics as $key => $val) '{{date("d-M", strtotime($key))}}', @endforeach],
       datasets: [
         {
-          label: 'Mart and Cleaning',
+          label: 'Page Visiters',
           fill: false,
           borderWidth: 1,
           lineTension: 1,
@@ -278,9 +410,11 @@
           pointHoverRadius: 7,
           pointColor: '#f56954',
           pointBackgroundColor: '#f56954',
-          data: [2666, 2778, 4912, 3767, 6810, 5670, 4820, 15073, 10687, 8432]
-        },{
-          label: 'Fashion and Lifestyle',
+          data: [@foreach($daily_analytics as $val) {{empty($val['1']) ? '0' : $val['1']}}, @endforeach]
+        },
+        @if(Auth::guard('seller')->user()->retailer->type == '1')
+        {
+          label: 'Grab Deals',
           fill: false,
           borderWidth: 1,
           lineTension: 1,
@@ -290,9 +424,9 @@
           pointHoverRadius: 7,
           pointColor: '#00a65a',
           pointBackgroundColor: '#00a65a',
-          data: [1666, 3778, 2912, 1767, 4810, 4670, 5820, 10073, 9687, 10432]
+          data: [@foreach($daily_analytics as $val) {{empty($val['4']) ? '0' : $val['4']}}, @endforeach]
         },{
-          label: 'Beauty and Health',
+          label: 'Show Coupons',
           fill: false,
           borderWidth: 1,
           lineTension: 1,
@@ -302,8 +436,37 @@
           pointHoverRadius: 7,
           pointColor: '#f39c12',
           pointBackgroundColor: '#f39c12',
-          data: [3666, 10778, 3912, 9767, 5810, 1670, 1820, 6073, 3687, 4432]
+          data: [@foreach($daily_analytics as $val) {{empty($val['2']) ? '0' : $val['2']}}, @endforeach]
         }
+        @endif
+
+        @if(Auth::guard('seller')->user()->retailer->type == '2')
+        {
+          label: 'Whatsapp Reach',
+          fill: false,
+          borderWidth: 1,
+          lineTension: 1,
+          spanGaps: true,
+          borderColor: '#00a65a',
+          pointRadius: 3,
+          pointHoverRadius: 7,
+          pointColor: '#00a65a',
+          pointBackgroundColor: '#00a65a',
+          data: [@foreach($daily_analytics as $val) {{empty($val['5']) ? '0' : $val['5']}}, @endforeach]
+        },{
+          label: 'Offer Downloads',
+          fill: false,
+          borderWidth: 1,
+          lineTension: 1,
+          spanGaps: true,
+          borderColor: '#f39c12',
+          pointRadius: 3,
+          pointHoverRadius: 7,
+          pointColor: '#f39c12',
+          pointBackgroundColor: '#f39c12',
+          data: [@foreach($daily_analytics as $val) {{empty($val['3']) ? '0' : $val['3']}}, @endforeach]
+        }
+        @endif
       ]
     }
 
@@ -351,19 +514,18 @@
     //- DONUT CHART -
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
-    var donutChartCanvas = $('#topRatedRetailer').get(0).getContext('2d')
+    var donutChartCanvas = $('#totalTraficAnalytics').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          'Noon',
-          'Sivvi',
-          'Yalla Toys',
-          'The Secret Skin',
-          'Homzmart',
-          'Shakespeare Fluer',
+          @foreach($visiter_regional as $key => $val)
+          '{{$key == "" ? "Others" : $key}}',
+          @endforeach
       ],
       datasets: [
         {
-          data: [700,500,400,600,300,100],
+          data: [
+            @foreach($visiter_regional as $key => $val) {{$val}}, @endforeach
+            ],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
         }
       ]
@@ -385,39 +547,6 @@
     })
 
 
-     // Get context with jQuery - using jQuery's .get() method.
-    var donutChartCanvas = $('#topRatedCoupon').get(0).getContext('2d')
-    var donutData        = {
-      labels: [
-          'Noon',
-          'Sivvi',
-          'Yalla Toys',
-          'The Secret Skin',
-          'Homzmart',
-          'Shakespeare Fluer',
-      ],
-      datasets: [
-        {
-          data: [700,500,400,600,300,100],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-        }
-      ]
-    }
-    var donutOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-      cutoutPercentage: 50,
-      legend: {
-        display: false
-      }
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    new Chart(donutChartCanvas, {
-      type: 'doughnut',
-      data: donutData,
-      options: donutOptions
-    })
 
   </script>
 @endsection

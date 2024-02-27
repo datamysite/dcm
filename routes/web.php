@@ -39,6 +39,7 @@ Route::namespace('web')->group(function () {
     });
     Route::prefix('coupon')->group(function(){
         Route::get('/{id}', 'ListingController@show_coupon');
+        Route::get('/grabDeal/{id}', 'ListingController@coupon_grab_deal');
     });
 
     Route::prefix('category')->group(function(){

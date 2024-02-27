@@ -154,6 +154,17 @@
                 $('#retailerBlogs').toggle();
             });
 
+            $(document).on('click', '.grap_deal_btn', function(){
+                var link = $(this).data('href');
+                var id = $(this).data('id');
+                $('#ShowCouponModal').modal('hide');
+                $('#loading').css({display: 'block'});
+                $.get("{{URL::to('/coupon/grabDeal')}}/"+id, function(data){
+                    $('#loading').css({display: 'none'});
+                    window.location.href = link;
+                });
+            });
+
         });
     </script>
 @endsection

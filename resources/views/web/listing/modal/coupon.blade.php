@@ -14,7 +14,7 @@
   </div>
 
   <div class="grap_deal_button">
-     <a href="{{$coupon->link}}/?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" id="popupButton">Grab Deal</a>
+     <a href="javascript:void(0)" class="grap_deal_btn" data-id="{{$coupon->id}}" data-href="{{$coupon->link}}/?utm_source=dealsandcouponsmena&utm_campaign=cps" id="popupButton">Grab Deal</a>
   </div>
 </div>
 
