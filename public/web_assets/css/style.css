@@ -479,7 +479,14 @@
     z-index: 99999999;
 }
 #slider-reviews .item .bg-light {
-    height: 270px;
+    height: 230px;
+}
+#slider-reviews .card-body p {
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 #retailerBlogs{
     display: none;
@@ -900,10 +907,20 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    #slider-reviews .p-5{
+        padding: 10px !important;
+    }
+    #slider-reviews .item .bg-light {
+        height: 190px;
+    }
+    #slider-reviews .avatar{
+        height: 60px;
+        width: 60px;
+    }
     .mob-main-search-result .main-search-result-item {
-    background-color: #e6e6e6fc;
-    border-bottom: 1px solid #FFF;
-}
+        background-color: #e6e6e6fc;
+        border-bottom: 1px solid #FFF;
+    }
     .center-nav-mob {
         background-color: #e6e6e6;
         padding: 11px;
