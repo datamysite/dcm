@@ -8,6 +8,7 @@ use App\Models\Countries;
 use App\Models\Categories;
 use App\Models\OfferCategories;
 use App\Models\Admin;
+use App\Models\Retailers;
 use Auth;
 
 class Offers extends Model
@@ -71,5 +72,9 @@ class Offers extends Model
 
     public function categories(){
         return $this->hasMany(OfferCategories::class, 'offer_id', 'id');
+    }
+
+    public function retailer(){
+        return $this->belongsTo(Retailers::class, 'retailer_id', 'id');
     }
 }

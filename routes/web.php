@@ -41,6 +41,11 @@ Route::namespace('web')->group(function () {
         Route::get('/{id}', 'ListingController@show_coupon');
         Route::get('/grabDeal/{id}', 'ListingController@coupon_grab_deal');
     });
+    Route::prefix('offers')->group(function(){
+        Route::get('/{id}', 'ListingController@show_offer');
+        Route::get('/whatsapp/{id}', 'ListingController@redirect_whatsapp');
+        Route::get('/qrcode/{slug}/{id}', 'ListingController@generate_qrcode')->name('offers.qrcode');
+    });
 
     Route::prefix('category')->group(function(){
         Route::get('{cat_slug}', 'ListingController@category')->name('category');

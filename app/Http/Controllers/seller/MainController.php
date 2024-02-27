@@ -42,6 +42,22 @@ class MainController extends Controller
             $data['total_downloads'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '3')->count();
             $data['total_whatsapp_visits'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '5')->count();
             $data['active_offers'] = Offers::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->count();
+
+            $data['offer_analytics'] = ClicksCounter::with('offer')
+                                                        ->where('type', '3')
+                                                        ->where('offer_id', '!=', null)
+                                                        ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
+                                                        ->select('offer_id', DB::raw('count(*) as total'))
+                                                        ->groupBy('offer_id')
+                                                        ->get();
+
+            $data['whatsapp_analytics'] = ClicksCounter::with('offer')
+                                                        ->where('type', '5')
+                                                        ->where('offer_id', '!=', null)
+                                                        ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
+                                                        ->select('offer_id', DB::raw('count(*) as total'))
+                                                        ->groupBy('offer_id')
+                                                        ->get();
         }
 
         $data['visiter_regional'] = ClicksCounter::select('region', DB::raw('count(*) as total'))->where('type', '1')->where('retailer_id', Auth::guard('seller')->user()->retailer_id)->groupBy('region')->orderBy('region', 'desc')->get()->toArray();

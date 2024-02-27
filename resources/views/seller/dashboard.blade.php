@@ -184,7 +184,7 @@
                   <div class="card-body p-0">
                     <h3 class="card-chart-title">Offer Downloads Analytics</h3>
                     <div class="chart">
-                      <canvas class="chart" id="topRatedCoupon" style="min-height: 240px; height: 240px; max-height: 240px; max-width: 100%;"></canvas>
+                      <canvas class="chart" id="offerDownloadsAnalytics" style="min-height: 240px; height: 240px; max-height: 240px; max-width: 100%;"></canvas>
                       <br>
                     </div>
                   </div>
@@ -196,7 +196,7 @@
                   <!-- /.card-header -->
                   <div class="card-body p-0">
                     <h3 class="card-chart-title">Whatsapp Reach Analytics</h3>
-                    <canvas id="brandsChart" style="min-height: 240px; height: 240px; max-height: 240px; max-width: 100%;"></canvas>
+                    <canvas id="whatsappReachAnalytics" style="min-height: 240px; height: 240px; max-height: 240px; max-width: 100%;"></canvas>
                     <br>
                   </div>
                   <!-- /.card-body -->
@@ -314,6 +314,82 @@
 
 
   <script type="text/javascript">
+    @if(Auth::guard('seller')->user()->retailer->type == '2')
+
+
+
+
+      //-------------
+      //- Offers Download CHART -
+      //-------------
+      var donutChartCanvas = $('#offerDownloadsAnalytics').get(0).getContext('2d')
+      var donutData        = {
+        labels: [
+            @foreach($offer_analytics as $val)
+            '{{@$val->offer->title}}',
+            @endforeach
+        ],
+        datasets: [
+          {
+            data: [@foreach($offer_analytics as $val) {{$val->total}}, @endforeach],
+            backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+          }
+        ]
+      }
+      var donutOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+        cutoutPercentage: 50,
+        legend: {
+          display: false
+        }
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      new Chart(donutChartCanvas, {
+        type: 'doughnut',
+        data: donutData,
+        options: donutOptions
+      });
+
+
+
+      //-------------
+      //- Whatsapp CHART -
+      //-------------
+      var donutData        = {
+        labels: [
+            @foreach($whatsapp_analytics as $val)
+            '{{@$val->offer->title}}',
+            @endforeach
+        ],
+        datasets: [
+          {
+            data: [@foreach($whatsapp_analytics as $val) {{$val->total}}, @endforeach],
+            backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+          }
+        ]
+      }
+      // Get context with jQuery - using jQuery's .get() method.
+      var pieChartCanvas = $('#whatsappReachAnalytics').get(0).getContext('2d')
+      var pieData        = donutData;
+      var pieOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+        legend: {
+          display: false
+        }
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions
+      });
+
+    @endif
+   
     @if(Auth::guard('seller')->user()->retailer->type == '1')
 
 
@@ -389,8 +465,6 @@
       });
 
     @endif
-   
-
 
 
     // Sales graph chart

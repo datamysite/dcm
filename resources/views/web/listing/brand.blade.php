@@ -33,6 +33,33 @@
                 <a href="{{route('brand', $retailer->slug)}}"><h3 class=" page-title">{{$retailer->name}}</h3></a>
             </div>
         </div>
+
+        @php $bg = 2; @endphp
+        @foreach($offers as $val)
+            @php if($bg == count($stripColors)){ $bg = 2;} @endphp
+            <div class="row d-flex  m-mt-16 mt-16" style="align-items: center;">
+                <div class="col-12">
+                    <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
+
+                        <div class="Lside_div">
+                            <img src="{{URL::to('/public/storage/retailers/'.$retailer->logo)}}" alt="Product Image" class="img" style="height:80%">
+                        </div>
+
+                        <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
+                            <span style="color:#fff;">{{$val->title}}</span>
+
+                            <span style="color:#fff;"></span>
+
+                            <span class="col text-center">
+                                <a href="javascript:void(0)" class="btn btn-white shadow-green showOffer" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">SHOW COUPON</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @php $bg++; @endphp
+        @endforeach
+
         @php $bg = 0; @endphp
         @foreach($coupons as $val)
             @php if($bg == count($stripColors)){ $bg = 0;} @endphp
@@ -58,6 +85,8 @@
             </div>
             @php $bg++; @endphp
         @endforeach
+
+
 
 
         <div class="container np-container"> 
@@ -143,6 +172,16 @@
                 });
             });
 
+
+            $(document).on('click', '.showOffer', function(){
+                var id = $(this).data('id');
+                $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
+                $('#ShowCouponModal').modal('show');
+                $.get("{{URL::to('/offers')}}/"+id, function(data){
+                    $('#ShowCouponModal .grap_deal_main').html(data);
+                });
+            });
+
             $(document).on('click', '.blogToggle', function(){
                 if(ar == 0){
                     $('.blogToggle .arr').html('<i class="fa fa-arrow-up" aria-hidden="true"></i>');
@@ -160,6 +199,17 @@
                 $('#ShowCouponModal').modal('hide');
                 $('#loading').css({display: 'block'});
                 $.get("{{URL::to('/coupon/grabDeal')}}/"+id, function(data){
+                    $('#loading').css({display: 'none'});
+                    window.location.href = link;
+                });
+            });
+
+            $(document).on('click', '.whatsapp_chat', function(){
+                var link = $(this).data('href');
+                var id = $(this).data('id');
+                $('#ShowCouponModal').modal('hide');
+                $('#loading').css({display: 'block'});
+                $.get("{{URL::to('/offers/whatsapp')}}/"+id, function(data){
                     $('#loading').css({display: 'none'});
                     window.location.href = link;
                 });

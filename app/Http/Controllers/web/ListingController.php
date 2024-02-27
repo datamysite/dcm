@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web;
 
 use GuzzleHttp\Client;
 use App\Http\Controllers\Controller;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
 use App\Models\Retailers;
 use App\Models\Coupon;
@@ -12,6 +13,8 @@ use App\Models\Countries;
 use App\Models\ClicksCounter;
 use App\Models\Testimonials;
 use App\Models\States;
+use App\Models\Offers;
+use App\Models\OfferQrCode;
 
 class ListingController extends Controller
 {
@@ -49,6 +52,7 @@ class ListingController extends Controller
     public function brand($brand_slug){
         $data['retailer'] = Retailers::where('slug', $brand_slug)->first();
         $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)->where('status', '1')->get();
+        $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
         $data['testimonials'] = Testimonials::where('status', '1')->get();
         
         ClicksCounter::hitCount('1', $data['retailer']->id);
@@ -166,7 +170,7 @@ class ListingController extends Controller
         $id = base64_decode($id);
         $data['coupon'] = Coupon::find($id);
 
-        ClicksCounter::hitCount('2', $data['coupon']->retailer_id, $data['coupon']->id);
+        ClicksCounter::hitCount('2', $data['coupon']->retailer_id, $data['coupon']->id, '1');
 
         return view('web.listing.modal.coupon')->with($data);
     }
@@ -175,6 +179,31 @@ class ListingController extends Controller
     public function coupon_grab_deal($id){
         $data['coupon'] = Coupon::find($id);
         ClicksCounter::hitCount('4', $data['coupon']->retailer_id, $data['coupon']->id, '1');
+        //dd($data);
+
+        return 'success';
+    }
+
+
+    public function show_offer($id){
+        $id = base64_decode($id);
+        $data['offer'] = Offers::find($id);
+
+        $qr = new OfferQrCode;
+        $qr->offer_id = $data['offer']->id;
+        $qr->save();
+
+        $data['qrid'] = $qr->id;
+
+        ClicksCounter::hitCount('3', $data['offer']->retailer_id, $data['offer']->id, '2');
+
+        return view('web.listing.modal.offer')->with($data);
+    }
+
+
+    public function redirect_whatsapp($id){
+        $data['offer'] = Offers::find($id);
+        ClicksCounter::hitCount('5', $data['offer']->retailer_id, $data['offer']->id, '2');
         //dd($data);
 
         return 'success';

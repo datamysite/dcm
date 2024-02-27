@@ -886,10 +886,20 @@ label.errors {
     flex-direction: column;
     align-items: flex-start;
 }
-
-
-
-
+.offer_deal_row{
+    margin-top: 135px !important;
+}
+.offer_deal_social{
+    margin-top: 12px !important;
+}
+.offer_deal_social .grap_deal_icon {
+    color: #1dace3 !important;
+    background-color: #fff !important;
+    margin-left: 0 !important;
+}
+.offer_deal_social div {
+    align-items: center !important;
+}
 
 
 
