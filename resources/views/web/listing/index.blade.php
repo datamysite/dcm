@@ -238,7 +238,7 @@
                         </div>
 
                         <div class="d-flex mt-2 mt-lg-0">
-                           <div class="me-2 flex-grow-1">
+                           <!-- <div class="me-2 flex-grow-1">
 
                               <select class="form-control form-control-sm">
                                  <option selected>Show: 50</option>
@@ -256,7 +256,7 @@
                                  <option value="Release Date">Release Date</option>
                                  <option value="Avg. Rating">Avg. Rating</option>
                               </select>
-                           </div>
+                           </div> -->
                         </div>
 
                      </div>
@@ -267,7 +267,7 @@
 
                      @foreach($retailers as $val)
                         <!-- col -->
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6">
                            <!-- card -->
                            <div class="card card-product">
                               <div class="card-body">
