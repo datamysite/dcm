@@ -48,7 +48,7 @@
       <div class="container">
          <div class="hero-slider">
 
-            <a href="javascript:void(0)">
+            <a href="https://wa.me/971585882973" target="_blank">
                <img src="{{URL::to('/public')}}/web_assets/images/slider/b1.png">
             </a>
 
