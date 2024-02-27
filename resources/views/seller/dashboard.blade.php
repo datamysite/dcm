@@ -518,7 +518,7 @@
     var donutData        = {
       labels: [
           @foreach($visiter_regional as $key => $val)
-          '{{$key == "" || $key == "western" ? "Others" : $key}}',
+          '{{$key == "" ? "Others" : $key}}',
           @endforeach
       ],
       datasets: [
