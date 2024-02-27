@@ -16,9 +16,11 @@ $(document).ready(function() {
     });
 
     $(document).on('focusout', '.mob-main-search', function(){
+        setTimeout(function(){         
           $('.mobile-nav-button').removeClass("active");
           $('.nav-tray').css({height: '0px'});
           $('.tray-search').css({display: 'none'});
+        }, 500);
     });
 
     $(document).on('click', '.mobile-nav-button', function(){
