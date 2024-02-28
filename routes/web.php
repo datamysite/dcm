@@ -10,6 +10,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Migration
+
+Route::get('/clear-cache', function(){
+    Artisan::call('route:cache');
+    Artisan::call('route:clear');
+    Artisan::call('config:cache');
+    Artisan::call('config:clear');
+    Artisan::call('optimize');
+
+    dd('Cache Cleared!');
+    
+});
+
 Route::get('/migrate', function () {
     Artisan::call('migrate');
     dd('migrated!');
