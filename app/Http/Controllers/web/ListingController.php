@@ -221,7 +221,7 @@ class ListingController extends Controller
 
         $pdf = PDF::loadView('web.listing.modal.pdf', $data);
         
-        return $pdf->download('Redeem-Code.pdf');
+        return $pdf->download('DCM-Redeem-Code.pdf');
 
         //return view('web.listing.modal.pdf')->with($data);
     }
