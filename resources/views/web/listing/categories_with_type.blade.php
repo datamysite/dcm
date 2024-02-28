@@ -13,9 +13,21 @@
                <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
                   @if(!empty($category->parentCategory->id))
-                     <li class="breadcrumb-item"><a href="javascript:void(0)" style="color: #000;"><strong>{{$category->parentCategory->name}}</strong></a></li>
+                     @php
+                        $string = strtolower(trim($category->parentCategory->name));
+                         $string = str_replace('&', 'and', $string);
+                         $string = str_replace(' ', '-', $string);
+                         $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                     @endphp
+                     <li class="breadcrumb-item"><a href="{{route('category', $slug)}}" style="color: #000;"><strong>{{$category->parentCategory->name}}</strong></a></li>
                   @endif
-                  <li class="breadcrumb-item"><a href="javascript:void(0)" style="color: #000;"><strong>{{$category->name}}</strong></a></li>
+                  @php
+                     $string = strtolower(trim($category->name));
+                      $string = str_replace('&', 'and', $string);
+                      $string = str_replace(' ', '-', $string);
+                      $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                  @endphp
+                  <li class="breadcrumb-item"><a href="{{route('category', $slug)}}" style="color: #000;"><strong>{{$category->name}}</strong></a></li>
                   <li class="breadcrumb-item active" aria-current="page"><strong>{{$type}}</strong></li>
                </ol>
             </nav>

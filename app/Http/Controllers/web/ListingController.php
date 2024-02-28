@@ -71,6 +71,7 @@ class ListingController extends Controller
                                 })
                                 ->where('status', '1')->get();
         $data['testimonials'] = Testimonials::where('status', '1')->get();
+        $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
         
         ClicksCounter::hitCount('1', $data['retailer']->id);
 
