@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Route;
 //Migration
 
 Route::get('/clear-cache', function(){
-    Artisan::call('route:cache');
-    Artisan::call('route:clear');
     Artisan::call('config:cache');
     Artisan::call('config:clear');
 
