@@ -28,6 +28,13 @@ Route::get('/optimize', function(){
     
 });
 
+Route::get('/key_generate', function(){
+    Artisan::call('key:generate');
+
+    dd('optimized ..!');
+    
+});
+
 Route::get('/migrate', function () {
     Artisan::call('migrate');
     dd('migrated!');
