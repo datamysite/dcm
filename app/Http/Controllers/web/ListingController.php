@@ -15,6 +15,7 @@ use App\Models\Testimonials;
 use App\Models\States;
 use App\Models\Offers;
 use App\Models\OfferQrCode;
+use PDF;
 
 class ListingController extends Controller
 {
@@ -208,6 +209,21 @@ class ListingController extends Controller
         //dd($data);
 
         return 'success';
+    }
+
+
+
+    public function redeem_pdf($id){
+
+        $data['qrid'] = $id;
+        $data['qrcode'] = OfferQrCode::find($id);
+        $data['offer'] = Offers::find($data['qrcode']->offer_id);
+
+        $pdf = PDF::loadView('web.listing.modal.pdf', $data);
+        
+        return $pdf->download('Redeem-Code.pdf');
+
+        //return view('web.listing.modal.pdf')->with($data);
     }
 
 

@@ -45,6 +45,7 @@ Route::namespace('web')->group(function () {
         Route::get('/{id}', 'ListingController@show_offer');
         Route::get('/whatsapp/{id}', 'ListingController@redirect_whatsapp');
         Route::get('/qrcode/{slug}/{id}', 'ListingController@generate_qrcode')->name('offers.qrcode');
+        Route::get('/redeem-pdf/{id}', 'ListingController@redeem_pdf')->name('offers.redeemPDF');
     });
 
     Route::prefix('category')->group(function(){
