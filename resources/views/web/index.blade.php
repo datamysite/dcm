@@ -119,7 +119,6 @@
                   <li>Apply The Code and Redeem the Discount</li>
                   <li>Upload your Reciept and Get your Cashback</li>
                </ol>
-               <a href="javascript:void(0)" class="btn btn-white btn-sm">EARN NOW</a>
             </div>
             <div class="object-section">
                <img class="light" src="{{URL::to('public/web_assets/images/animated/lights-1.png')}}" style="width:100%; height: auto;">
@@ -325,14 +324,14 @@
                         <div class="flipper">
                            <div class="front">
                               <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Aldo Store" style="border-radius: 20px;" />
-                              <a href="Store-Products" class="img-pop-up" target="_blank">
+                              <a href="{{route('brand', $val->slug)}}" class="img-pop-up" target="_blank">
                                  <div class="custom_arrow-button2">
                                     <i class="bi bi-arrow-right-circle"></i>
                                  </div>
                               </a>
                            </div>
                            <div class="back">
-                              <a href="javascript:void(0)" class="img-pop-up">
+                              <a href="{{route('brand', $val->slug)}}" class="img-pop-up">
                                  <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Aldo Store" style="border-radius: 20px;" />
                               </a>
                            </div>
