@@ -1,4 +1,5 @@
 <img src="{{URL::to('/public/ticket.png')}}">
+<a href="javascript:void(0)" class="grap_deal_close_btn" data-dismiss="modal" aria-label="Close">x</a>
 <div class="grap_deal_row">
   <div class="grap_deal_message">
      <p>THANK YOU!</p>

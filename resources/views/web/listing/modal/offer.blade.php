@@ -1,4 +1,5 @@
 <img src="{{URL::to('/public/ticket.png')}}">
+<a href="javascript:void(0)" class="grap_deal_close_btn" data-dismiss="modal" aria-label="Close">x</a>
 <div class="grap_deal_row offer_deal_row">
   <div class="grap_deal_message">
      <p>THANK YOU!</p>
@@ -11,7 +12,7 @@
   <div class="grap_deal_code">
      <p>Your Coupon Code Is</p>
      <h2>
-        {!! QrCode::size(120)->generate(route('offers.qrcode', [$offer->retailer->slug, $qrid])); !!}
+        {!! QrCode::size(110)->generate(route('offers.qrcode', [$offer->retailer->slug, $qrid])); !!}
      </h2>
   </div>
 </div>
@@ -24,7 +25,7 @@
    </div>
 </div>
 
-<div class="grap_deal_disclaimer">
+<div class="grap_deal_disclaimer offer_deal_disclaimer">
   <p><strong>Attention!</strong></p>
   <p>Present your downloaded coupon code at the store to enjoy an exclusive discount! Don't forget to claim your cashback from us!</p>
 </div> 

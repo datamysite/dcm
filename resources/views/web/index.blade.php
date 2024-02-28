@@ -317,7 +317,33 @@
          </div>
          <!-- slider -->
          <div class="product-slider-second" id="slider-third">
+            @foreach($retailstores as $val)
+               <!-- item -->
+               <div class="item">
+                  <div class="custom_col">
+                     <div class="flip-container">
+                        <div class="flipper">
+                           <div class="front">
+                              <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Aldo Store" style="border-radius: 20px;" />
+                              <a href="Store-Products" class="img-pop-up" target="_blank">
+                                 <div class="custom_arrow-button2">
+                                    <i class="bi bi-arrow-right-circle"></i>
+                                 </div>
+                              </a>
+                           </div>
+                           <div class="back">
+                              <a href="javascript:void(0)" class="img-pop-up">
+                                 <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Aldo Store" style="border-radius: 20px;" />
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- item -->
+            @endforeach
 
+            @for($i=0; $i<(5-count($retailstores)); $i++)
             <!-- item -->
             <div class="item">
                <div class="custom_col">
@@ -341,99 +367,7 @@
                </div>
             </div>
             <!-- item -->
-
-            <!-- item -->
-            <div class="item">
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           <a href="Store-Products" class="img-pop-up" target="_blank">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="javascript:void(0)" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- item -->
-            <!-- item -->
-            <div class="item">
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           <a href="Store-Products" class="img-pop-up" target="_blank">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="javascript:void(0)" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- item -->
-            <!-- item -->
-            <div class="item">
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           <a href="Store-Products" class="img-pop-up" target="_blank">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="javascript:void(0)" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- item -->
-            <!-- item -->
-            <div class="item">
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           <a href="Store-Products" class="img-pop-up" target="_blank">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="javascript:void(0)" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/coming-soon.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- item -->
+            @endfor
 
          </div>
       </div>
@@ -457,42 +391,48 @@
 
 
             <div class="col-md-6 col-xs-12 mb-3">
-               <div class="single-deal v-tile">
-                  <div class="overlay"></div>
-                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[0]->logo)}}" alt="" style="border-radius: 20px;" /></a>
-                  <a href="{{route('brand', $allstores[0]->slug)}}" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
+               <a href="{{route('brand', $allstores[0]->slug)}}">
+                  <div class="single-deal v-tile">
+                     <div class="overlay"></div>
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[0]->logo)}}" alt="" style="border-radius: 20px;" />
+                     <span class="img-pop-up">
+                        <div class="deal-details">
+                           <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
+                           <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
+                        </div>
+                     </span>
+                  </div>
+               </a>
             </div>
 
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[1]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" /></a>
-                  <a href="{{route('brand', $allstores[1]->slug)}}" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
+               <a href="{{route('brand', $allstores[1]->slug)}}">
+                  <div class="single-deal">
+                     <div class="overlay"></div>
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[1]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
+                     <span class="img-pop-up">
+                        <div class="deal-details">
+                           <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
+                           <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
+                        </div>
+                     </span>
+                  </div>
+               </a>
             </div>
 
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[2]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" /></a>
-                  <a href="{{route('brand', $allstores[2]->slug)}}" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
+               <a href="{{route('brand', $allstores[2]->slug)}}">
+                  <div class="single-deal">
+                     <div class="overlay"></div>
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[2]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
+                     <span class="img-pop-up">
+                        <div class="deal-details">
+                           <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
+                           <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
+                        </div>
+                     </span>
+                  </div>
+               </a>
             </div>
 
          </div>
@@ -502,42 +442,48 @@
          <div class="row">
 
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[3]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" /></a>
-                  <a href="{{route('brand', $allstores[3]->slug)}}" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
+               <a href="{{route('brand', $allstores[3]->slug)}}">
+                  <div class="single-deal">
+                     <div class="overlay"></div>
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[3]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
+                     <span class="img-pop-up">
+                        <div class="deal-details">
+                           <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
+                           <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
+                        </div>
+                     </span>
+                  </div>
+               </a>
             </div>
 
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
-               <div class="single-deal">
-                  <div class="overlay"></div>
-                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[4]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" /></a>
-                  <a href="{{route('brand', $allstores[4]->slug)}}" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
+               <a href="{{route('brand', $allstores[4]->slug)}}">
+                  <div class="single-deal">
+                     <div class="overlay"></div>
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[4]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
+                     <span class="img-pop-up">
+                        <div class="deal-details">
+                           <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
+                           <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
+                        </div>
+                     </span>
+                  </div>
+               </a>
             </div>
 
             <div class="col-md-6 col-xs-12 mb-3">
-               <div class="single-deal v-tile">
-                  <div class="overlay"></div>
-                  <a href="javascript:void(0)"><img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[5]->logo)}}" alt="" style="border-radius: 20px;" /></a>
-                  <a href="{{route('brand', $allstores[5]->slug)}}" class="img-pop-up">
-                     <div class="deal-details">
-                        <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
-                        <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
-                     </div>
-                  </a>
-               </div>
+               <a href="{{route('brand', $allstores[5]->slug)}}">
+                  <div class="single-deal v-tile">
+                     <div class="overlay"></div>
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[5]->logo)}}" alt="" style="border-radius: 20px;" />
+                     <span class="img-pop-up">
+                        <div class="deal-details">
+                           <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
+                           <button class="blue-button px-5 py-1 mb-3 me-5">Browse</button>
+                        </div>
+                     </span>
+                  </div>
+               </a>
             </div>
          </div>
 

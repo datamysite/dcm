@@ -48,7 +48,7 @@
 
                 <div class="col-lg-6">
                     <!-- text -->
-                    <div class="me-6" style="border-radius: 10px;">
+                    <div class="" style="border-radius: 10px;">
 
                         <form action="#" class="form-control p-10">
 
@@ -83,10 +83,11 @@
                             <div class="input-group py-2">
                                 <select class="form-control rounded " type="eamil" name="user_email" required="required">
                                     <option value="">Select Business Category</option>
-                                    <option value="test">test</option>
-                                    <option value="test">test</option>
-                                    <option value="test">test</option>
-                                    <option value="test">test</option>
+                                    @foreach($navbarCategories as $val)
+                                        @if(empty($val->parent_id))
+                                            <option value="{{$val->name}}">{{$val->name}}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -122,7 +123,7 @@
                     <div class="row">
 
 
-                        <div class="row align-items-center mb-10">
+                        <div class="row align-items-center sell-with-us-div mb-10">
                             <!-- col -->
                             <div class="col-lg-6" style="background-color: #f0f3f2; border-radius: 20px ">
                                 <div style="padding-top: 20px;">

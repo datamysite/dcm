@@ -14,6 +14,7 @@ class HomeController extends Controller
     {   
         $data['categories'] = Categories::where('parent_id', 0)->get();
         $data['allstores'] = Retailers::inRandomOrder()->where('status', '1')->limit(6)->get();
+        $data['retailstores'] = Retailers::inRandomOrder()->where('type', '2')->where('status', '1')->limit(5)->get();
 
         return view('web.index')->with($data);
     }

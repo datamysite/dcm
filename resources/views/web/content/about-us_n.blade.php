@@ -151,7 +151,6 @@
                </p>
                <p class="mb-5">
                   <li style="font-weight: bold;">Visit the Official Site of your favorite brand.</li>
-                  <li style="font-weight: bold;">Pick your favorite items and place them in the shopping cart.</li>
                   <li style="font-weight: bold;">Apply the Promo / Discount code in the Discount Box to get the discounted price.</li>
                   <li style="font-weight: bold;">Include your preferred shipping address to get your item on time.</li>
                   <li style="font-weight: bold;">Place the order and then complete the payment by selecting one of the available options.</li>
@@ -195,7 +194,8 @@
 
                   </div>
 
-                  <input type="submit" name="sing-up" class="btn btn-signup px-5 py-1 mb-3 me-5" style="font-weight: lighter; float:right;" value="Sign Up">
+                  <input type="submit" name="sing-up" class="btn btn-signup btn-sm" style="font-weight: lighter; float:right; padding: 5px 20px" value="Sign Up">
+                  <br>
                </form>
 
             </div>

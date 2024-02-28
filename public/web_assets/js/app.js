@@ -10,6 +10,10 @@ $(document).ready(function() {
         }
     });
 
+    $(document).on('click','.grap_deal_close_btn', function(){
+      $('#ShowCouponModal').modal('hide');
+    });
+
     $('.dropdown-item').click(function(){
       $(".mob-nav .dropdown-menu").removeClass('show');
       $(this).siblings(".dropdown-menu").toggleClass('show');
