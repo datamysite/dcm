@@ -15,7 +15,7 @@ Route::get('/clear-cache', function(){
     Artisan::call('config:cache');
     Artisan::call('config:clear');
 
-    dd('Cache Cleared!');
+    dd('Cache Cleared .!');
     
 });
 
