@@ -22,6 +22,13 @@ Route::get('/clear-cache', function(){
     
 });
 
+Route::get('/optimize', function(){
+    Artisan::call('optimize');
+
+    dd('optimized ..!');
+    
+});
+
 Route::get('/migrate', function () {
     Artisan::call('migrate');
     dd('migrated!');
