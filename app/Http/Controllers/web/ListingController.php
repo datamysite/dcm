@@ -215,8 +215,8 @@ class ListingController extends Controller
 
     public function redeem_pdf($id){
 
-        $data['qrid'] = $id;
-        $data['qrcode'] = OfferQrCode::find($id);
+        $data['qrid'] = base64_decode($id);
+        $data['qrcode'] = OfferQrCode::find($data['qrid']);
         $data['offer'] = Offers::find($data['qrcode']->offer_id);
 
         $pdf = PDF::loadView('web.listing.modal.pdf', $data);
