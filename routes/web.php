@@ -11,7 +11,16 @@ use Illuminate\Support\Facades\Route;
 
 //Migration
 
-Route::get('/clear-cache', function(){
+Route::get('/migrate', function () {
+    Artisan::call('migrate');
+    dd('migrated!');
+});
+// Route::get('/seeder', function () {
+//     Artisan::call('db:seed');
+//     dd('Seeded!');
+// });
+
+/*Route::get('/clear-cache', function(){
     Artisan::call('route:cache');
     Artisan::call('route:clear');
     Artisan::call('config:cache');
@@ -26,23 +35,7 @@ Route::get('/optimize', function(){
 
     dd('optimized ..!');
     
-});
-
-Route::get('/key_generate', function(){
-    Artisan::call('key:generate');
-
-    dd('optimized ..!');
-    
-});
-
-Route::get('/migrate', function () {
-    Artisan::call('migrate');
-    dd('migrated!');
-});
-// Route::get('/seeder', function () {
-//     Artisan::call('db:seed');
-//     dd('Seeded!');
-// });
+});*/
 
 
 // Website
@@ -70,6 +63,7 @@ Route::namespace('web')->group(function () {
         Route::get('/{id}', 'ListingController@show_offer');
         Route::get('/whatsapp/{id}', 'ListingController@redirect_whatsapp');
         Route::get('/qrcode/{slug}/{id}', 'ListingController@generate_qrcode')->name('offers.qrcode');
+        Route::get('/qrcode/{id}', 'ListingController@qrcode_markasused');
         Route::get('/redeem-pdf/{id}', 'ListingController@redeem_pdf')->name('offers.redeemPDF');
     });
 

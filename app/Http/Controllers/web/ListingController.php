@@ -227,6 +227,21 @@ class ListingController extends Controller
     }
 
 
+    public function generate_qrcode($slug, $id){
+        $data['retailer'] = Retailers::where('slug', $slug)->first();
+        $data['qrcode'] = OfferQrCode::find(base64_decode($id));
+        //dd(base64_decode($id));
+        return view('web.listing.modal.verify')->with($data);
+    }
+
+    public function qrcode_markasused($id){
+        $qr = OfferQrCode::find(base64_decode($id));
+        $qr->status = '1';
+        $qr->save();
+
+        return 'success';
+    }
+
 
     function sanitizeStringForUrl($string){
         $string = str_replace('-',' ',$string);
