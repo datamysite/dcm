@@ -618,3 +618,16 @@ input[type="file"]{
     display: none;
     visibility: hidden;
 }
+.p-input {
+    padding: 5px 15px;
+    margin-bottom: 150px;
+    position: relative;
+}
+.p-input img {
+    position: absolute;
+    height: 223px;
+    bottom: -150px;
+    left: 90px;
+    opacity: .6;
+    transform: rotate(325deg);
+}

@@ -12,7 +12,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('seller.dashboard')}}">Home</a></li>
               <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
@@ -215,10 +215,54 @@
                   <!-- /.card-body -->
                 </div>
               </div>
+
+
+              <div class="col-lg-12">
+                <div class="card card-default">
+                  <div class="card-body p-0">
+                    <h3 class="card-chart-title">Daily Visiters Analytics</h3>
+                    <br>
+                    <div class="chart">
+                      <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250; max-height: 250; max-width: 100%;"></canvas>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-4">
+
+            <div class="card card-default">
+              <div class="card-body p-0">
+                <h3 class="card-chart-title">Export to xlsx</h3>
+                <form method="post" action="{{route('seller.export')}}">
+                  @csrf
+                  <div class="row  p-input">
+                    <img src="{{URL::to('/public/icons/excel-export.png')}}">
+                    <div class="col-12">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="far fa-calendar-alt"></i>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control float-right" name="date_range" id="export_range" required>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <br>
+                      <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-file-excel"></i> Export</button>
+                    </div>
+                  </div>
+                </form>
+                <br>
+              </div>
+              <!-- /.card-body -->
+            </div>
+
             <div class="card card-default">
               <div class="card-body p-0">
                 <h3 class="card-chart-title">Visiter's Regional Analytics</h3>
@@ -233,18 +277,6 @@
 
 
         <div class="row">
-          <div class="col-lg-12">
-            <div class="card card-default">
-              <div class="card-body p-0">
-                <h3 class="card-chart-title">Daily Visiters Analytics</h3>
-                <br>
-                <div class="chart">
-                  <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250; max-height: 250; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -255,6 +287,7 @@
 @section('addScript')
   <script src="https://code.highcharts.com/maps/highmaps.js"></script>
   <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+
   <script type="text/javascript">
       (async () => {
 
@@ -314,6 +347,16 @@
 
 
   <script type="text/javascript">
+    $(document).ready(function(){
+      'use strict'
+
+      $('#export_range').daterangepicker({
+          locale: {
+              format: 'DD/MMM/YYYY'
+          }
+      });
+    });
+
     @if(Auth::guard('seller')->user()->retailer->type == '2')
 
 

@@ -149,6 +149,11 @@ Route::prefix('seller')->namespace('seller')->group(function () {
     Route::middleware('sellerAuth')->group(function () {
         Route::get('/', 'MainController@index')->name('seller.dashboard');
 
+        //Export
+        Route::prefix('export')->group(function(){
+            Route::post('/', 'ExportController@index')->name('seller.export');
+        });
+
     });
 });
 
