@@ -66,13 +66,16 @@
 		    background-color: #07af07;
 		}
 		.verification h1 {
-		    margin-bottom: -20px;
+		    margin-bottom: -12px;
 		    font-weight: 600;
 		    text-transform: uppercase;
 		    margin-top: 10px;
+		    font-size: 16px;
+		    text-align: center;
 		}
 		.verification h3 {
 		    margin-bottom: -15px;
+		    font-size: 14px;
 		}
 		.btn {
 		    border: none;
