@@ -21,10 +21,12 @@ class GoogleLoginController extends Controller
     {
         $user = Socialite::driver('google')->user();
 
-        $existingUser = User::where('google_id', $user->id)->first();
+        $existingUser = User::where('email', $user->email)->first();
 
         if ($existingUser) {
-            // Log in the existing user.
+            $existingUser->google_id = $user->id;
+            $existingUser->save();
+            
             auth()->login($existingUser, true);
         } else {
             // Create a new user.
