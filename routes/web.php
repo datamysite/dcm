@@ -79,6 +79,9 @@ Route::namespace('web')->group(function () {
 
         Route::get('logout', 'UserController@logout')->name('user.logout');
 
+        Route::get('/google', 'GoogleLoginController@redirectToGoogle')->name('auth.google');
+        Route::get('/google/callback', 'GoogleLoginController@handleGoogleCallback');
+
         Route::middleware('userAuth')->group(function(){
 
             Route::get('profile', 'UserController@profile')->name('user.profile');
