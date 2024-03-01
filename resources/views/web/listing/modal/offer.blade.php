@@ -12,7 +12,7 @@
   <div class="grap_deal_code">
      <p>Your Coupon Code Is</p>
      <h2>
-        {!! QrCode::size(110)->generate(route('offers.qrcode', [$offer->retailer->slug, base64_encode($qrid)]))) !!}
+        {!! QrCode::size(110)->generate(route('offers.qrcode', [$offer->retailer->slug, base64_encode($qrid)])) !!}
      </h2>
   </div>
 </div>
