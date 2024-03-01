@@ -1,4 +1,4 @@
-<form id="edit_category_form" action="{{route('admin.countries.create')}}" enctype="multipart/form-data">
+<form id="edit_country_form" action="{{route('admin.countries.create')}}" enctype="multipart/form-data">
   @csrf
   <input type="hidden" name="country_id" value="{{base64_encode($data->id)}}">
   <div class="modal-header">

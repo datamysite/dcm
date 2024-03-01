@@ -5,13 +5,14 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Countries;
+use App\Models\States;
 use Auth;
 
 class CountryController extends Controller
 {
     public function index(){
         $data['menu'] = 'countries';
-        $data['data'] = Countries::all();
+        $data['countries'] = Countries::all();
 
         return view('admin.countries.index')->with($data);
     }

@@ -101,7 +101,7 @@
 							<br>
 							<button class="btn btn-sm btn-primary markasUsed">Mark as Used</button>
 							<br>
-							<p>Note! Please you are consumer, Don`t mark as used.</p>
+							<p>Note! If you are consumer, Please don`t mark as used.</p>
 							@break;
 						@case('1')
 							<span class="badge badge-danger">Used</span>

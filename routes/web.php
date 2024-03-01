@@ -272,6 +272,14 @@ Route::prefix('admin')->namespace('admin')->group(function () {
             Route::get('/delete/{id}', 'CountryController@delete');
         });
 
+        //States
+        Route::prefix('states')->group(function () {
+            Route::get('/load', 'StateController@load')->name('admin.states.load');
+            Route::post('/create', 'StateController@create')->name('admin.states.create');
+            Route::get('/edit/{id}', 'StateController@edit');
+            Route::get('/delete/{id}', 'StateController@delete');
+        });
+
         //users
         Route::prefix('users')->group(function () {
             Route::get('/', 'UserController@index')->name('admin.users');
