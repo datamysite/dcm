@@ -55,7 +55,7 @@
                      @csrf
                      <h1 style="color:#1dace3">Create Account</h1>
                      <div class="social-modal_container">
-                        <a href="{{route('auth.facebook')}}" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <!-- <a href="{{route('auth.facebook')}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
                         <a href="{{route('auth.google')}}" class="social"><i class="fab fa-google-plus-g"></i></a>
 
                      </div>
@@ -75,7 +75,7 @@
                      @csrf
                      <h1 style="color:#1dace3">Sign in to DCM</h1>
                      <div class="social-modal_container">
-                        <a href="{{route('auth.facebook')}}" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <!-- <a href="{{route('auth.facebook')}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
                         <a href="{{route('auth.google')}}" class="social"><i class="fab fa-google-plus-g"></i></a>
 
                      </div>
