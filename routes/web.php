@@ -82,6 +82,9 @@ Route::namespace('web')->group(function () {
         Route::get('/google', 'GoogleLoginController@redirectToGoogle')->name('auth.google');
         Route::get('/google/callback', 'GoogleLoginController@handleGoogleCallback');
 
+        Route::get('/facebook', 'FacebookLoginController@redirectToFacebook')->name('auth.facebook');
+        Route::get('/facebook/callback', 'FacebookLoginController@handleFacebookCallback');
+
         Route::middleware('userAuth')->group(function(){
 
             Route::get('profile', 'UserController@profile')->name('user.profile');
