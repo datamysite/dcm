@@ -51,12 +51,12 @@
          <div class="modal-body">
             <div class="modal_container" id="modal_container">
                <div class="form-modal_container sign-up-modal_container">
-                  <form action="{{route('user.create')}}" id="create_user_form" class="form_modal">
+                  <form action="{{route('user.create', [$region])}}" id="create_user_form" class="form_modal">
                      @csrf
                      <h1 style="color:#1dace3">Create Account</h1>
                      <div class="social-modal_container">
-                        <!-- <a href="{{route('auth.facebook')}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                        <a href="{{route('auth.google')}}" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
+                        <a href="{{route('auth.google', [$region])}}" class="social"><i class="fab fa-google-plus-g"></i></a>
 
                      </div>
                      <span>or use your email for registration</span>
@@ -71,12 +71,12 @@
                   </form>
                </div>
                <div class="form-modal_container sign-in-modal_container">
-                  <form action="{{route('user.login')}}" id="login_user_form" class="form_modal">
+                  <form action="{{route('user.login', [$region])}}" id="login_user_form" class="form_modal">
                      @csrf
                      <h1 style="color:#1dace3">Sign in to DCM</h1>
                      <div class="social-modal_container">
-                        <!-- <a href="{{route('auth.facebook')}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                        <a href="{{route('auth.google')}}" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
+                        <a href="{{route('auth.google', [$region])}}" class="social"><i class="fab fa-google-plus-g"></i></a>
 
                      </div>
                      <span>or use your account</span>

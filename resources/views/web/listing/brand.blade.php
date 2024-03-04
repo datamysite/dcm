@@ -12,9 +12,9 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
                         @if(!empty($category_slug))
-                            <li class="breadcrumb-item"><a href="{{route('category', $category_slug)}}" style="color: #000;"><strong>{{$category->name}}</strong></a></li>
+                            <li class="breadcrumb-item"><a href="{{route('category', [$region, $category_slug])}}" style="color: #000;"><strong>{{$category->name}}</strong></a></li>
                         @endif
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$retailer->name}}</a></strong></li>
                     </ol>
@@ -30,7 +30,7 @@
     <div class="container np-container">
         <div class="row">
             <div class="col-12 text-center">
-                <a href="{{route('brand', $retailer->slug)}}"><h3 class=" page-title">{{$retailer->name}}</h3></a>
+                <a href="{{route('brand', [$region, $retailer->slug])}}"><h3 class=" page-title">{{$retailer->name}}</h3></a>
             </div>
         </div>
 
@@ -167,7 +167,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
                 $('#ShowCouponModal').modal('show');
-                $.get("{{URL::to('/coupon')}}/"+id, function(data){
+                $.get("{{URL::to('/'.$region.'/coupon')}}/"+id, function(data){
                     $('#ShowCouponModal .grap_deal_main').html(data);
                 });
             });
@@ -177,7 +177,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
                 $('#ShowCouponModal').modal('show');
-                $.get("{{URL::to('/offers')}}/"+id, function(data){
+                $.get("{{URL::to('/'.$region.'/offers')}}/"+id, function(data){
                     $('#ShowCouponModal .grap_deal_main').html(data);
                 });
             });
@@ -198,7 +198,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal').modal('hide');
                 $('#loading').css({display: 'block'});
-                $.get("{{URL::to('/coupon/grabDeal')}}/"+id, function(data){
+                $.get("{{URL::to('/'.$region.'/coupon/grabDeal')}}/"+id, function(data){
                     $('#loading').css({display: 'none'});
                     window.location.href = link;
                 });
@@ -209,7 +209,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal').modal('hide');
                 $('#loading').css({display: 'block'});
-                $.get("{{URL::to('/offers/whatsapp')}}/"+id, function(data){
+                $.get("{{URL::to('/'.$region.'/offers/whatsapp')}}/"+id, function(data){
                     $('#loading').css({display: 'none'});
                     window.location.href = link;
                 });

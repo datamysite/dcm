@@ -11,7 +11,7 @@
             <!-- breadcrumb -->
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
+                  <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
                   <li class="breadcrumb-item"><a href="javascript:void(0)" style="color: #000;"><strong>All Stores</strong></a></li>
                   <li class="breadcrumb-item active" aria-current="page"><strong>{{$type}}</strong></li>
                </ol>
@@ -86,7 +86,7 @@
                                      $string = str_replace(' ', '-', $string);
                                      $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
-                                     $url = $val->type != '3' ? route('category', $slug) : route('category.sub', [$slug, $type]);
+                                     $url = $val->type != '3' ? route('category', [$region, $slug]) : route('category.sub', [$region, $slug, $type]);
                                      
                                  @endphp
                                  <li class="nav-item border-bottom w-100">
@@ -274,7 +274,7 @@
                                  <!-- badge -->
                                  <div class="text-center position-relative py-1 mb-3 box">
                                     <div class="ribbon-2"><span>Discount Upto</span> {{$val->discount_upto}}%</div>
-                                    <a href="{{route('brand', $val->slug)}}">
+                                    <a href="{{route('brand', [$region, $val->slug])}}">
                                        <!-- img -->
                                        <img src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="" class="mb-5 img-fluid" />
                                     </a>
@@ -296,7 +296,7 @@
                @else
                   <div class="row">
                      <div class="col-lg-12 brand-coming">
-                        <img src="{{URL::to('/public/product-loader.webp')}}">
+                        <img src="{{URL::to('/public/coming-soon.gif')}}">
                      </div>
                   </div>
                @endif

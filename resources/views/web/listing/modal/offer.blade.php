@@ -12,14 +12,14 @@
   <div class="grap_deal_code">
      <p>Your Coupon Code Is</p>
      <h2>
-        {!! QrCode::size(110)->generate(route('offers.qrcode', [$offer->retailer->slug, base64_encode($qrid)])) !!}
+        {!! QrCode::size(110)->generate(route('offers.qrcode', [$region, $offer->retailer->slug, base64_encode($qrid)])) !!}
      </h2>
   </div>
 </div>
 
 <div class="grap_deal_social offer_deal_social">
    <div>
-     <a href="{{route('offers.redeemPDF', base64_encode($qrid))}}" target="_blank" class="grap_deal_icon">Download &nbsp;<i class="fa fa-download"></i></a>
+     <a href="{{route('offers.redeemPDF', [$region, base64_encode($qrid)])}}" target="_blank" class="grap_deal_icon">Download &nbsp;<i class="fa fa-download"></i></a>
      |
      <a href="javascript:void(0)" data-href="{{$offer->retailer->store_link}}" class="grap_deal_icon whatsapp_chat" data-id="{{$offer->id}}">Whatsapp &nbsp;<i class="fa fa-whatsapp"></i></a>
    </div>

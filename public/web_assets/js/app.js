@@ -50,7 +50,7 @@ $(document).ready(function() {
           $('.tray-emirates').css({display: 'none'});
         }else{
           $('.tray-emirates').css({display: 'flex'});
-          $('.nav-tray').css({height: '60px'});
+          $('.nav-tray').css({height: '65px'});
           $(".mobile-nav-button").removeClass("active");
           $(this).addClass('active');
         }

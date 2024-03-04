@@ -234,7 +234,7 @@
         }else{
           status = '0';
         }   
-        $.get("{{URL::to('/admin/users/changeStatus')}}/"+id+"/"+status, function(data){
+        $.get("{{URL::to('/admin/panel/users/changeStatus')}}/"+id+"/"+status, function(data){
               if(data == 'success'){
                 Toast.fire({
                   icon: 'success',
@@ -263,7 +263,7 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/users/delete')}}/"+id, function(data){
+          $.get("{{URL::to('/admin/panel/users/delete')}}/"+id, function(data){
               console.log(data);
               if(data == 'success'){
                 Toast.fire({
@@ -287,7 +287,7 @@
       var id = $(this).data('id');
       $('#editUserFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
       $('#editUserFormModal').modal('show');
-      $.get("{{URL::to('/admin/users/edit')}}/"+id, function(data){
+      $.get("{{URL::to('/admin/panel/users/edit')}}/"+id, function(data){
         $('#editUserFormModal .modal-content').html(data);
       });
     });

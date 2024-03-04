@@ -19,11 +19,11 @@ class HomeController extends Controller
         return view('web.index')->with($data);
     }
 
-    public function search($value){
+    public function search($region, $value){
         $re = Retailers::where('name', 'like', '%'.$value.'%')->limit(6)->get();
         $html = '';
         foreach ($re as $key => $val) {
-            $html .= '<a href="'.route('brand', $val->slug).'" class="main-search-result-item">
+            $html .= '<a href="'.route('brand', [$region, $val->slug]).'" class="main-search-result-item">
                               <img src="'.URL::to('public/storage/retailers/'.$val->logo).'" height="40px">
                               | '.$val->name.'
                            </a>';

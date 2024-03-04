@@ -5,9 +5,9 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Auth;
+use URL;
 
-class userAuth
+class setRegion
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,9 @@ class userAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check()){
-            return $next($request);
-        }else{
-            return redirect('/');
-        }
+        
+        
+
+        return $next($request);
     }
 }

@@ -132,7 +132,7 @@
 				  confirmButtonText: "Yes, mark as used!"
 				}).then((result) => {
 				  if (result.isConfirmed) {
-				    $.get("{{URL::to('/offers/qrcode/'.base64_encode($qrcode->id))}}", function(data){
+				    $.get("{{URL::to('/'.$region.'/offers/qrcode/'.base64_encode($qrcode->id))}}", function(data){
 				    	if(data == 'success'){
 				    		Swal.fire({
 							  title: "Success!",

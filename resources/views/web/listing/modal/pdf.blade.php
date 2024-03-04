@@ -241,7 +241,7 @@
           </div>
           <div class="center-image">
             
-            <img src="data:image/svg+xml;base64,{{base64_encode( QrCode::size(80)->generate(route('offers.qrcode', [$offer->retailer->slug, base64_encode($qrid)])))}}"  width="50" height="50" />
+            <img src="data:image/svg+xml;base64,{{base64_encode( QrCode::size(80)->generate(route('offers.qrcode', [$region, $offer->retailer->slug, base64_encode($qrid)])))}}"  width="50" height="50" />
           </div>
         </div>
         <div class="grap_deal_social" style="padding-top: 35px">

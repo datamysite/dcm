@@ -207,7 +207,7 @@
       $('.searchbar-suggestion').html('<img src="{{URL::to('/public/loader-gif.gif')}}" height="30px">');
       var val = $(this).val();
       if(val != ''){
-        $.get("{{URL::to('/admin/retailer/blogs/search')}}/"+val, function(data){
+        $.get("{{URL::to('/admin/panel/retailer/blogs/search')}}/"+val, function(data){
           $('.searchbar-suggestion').html(data);
         });
       }else{
@@ -261,7 +261,7 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/retailer/blogs/delete')}}/"+id, function(data){
+          $.get("{{URL::to('/admin/panel/retailer/blogs/delete')}}/"+id, function(data){
             Toast.fire({
               icon: 'success',
               title: 'Success! Blog Successfully Deleted.'
@@ -279,7 +279,7 @@
       $('#editBlogFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
       $('#editBlogFormModal').modal('show');
 
-      $.get("{{URL::to('/admin/retailer/blogs/edit')}}/"+val, function(data){
+      $.get("{{URL::to('/admin/panel/retailer/blogs/edit')}}/"+val, function(data){
         $('#editBlogFormModal .modal-content').html(data);
         make_editor("content2");
       });

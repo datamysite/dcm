@@ -1,44 +1,19 @@
 @extends('web.includes.master')
 
 @section('content')
+
    <div class="nav-spacing"></div>
    
    <div class="container emirates-container">
       <div class="emirates-section-nav">
-         <div class="header_card">
-            <img src="{{URL::to('/public')}}/web_assets/images/emirates/abu-dhabi.png" alt="Abu Dhabi" />
-            ABU DHABI
-         </div>
-
-         <div class="header_card">
-            <img src="{{URL::to('/public')}}/web_assets/images/emirates/dubai.png" alt="DUBAI" />
-            DUBAI
-         </div>
-
-         <div class="header_card">
-            <img src="{{URL::to('/public')}}/web_assets/images/emirates/sharjah.png" alt="SHARJAH" />
-            SHARJAH
-         </div>
-
-         <div class="header_card">
-            <img src="{{URL::to('/public')}}/web_assets/images/emirates/fujairah.png" alt="FUJAIRAH" />
-            FUJAIRAH
-         </div>
-
-         <div class="header_card">
-            <img src="{{URL::to('/public')}}/web_assets/images/emirates/ajman.png" alt="AJMAN" />
-            AJMAN
-         </div>
-
-         <div class="header_card">
-            <img src="{{URL::to('/public')}}/web_assets/images/emirates/umm_alquwain.png" alt="UMM AL QUWAIN" />
-            UMM ALQUWAIN
-         </div>
-
-         <div class="header_card">
-            <img src="{{URL::to('/public')}}/web_assets/images/emirates/ras_alkaimah.png" alt="RAS AL KHAIMAH" />
-            RAS ALKHAIMAH
-         </div>
+         @foreach($allstates as $val)
+            <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}">
+               <div class="header_card">
+                  <img src="{{URL::to('/public/storage/states/'.$val->image)}}" alt="{{$val->name}}" />
+                  {{$val->name}}
+               </div>
+            </a>
+         @endforeach
       </div>
    </div>
 
@@ -93,7 +68,7 @@
                $slug = preg_replace('/[^a-z0-9-]/', '', $string);
             @endphp
             <div class="item">
-               <a href="{{route('category', $slug)}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
+               <a href="{{route('category', [$region, $slug])}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="{{$val->name}}" class="img-fluid" />
                   <div class="text-truncate">{{$val->name}}</div>
                </a>
@@ -162,7 +137,7 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="{{route('brand', 'yalla-toys')}}" class="img-pop-up">
+                           <a href="{{route('brand',[$region, 'yalla-toys'])}}" class="img-pop-up">
                               <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla-toys-backside.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
                            </a>
                         </div>
@@ -188,7 +163,7 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="{{route('brand', 'homzmart')}}" class="img-pop-up">
+                           <a href="{{route('brand', [$region, 'homzmart'])}}" class="img-pop-up">
                               <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store-backside.png" alt="Homzmart Store" style="border-radius: 20px;" />
                            </a>
                         </div>
@@ -215,7 +190,7 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="{{route('brand', 'namshi')}}" class="img-pop-up">
+                           <a href="{{route('brand', [$region, 'namshi'])}}" class="img-pop-up">
                               <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi-store-backside.png" alt="Namshi Store" style="border-radius: 20px;" />
                            </a>
                         </div>
@@ -243,7 +218,7 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="{{route('brand', 'sivvi')}}" class="img-pop-up">
+                           <a href="{{route('brand', [$region, 'sivvi'])}}" class="img-pop-up">
                               <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/sivvi-store-backside.png" alt="Sivvi Store" style="border-radius: 20px;" />
                            </a>
                         </div>
@@ -270,7 +245,7 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="{{route('brand', 'noon')}}" class="img-pop-up">
+                           <a href="{{route('brand', [$region, 'noon'])}}" class="img-pop-up">
                               <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/noon-backside.png" alt="" style="border-radius: 20px;" />
                            </a>
                         </div>
@@ -324,14 +299,14 @@
                         <div class="flipper">
                            <div class="front">
                               <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Aldo Store" style="border-radius: 20px;" />
-                              <a href="{{route('brand', $val->slug)}}" class="img-pop-up" target="_blank">
+                              <a href="{{route('brand', [$region, $val->slug])}}" class="img-pop-up" target="_blank">
                                  <div class="custom_arrow-button2">
                                     <i class="bi bi-arrow-right-circle"></i>
                                  </div>
                               </a>
                            </div>
                            <div class="back">
-                              <a href="{{route('brand', $val->slug)}}" class="img-pop-up">
+                              <a href="{{route('brand', [$region, $val->slug])}}" class="img-pop-up">
                                  <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Aldo Store" style="border-radius: 20px;" />
                               </a>
                            </div>
@@ -390,7 +365,7 @@
 
 
             <div class="col-md-6 col-xs-12 mb-3">
-               <a href="{{route('brand', $allstores[0]->slug)}}">
+               <a href="{{route('brand', [$region, $allstores[0]->slug])}}">
                   <div class="single-deal v-tile">
                      <div class="overlay"></div>
                      <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[0]->logo)}}" alt="" style="border-radius: 20px;" />
@@ -405,7 +380,7 @@
             </div>
 
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
-               <a href="{{route('brand', $allstores[1]->slug)}}">
+               <a href="{{route('brand', [$region, $allstores[1]->slug])}}">
                   <div class="single-deal">
                      <div class="overlay"></div>
                      <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[1]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
@@ -420,7 +395,7 @@
             </div>
 
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
-               <a href="{{route('brand', $allstores[2]->slug)}}">
+               <a href="{{route('brand', [$region, $allstores[2]->slug])}}">
                   <div class="single-deal">
                      <div class="overlay"></div>
                      <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[2]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
@@ -441,7 +416,7 @@
          <div class="row">
 
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
-               <a href="{{route('brand', $allstores[3]->slug)}}">
+               <a href="{{route('brand', [$region, $allstores[3]->slug])}}">
                   <div class="single-deal">
                      <div class="overlay"></div>
                      <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[3]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
@@ -456,7 +431,7 @@
             </div>
 
             <div class="col-6 col-xs-6 col-sm-6 col-md-3">
-               <a href="{{route('brand', $allstores[4]->slug)}}">
+               <a href="{{route('brand', [$region, $allstores[4]->slug])}}">
                   <div class="single-deal">
                      <div class="overlay"></div>
                      <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[4]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
@@ -471,7 +446,7 @@
             </div>
 
             <div class="col-md-6 col-xs-12 mb-3">
-               <a href="{{route('brand', $allstores[5]->slug)}}">
+               <a href="{{route('brand', [$region, $allstores[5]->slug])}}">
                   <div class="single-deal v-tile">
                      <div class="overlay"></div>
                      <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[5]->logo)}}" alt="" style="border-radius: 20px;" />

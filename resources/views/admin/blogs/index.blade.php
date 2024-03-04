@@ -184,7 +184,7 @@
       if(val == ''){
         val = '--empty--';
       }
-      var url = "{{URL::to('/admin/blogs/search')}}/"+val;
+      var url = "{{URL::to('/admin/panel/blogs/search')}}/"+val;
 
       $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
       $.get(url, function(data){
@@ -330,7 +330,7 @@
       var id = $(this).data('id');
       $('#editBlogFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
       $('#editBlogFormModal').modal('show');
-      $.get("{{URL::to('/admin/blogs/edit')}}/"+id, function(data){
+      $.get("{{URL::to('/admin/panel/blogs/edit')}}/"+id, function(data){
         $('#editBlogFormModal .modal-content').html(data);
         make_editor("content2");
       });

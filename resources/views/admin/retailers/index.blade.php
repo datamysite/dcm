@@ -414,7 +414,7 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/retailer/delete')}}/"+id, function(data){
+          $.get("{{URL::to('/admin/panel/retailer/delete')}}/"+id, function(data){
               if(data == 'success'){
                 Toast.fire({
                   icon: 'success',
@@ -439,7 +439,7 @@
       $('#editRetailerFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
       $('#editRetailerFormModal').modal('show');
 
-      $.get("{{URL::to('/admin/retailer/edit')}}/"+val, function(data){
+      $.get("{{URL::to('/admin/panel/retailer/edit')}}/"+val, function(data){
         $('#editRetailerFormModal .modal-content').html(data);
         $('.select2').select2();
       });

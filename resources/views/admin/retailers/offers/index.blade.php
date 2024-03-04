@@ -234,7 +234,7 @@
       $('.searchbar-suggestion').html('<img src="{{URL::to('/public/loader-gif.gif')}}" height="30px">');
       var val = $(this).val();
       if(val != ''){
-        $.get("{{URL::to('/admin/retailer/offers/search')}}/"+val, function(data){
+        $.get("{{URL::to('/admin/panel/retailer/offers/search')}}/"+val, function(data){
           $('.searchbar-suggestion').html(data);
         });
       }else{
@@ -321,7 +321,7 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/retailer/offers/delete')}}/"+id, function(data){
+          $.get("{{URL::to('/admin/panel/retailer/offers/delete')}}/"+id, function(data){
             Toast.fire({
               icon: 'success',
               title: 'Success! Offer Successfully Deleted.'
@@ -340,7 +340,7 @@
       $('#editofferFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
       $('#editofferFormModal').modal('show');
 
-      $.get("{{URL::to('/admin/retailer/offers/edit')}}/"+val, function(data){
+      $.get("{{URL::to('/admin/panel/retailer/offers/edit')}}/"+val, function(data){
         $('#editofferFormModal .modal-content').html(data);
       });
     });

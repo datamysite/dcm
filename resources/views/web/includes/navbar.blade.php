@@ -4,7 +4,7 @@
          <div class="list-inline d-flex ">
 
             <div class="justify-content-center w-100 d-lg-none">
-               <a class="navbar-brand" href="{{route('home')}}">
+               <a class="navbar-brand" href="{{route('home', [$region])}}">
                   <img src="{{URL::to('/public')}}/web_assets/images/logo/m-logo.png" alt="dealsandcouponsmena" style="width: 140px;" />
                </a>
             </div>
@@ -44,47 +44,21 @@
 
             
             <div class="tray-item tray-emirates">
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/abu-dhabi.png" alt="Abu Dhabi" />
-                  AUH
-               </div>
-
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/dubai.png" alt="DUBAI" />
-                  DXB
-               </div>
-
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/sharjah.png" alt="SHARJAH" />
-                  SHJ
-               </div>
-
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/fujairah.png" alt="FUJAIRAH" />
-                  FUJ
-               </div>
-
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/ajman.png" alt="AJMAN" />
-                  AJM
-               </div>
-
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/umm_alquwain.png" alt="UMM AL QUWAIN" />
-                  UAQ
-               </div>
-
-               <div class="header_card">
-                  <img src="{{URL::to('/public')}}/web_assets/images/emirates/ras_alkaimah.png" alt="RAS AL KHAIMAH" />
-                  RAK
-               </div>
+               @foreach($allstates as $val)
+                  <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}">
+                     <div class="header_card">
+                        <img src="{{URL::to('/public/storage/states/'.$val->image)}}" alt="{{$val->name}}" />
+                        {{$val->shortname}}
+                     </div>
+                  </a>
+               @endforeach
             </div>
          </div>
       </div>
 
       <div class="mobile-footbar">
          <div class="list-inline d-flex ">
-               <a href="{{route('home')}}" class="" data-option="home">
+               <a href="{{route('home', [$region])}}" class="" data-option="home">
                   <i class="fa fa-home"></i>
                   Home
                </a>
@@ -94,7 +68,7 @@
                   Search
                </a>
 
-               <a href="{{route('Sell_With_DCM')}}" class="center-nav-mob" data-option="home">
+               <a href="{{route('Sell_With_DCM', [$region])}}" class="center-nav-mob" data-option="home">
                   <i class="fa fa-bullseye"></i>
                   Sell with Us
                </a>
@@ -124,7 +98,7 @@
 
       <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar-default" aria-labelledby="navbar-defaultLabel">
          <div class="offcanvas-header pb-1">
-            <a href="{{route('home')}}"><img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" width="50px" height="50px" alt="DCM" /></a>
+            <a href="{{route('home', [$region])}}"><img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" width="50px" height="50px" alt="DCM" /></a>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
          </div>
 
@@ -132,7 +106,7 @@
 
             <!-- Desktop Menu Start Here -->
             <div class="d-flex align-items-center">
-               <a class="desktop-navbar-brand" href="{{route('home')}}">
+               <a class="desktop-navbar-brand" href="{{route('home', [$region])}}">
                   <img src="{{URL::to('/public')}}/web_assets/images/logo/logo-DCM.png" alt="Logo" width="90px" height="50px">
                </a>
             </div>
@@ -147,8 +121,8 @@
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Stores</a>
 
                         <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="{{route('stores', 'online')}}">Online</a></li>
-                           <li><a class="dropdown-item" href="{{route('stores', 'retail')}}">Retail</a></li>
+                           <li><a class="dropdown-item" href="{{route('stores', [$region, 'online'])}}">Online</a></li>
+                           <li><a class="dropdown-item" href="{{route('stores', [$region, 'retail'])}}">Retail</a></li>
                         </ul>
 
                      </li>
@@ -172,13 +146,13 @@
                                     <a class="dropdown-item dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{$val->name}}</a>
                                     <ul class="dropdown-menu">
 
-                                       <li><a class="dropdown-item" href="{{route('category.sub', [$slug, 'online'])}}">Online</a></li>
-                                       <li><a class="dropdown-item" href="{{route('category.sub', [$slug, 'retail'])}}">Retail</a></li>
+                                       <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">Online</a></li>
+                                       <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">Retail</a></li>
 
                                     </ul>
                                  </li>
                               @else
-                                 <li><a class="dropdown-item" href="{{route('category', $slug)}}">{{$val->name}}</a></li>
+                                 <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{$val->name}}</a></li>
                               @endif
                            @endforeach
 
@@ -187,7 +161,7 @@
                      </li>
 
                      <li class="nav-item dropdown" style="padding: 10px;">
-                        <a class="nav-link" href="{{route('About_Us')}}" role="button" aria-expanded="false">About Us</a>
+                        <a class="nav-link" href="{{route('About_Us', [$region])}}" role="button" aria-expanded="false">About Us</a>
                      </li>
                   </ul>
                   <form class="ms-auto d-flex align-items-center" style="padding: 10px;">
@@ -206,7 +180,7 @@
 
                   <ul class="navbar-nav">
                      <li class="nav-item dropdown" style="padding: 10px;">
-                        <a class="nav-link" href="{{route('Sell_With_DCM')}}" role="button" aria-expanded="false"><b>SELL WITH DCM</b></a>
+                        <a class="nav-link" href="{{route('Sell_With_DCM', [$region])}}" role="button" aria-expanded="false"><b>SELL WITH DCM</b></a>
                      </li>
                      <ul class="navbar-nav">
 
@@ -242,8 +216,8 @@
                         <li class="nav-item dropdown w-100 w-lg-auto">
                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Stores</a>
                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="{{route('stores', 'online')}}">Online</a></li>
-                              <li><a class="dropdown-item" href="{{route('stores', 'retail')}}">Retail</a></li>
+                              <li><a class="dropdown-item" href="{{route('stores', [$region, 'online'])}}">Online</a></li>
+                              <li><a class="dropdown-item" href="{{route('stores', [$region, 'retail'])}}">Retail</a></li>
                            </ul>
                         </li>
 
@@ -262,29 +236,29 @@
                                        <a class="dropdown-item dropdown-toggle nested-link" href="javascript:void(0)" data-link="{{$val->id}}" role="button" data-bs-toggle="dropdown">{{$val->name}}</a>
                                        <ul class="dropdown-menu cat_{{$val->id}}">
 
-                                          <li><a class="dropdown-item" href="{{route('category.sub', [$slug, 'online'])}}">Online</a></li>
-                                          <li><a class="dropdown-item" href="{{route('category.sub', [$slug, 'retail'])}}">Retail</a></li>
+                                          <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">Online</a></li>
+                                          <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">Retail</a></li>
 
                                        </ul>
                                     </li>
                                  @else
-                                    <li><a class="dropdown-item" href="{{route('category', $slug)}}">{{$val->name}}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{$val->name}}</a></li>
                                  @endif
                               @endforeach
                            </ul>
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
-                           <a class="nav-link" href="{{route('About_Us')}}">About Us</a>
+                           <a class="nav-link" href="{{route('About_Us', [$region])}}">About Us</a>
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
-                           <a class="nav-link" href="{{route('Sell_With_DCM')}}">SELL WITH DCM</a>
+                           <a class="nav-link" href="{{route('Sell_With_DCM', [$region])}}">SELL WITH DCM</a>
                         </li>
 
                         @if(Auth::check())
                            <li class="nav-item w-100 w-lg-auto dropdown">
-                              <a class="nav-link" href="{{route('user.logout')}}">Logout</a>
+                              <a class="nav-link" href="{{route('user.logout', [$region])}}">Logout</a>
                            </li>
                         @else
 

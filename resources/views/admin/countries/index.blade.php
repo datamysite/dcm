@@ -412,7 +412,7 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/countries/delete')}}/"+id, function(data){
+          $.get("{{URL::to('/admin/panel/countries/delete')}}/"+id, function(data){
               console.log(data);
               if(data == 'success'){
                 Toast.fire({
@@ -431,7 +431,7 @@
       var id = $(this).data('id');
       $('#editCountryFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
       $('#editCountryFormModal').modal('show');
-      $.get("{{URL::to('/admin/countries/edit')}}/"+id, function(data){
+      $.get("{{URL::to('/admin/panel/countries/edit')}}/"+id, function(data){
         $('#editCountryFormModal .modal-content').html(data);
       });
     });
@@ -443,7 +443,7 @@
       var id = $(this).data('id');
       $('#editCountryFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
       $('#editCountryFormModal').modal('show');
-      $.get("{{URL::to('/admin/states/edit')}}/"+id, function(data){
+      $.get("{{URL::to('/admin/panel/states/edit')}}/"+id, function(data){
         $('#editCountryFormModal .modal-content').html(data);
       });
     });
@@ -463,7 +463,7 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/states/delete')}}/"+id, function(data){
+          $.get("{{URL::to('/admin/panel/states/delete')}}/"+id, function(data){
               console.log(data);
               if(data == 'success'){
                 Toast.fire({

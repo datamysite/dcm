@@ -19,7 +19,7 @@ use PDF;
 
 class ListingController extends Controller
 {
-    public function index($type, Request $request){
+    public function index($region, $type, Request $request){
         $req = $request->all();
         $data['type'] = $type;
         $type = ($type == 'online' ? '1' : '2');
@@ -37,6 +37,13 @@ class ListingController extends Controller
         //Filter -- end
 
         $data['retailers'] = Retailers::where('type', $type)
+                                        ->when($type != '1', function($q) use ($region){
+                                            return $q->whereHas('states', function($qq) use ($region){
+                                                return $qq->whereHas('state', function($qqq) use ($region){
+                                                    return $qqq->where('slug', $region);
+                                                });
+                                            });
+                                        })
                                         ->when(!empty($req['country']), function($q) use ($req){
                                             return $q->whereHas('countries', function($qq) use ($req){
                                                 return $qq->where('country_id', $req['country']);
@@ -50,7 +57,7 @@ class ListingController extends Controller
         return view('web.listing.index')->with($data);
     }
 
-    public function brand($brand_slug){
+    public function brand($region, $brand_slug){
         $data['retailer'] = Retailers::where('slug', $brand_slug)->first();
         $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)->where('status', '1')->get();
         $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
@@ -62,7 +69,7 @@ class ListingController extends Controller
     }
 
 
-    public function category_brand($cat_slug, $brand_slug){
+    public function category_brand($region, $cat_slug, $brand_slug){
         $data['category_slug'] = $cat_slug;
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
         $data['retailer'] = Retailers::where('slug', $brand_slug)->first();
@@ -80,7 +87,7 @@ class ListingController extends Controller
     }
 
 
-    public function category_sub($cat_slug, $type, Request $request){
+    public function category_sub($region, $cat_slug, $type, Request $request){
         $data['category_slug'] = $cat_slug;
         $req = $request->all();
         $data['type'] = $type;
@@ -109,6 +116,13 @@ class ListingController extends Controller
             //dd($type);
         }
         $data['retailers'] = Retailers::where('type', $type)
+                                        ->when($type != '1', function($q) use ($region){
+                                            return $q->whereHas('states', function($qq) use ($region){
+                                                return $qq->whereHas('state', function($qqq) use ($region){
+                                                    return $qqq->where('slug', $region);
+                                                });
+                                            });
+                                        })
                                         ->whereHas('categories', function($q) use ($data){
                                             return $q->where('category_id',$data['category']->id);
                                         })
@@ -125,7 +139,7 @@ class ListingController extends Controller
         return view('web.listing.categories_with_type')->with($data);
     }
 
-    public function category($cat_slug, Request $request){
+    public function category($region, $cat_slug, Request $request){
         $data['category_slug'] = $cat_slug;
         $req = $request->all();
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
@@ -159,16 +173,21 @@ class ListingController extends Controller
                                         ->when(!empty($req['discount']), function($q) use ($req){
                                                 return $q->where('discount_upto', '<=', $req['discount']);
                                         })
-                                        ->when(!empty($req['type']), function($q) use ($req){
-                                                return $q->where('type', $req['type'])
-                                                            ->orWhere('type', '3');
+                                        ->when(!empty($req['type']), function($q) use ($req, $region){
+                                            return $q->when($req['type'] != '1', function($rq) use ($region){
+                                                    return $rq->whereHas('states', function($rqq) use ($region){
+                                                        return $rqq->whereHas('state', function($rqqq) use ($region){
+                                                            return $rqqq->where('slug', $region);
+                                                        });
+                                                    });
+                                                })->where('type', $req['type'])->orWhere('type', '3');
                                         })
                                         ->paginate(12);
 
         return view('web.listing.categories')->with($data);
     }
 
-    public function show_coupon($id){
+    public function show_coupon($region, $id){
         $id = base64_decode($id);
         $data['coupon'] = Coupon::find($id);
 
@@ -178,7 +197,7 @@ class ListingController extends Controller
     }
 
 
-    public function coupon_grab_deal($id){
+    public function coupon_grab_deal($region, $id){
         $data['coupon'] = Coupon::find($id);
         ClicksCounter::hitCount('4', $data['coupon']->retailer_id, $data['coupon']->id, '1');
         //dd($data);
@@ -187,7 +206,7 @@ class ListingController extends Controller
     }
 
 
-    public function show_offer($id){
+    public function show_offer($region, $id){
         $id = base64_decode($id);
         $data['offer'] = Offers::find($id);
 
@@ -203,7 +222,7 @@ class ListingController extends Controller
     }
 
 
-    public function redirect_whatsapp($id){
+    public function redirect_whatsapp($region, $id){
         $data['offer'] = Offers::find($id);
         ClicksCounter::hitCount('5', $data['offer']->retailer_id, $data['offer']->id, '2');
         //dd($data);
@@ -213,7 +232,7 @@ class ListingController extends Controller
 
 
 
-    public function redeem_pdf($id){
+    public function redeem_pdf($region, $id){
 
         $data['qrid'] = base64_decode($id);
         $data['qrcode'] = OfferQrCode::find($data['qrid']);
@@ -227,7 +246,7 @@ class ListingController extends Controller
     }
 
 
-    public function generate_qrcode($slug, $id){
+    public function generate_qrcode($region, $slug, $id){
         $data['retailer'] = Retailers::where('slug', $slug)->first();
         $data['qrcode'] = OfferQrCode::find(base64_decode($id));
         //dd(base64_decode($id));

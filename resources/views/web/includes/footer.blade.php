@@ -7,12 +7,12 @@
                <h6 class="mb-4"><strong>ABOUT DCM </strong></h6>
                <!-- list -->
                <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="{{route('About_Us')}}" class="nav-link">About Us</a></li>
-                  <li class="nav-item mb-2"><a href="{{route('FAQS')}}" class="nav-link">FAQ</a></li>
-                  <li class="nav-item mb-2"><a href="{{route('Blogs')}}" class="nav-link">Blogs</a></li>
-                  <li class="nav-item mb-2"><a href="{{route('Privacy_Policy')}}" class="nav-link">Privacy & Cookie Policy</a></li>
-                  <li class="nav-item mb-2"><a href="{{route('Terms')}}" class="nav-link">Terms & Conditions</a></li>
-                  <li class="nav-item mb-2"><a href="{{route('Anti_Spam')}}" class="nav-link">Anti-Spam & Policy</a></li>
+                  <li class="nav-item mb-2"><a href="{{route('About_Us', [$region])}}" class="nav-link">About Us</a></li>
+                  <li class="nav-item mb-2"><a href="{{route('FAQS', [$region])}}" class="nav-link">FAQ</a></li>
+                  <li class="nav-item mb-2"><a href="{{route('Blogs', [$region])}}" class="nav-link">Blogs</a></li>
+                  <li class="nav-item mb-2"><a href="{{route('Privacy_Policy', [$region])}}" class="nav-link">Privacy & Cookie Policy</a></li>
+                  <li class="nav-item mb-2"><a href="{{route('Terms', [$region])}}" class="nav-link">Terms & Conditions</a></li>
+                  <li class="nav-item mb-2"><a href="{{route('Anti_Spam', [$region])}}" class="nav-link">Anti-Spam & Policy</a></li>
                </ul>
             </div>
 
@@ -20,7 +20,7 @@
                <h6 class="mb-4"><strong>POPULAR STORES </strong></h6>
                <ul class="nav flex-column">
                   @foreach($footBrand as $val)
-                     <li class="nav-item mb-2"><a href="{{route('brand', $val->slug)}}" class="nav-link">{{$val->name}}</a></li>
+                     <li class="nav-item mb-2"><a href="{{route('brand', [$region, $val->slug])}}" class="nav-link">{{$val->name}}</a></li>
                   @endforeach
                </ul>
             </div>
@@ -36,7 +36,7 @@
                          $string = str_replace(' ', '-', $string);
                          $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                      @endphp
-                     <li class="nav-item mb-2"><a href="{{route('category', $slug)}}" class="nav-link">{{$val->name}}</a></li>
+                     <li class="nav-item mb-2"><a href="{{route('category', [$region, $slug])}}" class="nav-link">{{$val->name}}</a></li>
                   @endforeach
                </ul>
             </div>

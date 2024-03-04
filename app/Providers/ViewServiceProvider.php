@@ -8,6 +8,8 @@ use App\Models\Categories;
 use App\Models\Retailers;
 use App\Models\SnippetCode;
 use App\Models\MetaTags;
+use App\Models\States;
+use Config;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -32,10 +34,16 @@ class ViewServiceProvider extends ServiceProvider
             $data['footBrand'] = Retailers::select('id', 'name', 'slug')->where('status', '1')->limit(6)->get();
             $data['headSnippet'] = SnippetCode::where('position', 'Head')->get();
             $data['bodySnippet'] = SnippetCode::where('position', 'Body')->get();
+            $data['allstates'] = States::where('country_id', '1')->orderBy('name', 'asc')->get();
 
             $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             $data['metaTags'] = MetaTags::where('url', $actual_link)->first();
 
+            if(!isset($_SESSION['region'])){
+                session_start();
+            }
+            $data['region'] = empty($_SESSION['region']) ? 'dubai' : $_SESSION['region'];
+            //dd($data);
             $view->with($data);
         });
     }

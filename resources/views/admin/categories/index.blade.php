@@ -277,7 +277,7 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/categories/delete')}}/" + id, function(data) {
+          $.get("{{URL::to('/admin/panel/categories/delete')}}/" + id, function(data) {
             console.log(data);
             if (data == 'success') {
               Toast.fire({
@@ -301,7 +301,7 @@
       var id = $(this).data('id');
       $('#editCategoryFormModal .modal-content').html('<img src="{{URL::to(' / public / loader.gif ')}}" height="50px" style="margin:150px auto;">');
       $('#editCategoryFormModal').modal('show');
-      $.get("{{URL::to('/admin/categories/edit')}}/" + id, function(data) {
+      $.get("{{URL::to('/admin/panel/categories/edit')}}/" + id, function(data) {
         $('#editCategoryFormModal .modal-content').html(data);
       });
     });

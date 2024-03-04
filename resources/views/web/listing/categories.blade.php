@@ -11,7 +11,7 @@
             <!-- breadcrumb -->
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
+                  <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
                   <li class="breadcrumb-item active"><a href="javascript:void(0)" style="color: #000;"><strong>{{$category->name}}</strong></a></li>
                </ol>
             </nav>
@@ -37,7 +37,7 @@
                    $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                @endphp
                <div class="item {{$val->id == $category->id ? 'active' : ''}}">
-                  <a href="{{route('category', $slug)}}" class="text-decoration-none text-inherit">
+                  <a href="{{route('category', [$region, $slug])}}" class="text-decoration-none text-inherit">
                      <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="Mart" class="img-fluid" />
                      <div class="text-truncate">{{$val->name}}</div>
                   </a>
@@ -114,9 +114,9 @@
                                         $string = str_replace(' ', '-', $string);
                                         $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
-                                        $url = empty($type) ? route('category', $slug) : route('category.sub', [$slug, $type]);
+                                        $url = empty($type) ? route('category', [$region, $slug]) : route('category.sub', [$region, $slug, $type]);
                                         if(empty($type) && !empty($val->parentCategory->id)){
-                                          $url = route('category.sub', [$slug, 'online']);
+                                          $url = route('category.sub', [$region, $slug, 'online']);
                                         }
                                     @endphp
                                     @if(!empty($_GET['type']) && $_GET['type'] == '1')
@@ -149,7 +149,7 @@
                                         $string = str_replace(' ', '-', $string);
                                         $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
-                                        $url = empty($type) ? route('category', $slug) : route('category.sub', [$slug, $type]);
+                                        $url = empty($type) ? route('category', [$region, $slug]) : route('category.sub', [$region, $slug, $type]);
                                     @endphp
                                     <li class="nav-item border-bottom w-100">
                                        <a href="{{$url}}" class="nav-link">
@@ -338,7 +338,7 @@
                                  <!-- badge -->
                                  <div class="text-center position-relative py-1 mb-3 box">
                                     <div class="ribbon-2"><span>Discount Upto</span> {{$val->discount_upto}}%</div>
-                                    <a href="{{route('category.brand', [$category_slug, $val->slug])}}">
+                                    <a href="{{route('category.brand', [$region, $category_slug, $val->slug])}}">
                                        <!-- img -->
                                        <img src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="" class="mb-5 img-fluid" />
                                     </a>
@@ -360,7 +360,7 @@
                @else
                   <div class="row">
                      <div class="col-lg-12 brand-coming">
-                        <img src="{{URL::to('/public/product-loader.webp')}}">
+                        <img src="{{URL::to('/public/coming-soon.gif')}}">
                      </div>
                   </div>
                @endif

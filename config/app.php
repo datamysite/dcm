@@ -85,6 +85,8 @@ return [
 
     'locale' => 'en',
 
+    'region' => 'dubai',
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

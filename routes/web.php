@@ -39,112 +39,118 @@ Route::get('/optimize', function(){
 
 
 // Website
-Route::namespace('web')->group(function () {
+    
+    Route::get('/', 'web\RegionController@index');
+    Route::get('/region/{name}', 'web\RegionController@set_region')->name('setRegion');
 
-    //Home
-    Route::get('/', 'HomeController@index')->name('home');
+    //Region
+    Route::namespace('web')->group(function () {
 
-    Route::get('/search/{value}', 'HomeController@search');
+        Route::prefix('{region}')->group(function(){
+            //Home
+            Route::get('/', 'HomeController@index')->name('home');
 
-    //Listing
-    Route::prefix('stores')->group(function(){
-        Route::get('/{type}', 'ListingController@index')->name('stores');
-    });
+            Route::get('/search/{value}', 'HomeController@search');
 
-    Route::prefix('store')->group(function(){
-        Route::get('/{brand_slug}', 'ListingController@brand')->name('brand');
-        Route::get('{cat_slug}/{brand_slug}', 'ListingController@category_brand')->name('category.brand');
-    });
-    Route::prefix('coupon')->group(function(){
-        Route::get('/{id}', 'ListingController@show_coupon');
-        Route::get('/grabDeal/{id}', 'ListingController@coupon_grab_deal');
-    });
-    Route::prefix('offers')->group(function(){
-        Route::get('/{id}', 'ListingController@show_offer');
-        Route::get('/whatsapp/{id}', 'ListingController@redirect_whatsapp');
-        Route::get('/qrcode/{slug}/{id}', 'ListingController@generate_qrcode')->name('offers.qrcode');
-        Route::get('/qrcode/{id}', 'ListingController@qrcode_markasused');
-        Route::get('/redeem-pdf/{id}', 'ListingController@redeem_pdf')->name('offers.redeemPDF');
-    });
-
-    Route::prefix('category')->group(function(){
-        Route::get('{cat_slug}', 'ListingController@category')->name('category');
-        Route::get('{cat_slug}/{type}', 'ListingController@category_sub')->name('category.sub');
-    });
-
-    //Users
-    Route::prefix('user')->group(function(){
-        Route::post('create', 'UserController@create')->name('user.create');
-        Route::post('login', 'UserController@login')->name('user.login');
-
-        Route::get('logout', 'UserController@logout')->name('user.logout');
-
-        Route::get('/google', 'GoogleLoginController@redirectToGoogle')->name('auth.google');
-        Route::get('/google/callback', 'GoogleLoginController@handleGoogleCallback');
-
-        Route::get('/facebook', 'FacebookLoginController@redirectToFacebook')->name('auth.facebook');
-        Route::get('/facebook/callback', 'FacebookLoginController@handleFacebookCallback');
-
-        Route::middleware('userAuth')->group(function(){
-
-            Route::get('profile', 'UserController@profile')->name('user.profile');
-
-            Route::prefix('claim-cashback')->group(function(){
-                Route::get('/', 'UserController@claimCashback')->name('user.claimCashback');
-                Route::post('/request', 'UserController@claimCashbackRequest')->name('user.claimCashback.request');
+            //Listing
+            Route::prefix('stores')->group(function(){
+                Route::get('/{type}', 'ListingController@index')->name('stores');
             });
 
-            Route::get('payment-history', 'UserController@paymenyHistory')->name('user.paymenyHistory');
+            Route::prefix('store')->group(function(){
+                Route::get('/{brand_slug}', 'ListingController@brand')->name('brand');
+                Route::get('{cat_slug}/{brand_slug}', 'ListingController@category_brand')->name('category.brand');
+            });
+            Route::prefix('coupon')->group(function(){
+                Route::get('/{id}', 'ListingController@show_coupon');
+                Route::get('/grabDeal/{id}', 'ListingController@coupon_grab_deal');
+            });
+            Route::prefix('offers')->group(function(){
+                Route::get('/{id}', 'ListingController@show_offer');
+                Route::get('/whatsapp/{id}', 'ListingController@redirect_whatsapp');
+                Route::get('/qrcode/{slug}/{id}', 'ListingController@generate_qrcode')->name('offers.qrcode');
+                Route::get('/qrcode/{id}', 'ListingController@qrcode_markasused');
+                Route::get('/redeem-pdf/{id}', 'ListingController@redeem_pdf')->name('offers.redeemPDF');
+            });
 
-            Route::get('referral-earn', 'UserController@referralEarn')->name('user.referralEarn');
+            Route::prefix('category')->group(function(){
+                Route::get('{cat_slug}', 'ListingController@category')->name('category');
+                Route::get('{cat_slug}/{type}', 'ListingController@category_sub')->name('category.sub');
+            });
+        
+            //Blogs
+            Route::prefix('blogs')->group(function(){
 
-            Route::get('withdraw-payment', 'UserController@withdrawPayment')->name('user.withdrawPayment');
+                Route::get('/', 'BlogController@index')->name('Blogs');
+         
+                Route::get('/{slug}', 'BlogController@detail')->name('blog.details');
+            });
 
-            Route::prefix('settings')->group(function(){
-                Route::get('/', 'UserController@settings')->name('user.settings');
-                Route::post('/update', 'UserController@settings_update')->name('user.settings.update');
+            //About-Us
+            Route::get('/about-Us', 'HomeController@About_Us')->name('About_Us');
+
+            //Sell-With-DCM
+            Route::get('/sell-sith-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
+
+
+            Route::get('/faqs', 'HomeController@FAQS')->name('FAQS');
+
+            //Terms
+            Route::get('/terms', 'HomeController@Terms')->name('Terms');
+
+            //Privacy-Policy
+            Route::get('/privacy-policy', 'HomeController@Privacy_Policy')->name('Privacy_Policy');
+
+            //Anti-Spam
+            Route::get('/anti-spam', 'HomeController@Anti_Spam')->name('Anti_Spam');
+
+
+        });
+
+        //Users
+        Route::prefix('user')->group(function(){
+            Route::post('create', 'UserController@create')->name('user.create');
+            Route::post('login', 'UserController@login')->name('user.login');
+
+            Route::get('logout', 'UserController@logout')->name('user.logout');
+
+            Route::get('/google', 'GoogleLoginController@redirectToGoogle')->name('auth.google');
+            Route::get('/google/callback', 'GoogleLoginController@handleGoogleCallback');
+
+            Route::get('/facebook', 'FacebookLoginController@redirectToFacebook')->name('auth.facebook');
+            Route::get('/facebook/callback', 'FacebookLoginController@handleFacebookCallback');
+
+            Route::middleware('userAuth')->group(function(){
+
+                Route::get('profile', 'UserController@profile')->name('user.profile');
+
+                Route::prefix('claim-cashback')->group(function(){
+                    Route::get('/', 'UserController@claimCashback')->name('user.claimCashback');
+                    Route::post('/request', 'UserController@claimCashbackRequest')->name('user.claimCashback.request');
+                });
+
+                Route::get('payment-history', 'UserController@paymenyHistory')->name('user.paymenyHistory');
+
+                Route::get('referral-earn', 'UserController@referralEarn')->name('user.referralEarn');
+
+                Route::get('withdraw-payment', 'UserController@withdrawPayment')->name('user.withdrawPayment');
+
+                Route::prefix('settings')->group(function(){
+                    Route::get('/', 'UserController@settings')->name('user.settings');
+                    Route::post('/update', 'UserController@settings_update')->name('user.settings.update');
+                });
             });
         });
+
     });
 
-    //Blogs
-    Route::prefix('blogs')->group(function(){
-
-        Route::get('/', 'BlogController@index')->name('Blogs');
- 
-        Route::get('/{slug}', 'BlogController@detail')->name('blog.details');
-    });
-
-
-
-
-
-    //About-Us
-    Route::get('/about-Us', 'HomeController@About_Us')->name('About_Us');
-
-    //Sell-With-DCM
-    Route::get('/sell-sith-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
-
-
-    Route::get('/faqs', 'HomeController@FAQS')->name('FAQS');
-
-    //Terms
-    Route::get('/terms', 'HomeController@Terms')->name('Terms');
-
-    //Privacy-Policy
-    Route::get('/privacy-policy', 'HomeController@Privacy_Policy')->name('Privacy_Policy');
-
-    //Anti-Spam
-    Route::get('/anti-spam', 'HomeController@Anti_Spam')->name('Anti_Spam');
-
-});
 
 
 
 
 //Administration
 
-Route::prefix('seller')->namespace('seller')->group(function () {
+Route::prefix('seller/panel')->namespace('seller')->group(function () {
 
     //Authentication
     Route::get('/login', 'LoginController@index')->name('seller.login');
@@ -166,7 +172,7 @@ Route::prefix('seller')->namespace('seller')->group(function () {
 
 //Administration
 
-Route::prefix('admin')->namespace('admin')->group(function () {
+Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
     //Authentication
     Route::get('/login', 'LoginController@index')->name('admin.login');
