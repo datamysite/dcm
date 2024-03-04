@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\RetailerCountries;
 use App\Models\RetailerCategories;
+use App\Models\RetailerStates;
 use App\Models\RetailerBlogs;
 use App\Models\Admin;
 use App\Models\Seller;
@@ -39,6 +40,14 @@ class Retailers extends Model
             $rc->save();
         }
 
+
+        foreach ($data['states'] as $key => $val) {
+            $rc = new RetailerStates;
+            $rc->retailer_id = $r->id;
+            $rc->state_id = $val;
+            $rc->save();
+        }
+
         foreach ($data['categories'] as $key => $val) {
             $rc = new RetailerCategories;
             $rc->retailer_id = $r->id;
@@ -69,6 +78,15 @@ class Retailers extends Model
             $rc->save();
         }
 
+
+        RetailerStates::where('retailer_id', $id)->delete();
+        foreach ($data['states'] as $key => $val) {
+            $rc = new RetailerStates;
+            $rc->retailer_id = $id;
+            $rc->state_id = $val;
+            $rc->save();
+        }
+
         RetailerCategories::where('retailer_id', $id)->delete();
         foreach ($data['categories'] as $key => $val) {
             $rc = new RetailerCategories;
@@ -83,6 +101,10 @@ class Retailers extends Model
 
     public function countries(){
         return $this->hasMany(RetailerCountries::class, 'retailer_id', 'id');
+    }
+
+    public function states(){
+        return $this->hasMany(RetailerStates::class, 'retailer_id', 'id');
     }
 
     public function categories(){

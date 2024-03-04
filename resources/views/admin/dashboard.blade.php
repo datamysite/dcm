@@ -183,37 +183,37 @@
                 <br>
                 <div class="card-item-div">
                   <div class="card-item">
-                    <img src="https://www.dealsandcouponsmena.com/slider_posters/MART.png">
+                    <img src="{{URL::to('/public/dist/img')}}/MART.png">
                     <p>Mart and Cleaning</p>
                     <span>Brands: 75 | Coupons: 568</span>
                   </div>
 
                   <div class="card-item">
-                    <img src="https://www.dealsandcouponsmena.com/slider_posters/Fashion.png">
+                    <img src="{{URL::to('/public/dist/img')}}/Fashion.png">
                     <p>Fashion and Lifestyle</p>
                     <span>Brands: 75 | Coupons: 568</span>
                   </div>
 
                   <div class="card-item">
-                    <img src="https://www.dealsandcouponsmena.com/slider_posters/beauty.png">
+                    <img src="{{URL::to('/public/dist/img')}}/beauty.png">
                     <p>Beauty and Health</p>
                     <span>Brands: 75 | Coupons: 568</span>
                   </div>
 
                   <div class="card-item">
-                    <img src="https://www.dealsandcouponsmena.com/slider_posters/Decor.png">
+                    <img src="{{URL::to('/public/dist/img')}}/Decor.png">
                     <p>Home Decor and Electronicse</p>
                     <span>Brands: 75 | Coupons: 568</span>
                   </div>
                   
                   <div class="card-item">
-                    <img src="https://www.dealsandcouponsmena.com/slider_posters/Kids.png">
+                    <img src="{{URL::to('/public/dist/img')}}/Kids.png">
                     <p>Kids</p>
                     <span>Brands: 75 | Coupons: 568</span>
                   </div>
                   
                   <div class="card-item">
-                    <img src="https://www.dealsandcouponsmena.com/slider_posters/Sports.png">
+                    <img src="{{URL::to('/public/dist/img')}}/Sports.png">
                     <p>Sports</p>
                     <span>Brands: 75 | Coupons: 568</span>
                   </div>

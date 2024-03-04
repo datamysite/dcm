@@ -25,8 +25,12 @@
           <span class="sr-only">Action</span>
         </button>
         <div class="dropdown-menu dropdown-menu-right table-dropdown" role="menu" style="">
-          <a class="dropdown-item" href="{{route('admin.retailer.offer', base64_encode($val->id))}}" title="Retail offers" ><i class="fas fa-hand-holding-usd"></i> Retail Offers</a>
-          <a class="dropdown-item" href="{{route('admin.retailer.coupon', base64_encode($val->id))}}" title="Online Coupons" ><i class="fas fa-tag"></i> Online Coupons</a>
+          @if($val->type == '2' || $val->type == '3')
+            <a class="dropdown-item" href="{{route('admin.retailer.offer', base64_encode($val->id))}}" title="Retail offers" ><i class="fas fa-hand-holding-usd"></i> Retail Offers</a>
+          @endif
+          @if($val->type == '1' || $val->type == '3')
+            <a class="dropdown-item" href="{{route('admin.retailer.coupon', base64_encode($val->id))}}" title="Online Coupons" ><i class="fas fa-tag"></i> Online Coupons</a>
+          @endif
           <a class="dropdown-item" href="{{route('admin.retailer.blog', base64_encode($val->id))}}" title="Blogs"><i class="fas fa-book"></i> Blogs</a>
           <a class="dropdown-item editRetailer" href="javascript:void(0)" title="Edit Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i> Edit</a>
           <div class="dropdown-divider"></div>

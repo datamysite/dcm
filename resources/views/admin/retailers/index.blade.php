@@ -168,6 +168,14 @@
                   @endforeach
                 </select>
               </div>
+              <div class="form-group">
+                <label>Operational States</label>
+                <select class="form-control" name="states[]" multiple required>
+                  @foreach($states as $val)
+                    <option value="{{$val->id}}" {{$val->shortname == 'DXB' ? 'selected' : ''}}>{{$val->name}}</option>
+                  @endforeach
+                </select>
+              </div>
             </div>
             <div class="col-md-5">
               <div class="form-group retailerCategories">

@@ -9,6 +9,7 @@ use App\Models\Categories;
 use App\Models\Retailers;
 use App\Models\RetailerCountries;
 use App\Models\Seller;
+use App\Models\States;
 use Auth;
 
 class RetailerController extends Controller
@@ -16,6 +17,7 @@ class RetailerController extends Controller
     public function index(){
         $data['menu'] = 'retailers';
         $data['countries'] = Countries::all();
+        $data['states'] = States::all();
         $data['categories'] = Categories::where('parent_id', 0)->get();
 
         return view('admin.retailers.index')->with($data);
@@ -90,6 +92,7 @@ class RetailerController extends Controller
         $id = base64_decode($id);
 
         $data['countries'] = Countries::all();
+        $data['states'] = States::all();
         $data['categories'] = Categories::where('parent_id', 0)->get();
         $data['data'] = Retailers::find($id);
 
