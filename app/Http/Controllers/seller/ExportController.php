@@ -15,7 +15,7 @@ class ExportController extends Controller
         $date = explode(' - ', $data['date_range']);
         $filename = "Daily Analyics (".str_replace("/","-",$date[0])." to ".str_replace("/","-",$date[1]).").xlsx";
         $date[0] = date('Y-m-d', strtotime(str_replace("/","-",$date[0])));
-        $date[1] = date('Y-m-d', strtotime(str_replace("/","-",$date[1])));
+        $date[1] = date('Y-m-d', strtotime('+1 days', strtotime(str_replace("/","-",$date[1]))));
         $excel = Excel::download(new DataExport($date[0], $date[1]), $filename);
         return $excel;
     }
