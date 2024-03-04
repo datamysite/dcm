@@ -41,7 +41,7 @@
                     <div class="mb-5" style="border-radius: 10px;">
                         <!-- img -->
                         <p></p>
-                        <img src="./public/web_assets/images/Adv/sell_with_dcm_02.png" alt="" class="img-fluid w-90 rounded" />
+                        <img src="{{URL::to('/public/web_assets/images/Adv/sell1.png')}}" alt="" class="img-fluid w-90 rounded" />
                     </div>
 
                 </div>
@@ -158,7 +158,7 @@
                             <div class="col-lg-6">
                                 <!-- text -->
                                 <div>
-                                <img src="./public/web_assets/images/Adv/sell_with_dcm_01.png" alt="" class="img-fluid w-90 rounded" />
+                                <img src="{{URL::to('/public/web_assets/images/Adv/sell2.png')}}" alt="" class="img-fluid w-90 rounded" />
                                 </div>
                             </div>
 

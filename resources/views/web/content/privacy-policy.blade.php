@@ -26,7 +26,7 @@
 
 
 
-        <div class="dcm_banner" style="background: url(./public/web_assets/images/banner/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
+        <div class="dcm_banner" style="background: url('{{URL::to('/public/web_assets/images/banner/dcm_banner.png')}}') no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
             <h2 class="text-center" style="padding-top: 200px;color:#fff ;font-size:35px">Privacy-Policy</2>
         </div>
 
