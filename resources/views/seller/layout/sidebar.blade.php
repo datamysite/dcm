@@ -14,7 +14,7 @@
         </div>
         <div class="info">
           <a href="javascript:void(0)" class="d-block">{{Auth::guard('seller')->user()->username}}</a>
-          <span class="text-white text-underline"><a href="{{route('brand', Auth::guard('seller')->user()->retailer->slug)}}" target="_blank">Website &nbsp;<i class="fas fa-link"></i></span>
+          <span class="text-white text-underline"><a href="{{route('brand', [Auth::guard('seller')->user()->retailer->states[0]->state->slug, Auth::guard('seller')->user()->retailer->slug])}}" target="_blank">Website &nbsp;<i class="fas fa-link"></i></span>
         </div>
       </div>
 

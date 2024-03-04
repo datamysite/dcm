@@ -77,7 +77,7 @@ Route::get('/optimize', function(){
                 Route::get('{cat_slug}', 'ListingController@category')->name('category');
                 Route::get('{cat_slug}/{type}', 'ListingController@category_sub')->name('category.sub');
             });
-        
+
             //Blogs
             Route::prefix('blogs')->group(function(){
 
@@ -160,6 +160,7 @@ Route::prefix('seller/panel')->namespace('seller')->group(function () {
     //Authenticated
     Route::middleware('sellerAuth')->group(function () {
         Route::get('/', 'MainController@index')->name('seller.dashboard');
+        Route::post('/filter', 'MainController@dashboard_filter')->name('seller.filter');
 
         //Export
         Route::prefix('export')->group(function(){

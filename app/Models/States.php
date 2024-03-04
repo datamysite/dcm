@@ -16,8 +16,15 @@ class States extends Model
 
 
     public static function create(array $data){
+
+       $string = strtolower(trim($data['name']));
+       $string = str_replace('&', 'and', $string);
+       $string = str_replace(' ', '-', $string);
+       $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+
         $c = new States;
         $c->country_id = $data['country_id'];
+        $c->slug = $slug;
         $c->name = $data['name'];
         $c->shortname = $data['shortname'];
         $c->save();

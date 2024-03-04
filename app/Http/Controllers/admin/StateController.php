@@ -49,8 +49,15 @@ class StateController extends Controller
                 if(!empty($data['state_id'])){
                     $cat = States::where('name', $data['name'])->where('id', '!=', base64_decode($data['state_id']))->get();
                     if(count($cat) == 0){
+
+                       $string = strtolower(trim($data['name']));
+                       $string = str_replace('&', 'and', $string);
+                       $string = str_replace(' ', '-', $string);
+                       $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+
                         $ca = States::find(base64_decode($data['state_id']));
                         $ca->name = $data['name'];
+                        $ca->slug = $slug;
                         $ca->shortname = $data['shortname'];
                         $ca->save();
 

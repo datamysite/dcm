@@ -620,7 +620,7 @@ input[type="file"]{
 }
 .p-input {
     padding: 5px 15px;
-    margin-bottom: 150px;
+    margin-bottom: -20px;
     position: relative;
 }
 .p-input img {
@@ -630,4 +630,16 @@ input[type="file"]{
     left: 90px;
     opacity: .6;
     transform: rotate(325deg);
+}
+.line-chart-block {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+.line-chart-block div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 40%;
 }

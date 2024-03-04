@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Dashboard <small><small>({{date('d-M-Y', strtotime($start_date))}} &nbsp;&nbsp;to&nbsp;&nbsp; {{date('d-M-Y', strtotime($end_date))}})</small></small></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -220,7 +220,7 @@
               <div class="col-lg-12">
                 <div class="card card-default">
                   <div class="card-body p-0">
-                    <h3 class="card-chart-title">Daily Visiters Analytics</h3>
+                      <h3 class="card-chart-title">Daily Visiters Analytics</h3>
                     <br>
                     <div class="chart">
                       <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250; max-height: 250; max-width: 100%;"></canvas>
@@ -236,11 +236,10 @@
 
             <div class="card card-default">
               <div class="card-body p-0">
-                <h3 class="card-chart-title">Export to xlsx</h3>
-                <form method="post" action="{{route('seller.export')}}">
+                <h3 class="card-chart-title">Filter Dashboard</h3>
+                <form method="post" action="{{route('seller.filter')}}">
                   @csrf
                   <div class="row  p-input">
-                    <img src="{{URL::to('/public/icons/excel-export.png')}}">
                     <div class="col-12">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -248,13 +247,41 @@
                             <i class="far fa-calendar-alt"></i>
                           </span>
                         </div>
-                        <input type="text" class="form-control float-right" name="date_range" id="export_range" required>
+                        <input type="text" class="form-control float-right" name="date_range" value="{{date('d/M/Y', strtotime($start_date))}} - {{date('d/M/Y', strtotime($end_date))}}" id="filter_range" required>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <br>
-                      <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-file-excel"></i> Export</button>
+                      <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-filter"></i>&nbsp;&nbsp;&nbsp;Filter</button>
+                    </div>
+                  </div>
+                </form>
+                <br>
+              </div>
+              <!-- /.card-body -->
+            </div>
+
+            <div class="card card-default">
+              <div class="card-body p-0">
+                <h3 class="card-chart-title">Export to Xlsx</h3>
+                <form method="post" action="{{route('seller.export')}}">
+                  @csrf
+                  <div class="row  p-input">
+                    <div class="col-12">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="far fa-calendar-alt"></i>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control float-right" name="date_range" value="{{date('d/M/Y', strtotime($start_date))}} - {{date('d/M/Y', strtotime($end_date))}}" id="export_range" required>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <br>
+                      <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-file-excel"></i>&nbsp;&nbsp;&nbsp;Export</button>
                     </div>
                   </div>
                 </form>
@@ -350,12 +377,20 @@
     $(document).ready(function(){
       'use strict'
 
+      $('#filter_range').daterangepicker({
+          locale: {
+              format: 'DD/MMM/YYYY'
+          }
+      });
+
       $('#export_range').daterangepicker({
           locale: {
               format: 'DD/MMM/YYYY'
           }
       });
     });
+
+
 
     @if(Auth::guard('seller')->user()->retailer->type == '2')
 
@@ -591,7 +626,7 @@
       maintainAspectRatio: false,
       responsive: true,
       legend: {
-        display: false
+        display: true
       },
       scales: {
         xAxes: [{
