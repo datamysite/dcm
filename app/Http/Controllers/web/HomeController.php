@@ -11,11 +11,17 @@ use App\Helpers\Mailer;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index($region)
     {   
         $data['categories'] = Categories::where('parent_id', 0)->get();
         $data['allstores'] = Retailers::inRandomOrder()->where('status', '1')->limit(6)->get();
-        $data['retailstores'] = Retailers::inRandomOrder()->where('type', '2')->where('status', '1')->limit(5)->get();
+        $data['retailstores'] = Retailers::inRandomOrder()->where('type', '2')
+                                            ->where('status', '1')
+                                            ->whereHas('states', function($qq) use ($region){
+                                                return $qq->whereHas('state', function($qqq) use ($region){
+                                                    return $qqq->where('slug', $region);
+                                                });
+                                            })->limit(5)->get();
 
         return view('web.index')->with($data);
     }
