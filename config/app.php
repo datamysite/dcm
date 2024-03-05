@@ -189,6 +189,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Mailer' => App\Helpers\Mailer::class,
     ])->toArray(),
 
 ];

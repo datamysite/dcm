@@ -39,8 +39,9 @@ class ViewServiceProvider extends ServiceProvider
             $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             $data['metaTags'] = MetaTags::where('url', $actual_link)->first();
 
-            if(!isset($_SESSION['region'])){
-                session_start();
+            if ((function_exists('session_status') 
+              && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
+              session_start();
             }
             $data['region'] = empty($_SESSION['region']) ? 'dubai' : $_SESSION['region'];
             //dd($data);

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Retailers;
 use URL;
+use App\Helpers\Mailer;
 
 class HomeController extends Controller
 {
@@ -46,6 +47,39 @@ class HomeController extends Controller
 
         return view('web.content.sell-with-dcm_n');
     }
+
+
+    public function lead_generation($region, Request $request){
+        $data = $request->all();
+        $response = [];
+
+        $validated = $request->validate([
+            'business_name' => 'required',
+            'business_address' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'phone_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:13|max:13',
+            'category' => 'required',
+        ]);
+
+        //dd($data['email']);
+        $mail = Mailer::sendMail('Inquiry Received!', $data['email'], $data['business_name'], 'web.emailers.lead_welcome', $data);
+
+        if($mail){
+            $response['success'] = 'success';
+            $response['message'] = 'Success! Your inquiry successfully submited.';
+        }else{
+
+            $response['success'] = 'error';
+            $response['message'] = 'Something went wrong.';
+        }
+
+
+
+        echo json_encode($response);
+    }
+
 
     //FAQS
     public function FAQS()

@@ -921,6 +921,27 @@ label.errors {
     border-color: #1caae2;
     border-radius: 5px;
 }
+.lead-errors {
+    z-index: 99;
+    margin-top: -16px !important;
+}
+#lead_form {
+    position: relative;
+}
+.lead-loader {
+    display: none;
+    position: absolute;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #ffffff96;
+    height: -webkit-fill-available;
+}
+.lead-loader img {
+    width: 60px;
+    margin-left: -100px;
+}
 
 
 

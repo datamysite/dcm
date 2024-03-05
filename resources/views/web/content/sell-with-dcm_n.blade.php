@@ -50,38 +50,40 @@
                     <!-- text -->
                     <div class="" style="border-radius: 10px;">
 
-                        <form action="#" class="form-control p-10">
-
+                        <form class="form-control p-10" id="lead_form" action="{{route('lead.generation', [$region])}}">
+                            @csrf
                             <div class="input-group py-2">
-                                <input class="form-control rounded " type="text" name="business_name" placeholder="Business  name" required="required" />
+                                <input class="form-control rounded " type="text" name="business_name" placeholder="Business  name" />
+                                <label class="errors lead-errors business_name_error"></label>
                             </div>
 
                             <div class="input-group py-2">
-                                <input class="form-control rounded" type="text" name="business_address" placeholder="Business Address" required="required" />
+                                <input class="form-control rounded" type="text" name="business_address" placeholder="Business Address"  />
+                                <label class="errors lead-errors business_address_error"></label>
                             </div>
 
                             <div class="input-group py-2">
-                                <input class="form-control rounded " type="text" name="first_name" placeholder="First Name" required="required" />
+                                <input class="form-control rounded " type="text" name="first_name" placeholder="First Name"  />
+                                <label class="errors lead-errors first_name_error"></label>
                             </div>
 
                             <div class="input-group py-2">
-                                <input class="form-control rounded " type="text" name="last_name" placeholder="Last Name" required="required" />
+                                <input class="form-control rounded " type="text" name="last_name" placeholder="Last Name"  />
+                                <label class="errors lead-errors last_name_error"></label>
                             </div>
 
                             <div class="input-group py-2">
-                                <input class="form-control rounded " type="eamil" name="user_email" placeholder="Email" required="required" />
+                                <input class="form-control rounded " type="eamil" name="email" placeholder="Email" />
+                                <label class="errors lead-errors email_error"></label>
                             </div>
 
                             <div class="input-group py-2">
-                                <input class="form-control rounded" type="number" name="phone_number" placeholder="Phone Number" required="required" />
+                                <input class="form-control rounded" type="text" name="phone_number" value="+971" placeholder="Phone Number" />
+                                <label class="errors lead-errors phone_number_error"></label>
                             </div>
 
                             <div class="input-group py-2">
-                                <input class="form-control rounded " type="eamil" name="user_email" placeholder="Email" required="required" />
-                            </div>
-
-                            <div class="input-group py-2">
-                                <select class="form-control rounded " type="eamil" name="user_email" required="required">
+                                <select class="form-control rounded " name="category">
                                     <option value="">Select Business Category</option>
                                     @foreach($navbarCategories as $val)
                                         @if(empty($val->parent_id))
@@ -89,6 +91,7 @@
                                         @endif
                                     @endforeach
                                 </select>
+                                <label class="errors lead-errors category_error"></label>
                             </div>
 
                             <div class="py-2">
@@ -96,7 +99,10 @@
 
                             </div>
 
-                            <input type="submit" name="sing-up" class="btn btn-signup px-5 " style="font-weight: lighter;" value="Sign Up">
+                            <input type="submit" name="sing-up" class="btn btn-signup px-5 " style="font-weight: lighter;" value="Submit">
+                            <div class="lead-loader">
+                                <img src="{{URL::to('/public/loader.gif')}}">
+                            </div>
                         </form>
 
                     </div>
