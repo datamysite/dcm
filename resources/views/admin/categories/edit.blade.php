@@ -30,9 +30,10 @@
           <label>Parent Category</label>
 
           <select class="form-control" name="parent_id">
+            <option value="">Select</option>
             @foreach ($parent_categories as $parent_category)
             @if ($parent_category->id != $data->id)
-            <option value="{{ $parent_category->id }}">{{ $parent_category->name }}</option>
+            <option value="{{ $parent_category->id }}" {{$data->parent_id == $parent_category->id ? 'selected' : ''}}>{{ $parent_category->name }}</option>
             @endif
             @endforeach
           </select>
