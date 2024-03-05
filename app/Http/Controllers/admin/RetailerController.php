@@ -10,6 +10,7 @@ use App\Models\Retailers;
 use App\Models\RetailerCountries;
 use App\Models\Seller;
 use App\Models\States;
+use Intervention\Image\Facades\Image as Image;
 use Auth;
 
 class RetailerController extends Controller
@@ -55,12 +56,14 @@ class RetailerController extends Controller
         }else{
             $id = Retailers::create($data);
 
+
             if($request->hasFile('retailer_image')){
                 $file = $request->file('retailer_image');
                 $ext = $file->getClientOriginalExtension();
                 $newname = $id.date('dmyhis').'.'.$ext;
 
-                $file->move(public_path().'/storage/retailers',$newname);
+                Image::make($file->getRealPath())->resize(252, 313)->save($newname);
+                //$file->move(public_path().'/storage/retailers',$newname);
 
                 $c = Retailers::find($id);
                 $c->logo = $newname;
@@ -73,7 +76,8 @@ class RetailerController extends Controller
                 $ext = $file->getClientOriginalExtension();
                 $newname = $id.date('dmyhis').'.'.$ext;
 
-                $file->move(public_path().'/storage/retailers/ar',$newname);
+                Image::make($file->getRealPath())->resize(252, 313)->save($newname);
+                //$file->move(public_path().'/storage/retailers/ar',$newname);
 
                 $c = Retailers::find($id);
                 $c->ar_logo = $newname;

@@ -22,29 +22,28 @@
    <section class="mb-lg-10 my-8">
       <div class="container">
          <div class="hero-slider">
-
             <a href="https://wa.me/971585882973" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/b1.avif">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb1.png">
             </a>
 
             <a href="https://homzmart.com/en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/b2.avif">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb2.png">
             </a>
 
             <a href="https://www.namshi.com/uae-en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/b3.avif">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb3.png">
             </a>
 
             <a href="https://www.sivvi.com" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/b4.avif">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb4.png">
             </a>
 
             <a href="https://yallatoys.com/qa_en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/b5.avif">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb5.png">
             </a>
 
             <a href="https://www.firstcry.ae?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/b6.avif">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb6.png">
             </a>
          </div>
       </div>
