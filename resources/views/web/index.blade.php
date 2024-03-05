@@ -120,140 +120,30 @@
          </div>
          <!-- slider -->
          <div class="product-slider-second" id="slider-second">
-            <!-- item -->
-            <div class="item">
-               <!-- <div class="card card-product mb-lg-4">
-                     <div class="card-body"> -->
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla_toys_store.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
-                           <a href="javascript:void(0)" class="img-pop-up">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="{{route('brand',[$region, 'yalla-toys'])}}" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/yalla-toys-backside.png" alt="Yalla Toys Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- </div>
-                  </div> -->
-            </div>
-            <!-- item -->
-            <div class="item">
-               <!-- <div class="card card-product mb-lg-4">
-                     <div class="card-body"> -->
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store.png" alt="Homzmart Store" style="border-radius: 20px;" />
-                           <a href="javascript:void(0)" class="img-pop-up">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="{{route('brand', [$region, 'homzmart'])}}" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/homzmart-store-backside.png" alt="Homzmart Store" style="border-radius: 20px;" />
-                           </a>
+            @foreach($onlinestores as $val)
+               <!-- item -->
+               <div class="item">
+                  <div class="custom_col">
+                     <div class="flip-container">
+                        <div class="flipper">
+                           <div class="front">
+                              <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Yalla Toys Store" style="border-radius: 20px;" />
+                              <a href="javascript:void(0)" class="img-pop-up">
+                                 <div class="custom_arrow-button2">
+                                    <i class="bi bi-arrow-right-circle"></i>
+                                 </div>
+                              </a>
+                           </div>
+                           <div class="back">
+                              <a href="{{route('brand',[$region, $val->slug])}}" class="img-pop-up">
+                                 <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Yalla Toys Store" style="border-radius: 20px;" />
+                              </a>
+                           </div>
                         </div>
                      </div>
                   </div>
                </div>
-               <!-- </div>
-                  </div> -->
-            </div>
-            <!-- item -->
-            <!-- item -->
-            <div class="item">
-               <!-- <div class="card card-product mb-lg-4">
-                     <div class="card-body"> -->
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi_store.png" alt="Namshi Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="{{route('brand', [$region, 'namshi'])}}" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/namshi-store-backside.png" alt="Namshi Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- </div>
-                  </div> -->
-            </div>
-            <!-- item -->
-
-            <!-- item -->
-            <div class="item">
-               <!-- <div class="card card-product mb-lg-4">
-                     <div class="card-body"> -->
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/sivvi_store.png" alt="Sivvi Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="{{route('brand', [$region, 'sivvi'])}}" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/sivvi-store-backside.png" alt="Sivvi Store" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- </div>
-                  </div> -->
-            </div>
-
-            <!-- item -->
-            <div class="item">
-               <!-- <div class="card card-product mb-lg-4">
-                     <div class="card-body"> -->
-               <div class="custom_col">
-                  <div class="flip-container">
-                     <div class="flipper">
-                        <div class="front">
-                           <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/noon.png" alt="Aldo Store" style="border-radius: 20px;" />
-                           <a href="#" class="img-pop-up">
-                              <div class="custom_arrow-button2">
-                                 <i class="bi bi-arrow-right-circle"></i>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="back">
-                           <a href="{{route('brand', [$region, 'noon'])}}" class="img-pop-up">
-                              <img class="img-fluid w-100" src="{{URL::to('/public')}}/web_assets/images/stores-logo/noon-backside.png" alt="" style="border-radius: 20px;" />
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- </div>
-                  </div> -->
-            </div>
+            @endforeach
 
          </div>
          <div class="row" style="justify-content: flex-end;">

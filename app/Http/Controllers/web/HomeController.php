@@ -22,6 +22,7 @@ class HomeController extends Controller
                                                     return $qqq->where('slug', $region);
                                                 });
                                             })->limit(5)->get();
+        $data['onlinestores'] = Retailers::where('type', '1')->limit(10)->get();
 
         return view('web.index')->with($data);
     }
