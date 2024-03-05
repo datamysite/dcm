@@ -68,7 +68,7 @@
             @endphp
             <div class="item">
                <a href="{{route('category', [$region, $slug])}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
-                  <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="{{$val->name}}" class="img-fluid" />
+                  <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="{{$val->name}}" width="100px" height="100px" class="img-fluid" />
                   <div class="text-truncate">{{$val->name}}</div>
                </a>
             </div>
