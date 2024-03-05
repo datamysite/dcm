@@ -85,7 +85,7 @@
    <section class="my-lg-12 my-8">
       <div class="container np-container">
          <div class="animated-banner">
-            <img src="{{URL::to('public/web_assets/images/animated/background.png')}}" style="width:100%; height: 100%;">
+            <img src="{{URL::to('public/web_assets/images/animated/nbackground.png')}}" style="width:100%; height: 100%;">
             <div class="content">
                <h1>How to Earn with <br>Deals & Coupon Mena?</h1>
                <ol>
