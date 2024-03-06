@@ -21671,7 +21671,7 @@ fieldset:disabled .btn {
   border: none;
   color: var(--fc-gray-600);
   content: "\f12f";
-  float: right;
+  float: left;
   font-family: feather-icons !important;
   line-height: 2;
   margin-left: 0.375rem;
