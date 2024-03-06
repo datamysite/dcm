@@ -37,10 +37,10 @@ class RegionController extends Controller
             $_SESSION['region'] = 'dubai';
         }
 
-        return redirect()->intended('/'.$region);
+        return redirect()->intended('/'.app()->getLocale().'/'.$region);
     }
 
-    public function set_region($name){
+    public function set_region($lang, $name){
 
         if(!isset($_SESSION['region'])){
             session_start();
@@ -50,7 +50,7 @@ class RegionController extends Controller
         $region = $_SESSION['region'];
         //dd($_SESSION['region']);
 
-        return redirect()->intended('/'.$region);
+        return redirect()->intended('/'.app()->getLocale().'/'.$region);
     }
 
 
@@ -65,4 +65,33 @@ class RegionController extends Controller
         }  
         return $ip;  
     } 
+
+    public function get_lang(){
+
+        $userIp = RegionController::getIPAddress();
+        $client = new Client();
+        $response = $client->get("https://ipinfo.io/{$userIp}?token=91b28de1f957f7");
+        $data = json_decode($response->getBody());
+
+        $states = array('Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al-Khaimah', 'Fujairah', 'Umm Al-Quwain');
+
+        if(!isset($_SESSION['region'])){
+            session_start();
+        }
+        if(!empty($data->region) && in_array($data->region, $states)){
+            $st = States::where('name', $data->region)->first();
+            if(!empty($st->id)){
+                $region = $st->slug;
+                $_SESSION['region'] = $st->slug;
+            }else{
+                $region = 'dubai';
+                $_SESSION['region'] = 'dubai';
+            }
+        }else{
+            $region = 'dubai';
+            $_SESSION['region'] = 'dubai';
+        }
+        
+        return redirect()->intended('/'.app()->getLocale().'/'.$region);
+    }
 }

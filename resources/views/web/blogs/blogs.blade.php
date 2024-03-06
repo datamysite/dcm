@@ -12,7 +12,7 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="Blogs" style="color:#1DACE3;"><strong>Blogs</a></strong></li>
                     </ol>
                 </nav>
@@ -34,7 +34,7 @@
                         <h3>Featured</h3>
                         <h6>{{$featured->heading}}</h6>
                         <p>{{ $featured->short_description }}</p>
-                        <a href="{{route('blog.details', $featured->slug)}}" target="_blank">Read More</a>
+                        <a href="{{route('blog.details', [$region, $featured->slug])}}" target="_blank">Read More</a>
 
                     </div>
 
@@ -57,7 +57,7 @@
                     <div class="post-feather" style="background-image: url({{URL::to('/public/storage/blogs/'.$val->banner)}});">
                         <div class="feather-image">
                         </div>
-                        <a href="{{route('blog.details', $val->slug)}}" target="blank" class="readMorebutton">Read More</a>
+                        <a href="{{route('blog.details', [$region, $val->slug])}}" target="blank" class="readMorebutton">Read More</a>
                     </div>
                     <h5 title="{{$val->heading}}">{{$val->heading}}</h5>
                     <p title="{{ $val->short_description }}">{{ $val->short_description }}</p>

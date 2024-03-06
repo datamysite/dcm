@@ -17,7 +17,7 @@ class BlogController extends Controller
         return view('web.blogs.blogs')->with($data);
     }
 
-    public function detail($slug)
+    public function detail($lang, $region, $slug)
     {
         $data['blog'] = Blogs::where('slug', $slug)->first();
 

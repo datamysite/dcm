@@ -2,15 +2,15 @@
 <a href="javascript:void(0)" class="grap_deal_close_btn" data-dismiss="modal" aria-label="Close">x</a>
 <div class="grap_deal_row offer_deal_row">
   <div class="grap_deal_message">
-     <p>THANK YOU!</p>
-     <p>Your redeem successful</p>
+     <p>{{ __('translation.thank_you') }}</p>
+     <p>{{ __('translation.redeem_successful') }}</p>
   </div>
 </div>
 
 
 <div class="grap_deal_coupon">
   <div class="grap_deal_code">
-     <p>Your Coupon Code Is</p>
+     <p>{{ __('translation.your_coupon_code') }}</p>
      <h2>
         {!! QrCode::size(110)->generate(route('offers.qrcode', [$region, $offer->retailer->slug, base64_encode($qrid)])) !!}
      </h2>
@@ -19,13 +19,13 @@
 
 <div class="grap_deal_social offer_deal_social">
    <div>
-     <a href="{{route('offers.redeemPDF', [$region, base64_encode($qrid)])}}" target="_blank" class="grap_deal_icon">Download &nbsp;<i class="fa fa-download"></i></a>
+     <a href="{{route('offers.redeemPDF', [$region, base64_encode($qrid)])}}" target="_blank" class="grap_deal_icon">{{ __('translation.Download') }} &nbsp;<i class="fa fa-download"></i></a>
      |
-     <a href="javascript:void(0)" data-href="{{$offer->retailer->store_link}}" class="grap_deal_icon whatsapp_chat" data-id="{{$offer->id}}">Whatsapp &nbsp;<i class="fa fa-whatsapp"></i></a>
+     <a href="javascript:void(0)" data-href="{{$offer->retailer->store_link}}" class="grap_deal_icon whatsapp_chat" data-id="{{$offer->id}}">{{ __('translation.Whatsapp') }} &nbsp;<i class="fa fa-whatsapp"></i></a>
    </div>
 </div>
 
 <div class="grap_deal_disclaimer offer_deal_disclaimer">
-  <p><strong>Attention!</strong></p>
-  <p>Present your downloaded coupon code at the store to enjoy an exclusive discount! Don't forget to claim your cashback from us!</p>
+  <p><strong>{{ __('translation.attention') }}</strong></p>
+  <p>{{ __('translation.copy_it') }}</p>
 </div> 

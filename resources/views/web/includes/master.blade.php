@@ -24,7 +24,7 @@
 </head>
 
 
-<body>
+<body style="padding:0 !important;">
    <div id="loading">
      <img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" alt="Loading..." />
    </div>
@@ -42,8 +42,8 @@
    <div class="signin-mobile-nav">
          <p>Let`s get you signed in!</p>
          <div class="nav-btn">
-            <button class="btn bg-white signIn act">Sign In</button>
-            <button class="btn bg-white signUp">Register</button>
+            <button class="btn bg-white signIn act">{{ __('translation.sign_in_btn') }}</button>
+            <button class="btn bg-white signUp">{{ __('translation.sign_up_btn') }}</button>
          </div>
    </div>
    <div class="modal-dialog modal-dialog-centered">
@@ -53,53 +53,53 @@
                <div class="form-modal_container sign-up-modal_container">
                   <form action="{{route('user.create', [$region])}}" id="create_user_form" class="form_modal">
                      @csrf
-                     <h1 style="color:#1dace3">Create Account</h1>
+                     <h1 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h1>
                      <div class="social-modal_container">
                         <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
                         <a href="{{route('auth.google', [$region])}}" class="social"><i class="fab fa-google-plus-g"></i></a>
 
                      </div>
-                     <span>or use your email for registration</span>
-                     <input type="text" placeholder="Name" name="name" class="form_input" required/>
+                     <span>{{ __('translation.dcm_reg_text') }}</span>
+                     <input type="text" placeholder="{{ __('translation.dcm_name_txt') }}" name="name" class="form_input" required/>
                      <label class="errors name_error"></label>
-                     <input type="email" placeholder="Email" name="email" class="form_input" required/>
+                     <input type="email" placeholder="{{ __('translation.email_dcm_form') }}" name="email" class="form_input" required/>
                      <label class="errors email_error"></label>
-                     <input type="password" placeholder="Password" name="password" class="form_input" required/>
+                     <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required/>
                      <label class="errors password_error"></label>
                      <br>
-                     <button type="submit" class="btn btn-primary shadow-gray">Sign Up</button>
+                     <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_up_btn') }}</button>
                   </form>
                </div>
                <div class="form-modal_container sign-in-modal_container">
                   <form action="{{route('user.login', [$region])}}" id="login_user_form" class="form_modal">
                      @csrf
-                     <h1 style="color:#1dace3">Sign in to DCM</h1>
+                     <h1 style="color:#1dace3">{{ __('translation.sign_in_to_dcm') }}</h1>
                      <div class="social-modal_container">
                         <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
                         <a href="{{route('auth.google', [$region])}}" class="social"><i class="fab fa-google-plus-g"></i></a>
 
                      </div>
-                     <span>or use your account</span>
-                     <input type="email" placeholder="Email" name="email" class="form_input" required/>
+                     <span>{{ __('translation.or_use_your_account') }}</span>
+                     <input type="email" placeholder="{{ __('translation.email_dcm_form') }}" name="email" class="form_input" required/>
                      <label class="errors email_error_l"></label>
-                     <input type="password" placeholder="Password" name="password" class="form_input" required />
+                     <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required />
                      <label class="errors password_error_l"></label>
-                     <p><a href="javascript:void(0)" style="color:#1dace3">Forgot your password?</a></p>
-                     <button type="submit" class="btn btn-primary shadow-gray">Sign In</button>
+                     <p><a href="javascript:void(0)" style="color:#1dace3">{{ __('translation.forget_password_txt') }}</a></p>
+                     <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_in_btn') }}</button>
                   </form>
                </div>
                <div class="overlay_modal-modal_container">
                   <div class="overlay_modal">
                      <div class="overlay_modal-panel overlay_modal-left" style="background-color: #1dace3;">
-                        <h1 style="color:#fff">Welcome Back!</h1>
-                        <p>To keep connected with us please login with your personal info</p>
-                        <button class="btn btn-primary shadow-gray signIn" style="background-color: #fff;color:#1dace3">Sign In</button>
+                        <h1 style="color:#fff">{{ __('translation.dcm_wlc_back') }}</h1>
+                        <p>{{ __('translation.dcm_wlc_back_txt') }}</p>
+                        <button class="btn btn-primary shadow-gray signIn" style="background-color: #fff;color:#1dace3">{{ __('translation.sign_in_btn') }}</button>
                      </div>
                      <div class="overlay_modal-panel overlay_modal-right" style="background-color: #1dace3;color:#fff">
                         <h1 style="color:#fff">DCM</h1>
-                        <h1 style="color:#fff">Hello, Friend!</h1>
-                        <p>Enter your personal details and start journey with us. or you can <b>Sign Up</b> if you don't have an account</p>
-                        <button class="btn btn-primary shadow-gray signUp" style="background-color: #fff;color:#1dace3">Sign Up</button>
+                        <h1 style="color:#fff">{{ __('translation.dmc_modal_text01') }}</h1>
+                        <p>{{ __('translation.dmc_modal_text02') }}</p>
+                        <button class="btn btn-primary shadow-gray signUp" style="background-color: #fff;color:#1dace3">{{ __('translation.sign_up_btn') }}</button>
                      </div>
                   </div>
                </div>

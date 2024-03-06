@@ -11,7 +11,11 @@
 <link href="{{URL::to('/public')}}/web_assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet" />
 
 <!-- Theme CSS -->
-<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min.css" />
+@if ( app()->getLocale() == 'ar' )
+	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme-ar.min.css" />
+@else
+	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min.css" />
+@endif
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
 
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
@@ -19,4 +23,8 @@
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@if ( app()->getLocale() == 'ar' )
+<link href="{{URL::to('/public')}}/web_assets/css/style-ar.css" rel="stylesheet" />
+@else
 <link href="{{URL::to('/public')}}/web_assets/css/style.css" rel="stylesheet" />
+@endif

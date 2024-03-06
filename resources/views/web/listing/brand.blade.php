@@ -12,11 +12,11 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
                         @if(!empty($category_slug))
-                            <li class="breadcrumb-item"><a href="{{route('category', [$region, $category_slug])}}" style="color: #000;"><strong>{{$category->name}}</strong></a></li>
+                            <li class="breadcrumb-item"><a href="{{route('category', [$region, $category_slug])}}" style="color: #000;"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
                         @endif
-                        <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$retailer->name}}</a></strong></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</a></strong></li>
                     </ol>
                 </nav>
             </div>
@@ -30,7 +30,7 @@
     <div class="container np-container">
         <div class="row">
             <div class="col-12 text-center">
-                <a href="{{route('brand', [$region, $retailer->slug])}}"><h3 class=" page-title">{{$retailer->name}}</h3></a>
+                <a href="{{route('brand', [$region, $retailer->slug])}}"><h3 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h3></a>
             </div>
         </div>
 
@@ -42,16 +42,16 @@
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
                         <div class="Lside_div">
-                            <img src="{{URL::to('/public/storage/retailers/'.$retailer->logo)}}" alt="Product Image" class="img" style="height:80%">
+                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Product Image" class="img" style="height:80%">
                         </div>
 
                         <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
-                            <span style="color:#fff;">{{$val->title}}</span>
+                            <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->title_ar : $val->title}}</span>
 
                             <span style="color:#fff;"></span>
 
                             <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showOffer" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">SHOW COUPON</a>
+                                <a href="javascript:void(0)" class="btn btn-white shadow-green showOffer" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
                             </span>
                         </div>
                     </div>
@@ -68,16 +68,16 @@
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
                         <div class="Lside_div">
-                            <img src="{{URL::to('/public/storage/retailers/'.$retailer->logo)}}" alt="Product Image" class="img" style="height:80%">
+                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Product Image" class="img" style="height:80%">
                         </div>
 
                         <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
-                            <span style="color:#fff;">{{$val->heading}}</span>
+                            <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->heading_ar : $val->heading}}</span>
 
                             <span style="color:#fff;"></span>
 
                             <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">SHOW COUPON</a>
+                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
                             </span>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
         <div class="container np-container"> 
             <div class="row mt-16">
                 <div class="col-12 mb- text-center">
-                    <h3 class="mb-5">Feedback</h3>
+                    <h3 class="mb-5">{{ __('translation.Feedback') }}</h3>
                 </div>
             </div>
 
@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="ms-3 lh-1">
                                         <h6 class="mb-0">{{$val->name}}</h6>
-                                        <small>Customer</small>
+                                        <small>{{ __('translation.Customer') }}</small>
                                     </div>
                                 </div>
                                 <div class="card-body p-5">
@@ -167,7 +167,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
                 $('#ShowCouponModal').modal('show');
-                $.get("{{URL::to('/'.$region.'/coupon')}}/"+id, function(data){
+                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/coupon')}}/"+id, function(data){
                     $('#ShowCouponModal .grap_deal_main').html(data);
                 });
             });
@@ -177,7 +177,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
                 $('#ShowCouponModal').modal('show');
-                $.get("{{URL::to('/'.$region.'/offers')}}/"+id, function(data){
+                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/offers')}}/"+id, function(data){
                     $('#ShowCouponModal .grap_deal_main').html(data);
                 });
             });
@@ -198,7 +198,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal').modal('hide');
                 $('#loading').css({display: 'block'});
-                $.get("{{URL::to('/'.$region.'/coupon/grabDeal')}}/"+id, function(data){
+                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/coupon/grabDeal')}}/"+id, function(data){
                     $('#loading').css({display: 'none'});
                     window.location.href = link;
                 });
@@ -209,7 +209,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal').modal('hide');
                 $('#loading').css({display: 'block'});
-                $.get("{{URL::to('/'.$region.'/offers/whatsapp')}}/"+id, function(data){
+                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/offers/whatsapp')}}/"+id, function(data){
                     $('#loading').css({display: 'none'});
                     window.location.href = link;
                 });

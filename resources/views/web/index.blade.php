@@ -10,7 +10,7 @@
             <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}">
                <div class="header_card">
                   <img src="{{URL::to('/public/storage/states/'.$val->image)}}" alt="{{$val->name}}" />
-                  {{$val->name}}
+                  {{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}
                </div>
             </a>
          @endforeach
@@ -23,27 +23,27 @@
       <div class="container">
          <div class="hero-slider">
             <a href="https://wa.me/971585882973" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb1.png">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b1a.png' : 'nb1.png'}}">
             </a>
 
             <a href="https://homzmart.com/en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb2.png">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b2a.png' : 'nb2.png'}}">
             </a>
 
             <a href="https://www.namshi.com/uae-en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb3.png">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b3a.png' : 'nb3.png'}}">
             </a>
 
             <a href="https://www.sivvi.com" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb4.png">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b4a.png' : 'nb4.png'}}">
             </a>
 
             <a href="https://yallatoys.com/qa_en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb5.png">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b5a.png' : 'nb5.png'}}">
             </a>
 
             <a href="https://www.firstcry.ae?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/nb6.png">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b6a.png' : 'nb6.png'}}">
             </a>
          </div>
       </div>
@@ -55,7 +55,7 @@
       <div class="container">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0 page-title">Categories</h3>
+               <h3 class="mb-0 page-title">{{ __('translation.Categories') }}</h3>
             </div>
          </div>
          <div class="category-slider">
@@ -69,7 +69,7 @@
             <div class="item">
                <a href="{{route('category', [$region, $slug])}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
                   <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="{{$val->name}}" width="100px" height="100px" class="img-fluid" />
-                  <div class="text-truncate">{{$val->name}}</div>
+                  <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
                </a>
             </div>
             @endforeach
@@ -87,11 +87,11 @@
          <div class="animated-banner">
             <img src="{{URL::to('public/web_assets/images/animated/nbackground.png')}}" style="width:100%; height: 100%;">
             <div class="content">
-               <h1>How to Earn with <br>Deals & Coupon Mena?</h1>
+               <h1>{{ __('translation.earn_coupons_title') }}<br>{{ __('translation.earn_coupons_title01') }}</h1>
                <ol>
-                  <li>Select your Perferd Brand & Click Show Coupons</li>
-                  <li>Apply The Code and Redeem the Discount</li>
-                  <li>Upload your Reciept and Get your Cashback</li>
+                  <li>{{ __('translation.earn_coupons_txt_01') }}</li>
+                  <li>{{ __('translation.earn_coupons_txt_02') }}</li>
+                  <li>{{ __('translation.earn_coupons_txt_03') }}</li>
                </ol>
             </div>
             <div class="object-section">
@@ -114,7 +114,7 @@
          <div class="row">
             <div class="col-12 mb-6 text-center">
                <a href="javascript:void(0)">
-                  <h3 class="mb-0 page-title">Online Stores</h3>
+                  <h3 class="mb-0 page-title">{{ __('translation.ONLINE_STORES') }}</h3>
                </a>
             </div>
          </div>
@@ -127,7 +127,7 @@
                      <div class="flip-container">
                         <div class="flipper">
                            <div class="front">
-                              <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Yalla Toys Store" style="border-radius: 20px;" />
+                              <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="Yalla Toys Store" style="border-radius: 20px;" />
                               <a href="javascript:void(0)" class="img-pop-up">
                                  <div class="custom_arrow-button2">
                                     <i class="bi bi-arrow-right-circle"></i>
@@ -136,7 +136,7 @@
                            </div>
                            <div class="back">
                               <a href="{{route('brand',[$region, $val->slug])}}" class="img-pop-up">
-                                 <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Yalla Toys Store" style="border-radius: 20px;" />
+                                 <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="Yalla Toys Store" style="border-radius: 20px;" />
                               </a>
                            </div>
                         </div>
@@ -174,7 +174,7 @@
          <div class="row">
             <div class="col-12 mb-6 text-center">
                <a href="javascript:void(0)">
-                  <h3 class="mb-0 page-title">Retail Stores</h3>
+                  <h3 class="mb-0 page-title">{{ __('translation.RETAIL_STORES') }}</h3>
                </a>
             </div>
          </div>
@@ -187,7 +187,7 @@
                      <div class="flip-container">
                         <div class="flipper">
                            <div class="front">
-                              <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Aldo Store" style="border-radius: 20px;" />
+                              <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="Aldo Store" style="border-radius: 20px;" />
                               <a href="{{route('brand', [$region, $val->slug])}}" class="img-pop-up" target="_blank">
                                  <div class="custom_arrow-button2">
                                     <i class="bi bi-arrow-right-circle"></i>
@@ -196,7 +196,7 @@
                            </div>
                            <div class="back">
                               <a href="{{route('brand', [$region, $val->slug])}}" class="img-pop-up">
-                                 <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="Aldo Store" style="border-radius: 20px;" />
+                                 <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="Aldo Store" style="border-radius: 20px;" />
                               </a>
                            </div>
                         </div>
@@ -245,7 +245,7 @@
          <div class="row">
             <div class="col-12 mb-6 text-center">
                <a href="javascript:void(0)">
-                  <h3 class="mb-0 page-title">All Stores</h3>
+                  <h3 class="mb-0 page-title">{{ __('translation.All_Stores') }}</h3>
                </a>
             </div>
          </div>
@@ -257,7 +257,7 @@
                <a href="{{route('brand', [$region, $allstores[0]->slug])}}">
                   <div class="single-deal v-tile">
                      <div class="overlay"></div>
-                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[0]->logo)}}" alt="" style="border-radius: 20px;" />
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[0]->ar_logo : $allstores[0]->logo}}" alt="" style="border-radius: 20px;" />
                      <span class="img-pop-up">
                         <div class="deal-details">
                            <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
@@ -272,7 +272,7 @@
                <a href="{{route('brand', [$region, $allstores[1]->slug])}}">
                   <div class="single-deal">
                      <div class="overlay"></div>
-                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[1]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[1]->ar_logo : $allstores[1]->logo}}" alt="Brand For Less" style="border-radius: 20px;" />
                      <span class="img-pop-up">
                         <div class="deal-details">
                            <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
@@ -287,7 +287,7 @@
                <a href="{{route('brand', [$region, $allstores[2]->slug])}}">
                   <div class="single-deal">
                      <div class="overlay"></div>
-                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[2]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[2]->ar_logo : $allstores[2]->logo}}" alt="Brand For Less" style="border-radius: 20px;" />
                      <span class="img-pop-up">
                         <div class="deal-details">
                            <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
@@ -308,7 +308,7 @@
                <a href="{{route('brand', [$region, $allstores[3]->slug])}}">
                   <div class="single-deal">
                      <div class="overlay"></div>
-                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[3]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[3]->ar_logo : $allstores[3]->logo}}" alt="Brand For Less" style="border-radius: 20px;" />
                      <span class="img-pop-up">
                         <div class="deal-details">
                            <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
@@ -323,7 +323,7 @@
                <a href="{{route('brand', [$region, $allstores[4]->slug])}}">
                   <div class="single-deal">
                      <div class="overlay"></div>
-                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[4]->logo)}}" alt="Brand For Less" style="border-radius: 20px;" />
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[4]->ar_logo : $allstores[4]->logo}}" alt="Brand For Less" style="border-radius: 20px;" />
                      <span class="img-pop-up">
                         <div class="deal-details">
                            <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
@@ -338,7 +338,7 @@
                <a href="{{route('brand', [$region, $allstores[5]->slug])}}">
                   <div class="single-deal v-tile">
                      <div class="overlay"></div>
-                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/'.$allstores[5]->logo)}}" alt="" style="border-radius: 20px;" />
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[5]->ar_logo : $allstores[5]->logo}}" alt="" style="border-radius: 20px;" />
                      <span class="img-pop-up">
                         <div class="deal-details">
                            <!-- <h6 class="deal-title">Your Text Goes Here</h6> -->
@@ -370,154 +370,4 @@
    <div class="divider"></div>
 
 </main>
-
-<!-- Modal -->
-<div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
-   <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content">
-         <div class="modal-body p-8">
-            <div class="position-absolute top-0 end-0 me-3 mt-3">
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="row">
-               <div class="col-lg-6">
-                  <!-- img slide -->
-                  <div class="product productModal" id="productModal">
-                     <div class="zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-single-img-1.jpg)">
-                        <!-- img -->
-                        <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-1.jpg" alt="" />
-                     </div>
-                     <div>
-                        <div class="zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-single-img-2.jpg)">
-                           <!-- img -->
-                           <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-2.jpg" alt="" />
-                        </div>
-                     </div>
-                     <div>
-                        <div class="zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-single-img-3.jpg)">
-                           <!-- img -->
-                           <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-3.jpg" alt="" />
-                        </div>
-                     </div>
-                     <div>
-                        <div class="zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-single-img-4.jpg)">
-                           <!-- img -->
-                           <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-4.jpg" alt="" />
-                        </div>
-                     </div>
-                  </div>
-                  <!-- product tools -->
-                  <div class="product-tools">
-                     <div class="thumbnails row g-3" id="productModalThumbnails">
-                        <div class="col-3" class="tns-nav-active">
-                           <div class="thumbnails-img">
-                              <!-- img -->
-                              <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-1.jpg" alt="" />
-                           </div>
-                        </div>
-                        <div class="col-3">
-                           <div class="thumbnails-img">
-                              <!-- img -->
-                              <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-2.jpg" alt="" />
-                           </div>
-                        </div>
-                        <div class="col-3">
-                           <div class="thumbnails-img">
-                              <!-- img -->
-                              <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-3.jpg" alt="" />
-                           </div>
-                        </div>
-                        <div class="col-3">
-                           <div class="thumbnails-img">
-                              <!-- img -->
-                              <img src="{{URL::to('/public')}}/web_assets/images/products/product-single-img-4.jpg" alt="" />
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-6">
-                  <div class="ps-lg-8 mt-6 mt-lg-0">
-                     <a href="#!" class="mb-4 d-block">Bakery Biscuits</a>
-                     <h2 class="mb-1 h1">Napolitanke Ljesnjak</h2>
-                     <div class="mb-4">
-                        <small class="text-warning">
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-half"></i>
-                        </small>
-                        <a href="#" class="ms-2">(30 reviews)</a>
-                     </div>
-                     <div class="fs-4">
-                        <span class="fw-bold text-dark">$32</span>
-                        <span class="text-decoration-line-through text-muted">$35</span>
-                        <span><small class="fs-6 ms-2 text-danger">26% Off</small></span>
-                     </div>
-                     <hr class="my-6" />
-                     <div class="mb-4">
-                        <button type="button" class="btn btn-outline-secondary">250g</button>
-                        <button type="button" class="btn btn-outline-secondary">500g</button>
-                        <button type="button" class="btn btn-outline-secondary">1kg</button>
-                     </div>
-                     <div>
-                        <!-- input -->
-                        <!-- input -->
-                        <div class="input-group input-spinner">
-                           <input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity" />
-                           <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input" />
-                           <input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity" />
-                        </div>
-                     </div>
-                     <div class="mt-3 row justify-content-start g-2 align-items-center">
-                        <div class="col-lg-4 col-md-5 col-6 d-grid">
-                           <!-- button -->
-                           <!-- btn -->
-                           <button type="button" class="btn btn-primary">
-                              <i class="feather-icon icon-shopping-bag me-2"></i>
-                              Add to cart
-                           </button>
-                        </div>
-                        <div class="col-md-4 col-5">
-                           <!-- btn -->
-                           <a class="btn btn-light" href="#" data-bs-toggle="tooltip" data-bs-html="true" aria-label="Compare"><i class="bi bi-arrow-left-right"></i></a>
-                           <a class="btn btn-light" href="#!" data-bs-toggle="tooltip" data-bs-html="true" aria-label="Wishlist"><i class="feather-icon icon-heart"></i></a>
-                        </div>
-                     </div>
-                     <hr class="my-6" />
-                     <div>
-                        <table class="table table-borderless">
-                           <tbody>
-                              <tr>
-                                 <td>Product Code:</td>
-                                 <td>FBB00255</td>
-                              </tr>
-                              <tr>
-                                 <td>Availability:</td>
-                                 <td>In Stock</td>
-                              </tr>
-                              <tr>
-                                 <td>Type:</td>
-                                 <td>Fruits</td>
-                              </tr>
-                              <tr>
-                                 <td>Shipping:</td>
-                                 <td>
-                                    <small>
-                                       01 day shipping.
-                                       <span class="text-muted">( Free pickup today)</span>
-                                    </small>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
 @endsection

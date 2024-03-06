@@ -19,13 +19,13 @@ use PDF;
 
 class ListingController extends Controller
 {
-    public function index($region, $type, Request $request){
+    public function index($lang, $region, $type, Request $request){
         $req = $request->all();
         $data['type'] = $type;
         $type = ($type == 'online' ? '1' : '2');
 
         //Filters -- start
-        $data['categories_f'] = Categories::select('id', 'name', 'type')
+        $data['categories_f'] = Categories::select('id', 'name', 'name_ar', 'type')
                                                 ->where('parent_id', 0)
                                                 ->where('status', '1')
                                                 ->when($type == '1', function($q){
@@ -57,7 +57,7 @@ class ListingController extends Controller
         return view('web.listing.index')->with($data);
     }
 
-    public function brand($region, $brand_slug){
+    public function brand($lang, $region, $brand_slug){
         $data['retailer'] = Retailers::where('slug', $brand_slug)->first();
         $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)->where('status', '1')->get();
         $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
@@ -69,7 +69,7 @@ class ListingController extends Controller
     }
 
 
-    public function category_brand($region, $cat_slug, $brand_slug){
+    public function category_brand($lang, $region, $cat_slug, $brand_slug){
         $data['category_slug'] = $cat_slug;
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
         $data['retailer'] = Retailers::where('slug', $brand_slug)->first();
@@ -87,7 +87,7 @@ class ListingController extends Controller
     }
 
 
-    public function category_sub($region, $cat_slug, $type, Request $request){
+    public function category_sub($lang, $region, $cat_slug, $type, Request $request){
         $data['category_slug'] = $cat_slug;
         $req = $request->all();
         $data['type'] = $type;
@@ -96,14 +96,14 @@ class ListingController extends Controller
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
         //dd(ListingController::sanitizeStringForUrl($cat_slug));
         //Filters -- start
-        $data['categories_f'] = Categories::select('id', 'name', 'type')
+        $data['categories_f'] = Categories::select('id', 'name', 'name_ar', 'type')
                                                 ->where('parent_id', 0)
                                                 ->where('status', '1')
                                                 ->when($type == '1', function($q){
                                                     return $q->where('type', 3);
                                                 })
                                                 ->get();
-        $data['subcategories_f'] = Categories::select('id', 'name', 'type')->where('parent_id', $data['category']->id)->where('status', '1')->get();
+        $data['subcategories_f'] = Categories::select('id', 'name', 'name_ar', 'type')->where('parent_id', $data['category']->id)->where('status', '1')->get();
         $data['countries_f'] = Countries::select('id', 'name')->get();
         $data['states_f'] = States::select('id', 'name')->get();
         //Filter -- end
@@ -139,18 +139,18 @@ class ListingController extends Controller
         return view('web.listing.categories_with_type')->with($data);
     }
 
-    public function category($region, $cat_slug, Request $request){
+    public function category($lang, $region, $cat_slug, Request $request){
         $data['category_slug'] = $cat_slug;
         $req = $request->all();
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
 
         
         //Filters -- start
-        $data['categories_f'] = Categories::select('id', 'name', 'type')
+        $data['categories_f'] = Categories::select('id', 'name', 'name_ar', 'type')
                                                 ->where('parent_id', 0)
                                                 ->where('status', '1')
                                                 ->get();
-        $data['subcategories_f'] = Categories::select('id', 'name', 'type')->where('parent_id', $data['category']->id)->where('status', '1')->get();
+        $data['subcategories_f'] = Categories::select('id', 'name', 'name_ar', 'type')->where('parent_id', $data['category']->id)->where('status', '1')->get();
         $data['countries_f'] = Countries::select('id', 'name')->get();
         $data['states_f'] = States::select('id', 'name')->get();
         //Filter -- end
@@ -187,7 +187,7 @@ class ListingController extends Controller
         return view('web.listing.categories')->with($data);
     }
 
-    public function show_coupon($region, $id){
+    public function show_coupon($lang, $region, $id){
         $id = base64_decode($id);
         $data['coupon'] = Coupon::find($id);
 
@@ -197,7 +197,7 @@ class ListingController extends Controller
     }
 
 
-    public function coupon_grab_deal($region, $id){
+    public function coupon_grab_deal($lang, $region, $id){
         $data['coupon'] = Coupon::find($id);
         ClicksCounter::hitCount('4', $data['coupon']->retailer_id, $data['coupon']->id, '1');
         //dd($data);
@@ -206,7 +206,7 @@ class ListingController extends Controller
     }
 
 
-    public function show_offer($region, $id){
+    public function show_offer($lang, $region, $id){
         $id = base64_decode($id);
         $data['offer'] = Offers::find($id);
 
@@ -222,7 +222,7 @@ class ListingController extends Controller
     }
 
 
-    public function redirect_whatsapp($region, $id){
+    public function redirect_whatsapp($lang, $region, $id){
         $data['offer'] = Offers::find($id);
         ClicksCounter::hitCount('5', $data['offer']->retailer_id, $data['offer']->id, '2');
         //dd($data);
@@ -232,7 +232,7 @@ class ListingController extends Controller
 
 
 
-    public function redeem_pdf($region, $id){
+    public function redeem_pdf($lang, $region, $id){
 
         $data['qrid'] = base64_decode($id);
         $data['qrcode'] = OfferQrCode::find($data['qrid']);
@@ -246,14 +246,14 @@ class ListingController extends Controller
     }
 
 
-    public function generate_qrcode($region, $slug, $id){
+    public function generate_qrcode($lang, $region, $slug, $id){
         $data['retailer'] = Retailers::where('slug', $slug)->first();
         $data['qrcode'] = OfferQrCode::find(base64_decode($id));
         //dd(base64_decode($id));
         return view('web.listing.modal.verify')->with($data);
     }
 
-    public function qrcode_markasused($id){
+    public function qrcode_markasused($lang, $region, $id){
         $qr = OfferQrCode::find(base64_decode($id));
         $qr->status = '1';
         $qr->save();

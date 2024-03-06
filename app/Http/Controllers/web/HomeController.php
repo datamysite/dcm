@@ -27,13 +27,21 @@ class HomeController extends Controller
         return view('web.index')->with($data);
     }
 
-    public function search($region, $value){
-        $re = Retailers::where('name', 'like', '%'.$value.'%')->limit(6)->get();
+    public function search($lang,$region, $value){
+        $re = Retailers::when(app()->getLocale() == 'en', function($q) use ($value){
+                            $q->where('name', 'like', '%'.$value.'%');
+                        })
+                        ->when(app()->getLocale() == 'ar', function($q) use ($value){
+                            $q->where('name_ar', 'like', '%'.$value.'%');
+                        })
+                        ->limit(6)->get();
         $html = '';
         foreach ($re as $key => $val) {
+            $na = app()->getLocale() == 'ar' ? $val->name_ar : $val->name;
+            $lo = app()->getLocale() == 'ar' ? $val->ar_logo : $val->logo;
             $html .= '<a href="'.route('brand', [$region, $val->slug]).'" class="main-search-result-item">
-                              <img src="'.URL::to('public/storage/retailers/'.$val->logo).'" height="40px">
-                              | '.$val->name.'
+                              <img src="'.URL::to('public/storage/retailers/'.$lo).'" height="40px">
+                              | '.$na.'
                            </a>';
         }
 

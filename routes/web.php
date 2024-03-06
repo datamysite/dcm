@@ -40,11 +40,18 @@ Route::get('/optimize', function(){
 
 // Website
     
-    Route::get('/', 'web\RegionController@index');
-    Route::get('/region/{name}', 'web\RegionController@set_region')->name('setRegion');
+    Route::get('/', 'web\RegionController@get_lang');
 
     //Region
-    Route::namespace('web')->group(function () {
+    Route::group([
+                'namespace' => 'web',
+                'prefix' => '{locale}',
+                'where' => ['locale' => '[a-zA-Z]{2}'],
+                'middleware' => 'setLocale',
+
+            ], function () {
+        Route::get('/', 'RegionController@index');
+        Route::get('/region/{name}', 'RegionController@set_region')->name('setRegion');
 
         Route::prefix('{region}')->group(function(){
             //Home
@@ -79,7 +86,7 @@ Route::get('/optimize', function(){
             });
 
             //Blogs
-            Route::prefix('blogs')->group(function(){
+            Route::prefix('blogs')->middleware('BlogAccess')->group(function(){
 
                 Route::get('/', 'BlogController@index')->name('Blogs');
          

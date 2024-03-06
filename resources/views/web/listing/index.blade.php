@@ -11,9 +11,9 @@
             <!-- breadcrumb -->
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
-                  <li class="breadcrumb-item"><a href="javascript:void(0)" style="color: #000;"><strong>All Stores</strong></a></li>
-                  <li class="breadcrumb-item active" aria-current="page"><strong>{{$type}}</strong></li>
+                  <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                  <li class="breadcrumb-item"><a href="javascript:void(0)" style="color: #000;"><strong>{{ __('translation.All_Stores') }}</strong></a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.'.$type) }}</strong></li>
                </ol>
             </nav>
          </div>
@@ -27,7 +27,7 @@
       <!-- container -->
       <div class="container np-container">
          <div class="row col-lg-3 col-md-4 mb-6 mb-md-0" style="border-radius:10px;">
-            <h5 class="mb-1">FILTERS</h5>
+            <h5 class="mb-1">{{ __('translation.FILTERS') }}</h5>
          </div>
          <!-- row -->
          <div class="row gx-10">
@@ -37,7 +37,7 @@
                   <div class="offcanvas offcanvas-start offcanvas-collapse w-md-50" tabindex="-1" id="offcanvasCategory" aria-labelledby="offcanvasCategoryLabel">
 
                      <div class="offcanvas-header d-lg-none">
-                        <h5 class="offcanvas-title" id="offcanvasCategoryLabel">Filter</h5>
+                        <h5 class="offcanvas-title" id="offcanvasCategoryLabel">{{ __('translation.FILTERS') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                      </div>
 
@@ -46,7 +46,7 @@
                         @if(empty($type) || $type == 'online' || $type == 'retail')
                            <div class="mb-8">
                               <!-- title -->
-                              <h5 class="mb-3">Store</h5>
+                              <h5 class="mb-3">{{ __('translation.Store') }}</h5>
                               <!-- nav -->
                               <ul class="nav nav-category" id="">
 
@@ -56,7 +56,7 @@
                                     <div class="form-check mb-2">
                                        <!-- input -->
                                        <input class="form-check-input" type="radio" id="type1" {{!empty($type) && $type == 'online' ? 'checked' : 'disabled'}}/>
-                                       <label class="form-check-label" for="type">Online</label>
+                                       <label class="form-check-label" for="type">{{ __('translation.Online') }}</label>
                                     </div>
                                     <!-- accordion collapse -->
                                  </li>
@@ -65,7 +65,7 @@
                                     <div class="form-check mb-2">
                                        <!-- input -->
                                        <input class="form-check-input" type="radio" id="type2" {{!empty($type) && $type == 'retail' ? 'checked' : 'disabled'}} {{empty($type) ? 'checked' : ''}}/>
-                                       <label class="form-check-label" for="type2">Retail</label>
+                                       <label class="form-check-label" for="type2">{{ __('translation.Retail') }}</label>
                                     </div>
                                     <!-- accordion collapse -->
                                  </li>
@@ -76,7 +76,7 @@
                         
                         <div class="mb-8">
                            <!-- title -->
-                           <h5 class="mb-3">Categories</h5>
+                           <h5 class="mb-3">{{ __('translation.Categories') }}</h5>
                            <!-- nav -->
                            <ul class="nav nav-category" id="categoryCollapseMenu">
                               @foreach($categories_f as $val)
@@ -91,7 +91,7 @@
                                  @endphp
                                  <li class="nav-item border-bottom w-100">
                                     <a href="{{$url}}" class="nav-link collapsed">
-                                       {{$val->name}}
+                                       {{ app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}
                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                                           <path fill="currentColor" fill-rule="evenodd" d="M12 16a4 4 0 1 0 0-8a4 4 0 0 0 0 8m0 6C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-18h2v2h-2zm6 5h2v2h-2zM5 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4-7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m8 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m2 7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4 2h2v2h-2zm-4 3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-5-4h2v2H6zM5 8h2v2H5z" />
                                        </svg>
@@ -104,7 +104,7 @@
                         @if(empty($type) || $type == 'online' || $type == 'retail')
                            <div class="mb-8">
                               <!-- title -->
-                              <h5 class="mb-3">Discount Off</h5>
+                              <h5 class="mb-3">{{ __('translation.Discount') }}</h5>
                               <!-- nav -->
                               <ul class="nav nav-category" id="">
 
@@ -112,7 +112,7 @@
                                     <div class="form-check mb-2">
                                        <!-- input -->
                                        <input class="form-check-input" type="radio" value="10" name="discount" id="discount1" {{!empty($_GET['discount']) && $_GET['discount'] == '10' ? 'checked' : ''}}/>
-                                       <label class="form-check-label" for="discount1">Upto 10%</label>
+                                       <label class="form-check-label" for="discount1">{{ __('translation.Up_to_10') }}</label>
                                     </div>
                                     <!-- accordion collapse -->
                                  </li>
@@ -121,7 +121,7 @@
                                     <div class="form-check mb-2">
                                        <!-- input -->
                                        <input class="form-check-input" type="radio" value="15" name="discount" id="discount2" {{!empty($_GET['discount']) && $_GET['discount'] == '15' ? 'checked' : ''}} />
-                                       <label class="form-check-label" for="discount2">Upto 15%</label>
+                                       <label class="form-check-label" for="discount2">{{ __('translation.Up_to_15') }}</label>
                                     </div>
                                     <!-- accordion collapse -->
                                  </li>
@@ -133,7 +133,7 @@
                            @if(!empty($category->id) && ($category->id == '2' || $category->id == '3' || $category->id == '10'))
                               <div class="mb-8">
                                  <!-- title -->
-                                 <h5 class="mb-3">Gender</h5>
+                                 <h5 class="mb-3">{{ __('translation.Gender') }}</h5>
                                  <!-- nav -->
                                  <ul class="nav nav-category" id="">
 
@@ -141,7 +141,7 @@
                                        <div class="form-check mb-2">
                                           <!-- input -->
                                           <input class="form-check-input" type="radio" value="male" name="g" id="gender1" {{!empty($_GET['g']) && $_GET['g'] == 'male' ? 'checked' : ''}}/>
-                                          <label class="form-check-label" for="gender1">Male</label>
+                                          <label class="form-check-label" for="gender1">{{ __('translation.Male') }}</label>
                                        </div>
                                        <!-- accordion collapse -->
                                     </li>
@@ -150,7 +150,7 @@
                                        <div class="form-check mb-2">
                                           <!-- input -->
                                           <input class="form-check-input" type="radio" value="female" name="g" id="gender1" {{!empty($_GET['g']) && $_GET['g'] == 'female' ? 'checked' : ''}}/>
-                                          <label class="form-check-label" for="gender1">Female</label>
+                                          <label class="form-check-label" for="gender1">{{ __('translation.Female') }}</label>
                                        </div>
                                        <!-- accordion collapse -->
                                     </li>
@@ -163,7 +163,7 @@
                         @if(empty($type) || $type == 'online')
                         <div class="mb-8">
                            <!-- title -->
-                           <h5 class="mb-3">Location</h5>
+                           <h5 class="mb-3">{{ __('translation.Location') }}</h5>
                            <!-- nav -->
                            <ul class="nav nav-category" id="">
                               @foreach($countries_f as $val)
@@ -171,7 +171,7 @@
                                     <div class="form-check mb-2">
                                        <!-- input -->
                                        <input class="form-check-input" type="radio" name="country" value="{{$val->id}}" id="countries{{$val->id}}" {{!empty($_GET['country']) && $_GET['country'] == $val->id ? 'checked' : ''}} {{empty($_GET['country']) && $val->id == '1' ? 'checked' : ''}}/>
-                                       <label class="form-check-label" for="countries{{$val->id}}">{{$val->name}}</label>
+                                       <label class="form-check-label" for="countries{{$val->id}}">{{ app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</label>
                                     </div>
                                     <!-- accordion collapse -->
                                  </li>
@@ -184,7 +184,7 @@
                         @if(!empty($type) && $type == 'retail')
                         <div class="mb-8">
                            <!-- title -->
-                           <h5 class="mb-3">Location</h5>
+                           <h5 class="mb-3">{{ __('translation.Location') }}</h5>
                            <!-- nav -->
                            <ul class="nav nav-category" id="">
                               @foreach($states_f as $val)
@@ -192,7 +192,7 @@
                                     <div class="form-check mb-2">
                                        <!-- input -->
                                        <input class="form-check-input" type="radio" name="state" value="{{$val->id}}" id="states{{$val->id}}" {{!empty($_GET['state']) && $_GET['state'] == $val->id ? 'checked' : ''}}/>
-                                       <label class="form-check-label" for="states{{$val->id}}">{{$val->name}}</label>
+                                       <label class="form-check-label" for="states{{$val->id}}">{{ app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</label>
                                     </div>
                                     <!-- accordion collapse -->
                                  </li>
@@ -204,7 +204,7 @@
 
 
                         <div class="text-center">
-                           <button type="submit" class="btn btn-white btn-sm">Apply Changes</button>
+                           <button type="submit" class="btn btn-white btn-sm">{{ __('translation.Apply_Changes') }}</button>
                         </div>
 
                      </div>
@@ -218,7 +218,7 @@
                @if(count($retailers) != 0)
                   <!-- list icon -->
 
-                  <div class="d-lg-flex justify-content-between align-items-center">
+                  <div class="d-lg-flex {{app()->getlocale() == 'ar' ? 'justify-content-end' : 'justify-content-end' }} align-items-center">
 
                      {{ $retailers->links('vendor.pagination.label') }}
                      
@@ -232,7 +232,7 @@
                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter me-2">
                                     <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
                                  </svg>
-                                 Filters
+                                 {{ __('translation.FILTERS') }}
                               </a>
                            </div>
                         </div>
@@ -273,10 +273,10 @@
                               <div class="card-body">
                                  <!-- badge -->
                                  <div class="text-center position-relative py-1 mb-3 box">
-                                    <div class="ribbon-2"><span>Discount Upto</span> {{$val->discount_upto}}%</div>
+                                    <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
                                     <a href="{{route('brand', [$region, $val->slug])}}">
                                        <!-- img -->
-                                       <img src="{{URL::to('/public/storage/retailers/'.$val->logo)}}" alt="" class="mb-5 img-fluid" />
+                                       <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="" class="mb-5 img-fluid" />
                                     </a>
                                  </div>
                               </div>
