@@ -58,7 +58,7 @@ class Kernel extends HttpKernel
         'adminAuth' => \App\Http\Middleware\adminAuth::class,
         'sellerAuth' => \App\Http\Middleware\sellerAuth::class,
         'userAuth' => \App\Http\Middleware\userAuth::class,
-        'setLocale' => \App\Http\Middleware\setLocale::class,
+        'setLocale' => \App\Http\Middleware\SetLocale::class,
         'BlogAccess' => \App\Http\Middleware\BlogAccess::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
