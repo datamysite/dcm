@@ -16,7 +16,6 @@
 @else
 	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min.css" />
 @endif
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
 
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
