@@ -168,6 +168,7 @@ $(document).ready(function() {
           }, 1000);
 
       }).fail(function(e){
+        $('.lead-loader').css({display: 'none'});
         for (const [key, value] of Object.entries(e.responseJSON.errors)) {
             $('.'+key+'_error').css({display: 'flex'}).html(value);
         }
