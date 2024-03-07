@@ -36,7 +36,10 @@ class ViewServiceProvider extends ServiceProvider
             $data['bodySnippet'] = SnippetCode::where('position', 'Body')->get();
             $data['allstates'] = States::where('country_id', '1')->orderBy('name', 'asc')->get();
 
-            $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            $actual_link = '';
+            if(isset($_SERVER['HTTP_HOST']) && !empty($_SERVER['HTTP_HOST'])){
+                $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            }
             $data['metaTags'] = MetaTags::where('url', $actual_link)->first();
 
             if ((function_exists('session_status') 

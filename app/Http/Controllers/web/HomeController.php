@@ -11,7 +11,7 @@ use App\Helpers\Mailer;
 
 class HomeController extends Controller
 {
-    public function index($region)
+    public function index($lang, $region)
     {   
         $data['categories'] = Categories::where('parent_id', 0)->get();
         $data['allstores'] = Retailers::inRandomOrder()->where('status', '1')->limit(6)->get();
