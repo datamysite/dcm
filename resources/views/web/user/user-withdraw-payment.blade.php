@@ -11,9 +11,9 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
-                        <li class="breadcrumb-item"><a href="{{route('user.profile')}}" style="color: #000;"><strong>Profile</strong></a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>Withdraw Payment</a></strong></li>
+                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('user.profile')}}" style="color: #000;"><strong>{{ __('translation.Profile') }}</strong></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{ __('translation.with_draw_menu') }}</a></strong></li>
                     </ol>
                 </nav>
             </div>
@@ -35,14 +35,14 @@
             <div class="col-lg-8 m-1">
 
                 <div class="row" style="background-color: #f0f3f2;border-radius: 10px">
-                    <h4 class="mb-2 mt-5">WITHDRAW PAYMENT</h4>
-                    <p class="mb-0 lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p class="mb-0 lead"> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                        It was popularised in the 1960s with the release...</p>
+                    <h4 class="mb-2 mt-5">{{ __('translation.total_earnings_txt_heading_02') }} </h4>
+                    <p class="mb-0 lead">
+                        {{ __('translation.total_earnings_txt_heading_02_txt') }}
+                    </p>
 
 
                     <div class="mt-5">
-                        <h6>Your Total Earnings</h6>
+                        <h6>{{ __('translation.total_earnings') }}</h6>
                     </div>
                     <!-- col -->
                     <div class="col-6">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <input type="submit" name="user-withdraw" class="btn btn-primary shadow-gray" style="float: right;" value="WITHDRAW">
+                        <input type="submit" name="user-withdraw" class="btn btn-primary shadow-gray" {!! app()->getLocale() == 'ar' ? 'style="float: left;"' : 'style="float: right;"' !!} value="{{ __('translation.withdraw_btn') }}">
                     </div>
                     <p></p>
                 </div>
@@ -64,12 +64,12 @@
                             <!-- Table Head -->
                             <thead class="bg-light">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Account Details</th>
-                                    <th>Contact Number</th>
-                                    <th>Account Requested</th>
-                                    <th>Status</th>
-                                    <th>Date</th>
+                                    <th>{{ __('translation.id_txt') }}</th>
+                                    <th>{{ __('translation.account_details_txt') }}</th>
+                                    <th>{{ __('translation.contact_number_txt') }}</th>
+                                    <th>{{ __('translation.account_requested_txt') }}</th>
+                                    <th>{{ __('translation.status_txt') }}</th>
+                                    <th>{{ __('translation.date_txt') }}</th>
 
                                 </tr>
                             </thead>
@@ -77,7 +77,7 @@
                                 <!-- Table body -->
                                 <tr>
 
-                                    <td colspan="6" class="align-middle border-top-0">No Data Found.</td>
+                                    <td colspan="6" class="align-middle border-top-0">{{ __('translation.no_data_found') }}</td>
                                 </tr>
 
                             </tbody>

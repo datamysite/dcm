@@ -273,6 +273,67 @@ return [
   "dcm_wlc_back_txt" => "للبقاء على تواصل معنا يرجى تسجيل الدخول بمعلوماتك الشخصية",
   "dcm_name_txt" => "الأسم",
 
+  //User Navbar//
+  "menu" => "القائمة",
+  "claim_cashback_menu" => "إسترد نقودك",
+  "payment_history_menu" => "سجل الدفعيات",
+  "with_draw_menu" => "السحب النقدي",
+  "referral_earn_menu" => "الأرباح",
+  "settings_menu" => "الإعدادت",
+  "logout_menu" => "تسجيل خروج",
 
+  //User Profile
+  "total_earnings" => "الأرباح الكلية",
+  "total_earnings_txt_01" => "ستظهر الأرباح هنا بعد تقديم فاتورة التسوق الخاصة بك ضمن الحساب الخاص بك.",
+  "total_earnings_txt_02" => "أحصل علي أرباحك",
+  "total_earnings_txt_heading_01" => "سجل الدفع",
+  "total_earnings_txt_heading_01_txt" => "أكتب المحتوي هنا",
+  "total_earnings_txt_heading_02" => "السحب النقدي",
+  "total_earnings_txt_heading_02_txt" => "أكتب المحتوي هنا",
+  "total_earnings_txt_heading_03" => "إسترد نقودك",
+  "total_earnings_txt_heading_03_txt" => "أكتب المحتوي هنا",
+  "view_more_btn_txt" => "إعرض المزيد",
+
+  "cash_back_txt" => "أكتب المحتوي هنا",
+  "upload_invoice_txt" => "إرفق الفاتورة هنا",
+  "upload_btn" => "إرفق الفاتورة",
+  "withdraw_btn" => "إسترد نقودك",
+  "no_data_found" => "لاتوجد بيانات",
+  "number_txt" => "رقم الفاتورة",
+  "invoice_txt" => "الفواتير",
+  "status_txt" => "الحالة",
+  "date_txt" => "التاريخ",
+  "id_txt" => "#",
+  "account_details_txt" => "تفاصيل الحساب",
+  "contact_number_txt" => "رقم هاتف",
+  "account_requested_txt" => "طلب الحساب",
+
+  //User Settings Menu
+  "user_settings_txt" => "الإعدادات",
+  "user_personal_details_txt" => "تفاصيل الحساب",
+  "user_change_pass_txt" => "غير كلمة المرور",
+  "user_form_txt_01" => "إسمك",
+  "user_form_txt_02" => "رقم الهاتف",
+  "user_form_txt_03" => "بريدك الإلأكتروني",
+  "user_form_txt_05" => "تلقي بريد إلكتروني عندما تحصل علي أرباح",
+  "user_form_txt_06" => "كلمة المرور الحالية",
+  "user_form_txt_07" => "كلمة المرور الجديدة",
+  "user_form_txt_08" => "إعادة كتابة كلمة المرور الجديدة",
+  "save_changes_btn_txt" => "إحفظ",
+
+
+  //Referral & Earn
+  "referral_txt_01" => "رابط الإحالة الفريد الخاص بك",
+  "referral_txt_02" => "كيفية إستخدام الرابط؟",
+  "referral_txt_03" => "أكتب المحتوي هنا",
+  "referral_copy_link_btn" => "إنسح الرابط",
+  "referral_txt_04" => "دعوة بواسطة البريد الإلكتروني",
+  "referral_txt_05" => "كيفية إستخدام الرابط؟",
+  "referral_txt_06" => "أكتب المحتوي هنا",
+  "referral_email_txt" => "أدخل بريدك الإلكتروني هنا",
+  "referral_txt_07" => "أرسل الدعوة",
+  "referral_txt_08" => "الدعوة عبر وسائل التواصل الاجتماعي",
+  "referral_txt_09" => "كيفية إستخدام الرابط؟",
+  "referral_txt_10" => "أكتب المحتوي هنا",
 
 ];

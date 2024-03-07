@@ -13,9 +13,9 @@
                     <!-- breadcrumb -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
-                            <li class="breadcrumb-item"><a href="{{route('user.profile')}}" style="color: #000;"><strong>Profile</strong></a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>Claim Cashback</a></strong></li>
+                            <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                            <li class="breadcrumb-item"><a href="{{route('user.profile')}}" style="color: #000;"><strong>{{ __('translation.Profile') }} </strong></a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{ __('translation.total_earnings_txt_heading_03') }}</a></strong></li>
                         </ol>
                     </nav>
                 </div>
@@ -39,15 +39,15 @@
                 <div class="col-lg-8 m-1">
 
                     <div class="row" style="background-color: #f0f3f2;border-radius: 10px">
-                        <h4 class="mb-2 mt-5">CLAIM CASHBACK</h4>
-                        <p class="mb-0 lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <p class="mb-0 lead"> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-                            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <h4 class="mb-2 mt-5">{{ __('translation.total_earnings_txt_heading_03') }}</h4>
+
+                    <p class="mb-0 lead">{{ __('translation.cash_back_txt') }} </p>
 
 
-                        <div class="mt-5">
-                            <h6>Upload Invoice File</h6>
-                        </div>
+
+                    <div class="mt-5">
+                        <h6>{{ __('translation.upload_invoice_txt') }} </h6>
+                    </div>
                         <form id="cashback_form" action="{{route('user.claimCashback.request')}}">
                             @csrf
                             <!-- col -->
@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" style="float: right;" value="UPLOAD">
+                                <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" {!! app()->getLocale() == 'ar' ? 'style="float: left;"' : 'style="float: right;"' !!} value="{{ __('translation.upload_btn') }}">
                             </div>
                         </form>
                     </div>
@@ -70,10 +70,11 @@
                                 <!-- Table Head -->
                                 <thead class="bg-light">
                                     <tr>
-                                        <th>Numbers</th>
-                                        <th>Inovices</th>
-                                        <th>Status</th>
-                                        <th>Date</th>
+                                        <th>{{ __('translation.id_txt') }}</th>
+                                        <th>{{ __('translation.number_txt') }}</th>
+                                        <th>{{ __('translation.invoice_txt') }}</th>
+                                        <th>{{ __('translation.status_txt') }}</th>
+                                        <th>{{ __('translation.date_txt') }}</th>
 
                                     </tr>
                                 </thead>
@@ -103,7 +104,7 @@
                                     @endforeach
                                     @if(count($requests) == 0)
                                         <tr>
-                                            <td colspan="4">No Data Found.</td>
+                                            <td colspan="4">{{ __('translation.no_data_found') }}</td>
                                         </tr>
                                     @endif
                                     

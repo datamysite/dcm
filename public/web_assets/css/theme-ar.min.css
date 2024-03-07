@@ -26266,7 +26266,8 @@ span.flatpickr-weekday {
 
 }
 .slick-list {
-    direction: ltr;
+    direction: rtl;
+    text-align: right;
 }
 
 .custom_arrow-button {

@@ -4,43 +4,30 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Commands
 |--------------------------------------------------------------------------
 |
 */
+
 // Update Sitemap
 Route::get('/update-sitemap', function () {
     Artisan::call('app:generate-sitemap');
     dd('Sitemap Updated!');
 });
 
-//Migration
 
+//Migration
 Route::get('/migrate', function () {
     Artisan::call('migrate');
     dd('migrated!');
 });
-// Route::get('/seeder', function () {
-//     Artisan::call('db:seed');
-//     dd('Seeded!');
-// });
 
-/*Route::get('/clear-cache', function(){
-    Artisan::call('route:cache');
-    Artisan::call('route:clear');
-    Artisan::call('config:cache');
-    Artisan::call('config:clear');
-
-    dd('Cache Cleared ..!');
-    
-});
-
-Route::get('/optimize', function(){
-    Artisan::call('optimize');
-
-    dd('optimized ..!');
-    
-});*/
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+*/
 
 
 // Website

@@ -3,7 +3,7 @@
         <div class="text-center" style="background-color: #f0f3f2;border-radius: 10px">
             <div class="mt-5">
                 <!-- heading -->
-                <h6>PROFILE</h6>
+                <h6>{{ __('translation.Profile') }}</h6>
             </div>
 
             <div class="row">
@@ -34,17 +34,17 @@
                                 <rect x="3" y="14" width="7" height="7"></rect>
                             </svg>
                         </span>
-                        Menu 
+                        {{ __('translation.menu') }}
                     </a>
                     <div class="collapse mt-2" id="collapseExample">
                         <div class="card card-body">
                             <ul class="mb-0 list-unstyled">
-                                <li><a class="dropdown-item" href="{{route('user.claimCashback')}}">Claim Cashback</a></li>
-                                <li><a class="dropdown-item" href="{{route('user.paymenyHistory')}}">Payment History</a></li>
-                              <!--   <li><a class="dropdown-item" href="{{route('user.referralEarn')}}">Refer & Earn</a></li> -->
-                                <li><a class="dropdown-item" href="{{route('user.withdrawPayment')}}">Withdraw Payment</a></li>
-                                <li><a class="dropdown-item" href="{{route('user.settings')}}">Settings</a></li>
-                                <li><a class="dropdown-item" href="{{route('user.logout')}}">Log Out</a></li>
+                                <li><a class="dropdown-item" href="{{route('user.claimCashback')}}">{{ __('translation.claim_cashback_menu') }}</a></li>
+                                <li><a class="dropdown-item" href="{{route('user.paymenyHistory')}}">{{ __('translation.payment_history_menu') }}</a></li>
+                              <!--   <li><a class="dropdown-item" href="{{route('user.referralEarn')}}">{{ __('translation.referral_earn_menu') }}</a></li> -->
+                                <li><a class="dropdown-item" href="{{route('user.withdrawPayment')}}">{{ __('translation.with_draw_menu') }}</a></li>
+                                <li><a class="dropdown-item" href="{{route('user.settings')}}">{{ __('translation.settings_menu') }}</a></li>
+                                <li><a class="dropdown-item" href="{{route('user.logout')}}">{{ __('translation.logout_menu') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -57,12 +57,12 @@
                 <div class="row">
                     <div class="nav nav-category" id="categoryCollapseMenu">
                         <ul>
-                            <li class="nav-item border-bottom w-100"><a href="{{route('user.claimCashback')}}" class="nav-link collapsed">Claim Cashback</a></li>
-                            <li class="nav-item border-bottom"><a href="{{route('user.paymenyHistory')}}" class="nav-link collapsed">Payment History</a></li>
-                            <!-- <li class="nav-item border-bottom"><a href="{{route('user.referralEarn')}}" class="nav-link collapsed">Refer & Earn</a></li> -->
-                            <li class="nav-item border-bottom"><a href="{{route('user.withdrawPayment')}}" class="nav-link collapsed">Withdraw Payment</a></li>
-                            <li class="nav-item border-bottom"><a href="{{route('user.settings')}}" class="nav-link collapsed">Settings</a></li>
-                            <li class="nav-item border-bottom"><a href="{{route('user.logout')}}" class="nav-link collapsed"><b>Log Out</b></a></li>
+                            <li class="nav-item border-bottom w-100"><a href="{{route('user.claimCashback')}}" class="nav-link collapsed">{{ __('translation.claim_cashback_menu') }}</a></li>
+                            <li class="nav-item border-bottom"><a href="{{route('user.paymenyHistory')}}" class="nav-link collapsed">{{ __('translation.payment_history_menu') }}</a></li>
+                            <!-- <li class="nav-item border-bottom"><a href="{{route('user.referralEarn')}}" class="nav-link collapsed">{{ __('translation.referral_earn_menu') }}</a></li> -->
+                            <li class="nav-item border-bottom"><a href="{{route('user.withdrawPayment')}}" class="nav-link collapsed">{{ __('translation.with_draw_menu') }}</a></li>
+                            <li class="nav-item border-bottom"><a href="{{route('user.settings')}}" class="nav-link collapsed">{{ __('translation.settings_menu') }}</a></li>
+                            <li class="nav-item border-bottom"><a href="{{route('user.logout')}}" class="nav-link collapsed"><b>{{ __('translation.logout_menu') }}</b></a></li>
                         </ul>
                     </div>
                 </div>

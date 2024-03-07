@@ -57,11 +57,11 @@ class UserController extends Controller
     }
 
 
-    public function logout(){
+    public function logout($lang){
 
         Auth::logout();
 
-        return redirect()->back();
+        return redirect('/'.$lang);
     }
 
 
