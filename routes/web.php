@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 */
+// Update Sitemap
+Route::get('/update-sitemap', function () {
+    Artisan::call('app:generate-sitemap');
+    dd('Sitemap Updated!');
+});
 
 //Migration
 
