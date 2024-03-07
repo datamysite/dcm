@@ -26,6 +26,10 @@
         margin: 1rem 0;
         opacity: 1;
     }
+    main {
+        width: 100%;
+        overflow: hidden;
+    }
 
     .h1,
     .h2,
@@ -81,6 +85,10 @@
         .container-md,
         .container-sm {
             max-width: 720px;
+        }
+        .dcm_banner {
+            width: 92%;
+            height: 190px;
         }
     }
 
@@ -500,6 +508,26 @@
     width: 100%;
   }
 
+
+
+@media (max-width: 996px) {
+    .dcm_banner {
+        width: 92%;
+        height: 190px;
+    }
+    .dcm_banner .mt-5 img {
+        height: 125px;
+        width: auto !important;
+    }
+    .col-12 {
+        padding: 0 !important;
+        width: 92% !important;
+    }
+    .vision-div {
+        padding: 0 !important;
+    }
+}
+
 </style>
 
 
@@ -530,50 +558,45 @@
             <div class="container">
                 <!-- row -->
                 <div class="row mt-10">
-                    <!-- col -->
-                    <div class="col-lg-12 col-12">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="mb-0">
-                                    <!-- heading -->
-                                    <h2 style="text-align: center; color:#00C5FF">Welcome</h2>
-                                </div>
-                                <p class="mb-0" style="font-size: larger;">
-                                <h5 style="text-align: center; color:#00C5FF">To Deals and Coupons Mena</h5>
-                                </p>
-                                <p class="mb-0" style="font-size: larger;">
-                                <h4 style="text-align: center; color:#00C5FF">Dear, <strong>{{$first_name.' '.$last_name}}</strong></h4>
-                                </p>
-                                <p class="text-center mt-5">Welcome to Deals and Coupons MENA!
-                                    We are thrilled to have you on board as a valued business partner, and we look forward to helping you unlock significant savings for your enterprise.</p>
+                    <div class="col-12">
+                        <div class="mb-0">
+                            <!-- heading -->
+                            <h2 style="text-align: center; color:#00C5FF">Welcome</h2>
+                        </div>
+                        <p class="mb-0" style="font-size: larger;">
+                        <h5 style="text-align: center; color:#00C5FF">To Deals and Coupons Mena</h5>
+                        </p>
+                        <p class="mb-0" style="font-size: larger;">
+                        <h4 style="text-align: center; color:#00C5FF">Dear, <strong>{{$first_name.' '.$last_name}}</strong></h4>
+                        </p>
+                        <p class="text-center mt-5">Welcome to Deals and Coupons MENA!
+                            We are thrilled to have you on board as a valued business partner, and we look forward to helping you unlock significant savings for your enterprise.</p>
 
-                                <h5 class="text-center mt-5" style="color: #00c5ff;">Acknowledgment of Partnership</h5>
+                        <h5 class="text-center mt-5" style="color: #00c5ff;">Acknowledgment of Partnership</h5>
 
-                                <div class="row mt-5" style="padding-left: 100px;">
+                        <div class="row mt-5 vision-div" style="padding-left: 100px;">
 
-                                    <li> <strong>Our Shared Vision: </strong></li>
+                            <li> <strong>Our Shared Vision: </strong></li>
 
-                                    <p>In joining forces, we embark on a journey towards shared success and prosperity. Your commitment to excellence aligns seamlessly with our mission at Deals and Coupons MENA. Together,
-                                        we are poised to redefine the landscape of savings and value for businesses across the MENA region.</p>
+                            <p>In joining forces, we embark on a journey towards shared success and prosperity. Your commitment to excellence aligns seamlessly with our mission at Deals and Coupons MENA. Together,
+                                we are poised to redefine the landscape of savings and value for businesses across the MENA region.</p>
 
-                                    <li><strong>What This Partnership Means: </strong></li>
-                                    <p>
-                                        This partnership signifies not just a collaboration but a synergy of strengths. By leveraging our expertise in delivering exclusive B2B deals and your unique contributions, we are confident in creating unparalleled opportunities for savings and growth.
+                            <li><strong>What This Partnership Means: </strong></li>
+                            <p>
+                                This partnership signifies not just a collaboration but a synergy of strengths. By leveraging our expertise in delivering exclusive B2B deals and your unique contributions, we are confident in creating unparalleled opportunities for savings and growth.
 
-                                    </p>
+                            </p>
 
-                                    <li><strong>Dedicated Support: </strong></li>
-                                    <p>
-                                        Dedicated Support: As a valued partner, you have been assigned a dedicated account manager, [Account Manager’s Name], who will be your point of contact for any queries, requests, or assistance you may require throughout our journey together.
-                                    </p>
+                            <li><strong>Dedicated Support: </strong></li>
+                            <p>
+                                Dedicated Support: As a valued partner, you have been assigned a dedicated account manager, [Account Manager’s Name], who will be your point of contact for any queries, requests, or assistance you may require throughout our journey together.
+                            </p>
 
-                                </div>
+                        </div>
 
-                                <div class="row mt-5" style="justify-content: center;">
-                                    <div class="my-button-container">
-                                        <div class="row justify-content-center">
-                                        </div>
-                                    </div>
+                        <div class="row mt-5" style="justify-content: center;">
+                            <div class="my-button-container">
+                                <div class="row justify-content-center">
                                 </div>
                             </div>
                         </div>
@@ -588,8 +611,8 @@
                         </div>
                     </div>
               
-                    <div class="col-md-12">
-                        <ul class="list-inline mb-0 small mt-3 mt-md-0" style="text-align:center;">
+                    <div class="col-md-12 text-center">
+                        <ul class="list-inline mb-0 small mt-3 mt-md-0" style="text-align:center; width: 85%;">
 
                             <li class="list-inline-item me-1">
                                 <a href="#!" class="btn btn-xs btn-social btn-icon">
@@ -620,15 +643,15 @@
          
                 </div>
 
-                <div class="row mt-5">
-                    <hr style=" height: 1px; background-color: black;   border: none;margin: 10px 0;">
+                <div class="row mt-5" style="padding-right: 40px;">
+                    <hr style=" height: 1px; background-color: black;   border: none;margin: 10px 0; width: 93%;">
 
                     <p class="text-center">
                         You are receiving this email as you're registered on <a href="https://dealsandcouponsmena.com/" target="_blank" style="color: #00C5FF;">dealsandcouponsmena.com</a><br>
 
                     </p>
                     <p class="mt-0 text-center">
-                        <a href="  https://dealsandcouponsmena.com/dubai/privacy-policy" style="color: #00C5FF;">Privacy Policy</a> | <a href="  https://dealsandcouponsmena.com/dubai/terms" style="color: #00C5FF;">Terms & Conditions</a> | <a href="  https://dealsandcouponsmena.com/dubai/faqs" style="color: #00C5FF;">FAQ</a>
+                        <a href="  https://dealsandcouponsmena.com/en/dubai/privacy-policy" style="color: #00C5FF;">Privacy Policy</a> | <a href="  https://dealsandcouponsmena.com/en/dubai/terms" style="color: #00C5FF;">Terms & Conditions</a> | <a href="  https://dealsandcouponsmena.com/en/dubai/faqs" style="color: #00C5FF;">FAQ</a>
                     </p>
                     <p class="text-center">
                         ©
