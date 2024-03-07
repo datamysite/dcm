@@ -9,7 +9,7 @@ return [
   "Offline" => "Offline",
   "online" => "Online",
   "offline" => "Offline",
-  "All_Stores" => "Stores All",
+  "All_Stores" => "All Stores",
   "Categories" => "Categories",
   "About_Us" => "About Us",
   "Search" => "Search...",
