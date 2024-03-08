@@ -13,19 +13,47 @@ class HomeController extends Controller
 {
     public function index($lang, $region)
     {   
-        $data['categories'] = Categories::where('parent_id', 0)->get();
-        $data['allstores'] = Retailers::inRandomOrder()->where('status', '1')->limit(6)->get();
-        $data['retailstores'] = Retailers::inRandomOrder()->where('type', '2')
+
+        return view('web.index');
+    }
+
+    // Home lazy load
+
+        public function get_categories($lang, $region){   
+            $data['categories'] = Categories::where('parent_id', 0)->get();
+
+            return view('web.content.lazyload.home.getCategories')->with($data);
+        } 
+
+        public function get_online_store($lang, $region){   
+            $data['onlinestores'] = Retailers::where('type', '1')->limit(10)->get();
+
+            return view('web.content.lazyload.home.getOnlineStores')->with($data);
+        } 
+
+        public function get_retail_store($lang, $region){   
+            $data['retailstores'] = Retailers::inRandomOrder()->where('type', '2')
                                             ->where('status', '1')
                                             ->whereHas('states', function($qq) use ($region){
                                                 return $qq->whereHas('state', function($qqq) use ($region){
                                                     return $qqq->where('slug', $region);
                                                 });
                                             })->limit(5)->get();
-        $data['onlinestores'] = Retailers::where('type', '1')->limit(10)->get();
 
-        return view('web.index')->with($data);
-    }
+            return view('web.content.lazyload.home.getRetailStores')->with($data);
+        } 
+
+        public function get_all_store($lang, $region){   
+            $data['allstores'] = Retailers::inRandomOrder()->where('status', '1')->limit(6)->get();
+
+            return view('web.content.lazyload.home.getAllStores')->with($data);
+        } 
+
+
+
+
+
+    // Home lazy load
 
     public function search($lang,$region, $value){
         $re = Retailers::when(app()->getLocale() == 'en', function($q) use ($value){

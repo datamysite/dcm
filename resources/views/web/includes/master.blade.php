@@ -5,6 +5,7 @@
    <!-- Required meta tags -->
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <meta name="home_url" content="{{route('home', [$region])}}">
    <title>{{@$metaTags->title}}</title>
    <meta content="keywords" name="{{@$metaTags->keywords}}" />
    <meta content="description" name="{{@$metaTags->description}}" />

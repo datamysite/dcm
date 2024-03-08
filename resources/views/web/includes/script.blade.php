@@ -5,7 +5,7 @@
 <!-- Theme JS -->
 <script src="{{URL::to('/public')}}/web_assets/js/theme.min.js"></script>
 <script src="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick.min.js"></script>
-<script src="{{URL::to('/public')}}/web_assets/js/vendors/slick-slider.js"></script>
+<script src="{{URL::to('/public')}}/web_assets/js/slider.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
 

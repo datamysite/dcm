@@ -1,5 +1,15 @@
 "use strict";
 !(function () {
+
+  $('.hero-slider').not('.slick-initialized').slick({
+        infinite: !0,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: !0,
+        dots: !0,
+        arrows: !1,
+    });
+
   var s = document.querySelector(".category-slider"),
     s =
       (s &&

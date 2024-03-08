@@ -942,8 +942,17 @@ label.errors {
     width: 60px;
     margin-left: -100px;
 }
-
-
+.lazyload-div {
+    height: 150px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.lazyload-div img {
+    width: 100px;
+}
 
 
 

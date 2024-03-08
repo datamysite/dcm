@@ -23864,6 +23864,7 @@ table tr:last-child td {
 .slick-slider .slick-list {
   margin-left: -0.5rem;
   margin-right: -0.5rem;
+  direction: ltr;
 }
 .slick-slider img {
   display: inline-block;
