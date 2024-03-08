@@ -234,11 +234,11 @@
                 style="background: url({{URL::to('/public/web_assets/images/emails')}}/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
 
                 <div class="row">
-                    <img class="w-15" src="img/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
+                    <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
                 </div>
 
                 <div class="row mt-5" style="justify-content: center;">
-                    <img src="img/pc.png" alt="DCM" style="width: 20%;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/pc.png" alt="DCM" style="width: 20%;">
                 </div>
             </div>
 
