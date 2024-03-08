@@ -19,6 +19,7 @@ class User extends Authenticatable
         $u = new User;
         $u->name = $data['name'];
         $u->email = $data['email'];
+        $u->email_otp = random_int(100000, 999999);
         $u->password = bcrypt($data['password']);
         $u->save();
 

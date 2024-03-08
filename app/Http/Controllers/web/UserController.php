@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\CashbackRequests;
+use App\Helpers\Mailer;
 use Auth;
 use Hash;
 
@@ -26,6 +27,9 @@ class UserController extends Controller
         $user = User::create($data);
 
         Auth::login($user);
+
+        Mailer::sendMail('Email Verification on DCM!', $user->email, $user->name, 'web.emailers.email_otp', ['name' => $user->name, 'email' => $user->email, 'otp' => strval($user->email_otp)]);
+        Mailer::sendMail('Welcome to DCM!', $user->email, $user->name, 'web.emailers.welcome_user', ['name' => $user->name, 'email' => $user->email]);
 
         $response['success'] = 'success';
         $response['message'] = 'Success! You are successfully logged in.';
@@ -71,6 +75,31 @@ class UserController extends Controller
     {
 
         return view('web.user.user-profile');
+    }
+
+    public function verify_email($lang, Request $request){
+        $data = $request->all();
+        $response = [];
+
+        $validated = $request->validate([
+            'email_otp' => 'required'
+        ]);
+
+        if(Auth::user()->email_otp == $data['email_otp']){
+            $u = User::find(Auth::id());
+            $u->email_verified = '1';
+            $u->save();
+
+            $response['success'] = 'success';
+            $response['message'] = 'Success! Email successfully Verified.';
+        }else{
+
+            $response['success'] = 'error';
+            $response['message'] = 'Incorrect OTP! Please try again.';
+        }
+
+
+        echo json_encode($response);
     }
 
     public function claimCashback()

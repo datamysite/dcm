@@ -2,6 +2,7 @@
 <html>
 
 <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -204,14 +205,14 @@
 
         <div class="header">
             <div class="dcm_banner"
-                style="background: url(img/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
+                style="background: url({{URL::to('/public/web_assets/images/emails')}}/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
 
                 <div class="row">
-                    <img class="w-15" src="img/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
+                    <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
                 </div>
 
                 <div class="row mt-10" style="justify-content: center;">
-                    <img src="img/laptop.png" alt="DCM" style="width: 35%;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/laptop.png" alt="DCM" style="width: 35%;">
                 </div>
             </div>
 
@@ -227,7 +228,7 @@
                 <h1>Welcome</h1>
                 <h2>To Deals and Coupons Mena</h2>
                 <p>
-                <h3>Dear, Customer Name Here</h3>
+                <h3>Dear, {{$name}}</h3>
                 </p>
             </div>
 
@@ -258,18 +259,18 @@
 
             <div class="row" style="padding-top: 10px;">
 
-                <div class="column right">
+                <div class="column right" style="width:50%">
                     <div class="left-side-icons">
                         <a href="mailto:info@dealsandcouponsmena.com" target="_blank"
                             style="color: #00c5ff;">info@dealsandcouponsmena.com</a>
                     </div>
                 </div>
 
-                <div class="column left">
+                <div class="column left" style="width:50%; text-align: right;">
                     <div class="social-icons">
-                        <a href="#" target="_blank"><img src="img/facebook.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="img/twitter.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="img/whatsapp.png" alt="Icon 4"></a>
+                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Icon 4"></a>
+                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/twitter.png" alt="Icon 4"></a>
+                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" alt="Icon 4"></a>
                     </div>
                 </div>
 

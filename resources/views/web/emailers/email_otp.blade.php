@@ -2,6 +2,7 @@
 <html>
 
 <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -248,14 +249,14 @@
 
         <div class="header">
             <div class="dcm_banner"
-                style="background: url(img/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
+                style="background: url({{URL::to('/public/web_assets/images/emails')}}/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
 
                 <div class="row">
-                    <img class="w-15" src="img/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
+                    <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
                 </div>
 
                 <div class="row mt-3" style="justify-content: center;">
-                    <img src="img/otp.png" alt="DCM" style="width: 20%;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/otp.png" alt="DCM" style="width: 20%;">
                 </div>
             </div>
 
@@ -277,17 +278,17 @@
 
             <div class="row text-center" style="justify-content:center;">
 
-                <input type="text" class="form-control text-center" readonly="readonly" value="4"
+                <input type="text" class="form-control text-center" readonly="readonly" value="{{$otp[0]}}"
                     style="width: 50px; background-color:#00C5FF; font-size:large;color:#fff">
-                <input type="text" class="form-control text-center" readonly="readonly" value="5"
+                <input type="text" class="form-control text-center" readonly="readonly" value="{{$otp[1]}}"
                     style="width: 50px;background-color:#00C5FF; font-size:large;color:#fff">
-                <input type="text" class="form-control text-center" readonly="readonly" value="9"
+                <input type="text" class="form-control text-center" readonly="readonly" value="{{$otp[2]}}"
                     style="width: 50px;background-color:#00C5FF; font-size:large;color:#fff">
-                <input type="text" class="form-control text-center" readonly="readonly" value="1"
+                <input type="text" class="form-control text-center" readonly="readonly" value="{{$otp[3]}}"
                     style="width: 50px;background-color:#00C5FF; font-size:large;color:#fff">
-                <input type="text" class="form-control text-center" readonly="readonly" value="7"
+                <input type="text" class="form-control text-center" readonly="readonly" value="{{$otp[4]}}"
                     style="width: 50px;background-color:#00C5FF; font-size:large;color:#fff">
-                <input type="text" class="form-control text-center" readonly="readonly" value="0"
+                <input type="text" class="form-control text-center" readonly="readonly" value="{{$otp[5]}}"
                     style="width: 50px;background-color:#00C5FF; font-size:large;color:#fff">
 
             </div>
@@ -310,18 +311,18 @@
 
             <div class="row" style="padding-top: 10px;">
 
-                <div class="column right">
+                <div class="column right" style="width:50%">
                     <div class="left-side-icons">
                         <a href="mailto:info@dealsandcouponsmena.com" target="_blank"
                             style="color: #00c5ff;">info@dealsandcouponsmena.com</a>
                     </div>
                 </div>
 
-                <div class="column left">
+                <div class="column left" style="width:50%; text-align: right;">
                     <div class="social-icons">
-                        <a href="#" target="_blank"><img src="img/facebook.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="img/twitter.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="img/whatsapp.png" alt="Icon 4"></a>
+                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Icon 4"></a>
+                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/twitter.png" alt="Icon 4"></a>
+                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" alt="Icon 4"></a>
                     </div>
                 </div>
 

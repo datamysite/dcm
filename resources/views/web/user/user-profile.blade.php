@@ -55,6 +55,36 @@
 </section>
 <!-- Slider Section End-->
 
+@if(Auth::user()->email_verified == 0)
+<!-- Total Earnings section start-->
+<section class="my-lg-5 my-8">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- col -->
+            <div class="col-12 alert alert-warning">
+                <form id="verify_email_form" action="{{route('user.verify_email')}}">
+                    @csrf
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <p>Please verify you email!</p>
+                        </div>
+                        <div class="col-lg-2">
+                            <input type="number" name="email_otp" class="form-control form-control-sm" placeholder="Email OTP" min="100000" max="999999" required>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="submit" class="btn btn-primary btn-sm pull-right">&nbsp;&nbsp;&nbsp;Verify&nbsp;&nbsp;&nbsp;</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Total Earnings section end-->
+@endif
+
 <!-- Total Earnings section start-->
 <section class="my-lg-5 my-8">
     <!-- container -->

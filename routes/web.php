@@ -123,6 +123,7 @@ Route::get('/migrate', function () {
             Route::middleware('userAuth')->group(function(){
 
                 Route::get('profile', 'UserController@profile')->name('user.profile');
+                Route::post('verify_email', 'UserController@verify_email')->name('user.verify_email');
 
                 Route::prefix('claim-cashback')->group(function(){
                     Route::get('/', 'UserController@claimCashback')->name('user.claimCashback');

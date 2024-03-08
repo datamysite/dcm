@@ -8,6 +8,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Str;
 use Illuminate\Http\RedirectResponse;
 use App\Models\User;
+use App\Helpers\Mailer;
 use Auth;
 
 class GoogleLoginController extends Controller
@@ -39,11 +40,15 @@ class GoogleLoginController extends Controller
             $newUser->name = $user->name;
             $newUser->email = $user->email;
             $newUser->google_id = $user->id;
+            $newUser->email_verified = '1';
             $newUser->password = bcrypt(request(Str::random())); // Set some random password
             $newUser->save();
 
             // Log in the new user.
             auth()->login($newUser, true);
+
+
+            Mailer::sendMail('Welcome to DCM!', $newUser->email, $newUser->name, 'web.emailers.welcome_user', ['name' => $newUser->name, 'email' => $newUser->email]);
         }
 
         if(!isset($_SESSION['region'])){

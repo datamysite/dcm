@@ -2,6 +2,7 @@
 <html>
 
 <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -256,7 +257,7 @@
                 <h1>Welcome</h1>
                 <h2>To Deals and Coupons Mena</h2>
                 <p>
-                <h3>Dear, Customer Name Here</h3>
+                <h3>Dear, {{$first_name.' '.$last_name}}</h3>
                 </p>
             </div>
 
