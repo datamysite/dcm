@@ -361,14 +361,6 @@
       <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-               <amp-ad width="100vw" height="320"
-                    type="adsense"
-                    data-ad-client="ca-pub-3180751570116638"
-                    data-ad-slot="1784464113"
-                    data-auto-format="rspv"
-                    data-full-width="">
-                 <div overflow=""></div>
-               </amp-ad>
 
                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
                        crossorigin="anonymous"></script>
