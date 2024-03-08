@@ -303,14 +303,14 @@
 
             <div class="row" style="padding-top: 10px;">
 
-                <div class="column right">
+                <div class="column right" style="width:50%">
                     <div class="left-side-icons">
                         <a href="mailto:info@dealsandcouponsmena.com" target="_blank"
                             style="color: #00c5ff;">info@dealsandcouponsmena.com</a>
                     </div>
                 </div>
 
-                <div class="column left" style="text-align:right;">
+                <div class="column left" style="text-align:right; width: 50%;">
                     <div class="social-icons">
                         <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Icon 4"></a>
                         <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/twitter.png" alt="Icon 4"></a>
