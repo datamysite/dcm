@@ -70,7 +70,7 @@
 
 
    <!-- How To Eearn Coupon Section Start-->
-   <section class="my-lg-12 my-8">
+   <section class="my-lg-12 my-8 how-to-are-section">
       <div class="container np-container">
          <div class="animated-banner">
             <img src="{{URL::to('public/web_assets/images/animated/nbackground.png')}}" style="width:100%; height: 100%;">

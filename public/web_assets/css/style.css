@@ -966,6 +966,9 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .how-to-are-section{
+        display: none;
+    }
     .selectEmirates.active {
         border-bottom: none;
         box-shadow: none;

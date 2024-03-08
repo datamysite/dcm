@@ -943,8 +943,12 @@ label.errors {
 
 
 
+
 /* Responsives */
 @media (max-width: 990px) {
+    .how-to-are-section{
+        display: none;
+    }
     #slider-reviews .p-5{
         padding: 10px !important;
     }
