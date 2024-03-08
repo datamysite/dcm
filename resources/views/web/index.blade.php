@@ -23,27 +23,27 @@
       <div class="container">
          <div class="hero-slider">
             <a href="https://wa.me/971585882973" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b1a.png' : 'nb1.png'}}">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b1a.png' : 'nb1.png'}}" alt="Hero Slider 1">
             </a>
 
             <a href="https://homzmart.com/en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b2a.png' : 'nb2.png'}}">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b2a.png' : 'nb2.png'}}" alt="Hero Slider 2">
             </a>
 
             <a href="https://www.namshi.com/uae-en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b3a.png' : 'nb3.png'}}">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b3a.png' : 'nb3.png'}}" alt="Hero Slider 3">
             </a>
 
             <a href="https://www.sivvi.com" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b4a.png' : 'nb4.png'}}">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b4a.png' : 'nb4.png'}}" alt="Hero Slider 4">
             </a>
 
             <a href="https://yallatoys.com/qa_en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b5a.png' : 'nb5.png'}}">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b5a.png' : 'nb5.png'}}" alt="Hero Slider 5">
             </a>
 
             <a href="https://www.firstcry.ae?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b6a.png' : 'nb6.png'}}">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b6a.png' : 'nb6.png'}}" alt="Hero Slider 6">
             </a>
          </div>
       </div>
@@ -60,7 +60,7 @@
          </div>
          <div class="category-slider" id="hcategory-slider">
             <div class="lazyload-div lazyload-category">
-               <img src="{{URL::to('/public/loader-gif.gif')}}">
+               <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
          </div>
 
@@ -109,7 +109,7 @@
          <!-- slider -->
          <div class="product-slider-second" id="slider-second">
             <div class="lazyload-div lazyload-product">
-               <img src="{{URL::to('/public/loader-gif.gif')}}">
+               <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
          </div>
          <div class="row" style="justify-content: flex-end;">
@@ -126,7 +126,7 @@
       <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-               <img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}">
+               <img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}" alt="Main Page Banner">
             </div>
          </div>
       </div>
@@ -147,7 +147,7 @@
          <!-- slider -->
          <div class="product-slider-second" id="slider-third">
             <div class="lazyload-div lazyload-product">
-               <img src="{{URL::to('/public/loader-gif.gif')}}">
+               <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
          </div>
 
@@ -175,7 +175,7 @@
 
          <div  id="allstores-section">
             <div class="lazyload-div">
-               <img src="{{URL::to('/public/loader-gif.gif')}}">
+               <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
          </div>
 
