@@ -7,9 +7,9 @@ $(document).ready(function(){
 	//Get Categories
 	$.get(host+'/home/getcategories', function(data){
 
-		$('#category-slider').html(data);
+		$('#hcategory-slider').html(data);
 
-		$('#category-slider').slick({
+		$('#hcategory-slider').slick({
 	          infinite: !0,
 	          slidesToShow: 6,
 	          slidesToScroll: 1,
@@ -126,7 +126,7 @@ $(window).scroll(function (event) {
 			$('#allstores-section').html(data);
 
 		});
-		
+
     	lazyload = 1;
     }
 });

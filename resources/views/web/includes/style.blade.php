@@ -1,6 +1,5 @@
 <link href="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick.css" rel="stylesheet" />
 <link href="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick-theme.css" rel="stylesheet" />
-<link href="{{URL::to('/public')}}/web_assets/libs/tiny-slider/dist/tiny-slider.css" rel="stylesheet" />
 
 <!-- Favicon icon-->
 <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" />
@@ -8,7 +7,6 @@
 <!-- Libs CSS -->
 <link href="{{URL::to('/public')}}/web_assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
 <link href="{{URL::to('/public')}}/web_assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet" />
-<link href="{{URL::to('/public')}}/web_assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet" />
 
 <!-- Theme CSS -->
 @if ( app()->getLocale() == 'ar' )

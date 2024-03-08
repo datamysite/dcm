@@ -58,7 +58,7 @@
                <h3 class="mb-0 page-title">{{ __('translation.Categories') }}</h3>
             </div>
          </div>
-         <div class="category-slider" id="category-slider">
+         <div class="category-slider" id="hcategory-slider">
             <div class="lazyload-div">
                <img src="{{URL::to('/public/loader-gif.gif')}}">
             </div>

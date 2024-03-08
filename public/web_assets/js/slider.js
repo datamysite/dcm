@@ -11,7 +11,7 @@ $(document).ready(function () {
     });
 
 
-    $('.category-slider').slick({
+    $('.ccategory-slider').slick({
             infinite: !0,
             slidesToShow: 6,
             slidesToScroll: 1,

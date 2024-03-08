@@ -44,7 +44,7 @@
                <h3 class="mb-0 page-title">{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</h3>
             </div>
          </div>
-         <div class="category-slider">
+         <div class="ccategory-slider category-slider">
             @foreach($categories as $val)
                @php
                   $string = strtolower(trim($val->name));
