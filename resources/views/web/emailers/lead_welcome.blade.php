@@ -310,7 +310,7 @@
                     </div>
                 </div>
 
-                <div class="column left">
+                <div class="column left" style="text-align:right;">
                     <div class="social-icons">
                         <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Icon 4"></a>
                         <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/twitter.png" alt="Icon 4"></a>
