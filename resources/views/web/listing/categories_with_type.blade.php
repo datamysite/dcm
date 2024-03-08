@@ -388,7 +388,19 @@
       <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-               <img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}">
+
+               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                       crossorigin="anonymous"></script>
+                  <!-- DCM Responsive -->
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-3180751570116638"
+                       data-ad-slot="1784464113"
+                       data-ad-format="auto"
+                       data-full-width-responsive="true"></ins>
+                  <script>
+                       (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
             </div>
          </div>
       </div>
