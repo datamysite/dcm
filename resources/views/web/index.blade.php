@@ -59,7 +59,7 @@
             </div>
          </div>
          <div class="category-slider" id="hcategory-slider">
-            <div class="lazyload-div">
+            <div class="lazyload-div lazyload-category">
                <img src="{{URL::to('/public/loader-gif.gif')}}">
             </div>
          </div>
@@ -108,7 +108,7 @@
          </div>
          <!-- slider -->
          <div class="product-slider-second" id="slider-second">
-            <div class="lazyload-div">
+            <div class="lazyload-div lazyload-product">
                <img src="{{URL::to('/public/loader-gif.gif')}}">
             </div>
          </div>
@@ -146,7 +146,7 @@
          </div>
          <!-- slider -->
          <div class="product-slider-second" id="slider-third">
-            <div class="lazyload-div">
+            <div class="lazyload-div lazyload-product">
                <img src="{{URL::to('/public/loader-gif.gif')}}">
             </div>
          </div>

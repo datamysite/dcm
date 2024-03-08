@@ -943,7 +943,6 @@ label.errors {
     margin-left: -100px;
 }
 .lazyload-div {
-    height: 150px;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -952,6 +951,12 @@ label.errors {
 }
 .lazyload-div img {
     width: 100px;
+}
+.lazyload-product{
+    height: 330px;
+}
+.lazyload-category{
+    height: 136px;
 }
 
 
