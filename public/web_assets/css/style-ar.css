@@ -962,6 +962,14 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+
+    .lazyload-product{
+        height: 240px;
+    }
+    .lazyload-category{
+        height: 87px;
+    }
+
     .how-to-are-section{
         display: none;
     }
