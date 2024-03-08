@@ -174,7 +174,9 @@
          </div>
 
          <div  id="allstores-section">
-            
+            <div class="lazyload-div">
+               <img src="{{URL::to('/public/loader-gif.gif')}}">
+            </div>
          </div>
 
       </div>
