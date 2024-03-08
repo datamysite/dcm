@@ -231,7 +231,7 @@
 
         <div class="header">
             <div class="dcm_banner"
-                style="background: url(img/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
+                style="background: url({{URL::to('/public/web_assets/images/emails')}}/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
 
                 <div class="row">
                     <img class="w-15" src="img/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
@@ -312,9 +312,9 @@
 
                 <div class="column left">
                     <div class="social-icons">
-                        <a href="#" target="_blank"><img src="img/facebook.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="img/twitter.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="img/whatsapp.png" alt="Icon 4"></a>
+                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Icon 4"></a>
+                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/twitter.png" alt="Icon 4"></a>
+                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" alt="Icon 4"></a>
                     </div>
                 </div>
 
