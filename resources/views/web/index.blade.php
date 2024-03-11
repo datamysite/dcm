@@ -73,7 +73,7 @@
    <section class="my-lg-12 my-8 how-to-are-section">
       <div class="container np-container">
          <div class="animated-banner">
-            <img src="{{URL::to('public/web_assets/images/animated/nbackground.png')}}" style="width:100%; height: 100%;">
+            <img src="{{URL::to('public/web_assets/images/animated/nbackground.png')}}" alt="How to Earn Background" style="width:100%; height: 100%;">
             <div class="content">
                <h1>{{ __('translation.earn_coupons_title') }}<br>{{ __('translation.earn_coupons_title01') }}</h1>
                <ol>
@@ -83,12 +83,12 @@
                </ol>
             </div>
             <div class="object-section">
-               <img class="light" src="{{URL::to('public/web_assets/images/animated/nlights-1.png')}}" style="width:100%; height: auto;">
-               <img class="box-1" src="{{URL::to('public/web_assets/images/animated/nbox-3.png')}}">
-               <img class="money-1" src="{{URL::to('public/web_assets/images/animated/nmoney1.png')}}">
-               <img class="cover-1" src="{{URL::to('public/web_assets/images/animated/ncover-1.png')}}">
-               <img class="box-2" src="{{URL::to('public/web_assets/images/animated/nbox-2-small.png')}}">
-               <img class="box-3" src="{{URL::to('public/web_assets/images/animated/nbox-1.png')}}">
+               <img class="light" src="{{URL::to('public/web_assets/images/animated/nlights-1.png')}}" alt="How to Earn 1" style="width:100%; height: auto;">
+               <img class="box-1" src="{{URL::to('public/web_assets/images/animated/nbox-3.png')}}" alt="How to Earn 2">
+               <img class="money-1" src="{{URL::to('public/web_assets/images/animated/nmoney1.png')}}" alt="How to Earn 3">
+               <img class="cover-1" src="{{URL::to('public/web_assets/images/animated/ncover-1.png')}}" alt="How to Earn 4">
+               <img class="box-2" src="{{URL::to('public/web_assets/images/animated/nbox-2-small.png')}}" alt="How to Earn 5">
+               <img class="box-3" src="{{URL::to('public/web_assets/images/animated/nbox-1.png')}}" alt="How to Earn 6">
             </div>
          </div>
       </div>
