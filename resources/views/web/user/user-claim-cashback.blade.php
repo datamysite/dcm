@@ -121,3 +121,6 @@
     <!-- Claim Cashback section end-->
 
 @endsection
+@section('addScript')
+    <script type="text/javascript" src="{{URL::to('/public/web_assets/js/profile.js')}}"></script>
+@endsection

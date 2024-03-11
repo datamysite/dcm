@@ -179,3 +179,6 @@
     <!-- Why chooce us section end-->
 
 @endsection
+@section('addScript')
+    <script type="text/javascript" src="{{URL::to('/public/web_assets/js/sell.js')}}"></script>
+@endsection
