@@ -1577,3 +1577,12 @@ label.errors {
         margin-left: -10px;
     }
 }
+
+@media (max-width: 1399px) {
+  .main-search-div button {
+      display: none;
+  }
+  .main-search-div input {
+      width: 330px !important;
+  }
+}
