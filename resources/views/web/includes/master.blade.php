@@ -25,7 +25,7 @@
 </head>
 
 
-<body style="padding:0 !important;">
+<body>
    <div id="loading">
      <img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" alt="Loading..." />
    </div>
