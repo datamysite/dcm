@@ -83,19 +83,19 @@
                <ul class="list-inline {{app()->getLocale() == 'ar' ? 'text-md-start' : 'text-md-end'}} mb-0 small mt-3 mt-md-0 social-media">
 
                   <li class="list-inline-item first">
-                     <a href="https://www.facebook.com/profile.php?id=100091291623092" target="_blank" class="btn btn-xs">
+                     <a href="https://www.facebook.com/profile.php?id=100091291623092" target="_blank" class="btn btn-xs" aria-label="Facebook">
                         <i class="fa fa-facebook-square"></i>
                      </a>
                   </li>
                   <li class="list-inline-item">|</li>
                   <li class="list-inline-item">
-                     <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com?trk=public_post_feed-actor-name" target="_blank" class="btn btn-xs">
+                     <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com?trk=public_post_feed-actor-name" target="_blank" class="btn btn-xs" aria-label="Linkedin">
                         <i class="fa fa-linkedin-square"></i>
                      </a>
                   </li>
                   <li class="list-inline-item">|</li>
                   <li class="list-inline-item">
-                     <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank" class="btn btn-xs">
+                     <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank" class="btn btn-xs"  aria-label="Instagram">
                         <i class="fa fa-instagram"></i>
                      </a>
                   </li>
@@ -113,7 +113,7 @@
                   </li> -->
                   <li class="list-inline-item">|</li>
                   <li class="list-inline-item">
-                     <a href="https://www.tiktok.com/@dealsandcouponsmena" class="btn btn-xs">
+                     <a href="https://www.tiktok.com/@dealsandcouponsmena" class="btn btn-xs"  aria-label="TikTok">
                         <i class="fa fa-tiktok"></i>
                      </a>
                   </li>
