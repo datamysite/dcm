@@ -85,7 +85,7 @@
                      <label class="errors email_error_l"></label>
                      <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required />
                      <label class="errors password_error_l"></label>
-                     <p><a href="javascript:void(0)" style="color:#1dace3">{{ __('translation.forget_password_txt') }}</a></p>
+                     <p><a href="javascript:void(0)" style="color:#1dace3"  role="button" data-bs-toggle="modal" data-bs-target="#forgetPassModal">{{ __('translation.forget_password_txt') }}</a></p>
                      <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_in_btn') }}</button>
                   </form>
                </div>
@@ -109,6 +109,42 @@
       </div>
    </div>
 </div>
+
+<!-- Forget Password Modal Start-->
+<div class="modal fade" id="forgetPassModal" tabindex="-1" aria-labelledby="forgetPassModal" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4" style="background-color: #fff;">
+         <div class="modal-header border-0">
+            <h5 class="modal-title fs-3 fw-bold" id="userModalLabel">{{ __('translation.forget_pass_txt_01') }}</h5>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+       
+         <div class="modal-body" style="text-align: center;">
+         
+            <form id="forgotPasswordForm" action="{{route('user.forgotPassword')}}">
+               @csrf
+               <div class="mb-3">
+                  <label for="email" class="form-label">{{ __('translation.forget_pass_txt_02') }}</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="{{ __('translation.forget_pass_txt_03') }}" required="" />
+                  <label class="errors email_error_f"></label>
+               </div>
+
+               <div class="mb-5">
+
+               </div>
+               <label class="btn-content" style="display:none;"></label>
+               <button type="submit" class="btn btn-primary sub-btn" name="send_link">{{ __('translation.forget_pass_btn') }}</button>
+            </form>
+         </div>
+         <div class="modal-footer border-0 justify-content-center">
+         {{ __('translation.forget_pass_txt_04') }}
+            <a href="javascript:void(0)"  role="button" data-bs-toggle="modal" data-bs-target="#userModal">  {{ __('translation.forget_pass_txt_05') }}</a>
+         </div>
+      </div>
+   </div>
+</div>
+   <!-- Forget Password Modal End-->
 
 <!-- Modal -->
 <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">

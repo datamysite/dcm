@@ -2,10 +2,10 @@
 <!-- Libs JS -->
 <script src="{{URL::to('/public')}}/web_assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Theme JS -->
-<script src="{{URL::to('/public')}}/web_assets/js/theme.min.js"></script>
+<script src="{{URL::to('/public')}}/web_assets/js/theme.min.js" async></script>
 <script src="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick.min.js"></script>
 <script src="{{URL::to('/public')}}/web_assets/js/slider.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
 <script type="text/javascript">
 
     $(document).on('keyup', '.main-search', function(){

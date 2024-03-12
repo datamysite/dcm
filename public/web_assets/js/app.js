@@ -1,3 +1,5 @@
+var host = $("meta[name='home_url']").attr("content"); 
+
 $(document).ready(function() {
     $('#loading').css({display: 'none'});
     
@@ -127,6 +129,76 @@ $(document).ready(function() {
       }).fail(function(e){
         for (const [key, value] of Object.entries(e.responseJSON.errors)) {
             $('.'+key+'_error_l').css({display: 'flex'}).html(value);
+        }
+      });
+
+      event.preventDefault();
+    });
+
+    //Forgot Password
+    $(document).on('submit', "#forgotPasswordForm", function(event) {
+      var form = $(this);
+      var formData = new FormData($("#forgotPasswordForm")[0]);
+      $('.errors').css({display: 'none'});
+      $('.btn-content').html($('.sub-btn').html());
+      $('.sub-btn').html('<img src="../public/loader.gif" style="width:14px; margin:0 25px;">').prop("disabled", true);;
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function(data) {
+        if (data.success == 'success') {
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          setTimeout(function(){
+            location.reload();
+          }, 700);
+        } else {
+          $('.sub-btn').html($('.btn-content').html()).prop("disabled", false);;
+          $('.email_error_f').css({display: 'flex'}).html(data.message);
+        }
+      }).fail(function(e){
+        $('.sub-btn').html($('.btn-content').html()).prop("disabled", false);;
+        for (const [key, value] of Object.entries(e.responseJSON.errors)) {
+            $('.'+key+'_error_f').css({display: 'flex'}).html(value);
+        }
+      });
+
+      event.preventDefault();
+    });
+
+
+    //Forgot Password
+    $(document).on('submit', "#resetPasswordForm", function(event) {
+      var form = $(this);
+      var formData = new FormData($("#resetPasswordForm")[0]);
+      $('.errors').css({display: 'none'});
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function(data) {
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+          setTimeout(function(){
+            window.location.href = host;
+          }, 700);
+      }).fail(function(e){
+        console.log(e);
+        for (const [key, value] of Object.entries(e.responseJSON.errors)) {
+            $('.'+key+'_error').css({display: 'flex'}).html(value+"<br>");
         }
       });
 

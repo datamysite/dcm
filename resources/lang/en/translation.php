@@ -334,4 +334,24 @@ return [
   "referral_txt_08" => "Invite By Social Media",
   "referral_txt_09" => "How to use link ?",
   "referral_txt_10" => "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+
+    //Forget-Password Modal//
+
+  "forget_pass_txt_01" => "Forget Password",
+  "forget_pass_txt_02" => "Your Email",
+  "forget_pass_txt_03" => "ُEnter Your Email Address",
+  "forget_pass_btn" => "Send Link",
+  "forget_pass_txt_04" => "Already have an account?",
+  "forget_pass_txt_05" => "Sign in",
+
+   //Password-Reset//
+
+   "password_rest_txt_01" => "Reset Password",
+   "password_rest_txt_02" => "We can help you rest your password",
+   "password_rest_btn" => "Reset Password",
+   "password_rest_form_txt_01" => "Current Password",
+   "password_rest_form_txt_02" => "New Password",
+   "password_rest_form_txt_03" => "Confirm New Password",
+   "password_rest_form_txt_04" => "Hint :",
+   "password_rest_form_txt_05" => "Make sure to make your password strong by using a random string of mixed-case letters, numbers and symbols.",
 ];

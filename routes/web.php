@@ -119,6 +119,10 @@ Route::get('/migrate', function () {
             Route::post('create', 'UserController@create')->name('user.create');
             Route::post('login', 'UserController@login')->name('user.login');
 
+            Route::post('forgotPassword', 'UserController@forgotPassword')->name('user.forgotPassword');
+            Route::get('resetPassword/{id}/{email}', 'UserController@resetPassword')->name('user.resetPassword');
+            Route::post('updatePassword', 'UserController@updatePassword')->name('user.updatePassword');
+
             Route::get('logout', 'UserController@logout')->name('user.logout');
 
             Route::get('/google', 'GoogleLoginController@redirectToGoogle')->name('auth.google');

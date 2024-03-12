@@ -61,6 +61,65 @@ class UserController extends Controller
     }
 
 
+    public function forgotPassword(Request $request){
+        $data = $request->all();
+        $response = [];
+
+        $validated = $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        $u = User::where('email', $data['email'])->first();
+
+        if(!empty($u->id)){
+
+
+            Mailer::sendMail('Reset Your Password!', $u->email, $u->name, 'web.emailers.reset_password', ['id' => $u->id, 'name' => $u->name, 'email' => $u->email]);
+
+
+            $response['success'] = 'success';
+            $response['message'] = 'Success! Reset Password link is sent to your email.';
+        }else{
+
+            $response['success'] = 'error';
+            $response['message'] = 'Invalid email address.';
+        }
+
+
+        echo json_encode($response);
+    }
+
+    public function resetPassword($lang, $id, $email){
+        $data['id'] = base64_decode($id);
+        $data['email'] = base64_decode($email);
+        $u = User::where('id', $data['id'])->where('email', $data['email'])->first();
+        if(empty($u->id)){
+            return redirect('/');
+        }
+        return view('web.user.password-reset')->with($data);
+    }
+
+    public function updatePassword(Request $request){
+        $data = $request->all();
+        $response = [];
+
+        $this->validate($request, [
+            'password' => 'required|confirmed|min:8',
+        ]);
+
+        $u = User::find(base64_decode($data['unique_id']));
+
+        $u->password = bcrypt($data['password']);
+        $u->save();
+
+        $response['success'] = 'success';
+        $response['message'] = 'Success! Your password successfully updated.';
+
+        echo json_encode($response);
+
+    }
+
+
     public function logout($lang){
 
         Auth::logout();

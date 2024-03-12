@@ -336,4 +336,23 @@ return [
   "referral_txt_09" => "كيفية إستخدام الرابط؟",
   "referral_txt_10" => "أكتب المحتوي هنا",
 
+    //Forget-Password Modal//
+
+  "forget_pass_txt_01" => "نسيت كلمة المرور",
+  "forget_pass_txt_02" => "بريدك الإلكتروني",
+  "forget_pass_txt_03" => "ُأدخل عنوان بريدك الإلكتروني",
+  "forget_pass_btn" => "أرسل الرابط",
+  "forget_pass_txt_04" => "لديك حساب مسباقا؟",
+  "forget_pass_txt_05" => "سجل الدخول",
+
+  //Password-Reset//
+
+  "password_rest_txt_01" => "إعد ضبط كلمة المرور",
+  "password_rest_txt_02" => "يمكننا مساعدتك في إعادة ضبط كلمة المرور",
+  "password_rest_btn" => "إعد ضبط كلمة المرور",
+  "password_rest_form_txt_01" => "كلمة المرور الحالية",
+  "password_rest_form_txt_02" => "كلمة المرور الجديدة",
+  "password_rest_form_txt_03" => "أعد كتابة كلمة المرور الجديدة",
+  "password_rest_form_txt_04" => "تَلمِيح :",
+  "password_rest_form_txt_05" => "تأكد من جعل كلمة المرور الخاصة بك قوية باستخدام سلسلة عشوائية من الأحرف والأرقام والرموز المختلطة.",
 ];

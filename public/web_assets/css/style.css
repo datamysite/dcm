@@ -958,7 +958,34 @@ label.errors {
 .lazyload-category{
     height: 136px;
 }
-
+#forgetPassModal .btn-close {
+    margin-right: -25px;
+    margin-top: -25px;
+}
+#forgetPassModal .modal-title {
+    padding: 0px !important;
+    margin: -18px 0px 0 -15px;
+    color: #1dace3;
+}
+#forgetPassModal .modal-body input {
+    background-color: #eee;
+    border-radius: 0 !important;
+    border: 0;
+    padding-left: 10px;
+}
+#forgetPassModal .modal-body {
+    padding: 20px 5px;
+}
+#forgetPassModal .modal-dialog-centered{
+    justify-content: center !important;
+}
+#forgetPassModal .modal-header {
+    border-bottom: 2px solid #eee !important;
+    padding-bottom: 5px;
+}
+#forgotPasswordForm .errors, #resetPasswordForm .errors {
+    margin-top: 5px;
+}
 
 
 

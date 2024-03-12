@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -147,7 +148,7 @@
   <div class="container">
 
     <div class="header">
-      <img src="img/m-logo.png" alt="DCM Logo" class="logo" />
+      <img src="{{URL::to('/public/web_assets/images/emails')}}/m-logo.png" alt="DCM Logo" class="logo" />
     </div>
 
     <div class="content">
@@ -163,7 +164,7 @@
       </p>
 
       <p class="text-center mt-5">
-        <a href="http://dealsandcouponsmena.com/en/dubai/pass-reset?rest=j875856u5" target="_blank"
+        <a href="{{route('user.resetPassword', [base64_encode($id), base64_encode($email)])}}" target="_blank"
           style="font-size: larger; color: #00c5ff">
           <strong style="text-decoration: underline">Reset Your Password</strong>
         </a>
@@ -192,9 +193,9 @@
 
         <div class="column left">
           <div class="social-icons">
-            <a href="#" target="_blank"><img src="img/facebook.png" alt="Icon 4"></a>
-            <a href="#" target="_blank"><img src="img/twitter.png" alt="Icon 4"></a>
-            <a href="#" target="_blank"><img src="img/whatsapp.png" alt="Icon 4"></a>
+            <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Icon 4"></a>
+            <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/twitter.png" alt="Icon 4"></a>
+            <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" alt="Icon 4"></a>
           </div>
         </div>
 
