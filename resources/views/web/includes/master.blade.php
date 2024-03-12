@@ -251,6 +251,13 @@
 
 @include('web.includes.script')
 
+@foreach($bodySnippet as $val)
+
+   <!-- {{$val->name}} // Start -->
+      {!! $val->snippet_code !!}
+   <!-- {{$val->name}} // End -->
+
+@endforeach
 
 @yield('addScript')
 </body>
