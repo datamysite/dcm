@@ -87,7 +87,7 @@ class GenerateSitemap extends Command
                 //Blogs
 
                 $blogSitemap->add(Url::create("/en/".$state->slug."/blogs")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY));
-                Blogs::where('status', '1')->get()->each(function (Retailers $b) use ($blogSitemap, $state) {
+                Blogs::where('status', '1')->get()->each(function (Blogs $b) use ($blogSitemap, $state) {
 
                     $blogSitemap->add(
                         Url::create("/en/".$state->slug."/blogs/".$b->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
@@ -100,7 +100,7 @@ class GenerateSitemap extends Command
 
             });
             $ensitmap->writeToFile(base_path('/en/sitemap.xml'));
-            $blogSitemap->writeToFile(base_path('/blogs/sitemap.xml'));
+            $blogSitemap->writeToFile(base_path('/en/blogs/sitemap.xml'));
 
 
 
