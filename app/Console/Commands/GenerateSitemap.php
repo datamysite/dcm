@@ -8,6 +8,7 @@ use Spatie\Sitemap\Tags\Url;
 use App\Models\States;
 use App\Models\Categories;
 use App\Models\Retailers;
+use App\Models\Blogs;
 
 class GenerateSitemap extends Command
 {
@@ -33,7 +34,8 @@ class GenerateSitemap extends Command
         // En Sitemap
 
             $ensitmap = Sitemap::create();
-            States::get()->each(function (States $state) use ($ensitmap) {
+            $blogSitemap = Sitemap::create();
+            States::get()->each(function (States $state) use ($ensitmap, $blogSitemap) {
                 $ensitmap->add(
                     Url::create("/en/".$state->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                 );
@@ -57,7 +59,7 @@ class GenerateSitemap extends Command
                 Retailers::where('type', '1')->get()->each(function (Retailers $ret) use ($ensitmap, $state) {
 
                     $ensitmap->add(
-                        Url::create("/en/".$state->slug."/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                        Url::create("/en/".$state->slug."/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
                     );
 
                 });
@@ -69,7 +71,7 @@ class GenerateSitemap extends Command
                 ->get()->each(function (Retailers $ret) use ($ensitmap, $state) {
 
                     $ensitmap->add(
-                        Url::create("/en/".$state->slug."/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                        Url::create("/en/".$state->slug."/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
                     );
 
                 });
@@ -82,8 +84,23 @@ class GenerateSitemap extends Command
                 $ensitmap->add(Url::create("/en/".$state->slug."/anti-spam")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY));
 
 
+                //Blogs
+
+                $blogSitemap->add(Url::create("/en/".$state->slug."/blogs")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY));
+                Blogs::where('status', '1')->get()->each(function (Retailers $b) use ($blogSitemap, $state) {
+
+                    $blogSitemap->add(
+                        Url::create("/en/".$state->slug."/blogs/".$b->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                    );
+
+                });
+
+
+
+
             });
             $ensitmap->writeToFile(base_path('/en/sitemap.xml'));
+            $blogSitemap->writeToFile(base_path('/blogs/sitemap.xml'));
 
 
 
