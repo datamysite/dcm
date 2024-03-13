@@ -49,7 +49,7 @@
       </div>
    </section>
 
-   <section class="mb-lg-10 my-8 mobile-slider">
+   <!-- <section class="mb-lg-10 my-8 mobile-slider">
       <div class="container">
          <div class="hero-slider">
             <a href="https://wa.me/971585882973" target="_blank" aria-label="Banner 1">
@@ -77,7 +77,7 @@
             </a>
          </div>
       </div>
-   </section>
+   </section> -->
    <!-- Slider Section End-->
 
    <!-- Category Section Start-->

@@ -986,9 +986,7 @@ label.errors {
 #forgotPasswordForm .errors, #resetPasswordForm .errors {
     margin-top: 5px;
 }
-.mobile-slider{
-    display: none;
-}
+
 
 
 
@@ -1000,14 +998,6 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
-
-    .mobile-slider{
-        display: block;
-    }
-    .desktop-slider{
-        display: none;
-    }
-
     .flip-banner{
         display: none !important;
     }
