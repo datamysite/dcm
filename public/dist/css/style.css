@@ -643,3 +643,26 @@ input[type="file"]{
     align-items: center;
     width: 40%;
 }
+.bagde-primary {
+    background-color: #1caae2;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600 !important;
+    margin-bottom: 0;
+}
+.user-email {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.bagde-danger {
+    background-color: #fd5656;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600 !important;
+}
+.user-newsletter {
+    text-align: center;
+    color: lightseagreen;
+}

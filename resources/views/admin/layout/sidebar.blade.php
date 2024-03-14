@@ -106,7 +106,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link {{$menu == 'web.users' ? 'active' : ''}}">
+            <a href="{{route('admin.webUsers')}}" class="nav-link {{$menu == 'web.users' ? 'active' : ''}}">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Users

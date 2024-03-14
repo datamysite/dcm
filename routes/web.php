@@ -273,6 +273,14 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             });
         });
 
+
+        //Website Users
+        Route::prefix('web/users')->group(function () {
+            Route::get('/', 'WebUserController@index')->name('admin.webUsers');
+            Route::get('/load', 'WebUserController@load')->name('admin.webUsers.load');
+            Route::post('/filter', 'WebUserController@user_filter')->name('admin.webUsers.filter');
+        });
+
         //Categories
         Route::prefix('categories')->group(function () {
             Route::get('/', 'CategoryController@index')->name('admin.categories');
