@@ -49,7 +49,7 @@
                       <select class="form-control" name="email_verified">
                         <option value="">All</option>
                         <option value="1">Verified</option>
-                        <option value="2">Non Verified</option>
+                        <option value="0">Non Verified</option>
                       </select>
                     </div>
                     <div class="col-md-1" style="display: inline-flex;justify-content: space-between;">
@@ -62,7 +62,7 @@
                       
                     </div>
                     <div class="col-md-2">
-                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Retailer" data-toggle="modal" data-target="#addRetailerFormModal"><i class="fa fa-file-excel"></i>&nbsp;&nbsp;&nbsp;Export</a>
+                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" id="ExportToExcel"><i class="fa fa-file-excel"></i>&nbsp;&nbsp;&nbsp;Export</a>
                     </div>
                   </div>
                 </form>
@@ -157,6 +157,26 @@
       $("#filterWebUsers").trigger('reset');
       $('.reset_button').html('');
     });
+
+
+
+    $("#ExportToExcel").click(function (event) {
+      var url = "{{route('admin.webUsers.export')}}";
+      var data=$('#filterWebUsers').serializeArray();
+      //console.log(data);
+      var form = $('<form></form>').attr('action', url).attr('method', 'post').attr('target', '_blank');;
+
+      $.each(data, function(i, val) { 
+          console.log();
+          form.append($("<input></input>").attr('type', 'hidden').attr('name', val['name']).attr('value', val['value'])); 
+      });    
+
+      //console.log(form.serialize());
+      //send request
+      form.appendTo('body').submit().remove();
+
+
+    }); 
     
   });
 
