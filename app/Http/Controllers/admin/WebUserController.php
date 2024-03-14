@@ -60,7 +60,7 @@ class WebUserController extends Controller
             $data['end_date'] = date('Y-m-d', strtotime("+1 day", strtotime($date[1])));
         }
 
-        $filename = "Website Users (".date('d-M-Y__h:i a').").xlsx";
+        $filename = "Website Users (".date('d-M-Y h:i a').").xlsx";
         $excel = Excel::download(new UserExport($data['start_date'], $data['end_date'], $data['email_verified']), $filename);
 
         return $excel;
