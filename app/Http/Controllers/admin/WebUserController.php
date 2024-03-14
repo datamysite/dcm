@@ -36,8 +36,6 @@ class WebUserController extends Controller
                                 return $q->whereBetween('created_at',[$data['start_date'], $data['end_date']] );
                             })->when(!empty($data['email_verified']) || $data['email_verified'] == '0', function ($q) use ($data) {
                                 return $q->where('email_verified', $data['email_verified']);
-                            })->when(!empty($data['newsletter']) || $data['newsletter'] == '0', function ($q) use ($data) {
-                                return $q->where('newsletter', $data['newsletter']);
                             })->get();
 
         return view('admin.web_users.load')->with($data);

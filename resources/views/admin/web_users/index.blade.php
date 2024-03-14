@@ -52,21 +52,13 @@
                         <option value="2">Non Verified</option>
                       </select>
                     </div>
-                    <div class="col-md-2">
-                      <label>Newsletter</label>
-                      <select class="form-control" name="newsletter">
-                        <option value="">All</option>
-                        <option value="1">Allowed</option>
-                        <option value="0">Denied</option>
-                      </select>
-                    </div>
                     <div class="col-md-1" style="display: inline-flex;justify-content: space-between;">
                       <button type="submit" class="btn btn-primary mt-32"><i class="fas fa-search"></i></button>
                       <div class="reset_button">
                         
                       </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                       
                     </div>
                     <div class="col-md-2">
@@ -87,7 +79,6 @@
                     <th width="25%">Name</th>
                     <th width="25%">Email</th>
                     <th width="15%">Phone</th>
-                    <th width="5%">Newsletter</th>
                     <th width="10%">Registered at</th>
                   </tr>
                   </thead>
@@ -100,7 +91,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Newsletter</th>
                     <th>Registered at</th>
                   </tr>
                   </tfoot>

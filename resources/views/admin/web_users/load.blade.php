@@ -14,11 +14,6 @@
       </div>
     </td>
     <td>{{$val->phone}}</td>
-    <td class="user-newsletter">
-        @if($val->newsletter == '1')
-          <i class="fa fa-check"></i>
-        @endif
-    </td>
     <td class="text-right">
       <span><small>{{date('d-M-Y | h:i A', strtotime($val->created_at))}}</small></span>
     </td>
