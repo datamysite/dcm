@@ -51,7 +51,7 @@ class UserExport implements FromArray, withHeadings
                                 return $q->whereBetween('created_at',[$dat['start_date'], $dat['end_date']] );
                             })->when(!empty($dat['email_verified']) || $dat['email_verified'] == '0', function ($q) use ($dat) {
                                 return $q->where('email_verified', $dat['email_verified']);
-                            })->get();
+                            })->orderBy('id', 'desc')->get();
         $data = array();
         $i = 0;
         foreach($users as $key => $val){
