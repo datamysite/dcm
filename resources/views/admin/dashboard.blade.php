@@ -210,6 +210,18 @@
             </div>
           </div>
           <div class="col-md-3">
+
+              <div class="card card-default">
+                <div class="card-body p-0">
+                  <h3 class="card-chart-title">Top Rated Stores</h3>
+                  <div class="chart">
+                    <canvas class="chart" id="topRatedRetailer" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>
+                    <br>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+
               <div class="card card-default">
                 <div class="card-body p-0">
                   <h3 class="card-chart-title">User`s Recent Activities</h3>
@@ -217,28 +229,6 @@
                     <div class="loader">
                       <img src="{{URL::to('/public/loader.gif')}}">
                     </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-              </div>
-
-              <div class="card card-default">
-                <div class="card-body p-0">
-                  <h3 class="card-chart-title">Top Rated Coupons</h3>
-                  <div class="chart">
-                    <canvas class="chart" id="topRatedCoupon" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>
-                    <br>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-              </div>
-
-              <div class="card card-default">
-                <div class="card-body p-0">
-                  <h3 class="card-chart-title">Top Rated Retailer</h3>
-                  <div class="chart">
-                    <canvas class="chart" id="topRatedRetailer" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>
-                    <br>
                   </div>
                 </div>
                 <!-- /.card-body -->

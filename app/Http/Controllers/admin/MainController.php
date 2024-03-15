@@ -44,7 +44,7 @@ class MainController extends Controller
     public function get_recent_activities(){
         echo '<table class="table table-striped">';
 
-        ClicksCounter::limit(9)->orderBy('id', 'desc')->get()->each(function (ClicksCounter $c) {
+        ClicksCounter::limit(21)->orderBy('id', 'desc')->get()->each(function (ClicksCounter $c) {
             echo '<tr><td>'.$c->retailer->name.'</td><td class="text-center">';
                 switch ($c->type) {
                     case '1':
