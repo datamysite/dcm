@@ -22,7 +22,7 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content admin">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
@@ -32,12 +32,38 @@
                 <!-- small box -->
                 <div class="small-box bg-white">
                   <div class="inner">
-                    <h3>7367</h3>
+                    <h3 id="w-total-traffic">-</h3>
 
-                    <p>Coupons Downloaded</p>
+                    <p>Total Traffic</p>
                   </div>
                   <div class="icon">
-                    <i><img src="{{URL::to('/public/icons/downloaded-coupons.png')}}"></i>
+                    <i><img src="{{URL::to('/public/icons/traffic.png')}}"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="w-uae-traffic">-</h3>
+
+                    <p>UAE Traffic</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/traffic.png')}}" class="w-seccond-item"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="w-outside-traffic">-</h3>
+
+                    <p>Outside Traffic</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/traffic.png')}}" class="w-third-item"></i>
                   </div>
                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
@@ -47,27 +73,79 @@
                 <!-- small box -->
                 <div class="small-box bg-white">
                   <div class="inner">
-                    <h3>132</h3>
+                    <h3 id="w-online-stores">-</h3>
 
-                    <p>Total Retailers</p>
+                    <p>Online Stores</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/online-store.png')}}"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="w-show-coupons">-</h3>
+
+                    <p>Show Coupons</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/all-coupons.png')}}" class="w-seccond-item"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="w-grab-deals">-</h3>
+
+                    <p>Grab Deals</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/grab-deal.png')}}" class="w-third-item"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="w-retail-stores">-</h3>
+
+                    <p>Retail Stores</p>
                   </div>
                   <div class="icon">
                     <i><img src="{{URL::to('/public/icons/retailers.png')}}"></i>
                   </div>
                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-              </div>
-              <!-- ./col -->
-              <div class="col-lg-3 col-6">
+
                 <!-- small box -->
                 <div class="small-box bg-white">
                   <div class="inner">
-                    <h3>568</h3>
+                    <h3 id="w-downloads">-</h3>
 
-                    <p>Total Coupons</p>
+                    <p>Coupon Downloads</p>
                   </div>
                   <div class="icon">
-                    <i><img src="{{URL::to('/public/icons/all-coupons.png')}}"></i>
+                    <i><img src="{{URL::to('/public/icons/downloaded-coupons.png')}}" class="w-seccond-item"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="w-whatsapp">-</h3>
+
+                    <p>Whatsapp Reach</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/whatsapp-chat.png')}}" class="w-third-item"></i>
                   </div>
                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
@@ -77,9 +155,35 @@
                 <!-- small box -->
                 <div class="small-box bg-white">
                   <div class="inner">
-                    <h3>1590</h3>
+                    <h3 id="w-registered-users">-</h3>
 
-                    <p>Happy Customers</p>
+                    <p>Registered Users</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/registered-users.png')}}"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="w-total-blogs">-</h3>
+
+                    <p>Total Blogs</p>
+                  </div>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/blogs.png')}}"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="w-total-reviews">-</h3>
+
+                    <p>Total Reviews</p>
                   </div>
                   <div class="icon">
                     <i><img src="{{URL::to('/public/icons/happy-customers.png')}}"></i>
@@ -97,130 +201,48 @@
                     <h3 class="card-chart-title">Daily Coupons Downloads</h3>
                     <br>
                     <div class="chart">
-                      <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                      <canvas class="chart" id="line-chart" style="min-height: 260px; height: 260px; max-height: 260px; max-width: 100%;"></canvas>
                     </div>
                   </div>
                   <!-- /.card-body -->
               </div>
-              </div>
-            </div>
-
-
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="card card-default">
-                  <div class="card-body p-0">
-                    <h3 class="card-chart-title">Top Rated Retailer</h3>
-                    <div class="chart">
-                      <canvas class="chart" id="topRatedRetailer" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>
-                      <br>
-                    </div>
-                  </div>
-                  <!-- /.card-body -->
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card card-default">
-                  <div class="card-body p-0">
-                    <h3 class="card-chart-title">Top Rated Coupons</h3>
-                    <div class="chart">
-                      <canvas class="chart" id="topRatedCoupon" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>
-                      <br>
-                    </div>
-                  </div>
-                  <!-- /.card-body -->
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card card-default">
-                  <div class="card-body p-0">
-                    <h3 class="card-chart-title">Recently Downloaded Coupons</h3>
-                    <ul class="nav nav-pills flex-column">
-                      <li class="nav-item active">
-                        <a href="javascript:void(0)" class="nav-link">
-                          DCM10 - Noon
-                          <span class=" float-right"><small>12 minutes ago</small></span>
-                        </a>
-                      </li>
-                      <li class="nav-item active">
-                        <a href="javascript:void(0)" class="nav-link">
-                          DCM40 - Namshi
-                          <span class=" float-right"><small>25 minutes ago</small></span>
-                        </a>
-                      </li>
-                      <li class="nav-item active">
-                        <a href="javascript:void(0)" class="nav-link">
-                          DCM30 - Sivvi
-                          <span class=" float-right"><small>45 minutes ago</small></span>
-                        </a>
-                      </li>
-                      <li class="nav-item active">
-                        <a href="javascript:void(0)" class="nav-link">
-                          DCM10 - Fordeal
-                          <span class=" float-right"><small>1 hour ago</small></span>
-                        </a>
-                      </li>
-                      <li class="nav-item active">
-                        <a href="javascript:void(0)" class="nav-link">
-                          DCM50 - Yalla Toys
-                          <span class=" float-right"><small>1 day ago</small></span>
-                        </a>
-                      </li>
-                    </ul>
-                    <br>
-                  </div>
-                  <!-- /.card-body -->
-                </div>
               </div>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card">
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <h3 class="card-chart-title">Brands Details</h3>
-                <canvas id="brandsChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                <br>
-                <div class="card-item-div">
-                  <div class="card-item">
-                    <img src="{{URL::to('/public/dist/img')}}/MART.png">
-                    <p>Mart and Cleaning</p>
-                    <span>Brands: 75 | Coupons: 568</span>
-                  </div>
-
-                  <div class="card-item">
-                    <img src="{{URL::to('/public/dist/img')}}/Fashion.png">
-                    <p>Fashion and Lifestyle</p>
-                    <span>Brands: 75 | Coupons: 568</span>
-                  </div>
-
-                  <div class="card-item">
-                    <img src="{{URL::to('/public/dist/img')}}/beauty.png">
-                    <p>Beauty and Health</p>
-                    <span>Brands: 75 | Coupons: 568</span>
-                  </div>
-
-                  <div class="card-item">
-                    <img src="{{URL::to('/public/dist/img')}}/Decor.png">
-                    <p>Home Decor and Electronicse</p>
-                    <span>Brands: 75 | Coupons: 568</span>
-                  </div>
-                  
-                  <div class="card-item">
-                    <img src="{{URL::to('/public/dist/img')}}/Kids.png">
-                    <p>Kids</p>
-                    <span>Brands: 75 | Coupons: 568</span>
-                  </div>
-                  
-                  <div class="card-item">
-                    <img src="{{URL::to('/public/dist/img')}}/Sports.png">
-                    <p>Sports</p>
-                    <span>Brands: 75 | Coupons: 568</span>
+              <div class="card card-default">
+                <div class="card-body p-0">
+                  <h3 class="card-chart-title">User`s Recent Activities</h3>
+                  <div id="recentActivities">
+                    <div class="loader">
+                      <img src="{{URL::to('/public/loader.gif')}}">
+                    </div>
                   </div>
                 </div>
+                <!-- /.card-body -->
               </div>
-              <!-- /.card-body -->
-            </div>
+
+              <div class="card card-default">
+                <div class="card-body p-0">
+                  <h3 class="card-chart-title">Top Rated Coupons</h3>
+                  <div class="chart">
+                    <canvas class="chart" id="topRatedCoupon" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>
+                    <br>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+
+              <div class="card card-default">
+                <div class="card-body p-0">
+                  <h3 class="card-chart-title">Top Rated Retailer</h3>
+                  <div class="chart">
+                    <canvas class="chart" id="topRatedRetailer" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>
+                    <br>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -231,6 +253,50 @@
 @endsection
 @section('addScript')
   <script type="text/javascript">
+
+    $(document).ready(function(){
+      'use strict'
+
+      getDashboardData();
+
+      setInterval(function(){
+        getDashboardData();
+      }, 5000);
+    });
+
+
+
+
+    function getDashboardData(){
+
+
+      //Get Widgets
+      $.getJSON("{{route('admin.dashboard.get_widgets')}}", function(data){
+          $('#w-total-traffic').html(data.total_traffic);
+          $('#w-uae-traffic').html(data.uae_traffic);
+          $('#w-outside-traffic').html(data.outside_traffic);
+
+          $('#w-online-stores').html(data.online_stores);
+          $('#w-show-coupons').html(data.show_coupons);
+          $('#w-grab-deals').html(data.grab_deals);
+
+          $('#w-retail-stores').html(data.retail_stores);
+          $('#w-downloads').html(data.downloads);
+          $('#w-whatsapp').html(data.whatsapp);
+
+          $('#w-registered-users').html(data.registered_users);
+          $('#w-total-blogs').html(data.total_blogs);
+          $('#w-total-reviews').html(data.total_reviews);
+      });
+
+      //Get Widgets
+      $.get("{{route('admin.dashboard.get_recent_activities')}}", function(data){
+        $('#recentActivities').html(data);
+      });
+
+
+    }
+
     //-------------
     //- PIE CHART -
     //-------------
@@ -249,23 +315,7 @@
         }
       ]
     }
-    // Get context with jQuery - using jQuery's .get() method.
-    var pieChartCanvas = $('#brandsChart').get(0).getContext('2d')
-    var pieData        = donutData;
-    var pieOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-      legend: {
-        display: false
-      }
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    new Chart(pieChartCanvas, {
-      type: 'pie',
-      data: pieData,
-      options: pieOptions
-    });
+  
 
    
     // Sales graph chart

@@ -666,3 +666,30 @@ input[type="file"]{
     text-align: center;
     color: lightseagreen;
 }
+.w-seccond-item {
+    opacity: 0.8;
+    filter: grayscale(.5);
+}
+.w-third-item {
+    opacity: 0.8;
+    filter: grayscale(.9);
+}
+#recentActivities .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 204px;
+}
+#recentActivities .loader img {
+    width: 25px;
+}
+.badge-recent {
+    font-size: 10px;
+    font-weight: 500;
+}
+#recentActivities td {
+    padding: 2px 10px;
+}
+#recentActivities .table {
+    margin-bottom: 0px;
+}

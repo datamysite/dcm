@@ -195,6 +195,12 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
     //Authenticated
     Route::middleware('adminAuth')->group(function () {
         Route::get('/', 'MainController@index')->name('admin.dashboard');
+        //Dashboard
+        Route::prefix('dashboard')->group(function(){
+            Route::get('/widgets', 'MainController@get_widgets')->name('admin.dashboard.get_widgets');
+            Route::get('/recentActivities', 'MainController@get_recent_activities')->name('admin.dashboard.get_recent_activities');
+        });
+
 
         //Retailers
         Route::prefix('retailer')->group(function () {
