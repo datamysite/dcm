@@ -689,6 +689,7 @@ input[type="file"]{
 }
 #recentActivities td {
     padding: 2px 10px;
+    font-size: 12px;
 }
 #recentActivities .table {
     margin-bottom: 0px;

@@ -261,7 +261,7 @@
 
       setInterval(function(){
         getDashboardData();
-      }, 5000);
+      }, 500000);
     });
 
 

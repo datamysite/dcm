@@ -44,8 +44,8 @@ class MainController extends Controller
     public function get_recent_activities(){
         echo '<table class="table table-striped">';
 
-        ClicksCounter::limit(7)->orderBy('id', 'desc')->get()->each(function (ClicksCounter $c) {
-            echo '<tr><td>'.$c->retailer->name.'</td><td class="text-center">';
+        ClicksCounter::limit(9)->orderBy('id', 'desc')->get()->each(function (ClicksCounter $c) {
+            echo '<tr><td>AL HAMA TECHNICAL SERVICES</td><td class="text-center">';
                 switch ($c->type) {
                     case '1':
                         echo '<span class="badge badge-recent badge-primary">Page visit</span>';
@@ -60,11 +60,11 @@ class MainController extends Controller
                         break;
 
                     case '3':
-                        echo '<span class="badge badge-recent badge-info">Coupon Download</span>';
+                        echo '<span class="badge badge-recent badge-info">Download</span>';
                         break;
 
                     case '5':
-                        echo '<span class="badge badge-recent badge-success">Whatsapp Reach</span>';
+                        echo '<span class="badge badge-recent badge-success">Whatsapp</span>';
                         break;
                     
                     default:
