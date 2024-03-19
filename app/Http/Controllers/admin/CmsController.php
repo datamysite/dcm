@@ -112,7 +112,6 @@ class CmsController extends Controller
                         $hs->retailer_desc = $data['retailer_desc'];
                         $hs->retailer_desc_ar = $data['retailer_desc_ar'];
                         $hs->retailer_order = $data['retailer_order'];
-                        $hs->url = $data['url'];
                         $hs->status = $data['status'];
 
                         $hs->save();
