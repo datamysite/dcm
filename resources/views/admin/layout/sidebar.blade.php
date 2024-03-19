@@ -31,41 +31,68 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="javascript:void(0)" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                CMS
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Home</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>About</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Contact</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Footer</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+
+          <li class="nav-item {{$menu == 'home.stores'  || $menu == 'home.slider' || $menu == 'admin.about' || $menu == 'admin.footer' || $menu == 'admin.contact' ? 'menu-is-opening menu-open' : ''}} ">
+
+          <a href="javascript:void(0)" class="nav-link {{$menu == 'home.stores' ? 'active' : ''}} menu-open">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+              CMS
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+
+          <ul class="nav nav-treeview">
+
+            <li class="nav-item {{$menu == 'home.slider' || $menu == 'home.stores' ? 'menu-open' : ''}}">
+              <a href="javascript:void(0)" class="nav-link">
+
+                <p>
+                  -- Home
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+
+              <ul class="nav nav-treeview">
+
+                <li class="nav-item">
+                  <a href="{{route('admin.home.slider')}}" class="nav-link {{$menu == 'home.slider' ? 'active' : '' }}">
+
+                    <p>- - - Sliders</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{route('admin.home.stores')}}" class="nav-link {{$menu == 'home.stores' ? 'active' : '' }}">
+
+                    <p>- - - Stores</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('admin.about')}}" class="nav-link {{$menu == 'admin.about' ? 'active' : ''}}">
+
+                <p>-- About-Us</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('admin.contact')}}" class="nav-link {{$menu == 'admin.contact' ? 'active' : ''}}">
+
+                <p>-- Contact</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('admin.footer')}}" class="nav-link {{$menu == 'admin.footer' ? 'active' : ''}}">
+
+                <p>-- Footer</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
           <li class="nav-item">
             <a href="{{route('admin.retailer')}}" class="nav-link {{$menu == 'retailers' ? 'active' : ''}}">
               <i class="nav-icon fas fa-store-alt"></i>

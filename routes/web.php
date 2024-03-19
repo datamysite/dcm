@@ -187,6 +187,10 @@ Route::prefix('seller/panel')->namespace('seller')->group(function () {
 
 Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
+    ////Translation////
+    Route::post('/translate', 'CmsController@translate', 'translate')->name('translate');
+    Route::post('/multi-translate', 'CmsController@multi_translate', 'multi_translate')->name('multi-translate');
+
     //Authentication
     Route::get('/login', 'LoginController@index')->name('admin.login');
     Route::post('/login', 'LoginController@authenticate');
@@ -323,6 +327,59 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/update', 'UserController@update_user')->name('admin.users.update');
             Route::get('/delete/{id}', 'UserController@delete');
             Route::get('/changeStatus/{id}/{status}', 'UserController@changeStatus');
+        });
+
+        
+        //Home :: Slider Section
+        Route::prefix('home')->group(function () {
+
+            Route::prefix('slider')->group(function () {
+
+                Route::get('/', 'CmsController@slider')->name('admin.home.slider');
+                Route::post('/create', 'CmsController@create')->name('admin.home.slider.create');
+                Route::get('/load', 'CmsController@load')->name('admin.home.slider.load');
+                Route::get('/edit/{id}', 'CmsController@edit');
+                Route::get('/delete/{id}', 'CmsController@delete');
+            });
+
+            Route::prefix('stores')->group(function () {
+
+            
+                Route::get('/', 'CmsController@stores')->name('admin.home.stores');
+                Route::get('/get-retailers', 'CmsController@getRetailers')->name('admin.home.stores.get-retailers');
+                Route::post('/create', 'CmsController@create_stores')->name('admin.home.stores.create');
+                Route::get('/load', 'CmsController@load_stores')->name('admin.home.stores.load');
+                Route::post('/filter', 'CmsController@stores_filter')->name('admin.home.stores.filter');
+                Route::get('/edit/{id}', 'CmsController@edit_store');
+                Route::get('/delete/{id}', 'CmsController@delete_store');
+            });
+        });
+
+        //About-Us Content
+        Route::prefix('about')->group(function () {
+            Route::get('/', 'CmsController@about')->name('admin.about');
+            Route::get('/load', 'CmsController@load_about')->name('admin.about.load');
+            Route::post('/create', 'CmsController@create_about')->name('admin.about.create');
+            Route::get('/edit/{id}', 'CmsController@edit_about');
+            Route::get('/delete/{id}', 'CmsController@delete_about');
+        });
+
+        //Contact-Us
+        Route::prefix('contact')->group(function () {
+            Route::get('/', 'CmsController@contact')->name('admin.contact');
+            Route::get('/load', 'CmsController@load_contact')->name('admin.contact.load');
+            Route::post('/create', 'CmsController@create_contact')->name('admin.contact.create');
+            Route::get('/edit/{id}', 'CmsController@edit_contact');
+            Route::get('/delete/{id}', 'CmsController@delete_contact');
+        });
+
+        //Footer Content
+        Route::prefix('footer')->group(function () {
+            Route::get('/', 'CmsController@footer')->name('admin.footer');
+            Route::get('/load', 'CmsController@load_footer')->name('admin.footer.load');
+            Route::post('/create', 'CmsController@create_footer')->name('admin.footer.create');
+            Route::get('/edit/{id}', 'CmsController@edit_footer');
+            Route::get('/delete/{id}', 'CmsController@delete_footer');
         });
     });
 });
