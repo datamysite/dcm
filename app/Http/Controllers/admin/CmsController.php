@@ -231,7 +231,7 @@ class CmsController extends Controller
 
             $slider_t = Slider::where('img_url', $data['img_url'])->where('lang', $data['lang_id'])->get();
 
-            if (count($slider_t) == 0) {
+            if (count($slider_t) == 0 && empty($data['slider_id'])) {
 
                 $id = Slider::create($data);
 
