@@ -107,10 +107,12 @@ class CmsController extends Controller
 
                         $hs->retailer_id = $data['retailer_id'];
                         $hs->retailer_type = $data['retailer_type'];
-                        $hs->retailer_title = $data['retailer_title'];
-                        $hs->retailer_title_ar = $data['retailer_title_ar'];
-                        $hs->retailer_desc = $data['retailer_desc'];
-                        $hs->retailer_desc_ar = $data['retailer_desc_ar'];
+                        if($data['retailer_type'] != '3'){
+                            $hs->retailer_title = $data['retailer_title'];
+                            $hs->retailer_title_ar = $data['retailer_title_ar'];
+                            $hs->retailer_desc = $data['retailer_desc'];
+                            $hs->retailer_desc_ar = $data['retailer_desc_ar'];
+                        }
                         $hs->retailer_order = $data['retailer_order'];
                         $hs->status = $data['status'];
 
