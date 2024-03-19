@@ -79,7 +79,7 @@ class CmsController extends Controller
 
         if (
             empty($data['retailer_id']) || empty($data['retailer_type']) || empty($data['status'])
-            || empty($data['retailer_order']) || empty($data['url']) || empty($data['status'])
+            || empty($data['retailer_order']) || empty($data['status'])
         ) {
 
             $response['success'] = false;
