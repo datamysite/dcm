@@ -22,7 +22,6 @@ class HomeStores extends Model
         $hs->retailer_desc = $data['retailer_desc'];
         $hs->retailer_desc_ar = $data['retailer_desc_ar'];
         $hs->retailer_order = $data['retailer_order'];
-        $hs->url = $data['url'];
         $hs->status = $data['status'];
         $hs->created_by = Auth::guard('admin')->id();
         $hs->save();
