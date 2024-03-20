@@ -570,6 +570,7 @@ class CmsController extends Controller
 
         $data['stores'] = Retailers::all();
         $data['categories'] = Categories::all();
+        $data['section1'] = Footer::where('section_id', '1')->get();
 
         return view('admin.cms.footer.index')->with($data);
     }
@@ -577,6 +578,7 @@ class CmsController extends Controller
     public function create_footer(Request $request)
     {
         $data = $request->all();
+       // dd($data);
         $response = [];
 
         if (empty($data['section_id']) || empty($data['page_url'])) {
@@ -584,10 +586,16 @@ class CmsController extends Controller
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         } else {
+            $footer = [];
+            if($data['section_id'] == '1'){
+                $footer = Footer::where('section_id', $data['section_id'])->where('page_name', $data['page_name'])->first();
+            }else if($data['section_id'] == '2'){
 
-            $footer = Footer::where('section_id', $data['section_id'])->where('category_id', $data['category_id'])->where('retailer_id', $data['retailer_id'])->where('del', 0)->get();
+            }else if($data['section_id'] == '3'){
 
-            if (count($footer) == 0 && empty($data['footer_id'])) {
+            }
+
+            if (empty($footer->id) && empty($data['footer_id'])) {
 
                 $id = Footer::create($data);
 
@@ -623,7 +631,7 @@ class CmsController extends Controller
                 }
             }
         }
-        echo json_encode($response);
+        return redirect()->back()->with($response);
     }
 
 

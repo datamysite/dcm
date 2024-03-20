@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-@section('title', 'About Us Content')
+@section('title', 'About Us')
 @section('content')
 
 <div class="content-wrapper">
@@ -8,12 +8,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">CMS / About Us</h1>
+          <h1 class="m-0">About Us <small><small>- CMS</small></small></h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item active">About Us Content</li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">CMS</a></li>
+            <li class="breadcrumb-item active">About Us</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -34,7 +35,7 @@
                 <div class="col-md-9 searchbar">
                 </div>
                 <div class="col-md-3">
-                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add About Us" data-toggle="modal" data-target="#addAboutFormModal"><i class="fas fa-plus"></i>Add About Us Content</a>
+                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add About Us" data-toggle="modal" data-target="#addAboutFormModal"><i class="fas fa-plus"></i> Add About Us Section</a>
                 </div>
               </div>
             </div>
@@ -80,7 +81,7 @@
 
 
 <div class="modal fade" id="addAboutFormModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <form id="add_about_form" action="{{route('admin.about.create')}}" enctype="multipart/form-data">
         @csrf
@@ -93,7 +94,7 @@
         <div class="modal-body">
 
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-4">
               <div class="form-group">
                 <label>Section</label>
                 <select class="form-control" name="about_section" required="required" id="about-section-select">
@@ -103,10 +104,7 @@
                 </select>
               </div>
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
               <div class="form-group">
                 <label>Title</label>
                 <input type="text" class="form-control" name="about_title" placeholder="Enter Title" required>
@@ -146,7 +144,7 @@
 
 
 <div class="modal fade" id="editCategoryFormModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
     </div>
@@ -282,7 +280,7 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/about/delete')}}/" + id, function(data) {
+          $.get("{{URL::to('/admin/panel/about/delete')}}/" + id, function(data) {
             console.log(data);
             if (data == 'success') {
               Toast.fire({
@@ -304,9 +302,9 @@
 
     $(document).on('click', '.edit', function() {
       var id = $(this).data('id');
-      $('#editCategoryFormModal .modal-content').html('<img src="{{URL::to(' / public / loader.gif ')}}" height="50px" style="margin:150px auto;">');
+      $('#editCategoryFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
       $('#editCategoryFormModal').modal('show');
-      $.get("{{URL::to('/admin/about/edit')}}/" + id, function(data) {
+      $.get("{{URL::to('/admin/panel/about/edit')}}/" + id, function(data) {
         $('#editCategoryFormModal .modal-content').html(data);
         make_editor("content2");
       });
@@ -319,7 +317,7 @@
   function loadAboutContent() {
     var url = "{{route('admin.about.load')}}";
 
-    $('#aboutTableBody').html('<tr class="text-center"><td colspan="6"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px"></td></tr>');
+    $('#aboutTableBody').html('<tr class="text-center"><td colspan="6"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data) {
       $('#aboutTableBody').html(data);
       //$('#categoryTable').DataTable();

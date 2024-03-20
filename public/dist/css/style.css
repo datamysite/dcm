@@ -694,3 +694,9 @@ input[type="file"]{
 #recentActivities .table {
     margin-bottom: 0px;
 }
+.ck-rounded-corners .ck.ck-button{
+    font-size: 10px;
+}
+.callout{
+    padding: 5px 15px;
+}

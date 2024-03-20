@@ -41,6 +41,7 @@
             </div>
           </div>
 
+  @if($data['about_data']->section_number == '1')
     <div class="row" id="about-image-row">
       <div class="col-md-12">
         <div class="edit_category-image-wrapper file-set" style="background-image: url({{URL::to('/public/storage/about/'.$data['about_data']->img)}});">
@@ -49,7 +50,7 @@
         </div>
       </div>
     </div>
-
+  @endif
 
 
   </div>
