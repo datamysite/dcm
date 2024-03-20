@@ -700,3 +700,31 @@ input[type="file"]{
 .callout{
     padding: 5px 15px;
 }
+.callout a {
+    text-decoration: none;
+}
+.callout a h5 {
+    transition: all ease-in-out .9s;
+}
+.callout a:hover {
+    color: #495057;
+}
+.callout a:hover h5 {
+    font-weight: 700;
+}
+.btn-danger{
+    color: #fff !important;
+}
+.callout-footer .btn {
+    position: absolute;
+    right: 13px;
+    margin-top: -32px;
+}
+.copyright-card button {
+    float: right;
+    margin-top: -34px;
+    margin-right: 3px;
+}
+.copyright-card .form-control {
+    padding-right: 100px;
+}

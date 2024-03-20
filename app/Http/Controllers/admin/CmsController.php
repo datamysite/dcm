@@ -571,6 +571,9 @@ class CmsController extends Controller
         $data['stores'] = Retailers::all();
         $data['categories'] = Categories::all();
         $data['section1'] = Footer::where('section_id', '1')->get();
+        $data['section2'] = Footer::where('section_id', '2')->get();
+        $data['section3'] = Footer::where('section_id', '3')->get();
+        $data['section4'] = Footer::where('section_id', '4')->first();
 
         return view('admin.cms.footer.index')->with($data);
     }
@@ -581,7 +584,7 @@ class CmsController extends Controller
        // dd($data);
         $response = [];
 
-        if (empty($data['section_id']) || empty($data['page_url'])) {
+        if (empty($data['section_id'])) {
 
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
@@ -590,9 +593,9 @@ class CmsController extends Controller
             if($data['section_id'] == '1'){
                 $footer = Footer::where('section_id', $data['section_id'])->where('page_name', $data['page_name'])->first();
             }else if($data['section_id'] == '2'){
-
+                $footer = Footer::where('section_id', $data['section_id'])->where('retailer_id', $data['retailer_id'])->first();
             }else if($data['section_id'] == '3'){
-
+                $footer = Footer::where('section_id', $data['section_id'])->where('category_id', $data['category_id'])->first();
             }
 
             if (empty($footer->id) && empty($data['footer_id'])) {
@@ -634,6 +637,27 @@ class CmsController extends Controller
         return redirect()->back()->with($response);
     }
 
+    public function footer_copyright_save(Request $request){
+        $data = $request->all();
+       // dd($data);
+        $response = [];
+
+        if (empty($data['copyright'])) {
+
+            $response['success'] = false;
+            $response['errors'] = 'Please Fill all required fields.';
+        } else {
+            $c = Footer::where('section_id', '4')->where('id', $data['footer_id'])->first();
+            $c->text = $data['copyright'];
+            $c->save();
+
+            $response['success'] = 'success';
+            $response['message'] = 'Success! Footer Content Updated !';
+        }
+        
+        return $response;
+    }
+
 
     public function load_footer()
     {
@@ -660,18 +684,13 @@ class CmsController extends Controller
 
         $response = [];
         $id = base64_decode($id);
-        $footer = Footer::where('id', $id)->get();
+        $footer = Footer::where('id', $id)->first();
 
-        if (count($footer) != 0) {
-            $ab = Footer::find($id);
+        if (!empty($footer->id)) {
+            Footer::destroy($id);
 
-            $ab->del = 1;
+            $response = 'success';
 
-            if ($ab->save()) {
-                $response = 'success';
-            } else {
-                $response['errors'] = 'Error While Deleting Footer Content !';
-            }
         } else {
             $response['errors'] = 'Error While Deleting Footer Content !';
         }

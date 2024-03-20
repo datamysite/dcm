@@ -79,12 +79,6 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('admin.contact')}}" class="nav-link {{$menu == 'admin.contact' ? 'active' : ''}}">
-
-                <p>-- Contact</p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="{{route('admin.footer')}}" class="nav-link {{$menu == 'admin.footer' ? 'active' : ''}}">
 
                 <p>-- Footer</p>

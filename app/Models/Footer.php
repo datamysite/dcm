@@ -18,7 +18,7 @@ class Footer extends Model
         $f = new Footer;
         $f->section_id = $data['section_id'];
         $f->page_name = empty($data['page_name']) ? '' : $data['page_name'];
-        $f->page_url = $data['page_url'];
+        $f->page_url = empty($data['page_url']) ? '' : $data['page_url'];
         $f->retailer_id = empty($data['retailer_id']) ? '0' : $data['retailer_id'];
         $f->category_id = empty($data['category_id']) ? '0' : $data['category_id'];
         $f->created_by = Auth::guard('admin')->id();

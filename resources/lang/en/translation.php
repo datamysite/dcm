@@ -354,4 +354,32 @@ return [
    "password_rest_form_txt_03" => "Confirm New Password",
    "password_rest_form_txt_04" => "Hint :",
    "password_rest_form_txt_05" => "Make sure to make your password strong by using a random string of mixed-case letters, numbers and symbols.",
+
+      ///Contact Us//
+   "about" => "About",
+   "read_more" => "Read More",
+
+   "contact_us" => "Contact Us",
+   "get_in_touch" => "Reach & Get in Touch With Us !",
+   "contact_join_us" => "CONTACT & JOIN US",
+   "visit_us" => "Visit Us On",
+   "call_us" => "Call Us at",
+   "mail_us" => "Mail Us at",
+   "opening_hours" => "Opening Hours",
+
+   "visit_us_txt" => "Visit us to know more about DCM.",
+   "call_us_txt" => "Feel free to call us any time.",
+   "mail_us_txt" => "Email us and We'll answer all your questions and concerns.",
+   "opening_hours_txt" => "We are open from 09:00AM to 06:00PM.",
+
+   "contact_us_form_01" => "Enter Your Name",
+   "contact_us_form_02" => "Enter Your Email",
+   "contact_us_form_03" => "Enter Your Phone",
+   "contact_us_form_04" => "Enter The Subject",
+   "contact_us_form_05" => "Your Message and feedback",
+   "contact_us_form_btn" => "Submit",
+
+   "live_chat" => "Live Chat",
+   "live_chat_txt" => "Our team will happily take your questions, concerns and feedback !",
+   "lets_chat" => "Lets Chat",
 ];

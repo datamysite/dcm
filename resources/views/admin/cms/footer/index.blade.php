@@ -36,15 +36,16 @@
                     <h4>About DCM</h4>
                 </div>
                 <div class="col-md-4">
-                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add About Us" data-toggle="modal" data-target="#addAboutFormModal1"><i class="fas fa-plus"></i> Add Link</a>
+                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Link" data-toggle="modal" data-target="#addAboutFormModal1"><i class="fas fa-plus"></i> Add Link</a>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md-12">
                   @foreach($section1 as $val)
-                    <div class="callout callout-info">
+                    <div class="callout callout-info callout-footer">
                       <a href="{{$val->page_url}}" target="_blank"><h5>{{$val->page_name}}</h5></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-default deleteLink" data-id="{{base64_encode($val->id)}}"><i class="fa fa-trash"></i></a>
                     </div>
                   @endforeach
                 </div>
@@ -65,7 +66,18 @@
                     <h4>Popular Stores</h4>
                 </div>
                 <div class="col-md-4">
-                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add About Us" data-toggle="modal" data-target="#addAboutFormModal"><i class="fas fa-plus"></i> Add Link</a>
+                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Link" data-toggle="modal" data-target="#addAboutFormModal2"><i class="fas fa-plus"></i> Add Link</a>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-12">
+                  @foreach($section2 as $val)
+                    <div class="callout callout-warning callout-footer">
+                      <a href="{{route('brand', ['en', $val->retailerName->states[0]->state->slug, $val->retailerName->slug])}}" target="_blank"><h5>{{$val->retailerName->name}}</h5></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-default deleteLink" data-id="{{base64_encode($val->id)}}"><i class="fa fa-trash"></i></a>
+                    </div>
+                  @endforeach
                 </div>
               </div>
             </div>
@@ -84,7 +96,24 @@
                     <h4>Popular Categories</h4>
                 </div>
                 <div class="col-md-4">
-                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add About Us" data-toggle="modal" data-target="#addAboutFormModal"><i class="fas fa-plus"></i> Add Link</a>
+                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Link" data-toggle="modal" data-target="#addAboutFormModal3"><i class="fas fa-plus"></i> Add Link</a>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-12">
+                  @foreach($section3 as $val)
+                    @php
+                        $string = strtolower(trim($val->name));
+                         $string = str_replace('&', 'and', $string);
+                         $string = str_replace(' ', '-', $string);
+                         $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                     @endphp
+                    <div class="callout callout-danger callout-footer">
+                      <a href="{{route('category', ['en', 'dubai', $slug])}}" target="_blank"><h5>{{$val->categoiresName->name}}</h5></a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-default deleteLink" data-id="{{base64_encode($val->id)}}"><i class="fa fa-trash"></i></a>
+                    </div>
+                  @endforeach
                 </div>
               </div>
             </div>
@@ -92,6 +121,25 @@
           <!-- /.card -->
         </div>
         <!-- /.col -->
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="card">
+            <div class="card-header copyright-card">
+              <form id="copyrightForm" action="{{route('admin.footer.copyright.save')}}">
+                @csrf
+                <input type="hidden" name="footer_id" value="{{$section4->id}}">
+                <input type="hidden" name="section_id" value="4">
+                <p><strong>Copyright</strong></p>
+                <input type="text" name="copyright" class="form-control" value="{{$section4->text}}" required>
+                <button type="submit" class="btn btn-sm btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div><!-- /.container-fluid -->
   </section>
@@ -150,64 +198,30 @@
   <!-- /.modal-dialog -->
 </div>
 
-<div class="modal fade" id="addAboutFormModal1">
+<div class="modal fade" id="addAboutFormModal2">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form id="add_form" action="{{route('admin.footer.create')}}" enctype="multipart/form-data">
+      <form method="post" action="{{route('admin.footer.create')}}" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" name="section_id" value="1">
+        <input type="hidden" name="section_id" value="2">
         <div class="modal-header">
-          <h4 class="modal-title">Add Footer Content</h4>
+          <h4 class="modal-title">Add Link</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
 
-          <div class="row" id="page_row" style="display: none;">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Page Name</label>
-                <input type="text" class="form-control" id="page_name" name="page_name" placeholder="Page Name">
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="row" id="retailer_row" style="display: none;">
+          <div class="row">
             <div class="col-md-12">
               <div class="form-group">
                 <label>Retailer/Store</label>
-                <select class="form-control" name="retailer_id" id="retailer_id">
+                <select class="form-control" name="retailer_id" required>
                   <option value="0">Select Retailer</option>
                   @foreach ($stores as $store)
                   <option value="{{ $store->id }}">{{ $store->name }}</option>
                   @endforeach
                 </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row" id="categoires_row" style="display: none;">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Categoires</label>
-                <select class="form-control" name="category_id" id="category_id">
-                  <option value="0">Select Category</option>
-                  @foreach ($categories as $category)
-                  <option value="{{ $category->id }}">{{ $category->name }}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>URL</label>
-                <input type="text" class="form-control" name="page_url" placeholder="URL" required>
               </div>
             </div>
           </div>
@@ -225,50 +239,25 @@
   <!-- /.modal-dialog -->
 </div>
 
-<div class="modal fade" id="addAboutFormModal1">
+<div class="modal fade" id="addAboutFormModal3">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form id="add_form" action="{{route('admin.footer.create')}}" enctype="multipart/form-data">
+      <form method="post" action="{{route('admin.footer.create')}}" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" name="section_id" value="1">
+        <input type="hidden" name="section_id" value="3">
         <div class="modal-header">
-          <h4 class="modal-title">Add Footer Content</h4>
+          <h4 class="modal-title">Add Link</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
 
-          <div class="row" id="page_row" style="display: none;">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Page Name</label>
-                <input type="text" class="form-control" id="page_name" name="page_name" placeholder="Page Name">
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="row" id="retailer_row" style="display: none;">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Retailer/Store</label>
-                <select class="form-control" name="retailer_id" id="retailer_id">
-                  <option value="0">Select Retailer</option>
-                  @foreach ($stores as $store)
-                  <option value="{{ $store->id }}">{{ $store->name }}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row" id="categoires_row" style="display: none;">
+          <div class="row" id="categoires_row">
             <div class="col-md-12">
               <div class="form-group">
                 <label>Categoires</label>
-                <select class="form-control" name="category_id" id="category_id">
+                <select class="form-control" name="category_id" required>
                   <option value="0">Select Category</option>
                   @foreach ($categories as $category)
                   <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -277,17 +266,6 @@
               </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>URL</label>
-                <input type="text" class="form-control" name="page_url" placeholder="URL" required>
-              </div>
-            </div>
-          </div>
-
-
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -321,9 +299,9 @@
     loadFooterContent();
 
 
-    $(document).on('submit', "#add_form", function(event) {
+    $(document).on('submit', "#copyrightForm", function(event) {
       var form = $(this);
-      var formData = new FormData($("#add_form")[0]);
+      var formData = new FormData($("#copyrightForm")[0]);
       //console.log(formData);
       $.ajax({
         type: "POST",
@@ -339,10 +317,6 @@
             icon: 'success',
             title: data.message
           });
-          $('.close-btn').click();
-          form.trigger("reset");
-          $('#addAboutFormModal').modal('hide');
-          loadFooterContent();
         } else {
           Toast.fire({
             icon: 'error',
@@ -388,7 +362,7 @@
     });
 
 
-    $(document).on('click', '.delete', function() {
+    $(document).on('click', '.deleteLink', function() {
       var id = $(this).data('id');
 
       Swal.fire({
@@ -401,18 +375,20 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/footer/delete')}}/" + id, function(data) {
+          $.get("{{URL::to('/admin/panel/footer/delete')}}/" + id, function(data) {
             console.log(data);
             if (data == 'success') {
               Toast.fire({
                 icon: 'success',
-                title: 'Success! About-Us Successfully Deleted.'
+                title: 'Success! Link Successfully Deleted.'
               });
-              loadFooterContent();
+              setTimeout(function(){
+                window.location.reload();
+              }, 500);
             } else {
               Toast.fire({
                 icon: 'error',
-                title: "Warning! About-Us Content Cannot be deleted !."
+                title: "Warning! Link Cannot be deleted !."
               });
             }
           });

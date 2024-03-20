@@ -8,6 +8,7 @@
                <!-- list -->
                <ul class="nav flex-column">
                   <li class="nav-item mb-2"><a href="{{route('About_Us', [$region])}}" class="nav-link">{{ __('translation.footer_section_1_link01') }}</a></li>
+                  <li class="nav-item mb-2"><a href="{{route('Contact_Us', [$region])}}" class="nav-link">{{ __('translation.contact_us') }}</a></li>
                   <li class="nav-item mb-2"><a href="{{route('FAQS', [$region])}}" class="nav-link">{{ __('translation.footer_section_1_link02') }}</a></li>
                   @if(app()->getLocale() == 'en')
                   <li class="nav-item mb-2"><a href="{{route('Blogs', [$region])}}" class="nav-link">{{ __('translation.footer_section_1_link03') }}</a></li>

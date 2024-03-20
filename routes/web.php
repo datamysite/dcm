@@ -95,6 +95,10 @@ Route::get('/migrate', function () {
             //About-Us
             Route::get('/about-Us', 'HomeController@About_Us')->name('About_Us');
 
+
+            //About-Us
+            Route::get('/contact-Us', 'HomeController@Contact_Us')->name('Contact_Us');
+
             //Sell-With-DCM
             Route::get('/sell-sith-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
             Route::post('/lead-generation', 'HomeController@lead_generation')->name('lead.generation');
@@ -380,6 +384,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/create', 'CmsController@create_footer')->name('admin.footer.create');
             Route::get('/edit/{id}', 'CmsController@edit_footer');
             Route::get('/delete/{id}', 'CmsController@delete_footer');
+            Route::post('/copyright/save', 'CmsController@footer_copyright_save')->name('admin.footer.copyright.save');
         });
     });
 });

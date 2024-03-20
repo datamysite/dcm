@@ -84,6 +84,13 @@ class HomeController extends Controller
         return view('web.content.about-us_n');
     }
 
+    //About Us Controller
+    public function Contact_Us()
+    {
+
+        return view('web.content.contact-us');
+    }
+
     //Sell With DCM Controller
     public function Sell_With_DCM()
     {
