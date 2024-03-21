@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Retailers;
+use App\Models\States;
 use URL;
 use App\Helpers\Mailer;
 
@@ -17,13 +18,45 @@ class HomeController extends Controller
         return view('web.index');
     }
 
+    //Includes Lazy Load
+
+        public function get_menuCategories_desktop($lang, $region){   
+            $data['type'] = '1';
+            $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->where('parent_id', 0)->get();
+
+            return view('web.content.lazyload.includes.getMenuCategories')->with($data);
+        }
+
+        public function get_menuCategories_mob($lang, $region){   
+            $data['type'] = '2';
+            $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->where('parent_id', 0)->get();
+
+            return view('web.content.lazyload.includes.getMenuCategories')->with($data);
+        }
+
+        public function get_footer($lang, $region){   
+            $data['footCat'] = Categories::select('id', 'image','name', 'name_ar',  'type', 'parent_id')->where('parent_id', 0)->where('type', '3')->get();
+            $data['footBrand'] = Retailers::select('id', 'name', 'name_ar',  'slug')->where('status', '1')->limit(6)->get();
+
+            return view('web.content.lazyload.includes.getFooter')->with($data);
+        } 
+
+
     // Home lazy load
+
+        public function get_states($lang, $region, $type){   
+            $data['type'] = $type;
+            $data['allstates'] = States::where('country_id', '1')->orderBy('name', 'asc')->get();
+
+            return view('web.content.lazyload.home.getStates')->with($data);
+        } 
 
         public function get_categories($lang, $region){   
             $data['categories'] = Categories::where('parent_id', 0)->get();
 
             return view('web.content.lazyload.home.getCategories')->with($data);
         } 
+
 
         public function get_online_store($lang, $region){   
             $data['onlinestores'] = Retailers::where('type', '1')->limit(10)->get();
@@ -94,8 +127,8 @@ class HomeController extends Controller
     //Sell With DCM Controller
     public function Sell_With_DCM()
     {
-
-        return view('web.content.sell-with-dcm_n');
+        $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->where('parent_id', 0)->get();
+        return view('web.content.sell-with-dcm_n')->with($data);
     }
 
 

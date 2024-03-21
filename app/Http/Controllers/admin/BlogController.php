@@ -12,12 +12,16 @@ class BlogController extends Controller
     public function index(){
         $data['menu'] = 'blogs';
 
+        $data['data'] = Blogs::orderBy('id', 'desc')->paginate(10);
         return view('admin.blogs.index')->with($data);
     }
 
     public function load(){
-        $response = [];
-        $data = Blogs::all();
+        $p = 1;
+        if(!empty($_GET['page'])){
+            $p=$_GET['page'];
+        }
+        $data = Blogs::orderBy('id', 'desc')->paginate(10, ['*'], 'page', $p);
         
         return view('admin.blogs.load', ['data' => $data]);
     }

@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
 
+    $(".phoneMask").inputmask({"mask": "+\\971999999999"});
+
     //Sell With DCM
     $(document).on('submit', "#lead_form", function(event) {
       var form = $(this);

@@ -78,7 +78,7 @@
                             </div>
 
                             <div class="input-group py-2">
-                                <input class="form-control rounded" type="text" name="phone_number" value="" placeholder="{{ __('translation.phone_number') }}" />
+                                <input class="form-control rounded phoneMask" type="text" name="phone_number" value="" placeholder="{{ __('translation.phone_number') }}" />
                                 <label class="errors lead-errors phone_number_error"></label>
                             </div>
 
@@ -180,5 +180,6 @@
 
 @endsection
 @section('addScript')
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
     <script type="text/javascript" src="{{URL::to('/public/web_assets/js/sell.js')}}"></script>
 @endsection

@@ -64,6 +64,13 @@
                   </tr>
                   </tfoot>
                 </table>
+
+                <div class="row ">
+                    <div class="col-lg-12 text-right">
+                      <br>
+                        {{ $data->links() }}
+                    </div>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>
@@ -314,7 +321,7 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/blogs/delete')}}/"+id, function(data){
+          $.get("{{URL::to('/admin/panel/blogs/delete')}}/"+id, function(data){
             Toast.fire({
               icon: 'success',
               title: 'Success! Blog Successfully Deleted.'
@@ -343,7 +350,8 @@
 
 
   function loadBlogs(){
-    var url = "{{route('admin.blog.load')}}";
+    @php $pu = !empty($_GET['page']) ? $_GET['page'] : 0; $pu = ($pu == 0 ? '' : '?page='.$pu); @endphp
+    var url = "{{route('admin.blog.load').$pu}}";
 
     $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data){

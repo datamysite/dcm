@@ -176,7 +176,7 @@ return [
   "first_name" => "First Name",
   "last_name" => "Last Name",
   "user_email" => "Email",
-  "phone_number" => "Phone Number (+971000000000)",
+  "phone_number" => "Phone Number",
   "business_category" => "Select Business Category",
   "form_text01" => "Receive email when I get referral earnings.",
   "form_submit_btn" => "Submit",

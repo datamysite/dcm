@@ -988,7 +988,10 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
-
+    
+    .footer{
+        height: 767.688px;
+    }
     .lazyload-product{
         height: 240px;
     }
@@ -1506,6 +1509,10 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 390px) {
+
+    .footer{
+        height: 812.469px;
+    }
     .sign-in-modal_container .form_modal, .sign-up-modal_container .form_modal{
         padding: 0 41px 0 65px;
         height: 80%;

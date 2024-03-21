@@ -48,8 +48,15 @@ Route::get('/migrate', function () {
         Route::prefix('{region}')->group(function(){
             //Home
             Route::get('/', 'HomeController@index')->name('home');
+                //Includes Lazy Load
+                Route::prefix('includes')->group(function(){
+                    Route::get('getFooter', 'HomeController@get_footer');
+                    Route::get('getcategoriesDesktop', 'HomeController@get_menuCategories_desktop');
+                    Route::get('getcategoriesMob', 'HomeController@get_menuCategories_mob');
+                });
                 //Home Lazy Load
                 Route::prefix('home')->group(function(){
+                    Route::get('getStates/{type}', 'HomeController@get_states');
                     Route::get('getcategories', 'HomeController@get_categories');
                     Route::get('getOnlineStores', 'HomeController@get_online_store');
                     Route::get('getRetailStores', 'HomeController@get_retail_store');

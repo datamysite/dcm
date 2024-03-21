@@ -728,3 +728,6 @@ input[type="file"]{
 .copyright-card .form-control {
     padding-right: 100px;
 }
+.pagination{
+    justify-content: flex-end;
+}

@@ -5,16 +5,7 @@
    <div class="nav-spacing"></div>
    
    <div class="container emirates-container">
-      <div class="emirates-section-nav">
-         @foreach($allstates as $val)
-            <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}" aria-label="{{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}">
-               <div class="header_card">
-                  <img src="{{URL::to('/public/storage/states/'.$val->image)}}" alt="Image - {{$val->name}}" />
-                  {{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}
-               </div>
-            </a>
-         @endforeach
-      </div>
+      
    </div>
 
 
