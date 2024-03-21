@@ -118,7 +118,7 @@ $(document).ready(function () {
 
 $(window).scroll(function (s) {
     var e = $(window).scrollTop();
-    if(lazyload == 0 && e > 1000){
+    if(lazyload == 0 && e > 500){
         getFooter();
         lazyload = 1;
     }
