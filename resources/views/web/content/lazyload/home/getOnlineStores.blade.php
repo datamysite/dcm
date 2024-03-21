@@ -7,7 +7,7 @@
             <div class="flipper">
                <div class="front">
                   <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="Yalla Toys Store" style="border-radius: 20px;" />
-                  <a href="javascript:void(0)" class="img-pop-up" aria-label="Online Store - {{$val->name}}">
+                  <a href="?b={{$val->slug}}" class="img-pop-up" aria-label="Online Store - {{$val->name}}">
                      <div class="custom_arrow-button2">
                         <i class="bi bi-arrow-right-circle"></i>
                      </div>
