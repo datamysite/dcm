@@ -122,7 +122,7 @@
          <!-- row -->
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <a href="javascript:void(0)">
+               <a href="{{route('stores', [$region, 'online'])}}">
                   <h3 class="mb-0 page-title">{{ __('translation.ONLINE_STORES') }}</h3>
                </a>
             </div>
@@ -160,7 +160,7 @@
          <!-- row -->
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <a href="javascript:void(0)">
+               <a href="{{route('stores', [$region, 'retail'])}}">
                   <h3 class="mb-0 page-title">{{ __('translation.RETAIL_STORES') }}</h3>
                </a>
             </div>
@@ -188,7 +188,7 @@
       <div class="container np-container" id="all-stores">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <a href="javascript:void(0)">
+               <a href="?i=all-stores">
                   <h3 class="mb-0 page-title">{{ __('translation.All_Stores') }}</h3>
                </a>
             </div>

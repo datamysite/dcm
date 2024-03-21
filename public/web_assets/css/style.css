@@ -999,6 +999,9 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .emirates-container{
+        display: none;
+    }
     .footer{
         height: 767.688px;
     }
