@@ -49,8 +49,9 @@
                   <tr>
                     <th width="5%">#</th>
                     <th width="20%">Slug</th>
-                    <th width="60%">Blog Heading</th>
-                    <th width="15%" class="text-right">Action</th>
+                    <th width="50%">Blog Heading</th>
+                    <th width="15%" class="text-right">Created at</th>
+                    <th width="10%" class="text-right">Action</th>
                   </tr>
                   </thead>
                   <tbody id="blogsTableBody">
@@ -60,6 +61,7 @@
                     <th>#</th>
                     <th>Slug</th>
                     <th>Blog Heading</th>
+                    <th class="text-right">Created at</th>
                     <th class="text-right">Action</th>
                   </tr>
                   </tfoot>
