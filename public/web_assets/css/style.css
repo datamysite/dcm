@@ -1012,7 +1012,7 @@ label.errors {
         height: 240px;
     }
     .lazyload-category{
-        height: 90px;
+        height: 90.188px;
     }
     .how-to-are-section{
         display: none;
@@ -1594,7 +1594,12 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 390px) {
-
+    .lazyload-category{
+        height: 90.188px;
+    }
+    .lazyload-product{
+        height: 200px;
+    }
     .footer{
         height: 812.469px;
     }
