@@ -213,6 +213,31 @@
 
               <div class="card card-default">
                 <div class="card-body p-0">
+                  <h3 class="card-chart-title">Filter Dashboard</h3>
+                  <form method="post" action="{{route('seller.filter')}}">
+                    @csrf
+                    <div class="row  p-input admin-dashboard-filter">
+                      <div class="col-12">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="far fa-calendar-alt"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control float-right" name="date_range" value="{{date('d/M/Y', strtotime($start_date))}} - {{date('d/M/Y', strtotime($end_date))}}" id="filter_range" required>
+                          <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-filter"></i>&nbsp;&nbsp;&nbsp;Filter</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </form>
+                  <br>
+                </div>
+                <!-- /.card-body -->
+              </div>
+
+              <div class="card card-default">
+                <div class="card-body p-0">
                   <h3 class="card-chart-title">Top Rated Stores</h3>
                   <div class="chart">
                     <canvas class="chart" id="topRatedRetailer" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>

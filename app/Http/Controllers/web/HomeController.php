@@ -28,6 +28,8 @@ class HomeController extends Controller
             $data['footBrand'] = Footer::where('section_id', '2')->get();
             $data['footAbout'] = Footer::where('section_id', '1')->get();
 
+            $data['copyright'] = Footer::where('section_id', '4')->first();
+
             return view('web.content.lazyload.includes.getFooter')->with($data);
         } 
 

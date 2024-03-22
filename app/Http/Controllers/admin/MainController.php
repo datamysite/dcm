@@ -14,6 +14,8 @@ class MainController extends Controller
 {
     public function index(){
         $data['menu'] = 'dashboard';
+        $data['start_date'] = date('Y-m-d', strtotime('-30 days'));
+        $data['end_date'] = date('Y-m-d', strtotime('+1 days'));
 
         return view('admin.dashboard')->with($data);
     }

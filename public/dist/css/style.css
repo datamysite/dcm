@@ -731,3 +731,10 @@ input[type="file"]{
 .pagination{
     justify-content: flex-end;
 }
+.admin-dashboard-filter button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.admin-dashboard-filter input {
+    border-radius: 0 !important;
+}

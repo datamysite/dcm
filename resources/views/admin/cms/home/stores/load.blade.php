@@ -2,8 +2,8 @@
 <tr>
 
   <td>{{++$key}}</td>
-  <td>{{$val->retailerName ? $val->retailerName->name : "NONE"}}</td>
-  <td><img src="{{ URL::to('/public') }}/storage/retailers/{{ $val->retailerName->logo }}" class="table-img"></td>
+  <td>{{$val->retailer ? $val->retailer->name : "NONE"}}</td>
+  <td><img src="{{ URL::to('/public') }}/storage/retailers/{{ $val->retailer->logo }}" class="table-img"></td>
   <td>
 
     @if($val->retailer_type == 1)

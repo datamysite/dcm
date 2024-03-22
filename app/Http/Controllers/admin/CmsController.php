@@ -162,7 +162,7 @@ class CmsController extends Controller
     public function load_stores()
     {
 
-        $data = HomeStores::where('del', 0)->with('retailerName')->get();
+        $data = HomeStores::where('del', 0)->with('retailer')->get();
         return view('admin.cms.home.stores.load', ['data' => $data]);
     }
 
