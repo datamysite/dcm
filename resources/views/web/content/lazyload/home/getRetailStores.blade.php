@@ -5,16 +5,16 @@
          <div class="flip-container">
             <div class="flipper">
                <div class="front">
-                  <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="Aldo Store" style="border-radius: 20px;" />
-                  <a href="{{route('brand', [$region, $val->slug])}}" class="img-pop-up" target="_blank" aria-label="Retail Store - {{$val->image}}">
+                  <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->retailer->ar_logo : $val->retailer->logo}}" alt="Aldo Store" style="border-radius: 20px;" />
+                  <a href="{{route('brand', [$region, $val->retailer->slug])}}" class="img-pop-up" target="_blank" aria-label="Retail Store - {{$val->retailer->image}}">
                      <div class="custom_arrow-button2">
                         <i class="bi bi-arrow-right-circle"></i>
                      </div>
                   </a>
                </div>
                <div class="back">
-                  <a href="{{route('brand', [$region, $val->slug])}}" class="img-pop-up" aria-label="Retail Store - {{$val->image}}">
-                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="Aldo Store" style="border-radius: 20px;" />
+                  <a href="{{route('brand', [$region, $val->retailer->slug])}}" class="img-pop-up" aria-label="Retail Store - {{$val->retailer->image}}">
+                     <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->retailer->ar_logo : $val->retailer->logo}}" alt="Aldo Store" style="border-radius: 20px;" />
                   </a>
                </div>
             </div>

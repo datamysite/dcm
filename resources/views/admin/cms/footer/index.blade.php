@@ -74,7 +74,7 @@
                 <div class="col-md-12">
                   @foreach($section2 as $val)
                     <div class="callout callout-warning callout-footer">
-                      <a href="{{route('brand', ['en', $val->retailerName->states[0]->state->slug, $val->retailerName->slug])}}" target="_blank"><h5>{{$val->retailerName->name}}</h5></a>
+                      <a href="{{route('brand', ['en', $val->retailer->states[0]->state->slug, $val->retailer->slug])}}" target="_blank"><h5>{{$val->retailer->name}}</h5></a>
                       <a href="javascript:void(0)" class="btn btn-sm btn-default deleteLink" data-id="{{base64_encode($val->id)}}"><i class="fa fa-trash"></i></a>
                     </div>
                   @endforeach
@@ -104,13 +104,13 @@
                 <div class="col-md-12">
                   @foreach($section3 as $val)
                     @php
-                        $string = strtolower(trim($val->name));
+                        $string = strtolower(trim($val->category->name));
                          $string = str_replace('&', 'and', $string);
                          $string = str_replace(' ', '-', $string);
                          $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                      @endphp
                     <div class="callout callout-danger callout-footer">
-                      <a href="{{route('category', ['en', 'dubai', $slug])}}" target="_blank"><h5>{{$val->categoiresName->name}}</h5></a>
+                      <a href="{{route('category', ['en', 'dubai', $slug])}}" target="_blank"><h5>{{$val->category->name}}</h5></a>
                       <a href="javascript:void(0)" class="btn btn-sm btn-default deleteLink" data-id="{{base64_encode($val->id)}}"><i class="fa fa-trash"></i></a>
                     </div>
                   @endforeach

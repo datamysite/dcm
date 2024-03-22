@@ -7,15 +7,13 @@
                <h6 class="mb-4"><strong>{{ __('translation.footer_section_1_text01') }}</strong></h6>
                <!-- list -->
                <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="{{route('About_Us', [$region])}}" class="nav-link">{{ __('translation.footer_section_1_link01') }}</a></li>
-                  <li class="nav-item mb-2"><a href="{{route('Contact_Us', [$region])}}" class="nav-link">{{ __('translation.contact_us') }}</a></li>
-                  <li class="nav-item mb-2"><a href="{{route('FAQS', [$region])}}" class="nav-link">{{ __('translation.footer_section_1_link02') }}</a></li>
-                  @if(app()->getLocale() == 'en')
-                  <li class="nav-item mb-2"><a href="{{route('Blogs', [$region])}}" class="nav-link">{{ __('translation.footer_section_1_link03') }}</a></li>
-                  @endif
-                  <li class="nav-item mb-2"><a href="{{route('Privacy_Policy', [$region])}}" class="nav-link">{{ __('translation.footer_section_1_link04') }}</a></li>
-                  <li class="nav-item mb-2"><a href="{{route('Terms', [$region])}}" class="nav-link">{{ __('translation.footer_section_1_link05') }}</a></li>
-                  <li class="nav-item mb-2"><a href="{{route('Anti_Spam', [$region])}}" class="nav-link">{{ __('translation.footer_section_1_link06') }}</a></li>
+                  @foreach($footAbout as $val)
+                     @if(app()->getLocale() == 'ar' && $val->page_name != 'Blogs')
+                        <li class="nav-item mb-2"><a href="{{$val->page_url}}" class="nav-link">{{ __('translation.'.$val->page_name) }}</a></li>
+                     @elseif(app()->getLocale() == 'en')
+                        <li class="nav-item mb-2"><a href="{{$val->page_url}}" class="nav-link">{{ __('translation.'.$val->page_name) }}</a></li>
+                     @endif
+                  @endforeach
                </ul>
             </div>
 
@@ -23,7 +21,7 @@
                <h6 class="mb-4"><strong>{{ __('translation.footer_section_2_text01') }}</strong></h6>
                <ul class="nav flex-column">
                   @foreach($footBrand as $val)
-                     <li class="nav-item mb-2"><a href="{{route('brand', [$region, $val->slug])}}" class="nav-link">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                     <li class="nav-item mb-2"><a href="{{route('brand', [$region, $val->retailer->slug])}}" class="nav-link">{{app()->getLocale() == 'ar' ? $val->retailer->name_ar : $val->retailer->name}}</a></li>
                   @endforeach
                </ul>
             </div>
@@ -34,12 +32,12 @@
                   <!-- list -->
                   @foreach($footCat as $val)
                      @php
-                        $string = strtolower(trim($val->name));
+                        $string = strtolower(trim($val->category->name));
                          $string = str_replace('&', 'and', $string);
                          $string = str_replace(' ', '-', $string);
                          $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                      @endphp
-                     <li class="nav-item mb-2"><a href="{{route('category', [$region, $slug])}}" class="nav-link">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                     <li class="nav-item mb-2"><a href="{{route('category', [$region, $slug])}}" class="nav-link">{{app()->getLocale() == 'ar' ? $val->category->name_ar : $val->category->name}}</a></li>
                   @endforeach
                </ul>
             </div>

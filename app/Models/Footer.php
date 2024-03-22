@@ -27,13 +27,13 @@ class Footer extends Model
         return $f->id;
     }
 
-    public function retailerName()
+    public function retailer()
     {
         return $this->belongsTo(Retailers::class, 'retailer_id');
     }
 
 
-    public function categoiresName()
+    public function category()
     {
         return $this->belongsTo(Categories::class, 'category_id');
     }

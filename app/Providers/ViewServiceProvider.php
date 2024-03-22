@@ -30,6 +30,7 @@ class ViewServiceProvider extends ServiceProvider
             $data['stripColors'] = array('#f11e4b' , '#151313', '#2dcc70', '#1dace3');
             $data['headSnippet'] = SnippetCode::where('position', 'Head')->get();
             $data['bodySnippet'] = SnippetCode::where('position', 'Body')->get();
+            $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->where('parent_id', 0)->get();
 
             $actual_link = '';
             if(isset($_SERVER['HTTP_HOST']) && !empty($_SERVER['HTTP_HOST'])){

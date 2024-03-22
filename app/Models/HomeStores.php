@@ -29,7 +29,7 @@ class HomeStores extends Model
         return $hs->id;
     }
 
-    public function retailerName()
+    public function retailer()
     {
         return $this->belongsTo(Retailers::class, 'retailer_id');
     }

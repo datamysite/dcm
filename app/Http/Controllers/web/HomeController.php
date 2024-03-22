@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Retailers;
 use App\Models\States;
+use App\Models\HomeStores;
+use App\Models\About;
+use App\Models\Footer;
 use URL;
 use App\Helpers\Mailer;
 
@@ -20,23 +23,10 @@ class HomeController extends Controller
 
     //Includes Lazy Load
 
-        public function get_menuCategories_desktop($lang, $region){   
-            $data['type'] = '1';
-            $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->where('parent_id', 0)->get();
-
-            return view('web.content.lazyload.includes.getMenuCategories')->with($data);
-        }
-
-        public function get_menuCategories_mob($lang, $region){   
-            $data['type'] = '2';
-            $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->where('parent_id', 0)->get();
-
-            return view('web.content.lazyload.includes.getMenuCategories')->with($data);
-        }
-
         public function get_footer($lang, $region){   
-            $data['footCat'] = Categories::select('id', 'image','name', 'name_ar',  'type', 'parent_id')->where('parent_id', 0)->where('type', '3')->get();
-            $data['footBrand'] = Retailers::select('id', 'name', 'name_ar',  'slug')->where('status', '1')->limit(6)->get();
+            $data['footCat'] = Footer::where('section_id', '3')->get();
+            $data['footBrand'] = Footer::where('section_id', '2')->get();
+            $data['footAbout'] = Footer::where('section_id', '1')->get();
 
             return view('web.content.lazyload.includes.getFooter')->with($data);
         } 
@@ -59,25 +49,26 @@ class HomeController extends Controller
 
 
         public function get_online_store($lang, $region){   
-            $data['onlinestores'] = Retailers::where('type', '1')->limit(10)->get();
+            $data['onlinestores'] = HomeStores::where('retailer_type', '1')->limit(10)->orderBy('id', 'desc')->get();
 
             return view('web.content.lazyload.home.getOnlineStores')->with($data);
         } 
 
         public function get_retail_store($lang, $region){   
-            $data['retailstores'] = Retailers::inRandomOrder()->where('type', '2')
-                                            ->where('status', '1')
-                                            ->whereHas('states', function($qq) use ($region){
-                                                return $qq->whereHas('state', function($qqq) use ($region){
-                                                    return $qqq->where('slug', $region);
+            $data['retailstores'] = HomeStores::where('retailer_type', '2')
+                                            ->whereHas('retailer', function($q) use ($region){
+                                                return $q->whereHas('states', function($qq) use ($region){
+                                                    return $qq->whereHas('state', function($qqq) use ($region){
+                                                        return $qqq->where('slug', $region);
+                                                    });
                                                 });
-                                            })->limit(5)->get();
+                                            })->limit(10)->orderBy('id', 'desc')->get();
 
             return view('web.content.lazyload.home.getRetailStores')->with($data);
         } 
 
         public function get_all_store($lang, $region){   
-            $data['allstores'] = Retailers::inRandomOrder()->where('status', '1')->limit(6)->get();
+            $data['allstores'] = HomeStores::where('retailer_type', '3')->limit(6)->orderBy('id', 'desc')->get();
 
             return view('web.content.lazyload.home.getAllStores')->with($data);
         } 
@@ -113,8 +104,10 @@ class HomeController extends Controller
     //About Us Controller
     public function About_Us()
     {
+        $data['section1'] = About::where('section_number', '1')->orderBy('id', 'desc')->first();
+        $data['section2'] = About::where('section_number', '2')->orderBy('id', 'desc')->first();
 
-        return view('web.content.about-us_n');
+        return view('web.content.about-us_n')->with($data);
     }
 
     //About Us Controller

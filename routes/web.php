@@ -51,8 +51,6 @@ Route::get('/migrate', function () {
                 //Includes Lazy Load
                 Route::prefix('includes')->group(function(){
                     Route::get('getFooter', 'HomeController@get_footer');
-                    Route::get('getcategoriesDesktop', 'HomeController@get_menuCategories_desktop');
-                    Route::get('getcategoriesMob', 'HomeController@get_menuCategories_mob');
                 });
                 //Home Lazy Load
                 Route::prefix('home')->group(function(){
