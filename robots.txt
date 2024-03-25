@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /private/
+Disallow: /admin/
+Allow: /public/
+Sitemap: https://dealsandcouponsmena.com/en/sitemap.xml
+Sitemap: https://dealsandcouponsmena.com/ar/sitemap.xml
+Sitemap: https://dealsandcouponsmena.com/en/blogs/sitemap.xml
