@@ -220,8 +220,8 @@
                     <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px; width: 100px; height: auto;">
                 </div>
 
-                <div class="row mt-10" style="justify-content: center; text-align: center;">
-                    <img src="{{URL::to('/public/web_assets/images/emails')}}/laptop.png" alt="DCM"  style="width: 300px; height: auto;">
+                <div class="row mt-10" style="justify-content: center !important; text-align: center;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/laptop.png" alt="DCM"  style="width: 300px; height: auto; margin: auto 0;">
                 </div>
             </div>
 
