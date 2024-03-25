@@ -2,7 +2,6 @@
 <html>
 
 <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -196,6 +195,12 @@
         .dcm_banner_mobile {
             display: none;
         }
+
+        .table tr:nth-child(even){background-color: #f2f2f2;}
+        .table {
+          border-collapse: collapse;
+          width: 100%;
+        }
     </style>
 </head>
 
@@ -208,11 +213,11 @@
                 style="background: url({{URL::to('/public/web_assets/images/emails')}}/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
 
                 <div class="row">
-                    <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
+                    <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px; width: 100px; height: auto;">
                 </div>
 
                 <div class="row mt-10" style="justify-content: center;">
-                    <img src="{{URL::to('/public/web_assets/images/emails')}}/laptop.png" alt="DCM" style="width: 35%;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/laptop.png" alt="DCM"  style="width: 300px; height: auto;">
                 </div>
             </div>
 
@@ -233,12 +238,14 @@
             </div>
 
             <p style="padding-top: 0px">
-                Welcome to Deals and Coupons MENA – your hub for incredible savings! Explore handpicked deals, exclusive
-                coupons, and daily updates to make your shopping experience unforgettable.
+
+                Explore handpicked deals, exclusive coupons, and daily updates to make your shopping experience unforgettable. Browse our
+                website and navigate through your favorite brands to pick from a variety of products and services.
+                Search for what you want, buy and block it!
 
             </p>
             <p>
-                Start saving now at
+                Start saving now with
 
                 <a href="http://dealsandcouponsmena.com/en/dubai/pass-reset?rest=j875856u5" target="_blank"
                     style="font-size: large; color: #00c5ff">
@@ -259,18 +266,18 @@
 
             <div class="row" style="padding-top: 10px;">
 
-                <div class="column right" style="width:50%">
+                <div class="column right">
                     <div class="left-side-icons">
                         <a href="mailto:info@dealsandcouponsmena.com" target="_blank"
                             style="color: #00c5ff;">info@dealsandcouponsmena.com</a>
                     </div>
                 </div>
 
-                <div class="column left" style="width:50%; text-align: right;">
+                <div class="column left">
                     <div class="social-icons">
-                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/twitter.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" alt="Icon 4"></a>
+                        <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/instagram.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Facebook"></a>
+                        <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/linkedin.png" alt="linkedin"></a>
                     </div>
                 </div>
 
