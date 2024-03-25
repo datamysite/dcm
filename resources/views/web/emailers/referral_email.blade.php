@@ -277,7 +277,7 @@
                         <div class="column right">
                             <div class="left-side-icons">
                                 <center>
-                                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hand_p.png" alt="DCM" class="W-100">
+                                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hand_p.png" alt="DCM" class="W-100" style="width: 45px;">
                                     <div><strong>Share</strong></div>
                                 </center>
                             </div>
@@ -304,7 +304,7 @@
                         <div class="column right">
                             <div class="left-side-icons">
                                 <center>
-                                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hand_p_2.png" alt="DCM" class="W-100">
+                                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hand_p_2.png" alt="DCM" class="W-100" style="width: 45px;">
                                     <div><strong>Friends Get</strong></div>
                                 </center>
                             </div>
@@ -329,7 +329,7 @@
                         <div class="column right">
                             <div class="left-side-icons">
                                 <center>
-                                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hand_p_3.png" alt="DCM" class="W-100">
+                                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hand_p_3.png" alt="DCM" class="W-100" style="width: 45px;">
                                     <div><strong>You Get</strong></div>
                                 </center>
                             </div>
