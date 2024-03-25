@@ -102,10 +102,14 @@
 
         .left {
             float: left;
+            text-align: left;
+            width: 49%;
         }
 
         .right {
             float: right;
+            text-align: right;
+            width: 49%;
         }
 
         .divider {
@@ -230,20 +234,18 @@
 
         <div class="header">
             <div class="dcm_banner"
-                style="background: url(img/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
+                style="background: url({{URL::to('/public/web_assets/images/emails')}}/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
 
                 <div class="row">
-                    <img class="w-15" src="img/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
+                    <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px; width: 100px; height: auto;">
                 </div>
 
-                <div class="row mt-5" style="justify-content: center;">
-                    <img src="img/hands.png" alt="DCM" style="width: 30%;">
+                <div class="row mt-5" style="justify-content: center;text-align: center;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hands.png" alt="DCM" style="width: 250px; margin-left: 30%;">
                 </div>
             </div>
 
-            <div class="dcm_banner_mobile">
-                <h2 class="text-center" style="padding-top:40px;color:#fff">Welcome</2>
-            </div>
+
 
         </div>
 
@@ -254,9 +256,9 @@
             </div>
 
             <p style="font-size: 16px;">
-                Did you know that you can earn rewards for each person you refer to Data-wize? <br>
-                Simply share your unique referral link with your firends and family, and they'll receive 10% off their
-                first purchase.
+                Did you know that you can earn rewards for every successful referral you send our way?
+                Simply share your unique referral link with your friends and both of you can enjoy browsing your
+                favorite brands and getting cashback on your purchases. A total win-win!
             </p>
 
             <p class="text-center">
@@ -268,7 +270,7 @@
 
             <div>
 
-                <div class="text-center" >
+                <div class="text-center">
 
                     <div class="row" style="margin-top:10px">
 
@@ -287,7 +289,7 @@
                                     Share your unique referral link with your friends.
                                     <br>
                                     <a href="https://dealsandcouponsmena.com/en/dubai"
-                                        style="font-weight: lighter; color:#00C5FF;">Deals & Coupons MENAReferral
+                                        style="font-weight: lighter; color:#00C5FF;">Deals & Coupons MENA Referral
                                         Code</a>
                                 </p>
                             </div>
@@ -311,9 +313,9 @@
                         <div class="column left">
                             <div>
                                 <p>
-                                    Your friens sign-up for Datawize using your referral link.
+                                    Your friends can sign-up for Deals &amp; Coupons MENA using your referral link.
                                     <br>
-                                    Your friends get 10% of their first purchase.
+                                    Your friends will get cashback on every purchase that can be later reflected in their account.
                                 </p>
                             </div>
                         </div>
@@ -336,7 +338,7 @@
                         <div class="column left">
                             <div>
                                 <p>
-                                    You get $50 for each friend who signs up and makes a purchase.
+                                    You will get cashback for each friend who signs up and makes a purchase.
                                 </p>
                             </div>
                         </div>
@@ -360,9 +362,9 @@
 
                     <div class="column left">
                         <div class="social-icons">
-                            <a href="#" target="_blank"><img src="img/facebook.png" alt="Icon 4"></a>
-                            <a href="#" target="_blank"><img src="img/twitter.png" alt="Icon 4"></a>
-                            <a href="#" target="_blank"><img src="img/whatsapp.png" alt="Icon 4"></a>
+                            <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/instagram.png" alt="Instagram"></a>
+                            <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Facebook"></a>
+                            <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/linkedin.png" alt="linkedin"></a>
                         </div>
                     </div>
 
