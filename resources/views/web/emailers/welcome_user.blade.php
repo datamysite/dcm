@@ -221,7 +221,7 @@
                 </div>
 
                 <div class="row mt-10" style="justify-content: center !important; text-align: center;">
-                    <img src="{{URL::to('/public/web_assets/images/emails')}}/laptop.png" alt="DCM"  style="width: 300px; height: auto; margin: auto 0;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/laptop.png" alt="DCM"  style="width: 300px; height: auto; margin-left: 30%;">
                 </div>
             </div>
 
