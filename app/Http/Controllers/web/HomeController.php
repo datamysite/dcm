@@ -119,6 +119,35 @@ class HomeController extends Controller
         return view('web.content.contact-us');
     }
 
+
+    public function Contact_Us_submit($region, Request $request){
+        $data = $request->all();
+        $response = [];
+
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:13|max:13',
+            'subject' => 'required',
+            'messages' => 'required',
+        ]);
+
+        $mail = Mailer::sendMail('New Inquiry Received!', 'contact@dealsandcouponsmena.com', 'DCM', 'web.emailers.insiders.inquiry', $data);
+
+        if($mail){
+            $response['success'] = 'success';
+            $response['message'] = 'Success! Your inquiry successfully submited.';
+        }else{
+
+            $response['success'] = 'error';
+            $response['message'] = 'Something went wrong.';
+        }
+
+
+
+        echo json_encode($response);
+    }
+
     //Sell With DCM Controller
     public function Sell_With_DCM()
     {

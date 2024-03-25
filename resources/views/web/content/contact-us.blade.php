@@ -74,29 +74,29 @@
 
                     <div class="col-md-3" >
                         <div class="contact-us-feature">
-                            <div class="about-us-title text-center"><i class="fa fa-solid fa-map-marker" style="font-size: 30px;" aria-hidden="true"></i> {{ __('translation.visit_us') }} </div>
-                            <div class="about-us-text"><strong>{{ __('translation.visit_us_txt') }}</strong></div>
+                            <div class="about-us-title"><i class="fa fa-solid fa-map-marker" style="font-size: 30px;" aria-hidden="true"></i> {{ __('translation.visit_us') }} </div>
+                            <div class="about-us-text">Al Bayan Building, office# 205, Dubai Investment Park, Dubai - UAE</div>
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="contact-us-feature">
-                            <div class="about-us-title text-center"><i class="fa fa-solid fa-phone" style="font-size: 30px;" aria-hidden="true"></i> {{ __('translation.call_us') }} </div>
-                            <div class="about-us-text"><strong>{{ __('translation.call_us_txt') }}</strong></div>
+                            <div class="about-us-title"><i class="fa fa-solid fa-phone" style="font-size: 30px;" aria-hidden="true"></i> {{ __('translation.call_us') }} </div>
+                            <div class="about-us-text">TEL: <strong>042 957 001</strong> <br>WHATSAPP: <strong>042 957 001</strong></div>
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="contact-us-feature ">
-                            <div class="about-us-title text-center"><i class="fa fa-solid fa-envelope" style="font-size: 30px;" aria-hidden="true"></i> {{ __('translation.mail_us') }}</div>
-                            <div class="about-us-text"><strong>{{ __('translation.mail_us_txt') }}</strong></div>
+                            <div class="about-us-title"><i class="fa fa-solid fa-envelope" style="font-size: 30px;" aria-hidden="true"></i> {{ __('translation.mail_us') }}</div>
+                            <div class="about-us-text"><a href="mailto:info@dealsandcouponsmena.com">info@dealsandcouponsmena.com</a> <br><a href="mailto:contact@dealsandcouponsmena.com">contact@dealsandcouponsmena.com</a></div>
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="contact-us-feature ">
-                            <div class="about-us-title text-center"><i class="fa fa-solid fa-clock" style="font-size: 30px;" aria-hidden="true"></i>  {{ __('translation.opening_hours') }}</div>
-                            <div class="about-us-text"><strong>{{ __('translation.opening_hours_txt') }}</strong></div>
+                            <div class="about-us-title"><i class="fa fa-solid fa-clock" style="font-size: 30px;" aria-hidden="true"></i>  {{ __('translation.opening_hours') }}</div>
+                            <div class="about-us-text">Mon - Fri | 9:30 am - 7:30 pm<br>Saturday & Sunday | Closed</div>
                         </div>
                     </div>
 
@@ -109,61 +109,67 @@
 <!-- section -->
 
 <!-- section -->
-<section class="my-lg-14 my-8">
+<section class="my-lg-14 my-8" style="background-color: #f2f2f2; padding: 15px 0;">
     <!-- container -->
     <div class="container">
         <!-- row -->
         <div class="row text-center">
-
+            <div class="col-lg-3"></div>
             <div class="col-lg-6 mx-auto">
-
-                <div class="mb-8">
-                    <!-- heading -->
-                    <h2 style="text-align: left;">{{ __('translation.get_in_touch') }}</h2>
-                </div>
-
-                <div class="firstandlast">
-                    <div class="floating-input">
-                        <input type="text" id="firstname" size="30" placeholder="{{ __('translation.contact_us_form_01') }}" class="form-control rounded mt-5" required="required">
+                <form id="contactUsForm">
+                    @csrf
+                    <div class="mb-8">
+                        <!-- heading -->
+                        <h2 style="text-align: center;">{{ __('translation.get_in_touch') }}</h2>
                     </div>
-                    <div class="floating-input">
 
-                        <input type="email" name="email" value="" placeholder="{{ __('translation.contact_us_form_02') }}" class="form-control rounded mt-5" required="required">
-                    </div>
-                </div>
-
-                <div class="firstandlast">
-                    <div class="floating-input">
-                        <input type="text" name="phone" placeholder="{{ __('translation.contact_us_form_03') }}" class="form-control rounded mt-5" required="required">
-                    </div>
-                    <div class="floating-input">
-                        <input type="text" name="subject" value="" placeholder="{{ __('translation.contact_us_form_04') }}" class="form-control rounded mt-5" required="required">
-                    </div>
-                </div>
-
-                <div class="input-group py-5">
-                    <textarea class="form-control rounded" name="user_msg" cols="10" rows="10" placeholder="{{ __('translation.contact_us_form_05') }}" required="required"></textarea>
-                </div>
-
-                <input type="submit" name="submit" class="btn btn-primary shadow-gray" style="font-weight: lighter;" value="{{ __('translation.contact_us_form_btn') }}">
-
-            </div>
-
-            <div class="col-lg-6">
-                <div class="col-lg-5 mx-auto">
-                    <div class="contact-us-feature" style="background-color: #1DACE3;color:aliceblue;height:auto; border-radius:20px; width:350px; height:450px">
-                        <div class="about-us-title text-center">
-                            <i class="fa fa-headphones" aria-hidden="true" style="font-size: 35px;"></i> {{ __('translation.live_chat') }}
+                    <div class="firstandlast">
+                        <div class="floating-input">
+                            <input type="text" name="name" placeholder="{{ __('translation.contact_us_form_01') }}" class="form-control rounded mt-5">
+                            <span class="errors name_error"></span>
                         </div>
-                        <div class="about-us-text text-center">{{ __('translation.live_chat_txt') }}</div>
+                        <div class="floating-input">
 
-                        <div class="mt-5">
-                            <input type="submit" name="submit" class="btn btn-white shadow-gray" style="font-weight: lighter;" value="{{ __('translation.lets_chat') }}">
+                            <input type="email" name="email" value="" placeholder="{{ __('translation.contact_us_form_02') }}" class="form-control rounded mt-5">
+                            <span class="errors email_error"></span>
                         </div>
                     </div>
-                </div>
+
+                    <div class="firstandlast">
+                        <div class="floating-input">
+                            <input type="text" name="phone_number" placeholder="{{ __('translation.contact_us_form_03') }}" class="form-control phoneMask rounded mt-5">
+                            <span class="errors phone_number_error"></span>
+                        </div>
+                        <div class="floating-input">
+                            <input type="text" name="subject" value="" placeholder="{{ __('translation.contact_us_form_04') }}" class="form-control rounded mt-5">
+                            <span class="errors subject_error"></span>
+                        </div>
+                    </div>
+
+                    <div class=" py-5">
+                        <textarea class="form-control rounded" name="messages" cols="10" rows="10" placeholder="{{ __('translation.contact_us_form_05') }}"></textarea>
+                        <span class="errors messages_error"></span>
+                    </div>
+
+                    <input type="submit" name="submit" class="btn btn-primary shadow-gray" style="font-weight: lighter;" value="{{ __('translation.contact_us_form_btn') }}">
+
+                    <div class="lead-loader">
+                        <img src="{{URL::to('/public/loader.gif')}}">
+                    </div>
+                </form>
             </div>
+            <div class="col-lg-3"></div>
         </div>
+
+    </div>
+</section>
+<!-- section -->
+
+
+<!-- section -->
+<section class="my-lg-14 my-8">
+    <!-- container -->
+    <div class="container">
 
         <div class="row text-center mt-10">
 
@@ -180,4 +186,8 @@
 <!-- section -->
 
 
+@endsection
+@section('addScript')
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+    <script type="text/javascript" src="{{URL::to('/public/web_assets/js/contact.js')}}"></script>
 @endsection

@@ -103,6 +103,7 @@ Route::get('/migrate', function () {
 
             //About-Us
             Route::get('/contact-Us', 'HomeController@Contact_Us')->name('Contact_Us');
+            Route::post('/contact-Us', 'HomeController@Contact_Us_submit')->name('Contact_Us');
 
             //Sell-With-DCM
             Route::get('/sell-sith-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');

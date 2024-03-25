@@ -987,13 +987,41 @@ label.errors {
 #forgotPasswordForm .errors, #resetPasswordForm .errors {
     margin-top: 5px;
 }
-
-
-
-
-
-
-
+.contact-us-feature {
+    border: 1px solid;
+    border-radius: 15px;
+    min-height: 150px;
+    text-align: left;
+    padding: 15px;
+}
+.contact-us-feature .about-us-title {
+    margin: 0px;
+    margin-bottom: 10px;
+}
+.contact-us-feature .about-us-title i {
+    font-size: 24px !important;
+    padding-right: 10px;
+}
+.contact-us-feature .about-us-text {
+    font-size: 13px;
+}
+.errors {
+    display: none;
+    color: red;
+    font-size: 10px;
+    float: right;
+    margin-top: -18px;
+    margin-right: 5px;
+}
+#contactUsForm{
+    position: relative;
+}
+#contactUsForm .lead-loader{
+    background-color: #f2f2f2a3;
+}
+#contactUsForm .lead-loader img{
+    margin-left: 0;
+}
 
 
 
