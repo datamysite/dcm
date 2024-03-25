@@ -25,10 +25,10 @@
             <div class="container">
                 <div class="dcm_banner" style="background: url(https://www.dealsandcouponsmena.com/public/web_assets/images/banner/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
                     <div class="row">
-                        <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px; width: 80px; height: auto;">
+                        <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px; width: 100px; height: auto;">
                     </div>
-                    <div class="row mt-5" style="justify-content: center;">
-                        <img class="w-50" src="{{URL::to('/public/web_assets/images/emails')}}/laptop.png" alt="DCM" style="width: 100px; height: auto;">
+                    <div class="row mt-5" style="justify-content: center; text-align: center;">
+                        <img class="w-50" src="{{URL::to('/public/web_assets/images/emails')}}/laptop.png" alt="DCM" style="width: 300px; height: auto;">
                     </div>
                 </div>
             </div>
@@ -78,10 +78,10 @@
                 <div class="row mt-5">
                     <hr style=" height: 1px; background-color: black;   border: none;margin: 10px 0;">
 
-                    <p class="mt-0 text-center">
+                    <p class="mt-0" style="text-align:center;">
                         <a href="  https://dealsandcouponsmena.com/dubai/privacy-policy" style="color: #00C5FF;">Privacy Policy</a> | <a href="  https://dealsandcouponsmena.com/dubai/terms" style="color: #00C5FF;">Terms & Conditions</a> | <a href="  https://dealsandcouponsmena.com/dubai/faqs" style="color: #00C5FF;">FAQ</a>
                     </p>
-                    <p class="text-center">
+                    <p style="text-align:center;">
                         ©
                         <span id="copyright">
                         </span>
