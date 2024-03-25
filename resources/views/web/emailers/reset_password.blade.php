@@ -150,7 +150,7 @@
 
   <div class="container">
 
-    <div class="header">
+    <div class="header" style="text-align:center;">
       <img src="{{URL::to('/public/web_assets/images/emails')}}/m-logo.png" alt="DCM Logo" class="logo" />
     </div>
 
@@ -196,9 +196,9 @@
 
         <div class="column left">
           <div class="social-icons">
-            <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="img/instagram.png" alt="Instagram"></a>
-            <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="img/facebook.png" alt="Facebook"></a>
-            <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="img/linkedin.png" alt="linkedin"></a>
+            <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/instagram.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Facebook"></a>
+            <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/linkedin.png" alt="linkedin"></a>
           </div>
         </div>
 
