@@ -40,13 +40,13 @@
                     <p class="mb-0 lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <p></p>
                     <!-- col -->
-                    <div class="col-6">
+                    <div class="col-8">
                         <div class="input-group ">
-                            <input type="text" class="form-control rounded" name="referal_link" placeholder="https://dealsandcouponsmena.com/join.php?referal=58" readonly="readonly">
+                            <input type="text" class="form-control rounded" id="copyClipboard" name="referal_link" value="{{route('user.referral.link', [base64_encode(Auth::id()), base64_encode(Auth::user()->email)])}}" readonly="readonly">
                         </div>
                     </div>
-                    <div class="col-6">
-                        <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="Copy Link">
+                    <div class="col-4">
+                        <button class="btn btn-primary shadow-gray copyLinkBtn" onclick="copy()"> Copy Link </button>
                     </div>
                     <p></p>
                 </div>
@@ -58,12 +58,12 @@
                     <p class="mb-0 lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <p></p>
                     <!-- col -->
-                    <div class="col-6">
+                    <div class="col-8">
                         <div class="input-group ">
                             <input type="text" class="form-control rounded" name="email_link" placeholder="Enter Your Email ID" readonly="readonly">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="Send Invitation">
                     </div>
                     <p></p>
@@ -80,10 +80,10 @@
 
                         <div class="">
                             <a href="#">
-                                <img src="./public/web_assets/images/social-media/facebook.png" class="circle-image" style="display: inline-block; width:50px ; height:50px; margin-right: 20px;" alt="Facebook">
+                                <img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;" alt="Facebook">
                             </a>
                             <a href="#">
-                                <img src="./public/web_assets/images/social-media/whatsapp.png" class="circle-image" style="display: inline-block; width:50px ; height:50px; margin-right: 20px;" alt="Whatsapp">
+                                <img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;" alt="Whatsapp">
                             </a>
 
                             <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="Copy Link" style="display: inline-block; margin-right: 20px;">
@@ -104,4 +104,17 @@
 @endsection
 @section('addScript')
     <script type="text/javascript" src="{{URL::to('/public/web_assets/js/profile.js')}}"></script>
+    <script type="text/javascript">
+        function copy() {
+            let copyText = document.getElementById("copyClipboard");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); 
+            navigator.clipboard.writeText(copyText.value);
+          
+            Toast.fire({
+                icon: 'success',
+                title: 'Link Copied!'
+            });
+        }
+    </script>
 @endsection
