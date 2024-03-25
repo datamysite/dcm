@@ -241,7 +241,7 @@
                 </div>
 
                 <div class="row mt-5" style="justify-content: center;text-align: center;">
-                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hands.png" alt="DCM" style="width: 250px; margin-left: 35%;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hands.png" alt="DCM" style="width: 250px; margin-left: 36%;">
                 </div>
             </div>
 
@@ -262,7 +262,7 @@
             </p>
 
             <p class="text-center">
-                <a class="btn btn-default" href="https://www.dealsandcouponsmena.com/en/dubai" target="_blank"
+                <a class="btn btn-default" href="{{route('user.referralEarn')}}" target="_blank"
                     style="font-weight: lighter; background-color:#00C5FF;color:#fff;">Invite Your Friends</a>
             </p>
 
@@ -288,7 +288,7 @@
                                 <p>
                                     Share your unique referral link with your friends.
                                     <br>
-                                    <a href="https://dealsandcouponsmena.com/en/dubai"
+                                    <a href="{{route('user.referralEarn')}}"
                                         style="font-weight: lighter; color:#00C5FF;">Deals & Coupons MENA Referral
                                         Code</a>
                                 </p>

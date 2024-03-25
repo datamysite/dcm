@@ -141,6 +141,8 @@ Route::get('/migrate', function () {
             Route::get('/facebook', 'FacebookLoginController@redirectToFacebook')->name('auth.facebook');
             Route::get('/facebook/callback', 'FacebookLoginController@handleFacebookCallback');
 
+            Route::get('referral/{id}/{email}', 'UserController@referral_link')->name('user.referral.link');
+
             Route::middleware('userAuth')->group(function(){
 
                 Route::get('profile', 'UserController@profile')->name('user.profile');
