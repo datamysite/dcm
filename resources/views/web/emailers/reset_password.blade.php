@@ -150,7 +150,7 @@
 
   <div class="container">
 
-    <div class="header" style="text-align:center;">
+    <div class="header" style="text-align:center;justify-content: center;">
       <img src="{{URL::to('/public/web_assets/images/emails')}}/m-logo.png" alt="DCM Logo" class="logo" />
     </div>
 
