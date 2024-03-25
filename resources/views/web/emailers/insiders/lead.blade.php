@@ -14,6 +14,14 @@
     <link rel="stylesheet" href="https://www.dealsandcouponsmena.com/public/web_assets/css/theme.min.css" />
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style type="text/css">
+        .table tr:nth-child(even){background-color: #f2f2f2;}
+        .table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -82,10 +90,10 @@
                 <div class="row mt-5">
                     <hr style=" height: 1px; background-color: black;   border: none;margin: 10px 0;">
 
-                    <p class="mt-0 text-center">
+                    <p class="mt-0" style="text-align:center;">
                         <a href="  https://dealsandcouponsmena.com/dubai/privacy-policy" style="color: #00C5FF;">Privacy Policy</a> | <a href="  https://dealsandcouponsmena.com/dubai/terms" style="color: #00C5FF;">Terms & Conditions</a> | <a href="  https://dealsandcouponsmena.com/dubai/faqs" style="color: #00C5FF;">FAQ</a>
                     </p>
-                    <p class="text-center">
+                    <p  style="text-align:center;">
                         ©
                         <span id="copyright">
                         </span>
