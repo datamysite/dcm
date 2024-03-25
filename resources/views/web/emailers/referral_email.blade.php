@@ -241,7 +241,7 @@
                 </div>
 
                 <div class="row mt-5" style="justify-content: center;text-align: center;">
-                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hands.png" alt="DCM" style="width: 250px; margin-left: 30%;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hands.png" alt="DCM" style="width: 250px; margin-left: 35%;">
                 </div>
             </div>
 
@@ -277,7 +277,7 @@
                         <div class="column right">
                             <div class="left-side-icons">
                                 <center>
-                                    <img src="img/hand_p.png" alt="DCM" class="W-100">
+                                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hand_p.png" alt="DCM" class="W-100">
                                     <div><strong>Share</strong></div>
                                 </center>
                             </div>
@@ -304,7 +304,7 @@
                         <div class="column right">
                             <div class="left-side-icons">
                                 <center>
-                                    <img src="img/hand_p_2.png" alt="DCM" class="W-100">
+                                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hand_p_2.png" alt="DCM" class="W-100">
                                     <div><strong>Friends Get</strong></div>
                                 </center>
                             </div>
@@ -329,7 +329,7 @@
                         <div class="column right">
                             <div class="left-side-icons">
                                 <center>
-                                    <img src="img/hand_p_3.png" alt="DCM" class="W-100">
+                                    <img src="{{URL::to('/public/web_assets/images/emails')}}/hand_p_3.png" alt="DCM" class="W-100">
                                     <div><strong>You Get</strong></div>
                                 </center>
                             </div>
