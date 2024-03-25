@@ -2,7 +2,6 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -96,10 +95,14 @@
 
     .left {
       float: left;
+      text-align: left;
+      width: 49%;
     }
 
     .right {
       float: right;
+      text-align: right;
+      width: 49%;
     }
 
     .divider {
@@ -154,7 +157,7 @@
     <div class="content">
 
       <h1>Reset Your Password</h1>
-      <h2>Hi, Customer Name Here</h2>
+      <h2>Hi, {{$name}}</h2>
 
       <p style="padding-top: 5px">
         Trouble logging in? We can help!
@@ -193,9 +196,9 @@
 
         <div class="column left">
           <div class="social-icons">
-            <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Icon 4"></a>
-            <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/twitter.png" alt="Icon 4"></a>
-            <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" alt="Icon 4"></a>
+            <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="img/instagram.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="img/facebook.png" alt="Facebook"></a>
+            <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="img/linkedin.png" alt="linkedin"></a>
           </div>
         </div>
 
