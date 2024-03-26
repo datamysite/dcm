@@ -171,7 +171,7 @@ class HomeController extends Controller
         ]);
 
         //dd($data['email']);
-        $mail = Mailer::sendMail('Inquiry Received!', $data['email'], $data['business_name'], 'web.emailers.lead_welcome', $data);
+        $mail = Mailer::sendMail('Inquiry Received!', $data['email'], $data['business_name'], 'web.emailers.lead_welcome_e', $data);
         $mail2 = Mailer::sendMail('New Lead Received!', 'contact@dealsandcouponsmena.com', 'DCM', 'web.emailers.insiders.lead', $data);
 
         if($mail){
