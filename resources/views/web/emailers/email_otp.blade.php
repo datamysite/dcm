@@ -2,7 +2,6 @@
 <html>
 
 <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -103,10 +102,14 @@
 
         .left {
             float: left;
+            text-align: left;
+            width: 49%;
         }
 
         .right {
             float: right;
+            text-align: right;
+            width: 49%;
         }
 
         .divider {
@@ -252,17 +255,15 @@
                 style="background: url({{URL::to('/public/web_assets/images/emails')}}/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
 
                 <div class="row">
-                    <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
+                    <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px; width:100px; height: auto;">
                 </div>
 
                 <div class="row mt-3" style="justify-content: center;">
-                    <img src="{{URL::to('/public/web_assets/images/emails')}}/otp.png" alt="DCM" style="width: 20%;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/otp.png" alt="DCM" style="width: 220px; margin-left: 30%;">
                 </div>
             </div>
 
-            <div class="dcm_banner_mobile">
-                <h2 class="text-center" style="padding-top:40px;color:#fff">Welcome</2>
-            </div>
+           
 
         </div>
 
@@ -298,8 +299,9 @@
             <div style="text-align: left; font-size: 16px; padding-top: 10px;">
 
                 <p>
-                    <b>Please note this is a temparary password and will update in 5 minutes.if you are facing any issue
-                        feel free to call our customer support team on 567567 .</b>
+                    <b>Please note this is a temparary password and will expired in 5 minutes.if you are facing any issue
+                        feel free to contact our DCM support team.</b>
+                        
                 </p>
 
 
@@ -311,18 +313,18 @@
 
             <div class="row" style="padding-top: 10px;">
 
-                <div class="column right" style="width:50%">
+                <div class="column right">
                     <div class="left-side-icons">
                         <a href="mailto:info@dealsandcouponsmena.com" target="_blank"
                             style="color: #00c5ff;">info@dealsandcouponsmena.com</a>
                     </div>
                 </div>
 
-                <div class="column left" style="width:50%; text-align: right;">
+                <div class="column left">
                     <div class="social-icons">
-                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/twitter.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" alt="Icon 4"></a>
+                        <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/instagram.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Facebook"></a>
+                        <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/linkedin.png" alt="linkedin"></a>
                     </div>
                 </div>
 
@@ -341,7 +343,7 @@
 
                 <p>
                     You are receiving this email as you’re registered on
-                    <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
+                    <a href="https://dealsandcouponsmena.com/en/dubai" target="_blank"
                         style="color: #00c5ff;text-decoration: none;">dealsandcouponsmena.com</a>
                 </p>
                 </p>
@@ -352,7 +354,7 @@
                         style="color: #00c5ff">FAQ</a> </p>
                 <p>
 
-                    <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
+                    <a href="https://dealsandcouponsmena.com/en/dubai" target="_blank"
                         style="color: #00c5ff">©
                         Dealsandcouponsmena</a>
                 </p>
