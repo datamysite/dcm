@@ -241,7 +241,7 @@
                 </div>
 
                 <div class="row mt-5" style="justify-content: center;">
-                    <img src="{{URL::to('/public/web_assets/images/emails')}}/pc.png" alt="DCM" style="width: 250px; margin-left: 30%;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/pc.png" alt="DCM" style="width: 220px; margin-left: 38%;">
                 </div>
             </div>
 
