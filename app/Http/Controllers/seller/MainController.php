@@ -5,6 +5,7 @@ namespace App\Http\Controllers\seller;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ClicksCounter;
+use App\Models\OfferQrCode;
 use App\Models\Coupon;
 use App\Models\Offers;
 use Carbon\Carbon;
@@ -22,7 +23,7 @@ class MainController extends Controller
         if(Auth::guard('seller')->user()->retailer->type == '1'){
             $data['total_show_coupon'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '2')->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->count();
             $data['total_grab_deal'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '4')->whereBetween('created_at', [$data['start_date'], $data['end_date']])->count();
-            $data['active_coupons'] = Coupon::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('status', '1')->whereBetween('created_at', [$data['start_date'], $data['end_date']])->count();
+            $data['active_coupons'] = Coupon::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('status', '1')->count();
 
             $data['coupon_analytics'] = ClicksCounter::with('coupon')
                                                         ->where('type', '2')
@@ -46,6 +47,11 @@ class MainController extends Controller
             $data['total_downloads'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '3')->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->count();
             $data['total_whatsapp_visits'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '5')->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->count();
             $data['active_offers'] = Offers::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->count();
+            $data['total_redeems'] = OfferQrCode::whereHas('offer', function($q){
+                                                  return $q->where('retailer_id', Auth::guard('seller')->user()->retailer_id);  
+                                                })
+                                                ->where('status', '1')
+                                                ->whereBetween('updated_at', [$data['start_date'], $data['end_date']])->count();
 
             $data['offer_analytics'] = ClicksCounter::with('offer')
                                                         ->where('type', '3')
@@ -129,6 +135,11 @@ class MainController extends Controller
             $data['total_downloads'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '3')->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->count();
             $data['total_whatsapp_visits'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '5')->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->count();
             $data['active_offers'] = Offers::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->count();
+            $data['total_redeems'] = OfferQrCode::whereHas('offer', function($q){
+                                                  return $q->where('retailer_id', Auth::guard('seller')->user()->retailer_id);  
+                                                })
+                                                ->where('status', '1')
+                                                ->whereBetween('updated_at', [$data['start_date'], $data['end_date']])->count();
 
             $data['offer_analytics'] = ClicksCounter::with('offer')
                                                         ->where('type', '3')

@@ -738,3 +738,6 @@ input[type="file"]{
 .admin-dashboard-filter input {
     border-radius: 0 !important;
 }
+.filter-btn{
+    padding-top: 16.234px;
+}

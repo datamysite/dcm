@@ -233,33 +233,51 @@
           </div>
 
           <div class="col-lg-4">
-
-            <div class="card card-default">
-              <div class="card-body p-0">
-                <h3 class="card-chart-title">Filter Dashboard</h3>
-                <form method="post" action="{{route('seller.filter')}}">
-                  @csrf
-                  <div class="row  p-input">
-                    <div class="col-12">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="far fa-calendar-alt"></i>
-                          </span>
-                        </div>
-                        <input type="text" class="form-control float-right" name="date_range" value="{{date('d/M/Y', strtotime($start_date))}} - {{date('d/M/Y', strtotime($end_date))}}" id="filter_range" required>
-                      </div>
-                    </div>
-
-                    <div class="col-12">
-                      <br>
-                      <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-filter"></i>&nbsp;&nbsp;&nbsp;Filter</button>
-                    </div>
+            <div class="row">
+              @if(Auth::guard('seller')->user()->retailer->type == '2')
+              <!-- ./col -->
+              <div class="col-6">
+                <!-- small box -->
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3>{{number_format($total_redeems)}}</h3>
+                    <p>Total Redeems</p>
                   </div>
-                </form>
-                <br>
+                  <div class="icon">
+                    <i><img src="{{URL::to('/public/icons/downloaded-coupons.png')}}"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
               </div>
-              <!-- /.card-body -->
+              @endif
+              <div class=" {{Auth::guard('seller')->user()->retailer->type == '2' ? 'col-lg-6' : 'col-lg-12'}}">
+                <div class="card card-default">
+                  <div class="card-body p-0">
+                    <h3 class="card-chart-title">Filter Dashboard</h3>
+                    <form method="post" action="{{route('seller.filter')}}">
+                      @csrf
+                      <div class="row  p-input">
+                        <div class="col-12">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                <i class="far fa-calendar-alt"></i>
+                              </span>
+                            </div>
+                            <input type="text" class="form-control float-right" name="date_range" value="{{date('d/M/Y', strtotime($start_date))}} - {{date('d/M/Y', strtotime($end_date))}}" id="filter_range" required>
+                          </div>
+                        </div>
+
+                        <div class="col-12 filter-btn">
+                          <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-filter"></i>&nbsp;&nbsp;&nbsp;Filter</button>
+                        </div>
+                      </div>
+                    </form>
+                    <br>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+              </div>
             </div>
 
             <div class="card card-default">
