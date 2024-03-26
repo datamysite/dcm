@@ -259,7 +259,7 @@
                 </div>
 
                 <div class="row mt-3" style="justify-content: center;">
-                    <img src="{{URL::to('/public/web_assets/images/emails')}}/otp.png" alt="DCM" style="width: 220px; margin-left: 30%;">
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/otp.png" alt="DCM" style="width: 220px; margin-left: 38%;">
                 </div>
             </div>
 
@@ -277,7 +277,7 @@
                 </p>
             </div>
 
-            <div class="row text-center" style="justify-content:center;">
+            <div class=" text-center" style="justify-content:center; width: 100%; text-align: center;">
 
                 <input type="text" class="form-control text-center" readonly="readonly" value="{{$otp[0]}}"
                     style="width: 50px; background-color:#00C5FF; font-size:large;color:#fff">
