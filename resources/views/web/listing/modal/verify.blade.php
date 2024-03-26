@@ -121,30 +121,61 @@
 			'use strict'
 
 			$('.markasUsed').click(function(){
-
 				Swal.fire({
-				  title: "Are you sure?",
-				  text: "You won't be able to revert this!",
-				  icon: "warning",
-				  showCancelButton: true,
-				  confirmButtonColor: "#3085d6",
-				  cancelButtonColor: "#d33",
-				  confirmButtonText: "Yes, mark as used!"
+				    title: "Mark as Used!",
+				    text: "Please enter your retail password.",
+				    input: 'password',
+				    inputAttributes: {
+				        required: true
+				      },
+				    showCancelButton: true        
 				}).then((result) => {
-				  if (result.isConfirmed) {
-				    $.get("{{URL::to('/'.$region.'/offers/qrcode/'.base64_encode($qrcode->id))}}", function(data){
-				    	if(data == 'success'){
-				    		Swal.fire({
-							  title: "Success!",
-							  text: "You marked this coupon as used.",
-							  icon: "success"
-							});
-							setTimeout(function(){
-								window.location.href = window.location.href;
-							}, 700);
-				    	}
-				    });
-				  }
+				    if (result.value) {
+
+				    	$.ajax({
+					        type: "POST",
+					        url: "{{route('offers.qrcode.mark')}}",
+					        data: {_token: '{{csrf_token()}}', id: '{{base64_encode($qrcode->id)}}', password: result.value},
+					        dataType: "json",
+					        encode: true,
+					        processData: false,
+					        contentType: false,
+					      }).done(function(data) {
+					        if (data.success == 'success') {
+					          Toast.fire({
+					            icon: 'success',
+					            title: data.message
+					          });
+					        } else {
+					          Toast.fire({
+					            icon: 'warning',
+					            title: data.message
+					          });
+					        }
+					        setTimeout(function(){
+					            location.reload();
+					          }, 1000);
+
+					      }).fail(function(e){
+					      	console.log(e);
+					      });
+
+
+
+
+				        /*$.get("{{URL::to('/'.$region.'/offers/qrcode/'.base64_encode($qrcode->id))}}", function(data){
+					    	if(data == 'success'){
+					    		Swal.fire({
+								  title: "Success!",
+								  text: "You marked this coupon as used.",
+								  icon: "success"
+								});
+								setTimeout(function(){
+									window.location.href = window.location.href;
+								}, 700);
+					    	}
+					    });*/
+				    }
 				});
 			});
 		});

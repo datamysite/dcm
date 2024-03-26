@@ -80,7 +80,7 @@ Route::get('/migrate', function () {
                 Route::get('/{id}', 'ListingController@show_offer');
                 Route::get('/whatsapp/{id}', 'ListingController@redirect_whatsapp');
                 Route::get('/qrcode/{slug}/{id}', 'ListingController@generate_qrcode')->name('offers.qrcode');
-                Route::get('/qrcode/{id}', 'ListingController@qrcode_markasused');
+                Route::post('/qrcode/mark', 'ListingController@qrcode_markasused')->name('offers.qrcode.mark');
                 Route::get('/redeem-pdf/{id}', 'ListingController@redeem_pdf')->name('offers.redeemPDF');
             });
 
