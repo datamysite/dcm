@@ -15,7 +15,9 @@ use App\Models\Testimonials;
 use App\Models\States;
 use App\Models\Offers;
 use App\Models\OfferQrCode;
+use App\Models\Seller;
 use PDF;
+use Hash;
 
 class ListingController extends Controller
 {
@@ -253,12 +255,31 @@ class ListingController extends Controller
         return view('web.listing.modal.verify')->with($data);
     }
 
-    public function qrcode_markasused($lang, $region, $id){
-        $qr = OfferQrCode::find(base64_decode($id));
-        $qr->status = '1';
-        $qr->save();
+    public function qrcode_markasused($lang, $region, Request $request){
+        $data = $request->all();
+        $qr = OfferQrCode::find(base64_decode($data['id']));
+        if(!empty($qr->offer->retailer_id)){
+            $s = Seller::where('retailer_id', $qr->offer->retailer_id)->first();
+            if(!empty($s->id)){
 
-        return 'success';
+                if(Hash::check($data['fieldValue'], $s->password)){
+
+                    $qr->status = '1';
+                    $qr->save();
+
+                    return 'success';
+
+                }else{
+                    return 'incorrect';
+                }
+
+            }else{
+                return 'error';
+            }
+        }else{
+            return 'error';
+        }
+
     }
 
 

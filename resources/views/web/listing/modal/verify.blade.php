@@ -120,6 +120,13 @@
 		$(document).ready(function(){
 			'use strict'
 
+			 var Toast = Swal.mixin({
+			    toast: true,
+			    position: 'top-start',
+			    showConfirmButton: false,
+			    timer: 3000
+			  });
+
 			$('.markasUsed').click(function(){
 				Swal.fire({
 				    title: "Mark as Used!",
@@ -128,53 +135,37 @@
 				    inputAttributes: {
 				        required: true
 				      },
-				    showCancelButton: true        
+				    showLoaderOnConfirm: true,
+				    showCancelButton: true,
+				    allowOutsideClick: false
 				}).then((result) => {
 				    if (result.value) {
+				    	var formData = {id: '{{base64_encode($qrcode->id)}}', fieldValue: result.value, _token: '{{csrf_token()}}'};
 
-				    	$.ajax({
-					        type: "POST",
-					        url: "{{route('offers.qrcode.mark')}}",
-					        data: {_token: '{{csrf_token()}}', id: '{{base64_encode($qrcode->id)}}', password: result.value},
-					        dataType: "json",
-					        encode: true,
-					        processData: false,
-					        contentType: false,
-					      }).done(function(data) {
-					        if (data.success == 'success') {
-					          Toast.fire({
-					            icon: 'success',
-					            title: data.message
-					          });
-					        } else {
+				    	$.post("{{route('offers.qrcode.mark', [$region])}}",formData, function(data, status){
+				    		console.log(data);
+				    		if(data == 'success'){
+				    			Toast.fire({
+						            icon: 'success',
+						            title: 'Coupon redeemed successfully!'
+						         });
+
+				    			setTimeout(function(){
+				    				 location.reload();
+				    			}, 1000);
+				    		}else if(data == 'incorrect'){
 					          Toast.fire({
 					            icon: 'warning',
-					            title: data.message
+					            title: 'Incorrect Password! Please try again.'
 					          });
-					        }
-					        setTimeout(function(){
-					            location.reload();
-					          }, 1000);
+				    		}else{
+					          Toast.fire({
+					            icon: 'warning',
+					            title: 'Something went wrong!'
+					          });
+				    		}
+						  });
 
-					      }).fail(function(e){
-					      	console.log(e);
-					      });
-
-
-
-
-				        /*$.get("{{URL::to('/'.$region.'/offers/qrcode/'.base64_encode($qrcode->id))}}", function(data){
-					    	if(data == 'success'){
-					    		Swal.fire({
-								  title: "Success!",
-								  text: "You marked this coupon as used.",
-								  icon: "success"
-								});
-								setTimeout(function(){
-									window.location.href = window.location.href;
-								}, 700);
-					    	}
-					    });*/
 				    }
 				});
 			});
