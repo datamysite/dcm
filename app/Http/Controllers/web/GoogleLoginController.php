@@ -49,7 +49,7 @@ class GoogleLoginController extends Controller
 
 
             Mailer::sendMail('Welcome to DCM!', $newUser->email, $newUser->name, 'web.emailers.welcome_user', ['name' => $newUser->name, 'email' => $newUser->email]);
-            Mailer::sendMail('Reffer your friends and earn more!', $user->email, $user->name, 'web.emailers.referral_email', ['name' => $user->name, 'email' => $user->email]);
+            //Mailer::sendMail('Reffer your friends and earn more!', $user->email, $user->name, 'web.emailers.referral_email', ['name' => $user->name, 'email' => $user->email]);
         }
 
         if(!isset($_SESSION['region'])){

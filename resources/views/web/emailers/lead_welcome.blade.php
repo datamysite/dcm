@@ -2,7 +2,6 @@
 <html>
 
 <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -103,10 +102,14 @@
 
         .left {
             float: left;
+            text-align: left;
+            width: 49%;
         }
 
         .right {
             float: right;
+            text-align: right;
+            width: 49%;
         }
 
         .divider {
@@ -124,7 +127,7 @@
             opacity: 0.9;
         }
 
-        
+
         .btn {
             font-size: 14px;
             padding: 6px 12px;
@@ -222,7 +225,6 @@
         .dcm_banner_mobile {
             display: none;
         }
-
     </style>
 </head>
 
@@ -235,19 +237,15 @@
                 style="background: url({{URL::to('/public/web_assets/images/emails')}}/dcm_banner.png) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center ; height: 350px;">
 
                 <div class="row">
-                    <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px">
+                    <img class="w-15" src="{{URL::to('/public/web_assets/images/emails')}}/logo_wt_txt.png" alt="DCM" style="padding-left: 30px; padding-top:30px; width:100px; height: auto;">
                 </div>
 
                 <div class="row mt-5" style="justify-content: center;">
-                    <div style="width:100%; text-align: center;">
-                        <img src="{{URL::to('/public/web_assets/images/emails')}}/pc.png" alt="DCM" style="width: 20%;">
-                    </div>
+                    <img src="{{URL::to('/public/web_assets/images/emails')}}/pc.png" alt="DCM" style="width: 250px; margin-left: 30%;">
                 </div>
             </div>
 
-            <div class="dcm_banner_mobile">
-                <h2 class="text-center" style="padding-top:40px;color:#fff">Welcome</2>
-            </div>
+
 
         </div>
 
@@ -261,13 +259,19 @@
                 </p>
             </div>
 
+            <p>
+                Thank You for Subscribing To Deals and Coupons MENA!
+            </p>
             <p style="padding-top: 0px">
-                Welcome to Deals and Coupons MENA! We are thrilled to have you on board as a valued business partner,
-                and we look forward to helping you unlock significant savings for your enterprise.
+                <!-- We are thrilled to have you on board as a valued business
+                partner, and we look forward to helping you unlock significant savings for your enterprise. -->
+                We look forward to helping you unlock significant savings for your enterprise, 
+                while we are verifying your registration information take a look on our shared vision, partnership...etc 
             </p>
 
+
             <p>
-                <b>Acknowledgment of Partnership</b>
+                <!-- <b>Acknowledgment of Partnership</b> -->
 
             </p>
 
@@ -275,27 +279,38 @@
 
                 <p>
                     <li> <b>Our Shared Vision:</b> </li>
+
                     In joining forces, we embark on a journey towards shared success and prosperity. Your commitment to
                     excellence aligns seamlessly with our mission at Deals and Coupons MENA. Together, we are poised to
                     redefine the landscape of savings and value for businesses across the MENA region.
+
                 </p>
 
                 <p>
                     <li><b>What This Partnership Means:</b> </li>
+
                     This partnership signifies not just a collaboration but a synergy of strengths. By leveraging our
                     expertise in delivering exclusive B2B deals and your unique contributions, we are confident in
                     creating unparalleled opportunities for savings and growth.
                 </p>
 
                 <p>
-                    <li><b>Dedicated Support:</b> </li>
-                    Dedicated Support: As a valued partner, you have been assigned a dedicated account manager, [Account
-                    Manager’s Name], who will be your point of contact for any queries, requests, or assistance you may
-                    require throughout our journey together.
+                    <li><b>What Will You Get from this Subscription:</b> </li>
+
+                    Unlike any other company, we will charge you 0% commission on each sale you make, so your sales are
+                    completely for you. We will share with you a full customer database, so that your customers are
+                    aware
+                    of you as their seller. We will provide you with free of cost marketing to improve your business and
+                    leads in the market, this includes email marketing, social media posts, SMS marketing, and a chance
+                    to
+                    be part of an annual huge networking event with all brand leaders!
                 </p>
 
-                <p class="text-center">
-                    <a class="btn btn-default" href="https://www.dealsandcouponsmena.com/en/dubai" target="_blank" style="font-weight: lighter; background-color:#00C5FF;color:#fff;">Learn More</a>
+                <p>
+                    <li><b>Dedicated Support:</b> </li>
+
+                    As a valued partner, you have been assigned a dedicated account manager, once we are partner you can get an account manager
+                    who will be your point of contact for any queries, requests, or assistance you may require throughout our journey together.
                 </p>
 
             </div>
@@ -305,19 +320,19 @@
             </p>
 
             <div class="row" style="padding-top: 10px;">
-
-                <div class="column right" style="width:50%">
+                
+                <div class="column right">
                     <div class="left-side-icons">
                         <a href="mailto:info@dealsandcouponsmena.com" target="_blank"
                             style="color: #00c5ff;">info@dealsandcouponsmena.com</a>
                     </div>
                 </div>
 
-                <div class="column left" style="text-align:right; width: 50%;">
+                <div class="column left">
                     <div class="social-icons">
-                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/twitter.png" alt="Icon 4"></a>
-                        <a href="#" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" alt="Icon 4"></a>
+                        <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/instagram.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" alt="Facebook"></a>
+                        <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="{{URL::to('/public/web_assets/images/emails')}}/linkedin.png" alt="linkedin"></a>
                     </div>
                 </div>
 
