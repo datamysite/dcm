@@ -51,15 +51,20 @@ class GenerateSitemap extends Command
                    $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
                     $ensitmap->add(
-                        Url::create("/en/".$state->slug."/".$slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                        Url::create("/en/".$state->slug."/category/".$slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                     );
+
+                    if($cat->id <= 6){
+                        $ensitmap->add(Url::create("/en/".$state->slug."/category/".$slug."/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY));
+                        $ensitmap->add(Url::create("/en/".$state->slug."/category/".$slug."/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)); 
+                    }
 
                 });
 
                 Retailers::where('type', '1')->get()->each(function (Retailers $ret) use ($ensitmap, $state) {
 
                     $ensitmap->add(
-                        Url::create("/en/".$state->slug."/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                        Url::create("/en/".$state->slug."/store/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
                     );
 
                 });
@@ -71,7 +76,7 @@ class GenerateSitemap extends Command
                 ->get()->each(function (Retailers $ret) use ($ensitmap, $state) {
 
                     $ensitmap->add(
-                        Url::create("/en/".$state->slug."/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                        Url::create("/en/".$state->slug."/store/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
                     );
 
                 });
@@ -124,15 +129,20 @@ class GenerateSitemap extends Command
                    $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
                     $ensitmap->add(
-                        Url::create("/ar/".$state->slug."/".$slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                        Url::create("/ar/".$state->slug."/category/".$slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                     );
+
+                    if($cat->id <= 6){
+                        $ensitmap->add(Url::create("/ar/".$state->slug."/category/".$slug."/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY));
+                        $ensitmap->add(Url::create("/ar/".$state->slug."/category/".$slug."/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)); 
+                    }
 
                 });
 
                 Retailers::where('type', '1')->get()->each(function (Retailers $ret) use ($ensitmap, $state) {
 
                     $ensitmap->add(
-                        Url::create("/ar/".$state->slug."/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                        Url::create("/ar/".$state->slug."/store/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                     );
 
                 });
@@ -144,7 +154,7 @@ class GenerateSitemap extends Command
                 ->get()->each(function (Retailers $ret) use ($ensitmap, $state) {
 
                     $ensitmap->add(
-                        Url::create("/ar/".$state->slug."/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                        Url::create("/ar/".$state->slug."/store/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                     );
 
                 });
