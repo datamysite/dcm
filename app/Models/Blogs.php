@@ -15,6 +15,7 @@ class Blogs extends Model
     public static function create(array $data){
         $b = new Blogs;
         $b->heading = $data['heading'];
+        $b->banner_alt = $data['banner_alt'];
         $b->slug = $data['slug'];
         $b->description = $data['description'];
         $b->short_description = $data['short_description'];
@@ -29,6 +30,7 @@ class Blogs extends Model
     public static function blog_update($id, array $data){
         $b = Blogs::find($id);
         $b->heading = $data['heading'];
+        $b->banner_alt = $data['banner_alt'];
         $b->slug = $data['slug'];
         $b->description = $data['description'];
         $b->short_description = $data['short_description'];

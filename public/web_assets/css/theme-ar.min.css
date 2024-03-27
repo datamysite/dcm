@@ -26410,7 +26410,7 @@ span.flatpickr-weekday {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 20px;
+  padding: 0px;
   position: relative;
   background-size: cover;
   /* box-shadow: 1px 1px 1px 1px var(--fc-black) ; */

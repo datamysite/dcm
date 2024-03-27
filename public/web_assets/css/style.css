@@ -1022,6 +1022,42 @@ label.errors {
 #contactUsForm .lead-loader img{
     margin-left: 0;
 }
+.feather-image-blog{
+    border-radius: 0.5rem; position: relative;
+}
+.feather-image-blog img {
+    aspect-ratio: 13 / 8;
+    object-fit: cover;
+    height: 480px;
+    width: 100%;
+    border-radius: 15px;
+}
+.feather-image-blog{
+    height: 480px;
+    width: 100%;
+}
+.feather-image-blog .slider_div2 {
+    z-index: 99;
+    width: 450px;
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+}
+.post-feather{
+    box-shadow: 0 0 0 1px #bdbdbd91 !important;
+    background-color: transparent !important;
+}
+.post-feather img{
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+}
+
+
+
+
+
+
 
 
 

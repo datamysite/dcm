@@ -27,12 +27,13 @@
     <div class="container">
         <div class="hero-slider">
 
-            <div style="background: url({{URL::to('/public/storage/blogs/'.$blog->banner)}}) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
+            <div class="feather-image-blog">
+                <img src="{{URL::to('/public/storage/blogs/'.$blog->banner)}}" alt="{{empty($blog->banner_alt) ? $blog->slug : $blog->banner_alt}}">
                 <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
                     <div class="slider_div2" style="box-shadow: none; background-color: transparent;">
 
                         <br><br><br><br><br><br>
+
                     </div>
 
                 </div>

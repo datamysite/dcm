@@ -4,7 +4,7 @@
 
 
 <div class="mt-110">
-    <div class="container">
+    <div class="container np-container">
         <!-- row -->
         <div class="row">
             <!-- col -->
@@ -26,11 +26,10 @@
     <div class="container np-container">
         <div class="hero-slider">
 
-            <div style="background: url({{URL::to('/public/storage/blogs/'.$featured->banner)}}) no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
+            <div class="feather-image-blog">
+                <img src="{{URL::to('/public/storage/blogs/'.$featured->banner)}}" alt="{{empty($featured->banner_alt) ? $featured->slug : $featured->banner_alt}}">
                 <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-
                     <div class="slider_div2">
-
                         <h3>Featured</h3>
                         <h6>{{$featured->heading}}</h6>
                         <p>{{ $featured->short_description }}</p>
@@ -54,9 +53,8 @@
         <div class="row" style="align-items: center;justify-content: center;">
             @foreach($blogs as $val)
                 <div class="col-lg-4 blogItem mt-5">
-                    <div class="post-feather" style="background-image: url({{URL::to('/public/storage/blogs/'.$val->banner)}});">
-                        <div class="feather-image">
-                        </div>
+                    <div class="post-feather">
+                        <img src="{{URL::to('/public/storage/blogs/'.$val->banner)}}" alt="{{empty($val->banner_alt) ? $val->slug : $val->banner_alt}}">
                         <a href="{{route('blog.details', [$region, $val->slug])}}" target="blank" class="readMorebutton">Read More</a>
                     </div>
                     <h5 title="{{$val->heading}}">{{$val->heading}}</h5>

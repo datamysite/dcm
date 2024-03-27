@@ -99,10 +99,16 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
               <div class="coupon-image-wrapper">
                 <input type="file" name="coupon_image" accept="image/*" required />
                 <div class="close-btn">×</div>
+              </div>
+            </div>
+            <div class="col-md-4 blog-img-alt">
+              <div class="form-group">
+                <label>Image alt:</label>
+                <input type="text" class="form-control" name="banner_alt" required>
               </div>
             </div>
           </div>
