@@ -386,6 +386,7 @@ return [
 
     //Careers//
     "careers" => "وظائف",
+    "Careers" => "وظائف",
     "careers_details" => "تفاصيل الوظيفة",
     "description" => "وصف الوظيفة : ",
     "salary" => "المرتب : ",

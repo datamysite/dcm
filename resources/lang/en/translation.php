@@ -387,6 +387,7 @@ return [
 
      //Careers//
     "careers" => "Careers",
+    "Careers" => "Careers",
     "careers_details" => "Careers",
     "description" => "Description :",
     "salary" => "Salary :",
