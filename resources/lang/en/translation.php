@@ -384,4 +384,33 @@ return [
    "live_chat" => "Live Chat",
    "live_chat_txt" => "Our team will happily take your questions, concerns and feedback !",
    "lets_chat" => "Lets Chat",
+
+     //Careers//
+    "careers" => "Careers",
+    "careers_details" => "Careers",
+    "description" => "Description :",
+    "salary" => "Salary :",
+    "aed" => "AED",
+    "opening_date" => "Opening Date :",
+    "closing_date" => "Closing Date :",
+    "apply_now" => "Apply Now",
+    "location_01" => "Location : ",
+    "location_02" => "UAE",
+    "location_03" => "Dubai",
+    "job_apply" => "Job Apply",
+    "upload_resume" => "Upload Resume",
+    "note" => "Note : ",
+    "note_01" => "Resume file MUST be in this format only (PDF,DOC,DOCX).",
+    "note_02" => "Resume file size MUST not be more than 3MB.",
+    
+    "success_msg" => "You have successfully applied for this job , thank you !",
+    "failure_msg" => "Error occured while applying for this job, try again !",
+    "exist_msg" => "You already applied for this job.",
+    "extensions_msg" => "File extension not allowed !",
+    "filesize_msg" => "File size exceeds the allowed size which is 3MB !",
+    
+    "Sign_in_to_apply" => "Sign In To Apply",
+    "verification_txt" => "Your Account not verified yet, Check Your email for verification link !",
+    
+    "no_vacancies" => "No available vacancies for now !",
 ];

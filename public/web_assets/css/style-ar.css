@@ -973,22 +973,22 @@ label.errors {
 #forgotPasswordForm .errors, #resetPasswordForm .errors{
     margin-top: 5px;
 }
-.contact-us-feature {
+.contact-us-pg .contact-us-feature {
     border: 1px solid;
     border-radius: 15px;
     min-height: 150px;
     text-align: left;
     padding: 15px;
 }
-.contact-us-feature .about-us-title {
+.contact-us-pg .contact-us-feature .about-us-title {
     margin: 0px;
     margin-bottom: 10px;
 }
-.contact-us-feature .about-us-title i {
+.contact-us-pg .contact-us-feature .about-us-title i {
     font-size: 24px !important;
     padding-left: 10px;
 }
-.contact-us-feature .about-us-text {
+.contact-us-pg .contact-us-feature .about-us-text {
     font-size: 13px;
 }
 .errors {

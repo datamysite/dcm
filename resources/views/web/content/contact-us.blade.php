@@ -70,7 +70,7 @@
 
             <div class="col-lg-12 col-12">
 
-                <div class="row text-center"  style="justify-content: center;">
+                <div class="row text-center contact-us-pg"  style="justify-content: center;">
 
                     <div class="col-md-3" >
                         <div class="contact-us-feature">

@@ -166,6 +166,13 @@ Route::get('/migrate', function () {
             });
         });
 
+        //Careers
+        Route::prefix('careers/vacancies')->group(function () {
+            Route::get('/', 'CareerController@index')->name('careers');
+            Route::get('/{id}', 'CareerController@details')->name('careers.job-details');
+            Route::post('/apply', 'CareerController@apply')->name('careers.apply');
+        });
+
     });
 
 
@@ -277,6 +284,22 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::get('/edit/{id}', 'BlogController@edit');
             Route::post('/update', 'BlogController@update_blog')->name('admin.blog.update');
         });
+
+        //Careers
+         Route::prefix('careers')->group(function () {
+         
+            Route::get('/', 'CareerController@index')->name('admin.careers');
+            Route::get('/applied', 'CareerController@applied')->name('admin.careers.applied');
+            Route::get('/load', 'CareerController@load')->name('admin.careers.load');
+            Route::get('/load_jobs', 'CareerController@load_jobs')->name('admin.careers.load_jobs');
+            Route::post('/create', 'CareerController@create')->name('admin.careers.create');
+            Route::get('/edit/{id}', 'CareerController@edit');
+            Route::get('/details/{id}', 'CareerController@details')->name('admin.careers.details');
+            
+            Route::get('/delete/{id}', 'CareerController@delete');
+            Route::get('/deleteAplicant/{id}', 'CareerController@deleteAplicant');
+        });
+
 
         //SEO Tools
         Route::prefix('seo')->group(function () {

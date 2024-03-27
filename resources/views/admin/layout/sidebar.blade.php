@@ -103,6 +103,18 @@
               </p>
             </a>
           </li>
+          
+          <!-- Careers Menu Start Here -->
+          <li class="nav-item">
+            <a href="{{route('admin.careers')}}" class="nav-link {{$menu == 'careers.add'  || $menu == 'careers.applied'  ? 'active' : ''}}">
+              <i class="nav-icon fas fa-briefcase"></i>
+              <p>
+                Careers
+              </p>
+            </a>
+          </li>
+          <!-- Careers Menu End Here -->
+
           <li class="nav-item {{$menu == 'seo.meta' || $menu == 'seo.snippet' ? 'menu-open' : ''}}">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-bullhorn"></i>
