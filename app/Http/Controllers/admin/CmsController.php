@@ -570,7 +570,7 @@ class CmsController extends Controller
 
         $data['stores'] = Retailers::all();
         $data['categories'] = Categories::all();
-        $data['section1'] = Footer::where('section_id', '1')->get();
+        $data['section1'] = Footer::where('section_id', '1')->orderBy('order_number')->get();
         $data['section2'] = Footer::where('section_id', '2')->get();
         $data['section3'] = Footer::where('section_id', '3')->get();
         $data['section4'] = Footer::where('section_id', '4')->first();

@@ -26,7 +26,7 @@ class HomeController extends Controller
         public function get_footer($lang, $region){   
             $data['footCat'] = Footer::where('section_id', '3')->get();
             $data['footBrand'] = Footer::where('section_id', '2')->get();
-            $data['footAbout'] = Footer::where('section_id', '1')->get();
+            $data['footAbout'] = Footer::where('section_id', '1')->orderBy('order_number')->get();
 
             $data['copyright'] = Footer::where('section_id', '4')->first();
 
