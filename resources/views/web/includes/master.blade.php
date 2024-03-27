@@ -10,6 +10,7 @@
    <meta content="keywords" name="{{@$metaTags->keywords}}" />
    <meta content="description" name="{{@$metaTags->description}}" />
    <link rel="canonical" href="{{$actual_link}}" />
+   @yield('addImagesrc')
    @include('web.includes.style')
    @yield('addStyle')
 

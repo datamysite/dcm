@@ -1,5 +1,7 @@
 @extends('web.includes.master')
-
+@section('addImagesrc')
+<link rel="image_src" href="{{URL::to('/public/storage/blogs/'.$blog->banner)}}" />
+@endsection
 @section('content')
 
 

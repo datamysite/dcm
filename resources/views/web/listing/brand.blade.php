@@ -1,5 +1,7 @@
 @extends('web.includes.master')
-
+@section('addImagesrc')
+<link rel="image_src" href="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" />
+@endsection
 @section('content')
 
 
