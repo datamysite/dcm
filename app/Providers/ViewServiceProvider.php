@@ -36,6 +36,7 @@ class ViewServiceProvider extends ServiceProvider
             if(isset($_SERVER['HTTP_HOST']) && !empty($_SERVER['HTTP_HOST'])){
                 $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             }
+            $data['actual_link'] = $actual_link;
             $data['metaTags'] = MetaTags::where('url', $actual_link)->first();
 
             if ((function_exists('session_status') 

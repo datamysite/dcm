@@ -9,7 +9,7 @@
    <title>{{@$metaTags->title}}</title>
    <meta content="keywords" name="{{@$metaTags->keywords}}" />
    <meta content="description" name="{{@$metaTags->description}}" />
-
+   <link rel="canonical" href="{{$actual_link}}" />
    @include('web.includes.style')
    @yield('addStyle')
 
