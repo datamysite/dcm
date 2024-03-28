@@ -61,19 +61,35 @@
                      <div class="text-center text-md-start">
 
                         <p class="mb-5">
-                           {{ __('translation.about_page_text_sec_01') }}
+
+                           <!-- {{ __('translation.about_page_text_sec_01') }} -->
+
+                           {{ __('translation.about_page_text_sec_01_01') }}
+
                         </p>
                         <p class="mb-5">
-                           {{ __('translation.about_page_text_sec_02') }}
+                           <!-- {{ __('translation.about_page_text_sec_02') }} -->
+
+                           {{ __('translation.about_page_text_sec_01_02') }}
                         </p>
                         <p class="mb-5">
-                           {{ __('translation.about_page_text_sec_03') }}
+                           <!-- {{ __('translation.about_page_text_sec_03') }} -->
+
+                           {{ __('translation.about_page_text_sec_01_03') }}
                         </p>
                         <p class="mb-5">
-                           {{ __('translation.about_page_text_sec_04') }}
+                           <!-- {{ __('translation.about_page_text_sec_04') }} -->
+
+                           {{ __('translation.about_page_text_sec_01_04') }}
                         </p>
                         <p class="mb-5">
-                           {{ __('translation.about_page_text_sec_05') }}
+                           <!-- {{ __('translation.about_page_text_sec_05') }} -->
+
+                           {{ __('translation.about_page_text_sec_01_05') }}
+                        </p>
+                        <p class="mb-5">
+
+                           {{ __('translation.about_page_text_sec_01_06') }}
                         </p>
 
                      </div>
@@ -86,15 +102,13 @@
                      </div>
                   </div>
                </div>
+               <br><br><br><br>
             </div>
          </div>
       </div>
    </section>
-<!-- about us main section end here-->
 
-   <!-- section 2 start here-->
-   <section class="my-lg-5 my-8">
-      <!-- container -->
+   <!-- <section class="my-lg-5 my-8">
       <div class="container">
 
          <div class="row">
@@ -104,9 +118,7 @@
             </div>
          </div>
 
-         <!-- row -->
          <div class="row">
-            <!-- col -->
             <div class="col-lg-12 col-12">
                <p class="mb-0">
                   <b>{{ __('translation.about_page_text_sec02_01') }}</b>
@@ -136,10 +148,6 @@
                   </b>
                </p>
 
-               <!-- <p class="mb-5">
-               {{ __('translation.about_page_text_sec02_07') }}
-               </p> -->
-
                <p class="mb-5">
                   <b>
                      {{ __('translation.about_page_text_sec02_07') }}
@@ -168,45 +176,7 @@
             </div>
          </div>
       </div>
-   </section>
-   <!-- section 2 end here-->
+   </section> -->
 
-
-      <!-- section 3 start here -->
-      <section class="my-lg-14 my-8">
-      <!-- container -->
-      <div class="container">
-
-         <div class="row">
-            <div class="col-12">
-               <div class="mb-8">
-                  <h2 style="text-align: center;">{{ __('translation.about_us_join_us_head') }}</h2>
-               </div>
-
-            </div>
-         </div>
-         <!-- row -->
-         <div class="row">
-            <div class="col-lg-12 col-12">
-               <form action="#" class="form-control p-10">
-                  <div class="input-group py-2">
-                     <input class="form-control rounded " type="eamil" name="user_email" placeholder="{{ __('translation.user_email') }}" required="required" />
-
-                  </div>
-
-                  <div class="input-group py-2">
-                     <input class="form-control rounded" type="password" name="user_password" placeholder="{{ __('translation.form_password') }}" required="required" />
-
-                  </div>
-
-                  <input type="submit" name="sing-up" class="btn btn-signup btn-sm" style="font-weight: lighter;padding: 5px 20px;margin: auto;display: flex;" value="{{ __('translation.earn_coupons_btn_03') }}">
-                  <br>
-               </form>
-
-            </div>
-         </div>
-      </div>
-   </section>
-   <!-- section 3 ends here -->
 
 @endsection

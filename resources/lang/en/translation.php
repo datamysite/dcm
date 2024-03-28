@@ -414,4 +414,20 @@ return [
     "verification_txt" => "Your Account not verified yet, Check Your email for verification link !",
     
     "no_vacancies" => "No available vacancies for now !",
+
+    "about_page_text_sec_01_01" =>  "Welcome to DCM, your Online Emporium where Businesses Thrive and Customers Delight!",
+  
+    "about_page_text_sec_01_02" =>  "We pride ourselves on being a one-stop-shop for both customers and businesses alike.",
+    
+    "about_page_text_sec_01_03" =>  "For our valued customers, we offer a wide array of top brands to explore, coupled with exclusive
+    deals and discounts to enhance your shopping experience.",
+    
+    "about_page_text_sec_01_04" =>  "For businesses, we provide a unique platform that goes beyond traditional e-commerce.",
+
+    "about_page_text_sec_01_05" =>  "By subscribing to our platform, businesses gain access to free marketing, lead generation,
+    huge customer database and increased traffic, all without the burden of commission fees on
+    their sales. We believe in fostering a thriving community where businesses can thrive and
+    customers can discover the best deals, all in one convenient location.",
+
+    "about_page_text_sec_01_06" =>  "Join us at DCM and experience the future of an online emporium today!",
 ];
