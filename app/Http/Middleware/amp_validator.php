@@ -16,30 +16,32 @@ class amp_validator
      */
     public function handle(Request $request, Closure $next): Response
     {
-        /*$actual_link = '';
-        if(isset($_SERVER['HTTP_HOST']) && !empty($_SERVER['HTTP_HOST'])){
-            $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        }
-
-        $isMobile = Agent::isMobile();
-        $prefix = $request->route()->getPrefix();
-        //dd([$isMobile, strpos($prefix, 'amp')]);
-        if ($isMobile && strpos($prefix, 'amp') !== 0) {
-            if($_SERVER['HTTP_HOST'] == 'localhost'){
-
-                $actual_link = substr_replace($actual_link, 'amp/', 21, 0);
-
-            }else{
-                $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]/amp$_SERVER[REQUEST_URI]";
+        if(env('APP_AMP') == true){
+            $actual_link = '';
+            if(isset($_SERVER['HTTP_HOST']) && !empty($_SERVER['HTTP_HOST'])){
+                $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             }
 
-            return redirect()->to($actual_link);
+            $isMobile = Agent::isMobile();
+            $prefix = $request->route()->getPrefix();
+            //dd([$isMobile, strpos($prefix, 'amp')]);
+            if ($isMobile && strpos($prefix, 'amp') !== 0) {
+                if($_SERVER['HTTP_HOST'] == 'localhost'){
 
-        }elseif($isMobile == false && strpos($prefix, 'amp') !== false){
-            
-            $newPath =  str_replace('amp/','',$actual_link);
-            return redirect()->to($newPath);
-        }*/
+                    $actual_link = substr_replace($actual_link, 'amp/', 21, 0);
+
+                }else{
+                    $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]/amp$_SERVER[REQUEST_URI]";
+                }
+
+                return redirect()->to($actual_link);
+
+            }elseif($isMobile == false && strpos($prefix, 'amp') !== false){
+                
+                $newPath =  str_replace('amp/','',$actual_link);
+                return redirect()->to($newPath);
+            }
+        }
 
         return $next($request);
     }

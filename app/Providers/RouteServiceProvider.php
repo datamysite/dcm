@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Jenssegers\Agent\Facades\Agent;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -40,10 +41,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
-            /*/*Route::prefix('amp')
-                ->middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));*/
+            if(env('APP_AMP') == true && Agent::isMobile()){
+                Route::prefix('amp')
+                    ->middleware('web')
+                    ->namespace($this->namespace)
+                    ->group(base_path('routes/web.php'));
+            }
         });
     }
 

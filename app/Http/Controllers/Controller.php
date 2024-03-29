@@ -13,12 +13,10 @@ class Controller extends BaseController
     public function getView($viewName){
         
         if (request()->segment(1) == 'amp') {
-            if (view()->exists($viewName . '-amp')) {
-                $viewName .= '-amp';
+            if (view()->exists('amp-'.$viewName)) {
+                $viewName = 'amp-'.$viewName;
 
-            } else {
-                abort(404);
-            }
+            } 
         }
         return $viewName;
     }

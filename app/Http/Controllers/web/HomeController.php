@@ -18,7 +18,7 @@ class HomeController extends Controller
     public function index($lang, $region)
     {   
 
-        return view('web.index');
+        return view($this->getView('web.index'));
     }
 
     //Includes Lazy Load
