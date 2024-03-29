@@ -108,7 +108,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'contact@dealsandcouponsmena.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'sender@dealsandcouponsmena.com'),
         'name' => env('MAIL_FROM_NAME', 'DCM'),
     ],
 

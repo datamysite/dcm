@@ -60,6 +60,7 @@ class Kernel extends HttpKernel
         'userAuth' => \App\Http\Middleware\userAuth::class,
         'setLocale' => \App\Http\Middleware\SetLocale::class,
         'BlogAccess' => \App\Http\Middleware\BlogAccess::class,
+        'amp_validator' => \App\Http\Middleware\amp_validator::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
