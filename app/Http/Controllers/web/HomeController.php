@@ -132,7 +132,7 @@ class HomeController extends Controller
             'messages' => 'required',
         ]);
 
-        $mail = Mailer::sendMail('New Inquiry Received!', 'contact@dealsandcouponsmena.com', 'DCM', 'web.emailers.insiders.inquiry', $data);
+        $mail = Mailer::sendMail('New Inquiry Received!', 'admin@dealsandcouponsmena.com', 'DCM', 'web.emailers.insiders.inquiry', $data);
 
         if($mail){
             $response['success'] = 'success';
@@ -172,7 +172,7 @@ class HomeController extends Controller
 
         //dd($data['email']);
         $mail = Mailer::sendMail('Inquiry Received!', $data['email'], $data['business_name'], 'web.emailers.lead_welcome_e', $data);
-        $mail2 = Mailer::sendMail('New Lead Received!', 'contact@dealsandcouponsmena.com', 'DCM', 'web.emailers.insiders.lead', $data);
+        $mail2 = Mailer::sendMail('New Lead Received!', 'admin@dealsandcouponsmena.com', 'DCM', 'web.emailers.insiders.lead', $data);
 
         if($mail){
             $response['success'] = 'success';

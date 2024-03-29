@@ -16,7 +16,7 @@ class amp_validator
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $actual_link = '';
+        /*$actual_link = '';
         if(isset($_SERVER['HTTP_HOST']) && !empty($_SERVER['HTTP_HOST'])){
             $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         }
@@ -39,7 +39,7 @@ class amp_validator
             
             $newPath =  str_replace('amp/','',$actual_link);
             return redirect()->to($newPath);
-        }
+        }*/
 
         return $next($request);
     }
