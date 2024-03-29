@@ -41,7 +41,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
-            if(env('APP_AMP') == true && Agent::isMobile()){
+            if(env('APP_AMP') == true){
                 Route::prefix('amp')
                     ->middleware('web')
                     ->namespace($this->namespace)
