@@ -40,10 +40,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
-            Route::prefix('amp') /** This line adds amp at start of URL */
+            /*/*Route::prefix('amp')
                 ->middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
+                ->group(base_path('routes/web.php'));*/
         });
     }
 
