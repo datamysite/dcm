@@ -120,8 +120,23 @@
                         </button>
                         <div class="accordion-content">
                             <p>
-                                {{ __('translation.faq_page_text_answer_06') }}
+                                <strong>{{ __('translation.faq_page_text_answer_02_01') }}</strong>
                             </p>
+                            <ul>
+                                <li>{{ __('translation.faq_page_text_answer_02_02') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_03') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_04') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_05') }}</li>
+                            </ul>
+                            <p>
+                                <strong>{{ __('translation.faq_page_text_answer_02_06') }}</strong>
+                            </p>
+                            <ul>
+                                <li>{{ __('translation.faq_page_text_answer_02_07') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_08') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_09') }}</li>
+                           
+                            </ul>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -130,9 +145,24 @@
                             <span class="icon" aria-hidden="true"></span>
                         </button>
                         <div class="accordion-content">
-                            <p>
-                                {{ __('translation.faq_page_text_answer_06') }}
+                        <p>
+                                <strong>{{ __('translation.faq_page_text_answer_02_10') }}</strong>
                             </p>
+                            <ul>
+                                <li>{{ __('translation.faq_page_text_answer_02_11') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_12') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_13') }}</li>
+            
+                            </ul>
+                            <p>
+                                <strong>{{ __('translation.faq_page_text_answer_02_14') }}</strong>
+                            </p>
+                            <ul>
+                                <li>{{ __('translation.faq_page_text_answer_02_15') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_16') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_17') }}</li>
+                           
+                            </ul>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -142,8 +172,21 @@
                         </button>
                         <div class="accordion-content">
                             <p>
-                                {{ __('translation.faq_page_text_answer_06') }}
+                                {{ __('translation.faq_page_text_answer_02_18') }}
                             </p>
+                            <ul>
+                                <li>{{ __('translation.faq_page_text_answer_02_19') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_20') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_21') }}</li>
+                            </ul>
+                            <p>
+                                {{ __('translation.faq_page_text_answer_02_22') }}
+                            </p>
+                            <ul>
+                                <li>{{ __('translation.faq_page_text_answer_02_23') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_24') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_25') }}</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -153,8 +196,24 @@
                         </button>
                         <div class="accordion-content">
                             <p>
-                                {{ __('translation.faq_page_text_answer_06') }}
+                                {{ __('translation.faq_page_text_answer_02_26') }}
                             </p>
+                            <p>
+                            {{ __('translation.faq_page_text_answer_02_27') }}
+                            </p>
+                            <ul>
+                                <li>{{ __('translation.faq_page_text_answer_02_28') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_29') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_30') }}</li>
+                            </ul>
+                            <p>
+                                {{ __('translation.faq_page_text_answer_02_31') }}
+                            </p>
+                            <ul>
+                                <li>{{ __('translation.faq_page_text_answer_02_32') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_33') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_34') }}</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -164,8 +223,23 @@
                         </button>
                         <div class="accordion-content">
                             <p>
-                                {{ __('translation.faq_page_text_answer_06') }}
+                                {{ __('translation.faq_page_text_answer_02_35') }}
                             </p>
+                            <p>
+                                {{ __('translation.faq_page_text_answer_02_36') }}
+                            </p>
+                            <ul>
+                                <li>{{ __('translation.faq_page_text_answer_02_37') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_38') }}</li>
+                            </ul>
+                            <p>
+                                {{ __('translation.faq_page_text_answer_02_06') }}
+                            </p>
+                            <ul>
+                                <li>{{ __('translation.faq_page_text_answer_02_40') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_41') }}</li>
+                                <li>{{ __('translation.faq_page_text_answer_02_42') }}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

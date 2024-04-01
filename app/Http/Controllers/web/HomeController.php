@@ -46,7 +46,7 @@ class HomeController extends Controller
         public function get_categories($lang, $region){   
             $data['categories'] = Categories::where('parent_id', 0)->get();
 
-            return view('web.content.lazyload.home.getCategories')->with($data);
+            return view($this->getView('web.content.lazyload.home.getCategories'))->with($data);
         } 
 
 

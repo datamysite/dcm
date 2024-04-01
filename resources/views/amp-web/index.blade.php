@@ -1,5 +1,18 @@
-@extends('web.includes.master')
+@extends('amp-web.includes.master')
+@section('addStyle')
 
+   <style amp-custom>
+      .hero-slider a amp-img {
+          width: 100%;
+          height: auto;
+          border-radius: 20px;
+      }
+      .slick-slider amp-img {
+          display: inline-block;
+      }
+   </style>
+
+@endsection
 @section('content')
 
    <div class="nav-spacing"></div>
@@ -10,31 +23,31 @@
 
 
    <!-- Slider Section Start-->
-   <section class="mb-lg-10 my-8 desktop-slider">
+   <section class="mb-lg-10 my-8 mobile-slider">
       <div class="container">
          <div class="hero-slider">
             <a href="https://wa.me/971585882973" target="_blank" aria-label="Banner 1">
-               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b1a.png' : 'b1.png'}}" alt="Hero Slider 1">
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b1a.png' : 'b1.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 1"></amp-img>
             </a>
 
             <a href="https://homzmart.com/en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 2">
-               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b2a.png' : 'b2.png'}}" alt="Hero Slider 2">
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b2a.png' : 'b2.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 2"></amp-img>
             </a>
 
             <a href="https://www.namshi.com/uae-en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 3">
-               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b3a.png' : 'b3.png'}}" alt="Hero Slider 3">
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b3a.png' : 'b3.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 3"></amp-img>
             </a>
 
             <a href="https://www.sivvi.com" target="_blank" aria-label="Banner 4">
-               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b4a.png' : 'b4.png'}}" alt="Hero Slider 4">
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b4a.png' : 'b4.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 4"></amp-img>
             </a>
 
             <a href="https://yallatoys.com/qa_en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 5">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b5a.png' : 'b5.png'}}" alt="Hero Slider 5">
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b5a.png' : 'b5.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 5"></amp-img>
             </a>
 
             <a href="https://www.firstcry.ae?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 6">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b6a.png' : 'b6.png'}}" alt="Hero Slider 6">
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b6a.png' : 'b6.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 6"></amp-img>
             </a>
          </div>
       </div>
@@ -50,7 +63,7 @@
          </div>
          <div class="category-slider" id="hcategory-slider">
             <div class="lazyload-div lazyload-category">
-               <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
+               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
          </div>
 
@@ -58,32 +71,6 @@
    </section>
    <!-- Category Section End-->
 
-
-   <!-- How To Eearn Coupon Section Start-->
-   <section class="my-lg-12 my-8 how-to-are-section">
-      <div class="container np-container">
-         <div class="animated-banner">
-            <img src="{{URL::to('public/web_assets/images/animated/nbackground.png')}}" alt="How to Earn Background" style="width:100%; height: 100%;">
-            <div class="content">
-               <h1>{{ __('translation.earn_coupons_title') }}<br>{{ __('translation.earn_coupons_title01') }}</h1>
-               <ol>
-                  <li>{{ __('translation.earn_coupons_txt_01') }}</li>
-                  <li>{{ __('translation.earn_coupons_txt_02') }}</li>
-                  <li>{{ __('translation.earn_coupons_txt_03') }}</li>
-               </ol>
-            </div>
-            <div class="object-section">
-               <img class="light" src="{{URL::to('public/web_assets/images/animated/nlights-1.png')}}" alt="How to Earn 1" style="width:100%; height: auto;">
-               <img class="box-1" src="{{URL::to('public/web_assets/images/animated/nbox-3.png')}}" alt="How to Earn 2">
-               <img class="money-1" src="{{URL::to('public/web_assets/images/animated/nmoney1.png')}}" alt="How to Earn 3">
-               <img class="cover-1" src="{{URL::to('public/web_assets/images/animated/ncover-1.png')}}" alt="How to Earn 4">
-               <img class="box-2" src="{{URL::to('public/web_assets/images/animated/nbox-2-small.png')}}" alt="How to Earn 5">
-               <img class="box-3" src="{{URL::to('public/web_assets/images/animated/nbox-1.png')}}" alt="How to Earn 6">
-            </div>
-         </div>
-      </div>
-   </section> 
-   <!-- How To Eearn Coupon Section End-->
 
    <!-- Online Stores Section Start-->
    <section class="my-lg-12 my-8">
@@ -99,7 +86,7 @@
          <!-- slider -->
          <div class="product-slider-second" id="slider-second">
             <div class="lazyload-div lazyload-product">
-               <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
+               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
          </div>
          <div class="row" style="justify-content: flex-end;">
@@ -116,7 +103,7 @@
       <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-               <img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}" alt="Main Page Banner">
+               <amp-img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}" alt="Main Page Banner">
             </div>
          </div>
       </div>
@@ -137,7 +124,7 @@
          <!-- slider -->
          <div class="product-slider-second" id="slider-third">
             <div class="lazyload-div lazyload-product">
-               <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
+               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
          </div>
 
@@ -165,7 +152,7 @@
 
          <div  id="allstores-section">
             <div class="lazyload-div">
-               <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
+               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
          </div>
 

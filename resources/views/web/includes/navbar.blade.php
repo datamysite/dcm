@@ -198,15 +198,19 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         @endif
 
                         @if ( app()->getLocale() == 'en' )
-                           <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
-                              <i class="bi bi-globe"></i>&nbsp;&nbsp;
-                              <a class="nav-link" href="{{ substr_replace($url,"/ar/",$pos,4) }}"><span><b>AR</b></span></a>
-                           </div>
+                           <a class="nav-link" href="{{ substr_replace($url,"/ar/",$pos,4) }}">
+                              <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
+                                 <i class="bi bi-globe"></i>&nbsp;&nbsp;
+                                 <span><b>AR</b></span>
+                              </div>
+                           </a>
                         @else
-                           <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
-                              <i class="bi bi-globe"></i>&nbsp;&nbsp;
-                              <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}"><span><b>EN</b></span></a>
-                           </div>
+                           <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}">
+                              <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
+                                 <i class="bi bi-globe"></i>&nbsp;&nbsp;
+                                 <span><b>EN</b></span>
+                              </div>
+                           </a>
                         @endif
 
                      </ul>

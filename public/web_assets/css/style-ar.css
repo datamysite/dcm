@@ -743,7 +743,7 @@ label.errors {
 .accordion button {
   position: relative;
   display: block;
-  text-align: left;
+  text-align: right;
   width: 100%;
   padding: 1em 0;
   color: #7288a2;
@@ -768,14 +768,15 @@ label.errors {
 }
 
 .accordion button .accordion-title {
-  padding: 1em 1.5em 1em 0;
+  padding: 1em 0 1em 1.5em;
+  text-align: right !important;
 }
 
 .accordion button .icon {
   display: inline-block;
   position: absolute;
   top: 18px;
-  right: 0;
+  left: 0;
   width: 22px;
   height: 22px;
   border: 1px solid;
@@ -1009,7 +1010,9 @@ label.errors {
 #contactUsForm .lead-loader img{
     margin-left: 0;
 }
-
+.about-para{
+    text-align: right !important;
+}
 
 
 

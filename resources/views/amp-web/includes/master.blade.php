@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html amp lang="{{app()->getLocale()}}">
 
 <head>
    <!-- Required meta tags -->
@@ -11,7 +11,9 @@
    <meta content="description" name="{{@$metaTags->description}}" />
    <link rel="canonical" href="{{$actual_link}}" />
    @yield('addImagesrc')
-   @include('web.includes.style')
+   @include('amp-web.includes.style')
+   <script async src="https://cdn.ampproject.org/v0.js"></script>
+   <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
    @yield('addStyle')
 
 
@@ -28,11 +30,11 @@
 
 <body>
    <div id="loading">
-     <img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" alt="Loading..." />
+     <amp-img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" alt="Loading..." />
    </div>
    <!-- navbar -->
 
-      @include('web.includes.navbar')
+      @include('amp-web.includes.navbar')
 
       @yield('content')
 
@@ -223,7 +225,7 @@
          <div class="modal-body p-0">
             <div class="d-flex align-items-center">
                <div class="d-none d-lg-block">
-                  <img src="{{URL::to('/public')}}/web_assets/images/icons/lang.png" alt="" class="img-fluid rounded-start" />
+                  <amp-img src="{{URL::to('/public')}}/web_assets/images/icons/lang.png" alt="" class="img-fluid rounded-start" />
                </div>
                <div class="px-8 py-8 py-lg-0">
                   <div class="position-absolute end-0 top-0 m-6">
@@ -246,11 +248,11 @@
    </div>
 </div>
 
-@include('web.includes.footer')
+@include('amp-web.includes.footer')
 
 <!-- Javascript-->
 
-@include('web.includes.script')
+@include('amp-web.includes.script')
 
 @foreach($bodySnippet as $val)
 

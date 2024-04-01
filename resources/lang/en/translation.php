@@ -430,4 +430,136 @@ return [
     customers can discover the best deals, all in one convenient location.",
 
     "about_page_text_sec_01_06" =>  "Join us at DCM and experience the future of an online emporium today!",
+
+
+    //New FAQ//
+
+  "faq_page_text_01" =>  "YOUR COMPREHENSIVE GUIDE TO UNDERSTANDING UAE COUPONS AND PROMO CODES FOR SIGNIFICANT SAVINGS Looking for a deal and a discount? You've arrived at the appropriate location by selecting Dealsandcouponsmena.com. We are specialists and experts at helping online shoppers save a ton of money and purchase their preferred items. To avoid any issues, we advise customers to use the verified UAE discount coupon list. First-time users should concentrate on the FAQs area for more information.",
+  "faq_page_text_02" =>  "Frequently Asked Questions",
+
+  "faq_page_text_question_01" =>  "Learn About UAE Coupon Codes ?",
+
+  "faq_page_text_question_03" =>  "Code Is No Longer Valid ?",
+
+  "faq_page_text_question_04" =>  "Look for Exclusion ?",
+  
+  "faq_page_text_answer_01" =>  "Simple digits or alphabets are used as coupons or promo codes to bring about discounts. These could be for the entire collection in the shopping basket or just a specific item, brand, or service. Here are some additional names or forms for these codes.",
+  
+  "faq_page_text_question_02" =>  "Are you facing a problem with discount code ?",
+
+  "faq_page_text_answer_02_01" =>  "Common Issues Include:",
+
+  "faq_page_text_answer_02_02" =>  "Expired Codes: Discount codes often have expiration dates. If you are trying to use an old
+  code, it might not work anymore.",
+  
+  "faq_page_text_answer_02_03" =>  "Typographical Errors: Double-check the code you have entered. Even a small typo can
+  prevent it from being applied successfully.",
+
+  "faq_page_text_answer_02_04" =>  "Restrictions Apply: Some codes are valid only for specific products, categories, or order
+  values. Make sure your purchase meets the criteria outlined for the discount.",
+
+  "faq_page_text_answer_02_05" =>  "One-Time Use: Certain codes can only be used once per customer. If you have already
+  redeemed it, it won't work again.",
+
+  "faq_page_text_answer_02_06" =>  "How We Can Help:",
+  "faq_page_text_answer_02_07" =>  "Verification: Our team can verify the validity of your code and check for any issues on our end.",
+  "faq_page_text_answer_02_08" =>  "Troubleshooting: We'll guide you through the process of applying the discount code step by
+  step to ensure it's done correctly.",
+  "faq_page_text_answer_02_09" =>  "Alternative Solutions: If your code isn't working, we can explore alternative discounts or
+  promotions that you may be eligible for.",
+
+  "faq_page_text_answer_02_10" =>  "Possible Reasons:",
+  "faq_page_text_answer_02_11" =>  "Expiration: Discount codes often have expiration dates. If the code has passed its validity
+  period, it may no longer work.",
+  "faq_page_text_answer_02_12" =>  "Single Use: Some codes are designed for one-time use only. If you've already redeemed it, it
+  won't be valid for subsequent purchases.",
+  "faq_page_text_answer_02_13" =>  "Specific Conditions: Certain codes are subject to specific conditions, such as minimum
+  purchase requirements or restrictions on certain products or categories.",
+
+  "faq_page_text_answer_02_14" =>  "What We Can Do:",
+  "faq_page_text_answer_02_15" =>  "Explore Alternatives: If your code is no longer valid, we can explore alternative discounts or
+  promotions that you may be eligible for.",
+  "faq_page_text_answer_02_16" =>  "Provide Assistance: Our customer support team is here to assist you. Feel free to reach out
+  for further clarification or assistance with your order.",
+  "faq_page_text_answer_02_17" =>  "Feedback: Your feedback is valuable to us. If there's anything specific you'd like to share
+  about your experience with the code, we're all ears.",
+
+ 
+  "faq_page_text_answer_02_18" =>  "Understanding Exclusions:",
+  "faq_page_text_answer_02_19" =>  "Product Limitations: Some codes apply only to specific products or categories. If the items
+  in your cart are excluded from the promotion, the code won't be valid.",
+  "faq_page_text_answer_02_20" =>  "Minimum Purchase Requirement: Certain codes require a minimum purchase amount to be
+  eligible for the discounts. If your order total doesn't meet this requirement, the code may not
+  apply.",
+  "faq_page_text_answer_02_21" =>  "Geographic Restrictions: In some cases, discount codes are limited to specific regions or
+  countries. If you're outside the eligible area, the code won't be valid for your purchase.",
+
+  "faq_page_text_answer_02_22" =>  "How We Can Help:",
+  "faq_page_text_answer_02_23" =>  "Clarification: Our team can provide clarification on any exclusions associated with the
+  discount code you're using.",
+
+  "faq_page_text_answer_02_24" =>  "Alternative Options: If your current code is subject to exclusions, we can explore alternative
+  discounts or promotions that may better suit your needs.",
+  "faq_page_text_answer_02_25" =>  "Personalised Assistance: Reach out to our customer support team for personalised
+  assistance. We're here to ensure you get the best possible shopping experience.",
+
+  "faq_page_text_answer_02_26" =>  "Here's what you need to know about this issue and how we can assist you:",
+  "faq_page_text_answer_02_27" =>  "Understanding Case Sensitivity:",
+
+  "faq_page_text_answer_02_28" =>  "Case-Sensitive Nature: Some discount codes are case-sensitive, meaning that uppercase
+  and lowercase letters must be entered exactly as provided for the code to work.",
+
+  "faq_page_text_answer_02_29" =>  "Typographical Errors: Even a minor difference in capitalization can render a code invalid.
+  Double-check the case of each letter to ensure accuracy.",
+
+  "faq_page_text_answer_02_30" =>  "Copy and Paste Issues: When copying and pasting a code, ensure that no extra spaces or
+  characters are inadvertently included, as this can also affect its validity.",
+
+  "faq_page_text_answer_02_31" =>  "How We Can Help:",
+
+  "faq_page_text_answer_02_32" =>  "Verification: Our team can verify whether the discount code you're using is case-sensitive
+  and provide guidance on the correct formatting.",
+
+  "faq_page_text_answer_02_33" =>  "Troubleshooting: If you're still experiencing issues, we can walk you through the process of
+  entering the code manually to ensure it's done correctly.",
+
+  "faq_page_text_answer_02_34" =>  "Replacement Codes: If the case-sensitive code continues to pose difficulties, we can offer a
+  replacement code or alternative discount to ensure you receive the savings you deserve.",
+
+
+  "faq_page_text_answer_02_35" =>  "Your location can sometimes impact the validity of discount codes due to various factors. Let's
+  explore how location might be affecting your discount code experience and how we can assist you:",
+
+  "faq_page_text_answer_02_36" =>  "Geographic Limitations:",
+
+  "faq_page_text_answer_02_37" =>  "Regional Restrictions: Some discount codes are only valid in specific regions or countries. If
+  you're located outside the designated area, the code may not be applicable to your purchase.",
+
+  "faq_page_text_answer_02_38" =>  "Currency Differences: Certain codes are tied to specific currencies or regions where the
+  currency is accepted. If there's a mismatch between the currency associated with the code and your location, it may not work.",
+
+  "faq_page_text_answer_02_39" =>  "Currency Differences: Certain codes are tied to specific currencies or regions where the
+  currency is accepted. If there's a mismatch between the currency associated with the code and your location, it may not work.",
+
+  "faq_page_text_answer_02_40" =>  "Clarification: Our team can provide clarification on any geographic limitations associated
+  with the discount code you're using.",
+
+  "faq_page_text_answer_02_41" =>  "Alternative Solutions: If your location is affecting the validity of your code, we can explore
+  alternative discounts or promotions that are applicable to your region.",
+  
+  "faq_page_text_answer_02_42" =>  "Personalised Assistance: Reach out to our customer support team for personalised
+  assistance. We're here to ensure that you receive the discounts you're eligible for, regardless
+  of your location.",
+
+  "faq_page_text_question_05" =>  "Codes That Are Case Sensitive ?",
+  "faq_page_text_question_06" =>  "Buyers Location ?",
+  "faq_page_text_question_07" =>  "How to Use My Coupon UAE ?",
+  "faq_page_text_answer_07" =>  "The specifics of how to apply a promo or coupon code vary from brand to brand, retailer to store, and
+  situation to case. Online customers typically have the option to “Redeem” or “Use” the code upon finishing the checkout procedure.
+  Customers are prompted to choose the Coupon box for entering a coupon code before completing the payment procedure.",
+  "faq_page_text_answer_08" =>  "As some stores try to make things confusing, keep in mind that this is most crucial phase;
+  The majority of time; stores display a “Coupon Box” with an “Apply Code” button so that customers can quickly recognize it.",
+  "faq_page_text_answer_09" =>  "Note: If you are experiencing difficulties finding the coupon box then get in touch with customer service representatives.",
+  "faq_page_text_07" =>  "Still have any question ?",
+
 ];
