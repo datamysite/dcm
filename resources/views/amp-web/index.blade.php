@@ -19,7 +19,7 @@
 
 
    <!-- Slider Section Start-->
-   <section class="mb-lg-10 my-8 mobile-slider">
+   <section class="mb-lg-10 my-8 mobile-slider" style="height:187.281px;">
       <div class="container">
          <div class="hero-slider">
             <a href="https://wa.me/971585882973" target="_blank" aria-label="Banner 1">

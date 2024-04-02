@@ -20,7 +20,6 @@
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="{{URL::to('/public')}}/web_assets/css/amp.css" rel="stylesheet" />
 @if ( app()->getLocale() == 'ar' )
 <link href="{{URL::to('/public')}}/web_assets/css/style-ar.css" rel="stylesheet" />
 @else
