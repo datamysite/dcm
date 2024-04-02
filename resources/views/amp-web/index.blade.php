@@ -57,7 +57,7 @@
                <h3 class="mb-0 page-title">{{ __('translation.Categories') }}</h3>
             </div>
          </div>
-         <div class="category-slider" id="hcategory-slider">
+         <div class="category-slider" id="hcategory-slider" style="height: 101.578px;">
             <div class="lazyload-div lazyload-category">
                <amp-img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>

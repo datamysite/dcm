@@ -1347,8 +1347,8 @@ label.errors {
         box-shadow: 0 0 0px 0px #a11e1e1a, 3px 4px 8px 0px rgb(139 139 139 / 67%);
     }
     .mobile-navbar .align-items-center {
-        margin-top: -6px;
-        margin-right: 8px;
+        margin-top: 4px;
+        margin-right: 12px;
         font-size: 17px;
     }
     .mobile-navbar .list-inline-item {
