@@ -20,7 +20,7 @@ class HomeController extends Controller
         $data['allstates'] = States::where('country_id', '1')->orderBy('name', 'asc')->get();
         $data['categories'] = Categories::where('parent_id', 0)->get();
         $data['onlinestores'] = HomeStores::where('retailer_type', '1')->limit(10)->orderBy('id', 'desc')->get();
-
+      
         return view($this->getView('web.index'))->with($data);
     }
 

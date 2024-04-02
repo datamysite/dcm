@@ -108,7 +108,7 @@ Route::get('/migrate', function () {
             Route::get('/sell-sith-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
             Route::post('/lead-generation', 'HomeController@lead_generation')->name('lead.generation');
 
-
+            
             Route::get('/faqs', 'HomeController@FAQS')->name('FAQS');
 
             //Terms
@@ -119,6 +119,8 @@ Route::get('/migrate', function () {
 
             //Anti-Spam
             Route::get('/anti-spam', 'HomeController@Anti_Spam')->name('Anti_Spam');
+
+            //test comment//
 
 
         });
