@@ -23,27 +23,27 @@
       <div class="container">
          <div class="hero-slider">
             <a href="https://wa.me/971585882973" target="_blank" aria-label="Banner 1">
-               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b1a.png' : 'b1.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 1"></amp-img>
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/amp/{{'b1-'.app()->getLocale().'.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 1"></amp-img>
             </a>
 
             <a href="https://homzmart.com/en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 2">
-               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b2a.png' : 'b2.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 2"></amp-img>
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/amp/{{'b2-'.app()->getLocale().'.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 2"></amp-img>
             </a>
 
             <a href="https://www.namshi.com/uae-en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 3">
-               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b3a.png' : 'b3.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 3"></amp-img>
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/amp/{{'b3-'.app()->getLocale().'.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 3"></amp-img>
             </a>
 
             <a href="https://www.sivvi.com" target="_blank" aria-label="Banner 4">
-               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b4a.png' : 'b4.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 4"></amp-img>
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/amp/{{'b4-'.app()->getLocale().'.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 4"></amp-img>
             </a>
 
             <a href="https://yallatoys.com/qa_en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 5">
-               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b5a.png' : 'b5.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 5"></amp-img>
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/amp/{{'b5-'.app()->getLocale().'.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 5"></amp-img>
             </a>
 
             <a href="https://www.firstcry.ae?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 6">
-               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/mob/{{app()->getLocale() == 'ar'  ? 'b6a.png' : 'b6.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 6"></amp-img>
+               <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/amp/{{'b6-'.app()->getLocale().'.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 6"></amp-img>
             </a>
          </div>
       </div>

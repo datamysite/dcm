@@ -23,27 +23,27 @@
       <div class="container">
          <div class="hero-slider">
             <a href="https://wa.me/971585882973" target="_blank" aria-label="Banner 1">
-               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b1a.png' : 'b1.png'}}" alt="Hero Slider 1">
+               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/{{'b1-'.app()->getLocale().'.png'}}" alt="Hero Slider 1">
             </a>
 
             <a href="https://homzmart.com/en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 2">
-               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b2a.png' : 'b2.png'}}" alt="Hero Slider 2">
+               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/{{'b2-'.app()->getLocale().'.png'}}" alt="Hero Slider 2">
             </a>
 
             <a href="https://www.namshi.com/uae-en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 3">
-               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b3a.png' : 'b3.png'}}" alt="Hero Slider 3">
+               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/{{'b3-'.app()->getLocale().'.png'}}" alt="Hero Slider 3">
             </a>
 
             <a href="https://www.sivvi.com" target="_blank" aria-label="Banner 4">
-               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b4a.png' : 'b4.png'}}" alt="Hero Slider 4">
+               <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/{{'b4-'.app()->getLocale().'.png'}}" alt="Hero Slider 4">
             </a>
 
             <a href="https://yallatoys.com/qa_en?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 5">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b5a.png' : 'b5.png'}}" alt="Hero Slider 5">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{'b5-'.app()->getLocale().'.png'}}" alt="Hero Slider 5">
             </a>
 
             <a href="https://www.firstcry.ae?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 6">
-               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{app()->getLocale() == 'ar'  ? 'b6a.png' : 'b6.png'}}" alt="Hero Slider 6">
+               <img src="{{URL::to('/public')}}/web_assets/images/banner/{{'b6-'.app()->getLocale().'.png'}}" alt="Hero Slider 6">
             </a>
          </div>
       </div>
