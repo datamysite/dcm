@@ -13,7 +13,6 @@
    @yield('addImagesrc')
    @include('amp-web.includes.style')
    <script async src="https://cdn.ampproject.org/v0.js"></script>
-   <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
    @yield('addStyle')
 
 

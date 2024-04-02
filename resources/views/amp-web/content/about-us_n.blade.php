@@ -58,7 +58,7 @@
                <div class="row align-items-center mb-1">
                   <div class="col-lg-6">
                      <!-- text -->
-                     <div class="text-center text-md-start">
+                     <div class="text-center text-md-start about-para">
 
                         <p class="mb-5">
 

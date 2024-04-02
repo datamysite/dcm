@@ -16,10 +16,6 @@
 @section('content')
 
    <div class="nav-spacing"></div>
-   
-   <div class="container emirates-container">
-      
-   </div>
 
 
    <!-- Slider Section Start-->
@@ -73,8 +69,8 @@
 
 
    <!-- Online Stores Section Start-->
-   <section class="my-lg-12 my-8">
-      <div class="container np-container">
+   <section class="my-lg-12 my-8" style="height:280.907px">
+      <div class="container np-container" style="height:280.907px">
          <!-- row -->
          <div class="row">
             <div class="col-12 mb-6 text-center">
@@ -84,7 +80,7 @@
             </div>
          </div>
          <!-- slider -->
-         <div class="product-slider-second" id="slider-second">
+         <div class="product-slider-second" id="slider-second" style="height:240px">
             <div class="lazyload-div lazyload-product">
                <amp-img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
@@ -111,8 +107,8 @@
    <!--Ads Section 1 End Here-->
 
    <!-- Retailers Stories Section Start -->
-   <section class="my-lg-12 my-8">
-      <div class="container np-container">
+   <section class="my-lg-12 my-8" style="height:280.907px">
+      <div class="container np-container" style="height:280.907px">
          <!-- row -->
          <div class="row">
             <div class="col-12 mb-6 text-center">

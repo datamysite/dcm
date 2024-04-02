@@ -16,7 +16,7 @@ class amp_validator
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(env('APP_AMP') == true){
+        if(config('app.amp') == true){
             $actual_link = '';
             if(isset($_SERVER['HTTP_HOST']) && !empty($_SERVER['HTTP_HOST'])){
                 $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";

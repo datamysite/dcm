@@ -1,4 +1,5 @@
   body, html { overflow-x:hidden; }
+  html.i-amphtml-fie>body, html.i-amphtml-singledoc>body{ overflow:hidden !important; }
 .nav-spacing {
     width: 100%;
     height: 120px;
@@ -1052,8 +1053,16 @@ label.errors {
     height: 200px;
     border-radius: 20px;
 }
-
-
+.footer .accordion-item {
+    padding: 0;
+    background-color: #f2f2f2;
+    border: 0;
+    border-bottom: 1px solid;
+    border-radius: 0;
+}
+.footer .accordion-item button {
+    padding: 15px 0px;
+}
 
 
 
@@ -1067,7 +1076,7 @@ label.errors {
         display: none;
     }
     .footer{
-        height: 767.688px;
+        min-height: 640px;
     }
     .flip-banner{
         display: none !important;
@@ -1332,7 +1341,7 @@ label.errors {
         padding: 10px 10px;
         background: #e6e6e6;
         position: fixed;
-        bottom: 0;
+        bottom: -1px;
         z-index: 99999;
         width: 100%;
         box-shadow: 0 0 0px 0px #a11e1e1a, 3px 4px 8px 0px rgb(139 139 139 / 67%);
@@ -1652,6 +1661,29 @@ label.errors {
         justify-content: space-between;
         align-items: center;
     }
+
+    .newsletter p, .newsletter h6 {
+        text-align: center;
+        font-size: 18px;
+        margin-top: -35px;
+        margin-bottom: 35px;
+    }
+
+    .newsletter input {
+        font-size: 15px;
+        height: 50px;
+        border-radius: 30px;
+    }
+
+    .newsletter button{
+        height: 35px;
+        width: 35px;
+        margin-left: -43px;
+    }
+    .footer .navbar-brand {
+        margin-top: -35px;
+        margin-bottom: 20px;
+    }
 }
 
 
@@ -1663,9 +1695,6 @@ label.errors {
     }
     .lazyload-product{
         height: 200px;
-    }
-    .footer{
-        height: 812.469px;
     }
     .tray-emirates .header_card {
         width: 43px;
