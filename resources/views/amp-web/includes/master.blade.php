@@ -29,7 +29,7 @@
 
 <body>
    <div id="loading">
-     <amp-img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" alt="Loading..." />
+     <amp-img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" width="100px" height="100px" layout="fixed" alt="Loading..."></amp-img>
    </div>
    <!-- navbar -->
 

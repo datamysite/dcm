@@ -7,7 +7,7 @@
 
             <div class="d-flex justify-content-center">
                <a class="navbar-brand" href="#">
-                  <amp-img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" alt="Logo" width="150px" height="150px"></amp-img>
+                  <amp-img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" alt="Logo" layout="fixed" width="150px" height="150px"></amp-img>
                </a>
             </div>
             <br>
@@ -117,18 +117,6 @@
                         <i class="fa fa-instagram"></i>
                      </a>
                   </li>
-                 <!--  <li class="list-inline-item">|</li>
-                  <li class="list-inline-item">
-                     <a href="#!" class="btn btn-xs">
-                        <i class="  fa fa-twitter-square"></i>
-                     </a>
-                  </li>
-                  <li class="list-inline-item">|</li>
-                  <li class="list-inline-item">
-                     <a href="#!" class="btn btn-xs">
-                        <i class="fa fa-pinterest-square"></i>
-                     </a>
-                  </li> -->
                   <li class="list-inline-item">|</li>
                   <li class="list-inline-item">
                      <a href="https://www.tiktok.com/@dealsandcouponsmena" class="btn btn-xs"  aria-label="TikTok">

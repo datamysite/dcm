@@ -7,7 +7,7 @@
 @endphp
 <div class="item">
    <a href="{{route('category', [$region, $slug])}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
-      <amp-img src="{{URL::to('/public/storage/categories/'.$val->image)}}" width="65px" height="65px" alt="Image - {{$val->name}}"></amp-img>
+      <amp-img src="{{URL::to('/public/storage/categories/'.$val->image)}}" width="65px" height="65px" layout="fixed" alt="Image - {{$val->name}}"></amp-img>
       <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
    </a>
 </div>
