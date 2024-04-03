@@ -22,9 +22,6 @@
 	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min.css" />
 @endif
 <style amp-custom>
-	html.i-amphtml-fie>body, html.i-amphtml-singledoc>body {
-	    overflow: hidden !important;
-	}
 	.hero-slider a amp-img {
           width: 100%;
           height: auto;

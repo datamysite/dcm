@@ -25,6 +25,19 @@
       <!-- {{$val->name}} // End -->
 
    @endforeach
+
+   
+   @include('amp-web.includes.script')
+
+   @foreach($bodySnippet as $val)
+
+      <!-- {{$val->name}} // Start -->
+         {!! $val->snippet_code !!}
+      <!-- {{$val->name}} // End -->
+
+   @endforeach
+
+   @yield('addScript')
 </head>
 
 
@@ -88,7 +101,7 @@
                      <label class="errors email_error_l"></label>
                      <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required />
                      <label class="errors password_error_l"></label>
-                     <p><a href="javascript:void(0)" style="color:#1dace3"  role="button" data-bs-toggle="modal" data-bs-target="#forgetPassModal">{{ __('translation.forget_password_txt') }}</a></p>
+                     <p><a href="#" style="color:#1dace3"  role="button" data-bs-toggle="modal" data-bs-target="#forgetPassModal">{{ __('translation.forget_password_txt') }}</a></p>
                      <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_in_btn') }}</button>
                   </form>
                </div>
@@ -142,7 +155,7 @@
          </div>
          <div class="modal-footer border-0 justify-content-center">
          {{ __('translation.forget_pass_txt_04') }}
-            <a href="javascript:void(0)"  role="button" data-bs-toggle="modal" data-bs-target="#userModal">  {{ __('translation.forget_pass_txt_05') }}</a>
+            <a href="#"  role="button" data-bs-toggle="modal" data-bs-target="#userModal">  {{ __('translation.forget_pass_txt_05') }}</a>
          </div>
       </div>
    </div>
@@ -225,17 +238,6 @@
 
 <!-- Javascript-->
 
-@include('amp-web.includes.script')
-
-@foreach($bodySnippet as $val)
-
-   <!-- {{$val->name}} // Start -->
-      {!! $val->snippet_code !!}
-   <!-- {{$val->name}} // End -->
-
-@endforeach
-
-@yield('addScript')
 </body>
 
 </html>
