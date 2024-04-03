@@ -25,19 +25,6 @@
       <!-- {{$val->name}} // End -->
 
    @endforeach
-
-   
-   @include('amp-web.includes.script')
-
-   @foreach($bodySnippet as $val)
-
-      <!-- {{$val->name}} // Start -->
-         {!! $val->snippet_code !!}
-      <!-- {{$val->name}} // End -->
-
-   @endforeach
-
-   @yield('addScript')
 </head>
 
 
@@ -238,6 +225,17 @@
 
 <!-- Javascript-->
 
+@include('amp-web.includes.script')
+
+@foreach($bodySnippet as $val)
+
+   <!-- {{$val->name}} // Start -->
+      {!! $val->snippet_code !!}
+   <!-- {{$val->name}} // End -->
+
+@endforeach
+
+@yield('addScript')
 </body>
 
 </html>
