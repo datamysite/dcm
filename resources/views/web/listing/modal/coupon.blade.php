@@ -15,7 +15,7 @@
   </div>
 
   <div class="grap_deal_button">
-     <a href="javascript:void(0)" class="grap_deal_btn" data-id="{{$coupon->id}}" data-href="{{$coupon->link}}{{$coupon->retailer->slug == 'sivvi' ? '' : '?utm_source=dealsandcouponsmena&utm_campaign=cps'}}" id="popupButton">{{ __('translation.grab_deal') }}</a>
+     <a href="javascript:void(0)" class="grap_deal_btn" data-id="{{$coupon->id}}" data-href="{{empty($coupon->link) ? $coupon->retailer->store_link : $coupon->link}}{{$coupon->retailer->slug == 'sivvi' ? '' : '?utm_source=dealsandcouponsmena&utm_campaign=cps'}}" id="popupButton">{{ __('translation.grab_deal') }}</a>
   </div>
 </div>
 
