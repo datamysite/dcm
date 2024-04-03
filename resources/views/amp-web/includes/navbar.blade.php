@@ -67,17 +67,17 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   {{ __('translation.Home') }}
                </a>
 
-               <a href="javascript:void(0)" class="mobile-nav-button" data-option="search">
+               <a href="#" class="mobile-nav-button" data-option="search">
                   <i class="fa fa-search"></i>
                   {{ __('translation.search_') }}
                </a>
 
                <a href="{{route('Sell_With_DCM', [$region])}}" class="center-nav-mob" data-option="home">
-                  <i class="fa fa-bullseye"></i>
+                  <i class="fa fa-bullseye" style="font-size: 44px;"></i>
                   {{ __('translation.Sell_With_us') }}
                </a>
 
-               <a href="javascript:void(0)" class="mobile-nav-button" data-option="emirates">
+               <a href="#" class="mobile-nav-button" data-option="emirates">
                   <i class="fa fa-crosshairs"></i>
                   {{ __('translation.all_emirates') }}
                </a>
@@ -88,7 +88,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                      {{ __('translation.Profile') }}
                   </a>
                @else
-                  <a href="javascript:void(0)" class="" data-option="login"  data-bs-toggle="modal" data-bs-target="#userModal">
+                  <a href="#" class="" data-option="login"  data-bs-toggle="modal" data-bs-target="#userModal">
                      <i class="fa fa-user-circle-o"></i>
                      {{ __('translation.Sign_IN') }}
                   </a>
@@ -117,7 +117,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                      <ul class="navbar-nav align-items-center">
 
                         <li class="nav-item dropdown w-100 w-lg-auto">
-                           <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
+                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
                            <ul class="dropdown-menu">
                               <li><a class="dropdown-item" href="{{route('stores', [$region, 'online'])}}">{{ __('translation.Online') }}</a></li>
                               <li><a class="dropdown-item" href="{{route('stores', [$region, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
@@ -125,7 +125,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         </li>
 
                         <li class="nav-item dropdown w-100 w-lg-auto">
-                           <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.Categories') }}</a>
+                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.Categories') }}</a>
                            <ul class="dropdown-menu mobMenuCategories">
                               
                               @foreach($navbarCategories as $val)
@@ -137,7 +137,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                  @endphp
                                  @if($val->type == 3)
                                     <li class="dropdown-submenu dropend mob-nav">
-                                       <a class="dropdown-item dropdown-toggle nested-link" href="javascript:void(0)" data-link="{{$val->id}}" role="button" data-bs-toggle="dropdown">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                                       <a class="dropdown-item dropdown-toggle nested-link" href="#" data-link="{{$val->id}}" role="button" data-bs-toggle="dropdown">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
                                        <ul class="dropdown-menu cat_{{$val->id}}">
 
                                           <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
@@ -167,7 +167,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         @else
 
                            <li class="nav-item w-100 w-lg-auto">
-                              <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal">{{ __('translation.Sign_IN') }}</a>
+                              <a class="nav-link" href="#" role="button" data-bs-toggle="modal" data-bs-target="#userModal">{{ __('translation.Sign_IN') }}</a>
                            </li>
                         @endif
 

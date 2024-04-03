@@ -8,20 +8,50 @@
 <link href="{{URL::to('/public')}}/web_assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
 <link href="{{URL::to('/public')}}/web_assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet" />
 
-<!-- Theme CSS -->
-@if ( app()->getLocale() == 'ar' )
-	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme-ar.min.css" />
-@else
-	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min.css" />
-@endif
 
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Theme CSS -->
 @if ( app()->getLocale() == 'ar' )
-<link href="{{URL::to('/public')}}/web_assets/css/style-ar.css" rel="stylesheet" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme-ar.min.css" />
 @else
-<link href="{{URL::to('/public')}}/web_assets/css/style.css" rel="stylesheet" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min.css" />
 @endif
+<style amp-custom>
+	html.i-amphtml-fie>body, html.i-amphtml-singledoc>body {
+	    overflow: hidden !important;
+	}
+	.hero-slider a amp-img {
+          width: 100%;
+          height: auto;
+          border-radius: 20px;
+      }
+      .slick-slider amp-img {
+          display: inline-block;
+      }
+<?php
+	$style_link = app()->getLocale() == 'ar' ? '/web_assets/css/style-ar.css' : '/web_assets/css/style.css'; 
+	$css_links = [
+		URL::to('/public'.$style_link),
+	];
+
+	foreach ($css_links as $key => $value) {
+		$css = file_get_contents($value);
+		// Remove comments
+		 $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
+		 // Remove spaces before and after selectors, braces, and colons
+		 $css = preg_replace('/\s*([{}|:;,])\s+/', '$1', $css);
+		 // Remove remaining spaces and line breaks
+		 $css = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    ', '!important'), '',$css);
+
+		echo $css;
+
+		echo " ";
+	}
+
+?>
+</style>

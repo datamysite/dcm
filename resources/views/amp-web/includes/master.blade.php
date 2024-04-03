@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html amp lang="{{app()->getLocale()}}">
 
 <head>
    <!-- Required meta tags -->
    <meta charset="utf-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
    <meta name="home_url" content="{{route('home', [$region])}}">
    <title>{{@$metaTags->title}}</title>
    <meta content="keywords" name="{{@$metaTags->keywords}}" />
@@ -13,6 +13,7 @@
    @yield('addImagesrc')
    @include('amp-web.includes.style')
    <script async src="https://cdn.ampproject.org/v0.js"></script>
+   <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
    @yield('addStyle')
 
 
@@ -27,7 +28,7 @@
 </head>
 
 
-<body>
+<body style="overflow: hidden;">
    <div id="loading">
      <amp-img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" width="100px" height="100px" layout="fixed" alt="Loading..."></amp-img>
    </div>
@@ -218,34 +219,7 @@
    </div>
 </div>
 
-<div class="modal fade" id="modal-subscribe" tabindex="-1" aria-hidden="true">
-   <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content" style="background-color: azure;">
-         <div class="modal-body p-0">
-            <div class="d-flex align-items-center">
-               <div class="d-none d-lg-block">
-                  <amp-img src="{{URL::to('/public')}}/web_assets/images/icons/lang.png" alt="" class="img-fluid rounded-start" />
-               </div>
-               <div class="px-8 py-8 py-lg-0">
-                  <div class="position-absolute end-0 top-0 m-6">
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
 
-                  <h5 class="text-center mb-5">Dear customer , Use the language you prefer</h5>
-                  <h5 class="text-center mb-5">عزيزي العميل , إحتار اللغة التي تناسبك</h5>
-
-
-
-                  <div class="d-grid">
-                     <a href="#" class="btn btn-primary mb-5" data-bs-dismiss="modal">English</a>
-                     <a href="#" class="btn btn-primary mb-5" data-bs-dismiss="modal">عربي</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
 
 @include('amp-web.includes.footer')
 

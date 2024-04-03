@@ -1,17 +1,6 @@
 @extends('amp-web.includes.master')
 @section('addStyle')
 
-   <style amp-custom>
-      .hero-slider a amp-img {
-          width: 100%;
-          height: auto;
-          border-radius: 20px;
-      }
-      .slick-slider amp-img {
-          display: inline-block;
-      }
-   </style>
-
 @endsection
 @section('content')
 
@@ -59,7 +48,7 @@
          </div>
          <div class="category-slider" id="hcategory-slider" style="height: 101.578px;">
             <div class="lazyload-div lazyload-category">
-               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
+               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" width="100px" height="20px" layout="fixed" alt="Lazy Loader">
             </div>
          </div>
 
@@ -82,7 +71,7 @@
          <!-- slider -->
          <div class="product-slider-second" id="slider-second" style="height:240px">
             <div class="lazyload-div lazyload-product">
-               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
+               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" width="100px" height="20px" layout="fixed" alt="Lazy Loader">
             </div>
          </div>
          <div class="row" style="justify-content: flex-end;">
@@ -99,7 +88,7 @@
       <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-               <amp-img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}" alt="Main Page Banner">
+               <amp-img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}" layout="responsive" width="400px" height="180px" alt="Main Page Banner">
             </div>
          </div>
       </div>
@@ -120,7 +109,7 @@
          <!-- slider -->
          <div class="product-slider-second" id="slider-third">
             <div class="lazyload-div lazyload-product">
-               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
+               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" width="100px" height="20px" layout="fixed" alt="Lazy Loader">
             </div>
          </div>
 
@@ -148,7 +137,7 @@
 
          <div  id="allstores-section">
             <div class="lazyload-div">
-               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
+               <amp-img src="{{URL::to('/public/loader-gif.gif')}}" width="100px" height="20px" layout="fixed" alt="Lazy Loader">
             </div>
          </div>
 

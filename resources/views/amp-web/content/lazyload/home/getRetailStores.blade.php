@@ -28,7 +28,7 @@
             <div class="flipper">
                <div class="front">
                   <amp-img class="img-fluid w-100" src="{{URL::to('/public')}}/{{app()->getLocale() == 'ar' ? 'ar-coming-soon.png' : 'coming-soon.png'}}" layout="responsive" width="185px" height="230.516px" alt="Store Coming Soon" style="border-radius: 20px;"></amp-img>
-                  <a href="javascript:void(0)" class="img-pop-up" target="_blank" aria-label="Coming Soon - {{$i}}">
+                  <a href="#" class="img-pop-up" target="_blank" aria-label="Coming Soon - {{$i}}">
                      <div class="custom_arrow-button2">
                         <i class="bi bi-arrow-right-circle"></i>
                      </div>
