@@ -22,14 +22,6 @@
 	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min.css" />
 @endif
 <style amp-custom>
-	.hero-slider a amp-img {
-          width: 100%;
-          height: auto;
-          border-radius: 20px;
-      }
-      .slick-slider amp-img {
-          display: inline-block;
-      }
 <?php
 	$style_link = app()->getLocale() == 'ar' ? '/web_assets/css/style-ar.css' : '/web_assets/css/style.css'; 
 	$css_links = [
