@@ -1,15 +1,15 @@
-<link href="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick.css" rel="stylesheet" />
-<link href="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick-theme.css" rel="stylesheet" />
+<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick.css"/>
+<link rel="stylesheet"  href="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick-theme.css"/>
 
 <!-- Favicon icon-->
 <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" />
 
 <!-- Libs CSS -->
-<link href="{{URL::to('/public')}}/web_assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
-<link href="{{URL::to('/public')}}/web_assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet" />
+<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" />
+<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/libs/feather-webfont/dist/feather-icons.css" />
 
 
-<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
 
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
