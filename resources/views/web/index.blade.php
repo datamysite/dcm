@@ -208,7 +208,7 @@
             </div>
          </div>
          <!-- slider -->
-         <div class="product-slider-second" id="slider-third">
+         <div class="product-slider-second" id="slider-third" style="min-height:330px;">
             <div class="lazyload-div lazyload-product">
                <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
@@ -236,7 +236,7 @@
             </div>
          </div>
 
-         <div  id="allstores-section">
+         <div  id="allstores-section" style="min-height: 822.281px;">
             <div class="lazyload-div">
                <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
             </div>
