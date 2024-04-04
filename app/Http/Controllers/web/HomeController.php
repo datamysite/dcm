@@ -21,12 +21,12 @@ class HomeController extends Controller
         $isMobile = Agent::isMobile();
         $data['allstates'] = States::where('country_id', '1')->orderBy('name', 'asc')->get();
         $data['categories'] = Categories::where('parent_id', 0)
-                                ->when($isMobile, function($q){
+                                ->when(config('app.amp') == true && $isMobile, function($q){
                                     return $q->limit(6);
                                 })->get();
         $data['onlinestores'] = HomeStores::where('retailer_type', '1')
-                                ->when($isMobile, function($q){
-                                    return $q->limit(6);
+                                ->when(config('app.amp') == true && $isMobile, function($q){
+                                    return $q->limit(4);
                                 })->orderBy('id', 'desc')->get();
       
         return view($this->getView('web.index'))->with($data);
@@ -68,6 +68,7 @@ class HomeController extends Controller
         } 
 
         public function get_retail_store($lang, $region){   
+            $isMobile = Agent::isMobile();
             $data['retailstores'] = HomeStores::where('retailer_type', '2')
                                             ->whereHas('retailer', function($q) use ($region){
                                                 return $q->whereHas('states', function($qq) use ($region){
@@ -75,13 +76,15 @@ class HomeController extends Controller
                                                         return $qqq->where('slug', $region);
                                                     });
                                                 });
-                                            })->limit(10)->orderBy('id', 'desc')->get();
+                                            })->when(config('app.amp') == true && $isMobile, function($q){
+                                                return $q->limit(4);
+                                            })->orderBy('id', 'desc')->get();
 
             return view($this->getView('web.content.lazyload.home.getRetailStores'))->with($data);
         } 
 
         public function get_all_store($lang, $region){   
-            $data['allstores'] = HomeStores::where('retailer_type', '3')->limit(6)->orderBy('id', 'desc')->get();
+            $data['allstores'] = HomeStores::where('retailer_type', '3')->limit(3)->orderBy('id', 'desc')->get();
 
             return view($this->getView('web.content.lazyload.home.getAllStores'))->with($data);
         } 
