@@ -88,7 +88,7 @@
                <h3 class="mb-0 page-title">{{ __('translation.Categories') }}</h3>
             </div>
          </div>
-         <div class="category-slider" id="hcategory-slider" style="height:136.594px;">
+         <div class="category-slider" id="hcategory-slider">
             @foreach($categories as $val)
             @php 
                $string = strtolower(trim($val->name));
