@@ -14,20 +14,20 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
             @if ( app()->getLocale() == 'en' )
                <div class="d-flex align-items-center" style="padding: 10px; height: 27.188px;">
-                  <i class="bi bi-globe"></i>&nbsp;&nbsp;
+                  <amp-img src="{{URL::to('/public/web_assets/images/icons/globe.svg')}}" layout="fixed" width="16px" height="16px"></amp-img>&nbsp;&nbsp;
                   <span> <a class="nav-link" href="{{ substr_replace($url,"/ar/",$pos,4) }}"><span><b>AR</b></span></a></span>
                </div>
          
             @else
                <div class="d-flex align-items-center" style="padding: 10px; height: 27.188px;">
-                  <i class="bi bi-globe"></i>&nbsp;&nbsp;
+                  <amp-img src="{{URL::to('/public/web_assets/images/icons/globe.svg')}}" layout="fixed" width="16px" height="16px"></amp-img>&nbsp;&nbsp;
                   <span> <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}"><span><b>EN</b></span></a></span>
                </div>
             @endif
 
             <div class="list-inline-item d-inline-block d-lg-none">
                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
-                  <amp-img src="{{URL::to('/public/web_assets/images/icons/menu.png')}}" layout="fixed" width="36px" height="36px"></amp-img>
+                  <amp-img src="{{URL::to('/public/web_assets/images/icons/menu.svg')}}" layout="fixed" width="36px" height="36px"></amp-img>
                </button>
             </div>
          </div>
@@ -38,7 +38,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   <input class="form-control rounded mob-main-search" type="search" placeholder="{{ __('translation.Search') }}" />
                   <span class="input-group-append">
                      <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
-                        <amp-img src="{{URL::to('/public/web_assets/images/icons/search.png')}}" layout="fixed" width="36px" height="36px"></amp-img>
+                        <amp-img src="{{URL::to('/public/web_assets/images/icons/search.svg')}}" layout="fixed" width="36px" height="36px"></amp-img>
                      </button>
                   </span>
 
@@ -58,33 +58,33 @@ $pos = strpos($url, "/".app()->getLocale()."/");
       <div class="mobile-footbar">
          <div class="list-inline d-flex ">
                <a href="{{route('home', [$region])}}" class="" data-option="home">
-                  <amp-img src="{{URL::to('/public/web_assets/images/icons/home.png')}}" layout="fixed" width="32px" height="32px"></amp-img>
+                  <amp-img src="{{URL::to('/public/web_assets/images/icons/home.svg')}}" layout="fixed" width="29px" height="29px"></amp-img>
                   {{ __('translation.Home') }}
                </a>
 
                <a href="#" class="mobile-nav-button" data-option="search">
-                  <amp-img src="{{URL::to('/public/web_assets/images/icons/search.png')}}" layout="fixed" width="32px" height="32px"></amp-img>
+                  <amp-img src="{{URL::to('/public/web_assets/images/icons/search.svg')}}" layout="fixed" width="29px" height="29px"></amp-img>
                   {{ __('translation.search_') }}
                </a>
 
                <a href="{{route('Sell_With_DCM', [$region])}}" class="center-nav-mob" data-option="home">
-                   <amp-img src="{{URL::to('/public/web_assets/images/icons/sell.png')}}" layout="fixed" width="50px" height="50px"></amp-img>
+                   <amp-img src="{{URL::to('/public/web_assets/images/icons/sell.svg')}}" layout="fixed" width="46px" height="46px" style="margin-bottom: 6px;"></amp-img>
                   {{ __('translation.Sell_With_us') }}
                </a>
 
                <a href="#" class="mobile-nav-button" data-option="emirates">
-                   <amp-img src="{{URL::to('/public/web_assets/images/icons/emirates.png')}}" layout="fixed" width="32px" height="32px"></amp-img>
+                   <amp-img src="{{URL::to('/public/web_assets/images/icons/emirates.png')}}" layout="fixed" width="29px" height="29px"></amp-img>
                   {{ __('translation.all_emirates') }}
                </a>
 
                @if(Auth::check())
                   <a href="{{route('user.profile')}}">
-                      <amp-img src="{{URL::to('/public/web_assets/images/icons/profile-o.png')}}" layout="fixed" width="32px" height="32px"></amp-img>
+                      <amp-img src="{{URL::to('/public/web_assets/images/icons/profile.svg')}}" layout="fixed" width="29px" height="29px"></amp-img>
                      {{ __('translation.Profile') }}
                   </a>
                @else
                   <a href="#" class="" data-option="login"  data-bs-toggle="modal" data-bs-target="#userModal">
-                      <amp-img src="{{URL::to('/public/web_assets/images/icons/profile.png')}}" layout="fixed" width="32px" height="32px"></amp-img>
+                      <amp-img src="{{URL::to('/public/web_assets/images/icons/profile.svg')}}" layout="fixed" width="29px" height="29px"></amp-img>
                      {{ __('translation.Sign_IN') }}
                   </a>
                @endif
