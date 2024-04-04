@@ -12,14 +12,22 @@ use App\Models\About;
 use App\Models\Footer;
 use URL;
 use App\Helpers\Mailer;
+use Jenssegers\Agent\Facades\Agent;
 
 class HomeController extends Controller
 {
     public function index($lang, $region)
     {   
+        $isMobile = Agent::isMobile();
         $data['allstates'] = States::where('country_id', '1')->orderBy('name', 'asc')->get();
-        $data['categories'] = Categories::where('parent_id', 0)->limit(6)->get();
-        $data['onlinestores'] = HomeStores::where('retailer_type', '1')->limit(5)->orderBy('id', 'desc')->get();
+        $data['categories'] = Categories::where('parent_id', 0)
+                                ->when($isMobile, function($q){
+                                    return $q->limit(6);
+                                })->get();
+        $data['onlinestores'] = HomeStores::where('retailer_type', '1')
+                                ->when($isMobile, function($q){
+                                    return $q->limit(6);
+                                })->orderBy('id', 'desc')->get();
       
         return view($this->getView('web.index'))->with($data);
     }

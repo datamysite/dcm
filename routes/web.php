@@ -38,7 +38,7 @@ Route::get('/migrate', function () {
                 'namespace' => 'web',
                 'prefix' => '{locale}',
                 'where' => ['locale' => '[a-zA-Z]{2}'],
-                'middleware' => ['setLocale'],
+                'middleware' => ['setLocale','amp_validator'],
 
             ], function () {
         Route::get('/', 'RegionController@index');
