@@ -22,7 +22,7 @@
 	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min.css" />
 @endif
 <script async src="https://cdn.ampproject.org/v0.js"></script>
-<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<!-- <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script> -->
 <style amp-custom>
 <?php
 	$style_link = app()->getLocale() == 'ar' ? '/web_assets/css/style-ar.css' : '/web_assets/css/style.css'; 

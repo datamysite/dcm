@@ -1,6 +1,6 @@
 var host = $("meta[name='home_url']").attr("content");
 var lazyload = 0;
-var Toast = Swal.mixin({toast: true, position: "top-end", showConfirmButton: false, timer: 2e3});
+/*var Toast = Swal.mixin({toast: true, position: "top-end", showConfirmButton: false, timer: 2e3});*/
 function getStates() {
   $.get(host + "/home/getStates/1", function (t) {
     $(".tray-emirates").html(t);
