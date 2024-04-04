@@ -24,6 +24,10 @@
 <script async src="https://cdn.ampproject.org/v0.js"></script>
 <!-- <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script> -->
 <style amp-custom>
+	.navbar .dropdown .dropdown-toggle:after {
+		content: ">";
+		font-weight: 700;
+	}
 <?php
 	$style_link = app()->getLocale() == 'ar' ? '/web_assets/css/style-ar.css' : '/web_assets/css/style.css'; 
 	$css_links = [

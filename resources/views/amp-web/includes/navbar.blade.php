@@ -73,7 +73,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                </a>
 
                <a href="#" class="mobile-nav-button" data-option="emirates">
-                   <amp-img src="{{URL::to('/public/web_assets/images/icons/emirates.png')}}" layout="fixed" width="29px" height="29px"></amp-img>
+                   <amp-img src="{{URL::to('/public/web_assets/images/icons/emirates-a.svg')}}" layout="fixed" width="29px" height="29px"></amp-img>
                   {{ __('translation.all_emirates') }}
                </a>
 
