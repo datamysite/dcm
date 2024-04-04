@@ -89,9 +89,20 @@
             </div>
          </div>
          <div class="category-slider" id="hcategory-slider">
-            <div class="lazyload-div lazyload-category">
-               <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
+            @foreach($categories as $val)
+            @php 
+               $string = strtolower(trim($val->name));
+               $string = str_replace('&', 'and', $string);
+               $string = str_replace(' ', '-', $string);
+               $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+            @endphp
+            <div class="item">
+               <a href="{{route('category', [$region, $slug])}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
+                  <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="Image - {{$val->name}}" width="100px" height="100px" class="img-fluid" />
+                  <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
+               </a>
             </div>
+            @endforeach
          </div>
 
       </div>
@@ -138,9 +149,31 @@
          </div>
          <!-- slider -->
          <div class="product-slider-second" id="slider-second">
-            <div class="lazyload-div lazyload-product">
-               <img src="{{URL::to('/public/loader-gif.gif')}}" alt="Lazy Loader">
-            </div>
+            
+            @foreach($onlinestores as $val)
+               <!-- item -->
+               <div class="item">
+                  <div class="custom_col">
+                     <div class="flip-container">
+                        <div class="flipper">
+                           <div class="front">
+                              <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->retailer->ar_logo : $val->retailer->logo}}" alt="Yalla Toys Store" style="border-radius: 20px;" />
+                              <a href="?b={{$val->retailer->slug}}" class="img-pop-up" aria-label="Online Store - {{$val->retailer->name}}">
+                                 <div class="custom_arrow-button2">
+                                    <i class="bi bi-arrow-right-circle"></i>
+                                 </div>
+                              </a>
+                           </div>
+                           <div class="back">
+                              <a href="{{route('brand',[$region, $val->retailer->slug])}}" class="img-pop-up" aria-label="Online Store - {{$val->retailer->name}}">
+                                 <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->retailer->ar_logo : $val->retailer->logo}}" alt="Yalla Toys Store" style="border-radius: 20px;" />
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            @endforeach
          </div>
          <div class="row" style="justify-content: flex-end;">
             <div class="col-lg-2 col-2">
