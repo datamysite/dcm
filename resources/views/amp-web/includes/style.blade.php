@@ -5,15 +5,15 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" />
 
 <!-- Libs CSS -->
-<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" />
-<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/libs/feather-webfont/dist/feather-icons.css" />
+<!-- <link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" />
+<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/libs/feather-webfont/dist/feather-icons.css" /> -->
 
 
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
 
 <!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
 <!-- Theme CSS -->
 @if ( app()->getLocale() == 'ar' )

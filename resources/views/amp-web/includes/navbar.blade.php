@@ -27,7 +27,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
             <div class="list-inline-item d-inline-block d-lg-none">
                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
-                  A
+                  <amp-img src="{{URL::to('/public/web_assets/images/icons/menu.png')}}" layout="fixed" width="36px" height="36px"></amp-img>
                </button>
             </div>
          </div>
@@ -38,7 +38,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   <input class="form-control rounded mob-main-search" type="search" placeholder="{{ __('translation.Search') }}" />
                   <span class="input-group-append">
                      <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
-                        S
+                        <amp-img src="{{URL::to('/public/web_assets/images/icons/search.png')}}" layout="fixed" width="36px" height="36px"></amp-img>
                      </button>
                   </span>
 
@@ -58,33 +58,33 @@ $pos = strpos($url, "/".app()->getLocale()."/");
       <div class="mobile-footbar">
          <div class="list-inline d-flex ">
                <a href="{{route('home', [$region])}}" class="" data-option="home">
-                  <i class="fa fa-home"></i>
+                  <amp-img src="{{URL::to('/public/web_assets/images/icons/home.png')}}" layout="fixed" width="32px" height="32px"></amp-img>
                   {{ __('translation.Home') }}
                </a>
 
                <a href="#" class="mobile-nav-button" data-option="search">
-                  <i class="fa fa-search"></i>
+                  <amp-img src="{{URL::to('/public/web_assets/images/icons/search.png')}}" layout="fixed" width="32px" height="32px"></amp-img>
                   {{ __('translation.search_') }}
                </a>
 
                <a href="{{route('Sell_With_DCM', [$region])}}" class="center-nav-mob" data-option="home">
-                  <i class="fa fa-bullseye" style="font-size: 44px;"></i>
+                   <amp-img src="{{URL::to('/public/web_assets/images/icons/sell.png')}}" layout="fixed" width="50px" height="50px"></amp-img>
                   {{ __('translation.Sell_With_us') }}
                </a>
 
                <a href="#" class="mobile-nav-button" data-option="emirates">
-                  <i class="fa fa-crosshairs"></i>
+                   <amp-img src="{{URL::to('/public/web_assets/images/icons/emirates.png')}}" layout="fixed" width="32px" height="32px"></amp-img>
                   {{ __('translation.all_emirates') }}
                </a>
 
                @if(Auth::check())
                   <a href="{{route('user.profile')}}">
-                     <i class="fa fa-user-o"></i>
+                      <amp-img src="{{URL::to('/public/web_assets/images/icons/profile-o.png')}}" layout="fixed" width="32px" height="32px"></amp-img>
                      {{ __('translation.Profile') }}
                   </a>
                @else
                   <a href="#" class="" data-option="login"  data-bs-toggle="modal" data-bs-target="#userModal">
-                     <i class="fa fa-user-circle-o"></i>
+                      <amp-img src="{{URL::to('/public/web_assets/images/icons/profile.png')}}" layout="fixed" width="32px" height="32px"></amp-img>
                      {{ __('translation.Sign_IN') }}
                   </a>
                @endif
