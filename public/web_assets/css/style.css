@@ -1,3 +1,4 @@
+
 .mobile-footbar img {
     filter: opacity(0.7);
 }
@@ -1073,6 +1074,9 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .hero-slider .slick-dots {
+        display: none;
+    }
     .emirates-container{
         display: none;
     }

@@ -67,7 +67,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   {{ __('translation.Home') }}
                </a>
 
-               <a href="javascript:void(0)" class="mobile-nav-button" data-option="search">
+               <a href="#" class="mobile-nav-button" data-option="search">
                   <i class="fa fa-search"></i>
                   {{ __('translation.search_') }}
                </a>
@@ -77,7 +77,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   {{ __('translation.Sell_With_us') }}
                </a>
 
-               <a href="javascript:void(0)" class="mobile-nav-button" data-option="emirates">
+               <a href="#" class="mobile-nav-button" data-option="emirates">
                   <i class="fa fa-crosshairs"></i>
                   {{ __('translation.all_emirates') }}
                </a>
@@ -88,7 +88,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                      {{ __('translation.Profile') }}
                   </a>
                @else
-                  <a href="javascript:void(0)" class="" data-option="login"  data-bs-toggle="modal" data-bs-target="#userModal">
+                  <a href="#" class="" data-option="login"  data-bs-toggle="modal" data-bs-target="#userModal">
                      <i class="fa fa-user-circle-o"></i>
                      {{ __('translation.Sign_IN') }}
                   </a>
