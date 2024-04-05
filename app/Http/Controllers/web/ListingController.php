@@ -56,7 +56,7 @@ class ListingController extends Controller
                                         })
                                         ->paginate(12);
 
-        return view('web.listing.index')->with($data);
+        return view($this->getView('web.listing.index'))->with($data);
     }
 
     public function brand($lang, $region, $brand_slug){
@@ -67,7 +67,7 @@ class ListingController extends Controller
         
         ClicksCounter::hitCount('1', $data['retailer']->id);
 
-        return view('web.listing.brand')->with($data);
+        return view($this->getView('web.listing.brand'))->with($data);
     }
 
 
@@ -85,7 +85,7 @@ class ListingController extends Controller
         
         ClicksCounter::hitCount('1', $data['retailer']->id);
 
-        return view('web.listing.brand')->with($data);
+        return view($this->getView('web.listing.brand'))->with($data);
     }
 
 
@@ -138,7 +138,7 @@ class ListingController extends Controller
                                         })
                                         ->paginate(12);
 
-        return view('web.listing.categories_with_type')->with($data);
+        return view($this->getView('web.listing.categories_with_type'))->with($data);
     }
 
     public function category($lang, $region, $cat_slug, Request $request){
@@ -186,7 +186,7 @@ class ListingController extends Controller
                                         })
                                         ->paginate(12);
 
-        return view('web.listing.categories')->with($data);
+        return view($this->getView('web.listing.categories'))->with($data);
     }
 
     public function show_coupon($lang, $region, $id){

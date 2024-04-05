@@ -1,8 +1,8 @@
-@extends('web.includes.master')
+@extends('amp-web.includes.master')
 
 @section('content')
 
-<div class="mt-110">
+<div class="mt-85">
    <div class="container np-container">
       <!-- row -->
       <div class="row">
@@ -26,13 +26,13 @@
    <div class="mt-4 mb-lg-14 mb-8">
       <!-- container -->
       <div class="container np-container">
-         <div class="row col-lg-3 col-md-4 mb-6 mb-md-0" style="border-radius:10px;">
-            <h5 class="mb-1">{{ __('translation.FILTERS') }}</h5>
+         <div class="row col-lg-3 col-md-4 mb-md-0" style="border-radius:10px; margin-bottom: -10px;">
+            <h3 class="mb-1">{{ __('translation.All_Stores') }}</h3>
          </div>
          <!-- row -->
          <div class="row gx-10">
             <!-- col -->
-            <aside class="col-lg-3 col-md-4 p-4 mb-6 mb-md-0" style="background-color:#f0f3f2;padding-top:0px; border-radius:10px;">
+            <aside class="col-lg-3 col-md-4 mb-6 mb-md-0" style="background-color:#f0f3f2;padding-top:0px; border-radius:10px;">
                <form method="get">
                   <div class="offcanvas offcanvas-start offcanvas-collapse w-md-50" tabindex="-1" id="offcanvasCategory" aria-labelledby="offcanvasCategoryLabel">
 
@@ -211,57 +211,30 @@
                   </div>
                </form>
             </aside>
-
+            <hr>
             <section class="col-lg-9 col-md-12">
                <!-- card -->
 
                @if(count($retailers) != 0)
                   <!-- list icon -->
 
-                  <div class="d-lg-flex {{app()->getlocale() == 'ar' ? 'justify-content-end' : 'justify-content-end' }} align-items-center">
+                  <div class="d-flex justify-content-between align-items-center">
 
-                     {{ $retailers->links('vendor.pagination.label') }}
+                     {{ $retailers->links('vendor.pagination.amp_label') }}
                      
                      <!-- icon -->
-                     <div class="d-md-flex justify-content-between align-items-center">
-
-                        <div class="d-flex align-items-center justify-content-between">
-
-                           <div class="ms-2 d-lg-none">
-                              <a class="btn btn-outline-gray-400 text-muted" data-bs-toggle="offcanvas" href="#offcanvasCategory" role="button" aria-controls="offcanvasCategory">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter me-2">
-                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-                                 </svg>
-                                 {{ __('translation.FILTERS') }}
-                              </a>
-                           </div>
-                        </div>
-
-                        <div class="d-flex mt-2 mt-lg-0">
-                           <!-- <div class="me-2 flex-grow-1">
-
-                              <select class="form-control form-control-sm">
-                                 <option selected>Show: 50</option>
-                                 <option value="10">10</option>
-                                 <option value="20">20</option>
-                                 <option value="30">30</option>
-                              </select>
-                           </div>
-                           <div>
-
-                              <select class="form-control form-control-sm">
-                                 <option selected>Sort by: Featured</option>
-                                 <option value="Low to High">Price: Low to High</option>
-                                 <option value="High to Low">Price: High to Low</option>
-                                 <option value="Release Date">Release Date</option>
-                                 <option value="Avg. Rating">Avg. Rating</option>
-                              </select>
-                           </div> -->
-                        </div>
-
+                     <div class="d-flex align-items-center justify-content-between">
+                           <a class="btn btn-sm btn-outline-gray-400 text-muted" data-bs-toggle="offcanvas" href="#offcanvasCategory" role="button" aria-controls="offcanvasCategory">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter">
+                                 <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                              </svg>
+                              &nbsp;&nbsp;
+                              {{ __('translation.FILTERS') }}
+                           </a>
                      </div>
 
                   </div>
+                  <br>
                   <!-- row -->
                   <div class="row mt-1">
 
@@ -314,18 +287,6 @@
          <div class="row">
             <div class="col-12">
 
-               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
-                       crossorigin="anonymous"></script>
-                  <!-- DCM Responsive -->
-                  <ins class="adsbygoogle"
-                       style="display:block"
-                       data-ad-client="ca-pub-3180751570116638"
-                       data-ad-slot="1784464113"
-                       data-ad-format="auto"
-                       data-full-width-responsive="true"></ins>
-                  <script>
-                       (adsbygoogle = window.adsbygoogle || []).push({});
-                  </script>
             </div>
          </div>
       </div>

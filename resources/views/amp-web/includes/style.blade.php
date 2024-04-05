@@ -20,6 +20,9 @@
 	.nav-link {
 		color: #000;
 	}
+	.mt-85{
+		margin-top: 85px;
+	}
 <?php
 	$style_link = app()->getLocale() == 'ar' ? '/web_assets/css/style-ar.css' : '/web_assets/css/style.css'; 
 	$css_links = [
