@@ -7,8 +7,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
    <meta name="home_url" content="{{route('home', [$region])}}">
    <title>{{@$metaTags->title}}</title>
-   <meta content="keywords" name="{{@$metaTags->keywords}}" />
-   <meta content="description" name="{{@$metaTags->description}}" />
+   <meta name="keywords" content="{{@$metaTags->keywords}}" />
+   <meta name="description" content="{{@$metaTags->description}}" />
    <link rel="canonical" href="{{$actual_link}}" />
    @yield('addImagesrc')
    @include('amp-web.includes.style')
