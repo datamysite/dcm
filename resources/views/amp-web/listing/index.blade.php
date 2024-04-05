@@ -12,7 +12,7 @@
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
-                  <li class="breadcrumb-item"><a href="javascript:void(0)" style="color: #000;"><strong>{{ __('translation.All_Stores') }}</strong></a></li>
+                  <li class="breadcrumb-item"><a href="#" style="color: #000;"><strong>{{ __('translation.All_Stores') }}</strong></a></li>
                   <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.'.$type) }}</strong></li>
                </ol>
             </nav>
@@ -249,7 +249,7 @@
                                     <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
                                     <a href="{{route('brand', [$region, $val->slug])}}">
                                        <!-- img -->
-                                       <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="" class="mb-5 img-fluid" />
+                                       <amp-img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}"  layout="responsive" width="185px" height="230.516px" alt="Store - {{$val->name}}" class="mb-5 img-fluid"></amp-img>
                                     </a>
                                  </div>
                               </div>
