@@ -1,21 +1,7 @@
 <link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick.css"/>
 <link rel="stylesheet"  href="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick-theme.css"/>
-
-<!-- Favicon icon-->
 <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" />
-
-<!-- Libs CSS -->
-<!-- <link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" />
-<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/libs/feather-webfont/dist/feather-icons.css" /> -->
-
-
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
-
-<!-- Icons -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-
-<!-- Theme CSS -->
 @if ( app()->getLocale() == 'ar' )
 	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme-ar.min.css" />
 @else
@@ -27,6 +13,9 @@
 	.navbar .dropdown .dropdown-toggle:after {
 		content: ">";
 		font-weight: 700;
+	}
+	.hero-slider .slick-dots {
+	    display: none;
 	}
 <?php
 	$style_link = app()->getLocale() == 'ar' ? '/web_assets/css/style-ar.css' : '/web_assets/css/style.css'; 

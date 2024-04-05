@@ -189,5 +189,5 @@
 </main>
 @endsection
 @section('addScript')
-   <script type="text/javascript" src="{{URL::to('/public/web_assets/js/home.js')}}"></script>
+   <script type="text/javascript" src="{{URL::to('/public/web_assets/js/amp-home.js')}}"></script>
 @endsection
