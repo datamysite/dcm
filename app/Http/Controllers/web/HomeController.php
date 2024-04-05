@@ -83,7 +83,8 @@ class HomeController extends Controller
             return view($this->getView('web.content.lazyload.home.getRetailStores'))->with($data);
         } 
 
-        public function get_all_store($lang, $region){   
+        public function get_all_store($lang, $region){  
+            $isMobile = Agent::isMobile(); 
             $data['allstores'] = HomeStores::where('retailer_type', '3')->when(config('app.amp') == true && $isMobile, function($q){
                                                                                 return $q->limit(3);
                                                                             })->when(config('app.amp') == false || $isMobile == false, function($q){
