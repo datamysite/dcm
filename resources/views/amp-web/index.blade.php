@@ -23,7 +23,7 @@
                <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/amp/{{'b3-'.app()->getLocale().'.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 3"></amp-img>
             </a>
 
-            <a href="https://www.sivvi.com" target="_blank" aria-label="Banner 4">
+            <!-- <a href="https://www.sivvi.com" target="_blank" aria-label="Banner 4">
                <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/amp/{{'b4-'.app()->getLocale().'.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 4"></amp-img>
             </a>
 
@@ -33,7 +33,7 @@
 
             <a href="https://www.firstcry.ae?utm_source=dealsandcouponsmena&utm_campaign=cps" target="_blank" aria-label="Banner 6">
                <amp-img src="{{URL::to('/public')}}/web_assets/images/banner/amp/{{'b6-'.app()->getLocale().'.png'}}" layout="responsive" width="400px" height="180px" alt="Hero Slider 6"></amp-img>
-            </a>
+            </a> -->
          </div>
       </div>
    </section>
