@@ -58,33 +58,33 @@ $pos = strpos($url, "/".app()->getLocale()."/");
       <div class="mobile-footbar">
          <div class="list-inline d-flex ">
                <a href="{{route('home', [$region])}}" class="" data-option="home">
-                  <amp-img src="{{URL::to('/public/web_assets/images/icons/home.svg')}}" layout="fixed" width="29px" height="29px" alt="Home"></amp-img>
+                  <amp-img src="{{URL::to('/public/web_assets/images/icons/home.svg')}}" layout="fixed" width="29px" height="29px" alt="Home Image"></amp-img>
                   {{ __('translation.Home') }}
                </a>
 
                <a href="#" class="mobile-nav-button" data-option="search">
-                  <amp-img src="{{URL::to('/public/web_assets/images/icons/search.svg')}}" layout="fixed" width="29px" height="29px" alt="Search"></amp-img>
+                  <amp-img src="{{URL::to('/public/web_assets/images/icons/search.svg')}}" layout="fixed" width="29px" height="29px" alt="Search Image"></amp-img>
                   {{ __('translation.search_') }}
                </a>
 
                <a href="{{route('Sell_With_DCM', [$region])}}" class="center-nav-mob" data-option="home">
-                   <amp-img src="{{URL::to('/public/web_assets/images/icons/sell.svg')}}" layout="fixed" width="46px" height="46px" style="margin-bottom: 6px;" alt="Sell_With_DCM"></amp-img>
+                   <amp-img src="{{URL::to('/public/web_assets/images/icons/sell.svg')}}" layout="fixed" width="46px" height="46px" style="margin-bottom: 6px;" alt="Sell_With_DCM Image"></amp-img>
                   {{ __('translation.Sell_With_us') }}
                </a>
 
                <a href="#" class="mobile-nav-button" data-option="emirates">
-                   <amp-img src="{{URL::to('/public/web_assets/images/icons/emirates-a.svg')}}" layout="fixed" width="29px" height="29px" alt="Emirates"></amp-img>
+                   <amp-img src="{{URL::to('/public/web_assets/images/icons/emirates-a.svg')}}" layout="fixed" width="29px" height="29px" alt="Emirates Image"></amp-img>
                   {{ __('translation.all_emirates') }}
                </a>
 
                @if(Auth::check())
                   <a href="{{route('user.profile')}}">
-                      <amp-img src="{{URL::to('/public/web_assets/images/icons/profile.svg')}}" layout="fixed" width="29px" height="29px" alt="Profile"></amp-img>
+                      <amp-img src="{{URL::to('/public/web_assets/images/icons/profile.svg')}}" layout="fixed" width="29px" height="29px" alt="Profile Image"></amp-img>
                      {{ __('translation.Profile') }}
                   </a>
                @else
                   <a href="#" class="" data-option="login"  data-bs-toggle="modal" data-bs-target="#userModal">
-                      <amp-img src="{{URL::to('/public/web_assets/images/icons/profile.svg')}}" layout="fixed" width="29px" height="29px" alt="Sign In"></amp-img>
+                      <amp-img src="{{URL::to('/public/web_assets/images/icons/profile.svg')}}" layout="fixed" width="29px" height="29px" alt="Sign In Image"></amp-img>
                      {{ __('translation.Sign_IN') }}
                   </a>
                @endif

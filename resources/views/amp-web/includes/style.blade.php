@@ -17,6 +17,9 @@
 	.hero-slider .slick-dots {
 	    display: none;
 	}
+	.nav-link {
+		color: #000;
+	}
 <?php
 	$style_link = app()->getLocale() == 'ar' ? '/web_assets/css/style-ar.css' : '/web_assets/css/style.css'; 
 	$css_links = [
