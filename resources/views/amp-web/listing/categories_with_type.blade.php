@@ -1,8 +1,8 @@
-@extends('web.includes.master')
+@extends('amp-web.includes.master')
 
 @section('content')
 
-<div class="mt-110">
+<div class="mt-85">
    <div class="container np-container">
       <!-- row -->
       <div class="row">
@@ -54,7 +54,7 @@
                @endphp
                <div class="item {{$val->id == $category->id ? 'active' : ''}}">
                   <a href="{{route('category.sub', [$region, $slug, $type])}}" class="text-decoration-none text-inherit">
-                     <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="Mart" class="img-fluid" />
+                     <amp-img src="{{URL::to('/public/storage/categories/'.$val->image)}}" width="65px" height="65px" layout="fixed" alt="Image - {{$val->name}}" class="img-fluid"></amp-img>
                      <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
                   </a>
                </div>
@@ -69,13 +69,10 @@
    <div class="mt-4 mb-lg-14 mb-8">
       <!-- container -->
       <div class="container np-container">
-         <div class="row col-lg-3 col-md-4 mb-6 mb-md-0" style="border-radius:10px;">
-            <h5 class="mb-1">{{ __('translation.FILTERS') }}</h5>
-         </div>
          <!-- row -->
          <div class="row gx-10">
             <!-- col -->
-            <aside class="col-lg-3 col-md-4 p-4 mb-6 mb-md-0" style="background-color:#f0f3f2;padding-top:0px; border-radius:10px;">
+            <aside class="col-lg-3 col-md-4 mb-md-0" style="background-color:#f0f3f2;padding-top:0px; border-radius:10px;">
                <form method="get">
                   <div class="offcanvas offcanvas-start offcanvas-collapse w-md-50" tabindex="-1" id="offcanvasCategory" aria-labelledby="offcanvasCategoryLabel">
 
@@ -292,51 +289,23 @@
 
                @if(count($retailers) != 0)
                   <!-- list icon -->
+                  <div class="d-flex justify-content-between align-items-center">
 
-                  <div class="d-lg-flex justify-content-end align-items-center">
-
-                     {{ $retailers->links('vendor.pagination.label') }}
+                     {{ $retailers->links('vendor.pagination.amp_label') }}
                      
                      <!-- icon -->
-                     <div class="d-md-flex justify-content-between align-items-center">
-
-                        <div class="d-flex align-items-center justify-content-between">
-
-                           <div class="ms-2 d-lg-none">
-                              <a class="btn btn-outline-gray-400 text-muted" data-bs-toggle="offcanvas" href="#offcanvasCategory" role="button" aria-controls="offcanvasCategory">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter me-2">
-                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-                                 </svg>
-                                 {{ __('translation.FILTERS') }}
-                              </a>
-                           </div>
-                        </div>
-
-                        <div class="d-flex mt-2 mt-lg-0">
-                           <!-- <div class="me-2 flex-grow-1">
-
-                              <select class="form-control form-control-sm">
-                                 <option selected>Show: 50</option>
-                                 <option value="10">10</option>
-                                 <option value="20">20</option>
-                                 <option value="30">30</option>
-                              </select>
-                           </div>
-                           <div>
-
-                              <select class="form-control form-control-sm">
-                                 <option selected>Sort by: Featured</option>
-                                 <option value="Low to High">Price: Low to High</option>
-                                 <option value="High to Low">Price: High to Low</option>
-                                 <option value="Release Date">Release Date</option>
-                                 <option value="Avg. Rating">Avg. Rating</option>
-                              </select>
-                           </div> -->
-                        </div>
-
+                     <div class="d-flex align-items-center justify-content-between">
+                           <a class="btn btn-sm btn-outline-gray-400 text-muted" data-bs-toggle="offcanvas" href="#offcanvasCategory" role="button" aria-controls="offcanvasCategory">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter">
+                                 <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                              </svg>
+                              &nbsp;&nbsp;
+                              {{ __('translation.FILTERS') }}
+                           </a>
                      </div>
 
                   </div>
+                  <br>
                   <!-- row -->
                   <div class="row mt-1">
 
@@ -347,11 +316,11 @@
                            <div class="card card-product">
                               <div class="card-body">
                                  <!-- badge -->
-                                 <div class="text-center position-relative py-1 mb-3 box">
+                                 <div class="text-center position-relative py-1 mb-3 box" style="height:243.031px; width: 179px;">
                                     <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
                                     <a href="{{route('category.brand', [$region, $category_slug, $val->slug])}}">
                                        <!-- img -->
-                                       <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="" class="mb-5 img-fluid" />
+                                       <amp-img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}"  layout="responsive" width="185px" height="230.516px" alt="Store - {{$val->name}}" class="mb-5 img-fluid"></amp-img>
                                     </a>
                                  </div>
                               </div>
@@ -371,7 +340,7 @@
                @else
                   <div class="row">
                      <div class="col-lg-12 brand-coming">
-                        <img src="{{URL::to('/public/coming-soon.gif')}}">
+                        <amp-img src="{{URL::to('/public/coming-soon.gif')}}" layout="fixed" height="400px" width="500px" alt="Coming Soon Image"></amp-img>
                      </div>
                   </div>
                @endif
@@ -388,19 +357,6 @@
       <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-
-               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
-                       crossorigin="anonymous"></script>
-                  <!-- DCM Responsive -->
-                  <ins class="adsbygoogle"
-                       style="display:block"
-                       data-ad-client="ca-pub-3180751570116638"
-                       data-ad-slot="1784464113"
-                       data-ad-format="auto"
-                       data-full-width-responsive="true"></ins>
-                  <script>
-                       (adsbygoogle = window.adsbygoogle || []).push({});
-                  </script>
             </div>
          </div>
       </div>
