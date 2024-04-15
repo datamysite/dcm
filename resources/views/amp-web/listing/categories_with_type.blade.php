@@ -41,10 +41,10 @@
       <div class="container">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0 page-title">{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</h3>
+               <h3 class="mb-0 page-title" style="margin-top: 10px;">{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</h3>
             </div>
          </div>
-         <div class="ccategory-slider category-slider">
+         <div class="ccategory-slider category-slider" style="height: 119.578px;">
             @foreach($categories as $val)
                @php
                   $string = strtolower(trim($val->name));
@@ -52,8 +52,8 @@
                    $string = str_replace(' ', '-', $string);
                    $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                @endphp
-               <div class="item {{$val->id == $category->id ? 'active' : ''}}">
-                  <a href="{{route('category.sub', [$region, $slug, $type])}}" class="text-decoration-none text-inherit">
+               <div class="item {{$val->id == $category->id ? 'active' : ''}}" style="height:101.578px">
+                  <a href="{{route('category.sub', [$region, $slug, $type])}}" class="text-decoration-none text-inherit" style="height:101.578px">
                      <amp-img src="{{URL::to('/public/storage/categories/'.$val->image)}}" width="65px" height="65px" layout="fixed" alt="Image - {{$val->name}}" class="img-fluid"></amp-img>
                      <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
                   </a>
