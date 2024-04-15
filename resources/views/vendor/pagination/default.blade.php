@@ -21,17 +21,11 @@
 
                 {{-- Array Of Links --}}
                 @if (is_array($element))
-                    @php $num_dis = 6; $i = 1; @endphp
                     @foreach ($element as $page => $url)
-                        @if($paginator->currentPage() <= $page)
-                            @if($i <= $num_dis)
-                                @if ($page == $paginator->currentPage())
-                                    <li class="page-item active" aria-current="page"><span class="page-link">{{ $page }}</span></li>
-                                @else
-                                    <li class="page-item a"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
-                                @endif
-                                @php $i++; @endphp
-                            @endif
+                        @if ($page == $paginator->currentPage())
+                            <li class="page-item active" aria-current="page"><span class="page-link">{{ $page }}</span></li>
+                        @else
+                            <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
                         @endif
                     @endforeach
                 @endif

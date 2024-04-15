@@ -105,7 +105,7 @@ Route::get('/migrate', function () {
             Route::post('/contact-Us', 'HomeController@Contact_Us_submit')->name('Contact_Us');
 
             //Sell-With-DCM
-            Route::get('/sell-sith-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
+            Route::get('/sell-with-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
             Route::post('/lead-generation', 'HomeController@lead_generation')->name('lead.generation');
 
             

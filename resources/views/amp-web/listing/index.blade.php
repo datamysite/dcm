@@ -263,7 +263,7 @@
                   <div class="row mt-8 text-center">
                      <div class="col">
                         <!-- nav -->
-                        {{ $retailers->links() }}
+                        {{ $retailers->onEachSide(1)->links() }}
                      </div>
                   </div>
                @else
