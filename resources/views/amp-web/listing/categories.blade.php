@@ -49,14 +49,8 @@
    </section>
 
 
-   @php
-      $h = 279;
-      $h = (count($retailers)/2)*$h;
-
-   @endphp
-
    <!-- categoires section start-->
-   <div class="mt-4 mb-lg-14 mb-8" style="min-height: {{$h}}px;">
+   <div class="mt-4 mb-lg-14 mb-8">
       <!-- container -->
       <div class="container np-container">
          <!-- row -->
