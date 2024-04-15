@@ -245,9 +245,9 @@
                            <div class="card card-product">
                               <div class="card-body">
                                  <!-- badge -->
-                                 <div class="text-center position-relative py-1 mb-3 box">
+                                 <div class="text-center position-relative py-1 mb-3 box" style="height:243.031px; width: 179px;">
                                     <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
-                                    <a href="{{route('brand', [$region, $val->slug])}}">
+                                    <a href="{{route('brand', [$region, $val->slug])}}" >
                                        <!-- img -->
                                        <amp-img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}"  layout="responsive" width="185px" height="230.516px" alt="Store - {{$val->name}}" class="mb-5 img-fluid"></amp-img>
                                     </a>
@@ -286,7 +286,7 @@
       <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-               
+
             </div>
          </div>
       </div>
