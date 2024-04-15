@@ -54,7 +54,7 @@ class ListingController extends Controller
                                         ->when(!empty($req['discount']), function($q) use ($req){
                                                 return $q->where('discount_upto', '<=', $req['discount']);
                                         })
-                                        ->paginate(4);
+                                        ->paginate(12);
 
         return view($this->getView('web.listing.index'))->with($data);
     }
