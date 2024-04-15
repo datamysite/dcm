@@ -1,8 +1,8 @@
-@extends('web.includes.master')
+@extends('amp-web.includes.master')
 
 @section('content')
 
-<div class="mt-110">
+<div class="mt-85">
     <div class="container">
         <!-- row -->
         <div class="row">
@@ -35,17 +35,6 @@
       </div> 
    </section>
    <!-- Slider Section End-->
-
-
-
-<section class="mt-4">
-      <div class="container">
-         <div class="row">
-            <div class="col-12 mb-6 text-center">
-            </div>
-         </div>
-      </div>
-   </section>
 
 <!-- about us main section start here-->
    <section class="my-lg-5 my-8">
@@ -96,9 +85,9 @@
                   </div>
                   <!-- col -->
                   <div class="col-lg-6">
-                     <div class="me-6" style="border-radius: 10px;">
+                     <div class="" style="border-radius: 10px;">
                         <!-- img -->
-                        <img src="{{URL::to('/public/web_assets/images/Adv/about_test.png')}}" alt="" class="img-fluid rounded" />
+                        <amp-img src="{{URL::to('/public/web_assets/images/Adv/about_test.png')}}" layout="responsive" height="235px" width="398px" alt="About Us Image" class="img-fluid rounded"></amp-img>
                      </div>
                   </div>
                </div>

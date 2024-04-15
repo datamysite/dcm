@@ -128,7 +128,7 @@ class HomeController extends Controller
         $data['section1'] = About::where('section_number', '1')->orderBy('id', 'desc')->first();
         $data['section2'] = About::where('section_number', '2')->orderBy('id', 'desc')->first();
 
-        return view('web.content.about-us_n')->with($data);
+        return view($this->getView('web.content.about-us_n'))->with($data);
     }
 
     //About Us Controller
