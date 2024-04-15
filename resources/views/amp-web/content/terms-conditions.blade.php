@@ -12,9 +12,6 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-
-
-
                         @if ( app()->getLocale() == 'en' )
                         <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>Terms & Conditions</a></strong></li>
@@ -45,16 +42,6 @@
     </div>
 </section>
 <!-- Slider Section End-->
-
-
-<section class="mt-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 mb-6 text-center">
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Terms & Conditions section Start -->
 <section class="my-lg-5 my-8">

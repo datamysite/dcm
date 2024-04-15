@@ -3,9 +3,9 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" />
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
 @if ( app()->getLocale() == 'ar' )
-	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme-ar.min.css" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme-ar.min_amp.css" />
 @else
-	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min.css" />
+	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min_amp.css" />
 @endif
 <script async src="https://cdn.ampproject.org/v0.js"></script>
 <!-- <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script> -->

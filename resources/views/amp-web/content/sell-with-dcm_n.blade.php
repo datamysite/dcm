@@ -1,4 +1,4 @@
-@extends('web.includes.master')
+@extends('amp-web.includes.master')
 
 @section('content')
 
@@ -38,10 +38,8 @@
                      
                     </div>
 
-                    <div class="mb-5" style="border-radius: 10px;">
-                        <!-- img -->
-                        <p></p>
-                        <img src="{{URL::to('/public/web_assets/images/Adv/sell1.png')}}" alt="" class="img-fluid w-90 rounded" />
+                    <div class="mb-5 text-center" style="border-radius: 10px;">
+                        <amp-img src="{{URL::to('/public/web_assets/images/Adv/sell1.png')}}" layout="fixed" width="208.516px" height="250px" alt="sell_with_dcm_image"></amp-img>
                     </div>
 
                 </div>
@@ -94,8 +92,9 @@
                                 <label class="errors lead-errors category_error"></label>
                             </div>
 
-                            <div class="py-2">
-                                <input type="radio" id="other" name="other" value="other"><label for="other" style="padding-left: 5px;"> &nbsp;&nbsp; {{ __('translation.form_text01') }}</label>
+                            <div class="py-2 d-flex align-items-start">
+                                <input type="radio" id="other" name="other" value="other" style="margin:0 10px;">
+                                <label for="other">{{ __('translation.form_text01') }}</label>
 
                             </div>
 

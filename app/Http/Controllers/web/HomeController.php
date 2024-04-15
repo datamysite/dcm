@@ -171,7 +171,7 @@ class HomeController extends Controller
     public function Sell_With_DCM()
     {
         $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->where('parent_id', 0)->get();
-        return view('web.content.sell-with-dcm_n')->with($data);
+        return view($this->getView('web.content.sell-with-dcm_n'))->with($data);
     }
 
 
@@ -211,24 +211,24 @@ class HomeController extends Controller
     //FAQS
     public function FAQS()
     {
-        return view('web.content.faqs');
+        return view($this->getView('web.content.faqs'));
     }
 
     //Terms
     public function Terms()
     {
-        return view('web.content.terms-conditions');
+        return view($this->getView('web.content.terms-conditions'));
     }
 
     //Privacy_Policy
     public function Privacy_Policy()
     {
-        return view('web.content.privacy-policy');
+        return view($this->getView('web.content.privacy-policy'));
     }
 
     //Anti_Spam
     public function Anti_Spam()
     {
-        return view('web.content.anti-spam-policy');
+        return view($this->getView('web.content.anti-spam-policy'));
     }
 }
