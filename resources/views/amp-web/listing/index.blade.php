@@ -269,7 +269,7 @@
                @else
                   <div class="row">
                      <div class="col-lg-12 brand-coming">
-                        <img src="{{URL::to('/public/coming-soon.gif')}}">
+                        <amp-img src="{{URL::to('/public/coming-soon.gif')}}" layout="fixed" height="400px" width="500px" alt="Coming Soon Image"></amp-img>
                      </div>
                   </div>
                @endif
