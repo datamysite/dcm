@@ -153,8 +153,8 @@ $(document).ready(function () {
 });
 $(window).scroll(function (t) {
   var e = $(window).scrollTop();
-  console.log(e);
-  if (lazyload == 0 && e > 400) {
+  //console.log(e);
+  if (lazyload == 0 && e > 200) {
     getFooter();
     lazyload = 1;
   }
