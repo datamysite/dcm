@@ -12,7 +12,7 @@
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
-                  <li class="breadcrumb-item active"><a href="javascript:void(0)"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
+                  <li class="breadcrumb-item active"><a href="javascript:void(0)" style="color: #000;"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
                </ol>
             </nav>
          </div>

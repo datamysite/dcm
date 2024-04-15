@@ -28,7 +28,7 @@
                       $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                   @endphp
                   <li class="breadcrumb-item"><a href="{{route('category', [$region, $slug])}}" style="color: #000;"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
-                  <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.'.$type) }}</strong></li>
+                  <li class="breadcrumb-item active" aria-current="page" style="color: #000;"><strong>{{ __('translation.'.$type) }}</strong></li>
                </ol>
             </nav>
          </div>
