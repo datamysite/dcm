@@ -34,26 +34,27 @@
             <div class="col-12 text-center">
                 <a href="{{route('brand', [$region, $retailer->slug])}}"><h3 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h3></a>
             </div>
+            <div class="col-12">
+                <amp-img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Retailer Image" height="125px" width="100px" layout="fixed" class="img" style="border-radius: 10px;"></amp-img>
+            </div>
         </div>
 
         @php $bg = 2; @endphp
         @foreach($offers as $val)
             @php if($bg == count($stripColors)){ $bg = 2;} @endphp
-            <div class="row d-flex  m-mt-16" style="align-items: center;">
+            <div class="row d-flex mt-2" style="align-items: center;">
                 <div class="col-12">
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
-                        <div class="Lside_div">
-                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Product Image" class="img">
-                        </div>
-
-                        <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
+                        <div class="row col-12 mt-0 p-5" style="align-items: left;">
                             <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->title_ar : $val->title}}</span>
 
                             <span style="color:#fff;"></span>
 
                             <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showOffer" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
+                                <a href="javascript:void(0)" class="btn btn-white shadow-green showOffer" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">
+                                    <amp-img src="{{URL::to('/public/web_assets/images/icons/coupon.png')}}" layout="fixed" width="30px" height="30px"></amp-img>
+                                </a>
                             </span>
                         </div>
                     </div>
@@ -65,21 +66,19 @@
         @php $bg = 0; @endphp
         @foreach($coupons as $val)
             @php if($bg == count($stripColors)){ $bg = 0;} @endphp
-            <div class="row d-flex  m-mt-16" style="align-items: center;">
+            <div class="row d-flex mt-4" style="align-items: center;">
                 <div class="col-12">
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
-                        <div class="Lside_div">
-                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Product Image" class="img">
-                        </div>
-
-                        <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
+                        <div class="row col-12 mt-0 p-5" style="align-items: left;">
                             <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->heading_ar : $val->heading}}</span>
 
                             <span style="color:#fff;"></span>
 
                             <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
+                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">
+                                    <amp-img src="{{URL::to('/public/web_assets/images/icons/coupon.png')}}" layout="fixed" width="30px" height="30px"></amp-img>
+                                </a>
                             </span>
                         </div>
                     </div>
@@ -92,7 +91,7 @@
 
 
         <div class="container np-container"> 
-            <div class="row mt-16">
+            <div class="row mt-10">
                 <div class="col-12 mb- text-center">
                     <h3 class="mb-5">{{ __('translation.Feedback') }}</h3>
                 </div>

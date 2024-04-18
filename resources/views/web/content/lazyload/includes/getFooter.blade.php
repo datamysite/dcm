@@ -112,7 +112,7 @@
                   </li> -->
                   <li class="list-inline-item">|</li>
                   <li class="list-inline-item">
-                     <a href="https://www.tiktok.com/@dealsandcouponsmena" class="btn btn-xs"  aria-label="TikTok">
+                     <a href="https://www.tiktok.com/@dcm_uae?_t=8ld3djl4gC8&_r=1" class="btn btn-xs"  aria-label="TikTok">
                         <i class="fa fa-tiktok"></i>
                      </a>
                   </li>

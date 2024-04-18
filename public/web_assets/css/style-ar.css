@@ -1542,10 +1542,15 @@ label.errors {
         margin-left: -20px;
     }
     .main_div_container div span a {
-        padding: 2px 5px;
-        bottom: 4px;
+        padding: 3px 6px;
+        bottom: 8px;
         position: absolute;
-        right: 3px;
+        left: 8px;
+        border-radius: 50%;
+    }
+
+    .main_div_container div span a img {
+        margin-top: 4px;
     }
     .footer-bottom {
         padding-bottom: 80px !important;
@@ -1606,7 +1611,7 @@ label.errors {
       display: none;
   }
   .main-search-div input {
-      width: 330px !important;
+      width: 100% !important;
   }
   .desktop-nav form {
         width: 40% !important;

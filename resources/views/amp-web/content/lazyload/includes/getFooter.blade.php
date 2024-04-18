@@ -119,7 +119,7 @@
                   </li>
                   <li class="list-inline-item">|</li>
                   <li class="list-inline-item">
-                     <a href="https://www.tiktok.com/@dealsandcouponsmena" class="btn btn-xs"  aria-label="TikTok">
+                     <a href="https://www.tiktok.com/@dcm_uae?_t=8ld3djl4gC8&_r=1" class="btn btn-xs"  aria-label="TikTok">
                         <amp-img src="{{URL::to('/public/web_assets/images/icons/tiktok.svg')}}" layout="fixed" width="16px" height="16px" alt="tiktok"></amp-img>
                      </a>
                   </li>

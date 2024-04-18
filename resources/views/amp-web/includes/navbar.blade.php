@@ -6,7 +6,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
       <div class="mobile-navbar">
          <div class="list-inline d-flex ">
 
-            <div class="justify-content-center w-100 d-lg-none">
+            <div class="justify-content-center w-100">
                <a class="navbar-brand" href="{{route('home', [$region])}}">
                   <amp-img src="{{URL::to('/public')}}/web_assets/images/logo/m-logo.png" alt="dealsandcouponsmena" width="140px" height="39.828px" layout="fixed"></amp-img>
                </a>
@@ -25,7 +25,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                </div>
             @endif
 
-            <div class="list-inline-item d-inline-block d-lg-none">
+            <div class="list-inline-item d-inline-block">
                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
                   <amp-img src="{{URL::to('/public/web_assets/images/icons/menu.svg')}}" layout="fixed" width="36px" height="36px" alt="Menu"></amp-img>
                </button>
