@@ -182,6 +182,43 @@ body {
     color: #000;
 }
 
+.d-lg-block {
+    display: block !important;
+  }
+  .d-lg-inline {
+    display: inline !important;
+  }
+  .d-lg-inline-block {
+    display: inline-block !important;
+  }
+  .d-lg-block {
+    display: block !important;
+  }
+  .d-lg-grid {
+    display: grid !important;
+  }
+  .d-lg-inline-grid {
+    display: inline-grid !important;
+  }
+  .d-lg-table {
+    display: table !important;
+  }
+  .d-lg-table-row {
+    display: table-row !important;
+  }
+  .d-lg-table-cell {
+    display: table-cell !important;
+  }
+  .d-lg-flex {
+    display: flex !important;
+  }
+  .d-lg-inline-flex {
+    display: inline-flex !important;
+  }
+  .d-lg-none {
+    display: none !important;
+  }
+
 hr {
     border: 0;
     border-top: 1px solid #dfe2e1;
@@ -2384,6 +2421,23 @@ textarea.form-control-lg {
     user-select: none;
     vertical-align: middle;
 }
+
+.btn-white {
+    --fc-btn-color: #000;
+    --fc-btn-bg: #fff;
+    --fc-btn-border-color: #fff;
+    --fc-btn-hover-color: #000;
+    --fc-btn-hover-bg: #fff;
+    --fc-btn-hover-border-color: #fff;
+    --fc-btn-focus-shadow-rgb: 217, 217, 217;
+    --fc-btn-active-color: #000;
+    --fc-btn-active-bg: #fff;
+    --fc-btn-active-border-color: #fff;
+    --fc-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --fc-btn-disabled-color: #000;
+    --fc-btn-disabled-bg: #fff;
+    --fc-btn-disabled-border-color: #fff;
+  }
 
 @media (prefers-reduced-motion: reduce) {
     .btn {
@@ -4881,7 +4935,6 @@ fieldset:disabled .btn {
 .d-none {
     display: none !important;
 }
-
 .position-relative {
     position: relative !important;
 }

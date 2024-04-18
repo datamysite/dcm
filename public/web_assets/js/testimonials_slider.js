@@ -8,6 +8,7 @@
       margin: 0,
       responsiveClass: true,
       nav: false,
+      prevArrow:'<span class="slick-prev"><</span>',nextArrow:'<span class="slick-next">></span>',
       responsive: {
         0: {
           items: 1,

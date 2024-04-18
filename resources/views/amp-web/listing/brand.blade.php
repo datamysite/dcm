@@ -1,11 +1,11 @@
-@extends('web.includes.master')
+@extends('amp-web.includes.master')
 @section('addImagesrc')
 <link rel="image_src" href="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" />
 @endsection
 @section('content')
 
 
-<div class="mt-110">
+<div class="mt-85">
     <div class="container np-container">
         <!-- row -->
         <div class="row">
@@ -39,12 +39,12 @@
         @php $bg = 2; @endphp
         @foreach($offers as $val)
             @php if($bg == count($stripColors)){ $bg = 2;} @endphp
-            <div class="row d-flex  m-mt-16 mt-16" style="align-items: center;">
+            <div class="row d-flex  m-mt-16" style="align-items: center;">
                 <div class="col-12">
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
                         <div class="Lside_div">
-                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Product Image" class="img" style="height:80%">
+                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Product Image" class="img">
                         </div>
 
                         <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
@@ -65,12 +65,12 @@
         @php $bg = 0; @endphp
         @foreach($coupons as $val)
             @php if($bg == count($stripColors)){ $bg = 0;} @endphp
-            <div class="row d-flex  m-mt-16 mt-16" style="align-items: center;">
+            <div class="row d-flex  m-mt-16" style="align-items: center;">
                 <div class="col-12">
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
                         <div class="Lside_div">
-                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Product Image" class="img" style="height:80%">
+                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Product Image" class="img">
                         </div>
 
                         <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">

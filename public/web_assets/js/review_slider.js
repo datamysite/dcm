@@ -26,9 +26,9 @@ $(document).ready(function () {
         },
       ],
       prevArrow:
-        '<span class="slick-prev"><i class="feather-icon icon-chevron-left"></i></span>',
+        '<span class="slick-prev"><</span>',
       nextArrow:
-        '<span class="slick-next"><i class="feather-icon icon-chevron-right"></i></span>',
+        '<span class="slick-next">></span>',
     });
 
 
