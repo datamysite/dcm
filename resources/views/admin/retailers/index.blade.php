@@ -562,7 +562,7 @@
   function loadRetailers(){
     var url = "{{route('admin.retailer.load')}}";
 
-    $('#retailersTableBody').html('<tr class="text-center"><td colspan="7"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
+    $('#retailersTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data){
 
       $('#retailersTableBody').html(data);
