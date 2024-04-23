@@ -8,7 +8,6 @@
 	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min_amp.css" />
 @endif
 <script async src="https://cdn.ampproject.org/v0.js"></script>
-<!-- <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script> -->
 <style amp-custom>
 	.navbar .dropdown .dropdown-toggle:after {
 		content: ">";
