@@ -183,5 +183,7 @@
 </main>
 @endsection
 @section('addScript')
-   <script type="text/javascript" src="{{URL::to('/public/web_assets/js/amp-home.js')}}"></script>
+   <script  id="bodytag"
+    type="text/plain"
+    target="amp-script" src="{{URL::to('/public/web_assets/js/amp-home.js')}}"></script>
 @endsection

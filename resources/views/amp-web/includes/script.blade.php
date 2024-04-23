@@ -5,4 +5,6 @@
 <script src="{{URL::to('/public')}}/web_assets/js/theme.min.js"></script>
 <script src="{{URL::to('/public')}}/web_assets/libs/slick-carousel/slick/slick.min.js"></script>
 <script src="{{URL::to('/public')}}/web_assets/js/slider.js"></script>
-<script src="{{URL::to('/public')}}/web_assets/js/amp-app.js"></script>
+<script id="bodytag"
+    type="text/plain"
+    target="amp-script" src="{{URL::to('/public')}}/web_assets/js/amp-app.js"></script>

@@ -8,6 +8,11 @@
 	<link rel="stylesheet" href="{{URL::to('/public')}}/web_assets/css/theme.min_amp.css" />
 @endif
 <script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+ <meta
+    name="amp-script-src"
+    content="sha384-YsM3ypHm0ggSSir6kuKl064hq6E0K_7esi9NeIOxfVqkKLgshY0dYBTdEBvB5UYx"
+  >
 <style amp-custom>
 	.navbar .dropdown .dropdown-toggle:after {
 		content: ">";
