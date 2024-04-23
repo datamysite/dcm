@@ -9,10 +9,6 @@
    <title>{{@$metaTags->title}}</title>
    <meta name="keywords" content="{{@$metaTags->keywords}}" />
    <meta name="description" content="{{@$metaTags->description}}" />
-   <meta
-    name="amp-script-src"
-    content="sha384-YsM3ypHm0ggSSir6kuKl064hq6E0K_7esi9NeIOxfVqkKLgshY0dYBTdEBvB5UYx"
-  >
    <link rel="canonical" href="{{$actual_link}}" />
    @yield('addImagesrc')
    @include('amp-web.includes.style')
@@ -31,7 +27,7 @@
 
 
 <body style="overflow: hidden;">
-   <amp-script layout="container"  script="bodytag" > 
+   <amp-script layout="container"  script="bodytag"> 
       <div id="loading">
         <amp-img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" width="100px" height="100px" layout="fixed" alt="Loading..."></amp-img>
       </div>
