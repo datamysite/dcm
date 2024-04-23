@@ -59,7 +59,7 @@
                         <h1 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h1>
                         <div class="social-modal_container">
                            <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                           <a href="{{route('auth.google', [$region])}}" class="social"><img src="{{URL::to('/public/web_assets/images/icons/google.svg')}}" alt="google" layout="fixed" width="26px" height="26px"></img></a>
+                           <a href="{{route('auth.google', [$region])}}" class="social"><amp-img src="{{URL::to('/public/web_assets/images/icons/google.svg')}}" alt="google" layout="fixed" width="26px" height="26px"></amp-img></a>
 
                         </div>
                         <span>{{ __('translation.dcm_reg_text') }}</span>
@@ -79,7 +79,7 @@
                         <h1 style="color:#1dace3">{{ __('translation.sign_in_to_dcm') }}</h1>
                         <div class="social-modal_container">
                            <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                           <a href="{{route('auth.google', [$region])}}" class="social"><img src="{{URL::to('/public/web_assets/images/icons/google.svg')}}" alt="google" layout="fixed" width="26px" height="26px"></img></a>
+                           <a href="{{route('auth.google', [$region])}}" class="social"><amp-img src="{{URL::to('/public/web_assets/images/icons/google.svg')}}" alt="google" layout="fixed" width="26px" height="26px"></amp-img></a>
 
                         </div>
                         <span>{{ __('translation.or_use_your_account') }}</span>
