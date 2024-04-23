@@ -26,7 +26,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
             @endif
 
             <div class="list-inline-item d-inline-block">
-               <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
+               <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation" style="height:36px; width: 36px;">
                   <amp-img src="{{URL::to('/public/web_assets/images/icons/menu.svg')}}" layout="fixed" width="36px" height="36px" alt="Menu"></amp-img>
                </button>
             </div>
