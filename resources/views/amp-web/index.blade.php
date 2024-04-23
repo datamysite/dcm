@@ -109,7 +109,7 @@
       <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-               <amp-img src="{{URL::to('/public/web_assets/images/banner/noon.avif')}}" layout="responsive" width="400px" height="180px" alt="Main Page Banner">
+               <amp-img src="{{URL::to('/public/web_assets/images/banner/add-banner.png')}}" layout="responsive" width="400px" height="180px" alt="Main Page Banner">
             </div>
          </div>
       </div>

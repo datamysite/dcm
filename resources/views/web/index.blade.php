@@ -189,7 +189,7 @@
       <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-               <img src="{{URL::to('/public/web_assets/images/banner/ad-banner.png')}}" alt="Main Page Banner">
+               <img src="{{URL::to('/public/web_assets/images/banner/add-banner.png')}}" alt="Main Page Banner">
             </div>
          </div>
       </div>
