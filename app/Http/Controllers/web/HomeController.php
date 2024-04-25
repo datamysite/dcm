@@ -28,6 +28,23 @@ class HomeController extends Controller
                                 ->when(config('app.amp') == true && $isMobile, function($q){
                                     return $q->limit(4);
                                 })->orderBy('id', 'desc')->get();
+
+        $data['retailstores'] = HomeStores::where('retailer_type', '2')
+                                            ->whereHas('retailer', function($q) use ($region){
+                                                return $q->whereHas('states', function($qq) use ($region){
+                                                    return $qq->whereHas('state', function($qqq) use ($region){
+                                                        return $qqq->where('slug', $region);
+                                                    });
+                                                });
+                                            })->when(config('app.amp') == true && $isMobile, function($q){
+                                                return $q->limit(4);
+                                            })->orderBy('id', 'desc')->get();
+                                            
+        $data['allstores'] = HomeStores::where('retailer_type', '3')->when(config('app.amp') == true && $isMobile, function($q){
+                                                                                return $q->limit(3);
+                                                                            })->when(config('app.amp') == false || $isMobile == false, function($q){
+                                                                                return $q->limit(6);
+                                                                            })->orderBy('id', 'desc')->get();
       
         return view($this->getView('web.index'))->with($data);
     }

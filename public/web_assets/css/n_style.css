@@ -243,7 +243,24 @@ amp-script {
 .text-center {
     text-align: center !important;
 }
-
+.row {
+    --fc-gutter-x: 2rem;
+    --fc-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(var(--fc-gutter-x)* -0.5);
+    margin-top: calc(var(--fc-gutter-y)* -1);
+    width: 100%;
+    gap: 10px;
+}
+.col-6 {
+    flex: 0 0 auto;
+    width: 48%;
+}
+.col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
 
 /* Navbar */
 

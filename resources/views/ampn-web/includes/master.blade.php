@@ -189,6 +189,7 @@
       const modal = document.getElementById("userModal");
       modal.style.display = "block";
    }
+
 </script>
 </body>
 

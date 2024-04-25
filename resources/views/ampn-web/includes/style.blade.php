@@ -3,10 +3,7 @@
 <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
 <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
 <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
-<meta name="amp-script-src" content="
-        sha384-TYF5Kwooip74-PfccNpII2Ip_xYZvfOOTXLTkKOB91JxoqwNkyw45UN32MnNNjIp
-        sha384-0-Mddk9rrguc59LB4bFr6fA5eFBYEJVus1SysTNDWhkpN-ahiyw5bRBciBiyzZBV
-">
+<meta name="amp-script-src" content="sha384-ohUHc_DAcbu58mN65dnRiYY1my_5PsxDBExxwgwCAQ9PVXkSuHtJ5b6VNyNEJDJ4">
 <style amp-custom>
 	.navbar .dropdown .dropdown-toggle:after {
 		content: ">";
