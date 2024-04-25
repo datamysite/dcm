@@ -20,7 +20,7 @@ class HomeController extends Controller
     {   
         $isMobile = Agent::isMobile();
         $data['allstates'] = States::where('country_id', '1')->orderBy('name', 'asc')->get();
-        $data['categories'] = Categories::where('parent_id', 0)
+        $data['categories'] = Categories::select('id', 'name', 'name_ar', 'image')->where('parent_id', 0)
                                 ->when(config('app.amp') == true && $isMobile, function($q){
                                     return $q->limit(8);
                                 })->get();
@@ -39,7 +39,7 @@ class HomeController extends Controller
                                             })->when(config('app.amp') == true && $isMobile, function($q){
                                                 return $q->limit(4);
                                             })->orderBy('id', 'desc')->get();
-                                            
+
         $data['allstores'] = HomeStores::where('retailer_type', '3')->when(config('app.amp') == true && $isMobile, function($q){
                                                                                 return $q->limit(3);
                                                                             })->when(config('app.amp') == false || $isMobile == false, function($q){
