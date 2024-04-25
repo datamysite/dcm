@@ -240,9 +240,6 @@ amp-script {
     opacity: 1;
     overflow-y: scroll;
 }
-amp-img {
-    filter: grayscale(1);
-}
 .text-center {
     text-align: center !important;
 }
