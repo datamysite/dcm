@@ -1,8 +1,8 @@
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
 <script async src="https://cdn.ampproject.org/v0.js"></script>
-<script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
-<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
-<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+<script defer custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+<script defer custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+<script defer custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 <meta name="amp-script-src" content="sha384-ohUHc_DAcbu58mN65dnRiYY1my_5PsxDBExxwgwCAQ9PVXkSuHtJ5b6VNyNEJDJ4">
 <style amp-custom>
 <?php
