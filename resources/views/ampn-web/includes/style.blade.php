@@ -5,19 +5,6 @@
 <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 <meta name="amp-script-src" content="sha384-ohUHc_DAcbu58mN65dnRiYY1my_5PsxDBExxwgwCAQ9PVXkSuHtJ5b6VNyNEJDJ4">
 <style amp-custom>
-	.navbar .dropdown .dropdown-toggle:after {
-		content: ">";
-		font-weight: 700;
-	}
-	.hero-slider .slick-dots {
-	    display: none;
-	}
-	.nav-link {
-		color: #000;
-	}
-	.mt-85{
-		margin-top: 85px;
-	}
 <?php
 	$style_link = app()->getLocale() == 'ar' ? '/web_assets/css/n_style-ar.css' : '/web_assets/css/n_style.css'; 
 	$css_links = [
