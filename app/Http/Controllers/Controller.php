@@ -15,10 +15,19 @@ class Controller extends BaseController
         $view = $viewName;
         $isMobile = Agent::isMobile();
         if(config('app.amp')){
-            if ($isMobile) {
-                if (view()->exists('amp-'.$view)) {
-                    $view = 'amp-'.$view;
-                    //
+            if(config('app.ampn')){
+                if ($isMobile) {
+                    if (view()->exists('amp-'.$view)) {
+                        $view = 'ampn-'.$view;
+                        //
+                    }
+                }
+            }else{
+                if ($isMobile) {
+                    if (view()->exists('amp-'.$view)) {
+                        $view = 'amp-'.$view;
+                        //
+                    }
                 }
             }
         }

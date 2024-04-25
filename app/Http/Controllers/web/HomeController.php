@@ -22,7 +22,7 @@ class HomeController extends Controller
         $data['allstates'] = States::where('country_id', '1')->orderBy('name', 'asc')->get();
         $data['categories'] = Categories::where('parent_id', 0)
                                 ->when(config('app.amp') == true && $isMobile, function($q){
-                                    return $q->limit(6);
+                                    return $q->limit(8);
                                 })->get();
         $data['onlinestores'] = HomeStores::where('retailer_type', '1')
                                 ->when(config('app.amp') == true && $isMobile, function($q){
