@@ -130,7 +130,7 @@
                @if(count($retailstores) < 2)
                   <div class="brand-item">
                      @for($i=0; $i<(5-count($retailstores)); $i++)
-                     <a href="#" class="img-pop-up" aria-label="Online Store - {{$val->retailer->name}}">
+                     <a href="#" class="img-pop-up" aria-label="Retail Stores">
                         <amp-img class="img-fluid w-100" src="{{URL::to('/public')}}/{{app()->getLocale() == 'ar' ? 'ar-coming-soon.png' : 'coming-soon.png'}}" layout="responsive" width="185px" height="230px" alt="Store Coming Soon" style="border-radius: 20px;"></amp-img>
                               
                      </a>
