@@ -45,7 +45,7 @@
                      $string = str_replace(' ', '-', $string);
                      $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                   @endphp
-                     <a it=" - {{$i}}" href="{{route('category', [$region, $slug])}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit " style="height: 100px;">
+                     <a href="{{route('category', [$region, $slug])}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit " style="height: 100px;">
                         <amp-img src="{{URL::to('/public/storage/categories/'.$val->image)}}" width="50px" height="50px" alt="Image - {{$val->name}}"></amp-img>
                         <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
                      </a>
