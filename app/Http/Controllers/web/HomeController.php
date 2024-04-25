@@ -24,10 +24,12 @@ class HomeController extends Controller
                                 ->when(config('app.amp') == true && $isMobile, function($q){
                                     return $q->limit(8);
                                 })->get();
-        $data['onlinestores'] = HomeStores::where('retailer_type', '1')
+        $data['onlinestores'] = DB::table('homestores')->where('retailer_type', '1')
+                                ->select('retailers.id','retailers.name','retailers.name_ar', 'retailers.logo', 'retailers.ar_logo', 'retailers.slug', 'retailers.discount_upto')
+                                ->join('retailers', 'retailers.id', '=', 'homestores.retailer_id')
                                 ->when(config('app.amp') == true && $isMobile, function($q){
                                     return $q->limit(4);
-                                })->orderBy('id', 'desc')->get();
+                                })->orderBy('homestores.id', 'desc')->get();
 
         $data['retailstores'] = HomeStores::where('retailer_type', '2')
                                             ->whereHas('retailer', function($q) use ($region){
@@ -40,11 +42,14 @@ class HomeController extends Controller
                                                 return $q->limit(4);
                                             })->orderBy('id', 'desc')->get();
 
-        $data['allstores'] = HomeStores::where('retailer_type', '3')->when(config('app.amp') == true && $isMobile, function($q){
-                                                                                return $q->limit(3);
-                                                                            })->when(config('app.amp') == false || $isMobile == false, function($q){
-                                                                                return $q->limit(6);
-                                                                            })->orderBy('id', 'desc')->get();
+        $data['allstores'] = DB::table('homestores')->where('retailer_type', '3')
+                                ->select('retailers.id','retailers.name','retailers.name_ar', 'retailers.logo', 'retailers.ar_logo', 'retailers.slug', 'retailers.discount_upto')
+                                ->join('retailers', 'retailers.id', '=', 'homestores.retailer_id')
+                                ->when(config('app.amp') == true && $isMobile, function($q){
+                                    return $q->limit(3);
+                                })->when(config('app.amp') == false || $isMobile == false, function($q){
+                                    return $q->limit(6);
+                                })->orderBy('homestores.id', 'desc')->get();
       
         return view($this->getView('web.index'))->with($data);
     }
