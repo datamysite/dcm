@@ -55,12 +55,12 @@
             <div class="modal-body">
                <div class="modal_container" id="modal_container">
                   <div class="form-modal_container sign-up-modal_container">
-                     <form action="{{route('user.create', [$region])}}" id="create_user_form" class="form_modal">
+                     <form action-xhr="{{route('user.create', [$region])}}" method="post" id="create_user_form" class="form_modal">
                         @csrf
                         <h1 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h1>
                         <div class="social-modal_container">
                            <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                           <a href="{{route('auth.google', [$region])}}" class="social"><img src="{{URL::to('/public/web_assets/images/icons/google.svg')}}" alt="google" layout="fixed" width="26px" height="26px"></img></a>
+                           <a href="{{route('auth.google', [$region])}}" class="social"><img src="{{URL::to('/public/web_assets/images/icons/google.svg')}}" alt="google" width="26px" height="26px"></img></a>
 
                         </div>
                         <span>{{ __('translation.dcm_reg_text') }}</span>
@@ -75,12 +75,12 @@
                      </form>
                   </div>
                   <div class="form-modal_container sign-in-modal_container">
-                     <form action="{{route('user.login', [$region])}}" id="login_user_form" class="form_modal">
+                     <form action-xhr="{{route('user.login', [$region])}}" method="post" id="login_user_form" class="form_modal">
                         @csrf
                         <h1 style="color:#1dace3">{{ __('translation.sign_in_to_dcm') }}</h1>
                         <div class="social-modal_container">
                            <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                           <a href="{{route('auth.google', [$region])}}" class="social"><img src="{{URL::to('/public/web_assets/images/icons/google.svg')}}" alt="google" layout="fixed" width="26px" height="26px"></img></a>
+                           <a href="{{route('auth.google', [$region])}}" class="social"><img src="{{URL::to('/public/web_assets/images/icons/google.svg')}}" alt="google" width="26px" height="26px"></img></a>
 
                         </div>
                         <span>{{ __('translation.or_use_your_account') }}</span>
@@ -125,7 +125,7 @@
        
          <div class="modal-body" style="text-align: center;">
          
-            <form id="forgotPasswordForm" action="{{route('user.forgotPassword')}}">
+            <form id="forgotPasswordForm" method="post" action-xhr="{{route('user.forgotPassword')}}">
                @csrf
                <div class="mb-3">
                   <label for="email" class="form-label">{{ __('translation.forget_pass_txt_02') }}</label>

@@ -96,13 +96,12 @@ $pos = strpos($url, "/".app()->getLocale()."/");
       <div class="container">
 
          <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar-default" aria-labelledby="navbar-defaultLabel">
-             <amp-sidebar class="sidebar" id="sidebar1" layout="container" side="left">
                 <nav class="nav">
                     <ul class="label">
                         <li class="nav-item nav-dropdown">
                             <amp-accordion layout="container" disable-session-states class="dropdown">
                                 <section>
-                                    <header>{{ __('translation.All_Stores') }}</header>
+                                    <header style="background-color: #f0f3f2;border:none;">{{ __('translation.All_Stores') }}</header>
                                     <ul class="dropdown-items">
                                         <li class="dropdown-item">
                                             <a href="{{route('stores', [$region, 'online'])}}">{{ __('translation.Online') }}</a>
@@ -117,7 +116,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         <li class="nav-item nav-dropdown">
                             <amp-accordion layout="container" disable-session-states class="dropdown">
                                 <section>
-                                    <header>{{ __('translation.Categories') }}</header>
+                                    <header style="background-color: #f0f3f2;border:none;">{{ __('translation.Categories') }}</header>
                                     <ul class="dropdown-items">
                                        @foreach($navbarCategories as $val)
                                           <li class="dropdown-item">
@@ -130,7 +129,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                              @if($val->type == 3)
                                                 <amp-accordion layout="container" disable-session-states class="dropdown">
                                                   <section>
-                                                      <header>{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</header>
+                                                      <header style="background-color: #fff;border:none;">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</header>
                                                       <ul class="dropdown-items">
                                                           <li class="dropdown-item">
                                                               <a href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a>
@@ -171,7 +170,6 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                      </ul>
                 </nav>
-            </amp-sidebar>
             <div style="width: 100%; text-align: center;">
                <button type="button" class="menu-close">Close</button>
             </div>

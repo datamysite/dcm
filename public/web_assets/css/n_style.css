@@ -442,16 +442,19 @@ ul.dropdown-menu.show {
     line-height: 3;
     font-size: 1rem;
     padding: 0 30px; 
+        width: 100%;
 }
 .offcanvas ul.label a{
     color: #000;
 }
 
-.offcanvas amp-sidebar{
+.offcanvas nav{
     padding-top: 100px;
 }
-
-.i-amphtml-accordion-header:after {
+.offcanvas ul.label li {
+    list-style: none;
+}
+amp-accordion section header:after {
     background-repeat: no-repeat;
     background-size: 0.625rem 0.625rem;
     border: none;
@@ -462,7 +465,7 @@ ul.dropdown-menu.show {
     margin-left: 0.375rem;
     font-weight: 600;
 }
-.i-amphtml-accordion-header {
+amp-accordion section header {
     cursor: pointer;
     background-color: #f0f3f2;
     padding-right: 1px;
@@ -470,11 +473,11 @@ ul.dropdown-menu.show {
     color: #000;
 }
 
-.dropdown-item .i-amphtml-accordion-header {
+.dropdown-item amp-accordion section header {
     background-color: #fff;
 }
 
-.dropdown-item .i-amphtml-accordion-header:after {
+.dropdown-item amp-accordion section header:after {
     line-height: 2;
 }
 amp-accordion .dropdown-items{
@@ -550,7 +553,7 @@ amp-accordion .dropdown-items li{
 #footer amp-accordion{
     border-bottom: 1px solid;
 }
-#footer .i-amphtml-accordion-header:after {
+#footer amp-accordion section header:after {
     line-height: 1;
     margin-top: 7px;
 }

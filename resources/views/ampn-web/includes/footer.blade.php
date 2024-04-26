@@ -17,7 +17,7 @@
             <h6 class="mb-4">{{ __('translation.footer_section_4_text02') }}</h6>
             <ul class="nav flex-column">
                <li class="nav-item mb-2">
-                  <form class="ms-auto d-flex align-items-center">
+                  <form action-xhr="{{URL::to('/')}}" class="ms-auto d-flex align-items-center">
                         <input type="text" placeholder="{{ __('translation.email_place_holder') }} " required>
                         
                         <button class="btn " type="submit">
