@@ -1,5 +1,5 @@
 <!doctype html>
-<html amp lang="{{app()->getLocale()}}">
+<html ⚡ lang="{{app()->getLocale()}}">
 
 <head>
    <!-- Required meta tags -->

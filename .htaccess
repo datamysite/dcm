@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    RewriteCond %{REQUEST_URI} !/amp$ [NC]
+    RewriteCond %{HTTP_USER_AGENT} (android|blackberry|googlebot\-mobile|iemobile|iphone|ipod|\#opera\ mobile|palmos|webos) [NC]
+    RewriteRule ^([a-zA-Z0-9-]+)([\/]*)$ https://%1/$1/amp [L,R=302]
 
     RewriteCond %{HTTPS} on
     RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
