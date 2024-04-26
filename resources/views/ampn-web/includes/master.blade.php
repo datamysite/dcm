@@ -55,7 +55,7 @@
             <div class="modal-body">
                <div class="modal_container" id="modal_container">
                   <div class="form-modal_container sign-up-modal_container">
-                     <form actiont="{{route('user.create', [$region])}}" method="post" id="create_user_form" class="form_modal">
+                     <form action="{{route('user.create', [$region])}}" method="post" id="create_user_form" class="form_modal">
                         @csrf
                         <h1 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h1>
                         <div class="social-modal_container">
