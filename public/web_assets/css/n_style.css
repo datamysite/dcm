@@ -261,6 +261,13 @@ amp-script {
     flex: 0 0 auto;
     width: 100%;
 }
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+}
+
 
 /* Navbar */
 
@@ -526,6 +533,55 @@ amp-accordion .dropdown-items li{
     margin-top: -34px;
     margin-bottom: -10px;
 }
+#footer amp-accordion section header {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 17px 0px;
+    color: #7288a2;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+
+}
+#footer amp-accordion{
+    border-bottom: 1px solid;
+}
+#footer .i-amphtml-accordion-header:after {
+    line-height: 1;
+    margin-top: 7px;
+}
+.footer-bottom {
+    background-color: #e1e1e1;
+    padding: 5px 0;
+    padding-bottom: 80px;
+}
+.footer-bottom a {
+    font-weight: 600;
+    color: #1caae2;
+}
+.footer-bottom .social-media {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.list-inline, .list-unstyled {
+    list-style: none;
+    padding-left: 0;
+}
+.list-inline-item:not(:last-child) {
+    margin-right: 0.5rem;
+}
+.social-media li {
+    margin: 0;
+}
+.list-inline-item {
+    display: inline-block;
+}
+
 
 /* Index Page */
 .hero-slider{
@@ -630,9 +686,98 @@ amp-accordion .dropdown-items li{
     margin-top: 25px;
     min-height: 640px;
     background-color: #f2f2f2;
-    padding: 40px 0 0 0;
+    padding: 20px 0 0 0;
     min-height: 355.578px;
 }
+    .newsletter p, .newsletter h6 {
+        text-align: center;
+        font-size: 18px;
+        margin-top: -35px;
+        margin-bottom: 35px;
+    }
+  .mb-4 {
+    margin-bottom: 1rem !important;
+}  
+.flex-column {
+    flex-direction: column !important;
+}
+.nav {
+    --fc-nav-link-padding-x: 1rem;
+    --fc-nav-link-padding-y: 0.5rem;
+    --fc-nav-link-font-size: 0.875rem;
+    --fc-nav-link-font-weight: 500;
+    --fc-nav-link-color: var(--fc-gray-800);
+    --fc-nav-link-hover-color: var(--fc-link-hover-color);
+    --fc-nav-link-disabled-color: #c1c7c6;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.justify-content-center {
+    justify-content: center !important;
+}
+.ms-auto {
+    margin-left: auto !important;
+}
+.align-items-center {
+    align-items: center !important;
+}
+.newsletter input {
+    padding-left: 7px;
+    width: 100%;
+    border: 1px solid #7a7a7a;
+    padding-right: 35px;
+    font-size: 15px;
+        height: 50px;
+        border-radius: 30px;
+}
+.newsletter button {
+    background-color: #1caae2;
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px;
+    height: 35px;
+        width: 35px;
+        margin-left: -43px;
+}
+.btn {
+    --fc-btn-padding-x: 1rem;
+    --fc-btn-padding-y: 0.55rem;
+    --fc-btn-font-family: ;
+    --fc-btn-font-size: 0.875rem;
+    --fc-btn-font-weight: 600;
+    --fc-btn-line-height: 1.6;
+    --fc-btn-color: var(--fc-body-color);
+    --fc-btn-bg: transparent;
+    --fc-btn-border-width: 1px;
+    --fc-btn-border-color: transparent;
+    --fc-btn-border-radius: 0.5rem;
+    --fc-btn-hover-border-color: transparent;
+    --fc-btn-box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+    --fc-btn-disabled-opacity: 0.65;
+    --fc-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--fc-btn-focus-shadow-rgb), 0.5);
+    background-color: var(--fc-btn-bg);
+    border: var(--fc-btn-border-width) solid var(--fc-btn-border-color);
+    border-radius: var(--fc-btn-border-radius);
+    color: var(--fc-btn-color);
+    cursor: pointer;
+    display: inline-block;
+    font-family: var(--fc-btn-font-family);
+    font-size: var(--fc-btn-font-size);
+    font-weight: var(--fc-btn-font-weight);
+    line-height: var(--fc-btn-line-height);
+    padding: var(--fc-btn-padding-y) var(--fc-btn-padding-x);
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+}
+
 
 /* Modal */
 .modal {

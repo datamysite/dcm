@@ -8,6 +8,7 @@ use App\Models\Categories;
 use App\Models\Retailers;
 use App\Models\SnippetCode;
 use App\Models\MetaTags;
+use App\Models\Footer;
 use Config;
 
 class ViewServiceProvider extends ServiceProvider
@@ -31,6 +32,13 @@ class ViewServiceProvider extends ServiceProvider
             $data['headSnippet'] = SnippetCode::where('position', 'Head')->get();
             $data['bodySnippet'] = SnippetCode::where('position', 'Body')->get();
             $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->where('parent_id', 0)->get();
+
+
+            $data['footCat'] = Footer::where('section_id', '3')->get();
+            $data['footBrand'] = Footer::where('section_id', '2')->get();
+            $data['footAbout'] = Footer::where('section_id', '1')->orderBy('order_number')->get();
+
+            $data['copyright'] = Footer::where('section_id', '4')->first();
 
             $actual_link = '';
             if(isset($_SERVER['HTTP_HOST']) && !empty($_SERVER['HTTP_HOST'])){
