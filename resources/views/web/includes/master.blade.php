@@ -5,11 +5,12 @@
    <!-- Required meta tags -->
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no" />
-   <meta name="home_url" content="{{route('home', [$region])}}">
+   <meta name="home_url" content="{{@URL::to('/'.app()->getLocale().'/'.$region)}}">
    <title>{{@$metaTags->title}}</title>
    <meta name="keywords" content="{{@$metaTags->keywords}}" />
    <meta name="description" content="{{@$metaTags->description}}" />
    <link rel="canonical" href="{{$actual_link}}" />
+   <link rel="alternate" media="only screen and (max-width: 640px)" href="{{$actual_link_m}}">
    @yield('addImagesrc')
    @include('web.includes.style')
    @yield('addStyle')

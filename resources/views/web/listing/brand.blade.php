@@ -59,6 +59,25 @@
                     </div>
                 </div>
             </div>
+
+
+
+            <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "SaleEvent",
+                    "name": "{{$val->title}}",
+                    "url": "{{$actual_link}}",
+                    "startDate": "{{date('Y-m-d',strtotime('-1 days'))}}",
+                    "endDate": "{{date('Y-m-d',strtotime('+5 days'))}}",
+                    "location": {
+                      "@type": "Place",
+                      "name": "{{$retailer->name}}",
+                      "url": "{{$retailer->store_link}}",
+                      "address": "Noon"
+                    }
+                }
+            </script>
             @php $bg++; @endphp
         @endforeach
 
@@ -85,6 +104,23 @@
                     </div>
                 </div>
             </div>
+
+            <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "SaleEvent",
+                    "name": "{{$val->heading}}",
+                    "url": "{{$actual_link}}",
+                    "startDate": "{{date('Y-m-d',strtotime('-1 days'))}}",
+                    "endDate": "{{date('Y-m-d',strtotime('+5 days'))}}",
+                    "location": {
+                      "@type": "Place",
+                      "name": "{{$retailer->name}}",
+                      "url": "{{$retailer->store_link}}",
+                      "address": "Noon"
+                    }
+                }
+            </script>
             @php $bg++; @endphp
         @endforeach
 
