@@ -73,7 +73,7 @@
                       "@type": "Place",
                       "name": "{{$retailer->name}}",
                       "url": "{{$retailer->store_link}}",
-                      "address": "Noon"
+                      "address": "{{$retailer->name}}"
                     }
                 }
             </script>
@@ -114,7 +114,7 @@
                       "@type": "Place",
                       "name": "{{$retailer->name}}",
                       "url": "{{$retailer->store_link}}",
-                      "address": "Noon"
+                      "address": "{{$retailer->name}}"
                     }
                 }
             </script>
