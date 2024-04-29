@@ -1026,6 +1026,13 @@ label.errors {
 .footer .accordion-item button {
     padding: 15px 0px;
 }
+.brand_store_link {
+    display: none;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: -12px;
+    margin-right: -7px;
+}
 
 
 

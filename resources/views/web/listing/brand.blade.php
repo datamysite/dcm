@@ -163,11 +163,16 @@
 
 
         <div class=" mb-14 ">
-            <div class="row mt-10">
+            <div class="row mt-10 text-center">
                 <div class="col-12 text-center blogToggle">
                     <h3 class="mb-5 page-title">About {{$retailer->name}}</h3>
                     <span class="arr"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
                 </div>
+                @php 
+                    $brand_domain = explode('/', $retailer->store_link);
+                    $brand_domain = $brand_domain[2];
+                @endphp
+                <a class="brand_store_link" href="{{$retailer->store_link}}">{{$brand_domain}}</a>
             </div>
             <div class="retailer-blog-content" id="retailerBlogs">
                 @foreach($retailer->blogs as $val)
