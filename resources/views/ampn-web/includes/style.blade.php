@@ -5,7 +5,7 @@
 <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
 <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-<meta name="amp-script-src" content="sha384-nBU3GGtzxJdNo68JIg08IbYMzZm1b82ArtGreWTZVg9UxiSBL_SNRT67_Cg5V96I">
+<meta name="amp-script-src" content="sha384-1_e_NwWhDOUEL1B28xOyGCATQnK2b0F9oHHoJt-XcjBILiX8oo7pINd-m-dqW0S9">
 <style amp-custom>
 <?php
 	$style_link = app()->getLocale() == 'ar' ? '/web_assets/css/n_style-ar.css' : '/web_assets/css/n_style.css'; 

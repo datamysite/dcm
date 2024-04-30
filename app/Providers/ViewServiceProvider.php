@@ -9,6 +9,7 @@ use App\Models\Retailers;
 use App\Models\SnippetCode;
 use App\Models\MetaTags;
 use App\Models\Footer;
+use DB;
 use Config;
 
 class ViewServiceProvider extends ServiceProvider
@@ -28,6 +29,7 @@ class ViewServiceProvider extends ServiceProvider
     {
         // Using Closure based composers...
         view()->composer('*', function ($view) {
+            $data['allstates'] = DB::table('states')->where('country_id', '1')->orderBy('name', 'asc')->get();
             $data['stripColors'] = array('#f11e4b' , '#151313', '#2dcc70', '#1dace3');
             $data['headSnippet'] = SnippetCode::where('position', 'Head')->get();
             $data['bodySnippet'] = SnippetCode::where('position', 'Body')->get();

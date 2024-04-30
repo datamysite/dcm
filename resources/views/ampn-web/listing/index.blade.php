@@ -1,23 +1,17 @@
-@extends('amp-web.includes.master')
+@extends('ampn-web.includes.master')
 
 @section('content')
 
 <div class="mt-85">
    <div class="container np-container">
-      <!-- row -->
-      <div class="row">
-         <!-- col -->
-         <div class="col-12">
-            <!-- breadcrumb -->
-            <nav aria-label="breadcrumb">
-               <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
-                  <li class="breadcrumb-item"><a href="#" style="color: #000;"><strong>{{ __('translation.All_Stores') }}</strong></a></li>
-                  <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.'.$type) }}</strong></li>
-               </ol>
-            </nav>
-         </div>
-      </div>
+      <!-- breadcrumb -->
+      <nav aria-label="breadcrumb">
+         <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+            <li class="breadcrumb-item"><a href="#" style="color: #000;"><strong>{{ __('translation.All_Stores') }}</strong></a></li>
+            <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.'.$type) }}</strong></li>
+         </ol>
+      </nav>
    </div>
 </div>
 
@@ -33,12 +27,12 @@
          <div class="row gx-10">
             <!-- col -->
             <aside class="col-lg-3 col-md-4 mb-6 mb-md-0" style="background-color:#f0f3f2;padding-top:0px; border-radius:10px;">
-               <form method="get">
+               <form method="get" action="{{$actual_link}}">
                   <div class="offcanvas offcanvas-start offcanvas-collapse w-md-50" tabindex="-1" id="offcanvasCategory" aria-labelledby="offcanvasCategoryLabel">
 
-                     <div class="offcanvas-header d-lg-none">
+                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasCategoryLabel">{{ __('translation.FILTERS') }}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <button type="button" id="filter_btn_close">x</button>
                      </div>
 
                      <div class="offcanvas-body ps-lg-2 pt-lg-0 mb-6 mb-md-0">
@@ -224,35 +218,29 @@
                      
                      <!-- icon -->
                      <div class="d-flex align-items-center justify-content-between">
-                           <a class="btn btn-sm btn-outline-gray-400 text-muted" data-bs-toggle="offcanvas" href="#offcanvasCategory" role="button" aria-controls="offcanvasCategory">
+                           <button type="button" class="btn btn-sm btn-outline-gray-400 text-muted" id="offcanvasCategorybtn">
                               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter">
                                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
                               </svg>
                               &nbsp;&nbsp;
                               {{ __('translation.FILTERS') }}
-                           </a>
+                           </button>
                      </div>
 
                   </div>
                   <br>
                   <!-- row -->
-                  <div class="row mt-1">
+                  <div class="row justify-content-between mt-1">
 
                      @foreach($retailers as $val)
                         <!-- col -->
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6">
-                           <!-- card -->
-                           <div class="card card-product">
-                              <div class="card-body">
-                                 <!-- badge -->
-                                 <div class="text-center position-relative py-1 mb-3 box" style="height:243.031px; width: 179px;">
-                                    <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
-                                    <a href="{{route('brand', [$region, $val->slug])}}" >
-                                       <!-- img -->
-                                       <amp-img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}"  layout="responsive" width="185px" height="230.516px" alt="Store - {{$val->name}}" class="mb-5 img-fluid"></amp-img>
-                                    </a>
-                                 </div>
-                              </div>
+                        <div class="col-6 card-product">
+                           <div class="text-center position-relative py-1 mb-3 box" style="height:243.031px; width: 185px;">
+                              <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
+                              <a href="{{route('brand', [$region, $val->slug])}}" >
+                                 <!-- img -->
+                                 <amp-img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}"  layout="responsive" width="190px" height="230.516px" alt="Store - {{$val->name}}" class="mb-5 img-fluid"></amp-img>
+                              </a>
                            </div>
                         </div>
                      @endforeach
@@ -260,8 +248,8 @@
                   </div>
                   <!-- row -->
 
-                  <div class="row mt-8 text-center">
-                     <div class="col">
+                  <div class="row mt-8 justify-content-between text-center">
+                     <div class="col-12">
                         <!-- nav -->
                         {{ $retailers->onEachSide(0)->links() }}
                      </div>

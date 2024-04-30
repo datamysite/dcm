@@ -4,10 +4,8 @@
 @endsection
 @section('content')
 
-   <div class="nav-spacing"></div>
-
    <!-- Slider Section Start-->
-   <section class="mb-lg-10 my-8 mobile-slider text-center" style="height:187.281px;">
+   <section class="mb-lg-10 my-8 mobile-slider text-center" style="height:187.281px; margin-top: 10px;">
       <div class="hero-slider">
          <amp-carousel width="450" height="185.750" layout="responsive" type="slides" role="region" aria-label="Hero carousel" controls autoplay loop delay="4000">
            <a href="https://wa.me/971585882973" target="_blank" aria-label="Banner 1">
@@ -53,7 +51,7 @@
                   @endforeach
                </div>
             </amp-carousel>
-         </div>
+         
 
       </div>
    </section>
@@ -85,7 +83,6 @@
                   @endforeach
                </div>
             </amp-carousel>
-         </div>
       </div>
    </section>
    <!-- Online Stores Section End-->
@@ -128,7 +125,6 @@
                   @endforeach
                </div>
             </amp-carousel>
-         </div>
 
          <div class="row" style="justify-content: flex-end;">
             <div class="col-lg-2 col-2">
