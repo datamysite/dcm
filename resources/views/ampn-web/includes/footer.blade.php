@@ -93,7 +93,7 @@
       <div class="container np-container">
          <div class="row align-items-center">
             <div class="col-12 text-center">
-               <span class="small text-muted" style="color: black;">
+               <span class="small" style="color: black;">
                   © {{date('Y')}} <a href="https://www.dealsandcouponsmena.com/">DCM</a>. {{ __('translation.footer_text01') }} <a href="#">Dar Alafkar Marketing L.L.C</a>
                </span>
             </div>

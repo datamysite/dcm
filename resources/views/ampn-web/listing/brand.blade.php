@@ -1,4 +1,34 @@
-@extends('amp-web.includes.master')
+@extends('ampn-web.includes.master')
+@section('custom-script')
+
+        const blog_toggle_btn = document.getElementById("blogTogglebtn");
+        const blog_toggle_tray = document.getElementById("retailerBlogs");
+        console.log(blog_toggle_btn);
+         
+@endsection
+@section('custom-css')
+<?php
+   $style_link = app()->getLocale() == 'ar' ? '/web_assets/css/amp/n_brand_style-ar.css' : '/web_assets/css/amp/n_brand_style.css'; 
+   $css_links = [
+      URL::to('/public'.$style_link),
+   ];
+
+   foreach ($css_links as $key => $value) {
+      $css = file_get_contents($value);
+      // Remove comments
+       $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
+       // Remove spaces before and after selectors, braces, and colons
+       $css = preg_replace('/\s*([{}|:;,])\s+/', '$1', $css);
+       // Remove remaining spaces and line breaks
+       $css = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    ', '!important'), '',$css);
+
+      echo $css;
+
+      echo " ";
+   }
+
+?>
+@endsection
 @section('addImagesrc')
 <link rel="image_src" href="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" />
 @endsection
@@ -7,22 +37,17 @@
 
 <div class="mt-85">
     <div class="container np-container">
-        <!-- row -->
-        <div class="row">
-            <!-- col -->
-            <div class="col-12">
-                <!-- breadcrumb -->
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
-                        @if(!empty($category_slug))
-                            <li class="breadcrumb-item"><a href="{{route('category', [$region, $category_slug])}}" style="color: #000;"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
-                        @endif
-                        <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</a></strong></li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
+
+        <!-- breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                @if(!empty($category_slug))
+                    <li class="breadcrumb-item"><a href="{{route('category', [$region, $category_slug])}}" style="color: #000;"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
+                @endif
+                <li class="breadcrumb-item active" aria-current="page"><strong>{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</strong></li>
+            </ol>
+        </nav>
     </div>
 </div>
 
@@ -42,24 +67,15 @@
         @php $bg = 2; @endphp
         @foreach($offers as $val)
             @php if($bg == count($stripColors)){ $bg = 2;} @endphp
-            <div class="row d-flex mt-2" style="align-items: center;">
-                <div class="col-12">
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
-
-                        <div class="row col-12 mt-0 p-5" style="align-items: left;">
                             <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->title_ar : $val->title}}</span>
 
-                            <span style="color:#fff;"></span>
-
                             <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showOffer" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">
-                                    <amp-img src="{{URL::to('/public/web_assets/images/icons/coupon.png')}}" layout="fixed" width="30px" height="30px"></amp-img>
+                                <a href="#" class="btn btn-white shadow-green showOffer" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">
+                                    <amp-img src="{{URL::to('/public/web_assets/images/icons/coupon.png')}}" layout="fixed" width="20px" height="20px" style="margin-top: 3px; margin-bottom: -3px;"></amp-img>
                                 </a>
                             </span>
-                        </div>
                     </div>
-                </div>
-            </div>
 
             <script type="application/ld+json">
                 {
@@ -83,24 +99,15 @@
         @php $bg = 0; @endphp
         @foreach($coupons as $val)
             @php if($bg == count($stripColors)){ $bg = 0;} @endphp
-            <div class="row d-flex mt-4" style="align-items: center;">
-                <div class="col-12">
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
-
-                        <div class="row col-12 mt-0 p-5" style="align-items: left;">
                             <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->heading_ar : $val->heading}}</span>
 
-                            <span style="color:#fff;"></span>
-
                             <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">
-                                    <amp-img src="{{URL::to('/public/web_assets/images/icons/coupon.png')}}" layout="fixed" width="30px" height="30px"></amp-img>
+                                <a href="#" class="btn btn-white shadow-green showCoupon" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">
+                                    <amp-img src="{{URL::to('/public/web_assets/images/icons/coupon.png')}}" layout="fixed" width="20px" height="20px" style="margin-top: 3px; margin-bottom: -3px;"></amp-img>
                                 </a>
                             </span>
-                        </div>
                     </div>
-                </div>
-            </div>
 
             <script type="application/ld+json">
                 {
@@ -133,42 +140,50 @@
 
             <div class="mt-10 review-slider-second" id="slider-reviews">
 
-                @foreach($testimonials as $val)
-                    <div class="item">
-                        <div class="mb-8">
+                <amp-carousel width="450" height="300" layout="responsive" type="slides" role="region" aria-label="Hero carousel" controls="false" autoplay loop delay="4000">
+                    @foreach($testimonials as $val)
+                        <div class="item">
+                            <div class="mb-8">
 
-                            <div class="card bg-light border-0" style="border-radius: 10px;">
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <img src="{{URL::to('/public')}}/web_assets/images/reviews/{{$val->gender}}/{{rand(1,3)}}.png" alt="" class="avatar avatar-md rounded-circle" />
+                                <div class="card bg-light border-0" style="border-radius: 10px;">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <img src="{{URL::to('/public')}}/web_assets/images/reviews/{{$val->gender}}/{{rand(1,3)}}.png" alt="" class="avatar avatar-md rounded-circle" />
+                                        </div>
+                                        <div class="ms-3 lh-1">
+                                            <h6 class="mb-0">{{$val->name}}</h6>
+                                            <small>{{ __('translation.Customer') }}</small>
+                                        </div>
                                     </div>
-                                    <div class="ms-3 lh-1">
-                                        <h6 class="mb-0">{{$val->name}}</h6>
-                                        <small>{{ __('translation.Customer') }}</small>
+                                    <div class="card-body p-5">
+                                        <p>{{$val->description}}</p>
                                     </div>
-                                </div>
-                                <div class="card-body p-5">
-                                    <p>{{$val->description}}</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </amp-carousel>
             </div>
         </div>
 
 
 
         <div class=" mb-14 ">
-            <div class="row mt-10">
-                <div class="col-12 text-center blogToggle">
+            <div class="row mt-10 text-center">
+                <div class="col-12 text-center blogToggle" id="blogTogglebtn">
                     <h3 class="mb-5 page-title">About {{$retailer->name}}</h3>
-                    <span class="arr"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+                    <span class="arr"><img src="{{URL::to('/public/arrow-down.png')}}"/></span>
                 </div>
+                @php 
+                    $brand_domain = explode('/', $retailer->store_link);
+                    $brand_domain = $brand_domain[2];
+                @endphp
+                <a class="brand_store_link" href="{{$retailer->store_link}}">{{$brand_domain}}</a>
             </div>
             <div class="retailer-blog-content" id="retailerBlogs">
                 @foreach($retailer->blogs as $val)
-                    {!! $val->description !!}
+                    @php $blogDes = str_replace("!important;", ";", $val->description); $blogDes = str_replace('width="602"', 'width="300px"', $blogDes); @endphp 
+                    {!! $blogDes !!}
                 @endforeach
             </div>
         </div>
@@ -191,66 +206,4 @@
      </div>
   </div>
 </div>
-@endsection
-
-@section('addScript')
-    <script type="text/javascript" src="{{URL::to('/public/web_assets/js/review_slider.js')}}"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            'use strict'
-            let ar = 0;
-            $(document).on('click', '.showCoupon', function(){
-                var id = $(this).data('id');
-                $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
-                $('#ShowCouponModal').modal('show');
-                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/coupon')}}/"+id, function(data){
-                    $('#ShowCouponModal .grap_deal_main').html(data);
-                });
-            });
-
-
-            $(document).on('click', '.showOffer', function(){
-                var id = $(this).data('id');
-                $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
-                $('#ShowCouponModal').modal('show');
-                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/offers')}}/"+id, function(data){
-                    $('#ShowCouponModal .grap_deal_main').html(data);
-                });
-            });
-
-            $(document).on('click', '.blogToggle', function(){
-                if(ar == 0){
-                    $('.blogToggle .arr').html('<i class="fa fa-arrow-up" aria-hidden="true"></i>');
-                    ar = 1;
-                }else{
-                    $('.blogToggle .arr').html('<i class="fa fa-arrow-down" aria-hidden="true"></i>');
-                    ar = 0;
-                }
-                $('#retailerBlogs').toggle();
-            });
-
-            $(document).on('click', '.grap_deal_btn', function(){
-                var link = $(this).data('href');
-                var id = $(this).data('id');
-                $('#ShowCouponModal').modal('hide');
-                $('#loading').css({display: 'block'});
-                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/coupon/grabDeal')}}/"+id, function(data){
-                    $('#loading').css({display: 'none'});
-                    window.location.href = link;
-                });
-            });
-
-            $(document).on('click', '.whatsapp_chat', function(){
-                var link = $(this).data('href');
-                var id = $(this).data('id');
-                $('#ShowCouponModal').modal('hide');
-                $('#loading').css({display: 'block'});
-                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/offers/whatsapp')}}/"+id, function(data){
-                    $('#loading').css({display: 'none'});
-                    window.location.href = link;
-                });
-            });
-
-        });
-    </script>
 @endsection

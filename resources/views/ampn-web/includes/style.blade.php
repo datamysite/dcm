@@ -5,29 +5,9 @@
 <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
 <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-<meta name="amp-script-src" content="sha384-1_e_NwWhDOUEL1B28xOyGCATQnK2b0F9oHHoJt-XcjBILiX8oo7pINd-m-dqW0S9">
+<meta name="amp-script-src" content="sha384-jG0Vytr6bckIg106jKH9gzTucsL94_NuuepZ9yn1YTM68cExlEzcaLFKaiJ-_24m">
 <style amp-custom>
-<?php
-	$style_link = app()->getLocale() == 'ar' ? '/web_assets/css/n_style-ar.css' : '/web_assets/css/n_style.css'; 
-	$css_links = [
-		URL::to('/public'.$style_link),
-	];
-
-	foreach ($css_links as $key => $value) {
-		$css = file_get_contents($value);
-		// Remove comments
-		 $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
-		 // Remove spaces before and after selectors, braces, and colons
-		 $css = preg_replace('/\s*([{}|:;,])\s+/', '$1', $css);
-		 // Remove remaining spaces and line breaks
-		 $css = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    ', '!important'), '',$css);
-
-		echo $css;
-
-		echo " ";
-	}
-
-?>
+  @yield('custom-css')
 </style>
 <style amp-boilerplate>
   body {
