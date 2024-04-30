@@ -35,12 +35,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
             <div class="tray-item tray-search">
                <div class="input-group  main-search-div">
-                  <input class="form-control rounded mob-main-search" type="search" placeholder="{{ __('translation.Search') }}" />
-                  <span class="input-group-append">
-                     <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
-                        <amp-img src="{{URL::to('/public/web_assets/images/icons/search.svg')}}" layout="fixed" width="36px" height="36px" alt="Search"></amp-img>
-                     </button>
-                  </span>
+                  <input class="form-control rounded mob-main-search" id="navbar_tray_search_field" type="search" placeholder="{{ __('translation.Search') }}" />
 
 
                   <div class="mob-main-search-result">
@@ -50,7 +45,16 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
             
             <div class="tray-item tray-emirates">
-               
+               <div class="d-flex justify-content-between">
+                  @foreach($allstates as $val)
+                     <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}">
+                        <div class="header_card">
+                           <img src="{{URL::to('/public/storage/states/'.$val->image)}}" alt="{{$val->name}}" />
+                           {{$val->shortname}}
+                        </div>
+                     </a>
+                  @endforeach
+               </div>
             </div>
          </div>
       </div>
@@ -62,7 +66,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   {{ __('translation.Home') }}
                </a>
 
-               <a href="#" class="mobile-nav-button" data-option="search">
+               <a href="#" class="mobile-nav-button" id="search_tray_btn">
                   <amp-img src="{{URL::to('/public/web_assets/images/icons/search.svg')}}" layout="fixed" width="29px" height="29px" alt="Search Image"></amp-img>
                   {{ __('translation.search_') }}
                </a>
@@ -72,7 +76,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   {{ __('translation.Sell_With_us') }}
                </a>
 
-               <a href="#" class="mobile-nav-button" data-option="emirates">
+               <a href="#" class="mobile-nav-button" id="emirates_tray_btn">
                    <amp-img src="{{URL::to('/public/web_assets/images/icons/emirates-a.svg')}}" layout="fixed" width="29px" height="29px" alt="Emirates Image"></amp-img>
                   {{ __('translation.all_emirates') }}
                </a>

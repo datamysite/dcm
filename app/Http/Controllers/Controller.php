@@ -23,7 +23,7 @@ class Controller extends BaseController
                     }
                 }
             }else{
-                if ($isMobile) {
+                if($_SESSION['amp'] == 'on'){
                     if (view()->exists('amp-'.$view)) {
                         $view = 'amp-'.$view;
                         //

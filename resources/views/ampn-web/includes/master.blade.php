@@ -28,7 +28,7 @@
 
 <body style="overflow: hidden;">
 
-<amp-script layout="container" height="100vh" script="navbarScript">
+<amp-script layout="container" height="100vh" script="navbarScript" sandbox="allow-forms">
    <!-- <div id="loading">
      <amp-img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" width="100px" height="100px" layout="fixed" alt="Loading..."></amp-img>
    </div> -->
@@ -46,14 +46,32 @@
       <div class="signin-mobile-nav">
             <p>Let`s get you signed in!</p>
             <div class="nav-btn">
-               <button class="btn signIn act">{{ __('translation.sign_in_btn') }}</button>
-               <button class="btn signUp">{{ __('translation.sign_up_btn') }}</button>
+               <button class="btn active" id="signIn">{{ __('translation.sign_in_btn') }}</button>
+               <button class="btn" id="signUp">{{ __('translation.sign_up_btn') }}</button>
             </div>
       </div>
       <div class="modal-dialog modal-dialog-centered">
          <div class="modal-content">
             <div class="modal-body">
                <div class="modal_container" id="modal_container">
+                  <div class="form-modal_container sign-in-modal_container">
+                     <form action-xhr="{{route('user.login', [$region])}}" method="post" id="login_user_form" class="form_modal">
+                        @csrf
+                        <h1 style="color:#1dace3">{{ __('translation.sign_in_to_dcm') }}</h1>
+                        <div class="social-modal_container">
+                           <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
+                           <a href="{{route('auth.google', [$region])}}" class="social"><img src="{{URL::to('/public/web_assets/images/icons/google.svg')}}" alt="google" width="26px" height="26px"></img></a>
+
+                        </div>
+                        <span>{{ __('translation.or_use_your_account') }}</span>
+                        <input type="email" placeholder="{{ __('translation.email_dcm_form') }}" name="email" class="form_input" required/>
+                        <label class="errors email_error_l"></label>
+                        <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required />
+                        <label class="errors password_error_l"></label>
+                        <p><a href="#" style="color:#1dace3"  role="button" data-bs-toggle="modal" data-bs-target="#forgetPassModal">{{ __('translation.forget_password_txt') }}</a></p>
+                        <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_in_btn') }}</button>
+                     </form>
+                  </div>
                   <div class="form-modal_container sign-up-modal_container">
                      <form action-xhr="{{route('user.create', [$region])}}" method="post" id="create_user_form" class="form_modal">
                         @csrf
@@ -73,39 +91,6 @@
                         <br>
                         <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_up_btn') }}</button>
                      </form>
-                  </div>
-                  <div class="form-modal_container sign-in-modal_container">
-                     <form action-xhr="{{route('user.login', [$region])}}" method="post" id="login_user_form" class="form_modal">
-                        @csrf
-                        <h1 style="color:#1dace3">{{ __('translation.sign_in_to_dcm') }}</h1>
-                        <div class="social-modal_container">
-                           <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                           <a href="{{route('auth.google', [$region])}}" class="social"><img src="{{URL::to('/public/web_assets/images/icons/google.svg')}}" alt="google" width="26px" height="26px"></img></a>
-
-                        </div>
-                        <span>{{ __('translation.or_use_your_account') }}</span>
-                        <input type="email" placeholder="{{ __('translation.email_dcm_form') }}" name="email" class="form_input" required/>
-                        <label class="errors email_error_l"></label>
-                        <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required />
-                        <label class="errors password_error_l"></label>
-                        <p><a href="#" style="color:#1dace3"  role="button" data-bs-toggle="modal" data-bs-target="#forgetPassModal">{{ __('translation.forget_password_txt') }}</a></p>
-                        <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_in_btn') }}</button>
-                     </form>
-                  </div>
-                  <div class="overlay_modal-modal_container">
-                     <div class="overlay_modal">
-                        <div class="overlay_modal-panel overlay_modal-left" style="background-color: #1dace3;">
-                           <h1 style="color:#fff">{{ __('translation.dcm_wlc_back') }}</h1>
-                           <p>{{ __('translation.dcm_wlc_back_txt') }}</p>
-                           <button class="btn btn-primary shadow-gray signIn" style="background-color: #fff;color:#1dace3">{{ __('translation.sign_in_btn') }}</button>
-                        </div>
-                        <div class="overlay_modal-panel overlay_modal-right" style="background-color: #1dace3;color:#fff">
-                           <h1 style="color:#fff">DCM</h1>
-                           <h1 style="color:#fff">{{ __('translation.dmc_modal_text01') }}</h1>
-                           <p>{{ __('translation.dmc_modal_text02') }}</p>
-                           <button class="btn btn-primary shadow-gray signUp" style="background-color: #fff;color:#1dace3">{{ __('translation.sign_up_btn') }}</button>
-                        </div>
-                     </div>
                   </div>
                </div>
             </div>
@@ -172,6 +157,11 @@
    const btn = document.getElementsByClassName('navbar-toggler')[0];
    const closebtn = document.getElementsByClassName('menu-close')[0];
    const navbar = document.getElementsByClassName("offcanvas-start")[0];
+
+   const navbar_tray = document.getElementsByClassName("nav-tray")[0];
+   const navbar_tray_search = document.getElementsByClassName("tray-search")[0];
+   const navbar_tray_emirates = document.getElementsByClassName("tray-emirates")[0];
+
    btn.addEventListener('click', () => {
       navbar.classList.toggle("show");
    });
@@ -185,11 +175,37 @@
       signInModalOpen();
    });
 
-    function signInModalOpen(){
+   function signInModalOpen(){
       const modal = document.getElementById("userModal");
       modal.style.display = "block";
    }
 
+
+   const search_btn = document.getElementById('search_tray_btn');
+   search_btn.addEventListener('click', () => {
+      navbar_tray.classList.toggle("active");
+      navbar_tray_search.classList.toggle("active");
+   });
+
+   const emirates_btn = document.getElementById('emirates_tray_btn');
+   emirates_btn.addEventListener('click', () => {
+      navbar_tray.classList.toggle("active");
+      navbar_tray_emirates.classList.toggle("active");
+   });
+
+   const signin_btn = document.getElementById('signIn');
+   const signup_btn = document.getElementById('signUp');
+   const modal_container = document.getElementById('modal_container');
+   signup_btn.addEventListener('click', () => {
+      signin_btn.classList.remove('active');
+      signup_btn.classList.add('active');
+      modal_container.style.transform = "translateX(-51%)";
+   });
+   signin_btn.addEventListener('click', () => {
+      signup_btn.classList.remove('active');
+      signin_btn.classList.add('active');
+      modal_container.style.transform = "translateX(0%)";
+   });
 </script>
 </body>
 

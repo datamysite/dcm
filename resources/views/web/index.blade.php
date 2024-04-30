@@ -1,5 +1,7 @@
 @extends('web.includes.master')
-
+@section('amphtml')
+   <link rel="amphtml" href="{{$actual_link_m}}" />
+@endsection
 @section('content')
 
    <div class="nav-spacing"></div>

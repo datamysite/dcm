@@ -12,7 +12,7 @@ class setLocale
 {
     public function handle(Request $request, Closure $next)
     {
-        if(env('APP_AMP') == true && Agent::isMobile()){
+        if(env('APP_AMP') == true && $request->segment(1) == 'amp'){
             app()->setLocale($request->segment(2));
             URL::defaults(['locale' => $request->segment(2)]);
         }else{

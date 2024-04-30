@@ -288,8 +288,8 @@ button, input, optgroup, select, textarea {
     list-style: none;
     padding-left: 0;
 }
-.justify-content-center {
-    justify-content: center !important;
+.justify-content-between {
+    justify-content: space-between !important;
 }
 .w-100 {
     width: 100% !important;
@@ -316,6 +316,39 @@ button, input, optgroup, select, textarea {
     transition: all ease-in-out .2s;
     overflow: hidden;
 }
+.tray-item{
+    display: none;
+}
+.tray-item.active{
+    display: block;
+}
+.nav-tray.active {
+    height: 45px;
+}
+.tray-emirates .header_card {
+    width: 50px;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header_card img {
+    width: auto;
+    border-radius: 10px 10px 0 0;
+    margin: 5px;
+}
+.tray-emirates .header_card img {
+    height: 27px;
+    margin-bottom: -2px;
+}
+.selectEmirates.active {
+    color: #1caae2;
+}
+.main-search-div input {
+    width: 100%;
+}
 .navbar-toggler {
     background-color: transparent;
     border: var(--fc-border-width) solid var(--fc-navbar-toggler-border-color);
@@ -325,6 +358,23 @@ button, input, optgroup, select, textarea {
     line-height: 1;
     padding: var(--fc-navbar-toggler-padding-y) var(--fc-navbar-toggler-padding-x);
     transition: var(--fc-navbar-toggler-transition);
+}
+.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid #e0dfe2;
+    border-radius: 0.5rem !important;
+    color: #21313c;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.6;
+    padding: 0.55rem 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 100%;
 }
 .nav-link {
     color: #000;
@@ -816,7 +866,7 @@ amp-accordion .dropdown-items li{
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 99;
+  z-index: 98;
   background-color: #fff;
 }
 .modal-dialog {
@@ -1074,3 +1124,105 @@ amp-accordion .dropdown-items li{
     overflow-y: auto;
   }
 }
+
+.signin-mobile-nav p{
+    margin-top: 0;
+}
+.signin-mobile-nav {
+    display: block;
+    position: fixed;
+    top: 60px;
+    background-color: #858585;
+    width: 100%;
+    padding: 24px 0px;
+    text-align: center;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 600;
+    z-index: 9999;
+}
+    .nav-btn {
+        width: 70%;
+        background-color: #e6e6e6;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: -42px;
+        border-radius: 33px;
+        overflow: hidden;
+    }
+    .nav-btn button.active {
+        background: #1dace3;
+        color: #fff;
+    }
+    .nav-btn button {
+        background-color: #e6e6e6;
+        border-radius: 33px;
+        width: 135px;
+    }
+    .modal_container {
+        background-color: #fff;
+        position: relative;
+        overflow: hidden;
+        max-width: 100%;
+        min-height: 480px;
+        display: flex;
+        flex-direction: row;
+        transition: transform ease-in-out .5s;
+    }
+    .sign-up-modal_container {
+        animation: show 0.6s;
+    }
+    #userModal .modal_container, #userModal .modal-content, #userModal .modal-body {
+        width: 200vw;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+    }
+    .sign-up-modal_container {
+        width: 50%;
+        z-index: 1;
+        margin-top: 150px;
+    }
+    .sign-in-modal_container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+        margin-top: 150px;
+    }
+    .form_modal {
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+    }
+    .social-modal_container {
+        margin: 20px 0;
+    }
+    .social-modal_container a {
+        border: 1px solid #dddddd;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        height: 55px;
+        width: 55px;
+        color: #1dace3;
+    }
+    .form_input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+    }
+    .btn-primary {
+        background-color: #1dace3;
+        color: #fff;
+        border: none;
+        padding: 10px 35px;
+    }

@@ -38,21 +38,21 @@ class amp_validator
                     $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]/amp$_SERVER[REQUEST_URI]";
                 }
                 $_SESSION['amp'] = 'on';
-                return redirect()->to($actual_link);
+                //return redirect()->to($actual_link);
 
             }elseif($isMobile == false && strpos($prefix, 'amp') !== false){
                 
                 $_SESSION['amp'] = 'off';
                 $newPath =  str_replace('amp/','',$actual_link);
-                return redirect()->to($newPath);
+                //return redirect()->to($newPath);
             }
-
             if ((strpos($prefix, 'amp') == 0 && strpos($prefix, 'amp') !== false)){
 
                 $_SESSION['amp'] = 'on';
             }else{
                 $_SESSION['amp'] = 'off';
             }
+            //dd($_SESSION['amp']);
             //dd(strpos($prefix, 'amp'));
         }
 

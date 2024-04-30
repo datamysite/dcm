@@ -10,7 +10,7 @@
    <meta name="keywords" content="{{@$metaTags->keywords}}" />
    <meta name="description" content="{{@$metaTags->description}}" />
    <link rel="canonical" href="{{$actual_link}}" />
-   <link rel="alternate" media="only screen and (max-width: 640px)" href="{{$actual_link_m}}">
+   @yield('amphtml')
    @yield('addImagesrc')
    @include('web.includes.style')
    @yield('addStyle')
