@@ -27,7 +27,7 @@
          <div class="row gx-10">
             <!-- col -->
             <aside class="col-lg-3 col-md-4 mb-6 mb-md-0" style="background-color:#f0f3f2;padding-top:0px; border-radius:10px;">
-               <form method="get" action="{{$actual_link}}">
+               <form method="get" action="{{$actual_link}}" target="_top">
                   <div class="offcanvas offcanvas-start offcanvas-collapse w-md-50" tabindex="-1" id="offcanvasCategory" aria-labelledby="offcanvasCategoryLabel">
 
                      <div class="offcanvas-header">
