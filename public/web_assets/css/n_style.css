@@ -1506,13 +1506,13 @@ label {
 
 @media (min-width:480px) {
     .mobile-navbar, .navbar, .mobile-footbar{
-        width: 460px;
+        width: 370px;
     } 
     .mobile-navbar {
         padding: 5px 10px;
     }
     body > div {
-        max-width: 480px;
+        max-width: 390px;
         position: relative;
         margin: auto;
     }

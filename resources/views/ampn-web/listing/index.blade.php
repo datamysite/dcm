@@ -235,7 +235,7 @@
                      @foreach($retailers as $val)
                         <!-- col -->
                         <div class="col-6 card-product">
-                           <div class="text-center position-relative py-1 mb-3 box" style="height:243.031px; width: 185px;">
+                           <div class="text-center position-relative py-1 mb-3 box" style="height:243.031px; width: 170px;">
                               <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
                               <a href="{{route('brand', [$region, $val->slug])}}" >
                                  <!-- img -->
