@@ -2,6 +2,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 99;
 }
 .sell_whatsapp a {
     background-color: #25D366;
@@ -1108,9 +1109,14 @@ label.errors {
 @media (max-width: 990px) {
     .sell_whatsapp {
         position: fixed;
-        bottom: 75px;
+        bottom: 82px;
         right: 5px;
-        z-index: 99;
+    }
+    .sell_whatsapp a {
+        padding: 10px 15px;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 10px;
     }
     .hero-slider .slick-dots {
         display: none;
