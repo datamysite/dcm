@@ -34,8 +34,29 @@
 <section class="mt-2">
     <div class="container np-container">
         <div class="row">
-            <div class="col-12 text-center">
-                <a href="{{route('brand', [$region, $retailer->slug])}}"><h3 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h3></a>
+            <div class="col-12">
+                <div class=" text-center">
+                    <a href="{{route('brand', [$region, $retailer->slug])}}"><h3 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h3></a><br>
+                    @php 
+                        $brand_domain = explode('/', $retailer->store_link);
+                        $brand_domain = $brand_domain[2];
+                    @endphp
+                    <a class="brand_store_link" href="{{$retailer->store_link}}">{{$brand_domain}}</a>
+                </div>
+                <div>
+                    <div class="col-12 text-right blogToggle">
+                        <button class="btn btn-sm btn-primary btn-blog">About {{$retailer->name}} <span class="arr"><i class="fa fa-arrow-down" aria-hidden="true"></i></span></button>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="retailer-blog-content" id="retailerBlogs">
+                    @foreach($retailer->blogs as $val)
+                        {!! $val->description !!}
+                    @endforeach
+                </div>
             </div>
         </div>
 
@@ -165,24 +186,7 @@
 
 
 
-        <div class=" mb-14 ">
-            <div class="row mt-10 text-center">
-                <div class="col-12 text-center blogToggle">
-                    <h3 class="mb-5 page-title">About {{$retailer->name}}</h3>
-                    <span class="arr"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
-                </div>
-                @php 
-                    $brand_domain = explode('/', $retailer->store_link);
-                    $brand_domain = $brand_domain[2];
-                @endphp
-                <a class="brand_store_link" href="{{$retailer->store_link}}">{{$brand_domain}}</a>
-            </div>
-            <div class="retailer-blog-content" id="retailerBlogs">
-                @foreach($retailer->blogs as $val)
-                    {!! $val->description !!}
-                @endforeach
-            </div>
-        </div>
+        
     </div>
 </section>
 <!-- Store Prodcut Section End-->

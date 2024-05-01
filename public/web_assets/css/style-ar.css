@@ -1,3 +1,13 @@
+.btn-blog {
+    margin-top: -60px;
+    padding: 2px 12px;
+}
+.text-right {
+    text-align: right;
+}
+.text-left {
+    text-align: left;
+}
  .mobile-footbar img {
     filter: opacity(0.7);
 }
@@ -498,6 +508,7 @@
 }
 .blogToggle{
     cursor: pointer;
+    border-top: 1px solid #00000017;
         display: none;
 }
 #loading {
@@ -1324,7 +1335,6 @@ label.errors {
     .text-sm-justified{
         text-align: justify !important;
     }
-
     .mt-110 {
       margin-top: 75px !important;
     }

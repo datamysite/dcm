@@ -1,38 +1,29 @@
 @extends('ampn-web.includes.master')
 @section('custom-script')
-   
-         const filter_btn = document.getElementById("offcanvasCategorybtn");
-         const filter_close_btn = document.getElementById("filter_btn_close");
-         const filter_tray = document.getElementById("offcanvasCategory");
-
-         filter_btn.addEventListener('click', () => {
-            filter_tray.classList.toggle("show");
-         });
-         filter_close_btn.addEventListener('click', () => {
-            filter_tray.classList.toggle("show");
-         });
-         
+<?php
+   $script_links = [
+      URL::to('/public/web_assets/js/amp/main.js'),
+      URL::to('/public/web_assets/js/amp/listing.js'),
+   ];
+   $main_script = '';
+   foreach ($script_links as $key => $value) {
+      $content = \App\Helpers\AmpHelper::minify($value);
+      $main_script .= $content;
+      echo $content;
+   }
+?>
+@endsection
+@section('ampscript-hash')
+<?php
+   $hash = \App\Helpers\AmpHelper::hash_ampscript($main_script); echo $hash;
+?>
 @endsection
 @section('custom-css')
 <?php
    $style_link = app()->getLocale() == 'ar' ? '/web_assets/css/amp/n_style-ar.css' : '/web_assets/css/amp/n_style.css'; 
-   $css_links = [
-      URL::to('/public'.$style_link),
-   ];
 
-   foreach ($css_links as $key => $value) {
-      $css = file_get_contents($value);
-      // Remove comments
-       $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
-       // Remove spaces before and after selectors, braces, and colons
-       $css = preg_replace('/\s*([{}|:;,])\s+/', '$1', $css);
-       // Remove remaining spaces and line breaks
-       $css = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    ', '!important'), '',$css);
-
-      echo $css;
-
-      echo " ";
-   }
+   $content = \App\Helpers\AmpHelper::minify(URL::to('/public'.$style_link));
+   echo $content;
 
 ?>
 @endsection

@@ -5,7 +5,7 @@
 <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
 <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-<meta name="amp-script-src" content="sha384-jG0Vytr6bckIg106jKH9gzTucsL94_NuuepZ9yn1YTM68cExlEzcaLFKaiJ-_24m">
+<meta name="amp-script-src" content="@yield('ampscript-hash')">
 <style amp-custom>
   @yield('custom-css')
 </style>

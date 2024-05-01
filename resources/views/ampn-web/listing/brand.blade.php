@@ -1,31 +1,29 @@
 @extends('ampn-web.includes.master')
 @section('custom-script')
-
-        const blog_toggle_btn = document.getElementById("blogTogglebtn");
-        const blog_toggle_tray = document.getElementById("retailerBlogs");
-        console.log(blog_toggle_btn);
-         
+<?php
+   $script_links = [
+      URL::to('/public/web_assets/js/amp/main.js'),
+      URL::to('/public/web_assets/js/amp/brand.js'),
+   ];
+   $main_script = '';
+   foreach ($script_links as $key => $value) {
+      $content = \App\Helpers\AmpHelper::minify($value);
+      $main_script .= $content;
+      echo $content;
+   }
+?>
+@endsection
+@section('ampscript-hash')
+<?php
+   $hash = \App\Helpers\AmpHelper::hash_ampscript($main_script); echo $hash;
+?>
 @endsection
 @section('custom-css')
 <?php
    $style_link = app()->getLocale() == 'ar' ? '/web_assets/css/amp/n_brand_style-ar.css' : '/web_assets/css/amp/n_brand_style.css'; 
-   $css_links = [
-      URL::to('/public'.$style_link),
-   ];
 
-   foreach ($css_links as $key => $value) {
-      $css = file_get_contents($value);
-      // Remove comments
-       $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
-       // Remove spaces before and after selectors, braces, and colons
-       $css = preg_replace('/\s*([{}|:;,])\s+/', '$1', $css);
-       // Remove remaining spaces and line breaks
-       $css = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    ', '!important'), '',$css);
-
-      echo $css;
-
-      echo " ";
-   }
+   $content = \App\Helpers\AmpHelper::minify(URL::to('/public'.$style_link));
+   echo $content;
 
 ?>
 @endsection
