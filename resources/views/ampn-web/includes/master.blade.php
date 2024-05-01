@@ -29,6 +29,7 @@
 <body style="overflow: hidden; background-image: url('{{URL::to('/public/web_assets/images/bg.jpg')}}');">
    <div class="main_div">
       <amp-script layout="container" height="100vh" script="navbarScript" sandbox="allow-forms">
+         <input type="hidden" name="host" id="home_url" value="{{URL::to('/amp/'.app()->getLocale().'/'.$region)}}">
          <!-- <div id="loading">
            <amp-img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" width="100px" height="100px" layout="fixed" alt="Loading..."></amp-img>
          </div> -->

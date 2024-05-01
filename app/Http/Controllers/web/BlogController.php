@@ -14,13 +14,13 @@ class BlogController extends Controller
         $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->orderBy('id', 'desc')->first();
         $data['blogs'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->where('id', '!=', $data['featured']->id)->orderBy('id', 'desc')->paginate(9);
 
-        return view('web.blogs.blogs')->with($data);
+        return view($this->getView('web.blogs.blogs'))->with($data);
     }
 
     public function detail($lang, $region, $slug)
     {
         $data['blog'] = Blogs::where('slug', $slug)->first();
 
-        return view('web.blogs.single-blog')->with($data);
+        return view($this->getView('web.blogs.single-blog'))->with($data);
     }
 }

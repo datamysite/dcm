@@ -1,3 +1,5 @@
+const host = document.getElementById('home_url').value;
+
 const btn = document.getElementsByClassName('navbar-toggler')[0];
 const closebtn = document.getElementsByClassName('menu-close')[0];
 const navbar = document.getElementsByClassName("offcanvas-start")[0];

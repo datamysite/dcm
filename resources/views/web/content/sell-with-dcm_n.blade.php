@@ -21,7 +21,9 @@
         </div>
 </section>
 
-
+    <div class="sell_whatsapp">
+        <a href="https://api.whatsapp.com/send/?phone=97142957001" target="_blank"><img src="{{URL::to('/public/wt.png')}}">&nbsp;&nbsp;{{ __('translation.Contact Us') }}</a>
+    </div>
     <!-- registration section Start Here -->
     <section class="my-lg-5 my-8">
         <!-- container -->
@@ -135,6 +137,10 @@
                             <div style="padding-top: 20px;">
                                 <h1 class="mb-5" style="font-weight: bolder" ;>{{ __('translation.dcm_page_title_text03') }} </h1>
 
+                                <h4>
+                                    <li>{{ __('translation.dcm_page_title_textn') }}</li>
+                                </h4>
+                                <p class="mb-0 lead">{{ __('translation.dcm_page_title_textnp') }}</p>
                                 <h4>
                                     <li>{{ __('translation.dcm_page_title_text04') }}</li>
                                 </h4>

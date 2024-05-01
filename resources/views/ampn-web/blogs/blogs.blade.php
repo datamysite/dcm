@@ -1,4 +1,32 @@
 @extends('web.includes.master')
+@section('custom-script')
+<?php
+   $script_links = [
+      URL::to('/public/web_assets/js/amp/main.js'),
+      URL::to('/public/web_assets/js/amp/brand.js'),
+   ];
+   $main_script = '';
+   foreach ($script_links as $key => $value) {
+      $content = \App\Helpers\AmpHelper::minify($value);
+      $main_script .= $content;
+      echo $content;
+   }
+?>
+@endsection
+@section('ampscript-hash')
+<?php
+   $hash = \App\Helpers\AmpHelper::hash_ampscript($main_script); echo $hash;
+?>
+@endsection
+@section('custom-css')
+<?php
+   $style_link = app()->getLocale() == 'ar' ? '/web_assets/css/amp/n_style-ar.css' : '/web_assets/css/amp/n_style.css'; 
+
+   $content = \App\Helpers\AmpHelper::minify(URL::to('/public'.$style_link));
+   echo $content;
+
+?>
+@endsection
 @section('addImagesrc')
 <link rel="image_src" href="{{URL::to('/public/storage/blogs/'.$featured->banner)}}" />
 @endsection

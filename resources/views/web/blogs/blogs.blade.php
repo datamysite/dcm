@@ -1,4 +1,7 @@
 @extends('web.includes.master')
+@section('amphtml')
+   <link rel="amphtml" href="{{$actual_link_m}}" />
+@endsection
 @section('addImagesrc')
 <link rel="image_src" href="{{URL::to('/public/storage/blogs/'.$featured->banner)}}" />
 @endsection

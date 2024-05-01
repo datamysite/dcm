@@ -824,7 +824,7 @@ amp-accordion .dropdown-items li{
   --fc-modal-footer-border-width: 1px;
   display: none;
   height: 100%;
-  left: 0;
+  left: auto;
   outline: 0;
   overflow-x: hidden;
   overflow-y: auto;
@@ -832,13 +832,14 @@ amp-accordion .dropdown-items li{
   top: 0;
   width: 100%;
   z-index: 98;
-  background-color: #fff;
+  background-color: #00000087;
 }
 .modal-dialog {
   margin: var(--fc-modal-margin);
   pointer-events: none;
   position: relative;
   width: auto;
+  background-color: #00000087;
 }
 .modal.fade .modal-dialog {
   transform: translateY(-50px);
@@ -1287,7 +1288,7 @@ label {
         font-size: 11px;
         margin-top: -10px;
     }
-    .main_div_container span a {
+    .main_div_container span button {
         padding: 2px 5px;
         bottom: 8px;
         position: absolute;
@@ -1360,6 +1361,158 @@ label {
     --fc-btn-disabled-bg: #fff;
     --fc-btn-disabled-border-color: #fff;
 }
+.grap_deal_container {
+    width: 305px;
+    height: 475px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.grap_deal_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    margin-top: 35px;
+    position: absolute;
+    top: 0;
+}
+.grap_deal_container amp-img {
+    position: absolute;
+    top: 215px;
+    left: 115px;
+}
+    .grap_deal_close_btn {
+        position: absolute;
+        right: 12px;
+        top: 50px;
+        font-weight: 700;
+        padding: 3px 10px;
+        background-color: #e6e6e6;
+        border-top-right-radius: 12px;
+        border: none;
+        cursor: pointer;
+            z-index: 99999;
+    }
+.grap_deal_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+}
+.grap_deal_message {
+    margin-top: 35px;
+    text-align: center;
+}
+    .grap_deal_message p:nth-child(1) {
+        font-size: 23px;
+        font-weight: 600;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .grap_deal_message p:nth-child(2) {
+        font-size: 18px;
+        margin-top: 0;
+    }
+.grap_deal_coupon {
+    border: 2px dashed #1dace3;
+    margin: 28px 0 0 0;
+    padding: 10px;
+    position: relative;
+    border-radius: 10px;
+    margin-top: 0px;
+}
+.grap_deal_icon amp-img {
+    top: 0;
+    left: 13px;
+}
+.grap_deal_code {
+    text-align: center;
+}
+.grap_deal_code p {
+    font-size: 14px;
+    margin: 0;
+}
+.grap_deal_code h2 {
+    font-size: 26px;
+    margin: 0;
+}
+.grap_deal_social {
+    width: 100%;
+    display: flex;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+    .grap_deal_social p {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+.grap_deal_social div {
+    display: flex;
+}
+.grap_deal_social .grap_deal_icon {
+    display: flex;
+    justify-content: space-between;
+        margin-left: 10px;
+    color: #fff;
+    position: relative;
+}
+.grap_deal_icon {
+    padding: 13px;
+    border-radius: 50%;
+    background-color: #1dace3;
+    align-items: center;
+}
+.grap_deal_social .grap_deal_icon amp-img{
+    z-index: 9999;
+    margin: 6px 0px 0px -7px;
+}
+.grap_deal_social .grap_deal_icon amp-img img {
+    filter: brightness(0) invert(1);
+}
+.grap_deal_disclaimer {
+    margin: 0px;
+    text-align: center;
+}
+    .grap_deal_disclaimer p {
+        margin: 5px;
+    }
+.grap_deal_button {
+    width: 150px;
+    height: 35px;
+    background-color: #1dace3;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 38px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.grap_deal_button a {
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+  .offer_deal_social {
+    margin-top: 12px;
+}
+.offer_deal_disclaimer {
+        margin-top: -16px;
+    }
+.link_seperate{
+    margin-left: 8px;
+}
 
 
 
@@ -1397,5 +1550,8 @@ label {
         max-width: 390px;
         position: relative;
         margin: auto;
+    }
+    .modal {
+        width: 390px;
     }
 }

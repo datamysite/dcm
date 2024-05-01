@@ -172,6 +172,10 @@ return [
   "dcm_page_title_text11" =>  "Benefit from our cost-effective solutions to promote your products/services and maximize your ROI.",
   "dcm_page_title_text12" =>  "B2C",
   "dcm_page_title_text13" =>  "We also facilitate direct communication between buyers and businesses, ensuring that business owners have access to valuable user data without any communication lag.",
+
+  "dcm_page_title_textn" =>  "0% Sales Commission",
+  "dcm_page_title_textnp" =>  "With every sales you receive from DCM, we charge no commission on it.",
+
   //Website Forms-Btns//
   "business_name" => "Business Name",
   "business_address" => "Business Address",

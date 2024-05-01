@@ -195,16 +195,23 @@ class ListingController extends Controller
 
         ClicksCounter::hitCount('2', $data['coupon']->retailer_id, $data['coupon']->id, '1');
 
-        return view('web.listing.modal.coupon')->with($data);
+        return view($this->getView('web.listing.modal.coupon'))->with($data);
     }
 
 
-    public function coupon_grab_deal($lang, $region, $id){
+    public function coupon_grab_deal($lang, $region, $id, Request $request){
+        $req = $request->all();
         $data['coupon'] = Coupon::find($id);
         ClicksCounter::hitCount('4', $data['coupon']->retailer_id, $data['coupon']->id, '1');
         //dd($data);
 
-        return 'success';
+        if($req['m'] == '1'){
+            return redirect()->away($req['h']);
+        }else{
+
+            return 'success';
+        }
+
     }
 
 
@@ -220,16 +227,22 @@ class ListingController extends Controller
 
         ClicksCounter::hitCount('3', $data['offer']->retailer_id, $data['offer']->id, '2');
 
-        return view('web.listing.modal.offer')->with($data);
+        return view($this->getView('web.listing.modal.offer'))->with($data);
     }
 
 
-    public function redirect_whatsapp($lang, $region, $id){
+    public function redirect_whatsapp($lang, $region, $id, Request $request){
+        $req = $request->all();
+
         $data['offer'] = Offers::find($id);
         ClicksCounter::hitCount('5', $data['offer']->retailer_id, $data['offer']->id, '2');
-        //dd($data);
+        
+        if($req['m'] == '1'){
+            return redirect()->away($req['h']);
+        }else{
 
-        return 'success';
+            return 'success';
+        }
     }
 
 

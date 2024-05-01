@@ -69,9 +69,9 @@
                             <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->title_ar : $val->title}}</span>
 
                             <span class="col text-center">
-                                <a href="#" class="btn btn-white shadow-green showOffer" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">
+                                <button type="button" class="btn btn-white shadow-green showOffer" data-loader="{{URL::to('/public/web-loader.gif')}}" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">
                                     <amp-img src="{{URL::to('/public/web_assets/images/icons/coupon.png')}}" layout="fixed" width="20px" height="20px" style="margin-top: 3px; margin-bottom: -3px;"></amp-img>
-                                </a>
+                                </button>
                             </span>
                     </div>
 
@@ -101,9 +101,9 @@
                             <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->heading_ar : $val->heading}}</span>
 
                             <span class="col text-center">
-                                <a href="#" class="btn btn-white shadow-green showCoupon" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">
+                                <button type="button" class="btn btn-white shadow-green showCoupon" data-loader="{{URL::to('/public/web-loader.gif')}}" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">
                                     <amp-img src="{{URL::to('/public/web_assets/images/icons/coupon.png')}}" layout="fixed" width="20px" height="20px" style="margin-top: 3px; margin-bottom: -3px;"></amp-img>
-                                </a>
+                                </button>
                             </span>
                     </div>
 
@@ -196,8 +196,9 @@
      <div class="modal-content">
 
         <div class="grap_deal_container">
+            <img src="{{URL::to('/public/ticket.png')}}" width="300px" height="471.6px"></img>
+            <button type="button" class="grap_deal_close_btn" id="close_token_modal">x</button>
            <div class="grap_deal_main">
-              
            </div>
         </div>
 
