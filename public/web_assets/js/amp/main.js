@@ -85,12 +85,3 @@ navbar_tray_search_field.addEventListener('keyup', () => {
     }
 });
 
-const form = document.getElementById('create_user_form');
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-   
-   var data = new FormData(form);
-   for (var [key, value] of data) {
-       console.log(key, value)
-   }
-});
