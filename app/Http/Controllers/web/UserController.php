@@ -19,7 +19,7 @@ class UserController extends Controller
         header("Content-type: application/json");
         header("Access-Control-Allow-Credentials: true");
         header("Access-Control-Allow-Origin: *.ampproject.org");
-        header("AMP-Access-Control-Allow-Source-Origin: http://localhost");
+        header("AMP-Access-Control-Allow-Source-Origin: https://beta.dealsandcouponsmena.com");
         header("Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin");
 
         $data = $request->all();
