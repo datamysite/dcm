@@ -35,10 +35,10 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
             <div class="tray-item tray-search">
                <div class="input-group  main-search-div">
-                  <input class="form-control rounded mob-main-search" id="navbar_tray_search_field" type="search" placeholder="{{ __('translation.Search') }}" />
+                  <input class="form-control rounded mob-main-search" data-loader="{{URL::to('/public/loader-gif.gif')}}" id="navbar_tray_search_field" type="search" placeholder="{{ __('translation.Search') }}" />
 
 
-                  <div class="mob-main-search-result">
+                  <div class="mob-main-search-result" id="navbar_tray_search_result">
                   </div>
                </div>
             </div>

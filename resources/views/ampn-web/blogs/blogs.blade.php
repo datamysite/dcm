@@ -1,9 +1,8 @@
-@extends('web.includes.master')
+@extends('ampn-web.includes.master')
 @section('custom-script')
 <?php
    $script_links = [
-      URL::to('/public/web_assets/js/amp/main.js'),
-      URL::to('/public/web_assets/js/amp/brand.js'),
+      URL::to('/public/web_assets/js/amp/main.js')
    ];
    $main_script = '';
    foreach ($script_links as $key => $value) {
@@ -54,7 +53,6 @@
 <!-- Slider Section Start-->
 <section class="mt-2">
     <div class="container np-container">
-        <div class="hero-slider">
 
             <div class="feather-image-blog">
                 <img src="{{URL::to('/public/storage/blogs/'.$featured->banner)}}" alt="{{empty($featured->banner_alt) ? $featured->slug : $featured->banner_alt}}">
@@ -69,7 +67,6 @@
 
                 </div>
             </div>
-        </div>
     </div>
 </section>
 <!-- Slider Section End-->
@@ -85,7 +82,7 @@
                 <div class="col-lg-4 blogItem mt-5">
                     <div class="post-feather">
                         <img src="{{URL::to('/public/storage/blogs/'.$val->banner)}}" alt="{{empty($val->banner_alt) ? $val->slug : $val->banner_alt}}">
-                        <a href="{{route('blog.details', [$region, $val->slug])}}" target="blank" class="readMorebutton">Read More</a>
+                        <a href="{{route('blog.details', [$region, $val->slug])}}" target="_blank" class="readMorebutton">Read More</a>
                     </div>
                     <h5 title="{{$val->heading}}">{{$val->heading}}</h5>
                     <p title="{{ $val->short_description }}">{{ $val->short_description }}</p>

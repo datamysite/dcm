@@ -21,14 +21,16 @@ class HomeController extends Controller
         $isMobile = Agent::isMobile();
         $data['allstates'] = DB::table('states')->where('country_id', '1')->orderBy('name', 'asc')->get();
         $data['categories'] = DB::table('categories')->select('id', 'name', 'type', 'name_ar', 'image')->where('parent_id', 0)
-                                ->when(config('app.amp') == true && $isMobile, function($q){
-                                    return $q->limit(8);
-                                })->get();
+                                ->limit(8)
+                                ->get();
         $data['onlinestores'] = DB::table('homestores')->where('retailer_type', '1')
                                 ->select('retailers.id','retailers.name','retailers.name_ar', 'retailers.logo', 'retailers.ar_logo', 'retailers.slug', 'retailers.discount_upto')
                                 ->join('retailers', 'retailers.id', '=', 'homestores.retailer_id')
                                 ->when(config('app.amp') == true && $isMobile, function($q){
                                     return $q->limit(4);
+                                })
+                                ->when($isMobile == false, function($q){
+                                    return $q->limit(10);
                                 })->orderBy('homestores.id', 'desc')->get();
 
         $data['retailstores'] = HomeStores::where('retailer_type', '2')
@@ -155,7 +157,8 @@ class HomeController extends Controller
 
     // Home lazy load
 
-    public function search($lang,$region, $value){
+    public function search($lang,$region, $value, Request $request){
+        $req = $request->all();
         $re = Retailers::when(app()->getLocale() == 'en', function($q) use ($value){
                             $q->where('name', 'like', '%'.$value.'%');
                         })
@@ -167,9 +170,13 @@ class HomeController extends Controller
         foreach ($re as $key => $val) {
             $na = app()->getLocale() == 'ar' ? $val->name_ar : $val->name;
             $lo = app()->getLocale() == 'ar' ? $val->ar_logo : $val->logo;
-            $html .= '<a href="'.route('brand', [$region, $val->slug]).'" class="main-search-result-item">
-                              <img src="'.URL::to('public/storage/retailers/'.$lo).'" height="40px">
-                              | '.$na.'
+            $html .= '<a href="'.route('brand', [$region, $val->slug]).'" class="main-search-result-item">';
+                if(empty($req['m'])){
+                    $html .= '<img src="'.URL::to('public/storage/retailers/'.$lo).'" height="40px">';
+                }else{
+                    $html .= '<amp-img src="'.URL::to('public/storage/retailers/'.$lo).'" layout="fixed" width="30px" height="40px"></amp-img>';
+                }
+            $html .= ' | '.$na.'
                            </a>';
         }
 

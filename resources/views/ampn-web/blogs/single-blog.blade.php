@@ -1,4 +1,31 @@
-@extends('web.includes.master')
+@extends('ampn-web.includes.master')
+@section('custom-script')
+<?php
+   $script_links = [
+      URL::to('/public/web_assets/js/amp/main.js')
+   ];
+   $main_script = '';
+   foreach ($script_links as $key => $value) {
+      $content = \App\Helpers\AmpHelper::minify($value);
+      $main_script .= $content;
+      echo $content;
+   }
+?>
+@endsection
+@section('ampscript-hash')
+<?php
+   $hash = \App\Helpers\AmpHelper::hash_ampscript($main_script); echo $hash;
+?>
+@endsection
+@section('custom-css')
+<?php
+   $style_link = app()->getLocale() == 'ar' ? '/web_assets/css/amp/n_style-ar.css' : '/web_assets/css/amp/n_style.css'; 
+
+   $content = \App\Helpers\AmpHelper::minify(URL::to('/public'.$style_link));
+   echo $content;
+
+?>
+@endsection
 @section('addImagesrc')
 <link rel="image_src" href="{{URL::to('/public/storage/blogs/'.$blog->banner)}}" />
 @endsection
@@ -16,7 +43,7 @@
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
                         <li class="breadcrumb-item"><a href="{{route('Blogs', [$region])}}" style="color: #000;"><strong>Blogs</strong></a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$blog->heading}}</strong></a></li>
+                        <li class="breadcrumb-item active" aria-current="page" style="color:#1DACE3;"><strong>{{$blog->heading}}</strong></li>
                     </ol>
                 </nav>
             </div>
@@ -27,20 +54,9 @@
 <!-- Slider Section Start-->
 <section class="mt-2">
     <div class="container">
-        <div class="hero-slider">
-
-            <div class="feather-image-blog">
-                <img src="{{URL::to('/public/storage/blogs/'.$blog->banner)}}" alt="{{empty($blog->banner_alt) ? $blog->slug : $blog->banner_alt}}">
-                <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-                    <div class="slider_div2" style="box-shadow: none; background-color: transparent;">
-
-                        <br><br><br><br><br><br>
-
-                    </div>
-
-                </div>
+            <div class="feather-image-blog singleImg">
+                <img src="{{URL::to('/public/storage/blogs/'.$blog->banner)}}" height="150px" alt="{{empty($blog->banner_alt) ? $blog->slug : $blog->banner_alt}}">
             </div>
-        </div>
     </div>
 </section>
 <!-- Slider Section End-->
@@ -60,7 +76,6 @@
                 </div>
             </div>
             
-            <br><br>
 
             {!! $blog->description !!}
 
