@@ -205,7 +205,7 @@ class ListingController extends Controller
         ClicksCounter::hitCount('4', $data['coupon']->retailer_id, $data['coupon']->id, '1');
         //dd($data);
 
-        if($req['m'] == '1'){
+        if(!empty($req['m'])){
             return redirect()->away($req['h']);
         }else{
 
@@ -237,7 +237,7 @@ class ListingController extends Controller
         $data['offer'] = Offers::find($id);
         ClicksCounter::hitCount('5', $data['offer']->retailer_id, $data['offer']->id, '2');
         
-        if($req['m'] == '1'){
+        if(!empty($req['m'])){
             return redirect()->away($req['h']);
         }else{
 
