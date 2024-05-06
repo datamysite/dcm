@@ -39,7 +39,9 @@
     margin-bottom: 0;
     font-weight: normal !important;
 }
-
+.ck.ck-balloon-panel {
+        z-index: 1050 !important;
+    }
 .edit-mblog-image-wrapper{
   width: 600px;
   height: 200px;
