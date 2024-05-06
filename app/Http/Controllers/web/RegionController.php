@@ -36,8 +36,8 @@ class RegionController extends Controller
             $region = 'dubai';
             $_SESSION['region'] = 'dubai';
         }
-
-        return redirect(route('home', [app()->getLocale(), $region]));
+        dd(route('home', [app()->getLocale(), $region]));
+        return redirect();
     }
 
     public function set_region($lang, $name){
@@ -50,6 +50,7 @@ class RegionController extends Controller
         $region = $_SESSION['region'];
         //dd($_SESSION['region']);
 
+        dd(route('home', [app()->getLocale(), $region]));
         return redirect(route('home', [app()->getLocale(), $region]));
     }
 
@@ -92,6 +93,7 @@ class RegionController extends Controller
             $_SESSION['region'] = 'dubai';
         }
         
+        dd(route('home', [app()->getLocale(), $region]));
         return redirect(route('home', [app()->getLocale(), $region]));
     }
 }
