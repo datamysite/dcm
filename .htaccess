@@ -6,8 +6,8 @@
     RewriteEngine On
 
     RewriteCond %{HTTPS} on
-    RewriteCond %{HTTP_HOST} ^\.(.+) [NC]
-    RewriteRule ^(.*)$ https://www.%1/$1 [L,R=301]
+    RewriteCond %{HTTP_HOST} ^dealsandcouponsmena.com [NC]
+    RewriteRule ^(.*)$ https://www.dealsandcouponsmena.com/$1 [L,R=301]
     
     RewriteCond %{HTTPS} off
     RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
