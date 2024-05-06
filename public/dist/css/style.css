@@ -273,7 +273,7 @@
   height: 170px;
   border: 2px solid gray;
   position:relative;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .retailer-image-wrapper:after, .edit_retailer-image-wrapper:after{
   content: '+';
@@ -305,7 +305,7 @@
   height: 170px;
   border: 2px solid gray;
   position:relative;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .ar-retailer-image-wrapper:after, .ar-edit_retailer-image-wrapper:after{
   content: '+';
@@ -331,7 +331,9 @@
 }
 .ar-retailer-image-wrapper:hover:after, .ar-edit_retailer-image-wrapper:hover:after{font-size: 73px;}
 .ar-retailer-image-wrapper .ar-close-btn, .ar-edit_retailer-image-wrapper .ar-close-btn {display: none;}
-
+.addImageAlt_ar, .editImageAlt_ar {
+    direction: rtl;
+}
 input[type="file"]{
   position: absolute;
   width: 100%;

@@ -4,7 +4,7 @@
       <div class="custom_col">
          <div class="flip-container">
             <a href="{{route('brand', [$region, $val->retailer->slug])}}" class="img-pop-up" aria-label="Retail Store - {{$val->retailer->image}}">
-               <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->retailer->ar_logo : $val->retailer->logo}}" layout="responsive" width="185px" height="230.516px" alt="Store - {{$val->retailer->name}}" style="border-radius: 20px;"></amp-img>
+               <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->retailer->ar_logo : $val->retailer->logo}}" layout="responsive" width="185px" height="230.516px" alt="@if(app()->getLocale() == 'ar') {{empty($val->retailer->alt_tag_ar) ? $val->retailer->name_ar : $val->retailer->alt_tag_ar}} @else {{empty($val->retailer->alt_tag) ? $val->retailer->name : $val->retailer->alt_tag}} @endif" style="border-radius: 20px;"></amp-img>
             </a>
          </div>
       </div>

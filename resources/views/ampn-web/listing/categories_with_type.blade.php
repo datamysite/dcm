@@ -339,7 +339,7 @@
                                  <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
                                  <a href="{{route('category.brand', [$region, $category_slug, $val->slug])}}">
                                     <!-- img -->
-                                    <amp-img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}"  layout="responsive" width="185px" height="230.516px" alt="Store - {{$val->name}}" class="mb-5 img-fluid"></amp-img>
+                                    <amp-img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}"  layout="responsive" width="185px" height="230.516px" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" class="mb-5 img-fluid"></amp-img>
                                  </a>
                               </div>
                         </div>

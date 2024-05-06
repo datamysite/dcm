@@ -130,13 +130,22 @@
                 <input type="file" name="retailer_image" accept="image/*" required/>
                 <div class="close-btn">×</div>
               </div>
+              <div class="form-group">
+                <label>Image Alt Tag (En) - <small>(Optional)</small></label>
+                <input type="text" class="form-control addImageAlt"  name="alt_tag">
+              </div>
             </div>
             <div class="col-md-6">
               <div class="ar-retailer-image-wrapper">
                 <input type="file" name="ar-retailer_image" accept="image/*" required/>
                 <div class="ar-close-btn">×</div>
               </div>
+              <div class="form-group">
+                <label>Image Alt Tag (Ar) - <small>(Optional)</small></label>
+                <input type="text" class="form-control addImageAlt_ar"  name="alt_tag_ar">
+              </div>
             </div>
+            <div class="col-md-12"><hr></div>
             <div class="col-md-7">
               <div class="form-group">
                 <label>Name</label>
@@ -304,6 +313,49 @@
 <script>
   $(function () {
     loadRetailers();
+
+    $(document).on('keyup', ".addImageAlt", function() {
+
+      var alt_tag = $(this).val();
+      if(alt_tag != ''){
+        $.ajax({
+          url: "{{route('translate')}}",
+          cache: false,
+          type: 'POST',
+          data: {
+            "_token": "{{ csrf_token() }}",
+            text: alt_tag,
+          },
+          success: function(response) {
+            $('.addImageAlt_ar').val(response);
+          }
+        });
+      }else{
+        $('.addImageAlt_ar').val('');
+      }
+    });
+
+
+    $(document).on('keyup', ".editImageAlt", function() {
+
+      var alt_tag = $(this).val();
+      if(alt_tag != ''){
+        $.ajax({
+          url: "{{route('translate')}}",
+          cache: false,
+          type: 'POST',
+          data: {
+            "_token": "{{ csrf_token() }}",
+            text: alt_tag,
+          },
+          success: function(response) {
+            $('.editImageAlt_ar').val(response);
+          }
+        });
+      }else{
+        $('.editImageAlt_ar').val('');
+      }
+    });
 
 
     $(document).on('keyup', '.retailerName', function(){

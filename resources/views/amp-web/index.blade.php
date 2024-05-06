@@ -87,7 +87,7 @@
                   <div class="custom_col">
                      <div class="flip-container">
                         <a href="{{route('brand', [$region, $val->slug])}}" class="img-pop-up" aria-label="Online Store - {{$val->name}}">
-                           <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" layout="responsive" width="185px" height="230.516px" alt="Store - {{$val->name}}" style="border-radius: 20px;"></amp-img>
+                           <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" layout="responsive" width="185px" height="230.516px" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" style="border-radius: 20px;"></amp-img>
                                  
                         </a>
                      </div>

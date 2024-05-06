@@ -100,7 +100,7 @@
                <div class="brand-item">
                   @foreach($onlinestores as $val)
                      <a href="{{route('brand', [$region, $val->slug])}}" class="img-pop-up" aria-label="Online Store - {{$val->name}}">
-                        <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" layout="responsive" width="185px" height="230px" alt="Store - {{$val->name}}" style="border-radius: 20px;"></amp-img>
+                        <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" layout="responsive" width="185px" height="230px" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" style="border-radius: 20px;"></amp-img>
                               
                      </a>
                      @php $s++; if($s==3){ echo '</div>'; $i++;} if($s==3 && $i==2){ echo '<div class="brand-item">';$s=1;} @endphp
@@ -142,7 +142,7 @@
                <div class="brand-item">
                   @foreach($retailstores as $val)
                      <a href="{{route('brand', [$region, $val->retailer->slug])}}" class="img-pop-up" aria-label="Online Store - {{$val->retailer->name}}">
-                        <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->retailer->ar_logo : $val->retailer->logo}}" layout="responsive" width="185px" height="230px" alt="Store - {{$val->retailer->name}}" style="border-radius: 20px;"></amp-img>
+                        <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->retailer->ar_logo : $val->retailer->logo}}" layout="responsive" width="185px" height="230px" alt="@if(app()->getLocale() == 'ar') {{empty($val->retailer->alt_tag_ar) ? $val->retailer->name_ar : $val->retailer->alt_tag_ar}} @else {{empty($val->retailer->alt_tag) ? $val->retailer->name : $val->retailer->alt_tag}} @endif" style="border-radius: 20px;"></amp-img>
                               
                      </a>
                      @php $s++; if($s==3){ echo '</div>'; $i++;} if($s==3 && $i==2){ echo '<div class="brand-item">';$s=1;} @endphp
@@ -178,7 +178,7 @@
                   <a href="{{route('brand', [$region, $allstores[1]->slug])}}" aria-label="All Store - {{$allstores[1]->name}}">
                      <div class="single-deal">
                         <div class="overlay"></div>
-                        <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[1]->ar_logo : $allstores[1]->logo}}" alt="All Store - {{$allstores[1]->name}}" layout="responsive" width="185px" height="230.516px"  style="border-radius: 20px;"></amp-img>
+                        <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[1]->ar_logo : $allstores[1]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($allstores[1]->alt_tag_ar) ? $allstores[1]->name_ar : $allstores[1]->alt_tag_ar}} @else {{empty($allstores[1]->alt_tag) ? $allstores[1]->name : $allstores[1]->alt_tag}} @endif" layout="responsive" width="185px" height="230.516px"  style="border-radius: 20px;"></amp-img>
                      </div>
                   </a>
                </div>
@@ -187,7 +187,7 @@
                   <a href="{{route('brand', [$region, $allstores[2]->slug])}}" aria-label="All Store - {{$allstores[2]->name}}">
                      <div class="single-deal">
                         <div class="overlay"></div>
-                        <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[2]->ar_logo : $allstores[2]->logo}}" alt="All Store - {{$allstores[2]->name}}" layout="responsive" width="185px" height="230.516px"  style="border-radius: 20px;"></amp-img>
+                        <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[2]->ar_logo : $allstores[2]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($allstores[2]->alt_tag_ar) ? $allstores[2]->name_ar : $allstores[2]->alt_tag_ar}} @else {{empty($allstores[2]->alt_tag) ? $allstores[2]->name : $allstores[2]->alt_tag}} @endif" layout="responsive" width="185px" height="230.516px"  style="border-radius: 20px;"></amp-img>
                      </div>
                   </a>
                </div>
@@ -196,7 +196,7 @@
                   <a href="{{route('brand', [$region, $allstores[0]->slug])}}" aria-label="All Store - {{$allstores[0]->name}}">
                      <div class="single-deal v-tile">
                         <div class="overlay"></div>
-                        <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[0]->ar_logo : $allstores[0]->logo}}" alt="All Store - {{$allstores[0]->name}}" layout="responsive" width="390px" height="240px"  style="border-radius: 20px;"></amp-img>
+                        <amp-img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$allstores[0]->ar_logo : $allstores[0]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($allstores[0]->alt_tag_ar) ? $allstores[0]->name_ar : $allstores[0]->alt_tag_ar}} @else {{empty($allstores[0]->alt_tag) ? $allstores[0]->name : $allstores[0]->alt_tag}} @endif" layout="responsive" width="390px" height="240px"  style="border-radius: 20px;"></amp-img>
                      </div>
                   </a>
                </div>

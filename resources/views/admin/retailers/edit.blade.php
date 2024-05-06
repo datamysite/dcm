@@ -14,13 +14,22 @@
           <input type="file" name="edit_retailer_image" accept="image/*"/>
           <div class="close-btn">×</div>
         </div>
+        <div class="form-group">
+          <label>Image Alt Tag (En) - <small>(Optional)</small></label>
+          <input type="text" class="form-control editImageAlt" value="{{$data->alt_tag}}" name="alt_tag">
+        </div>
       </div>
       <div class="col-md-6">
         <div class="ar-edit_retailer-image-wrapper file-set" style="background-image: url({{URL::to('/public/storage/retailers/ar/'.$data->ar_logo)}});">
           <input type="file" name="ar-edit_retailer_image" accept="image/*"/>
           <div class="ar-close-btn">×</div>
         </div>
+        <div class="form-group">
+          <label>Image Alt Tag (Ar) - <small>(Optional)</small></label>
+          <input type="text" class="form-control editImageAlt_ar" value="{{$data->alt_tag_ar}}" name="alt_tag_ar">
+        </div>
       </div>
+      <div class="col-md-12"><hr></div>
       <div class="col-md-7">
         <div class="form-group">
           <label>Name</label>

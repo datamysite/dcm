@@ -35,7 +35,7 @@
                 <a href="{{route('brand', [$region, $retailer->slug])}}"><h3 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h3></a>
             </div>
             <div class="col-12">
-                <amp-img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Retailer Image" height="125px" width="100px" layout="fixed" class="img" style="border-radius: 10px;"></amp-img>
+                <amp-img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($retailer->alt_tag_ar) ? $retailer->name_ar : $retailer->alt_tag_ar}} @else {{empty($retailer->alt_tag) ? $retailer->name : $retailer->alt_tag}} @endif" height="125px" width="100px" layout="fixed" class="img" style="border-radius: 10px;"></amp-img>
             </div>
         </div>
 

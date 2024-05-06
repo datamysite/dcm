@@ -68,7 +68,7 @@
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
                         <div class="Lside_div">
-                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Product Image" class="img" style="height:80%">
+                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($retailer->alt_tag_ar) ? $retailer->name_ar : $retailer->alt_tag_ar}} @else {{empty($retailer->alt_tag) ? $retailer->name : $retailer->alt_tag}} @endif" class="img" style="height:80%">
                         </div>
 
                         <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
@@ -113,7 +113,7 @@
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
                         <div class="Lside_div">
-                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="Product Image" class="img" style="height:80%">
+                            <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($retailer->alt_tag_ar) ? $retailer->name_ar : $retailer->alt_tag_ar}} @else {{empty($retailer->alt_tag) ? $retailer->name : $retailer->alt_tag}} @endif" class="img" style="height:80%">
                         </div>
 
                         <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">

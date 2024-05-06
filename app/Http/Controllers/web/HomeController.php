@@ -24,7 +24,7 @@ class HomeController extends Controller
                                 ->limit(8)
                                 ->get();
         $data['onlinestores'] = DB::table('homestores')->where('retailer_type', '1')
-                                ->select('retailers.id','retailers.name','retailers.name_ar', 'retailers.logo', 'retailers.ar_logo', 'retailers.slug', 'retailers.discount_upto')
+                                ->select('retailers.id','retailers.name','retailers.name_ar','retailers.alt_tag','retailers.alt_tag_ar', 'retailers.logo', 'retailers.ar_logo', 'retailers.slug', 'retailers.discount_upto')
                                 ->join('retailers', 'retailers.id', '=', 'homestores.retailer_id')
                                 ->when(config('app.amp') == true && $isMobile, function($q){
                                     return $q->limit(4);
@@ -45,7 +45,7 @@ class HomeController extends Controller
                                             })->orderBy('id', 'desc')->get();
 
         $data['allstores'] = DB::table('homestores')->where('retailer_type', '3')
-                                ->select('retailers.id','retailers.name','retailers.name_ar', 'retailers.logo', 'retailers.ar_logo', 'retailers.slug', 'retailers.discount_upto')
+                                ->select('retailers.id','retailers.name','retailers.name_ar','retailers.alt_tag','retailers.alt_tag_ar', 'retailers.logo', 'retailers.ar_logo', 'retailers.slug', 'retailers.discount_upto')
                                 ->join('retailers', 'retailers.id', '=', 'homestores.retailer_id')
                                 ->when(config('app.amp') == true && $isMobile, function($q){
                                     return $q->limit(3);
