@@ -35,13 +35,13 @@ class UserController extends Controller
         $response['success'] = 'success';
         $response['message'] = 'Success! You are successfully logged in.';
 
-        echo json_encode($response);
+        return response()->json($response, 200);
     }
 
     public function login(Request $request){
         $data = $request->all();
         $response = [];
-
+        $error_code = 200;
         $validated = $request->validate([
             'email' => 'required|email',
             'password' => 'required'
@@ -49,16 +49,18 @@ class UserController extends Controller
 
         if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'is_active' => '1'])){
 
+            $error_code = 200;
             $response['success'] = 'success';
             $response['message'] = 'Success! You are successfully logged in.';
         }else{
 
+            $error_code = 49;
             $response['success'] = 'error';
             $response['message'] = 'Incorrect email or password.';
         }
 
 
-        echo json_encode($response);
+        return response()->json($response, $error_code);
     }
 
 

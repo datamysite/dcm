@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-12">
                 <div class=" text-center">
-                    <a href="{{route('brand', [$region, $retailer->slug])}}"><h3 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h3></a><br>
+                    <a href="{{route('brand', [$region, $retailer->slug])}}"><h1 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h1></a><br>
                     @php 
                         $brand_domain = explode('/', $retailer->store_link);
                         $brand_domain = $brand_domain[2];

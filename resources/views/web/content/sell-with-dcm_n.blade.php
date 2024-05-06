@@ -135,7 +135,7 @@
                         <!-- col -->
                         <div class="col-lg-6" style="background-color: #f0f3f2; border-radius: 20px ">
                             <div style="padding-top: 20px;">
-                                <h1 class="mb-5" style="font-weight: bolder" ;>{{ __('translation.dcm_page_title_text03') }} </h1>
+                                <h2 class="mb-5" style="font-weight: bolder" ;>{{ __('translation.dcm_page_title_text03') }} </h2>
 
                                 <h4>
                                     <li>{{ __('translation.dcm_page_title_textn') }}</li>

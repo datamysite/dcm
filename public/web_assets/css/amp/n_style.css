@@ -1588,6 +1588,14 @@ label {
     background-color: #e6e6e6fc;
     border-bottom: 1px solid #FFF;
 }
+div[submit-error] {
+    color: red;
+    font-weight: 600;
+}
+div[submit-success] {
+    color: green;
+    font-weight: 600;
+}
 
 
 

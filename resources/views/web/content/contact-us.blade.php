@@ -25,11 +25,11 @@
     <div class="container">
 
         <div class="dcm_banner" style="background: url('{{URL::to('/')}}/public/web_assets/images/banner/dcm_banner.png') no-repeat; background-size: cover; border-radius: 0.5rem; background-position: center">
-            <h2 class="text-center" style="padding-top: 200px;color:#fff ;font-size:35px">{{ __('translation.contact_us') }}</2>
+            <h1 class="text-center" style="padding-top: 200px;color:#fff ;font-size:35px">{{ __('translation.contact_us') }}</h1>
         </div>
 
         <div class="dcm_banner_mobile">
-            <h2 class="text-center" style="padding-top:40px;color:#fff">{{ __('translation.contact_us') }}</2>
+            <h1 class="text-center" style="padding-top:40px;color:#fff">{{ __('translation.contact_us') }}</h1>
         </div>
 
     </div>

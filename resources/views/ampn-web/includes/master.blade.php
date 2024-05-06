@@ -57,7 +57,7 @@
                      <div class="modal-body">
                         <div class="modal_container" id="modal_container">
                            <div class="form-modal_container sign-in-modal_container">
-                              <form action-xhr="{{route('user.login')}}" method="post" id="login_user_form" class="form_modal">
+                              <form action-xhr="{{route('user.login')}}" method="post" id="login_user_form" class="form_modal" custom-validation-reporting="show-first-on-submit">
                                  @csrf
                                  <h1 style="color:#1dace3">{{ __('translation.sign_in_to_dcm') }}</h1>
                                  <div class="social-modal_container">
@@ -66,16 +66,33 @@
 
                                  </div>
                                  <span>{{ __('translation.or_use_your_account') }}</span>
-                                 <input type="email" placeholder="{{ __('translation.email_dcm_form') }}" name="email" class="form_input" required/>
-                                 <label class="errors email_error_l"></label>
-                                 <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required />
-                                 <label class="errors password_error_l"></label>
+                                 <input type="email" placeholder="{{ __('translation.email_dcm_form') }}" id="l-email" name="email" class="form_input" required/>
+                                 <span visible-when-invalid="valueMissing" validation-for="l-email"></span>
+                                 <span visible-when-invalid="typeMismatch" validation-for="l-email"></span>
+                                 <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" id="l-password" name="password" class="form_input" required />
+                                 <span visible-when-invalid="valueMissing" validation-for="l-password"></span>
+                                 <div submitting>
+                                    <template type="amp-mustache">
+                                       <amp-img src="{{URL::to('/public/loader-gif.gif')}}" layout='fixed' width='100px' height='25px'></amp-img>
+                                    </template>
+                                 </div>
+                                 <div submit-success>
+                                     <template type="amp-mustache">
+                                       Success! You are successfully Logged-In. For Profile Please <a href="{{route('user.profile')}}">click here</a>
+                                     </template>
+                                   </div>
+                                   <div submit-error>
+                                     <template type="amp-mustache">
+                                       Error! Incorrect Email or Password.
+                                     </template>
+                                   </div>
                                  <p><a href="#" style="color:#1dace3"  role="button" data-bs-toggle="modal" data-bs-target="#forgetPassModal">{{ __('translation.forget_password_txt') }}</a></p>
+
                                  <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_in_btn') }}</button>
                               </form>
                            </div>
                            <div class="form-modal_container sign-up-modal_container">
-                              <form action-xhr="{{route('user.create')}}" method="post" id="create_user_form" class="form_modal">
+                              <form action-xhr="{{route('user.create')}}" method="post" id="create_user_form" class="form_modal" custom-validation-reporting="show-first-on-submit">
                                  @csrf
                                  <h1 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h1>
                                  <div class="social-modal_container">
@@ -84,12 +101,32 @@
 
                                  </div>
                                  <span>{{ __('translation.dcm_reg_text') }}</span>
-                                 <input type="text" placeholder="{{ __('translation.dcm_name_txt') }}" name="name" class="form_input" required/>
-                                 <label class="errors name_error"></label>
-                                 <input type="email" placeholder="{{ __('translation.email_dcm_form') }}" name="email" class="form_input" required/>
-                                 <label class="errors email_error"></label>
-                                 <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required/>
-                                 <label class="errors password_error"></label>
+                                 <input type="text" placeholder="{{ __('translation.dcm_name_txt') }}" id="r-name" name="name" class="form_input" required pattern="\p{L}+\s\p{L}+"/>
+                                 <span visible-when-invalid="valueMissing" validation-for="r-name"></span>
+                                 <span visible-when-invalid="patternMismatch" validation-for="r-name">
+                                    Please enter your first and last name separated by a space (e.g. John Doe)
+                                 </span>
+                                 <input type="email" placeholder="{{ __('translation.email_dcm_form') }}" id="r-email" name="email" class="form_input" required/>
+                                 <span visible-when-invalid="valueMissing" validation-for="r-email"></span>
+                                 <span visible-when-invalid="typeMismatch" validation-for="r-email"></span>
+                                 <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" id="r-password" name="password" class="form_input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
+                                 <span visible-when-invalid="valueMissing" validation-for="r-password"></span>
+                                 <span visible-when-invalid="patternMismatch" validation-for="r-password">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
+                                 <div submitting>
+                                    <template type="amp-mustache">
+                                       <amp-img src="{{URL::to('/public/loader-gif.gif')}}" layout='fixed' width='100px' height='25px'></amp-img>
+                                    </template>
+                                 </div>
+                                 <div submit-success>
+                                     <template type="amp-mustache">
+                                       Success! You are successfully Signed-Up. For Profile Please <a href="{{route('user.profile')}}">click here</a>
+                                     </template>
+                                   </div>
+                                   <div submit-error>
+                                     <template type="amp-mustache">
+                                       Error! This email is already registered.
+                                     </template>
+                                   </div>
                                  <br>
                                  <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_up_btn') }}</button>
                               </form>

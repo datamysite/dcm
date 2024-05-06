@@ -27,7 +27,7 @@
       <div class="container">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0 page-title">{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</h3>
+               <h1 class="mb-0 page-title">{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</h1>
             </div>
          </div>
          <div class="ccategory-slider category-slider">

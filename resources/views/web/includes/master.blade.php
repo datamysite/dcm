@@ -56,7 +56,7 @@
                <div class="form-modal_container sign-up-modal_container">
                   <form action="{{route('user.create', [$region])}}" id="create_user_form" class="form_modal">
                      @csrf
-                     <h1 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h1>
+                     <h2 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h2>
                      <div class="social-modal_container">
                         <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
                         <a href="{{route('auth.google', [$region])}}" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -76,7 +76,7 @@
                <div class="form-modal_container sign-in-modal_container">
                   <form action="{{route('user.login', [$region])}}" id="login_user_form" class="form_modal">
                      @csrf
-                     <h1 style="color:#1dace3">{{ __('translation.sign_in_to_dcm') }}</h1>
+                     <h2 style="color:#1dace3">{{ __('translation.sign_in_to_dcm') }}</h2>
                      <div class="social-modal_container">
                         <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
                         <a href="{{route('auth.google', [$region])}}" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -94,13 +94,13 @@
                <div class="overlay_modal-modal_container">
                   <div class="overlay_modal">
                      <div class="overlay_modal-panel overlay_modal-left" style="background-color: #1dace3;">
-                        <h1 style="color:#fff">{{ __('translation.dcm_wlc_back') }}</h1>
+                        <h2 style="color:#fff">{{ __('translation.dcm_wlc_back') }}</h2>
                         <p>{{ __('translation.dcm_wlc_back_txt') }}</p>
                         <button class="btn btn-primary shadow-gray signIn" style="background-color: #fff;color:#1dace3">{{ __('translation.sign_in_btn') }}</button>
                      </div>
                      <div class="overlay_modal-panel overlay_modal-right" style="background-color: #1dace3;color:#fff">
-                        <h1 style="color:#fff">DCM</h1>
-                        <h1 style="color:#fff">{{ __('translation.dmc_modal_text01') }}</h1>
+                        <h2 style="color:#fff">DCM</h2>
+                        <h2 style="color:#fff">{{ __('translation.dmc_modal_text01') }}</h2>
                         <p>{{ __('translation.dmc_modal_text02') }}</p>
                         <button class="btn btn-primary shadow-gray signUp" style="background-color: #fff;color:#1dace3">{{ __('translation.sign_up_btn') }}</button>
                      </div>
