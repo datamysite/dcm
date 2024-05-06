@@ -37,7 +37,7 @@ class RegionController extends Controller
             $_SESSION['region'] = 'dubai';
         }
 
-        return redirect(route('home', [app()->getLocale(), $region]));
+        return redirect()->intended('/'.app()->getLocale().'/'.$region);
     }
 
     public function set_region($lang, $name){
@@ -50,7 +50,7 @@ class RegionController extends Controller
         $region = $_SESSION['region'];
         //dd($_SESSION['region']);
 
-        return redirect(route('home', [app()->getLocale(), $region]));
+        return redirect()->intended('/'.app()->getLocale().'/'.$region);
     }
 
 
@@ -68,7 +68,7 @@ class RegionController extends Controller
 
     public function get_lang(){
 
-        /*$userIp = RegionController::getIPAddress();
+        $userIp = RegionController::getIPAddress();
         $client = new Client();
         $response = $client->get("https://ipinfo.io/{$userIp}?token=91b28de1f957f7");
         $data = json_decode($response->getBody());
@@ -90,8 +90,8 @@ class RegionController extends Controller
         }else{
             $region = 'dubai';
             $_SESSION['region'] = 'dubai';
-        }*/
-        dd('under maintainance');
-        return redirect(route('home', [app()->getLocale(), $region]));
+        }
+        
+        return redirect()->intended('/'.app()->getLocale().'/'.$region);
     }
 }
