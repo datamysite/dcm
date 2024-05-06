@@ -4,9 +4,11 @@
     </IfModule>
 
     RewriteEngine On
-    RewriteCond %{HTTP_HOST} ^dealsandcouponsmena.com$ [NC]
-    RewriteRule (.*) https://www.dealsandcouponsmena.com/$1 [R=301,L] 
+    RewriteCond %{HTTP_HOST} !^www\.
+    RewriteCond %{HTTPS}s on(s)|offs()
+    RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [NE,L,R]
 
+    
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
