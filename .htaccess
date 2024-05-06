@@ -6,12 +6,12 @@
     RewriteEngine On
 
     RewriteCond %{HTTPS} on
-    RewriteCond %{HTTP_HOST} ^dealsandcouponsmena.com [NC]
-    RewriteRule ^(.*) https://www.dealsandcouponsmena.com/$1 [R=301,NE,L]
+    RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
+    RewriteRule ^(.*) https://%1/$1 [R=301,NE,L]
     
     RewriteCond %{HTTPS} off
-    RewriteCond %{HTTP_HOST} ^dealsandcouponsmena.com [NC]
-    RewriteRule ^(.*) http://www.dealsandcouponsmena.com/$1 [R=301,NE,L]
+    RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
+    RewriteRule ^(.*) http://%1/$1 [R=301,NE,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
