@@ -73,14 +73,15 @@
                   <thead>
                   <tr>
                     <th width="5%">#</th>
-                    <th width="10%">Logo</th>
+                    <th width="5%">Logo</th>
                     <th width="20%">Name</th>
-                    <th width="15%">Countries</th>
+                    <th width="10%">Countries</th>
                     <th width="10%">Discount upto %</th>
                     <th width="10%">No. of Coupons</th>
                     <th width="10%">Created by</th>
+                    <th width="10%">Status</th>
                     <th width="10%">Seller Panel</th>
-                    <th width="10%" class="text-right">Action</th>
+                    <th width="20%" class="text-right">Action</th>
                   </tr>
                   </thead>
                   <tbody id="retailersTableBody">
@@ -94,6 +95,7 @@
                     <th>Discount upto %</th>
                     <th>No. of Coupons</th>
                     <th>Created by</th>
+                    <th>Status</th>
                     <th>Seller Panel</th>
                     <th class="text-right">Action</th>
                   </tr>

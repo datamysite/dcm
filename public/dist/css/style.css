@@ -1,3 +1,7 @@
+.badge-sucess {
+    background-color: #2ebd2e;
+    color: #fff;
+}
 .user-panel img {
     width: 40px !important;
     margin-top: 8px !important;

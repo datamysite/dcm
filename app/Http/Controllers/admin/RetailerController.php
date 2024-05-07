@@ -26,7 +26,7 @@ class RetailerController extends Controller
 
     public function load(){
         $response = [];
-        $data = Retailers::all();
+        $data = Retailers::orderBy('status', 'desc')->get();
         
         return view('admin.retailers.load', ['data' => $data]);
     }

@@ -13,6 +13,13 @@
     <td>{{$val->discount_upto}} %</td>
     <td>0 Coupons</td>
     <td>{{@$val->user->username}}</td>
+    <td>
+      @if($val->status == '1')
+        <span class="badge badge-sucess">Active</span>
+      @elseif($val->status == '0')
+        <span class="badge badge-danger">In Active</span>
+      @endif
+    </td>
     <td class="text-center text-success">
       @if(!empty($val->sellerPanel->id))
         <i class="fa fa-check"></i>
