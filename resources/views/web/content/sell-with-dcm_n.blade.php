@@ -101,7 +101,7 @@
 
                             </div>
 
-                            <input type="submit" name="sing-up" class="btn btn-signup px-5 " style="font-weight: lighter;" value="{{ __('translation.form_submit_btn') }}">
+                            <input type="submit" name="sing-up" class="btn btn-signup px-5 " onclick="return gtag_report_conversion;" style="font-weight: lighter;" value="{{ __('translation.form_submit_btn') }}">
                             <div class="lead-loader">
                                 <img src="{{URL::to('/public/loader.gif')}}">
                             </div>

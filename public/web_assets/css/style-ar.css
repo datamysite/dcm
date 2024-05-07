@@ -1060,7 +1060,14 @@ label.errors {
     font-weight: 600;
     margin-top: -12px;
 }
-
+.newsletter-loader {
+    display: none;
+    text-align: center;
+    mix-blend-mode: multiply;
+}
+.newsletter_error {
+    padding-top: 20px;
+}
 
 
 

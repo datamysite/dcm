@@ -20,7 +20,7 @@ $(document).ready(function() {
       var form = $(this);
       var formData = new FormData($("#newsletterForm")[0]);
       $('.errors').css({display: 'none'});
-      $('.lead-loader').css({display: 'flex'});
+      $('.newsletter-loader').css({display: 'block'});
       $.ajax({
         type: "POST",
         url: form.attr("action"),
@@ -35,21 +35,20 @@ $(document).ready(function() {
             icon: 'success',
             title: data.message
           });
-        } else {
-          Toast.fire({
-            icon: 'warning',
-            title: data.message
-          });
-        }
-        $('.lead-loader').css({display: 'none'});
 
-        setTimeout(function(){
+          setTimeout(function(){
             location.reload();
           }, 1000);
+        } else {
+        	$('.newsletter_error').css({display: 'flex'}).html(data.message);
+        }
+        $('.newsletter-loader').css({display: 'none'});
+
+        
 
       }).fail(function(e){
-        $('.lead-loader').css({display: 'none'});
-        $('.newsletter_error').css({display: 'flex'}).html(value);
+        $('.newsletter-loader').css({display: 'none'});
+        $('.newsletter_error').css({display: 'flex'}).html(e);
         
       });
 

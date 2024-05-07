@@ -55,11 +55,11 @@
                         <button class="btn " type="submit">
                            <i class="fa fa-paper-plane"></i>
                         </button>
-                        <span class="errors newsletter_error"></span>
-                        <div class="lead-loader">
-                           <img src="{{URL::to('/public/loader-gif.gif')}}">
-                       </div>
                      </form>
+                     <div class="newsletter-loader">
+                        <img src="{{URL::to('/public/loader-gif.gif')}}" width="50px">
+                    </div>
+                     <span class="errors newsletter_error"></span>
                   </li>
                   <li class="nav-item mb-2">
                      <div class="d-flex align-items-center">

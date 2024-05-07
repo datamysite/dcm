@@ -17,12 +17,33 @@
             <h6 class="mb-4">{{ __('translation.footer_section_4_text02') }}</h6>
             <ul class="nav flex-column">
                <li class="nav-item mb-2">
-                  <form action-xhr="{{URL::to('/')}}" method="post" class="ms-auto d-flex align-items-center">
-                        <input type="text" placeholder="{{ __('translation.email_place_holder') }} " required>
+                  <form action-xhr="{{URL::to('/en/newsletter/subscribe')}}" method="post" id="newsletter_form" class="ms-auto" custom-validation-reporting="show-first-on-submit">
+                        @csrf
+                        <div class=" d-flex align-items-center">
+                           <input type="email" placeholder="{{ __('translation.email_place_holder') }} " name="email" id="n-email" required>
+                           
+                           <button class="btn " type="submit">
+                              <strong>></strong>
+                           </button>
+                        </div>
+                        <span visible-when-invalid="valueMissing" validation-for="n-email"></span>
+                        <span visible-when-invalid="typeMismatch" validation-for="n-email"></span>
                         
-                        <button class="btn " type="submit">
-                           <strong>></strong>
-                        </button>
+                        <div submitting>
+                              <template type="amp-mustache">
+                                 <amp-img src="{{URL::to('/public/loader-gif.gif')}}" layout='fixed' width='100px' height='25px'></amp-img>
+                              </template>
+                        </div>
+                        <div submit-success>
+                           <template type="amp-mustache">
+                              Success! You are successfully Subscribed. For Home Please <a href="{{route('home', [$region])}}">click here</a>
+                           </template>
+                        </div>
+                        <div submit-error>
+                           <template type="amp-mustache">
+                              Warning! You are already subscribed.
+                           </template>
+                        </div>
                   </form>
                </li>
             </ul>

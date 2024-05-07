@@ -1097,7 +1097,14 @@ label.errors {
 .brand_store_link:hover {
     color: #999;
 }
-
+.newsletter-loader {
+    display: none;
+    text-align: center;
+    mix-blend-mode: multiply;
+}
+.newsletter_error {
+    padding-top: 20px;
+}
 
 
 

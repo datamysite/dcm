@@ -4,30 +4,38 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Newsletter;
 
 class NewsletterController extends Controller
 {
     public function subscribe(Request $request){
         $data = $request->all();
         $response = [];
-
+        $status = 200;
         $validated = $request->validate([
             'email' => 'required|email'
         ]);
 
+        $nl = Newsletter::where('email', $data['email'])->first();
         //$mail = Mailer::sendMail('New Inquiry Received!', 'admin@dealsandcouponsmena.com', 'DCM', 'web.emailers.insiders.inquiry', $data);
 
-        if(empty($mail)){
+        if(empty($nl->id)){
+
+            $n = new Newsletter;
+            $n->email = $data['email'];
+            $n->save();
+
+            $status = 200;
             $response['success'] = 'success';
             $response['message'] = 'Success! You successfully subscribe our newsletter.';
         }else{
-
+            $status = 49;
             $response['success'] = 'error';
-            $response['message'] = 'Something went wrong.';
+            $response['message'] = 'You already subscribed.';
         }
 
 
 
-        echo json_encode($response);
+        return response()->json($response, $status);
     }
 }
