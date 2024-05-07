@@ -54,6 +54,7 @@ class ListingController extends Controller
                                         ->when(!empty($req['discount']), function($q) use ($req){
                                                 return $q->where('discount_upto', '<=', $req['discount']);
                                         })
+                                        ->where('status', '1')
                                         ->paginate(12);
 
         return view($this->getView('web.listing.index'))->with($data);
@@ -136,6 +137,7 @@ class ListingController extends Controller
                                         ->when(!empty($req['discount']), function($q) use ($req){
                                                 return $q->where('discount_upto', '<=', $req['discount']);
                                         })
+                                        ->where('status', '1')
                                         ->paginate(12);
 
         return view($this->getView('web.listing.categories_with_type'))->with($data);
@@ -184,6 +186,7 @@ class ListingController extends Controller
                                                     });
                                                 })->where('type', $req['type'])->orWhere('type', '3');
                                         })
+                                        ->where('status', '1')
                                         ->paginate(12);
 
         return view($this->getView('web.listing.categories'))->with($data);
