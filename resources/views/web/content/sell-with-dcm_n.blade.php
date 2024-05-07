@@ -22,7 +22,7 @@
 </section>
 
     <div class="sell_whatsapp">
-        <a href="https://api.whatsapp.com/send/?phone=97142957001" onclick="return gtag_report_conversion('{{$actual_link}}');" target="_blank"><img src="{{URL::to('/public/wt.png')}}">&nbsp;&nbsp;{{ __('translation.Contact Us') }}</a>
+        <a href="https://api.whatsapp.com/send/?phone=97142957001" onclick="return gtag_report_conversion('{{$actual_link}}');"><img src="{{URL::to('/public/wt.png')}}">&nbsp;&nbsp;{{ __('translation.Contact Us') }}</a>
     </div>
     <!-- registration section Start Here -->
     <section class="my-lg-5 my-8">
