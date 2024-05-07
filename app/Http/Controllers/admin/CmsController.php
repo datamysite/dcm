@@ -179,6 +179,7 @@ class CmsController extends Controller
                                             ->when($data['stores_data']->retailer_type != '3', function($q) use ($data){
                                                 return $q->where('type', $data['stores_data']->retailer_type);
                                             })
+                                            ->where('status', '1')
                                             ->orderBy('type', 'desc')->get();
 
         return view('admin.cms.home.stores.edit', ['data' => $data]);
