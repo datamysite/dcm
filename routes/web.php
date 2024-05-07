@@ -177,6 +177,7 @@ Route::get('/migrate', function () {
         //Newsletter
         Route::prefix('newsletter')->group(function(){
             Route::post('subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
+            Route::post('amp/subscribe', 'NewsletterController@subscribe_amp')->name('newsletter.subscribe.amp');
         });
 
     });

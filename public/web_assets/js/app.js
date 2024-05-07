@@ -48,7 +48,7 @@ $(document).ready(function() {
 
       }).fail(function(e){
         $('.newsletter-loader').css({display: 'none'});
-        $('.newsletter_error').css({display: 'flex'}).html(e);
+        $('.newsletter_error').css({display: 'flex'}).html(e.message);
         
       });
 

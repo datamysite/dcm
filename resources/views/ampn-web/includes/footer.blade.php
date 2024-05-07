@@ -17,7 +17,7 @@
             <h6 class="mb-4">{{ __('translation.footer_section_4_text02') }}</h6>
             <ul class="nav flex-column">
                <li class="nav-item mb-2">
-                  <form action-xhr="{{URL::to('/en/newsletter/subscribe')}}" method="post" id="newsletter_form" class="ms-auto" custom-validation-reporting="show-first-on-submit">
+                  <form action-xhr="{{URL::to('/en/newsletter/amp/subscribe')}}" method="post" id="newsletter_form" class="ms-auto" custom-validation-reporting="show-first-on-submit">
                         @csrf
                         <div class=" d-flex align-items-center">
                            <input type="email" placeholder="{{ __('translation.email_place_holder') }} " name="email" id="n-email" required>
