@@ -64,7 +64,7 @@
         @foreach($offers as $val)
             @php if($bg == count($stripColors)){ $bg = 2;} @endphp
             <div class="row d-flex  m-mt-16 mt-16" style="align-items: center;">
-                <div class="col-12">
+                <div class="col-lg-9">
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
                         <div class="Lside_div">
@@ -81,27 +81,41 @@
                             </span>
                         </div>
                     </div>
+                    <script type="application/ld+json">
+                        {
+                            "@context": "http://schema.org",
+                            "@type": "SaleEvent",
+                            "name": "{{$val->title}}",
+                            "url": "{{$actual_link}}",
+                            "startDate": "{{date('Y-m-d',strtotime('-1 days'))}}",
+                            "endDate": "{{date('Y-m-d',strtotime('+5 days'))}}",
+                            "location": {
+                              "@type": "Place",
+                              "name": "{{$retailer->name}}",
+                              "url": "{{$retailer->store_link}}",
+                              "address": "{{$retailer->name}}"
+                            }
+                        }
+                    </script>
+                </div>
+                <div class="col-lg-3">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                       crossorigin="anonymous"></script>
+                      <!-- DCM Responsive -->
+                      <ins class="adsbygoogle"
+                           style="display:block"
+                           data-ad-client="ca-pub-3180751570116638"
+                           data-ad-slot="1784464113"
+                           data-ad-format="auto"
+                           data-full-width-responsive="true"></ins>
+                      <script>
+                           (adsbygoogle = window.adsbygoogle || []).push({});
+                      </script>
                 </div>
             </div>
 
 
 
-            <script type="application/ld+json">
-                {
-                    "@context": "http://schema.org",
-                    "@type": "SaleEvent",
-                    "name": "{{$val->title}}",
-                    "url": "{{$actual_link}}",
-                    "startDate": "{{date('Y-m-d',strtotime('-1 days'))}}",
-                    "endDate": "{{date('Y-m-d',strtotime('+5 days'))}}",
-                    "location": {
-                      "@type": "Place",
-                      "name": "{{$retailer->name}}",
-                      "url": "{{$retailer->store_link}}",
-                      "address": "{{$retailer->name}}"
-                    }
-                }
-            </script>
             @php $bg++; @endphp
         @endforeach
 
@@ -109,7 +123,7 @@
         @foreach($coupons as $val)
             @php if($bg == count($stripColors)){ $bg = 0;} @endphp
             <div class="row d-flex  m-mt-16 mt-16" style="align-items: center;">
-                <div class="col-12">
+                <div class="col-lg-9">
                     <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
                         <div class="Lside_div">
@@ -126,25 +140,39 @@
                             </span>
                         </div>
                     </div>
+
+                    <script type="application/ld+json">
+                        {
+                            "@context": "http://schema.org",
+                            "@type": "SaleEvent",
+                            "name": "{{$val->heading}}",
+                            "url": "{{$actual_link}}",
+                            "startDate": "{{date('Y-m-d',strtotime('-1 days'))}}",
+                            "endDate": "{{date('Y-m-d',strtotime('+5 days'))}}",
+                            "location": {
+                              "@type": "Place",
+                              "name": "{{$retailer->name}}",
+                              "url": "{{$retailer->store_link}}",
+                              "address": "{{$retailer->name}}"
+                            }
+                        }
+                    </script>
+                </div>
+                <div class="col-lg-3">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                       crossorigin="anonymous"></script>
+                      <!-- DCM Responsive -->
+                      <ins class="adsbygoogle"
+                           style="display:block"
+                           data-ad-client="ca-pub-3180751570116638"
+                           data-ad-slot="1784464113"
+                           data-ad-format="auto"
+                           data-full-width-responsive="true"></ins>
+                      <script>
+                           (adsbygoogle = window.adsbygoogle || []).push({});
+                      </script>
                 </div>
             </div>
-
-            <script type="application/ld+json">
-                {
-                    "@context": "http://schema.org",
-                    "@type": "SaleEvent",
-                    "name": "{{$val->heading}}",
-                    "url": "{{$actual_link}}",
-                    "startDate": "{{date('Y-m-d',strtotime('-1 days'))}}",
-                    "endDate": "{{date('Y-m-d',strtotime('+5 days'))}}",
-                    "location": {
-                      "@type": "Place",
-                      "name": "{{$retailer->name}}",
-                      "url": "{{$retailer->store_link}}",
-                      "address": "{{$retailer->name}}"
-                    }
-                }
-            </script>
             @php $bg++; @endphp
         @endforeach
 
