@@ -14,4 +14,45 @@ $(document).ready(function() {
 			$(this).attr('aria-expanded', "true");
 		}
 	});
+
+	//Sell With DCM
+    $(document).on('submit', "#newsletterForm", function(event) {
+      var form = $(this);
+      var formData = new FormData($("#newsletterForm")[0]);
+      $('.errors').css({display: 'none'});
+      $('.lead-loader').css({display: 'flex'});
+      $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: formData,
+        dataType: "json",
+        encode: true,
+        processData: false,
+        contentType: false,
+      }).done(function(data) {
+        if (data.success == 'success') {
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          });
+        } else {
+          Toast.fire({
+            icon: 'warning',
+            title: data.message
+          });
+        }
+        $('.lead-loader').css({display: 'none'});
+
+        setTimeout(function(){
+            location.reload();
+          }, 1000);
+
+      }).fail(function(e){
+        $('.lead-loader').css({display: 'none'});
+        $('.newsletter_error').css({display: 'flex'}).html(value);
+        
+      });
+
+      event.preventDefault();
+    });
 });

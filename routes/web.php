@@ -174,6 +174,11 @@ Route::get('/migrate', function () {
             Route::post('/apply', 'CareerController@apply')->name('careers.apply');
         });
 
+        //Newsletter
+        Route::prefix('newsletter')->group(function(){
+            Route::post('subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
+        });
+
     });
 
 

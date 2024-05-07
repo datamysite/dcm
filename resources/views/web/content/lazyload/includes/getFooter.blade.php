@@ -48,12 +48,17 @@
                <ul class="nav flex-column">
                   <!-- list -->
                   <li class="nav-item mb-2">
-                     <form class="ms-auto d-flex align-items-center">
-                           <input type="text" placeholder="{{ __('translation.email_place_holder') }} " required>
-                           
-                           <button class="btn " type="submit">
-                              <i class="fa fa-paper-plane"></i>
-                           </button>
+                     <form class="ms-auto d-flex align-items-center" id="newsletterForm" action="{{route('newsletter.subscribe')}}">
+                        @csrf
+                        <input type="email" name="email" placeholder="{{ __('translation.email_place_holder') }} " required>
+                        
+                        <button class="btn " type="submit">
+                           <i class="fa fa-paper-plane"></i>
+                        </button>
+                        <span class="errors newsletter_error"></span>
+                        <div class="lead-loader">
+                           <img src="{{URL::to('/public/loader-gif.gif')}}">
+                       </div>
                      </form>
                   </li>
                   <li class="nav-item mb-2">
