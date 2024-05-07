@@ -1114,6 +1114,10 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .brand-ad-section {
+        height: 200px;
+        padding: 25px 25px;
+    }
     .sell_whatsapp {
         position: fixed;
         bottom: 82px;
