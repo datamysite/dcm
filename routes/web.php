@@ -372,7 +372,10 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
         //Newsletter
         Route::prefix('newsletter')->group(function () {
-            Route::get('/', 'UserController@index')->name('admin.newsletter');
+            Route::get('/', 'NewsletterController@index')->name('admin.newsletter');
+            Route::get('/load', 'NewsletterController@load')->name('admin.newsletter.load');
+            Route::post('/filter', 'NewsletterController@user_filter')->name('admin.newsletter.filter');
+            Route::post('/export', 'NewsletterController@user_export')->name('admin.newsletter.export');
         });
 
         
