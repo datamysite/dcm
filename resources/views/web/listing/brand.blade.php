@@ -98,7 +98,7 @@
                         }
                     </script>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 brand-ad-section">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
                        crossorigin="anonymous"></script>
                       <!-- DCM Responsive -->
@@ -158,7 +158,7 @@
                         }
                     </script>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 brand-ad-section">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
                        crossorigin="anonymous"></script>
                       <!-- DCM Responsive -->
