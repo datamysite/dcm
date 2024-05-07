@@ -16,13 +16,7 @@
 
 
 
-   @foreach($headSnippet as $val)
-
-      <!-- {{$val->name}} // Start -->
-         {!! $val->snippet_code !!}
-      <!-- {{$val->name}} // End -->
-
-   @endforeach
+ 
 </head>
 
 
@@ -181,13 +175,7 @@
 
          @include('ampn-web.includes.script')
 
-         @foreach($bodySnippet as $val)
-
-            <!-- {{$val->name}} // Start -->
-               {!! $val->snippet_code !!}
-            <!-- {{$val->name}} // End -->
-
-         @endforeach
+        
 
          @yield('addScript')
 
