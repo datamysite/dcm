@@ -46,7 +46,7 @@ class CmsController extends Controller
     public function stores()
     {
         $data['menu'] = 'home.stores';
-        $data['stores'] = Retailers::all();
+        $data['stores'] = Retailers::where('status', '1')->get();
         return view('admin.cms.home.stores.index')->with($data);
     }
 
