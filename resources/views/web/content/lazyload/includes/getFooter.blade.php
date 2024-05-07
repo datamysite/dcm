@@ -48,7 +48,7 @@
                <ul class="nav flex-column">
                   <!-- list -->
                   <li class="nav-item mb-2">
-                     <form class="ms-auto d-flex align-items-center" id="newsletterForm" action="{{route('newsletter.subscribe', [$region])}}">
+                     <form class="ms-auto d-flex align-items-center" id="newsletterForm" action="{{route('newsletter.subscribe')}}">
                         @csrf
                         <input type="email" name="email" placeholder="{{ __('translation.email_place_holder') }} " required>
                         
