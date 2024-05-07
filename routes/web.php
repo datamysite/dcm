@@ -370,6 +370,11 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::get('/changeStatus/{id}/{status}', 'UserController@changeStatus');
         });
 
+        //Newsletter
+        Route::prefix('newsletter')->group(function () {
+            Route::get('/', 'UserController@index')->name('admin.newsletter');
+        });
+
         
         //Home :: Slider Section
         Route::prefix('home')->group(function () {

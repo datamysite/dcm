@@ -146,6 +146,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('admin.newsletter')}}" class="nav-link {{$menu == 'newsletter' ? 'active' : ''}}">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Newsletter
+              </p>
+            </a>
+          </li>
           <li class="nav-item  {{$menu == 'categories' || $menu == 'countries' || $menu == 'users' ? 'menu-open' : ''}}">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
