@@ -65,7 +65,7 @@ class CmsController extends Controller
                                     return $q->where('type', $retailerType);
                                 })
                                 ->orderBy('type', 'desc')
-                                ->status('status', '1')
+                                ->where('status', '1')
                                 ->get();
 
         return response()->json($retailers);
