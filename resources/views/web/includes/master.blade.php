@@ -155,7 +155,7 @@
    </header>
 
    <div class="data">
-     <p>{{ __('translation.cookie_para') }}<a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"> {{ __('translation.read_more') }}...</a></p>
+     <p>{{ __('translation.cookie_para') }}<a href="https://dealsandcouponsmena.com/{{app()->getLocale()}}/dubai/privacy-policy" target="_blank"> {{ __('translation.read_more') }}...</a></p>
    </div>
 
    <div class="buttons">
