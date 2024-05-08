@@ -34,16 +34,14 @@
 
                 <div class="col-lg-6">
                     <!-- text -->
-                    <div class="text-center text-md-start">
-                        <h1 class="mb-6">{{ __('translation.dcm_page_title_text01') }}</h1>
-                        <p class="mb-0 lead">{{ __('translation.dcm_page_title_text02') }}</p>
+                    <div class="text-center text-md-start sell-para">
+                        <h1 class="mb-6">{{ __('translation.zero_commissions') }}</h1>
+                        <p class="mb-0 lead">{{ __('translation.b2b_sme') }}</p>
                      
                     </div>
 
                     <div class="mb-5" style="border-radius: 10px;">
-                        <!-- img -->
-                        <p></p>
-                        <img src="{{URL::to('/public/web_assets/images/Adv/sell1.png')}}" alt="" class="img-fluid w-90 rounded" />
+                        <img src="{{URL::to('/public/web_assets/images/Adv/sell1.png')}}" alt="" class="sell-img-1 img-fluid w-90 rounded" />
                     </div>
 
                 </div>
@@ -133,34 +131,28 @@
 
                         <div class="row align-items-center sell-with-us-div mb-10">
                         <!-- col -->
-                        <div class="col-lg-6" style="background-color: #f0f3f2; border-radius: 20px ">
+                        <div class="col-lg-6 sell-h5" style="background-color: #f0f3f2; border-radius: 20px ">
                             <div style="padding-top: 20px;">
-                                <h2 class="mb-5" style="font-weight: bolder" ;>{{ __('translation.dcm_page_title_text03') }} </h2>
+                                <h2 class="mb-5" style="font-weight: bolder" ;>{{ __('translation.dcm_website_stats') }} </h2>
 
-                                <h4>
-                                    <li>{{ __('translation.dcm_page_title_textn') }}</li>
-                                </h4>
-                                <p class="mb-0 lead">{{ __('translation.dcm_page_title_textnp') }}</p>
-                                <h4>
-                                    <li>{{ __('translation.dcm_page_title_text04') }}</li>
-                                </h4>
-                                <p class="mb-0 lead">{{ __('translation.dcm_page_title_text05') }}</p>
-                                <h4>
-                                    <li>{{ __('translation.dcm_page_title_text06') }}</li>
-                                </h4>
-                                <p class="mb-0 lead">{{ __('translation.dcm_page_title_text07') }}</p>
-                                <h4>
-                                    <li>{{ __('translation.dcm_page_title_text08') }}</li>
-                                </h4>
-                                <p class="mb-0 lead">{{ __('translation.dcm_page_title_text09') }}</p>
-                                <h4>
-                                    <li>{{ __('translation.dcm_page_title_text10') }}</li>
-                                </h4>
-                                <p class="mb-0 lead">{{ __('translation.dcm_page_title_text11') }}</p>
-                                <h4>
-                                    <li>{{ __('translation.dcm_page_title_text12') }}</li>
-                                </h4>
-                                <p class="mb-0 lead">{{ __('translation.dcm_page_title_text13') }}</p>
+                                <h5>
+                                    * &nbsp;{{ __('translation.avg_month_users') }}
+                                </h5>
+                                <h5>
+                                    * &nbsp;{{ __('translation.page_views_monthly') }}
+                                </h5>
+                                <h5>
+                                    * &nbsp;{{ __('translation.subscribed_users_to_email') }}
+                                </h5>
+                                <h5>
+                                    * &nbsp;{{ __('translation.premium_e_comm') }}
+                                </h5>
+                                <h5>
+                                    * &nbsp;{{ __('translation.sales_generated') }}
+                                </h5>
+                                <h5>
+                                    * &nbsp;{{ __('translation.gain_valuable') }}
+                                </h5>
 
 
 

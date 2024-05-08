@@ -572,4 +572,14 @@ return [
   "accept" =>  "Accept",
   "decline" =>  "Decline",
   "reject" =>  "Reject",
+
+  "zero_commissions" =>  "Pay 0% Commissions on Sales",
+  "b2b_sme" =>  "B2B or SME business owners looking to expand your market reach and increase your sales? Partner with us and unlock a world of opportunities.",
+  "dcm_website_stats" =>  "DCM Website Statistics.",
+  "avg_month_users" =>  "200k+ Avg Users Monthly.",
+  "page_views_monthly" =>  "500k+ Page Views Monthly.",
+  "subscribed_users_to_email" =>  "200k Subscribed Users to email notification.",
+  "premium_e_comm" =>  "77+ Premium E-Comm & Retail Brands Already onboarded.",
+  "sales_generated" =>  "100k+ Sales generated for our listed brands.",
+  "gain_valuable" => "Gain valuable insights into your listing performance with ease using our user-friendly Seller Panel. Track sales, analyze metrics, and fine-tune your listing effortlessly."
 ];
