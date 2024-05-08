@@ -136,22 +136,22 @@
                                 <h2 class="mb-5" style="font-weight: bolder" ;>{{ __('translation.dcm_website_stats') }} </h2>
 
                                 <h5>
-                                    * &nbsp;{{ __('translation.avg_month_users') }}
+                                    - &nbsp;{{ __('translation.avg_month_users') }}
                                 </h5>
                                 <h5>
-                                    * &nbsp;{{ __('translation.page_views_monthly') }}
+                                    - &nbsp;{{ __('translation.page_views_monthly') }}
                                 </h5>
                                 <h5>
-                                    * &nbsp;{{ __('translation.subscribed_users_to_email') }}
+                                    - &nbsp;{{ __('translation.subscribed_users_to_email') }}
                                 </h5>
                                 <h5>
-                                    * &nbsp;{{ __('translation.premium_e_comm') }}
+                                    - &nbsp;{{ __('translation.premium_e_comm') }}
                                 </h5>
                                 <h5>
-                                    * &nbsp;{{ __('translation.sales_generated') }}
+                                    - &nbsp;{{ __('translation.sales_generated') }}
                                 </h5>
                                 <h5>
-                                    * &nbsp;{{ __('translation.gain_valuable') }}
+                                    - &nbsp;{{ __('translation.gain_valuable') }}
                                 </h5>
 
 
