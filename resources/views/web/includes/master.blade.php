@@ -148,6 +148,48 @@
 </div>
    <!-- Forget Password Modal End-->
 
+<div class="cookie-wrapper">
+   <header>
+     <i class="fa fa-cookie-bite"></i>
+     <h2>{{ __('translation.cookies_policy') }}</h2>
+   </header>
+
+   <div class="data">
+     <p>{{ __('translation.cookie_para') }}<a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"> {{ __('translation.read_more') }}...</a></p>
+   </div>
+
+   <div class="buttons">
+     <button class="button" id="acceptBtn">{{ __('translation.accept') }}</button>
+     <button class="button" id="declineBtn">{{ __('translation.decline') }}</button>
+   </div>
+</div>
+
+
+<script>
+const cookieBox = document.querySelector(".cookie-wrapper"),
+  buttons = document.querySelectorAll(".cookie-wrapper .button");
+
+const executeCodes = () => {
+  //if cookie contains codinglab it will be returned and below of this code will not run
+  if (document.cookie.includes("DCM")) return;
+  cookieBox.classList.add("show");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      cookieBox.classList.remove("show");
+
+      //if button has acceptBtn id
+      if (button.id == "acceptBtn") {
+        //set cookies for 1 month. 60 = 1 min, 60 = 1 hours, 24 = 1 day, 30 = 30 days
+        document.cookie = "cookieBy= DCM; max-age=" + 60 * 60 * 24 * 30;
+      }
+    });
+  });
+};
+
+//executeCodes function will be called on webpage load
+window.addEventListener("load", executeCodes);
+</script>
 <!-- Modal -->
 <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-sm modal-dialog-centered">

@@ -566,4 +566,10 @@ return [
   "faq_page_text_answer_09" =>  "Note: If you are experiencing difficulties finding the coupon box then get in touch with customer service representatives.",
   "faq_page_text_07" =>  "Still have any question ?",
 
+   //Cookies//
+  "cookies_policy" =>  "Cookies Policy",
+  "cookie_para" => "On Your computer, a persistent cookie is set when you use our Services on the Platform. By tracking your purchases from our partner merchants using these cookies, we are able to offer you Cashbacks or Rewards. You won't be able to receive any Cashbacks or Rewards for any online purchases made through Our Platform if such persistent cookies are not enabled on your computer. Cookie blocking/enabling: By changing the settings in your browser, you can choose to accept or reject cookies. However, if cookies are disabled, You might not be able to access all the interactive elements of Our Platform.",
+  "accept" =>  "Accept",
+  "decline" =>  "Decline",
+  "reject" =>  "Reject",
 ];

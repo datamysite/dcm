@@ -1,3 +1,81 @@
+.cookie-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: -570px;
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  transition: right 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  z-index: 99999;
+}
+.cookie-wrapper.show {
+  right: 20px;
+}
+.cookie-wrapper header {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+.cookie-wrapper header i {
+  color: #1caae2;
+  font-size: 20px;
+}
+.cookie-wrapper header h2 {
+  color: #1caae2;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+.cookie-wrapper .data {
+  margin-top: 10px;
+}
+.cookie-wrapper .data p {
+  color: #333;
+  font-size: 12px;
+}
+.cookie-wrapper .data p a {
+  color: #1caae2;
+  text-decoration: none;
+}
+.cookie-wrapper .data p a:hover {
+  text-decoration: underline;
+}
+.cookie-wrapper .buttons {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cookie-wrapper .buttons .button {
+  border: none;
+  color: #fff;
+  padding: 3px 0;
+  border-radius: 4px;
+  background: #1caae2;
+  cursor: pointer;
+  width: calc(100% / 2 - 10px);
+  transition: all 0.2s ease;
+}
+.cookie-wrapper .buttons #acceptBtn:hover {
+  background-color: #ffffff;
+    color: #1caae2;
+    border: 2px solid #1caae2;
+}
+.cookie-wrapper #declineBtn {
+  border: 2px solid #1caae2;
+    background-color: #fff;
+    color: #1caae2;
+}
+.cookie-wrapper #declineBtn:hover {
+  background-color: #1caae2;
+  color: #fff;
+}
+
+
 .sell_whatsapp {
     position: fixed;
     bottom: 20px;
@@ -1114,6 +1192,11 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .cookie-wrapper.show {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+    }
     .brand-ad-section {
         padding: 40px 25px;
         margin-bottom: -20px;
