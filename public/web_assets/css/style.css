@@ -1,6 +1,6 @@
 .cookie-wrapper {
   position: fixed;
-  bottom: 30px;
+  top: 30px;
   right: -570px;
   max-width: 500px;
   width: 100%;
@@ -1195,7 +1195,7 @@ label.errors {
     .cookie-wrapper.show {
         width: 100%;
         right: 0;
-        bottom: 0;
+        top: 0;
     }
     .brand-ad-section {
         padding: 40px 25px;
