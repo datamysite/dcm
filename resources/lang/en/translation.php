@@ -20,6 +20,7 @@ return [
   "FILTERS" => "FILTERS",
   "Store" => "Store",
   "Retail" => "Retail",
+  "retail" => "Retail",
   "Discount" => "Discount Off",
   "Sub_Categories" => "Sub Categories",
   "Up_to_10" => "Upto 10%",
