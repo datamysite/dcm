@@ -129,6 +129,6 @@ class Retailers extends Model
     }
 
     public function coupons(){
-        return $this->hasMany(Coupon::class, 'retailer_id', 'id');
+        return $this->hasMany(Coupon::class, 'retailer_id', 'id')->orderBy('discount', 'desc');
     }
 }
