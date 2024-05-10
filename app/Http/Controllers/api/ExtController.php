@@ -25,7 +25,7 @@ class ExtController extends Controller
                                         ->where('store_link', 'LIKE', '%'.$url.'%')
                                         ->where(['status' => '1', 'type' => '1'])
                                         ->limit($limit)->get();
-        if(empty($data['brands'])){
+        if(count($data['brands']) == 0){
             $data['brands'] = Retailers::with('coupons:id,heading,code,discount,retailer_id')
                                         ->select('id', 'name', 'logo', 'slug', 'store_link', 'discount_upto')
                                         ->where(['status' => '1', 'type' => '1'])
