@@ -14,7 +14,7 @@ class ExtController extends Controller
         $data['brands'] = Retailers::with('coupons:id,heading,code,discount,retailer_id')
                                         ->select('id', 'name', 'logo', 'slug', 'store_link', 'discount_upto')
                                         ->where(['status' => '1', 'type' => '1'])
-                                        ->limit($limit)->get();
+                                        ->limit($limit)->inRandomOrder()->get();
 
         return response()->json($data);
     }
@@ -29,7 +29,7 @@ class ExtController extends Controller
             $data['brands'] = Retailers::with('coupons:id,heading,code,discount,retailer_id')
                                         ->select('id', 'name', 'logo', 'slug', 'store_link', 'discount_upto')
                                         ->where(['status' => '1', 'type' => '1'])
-                                        ->limit($limit)->get();
+                                        ->limit($limit)->inRandomOrder()->get();
         }
 
         return response()->json($data);
