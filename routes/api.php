@@ -20,7 +20,8 @@ Route::prefix('ext')->namespace('api')->group(function(){
     Route::prefix('home')->group(function(){
 
         Route::get('getRetailers/{limit}', 'ExtController@getRetailers');
-        Route::get('getOffers', 'ExtController@getOffers');
+        Route::get('getRetailers/{limit}/{url}', 'ExtController@getRetailerswithurl');
+        Route::get('getOffers/{url}', 'ExtController@getOffers');
         Route::get('findRetailer/{val}', 'ExtController@findRetailer');
     });
 });

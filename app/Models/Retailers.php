@@ -8,6 +8,7 @@ use App\Models\RetailerCountries;
 use App\Models\RetailerCategories;
 use App\Models\RetailerStates;
 use App\Models\RetailerBlogs;
+use App\Models\Coupon;
 use App\Models\Admin;
 use App\Models\Seller;
 use Auth;
@@ -125,5 +126,9 @@ class Retailers extends Model
 
     public function sellerPanel(){
         return $this->belongsTo(Seller::class, 'id', 'retailer_id');
+    }
+
+    public function coupons(){
+        return $this->hasMany(Coupon::class, 'retailer_id', 'id');
     }
 }

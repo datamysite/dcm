@@ -1146,7 +1146,7 @@ label.errors {
     width: 100%;
 }
 .feather-image-blog .slider_div2 {
-    z-index: 99;
+    z-index: 9;
     width: 450px;
     position: absolute;
     left: 30px;
@@ -1196,6 +1196,12 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .feather-image-blog .slider_div2 {
+        width: 360px;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+    }
     .sell-img-1 {
         margin-top: 45px;
         border-top-left-radius: 100% !important;
