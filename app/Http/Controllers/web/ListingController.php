@@ -67,7 +67,7 @@ class ListingController extends Controller
         $data['testimonials'] = Testimonials::where('status', '1')->get();
         
         $data['suggestedHeading'] = array('Most Searched Brands','', 'Suggested Brands','', 'Popular Brands', '','Most Searched Brands','', 'Suggested Brands','', 'Popular Brands', '','Most Searched Brands','', 'Suggested Brands','', 'Popular Brands');
-        $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->inRandomOrder()->get();
+        $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
         ClicksCounter::hitCount('1', $data['retailer']->id);
 
         return view($this->getView('web.listing.brand'))->with($data);
