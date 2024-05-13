@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        @php $bg = 2; @endphp
+        @php $bg = 2; $it = 0; $sg = 0; @endphp
         @foreach($offers as $val)
             @php if($bg == count($stripColors)){ $bg = 2;} @endphp
             <div class="row d-flex  m-mt-16 mt-16" style="align-items: center;">
@@ -99,27 +99,45 @@
                     </script>
                 </div>
                 <div class="col-lg-3 brand-ad-section">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
-                       crossorigin="anonymous"></script>
-                      <!-- DCM Responsive -->
-                      <ins class="adsbygoogle"
-                           style="display:block"
-                           data-ad-client="ca-pub-3180751570116638"
-                           data-ad-slot="1784464113"
-                           data-ad-format="auto"
-                           data-full-width-responsive="true"></ins>
-                      <script>
-                           (adsbygoogle = window.adsbygoogle || []).push({});
-                      </script>
+                    @if($it % 2 == 0)
+                        <div class="row suggested-brand">
+                            <div class="col-lg-12"><p>{{$suggestedHeading[$sg]}}</p></div>
+                            <div class="col-lg-6">
+                                <a href="">
+                                    <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
+                                </a>
+                            </div>
+                            @php $sg++; @endphp
+                            <div class="col-lg-6">
+                                <a href="">
+                                    <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
+                                </a>
+                            </div>
+                            @php $sg++; @endphp
+                        </div>
+                    @else
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                           crossorigin="anonymous"></script>
+                          <!-- DCM Responsive -->
+                          <ins class="adsbygoogle"
+                               style="display:block"
+                               data-ad-client="ca-pub-3180751570116638"
+                               data-ad-slot="1784464113"
+                               data-ad-format="auto"
+                               data-full-width-responsive="true"></ins>
+                          <script>
+                               (adsbygoogle = window.adsbygoogle || []).push({});
+                          </script>
+                    @endif
                 </div>
             </div>
 
 
 
-            @php $bg++; @endphp
+            @php $bg++;  $it++; @endphp
         @endforeach
 
-        @php $bg = 0; @endphp
+        @php $bg = 0; $it = 0; $sg = 0; @endphp
         @foreach($coupons as $val)
             @php if($bg == count($stripColors)){ $bg = 0;} @endphp
             <div class="row d-flex  m-mt-16 mt-16" style="align-items: center;">
@@ -159,21 +177,39 @@
                     </script>
                 </div>
                 <div class="col-lg-3 brand-ad-section">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
-                       crossorigin="anonymous"></script>
-                      <!-- DCM Responsive -->
-                      <ins class="adsbygoogle"
-                           style="display:block"
-                           data-ad-client="ca-pub-3180751570116638"
-                           data-ad-slot="1784464113"
-                           data-ad-format="auto"
-                           data-full-width-responsive="true"></ins>
-                      <script>
-                           (adsbygoogle = window.adsbygoogle || []).push({});
-                      </script>
+                    @if($it % 2 == 0)
+                        <div class="row suggested-brand">
+                            <div class="col-lg-12"><p>{{$suggestedHeading[$sg]}}</p></div>
+                            <div class="col-lg-6">
+                                <a href="">
+                                    <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
+                                </a>
+                            </div>
+                            @php $sg++; @endphp
+                            <div class="col-lg-6">
+                                <a href="">
+                                    <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
+                                </a>
+                            </div>
+                            @php $sg++; @endphp
+                        </div>
+                    @else
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                           crossorigin="anonymous"></script>
+                          <!-- DCM Responsive -->
+                          <ins class="adsbygoogle"
+                               style="display:block"
+                               data-ad-client="ca-pub-3180751570116638"
+                               data-ad-slot="1784464113"
+                               data-ad-format="auto"
+                               data-full-width-responsive="true"></ins>
+                          <script>
+                               (adsbygoogle = window.adsbygoogle || []).push({});
+                          </script>
+                    @endif
                 </div>
             </div>
-            @php $bg++; @endphp
+            @php $bg++; $it++; @endphp
         @endforeach
 
 
