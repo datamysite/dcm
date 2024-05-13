@@ -115,13 +115,13 @@
                     @else
                         <div class="row suggested-brand">
                             <div class="col-lg-12"><p>{{$suggestedHeading[$sg]}}</p></div>
-                            <div class="col-lg-6">
+                            <div class="col-6">
                                 <a href="">
                                     <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
                                 </a>
                             </div>
                             @php $sg++; @endphp
-                            <div class="col-lg-6">
+                            <div class="col-6">
                                 <a href="">
                                     <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
                                 </a>
@@ -193,13 +193,13 @@
                     @else
                         <div class="row suggested-brand">
                             <div class="col-lg-12"><p>{{$suggestedHeading[$sg]}}</p></div>
-                            <div class="col-lg-6">
+                            <div class="col-6">
                                 <a href="">
                                     <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
                                 </a>
                             </div>
                             @php $sg++; @endphp
-                            <div class="col-lg-6">
+                            <div class="col-6">
                                 <a href="">
                                     <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
                                 </a>
