@@ -9,6 +9,17 @@
 <body>
     <style type="text/css">
         
+        body{
+            background-color: transparent;
+        }
+        .blur-container{
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 100%;
+            backdrop-filter: blur(5px);
+        }
 
         ::-webkit-scrollbar {
           width: 2px;               /* width of the entire scrollbar */
@@ -24,7 +35,14 @@
           border: none;  /* creates padding around scroll thumb */
         }
 
-
+        .dcm-container {
+                position: fixed;
+                right: 80px;
+                top: 240px;
+                    box-shadow: inset 2px -2em 3em rgb(255 255 255 / 14%), 0px 0px 0 0px white, -5px 5px 17px 0px rgb(191 191 191 / 49%);
+                border-radius: 10px;
+                overflow: hidden;
+        }
         .dcm-widget {
             position: fixed;
             right: 0;
@@ -266,8 +284,8 @@
         }
 
     </style>
-    <div class="container">
-        <span id="url-test"></span>
+    <div class="blur-container"></div>
+    <div class="container dcm-container">
         <header class="text-center">
             <div class="menu">
             <img class="logo" width="70.287px" height="20px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
