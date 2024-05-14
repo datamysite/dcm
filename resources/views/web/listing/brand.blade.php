@@ -38,10 +38,14 @@
                 <div class=" text-center">
                     <a href="{{route('brand', [$region, $retailer->slug])}}"><h1 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h1></a><br>
                     @php 
-                        $brand_domain = explode('/', $retailer->store_link);
-                        $brand_domain = $brand_domain[2];
+                        if($retailer->type == 2){
+                            $brand_domain = explode('/', $retailer->store_link);
+                            $brand_domain = $brand_domain[2];
+                        }
                     @endphp
-                    <a class="brand_store_link" href="{{$retailer->store_link}}">{{$brand_domain}}</a>
+                    @if($retailer->type == 2)
+                        <a class="brand_store_link" href="{{$retailer->store_link}}">{{$brand_domain}}</a>
+                    @endif
                 </div>
                 <div>
                     <div class="col-12 text-right blogToggle">
