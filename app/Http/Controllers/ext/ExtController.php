@@ -11,6 +11,6 @@ class ExtController extends Controller
     {
         
 
-        return view('web.ext.index');
+        return view('web.extension.index');
     }
 }
