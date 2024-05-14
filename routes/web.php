@@ -182,6 +182,15 @@ Route::get('/migrate', function () {
 
     });
 
+    
+    //Chrome Extension
+
+    Route::namespace('ext')->prefix('ext')->group(function(){
+        Route::get('open/{url}', 'ExtController@index');
+    });
+
+
+
 
 
 
