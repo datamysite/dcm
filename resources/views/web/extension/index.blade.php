@@ -4,9 +4,9 @@
     <title>DCM</title>
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/style.css" rel="stylesheet">
 </head>
 <body>
+    <input type="hidden" id="curr_url" value="{{$url}}">
     <style type="text/css">
         
         body{
@@ -289,7 +289,7 @@
         <header class="text-center">
             <div class="menu">
             <img class="logo" width="70.287px" height="20px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
-            <button id="close">X</button>
+            <p><img width="30px" height="30px" src="https://dealsandcouponsmena.com/public/pointing.png"> Exclusively for you</p>
             </div>
 
             <div class="form-group d-flex flex-column align-items-end">
@@ -300,10 +300,10 @@
 
               <ul class="nav justify-content-between nav-pills" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#" id="couponTab">Coupons</a>
+                  <a class="nav-link active" href="javascript:void(0)" id="couponTab">Coupons</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="#" id="brandTab">Brands</a>
+                  <a class="nav-link " href="javascript:void(0)" id="brandTab">Brands</a>
                 </li>
               </ul>
         </header>
@@ -328,7 +328,7 @@
             </a>
         </footer>
     </div>
-    <script src="assets/script.js"></script>
+    <script src="{{URL::to('public/ext/script.js')}}"></script>
 </body>
 
 </html>

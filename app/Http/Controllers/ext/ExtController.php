@@ -9,8 +9,8 @@ class ExtController extends Controller
 {
     public function index($url)
     {
-        
+        $data['url'] = $url;
 
-        return view('web.extension.index');
+        return view('web.extension.index')->with($data);
     }
 }
