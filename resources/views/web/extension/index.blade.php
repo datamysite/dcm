@@ -105,7 +105,7 @@
         }
         header .logo {
             width: auto;
-            height: 20px;
+            height: 25px;
             margin: 8px 0px;
         }
         header .icon {
@@ -224,6 +224,8 @@
             margin-bottom: 15px;
         }
         #couponSection .brand-img h4 {
+            font-family: monospace;
+            text-align: center;
             position: absolute;
             left: 80px;
             top: 10px;
@@ -233,14 +235,11 @@
         }
         #couponSection .brand-img .show-coupon-btn {
             position: absolute;
-            bottom: 0;
-            right: 0;
+            bottom: 35px;
+            right: 48px;
             text-decoration: none;
-            background-color: #1baae3;
             color: #fff;
-            padding: 2px 15px;
             font-weight: 600;
-            border:1px solid #1baae3;
             transition: all ease-in-out .3s;
         }
 
@@ -282,14 +281,109 @@
         footer a:hover {
             color: #000;
         }
+        .dcm-container header p {
+            margin: 0;
+            background-color: #feee00;
+            font-size: 14px;
+            padding: 3px 10px;
+            border-radius: 0;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 350px;
+            margin-left: -12px;
+        }
 
+
+
+        .button.has-code{
+          position: relative;
+          width: 170px;
+          font-weight: 700;
+        }
+
+        .has-code .is-code {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 30px;
+            line-height: 30px;
+            width: 100%;
+            text-align: right;
+            padding: 0 9px;
+            background-color: #f2fbff;
+            outline: 1px dashed #1baae3;
+            letter-spacing: 2px;
+            color: #000;
+                border-radius: 12px;
+        }
+        .is-code-text {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80%;
+            z-index: 5;
+            height: 30px;
+            line-height: 30px;
+            background-color: #1baae3;
+            transition: width .5s;
+            outline: 1px solid #1baae3;
+            color: white;
+            text-align: center;
+                border-radius: 12px 0 0 12px;
+        }
+
+        .is-code-text em{
+          position: relative;
+          width: 100%;
+          display: block;
+           font-style: normal;
+        }
+
+        .is-code-text em::after {
+            content: " ";
+            display: block;
+            width: 56px;
+            height: 100%;
+            position: absolute;
+            border-radius: 0 0 4px 4px;
+            right: -38px;
+            top: 11px;
+            -webkit-transform: rotate(20deg) translateY(-10px) scaleX(.8);
+            -ms-transform: rotate(20deg) translateY(-10px) scaleX(.8);
+            transform: rotate(20deg) translateY(-10px) scaleX(.8);
+            background: -webkit-linear-gradient(38deg, #0e98cf, #1baae3 49%, hsla(80, 71%, 73%, 0) 50%, hsla(0, 0%, 100%, 0));
+            background: linear-gradient(38deg, #0e98cf, #1baae3 49%, hsla(80, 71%, 73%, 0) 50%, hsla(0, 0%, 100%, 0));
+            background-position: 0 4px;
+            background-repeat: no-repeat;
+            z-index: 13;
+        }
+
+        .is-code-text em::before {
+            display: block;
+            content: " ";
+            width: 23px;
+            height: 10px;
+            background-color: #0e7097;
+            position: absolute;
+            z-index: 12;
+            right: -14px;
+            bottom: -1px;
+            -webkit-transform: skew(12deg);
+            -ms-transform: skew(12deg);
+            transform: skew(28deg);
+        }
     </style>
     <div class="blur-container"></div>
     <div class="container dcm-container">
         <header class="text-center">
+            <p><img width="20px" height="20px" src="https://dealsandcouponsmena.com/public/pointing.png">&nbsp;&nbsp;Exclusively for you</p>
             <div class="menu">
-            <img class="logo" width="70.287px" height="20px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
-            <p><img width="30px" height="30px" src="https://dealsandcouponsmena.com/public/pointing.png"> Exclusively for you</p>
+            <img class="logo" width="87.859px" height="25px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
+            <div>
+                <img width="20px" height="20px" src="https://dealsandcouponsmena.com/public/pointing.png">
+            </div>
             </div>
 
             <div class="form-group d-flex flex-column align-items-end">

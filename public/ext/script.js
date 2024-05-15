@@ -24,7 +24,7 @@ async function findRetailers(val) {
            brandHTML += "<div class='col-4'><a href='"+host+"en/dubai/store/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='"+host+"public/storage/retailers/"+record['brands'][k]['logo']+"'/></div></a></div>"
         
             for(var j in record['brands'][k]['coupons']) {
-               couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/dubai/store/"+record['brands'][k]['slug']+"' target='_blank'><img src='"+host+"public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/dubai/store/"+record['brands'][k]['slug']+"' class='show-coupon-btn' target='_blank'>Show Coupon</a></div></div>"
+               couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/dubai/store/"+record['brands'][k]['slug']+"' target='_blank'><img src='"+host+"public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/dubai/store/"+record['brands'][k]['slug']+"' class='show-coupon-btn' target='_blank'><button class='button has-code'><span class='is-code'>LXA</span><span class='is-code-text'><em>GET CODE</em></span></button></a></div></div>"
             }
         }
         brandHTML += "</div>"
@@ -54,7 +54,7 @@ async function fetchHomeRetailers(url) {
        brandHTML += "<div class='col-4'><a href='"+host+"en/dubai/store/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='"+host+"public/storage/retailers/"+record['brands'][k]['logo']+"'/></div></a></div>"
     
         for(var j in record['brands'][k]['coupons']) {
-           couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/dubai/store/"+record['brands'][k]['slug']+"' target='_blank'><img src='"+host+"public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/dubai/store/"+record['brands'][k]['slug']+"' class='show-coupon-btn' target='_blank'>Show Coupon</a></div></div>"
+           couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/dubai/store/"+record['brands'][k]['slug']+"' target='_blank'><img src='"+host+"public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/dubai/store/"+record['brands'][k]['slug']+"' class='show-coupon-btn button has-code' target='_blank'><span class='is-code'>LXA</span><span class='is-code-text'><em>Show Coupon</em></span></a></div></div>"
         }
     }
     brandHTML += "</div>"
