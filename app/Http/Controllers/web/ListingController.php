@@ -175,6 +175,7 @@ class ListingController extends Controller
         $data['retailers'] = Retailers::whereHas('categories', function($q) use ($data){
                                             return $q->where('category_id', $data['category']->id);
                                         })
+                                        ->where('status', '1')
                                         ->when(!empty($req['country']), function($q) use ($req){
                                             return $q->whereHas('countries', function($qq) use ($req){
                                                 return $qq->where('country_id', $req['country']);
@@ -192,9 +193,8 @@ class ListingController extends Controller
                                                     });
                                                 })->where('type', $req['type'])->orWhere('type', '3');
                                         })
-                                        ->where('status', '1')
                                         ->paginate(12);
-
+        //dd($data);
         return view($this->getView('web.listing.categories'))->with($data);
     }
 
