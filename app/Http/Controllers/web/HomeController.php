@@ -18,7 +18,7 @@ class HomeController extends Controller
 {
     public function index($lang, $region)
     {   
-        if(!isset($_SESSION['region'])){
+        /*if(!isset($_SESSION['region'])){
             session_start();
         }
         $st = States::where('slug', $region)->first();
@@ -28,7 +28,7 @@ class HomeController extends Controller
         }else{
             $region = 'dubai';
             $_SESSION['region'] = 'dubai';
-        }
+        }*/
 
         $isMobile = Agent::isMobile();
         $data['allstates'] = DB::table('states')->where('country_id', '1')->orderBy('name', 'asc')->get();
