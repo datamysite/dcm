@@ -104,18 +104,20 @@
                 </div>
                 <div class="col-lg-3 brand-ad-section">
                     @if($it % 2 == 0)
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
-                           crossorigin="anonymous"></script>
-                          <!-- DCM Responsive -->
-                          <ins class="adsbygoogle"
-                               style="display:block"
-                               data-ad-client="ca-pub-3180751570116638"
-                               data-ad-slot="1784464113"
-                               data-ad-format="auto"
-                               data-full-width-responsive="true"></ins>
-                          <script>
-                               (adsbygoogle = window.adsbygoogle || []).push({});
-                          </script>
+                        <div class="google-ad-block">
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                               crossorigin="anonymous"></script>
+                              <!-- DCM Responsive -->
+                              <ins class="adsbygoogle"
+                                   style="display:block"
+                                   data-ad-client="ca-pub-3180751570116638"
+                                   data-ad-slot="1784464113"
+                                   data-ad-format="auto"
+                                   data-full-width-responsive="true"></ins>
+                              <script>
+                                   (adsbygoogle = window.adsbygoogle || []).push({});
+                              </script>
+                          </div>
                     @else
                         <div class="row suggested-brand">
                             <div class="col-lg-12"><p>{{$suggestedHeading[$sg]}}</p></div>
@@ -182,18 +184,20 @@
                 </div>
                 <div class="col-lg-3 brand-ad-section">
                     @if($it % 2 == 0)
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
-                           crossorigin="anonymous"></script>
-                          <!-- DCM Responsive -->
-                          <ins class="adsbygoogle"
-                               style="display:block"
-                               data-ad-client="ca-pub-3180751570116638"
-                               data-ad-slot="1784464113"
-                               data-ad-format="auto"
-                               data-full-width-responsive="true"></ins>
-                          <script>
-                               (adsbygoogle = window.adsbygoogle || []).push({});
-                          </script>
+                        <div class="google-ad-block">
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                               crossorigin="anonymous"></script>
+                              <!-- DCM Responsive -->
+                              <ins class="adsbygoogle"
+                                   style="display:block"
+                                   data-ad-client="ca-pub-3180751570116638"
+                                   data-ad-slot="1784464113"
+                                   data-ad-format="auto"
+                                   data-full-width-responsive="true"></ins>
+                              <script>
+                                   (adsbygoogle = window.adsbygoogle || []).push({});
+                              </script>
+                          </div>
                     @else
                         <div class="row suggested-brand">
                             <div class="col-lg-12"><p>{{$suggestedHeading[$sg]}}</p></div>

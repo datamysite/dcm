@@ -1212,6 +1212,10 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .google-ad-block{
+        height: 60px !important;
+    }
+
     .feather-image-blog .slider_div2 {
         width: 360px;
         position: absolute;

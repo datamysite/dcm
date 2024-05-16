@@ -1162,6 +1162,9 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .google-ad-block{
+        height: 60px !important;
+    }
     .sell-img-1 {
         margin-top: 0px;
         border-top-left-radius: 100% !important;
