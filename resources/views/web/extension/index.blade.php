@@ -227,11 +227,15 @@
             font-family: monospace;
             text-align: center;
             position: absolute;
-            left: 80px;
+            left: 75px;
             top: 10px;
             font-size: 13px;
-            padding-right: 15px;
             transition: all ease-in-out .3s;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
         #couponSection .brand-img .show-coupon-btn {
             position: absolute;
@@ -293,6 +297,9 @@
             align-items: center;
             width: 350px;
             margin-left: -12px;
+        }
+        .dcm-container .menu .icons img{
+            border-radius: 3px;
         }
 
 
@@ -374,6 +381,22 @@
             -ms-transform: skew(12deg);
             transform: skew(28deg);
         }
+
+        .dcm-container .menu .icons a {
+            color: #000;
+            text-decoration: none;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+        }
+        .dcm-container .menu .icons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
     </style>
     <div class="blur-container"></div>
     <div class="container dcm-container">
@@ -381,8 +404,10 @@
             <p><img width="20px" height="20px" src="https://dealsandcouponsmena.com/public/pointing.png">&nbsp;&nbsp;Exclusively for you</p>
             <div class="menu">
             <img class="logo" width="87.859px" height="25px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
-            <div>
-                <img width="20px" height="20px" src="https://dealsandcouponsmena.com/public/pointing.png">
+            <div class="icons">
+                <a href=""><img width="10px" height="10px" src="https://dealsandcouponsmena.com/public/web_assets/images/icons/globe.svg"> AR</a>
+                <img width="20px" height="14px" src="https://dealsandcouponsmena.com/public/uae-flag.png">
+
             </div>
             </div>
 

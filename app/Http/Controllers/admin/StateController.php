@@ -57,6 +57,7 @@ class StateController extends Controller
 
                         $ca = States::find(base64_decode($data['state_id']));
                         $ca->name = $data['name'];
+                        $ca->country_id = $data['country_id'];
                         $ca->slug = $slug;
                         $ca->shortname = $data['shortname'];
                         $ca->save();
