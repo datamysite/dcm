@@ -58,6 +58,9 @@ return [
     'amp' => (bool) env('APP_AMP', false),
     'ampn' => (bool) env('APP_AMP_n', false),
 
+
+    'app_location' => env('APP_LOCATION', "UAE"),
+
     /*
     |--------------------------------------------------------------------------
     | Application URL

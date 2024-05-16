@@ -18,6 +18,18 @@ class HomeController extends Controller
 {
     public function index($lang, $region)
     {   
+        if(!isset($_SESSION['region'])){
+            session_start();
+        }
+        $st = States::where('slug', $region)->first();
+        if(!empty($st->id)){
+            $region = $st->slug;
+            $_SESSION['region'] = $st->slug;
+        }else{
+            $region = 'dubai';
+            $_SESSION['region'] = 'dubai';
+        }
+
         $isMobile = Agent::isMobile();
         $data['allstates'] = DB::table('states')->where('country_id', '1')->orderBy('name', 'asc')->get();
         $data['categories'] = DB::table('categories')->select('id', 'name', 'type', 'name_ar', 'image')->where('parent_id', 0)
@@ -143,7 +155,7 @@ class HomeController extends Controller
         public function get_all_store($lang, $region){  
             $isMobile = Agent::isMobile(); 
             $data['allstores'] = HomeStores::where('retailer_type', '3')->when(config('app.amp') == true && $isMobile, function($q){
-                                                                                return $q->limit(3);
+                                                                                return $q->limit(6);
                                                                             })->when(config('app.amp') == false || $isMobile == false, function($q){
                                                                                 return $q->limit(6);
                                                                             })->orderBy('id', 'desc')->get();
