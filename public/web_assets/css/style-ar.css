@@ -1188,6 +1188,13 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .navbar-flag img {
+        width: 34px;
+        margin-left: 19px;
+        margin-right: -5px;
+        margin-top: 2px;
+        border-radius: 5px;
+    }
     .sell-img-1 {
         margin-top: 0px;
         border-top-left-radius: 100% !important;

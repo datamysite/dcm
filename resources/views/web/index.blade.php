@@ -6,7 +6,7 @@
 
    <div class="nav-spacing"></div>
    
-   <div class="container emirates-container">
+   <div class="container emirates-container np-container">
       <div class="emirates-section-nav">
          @foreach($allstates as $val)
             <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}" aria-label="{{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}">
@@ -22,7 +22,7 @@
 
    <!-- Slider Section Start-->
    <section class="mb-lg-10 my-8 desktop-slider">
-      <div class="container">
+      <div class="container np-container">
          <div class="hero-slider">
             <a href="https://wa.me/971585882973" target="_blank" aria-label="Banner 1">
                <img fetchpriority="high" src="{{URL::to('/public')}}/web_assets/images/banner/{{'b1-'.app()->getLocale().'.png'}}" alt="Hero Slider 1">

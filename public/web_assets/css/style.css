@@ -1223,7 +1223,13 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
-
+    .navbar-flag img {
+        width: 34px;
+        margin-right: 19px;
+        margin-left: -5px;
+        margin-top: 2px;
+        border-radius: 5px;
+    }
     .feather-image-blog .slider_div2 {
         width: 360px;
         position: absolute;

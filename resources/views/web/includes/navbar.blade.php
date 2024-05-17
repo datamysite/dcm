@@ -24,7 +24,10 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   <span> <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}"><span><b>EN</b></span></a></span>
                </div>
             @endif
-
+            
+               <i class="navbar-flag">
+                  <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}">
+               </i>
             <div class="list-inline-item d-inline-block d-lg-none">
                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
                   <img src="{{URL::to('/public/web_assets/images/icons/menu.svg')}}" width="36px" height="36px" alt="Menu"/>
