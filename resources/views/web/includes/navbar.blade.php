@@ -111,16 +111,22 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                <div class="d-flex align-items-center text-center">
                   <ul class="navbar-nav">
 
-                     <li class="nav-item dropdown" style="padding: 10px;">
+                     @if(config('app.retail'))
+                        <li class="nav-item dropdown" style="padding: 10px;">
 
-                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
+                           <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
 
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="{{route('stores', [$region, 'online'])}}">{{ __('translation.Online') }}</a></li>
-                           <li><a class="dropdown-item" href="{{route('stores', [$region, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
-                        </ul>
+                           <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{{route('stores', [$region, 'online'])}}">{{ __('translation.Online') }}</a></li>
+                              <li><a class="dropdown-item" href="{{route('stores', [$region, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
+                           </ul>
 
-                     </li>
+                        </li>
+                     @else
+                        <li class="nav-item dropdown" style="padding: 10px;">
+                           <a class="nav-link" href="{{route('stores', [$region, 'online'])}}" role="button" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
+                        </li>
+                     @endif
 
 
 
@@ -135,18 +141,24 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                   $string = str_replace(' ', '-', $string);
                                   $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                               @endphp
-                              @if($val->type == 3)
-                                 <li class="dropdown-submenu dropend">
-                                    <a class="dropdown-item dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
-                                    <ul class="dropdown-menu">
+                              @if(config('app.retail'))
+                                 @if($val->type == 3)
+                                    <li class="dropdown-submenu dropend">
+                                       <a class="dropdown-item dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                                       <ul class="dropdown-menu">
 
-                                       <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
-                                       <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
+                                          <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
+                                          <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
 
-                                    </ul>
-                                 </li>
+                                       </ul>
+                                    </li>
+                                 @else
+                                    <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                                 @endif
                               @else
-                                 <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                                 <li>
+                                    <a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                                 </li>
                               @endif
                            @endforeach
                         </ul>

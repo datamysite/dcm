@@ -18,6 +18,7 @@ class RegionController extends Controller
         $response = $client->get("https://ipinfo.io/{$userIp}?token=91b28de1f957f7");
         $data = json_decode($response->getBody());
 
+        $defaulState = array('','dubai', 'riyadh');
         $states = array('Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al-Khaimah', 'Fujairah', 'Umm Al-Quwain');
 
         if(!isset($_SESSION['region'])){
@@ -29,12 +30,12 @@ class RegionController extends Controller
                 $region = $st->slug;
                 $_SESSION['region'] = $st->slug;
             }else{
-                $region = 'dubai';
-                $_SESSION['region'] = 'dubai';
+                $region = $defaulState[config('app.country')];
+                $_SESSION['region'] = $defaulState[config('app.country')];
             }
         }else{
-            $region = 'dubai';
-            $_SESSION['region'] = 'dubai';
+            $region = $defaulState[config('app.country')];
+            $_SESSION['region'] = $defaulState[config('app.country')];
         }
 
         return redirect()->intended('/'.app()->getLocale().'/'.$region);
@@ -73,6 +74,7 @@ class RegionController extends Controller
         $response = $client->get("https://ipinfo.io/{$userIp}?token=91b28de1f957f7");
         $data = json_decode($response->getBody());
 
+        $defaulState = array('','dubai', 'riyadh');
         $states = array('Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al-Khaimah', 'Fujairah', 'Umm Al-Quwain');
 
         if(!isset($_SESSION['region'])){
@@ -84,12 +86,12 @@ class RegionController extends Controller
                 $region = $st->slug;
                 $_SESSION['region'] = $st->slug;
             }else{
-                $region = 'dubai';
-                $_SESSION['region'] = 'dubai';
+                $region = $defaulState[config('app.country')];
+                $_SESSION['region'] = $defaulState[config('app.country')];
             }
         }else{
-            $region = 'dubai';
-            $_SESSION['region'] = 'dubai';
+            $region = $defaulState[config('app.country')];
+            $_SESSION['region'] = $defaulState[config('app.country')];
         }
         
         return redirect()->intended('/'.app()->getLocale().'/'.$region);

@@ -29,11 +29,11 @@ class ViewServiceProvider extends ServiceProvider
     {
         // Using Closure based composers...
         view()->composer('*', function ($view) {
-            $data['allstates'] = DB::table('states')->where('country_id', '1')->orderBy('name', 'asc')->get();
+            $data['allstates'] = DB::table('states')->where('country_id',  config('app.country'))->when(config('app.country') == '1', function($q){ $q->orderBy('name', 'asc'); })->get();
             $data['stripColors'] = array('#f11e4b' , '#151313', '#2dcc70', '#1dace3');
             $data['headSnippet'] = SnippetCode::where('position', 'Head')->get();
             $data['bodySnippet'] = SnippetCode::where('position', 'Body')->get();
-            $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->where('parent_id', 0)->get();
+            $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->when(config('app.retail') == false, function($q){ $q->limit(6); })->where('parent_id', 0)->get();
 
 
             $data['footCat'] = Footer::where('section_id', '3')->get();

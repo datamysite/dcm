@@ -59,8 +59,9 @@ return [
     'ampn' => (bool) env('APP_AMP_n', false),
 
 
-    'app_location' => env('APP_LOCATION', "UAE"),
+    'country' => env('APP_COUNTRY', "1"),
 
+    'retail' => (bool) env('APP_RETAIL', false),
     /*
     |--------------------------------------------------------------------------
     | Application URL

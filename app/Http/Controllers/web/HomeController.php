@@ -10,6 +10,7 @@ use App\Models\States;
 use App\Models\HomeStores;
 use App\Models\About;
 use App\Models\Footer;
+use App\Models\Slider;
 use URL; use DB;
 use App\Helpers\Mailer;
 use Jenssegers\Agent\Facades\Agent;
@@ -18,22 +19,12 @@ class HomeController extends Controller
 {
     public function index($lang, $region)
     {   
-        /*if(!isset($_SESSION['region'])){
-            session_start();
-        }
-        $st = States::where('slug', $region)->first();
-        if(!empty($st->id)){
-            $region = $st->slug;
-            $_SESSION['region'] = $st->slug;
-        }else{
-            $region = 'dubai';
-            $_SESSION['region'] = 'dubai';
-        }*/
 
         $isMobile = Agent::isMobile();
-        $data['allstates'] = DB::table('states')->where('country_id', '1')->orderBy('name', 'asc')->get();
+        $data['allstates'] = DB::table('states')->where('country_id', config('app.country'))->orderBy('name', 'asc')->get();
         $data['categories'] = DB::table('categories')->select('id', 'name', 'type', 'name_ar', 'image')->where('parent_id', 0)
-                                ->limit(8)
+                                ->when(config('app.retail') == true, function($q){ $q->limit(8); })
+                                ->when(config('app.retail') == false, function($q){ $q->limit(6); })
                                 ->get();
         $data['onlinestores'] = DB::table('homestores')->where('retailer_type', '1')
                                 ->select('retailers.id','retailers.name','retailers.name_ar','retailers.alt_tag','retailers.alt_tag_ar', 'retailers.logo', 'retailers.ar_logo', 'retailers.slug', 'retailers.discount_upto')
@@ -64,7 +55,8 @@ class HomeController extends Controller
                                 })->when(config('app.amp') == false || $isMobile == false, function($q){
                                     return $q->limit(6);
                                 })->orderBy('homestores.id', 'desc')->get();
-      
+        $data['slider'] = Slider::where('del', '0')->orderBy('img_order', 'asc')->get();
+        $data['region'] = $region;
         return view($this->getView('web.index'))->with($data);
     }
 
@@ -110,6 +102,7 @@ class HomeController extends Controller
 
             $data['copyright'] = Footer::where('section_id', '4')->first();
 
+            $data['region'] = $region;
             return view($this->getView('web.content.lazyload.includes.getFooter'))->with($data);
         } 
 
@@ -118,14 +111,16 @@ class HomeController extends Controller
 
         public function get_states($lang, $region, $type){   
             $data['type'] = $type;
-            $data['allstates'] = States::where('country_id', '1')->orderBy('name', 'asc')->get();
+            $data['allstates'] = States::where('country_id',  config('app.country'))->orderBy('name', 'asc')->get();
 
+            $data['region'] = $region;
             return view($this->getView('web.content.lazyload.home.getStates'))->with($data);
         } 
 
         public function get_categories($lang, $region){   
             $data['categories'] = Categories::where('parent_id', 0)->get();
 
+            $data['region'] = $region;
             return view($this->getView('web.content.lazyload.home.getCategories'))->with($data);
         } 
 
@@ -133,6 +128,7 @@ class HomeController extends Controller
         public function get_online_store($lang, $region){   
             $data['onlinestores'] = HomeStores::where('retailer_type', '1')->limit(10)->orderBy('id', 'desc')->get();
 
+            $data['region'] = $region;
             return view($this->getView('web.content.lazyload.home.getOnlineStores'))->with($data);
         } 
 
@@ -148,6 +144,7 @@ class HomeController extends Controller
                                             })->when(config('app.amp') == true && $isMobile, function($q){
                                                 return $q->limit(4);
                                             })->orderBy('id', 'desc')->get();
+            $data['region'] = $region;
 
             return view($this->getView('web.content.lazyload.home.getRetailStores'))->with($data);
         } 
@@ -159,6 +156,7 @@ class HomeController extends Controller
                                                                             })->when(config('app.amp') == false || $isMobile == false, function($q){
                                                                                 return $q->limit(6);
                                                                             })->orderBy('id', 'desc')->get();
+            $data['region'] = $region;
 
             return view($this->getView('web.content.lazyload.home.getAllStores'))->with($data);
         } 

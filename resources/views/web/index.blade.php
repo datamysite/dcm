@@ -200,6 +200,7 @@
    </section>
    <!--Ads Section 1 End Here-->
 
+@if(config('app.retail'))
    <!-- Retailers Stories Section Start -->
    <section class="my-lg-12 my-8">
       <div class="container np-container">
@@ -226,6 +227,7 @@
       </div>
    </section>
    <!-- Retailers Stoires Section End-->
+@endif
 
    <!-- <div class="divider"></div> -->
 
