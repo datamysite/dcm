@@ -24,10 +24,11 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   <span> <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}"><span><b>EN</b></span></a></span>
                </div>
             @endif
-            
+
                <i class="navbar-flag">
-                  <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}">
+                  <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}" width="34px" height="24.281px">
                </i>
+
             <div class="list-inline-item d-inline-block d-lg-none">
                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
                   <img src="{{URL::to('/public/web_assets/images/icons/menu.svg')}}" width="36px" height="36px" alt="Menu"/>
@@ -219,7 +220,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                            </a>
                         @endif
                         <i class="navbar-flag">
-                           <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}">
+                           <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}" width="25px" height="17.844px">
                         </i>
                      </ul>
                </div>
