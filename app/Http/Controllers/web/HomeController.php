@@ -58,7 +58,7 @@ class HomeController extends Controller
                                 })->when(config('app.amp') == false || $isMobile == false, function($q){
                                     return $q->limit(6);
                                 })->orderBy('homestores.id', 'desc')->get();
-        $data['slider'] = Slider::where('del', '0')->orderBy('img_order', 'asc')->get();
+        $data['slider'] = Slider::where('del', '0')->where('country_id', config('app.country'))->orderBy('img_order', 'asc')->get();
         $data['region'] = $region;
         return view($this->getView('web.index'))->with($data);
     }

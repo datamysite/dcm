@@ -215,7 +215,9 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                               </div>
                            </a>
                         @endif
-
+                        <i class="navbar-flag">
+                           <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}">
+                        </i>
                      </ul>
                </div>
 

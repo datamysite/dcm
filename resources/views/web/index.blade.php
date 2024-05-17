@@ -261,17 +261,17 @@
             <div class="col-12">
 
                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
-                       crossorigin="anonymous"></script>
-                  <!-- DCM Responsive -->
+                    crossorigin="anonymous"></script>
+                  <!-- DCM_Footer_Horizontal_Responsive -->
                   <ins class="adsbygoogle"
-                       style="display:block"
-                       data-ad-client="ca-pub-3180751570116638"
-                       data-ad-slot="1784464113"
-                       data-ad-format="auto"
-                       data-full-width-responsive="true"></ins>
-                  <script>
-                       (adsbygoogle = window.adsbygoogle || []).push({});
-                  </script>
+                    style="display:block"
+                    data-ad-client="ca-pub-3180751570116638"
+                    data-ad-slot="4853480582"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+               <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+               </script>
          </div>
       </div>
    </section>

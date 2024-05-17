@@ -1,3 +1,11 @@
+.navbar-flag {
+    display: flex;
+    align-items: center;
+}
+.navbar-flag img {
+    width: 25px;
+    border-radius: 3px;
+}
 .text-lg-center{
     text-align: center;
 }
