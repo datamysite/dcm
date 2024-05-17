@@ -38,6 +38,7 @@ class HomeController extends Controller
                                 })->orderBy('homestores.id', 'desc')->get();
 
         $data['retailstores'] = HomeStores::where('retailer_type', '2')
+                                            ->where('del', '0')
                                             ->whereHas('retailer', function($q) use ($region){
                                                 return $q->whereHas('states', function($qq) use ($region){
                                                     return $qq->whereHas('state', function($qqq) use ($region){
@@ -51,6 +52,7 @@ class HomeController extends Controller
         $data['allstores'] = DB::table('homestores')->where('retailer_type', '3')
                                 ->select('retailers.id','retailers.name','retailers.name_ar','retailers.alt_tag','retailers.alt_tag_ar', 'retailers.logo', 'retailers.ar_logo', 'retailers.slug', 'retailers.discount_upto')
                                 ->join('retailers', 'retailers.id', '=', 'homestores.retailer_id')
+                                ->where('homestores.del', '0')
                                 ->when(config('app.amp') == true && $isMobile, function($q){
                                     return $q->limit(3);
                                 })->when(config('app.amp') == false || $isMobile == false, function($q){
