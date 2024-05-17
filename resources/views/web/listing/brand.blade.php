@@ -105,19 +105,17 @@
                 <div class="col-lg-3 brand-ad-section">
                     @if($it % 2 == 0)
                         @if($isMobile)
-                            <div style="height:80px">
-                                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
-                                     crossorigin="anonymous"></script>
-                                <ins class="adsbygoogle"
-                                     style="display:block"
-                                     data-ad-format="fluid"
-                                     data-ad-layout-key="-g1-1j+1s-5u+hd"
-                                     data-ad-client="ca-pub-3180751570116638"
-                                     data-ad-slot="7508887874"></ins>
-                                <script>
-                                     (adsbygoogle = window.adsbygoogle || []).push({});
-                                </script>
-                            </div>
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                                 crossorigin="anonymous"></script>
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-format="fluid"
+                                 data-ad-layout-key="-g1-1j+1s-5u+hd"
+                                 data-ad-client="ca-pub-3180751570116638"
+                                 data-ad-slot="7508887874"></ins>
+                            <script>
+                                 (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                         @else
                             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
                                crossorigin="anonymous"></script>
@@ -199,19 +197,17 @@
                 <div class="col-lg-3 brand-ad-section">
                     @if($it % 2 == 0)
                         @if($isMobile)
-                            <div style="height:80px">
-                                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
-                                     crossorigin="anonymous"></script>
-                                <ins class="adsbygoogle"
-                                     style="display:block"
-                                     data-ad-format="fluid"
-                                     data-ad-layout-key="-g1-1j+1s-5u+hd"
-                                     data-ad-client="ca-pub-3180751570116638"
-                                     data-ad-slot="7508887874"></ins>
-                                <script>
-                                     (adsbygoogle = window.adsbygoogle || []).push({});
-                                </script>
-                            </div>
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                                 crossorigin="anonymous"></script>
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-format="fluid"
+                                 data-ad-layout-key="-g1-1j+1s-5u+hd"
+                                 data-ad-client="ca-pub-3180751570116638"
+                                 data-ad-slot="7508887874"></ins>
+                            <script>
+                                 (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                         @else
                             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
                                crossorigin="anonymous"></script>
