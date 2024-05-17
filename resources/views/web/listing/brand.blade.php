@@ -35,7 +35,7 @@
     <div class="container np-container">
         <div class="row">
             <div class="col-12">
-                <div class=" text-center">
+                <div class=" text-lg-center">
                     <a href="{{route('brand', [$region, $retailer->slug])}}"><h1 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h1></a><br>
                     @php 
                         if($retailer->type == '1'){

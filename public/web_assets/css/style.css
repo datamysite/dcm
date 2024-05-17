@@ -1,3 +1,6 @@
+.text-lg-center{
+    text-align: center;
+}
 .suggested-brand img {
     height: 171px;
     width: auto;
@@ -1867,6 +1870,15 @@ label.errors {
         margin-top: -9px;
         margin-bottom: -17px;
         margin-left: 13px;
+    }
+    .text-lg-center{
+        text-align: left;
+    }
+    .text-lg-center a .page-title:after{
+        display: none;
+    }
+    .text-lg-center a .page-title{
+        margin-bottom: 0;
     }
 }
 
