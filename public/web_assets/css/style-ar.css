@@ -1,3 +1,22 @@
+.text-lg-center{
+    text-align: center;
+}
+.suggested-brand img {
+    height: 171px;
+    width: auto;
+    border-radius: 10px;
+}
+.suggested-brand p {
+    margin-bottom: 10px;
+    margin-top: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 2px 0px;
+    border-bottom: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+    color: #1dace3;
+}
+
 .sell-h5 h5 {
     margin-bottom: 18px;
     font-weight: normal;
@@ -1696,7 +1715,6 @@ label.errors {
         bottom: 8px;
         position: absolute;
         left: 8px;
-        border-radius: 50%;
     }
 
     .main_div_container div span a img {
@@ -1711,27 +1729,39 @@ label.errors {
         align-items: center;
     }
 
-
     .newsletter p, .newsletter h6 {
-        text-align: center;
-        font-size: 18px;
-        margin-top: -35px;
-        margin-bottom: 35px;
+        text-align: right;
+        font-size: 15px;
+        margin-top: -3px;
+        margin-bottom: 4px;
     }
 
     .newsletter input {
-        font-size: 15px;
-        height: 50px;
+        font-size: 12px;
+        height: 38px;
         border-radius: 30px;
+        padding-right: 10px;
     }
-    .newsletter button{
-        height: 35px;
-        width: 35px;
-        margin-right: -43px;
+
+    .newsletter button {
+        height: 30px;
+        width: 30px;
+        margin-right: -34px;
     }
     .footer .navbar-brand {
-        margin-top: -35px;
-        margin-bottom: 20px;
+        margin-top: -9px;
+        margin-bottom: -17px;
+        margin-right: 13px;
+    }
+
+    .text-lg-center{
+        text-align: right;
+    }
+    .text-lg-center a .page-title:after{
+        display: none;
+    }
+    .text-lg-center a .page-title{
+        margin-bottom: 0;
     }
 }
 
