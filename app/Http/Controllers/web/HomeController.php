@@ -21,6 +21,7 @@ class HomeController extends Controller
     {   
 
         $isMobile = Agent::isMobile();
+        $data['isMobile'] = $isMobile;
         $data['allstates'] = DB::table('states')->where('country_id', config('app.country'))->orderBy('name', 'asc')->get();
         $data['categories'] = DB::table('categories')->select('id', 'name', 'type', 'name_ar', 'image')->where('parent_id', 0)
                                 ->when(config('app.retail') == true, function($q){ $q->limit(8); })

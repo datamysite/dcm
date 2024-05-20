@@ -259,19 +259,32 @@
       <div class="container ad-container np-container">
          <div class="row">
             <div class="col-12">
-
-               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
-                    crossorigin="anonymous"></script>
-                  <!-- DCM_Footer_Horizontal_Responsive -->
-                  <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-3180751570116638"
-                    data-ad-slot="4853480582"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-               <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-               </script>
+               @if($isMobile)
+                   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                        crossorigin="anonymous"></script>
+                   <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-g1-1j+1s-5u+hd"
+                        data-ad-client="ca-pub-3180751570116638"
+                        data-ad-slot="7508887874"></ins>
+                   <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                   </script>
+               @else
+                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638"
+                       crossorigin="anonymous"></script>
+                     <!-- DCM_Footer_Horizontal_Responsive -->
+                     <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-3180751570116638"
+                       data-ad-slot="4853480582"
+                       data-ad-format="auto"
+                       data-full-width-responsive="true"></ins>
+                  <script>
+                       (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+               @endif
          </div>
       </div>
    </section>
