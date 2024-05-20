@@ -8,9 +8,9 @@
   <td>
    
 
-    @if($val->lang == 1)
+    @if($val->lang == 'en')
     English
-    @elseif($val->lang == 2)
+    @elseif($val->lang == 'ar')
     Arabic
     @else
     None

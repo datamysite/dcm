@@ -103,8 +103,8 @@
                 <select class="form-control" name="lang_id" required="required">
                   <option value="">Select Language</option>
 
-                  <option value="1">English</option>
-                  <option value="2">Arabic</option>
+                  <option value="en">English</option>
+                  <option value="ar">Arabic</option>
 
 
                 </select>

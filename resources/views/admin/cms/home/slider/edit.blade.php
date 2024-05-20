@@ -16,8 +16,8 @@
         <div class="form-group">
           <label>Select Language</label>
           <select class="form-control" name="lang_id" required="required">
-            <option value="1" {{ $data['slider_data']->lang == 1 ? 'selected' : '' }} >English</option>
-            <option value="2" {{ $data['slider_data']->lang  == 2 ? 'selected' : '' }} >Arabic</option>
+            <option value="en" {{ $data['slider_data']->lang == 'en' ? 'selected' : '' }} >English</option>
+            <option value="ar" {{ $data['slider_data']->lang  == 'ar' ? 'selected' : '' }} >Arabic</option>
           </select>
         </div>
       </div>
