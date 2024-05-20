@@ -135,7 +135,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Country</label>
-                <select class="form-control" name="country_id" required multiple>
+                <select class="form-control" name="country_id" required>
                   @foreach ($countries as $country)
                   <option value="{{ $country->id }}">{{ $country->name }}</option>
                   @endforeach
