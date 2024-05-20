@@ -136,6 +136,7 @@
               <div class="form-group">
                 <label>Country</label>
                 <select class="form-control" name="country_id" required>
+                  <option value="">Select</option>
                   @foreach ($countries as $country)
                   <option value="{{ $country->id }}">{{ $country->name }}</option>
                   @endforeach

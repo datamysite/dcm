@@ -53,7 +53,7 @@
         <div class="form-group">
           <label>Country</label>
           <select class="form-control" name="country_id" required>
-
+            <option value="">Select</option>
             @foreach ($data['country_data'] as $country)
             @if ($country->id == $data['slider_data']->country_id)
             <option value="{{ $country->id }}" selected>{{ $country->name }}</option>
