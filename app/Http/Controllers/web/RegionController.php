@@ -21,8 +21,9 @@ class RegionController extends Controller
         $defaulState = array('','dubai', 'riyadh');
         $states = array('Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al-Khaimah', 'Fujairah', 'Umm Al-Quwain');
 
-        if(!isset($_SESSION['region'])){
-            session_start();
+        if ((function_exists('session_status') 
+          && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
+          session_start();
         }
         if(!empty($data->region) && in_array($data->region, $states)){
             $st = States::where('name', $data->region)->first();
@@ -78,8 +79,9 @@ class RegionController extends Controller
         $defaulState = array('','dubai', 'riyadh');
         $states = array('Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al-Khaimah', 'Fujairah', 'Umm Al-Quwain');
 
-        if(!isset($_SESSION['region'])){
-            session_start();
+        if ((function_exists('session_status') 
+          && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
+          session_start();
         }
         if(!empty($data->region) && in_array($data->region, $states)){
             $st = States::where('name', $data->region)->first();
