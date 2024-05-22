@@ -56,7 +56,7 @@
                @endphp
                <div class="item {{$val->id == $category->id ? 'active' : ''}}">
                   <a href="{{route('category.sub', [$region, $slug, $type])}}" class="text-decoration-none text-inherit">
-                     <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="Mart" class="img-fluid" />
+                     <img src="{{config('app.storage').'categories/'.$val->image}}" alt="Mart" class="img-fluid" />
                      <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
                   </a>
                </div>
@@ -353,7 +353,7 @@
                                     <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
                                     <a href="{{route('category.brand', [$region, $category_slug, $val->slug])}}">
                                        <!-- img -->
-                                       <img src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" class="mb-5 img-fluid" />
+                                       <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" class="mb-5 img-fluid" />
                                     </a>
                                  </div>
                               </div>

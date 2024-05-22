@@ -11,7 +11,7 @@
          @foreach($allstates as $val)
             <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}" aria-label="{{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}">
                <div class="header_card">
-                  <img src="{{URL::to('/public/storage/states/'.$val->image)}}" alt="Image - {{$val->name}}" />
+                  <img src="{{config('app.storage').'/states/'.$val->image}}" alt="Image - {{$val->name}}" />
                   {{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}
                </div>
             </a>
@@ -26,7 +26,7 @@
          <div class="hero-slider">
             @foreach($slider as $key => $val)
                <a href="{{$val->img_url}}" target="_blank" aria-label="Banner {{++$key}}">
-                  <img fetchpriority="high" src="{{URL::to('/public/storage/slider/'.$val->img_name)}}" alt="Hero Slider {{++$key}}">
+                  <img fetchpriority="high" src="{{config('app.storage').'slider/'.$val->img_name}}" alt="Hero Slider {{++$key}}">
                </a>
             @endforeach
          </div>
@@ -51,7 +51,7 @@
             @endphp
             <div class="item">
                <a href="{{route('category', [$region, $slug])}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
-                  <img src="{{URL::to('/public/storage/categories/'.$val->image)}}" alt="Image - {{$val->name}}" width="100px" height="100px" class="img-fluid" />
+                  <img src="{{config('app.storage').'categories/'.$val->image}}" alt="Image - {{$val->name}}" width="100px" height="100px" class="img-fluid" />
                   <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
                </a>
             </div>
@@ -110,7 +110,7 @@
                      <div class="flip-container">
                         <div class="flipper">
                            <div class="front">
-                              <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" 
+                              <img class="img-fluid w-100" src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" 
                                  alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" 
                                  style="border-radius: 20px;" />
                               <a href="?b={{$val->slug}}" class="img-pop-up" aria-label="Online Store - {{$val->name}}">
@@ -121,7 +121,7 @@
                            </div>
                            <div class="back">
                               <a href="{{route('brand',[$region, $val->slug])}}" class="img-pop-up" aria-label="Online Store - {{$val->name}}">
-                                 <img class="img-fluid w-100" src="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" style="border-radius: 20px;" />
+                                 <img class="img-fluid w-100" src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" style="border-radius: 20px;" />
                               </a>
                            </div>
                         </div>
