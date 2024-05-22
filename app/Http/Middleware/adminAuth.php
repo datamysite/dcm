@@ -16,10 +16,14 @@ class adminAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::guard('admin')->check()){
-            return $next($request);
+        if(config('app.admin')){
+            if(Auth::guard('admin')->check()){
+                return $next($request);
+            }else{
+                return redirect(route('admin.login'));
+            }
         }else{
-            return redirect(route('admin.login'));
+            return redirect()->intended('https://dealsandcouponsmena.ae/admin/panel');
         }
     }
 }

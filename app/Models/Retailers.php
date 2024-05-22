@@ -9,6 +9,7 @@ use App\Models\RetailerCategories;
 use App\Models\RetailerStates;
 use App\Models\RetailerBlogs;
 use App\Models\Coupon;
+use App\Models\Offers;
 use App\Models\Admin;
 use App\Models\Seller;
 use Auth;
@@ -130,5 +131,9 @@ class Retailers extends Model
 
     public function coupons(){
         return $this->hasMany(Coupon::class, 'retailer_id', 'id')->orderBy('discount', 'desc');
+    }
+
+    public function offers(){
+        return $this->hasMany(Offers::class, 'retailer_id', 'id')->orderBy('discount', 'desc');
     }
 }

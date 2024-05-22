@@ -174,13 +174,16 @@ class HomeController extends Controller
 
     public function search($lang,$region, $value, Request $request){
         $req = $request->all();
-        $re = Retailers::when(app()->getLocale() == 'en', function($q) use ($value){
+        $re = Retailers::whereHas('countries', function($q){
+                            $q->where('country_id', config('app.country'));
+                        })
+                        ->where('status', '1')
+                        ->when(app()->getLocale() == 'en', function($q) use ($value){
                             $q->where('name', 'like', '%'.$value.'%');
                         })
                         ->when(app()->getLocale() == 'ar', function($q) use ($value){
                             $q->where('name_ar', 'like', '%'.$value.'%');
                         })
-                        ->where('status', '1')
                         ->limit(6)->get();
         $html = '';
         foreach ($re as $key => $val) {
@@ -289,24 +292,24 @@ class HomeController extends Controller
     //FAQS
     public function FAQS()
     {
-        return view('web.content.faqs');
+        return view('web.content.'.config('app.country').'.faqs');
     }
 
     //Terms
     public function Terms()
     {
-        return view('web.content.terms-conditions');
+        return view('web.content.'.config('app.country').'.terms-conditions');
     }
 
     //Privacy_Policy
     public function Privacy_Policy()
     {
-        return view('web.content.privacy-policy');
+        return view('web.content.'.config('app.country').'.privacy-policy');
     }
 
     //Anti_Spam
     public function Anti_Spam()
     {
-        return view('web.content.anti-spam-policy');
+        return view('web.content.'.config('app.country').'.anti-spam-policy');
     }
 }

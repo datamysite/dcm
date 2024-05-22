@@ -11,7 +11,13 @@
     <td>{{$val->name}}</td>
     <td>{{$countries}}</td>
     <td>{{$val->discount_upto}} %</td>
-    <td>0 Coupons</td>
+    <td>
+      @if($val->type == '1')
+        {{count($val->coupons)}} Coupons
+      @else
+        {{count($val->offers)}} Offers
+      @endif
+    </td>
     <td>{{@$val->user->username}}</td>
     <td>
       @if($val->status == '1')

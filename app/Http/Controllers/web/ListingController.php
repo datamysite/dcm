@@ -40,6 +40,7 @@ class ListingController extends Controller
         //Filter -- end
 
         $data['retailers'] = Retailers::where('type', $type)
+                                        ->where('status', '1')
                                         ->when($type != '1', function($q) use ($region){
                                             return $q->whereHas('states', function($qq) use ($region){
                                                 return $qq->whereHas('state', function($qqq) use ($region){
@@ -55,7 +56,6 @@ class ListingController extends Controller
                                         ->when(!empty($req['discount']), function($q) use ($req){
                                                 return $q->where('discount_upto', '<=', $req['discount']);
                                         })
-                                        ->where('status', '1')
                                         ->paginate(12);
 
         return view($this->getView('web.listing.index'))->with($data);
