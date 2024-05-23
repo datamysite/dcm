@@ -55,7 +55,7 @@ class ListingController extends Controller
                                         })
                                         ->when(empty($req['country']), function($q) use ($req){
                                             return $q->whereHas('countries', function($qq) use ($req){
-                                                return $qq->where('country_id', config('app.country');
+                                                return $qq->where('country_id', config('app.country'));
                                             });
                                         })
                                         ->when(!empty($req['discount']), function($q) use ($req){
@@ -153,7 +153,7 @@ class ListingController extends Controller
                                         })
                                         ->when(empty($req['country']), function($q) use ($req){
                                             return $q->whereHas('countries', function($qq) use ($req){
-                                                return $qq->where('country_id', config('app.country');
+                                                return $qq->where('country_id', config('app.country'));
                                             });
                                         })
                                         ->when(!empty($req['discount']), function($q) use ($req){
@@ -199,7 +199,7 @@ class ListingController extends Controller
                                         })
                                         ->when(empty($req['country']), function($q) use ($req){
                                             return $q->whereHas('countries', function($qq) use ($req){
-                                                return $qq->where('country_id', config('app.country');
+                                                return $qq->where('country_id', config('app.country'));
                                             });
                                         })
                                         ->when(!empty($req['discount']), function($q) use ($req){
