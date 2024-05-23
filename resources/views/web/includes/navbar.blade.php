@@ -236,6 +236,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   <div>
                      <ul class="navbar-nav align-items-center">
 
+                     @if(config('app.retail'))
                         <li class="nav-item dropdown w-100 w-lg-auto">
                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
                            <ul class="dropdown-menu">
@@ -243,6 +244,11 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                               <li><a class="dropdown-item" href="{{route('stores', [$region, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
                            </ul>
                         </li>
+                     @else
+                        <li class="nav-item w-100 w-lg-auto">
+                           <a class="nav-link" href="{{route('stores', [$region, 'online'])}}">{{ __('translation.All_Stores') }}</a>
+                        </li>
+                     @endif
 
                         <li class="nav-item dropdown w-100 w-lg-auto">
                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.Categories') }}</a>
@@ -255,18 +261,23 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                      $string = str_replace(' ', '-', $string);
                                      $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                                  @endphp
-                                 @if($val->type == 3)
-                                    <li class="dropdown-submenu dropend mob-nav">
-                                       <a class="dropdown-item dropdown-toggle nested-link" href="javascript:void(0)" data-link="{{$val->id}}" role="button" data-bs-toggle="dropdown">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
-                                       <ul class="dropdown-menu cat_{{$val->id}}">
 
-                                          <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
-                                          <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
+                                 @if(config('app.retail'))
+                                    @if($val->type == 3)
+                                       <li class="dropdown-submenu dropend mob-nav">
+                                          <a class="dropdown-item dropdown-toggle nested-link" href="javascript:void(0)" data-link="{{$val->id}}" role="button" data-bs-toggle="dropdown">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                                          <ul class="dropdown-menu cat_{{$val->id}}">
 
-                                       </ul>
-                                    </li>
+                                             <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
+                                             <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
+
+                                          </ul>
+                                       </li>
+                                    @else
+                                       <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                                    @endif
                                  @else
-                                    <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                                       <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
                                  @endif
                               @endforeach
                            </ul>

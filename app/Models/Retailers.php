@@ -32,7 +32,7 @@ class Retailers extends Model
         $r->discount_upto = $data['discount_upto'];
         $r->discount_tags = empty($data['discount_tags']) ? '' : $data['discount_tags'];
         $r->type = $data['type'];
-        $r->status = '1';
+        $r->status = '0';
         $r->created_by = Auth::guard('admin')->id();
         $r->save();
 

@@ -19,13 +19,14 @@ class RegionController extends Controller
         $data = json_decode($response->getBody());
 
         $defaulState = array('','dubai', 'riyadh');
-        $states = array('Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al-Khaimah', 'Fujairah', 'Umm Al-Quwain');
+        $states[1] = array('Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al-Khaimah', 'Fujairah', 'Umm Al-Quwain');
+        $states[2] = array('Jeddah', 'Riyadh', 'Makkah', 'Madinah', 'Dammam', 'Khobar');
 
         if ((function_exists('session_status') 
           && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
           session_start();
         }
-        if(!empty($data->region) && in_array($data->region, $states)){
+        if(!empty($data->region) && in_array($data->region, $states[config('app.country')])){
             $st = States::where('name', $data->region)->first();
             if(!empty($st->id)){
                 $region = $st->slug;
