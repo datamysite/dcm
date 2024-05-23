@@ -53,6 +53,11 @@ class ListingController extends Controller
                                                 return $qq->where('country_id', $req['country']);
                                             });
                                         })
+                                        ->when(empty($req['country']), function($q) use ($req){
+                                            return $q->whereHas('countries', function($qq) use ($req){
+                                                return $qq->where('country_id', config('app.country');
+                                            });
+                                        })
                                         ->when(!empty($req['discount']), function($q) use ($req){
                                                 return $q->where('discount_upto', '<=', $req['discount']);
                                         })
@@ -146,6 +151,11 @@ class ListingController extends Controller
                                                 return $qq->where('country_id', $req['country']);
                                             });
                                         })
+                                        ->when(empty($req['country']), function($q) use ($req){
+                                            return $q->whereHas('countries', function($qq) use ($req){
+                                                return $qq->where('country_id', config('app.country');
+                                            });
+                                        })
                                         ->when(!empty($req['discount']), function($q) use ($req){
                                                 return $q->where('discount_upto', '<=', $req['discount']);
                                         })
@@ -185,6 +195,11 @@ class ListingController extends Controller
                                         ->when(!empty($req['country']), function($q) use ($req){
                                             return $q->whereHas('countries', function($qq) use ($req){
                                                 return $qq->where('country_id', $req['country']);
+                                            });
+                                        })
+                                        ->when(empty($req['country']), function($q) use ($req){
+                                            return $q->whereHas('countries', function($qq) use ($req){
+                                                return $qq->where('country_id', config('app.country');
                                             });
                                         })
                                         ->when(!empty($req['discount']), function($q) use ($req){
