@@ -62,17 +62,12 @@ class RegionController extends Controller
     public function get_location(){
         $userIp = RegionController::getIPAddress();
         $client = new Client();
-        $response = $client->get("https://ipinfo.io/54.37.1.193?token=91b28de1f957f7");
+        $response = $client->get("https://ipinfo.io/".$userIp."?token=91b28de1f957f7");
         $idata = json_decode($response->getBody());
 
         $country = Countries::where('shortname_2', $idata->country)->first();
 
-        if(empty($country->id)){
-            $data['countries'] = Countries::all();
-            
-            return view('web.content.modal.countrySelect')->with($data);
-
-        }elseif($country->id != config('app.country')){
+        if(empty($country->id) || $country->id != config('app.country')){
             $data['country'] = $country;
             if(config('app.country') == '1'){
                 $data['c1'] = 'UAE';

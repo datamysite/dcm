@@ -64,12 +64,21 @@ $(document).ready(function() {
 
       $("#locationModal").modal('hide');
     });
+
+    $(document).on('click', '.proceedLocationBtn', function(){
+      var loc = $(this).data('location');
+      var loclink = $(this).data('loclink');
+      document.cookie = "cookieBy= DCM-"+loc+"; max-age=" + 60 * 60 * 24 * 30;
+      //console.log(loclink);
+      window.location.href = loclink;
+
+    });
 });
 
 function checkLocation(){
   
   $.get(host+'/../../getLocation', function(data){
-    console.log(data);
+    //console.log(data);
     if(data != "pass"){
       if(document.cookie.includes("DCM-"+host_country)){
 
