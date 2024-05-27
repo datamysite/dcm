@@ -13,12 +13,12 @@
 
          <a href="javascript:void(0)" class="loc-link loc-1 stayLocationBtn" data-location="KSA">
             <span>Stay on {{$c1}}`s Website</span>
-            <img src="{{URL::to('/public/web_assets/images/countries/2.png')}}" width="25px" height="17.844px">
+            <img src="{{URL::to('/public/web_assets/images/countries/{{$ci1}}.png')}}" width="25px" height="17.844px">
          </a>
 
          <a href="{{$cl2}}" class="loc-link loc-2">
             <span>Proceed to {{$c2}}`s Website</span>
-            <img src="{{URL::to('/public/web_assets/images/countries/1.png')}}" width="25px" height="17.844px">
+            <img src="{{URL::to('/public/web_assets/images/countries/{{$ci2}}.png')}}" width="25px" height="17.844px">
          </a>
       </div>
    </div>

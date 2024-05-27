@@ -70,16 +70,20 @@ class RegionController extends Controller
         if(empty($country->id) || $country->id != config('app.country')){
             $data['country'] = $country;
             if(config('app.country') == '1'){
+                $data['ci1'] = '1';
                 $data['c1'] = 'UAE';
                 $data['cl1'] = 'https://dealsandcouponsmena.ae';
 
+                $data['ci2'] = '2';
                 $data['c2'] = 'KSA';
                 $data['cl2'] = 'https://dealsandcouponsmena.com';
             }else{
 
+                $data['ci1'] = '2';
                 $data['c1'] = 'KSA';
                 $data['cl1'] = 'https://dealsandcouponsmena.com';
 
+                $data['ci2'] = '1';
                 $data['c2'] = 'UAE';
                 $data['cl2'] = 'https://dealsandcouponsmena.ae';
             }
