@@ -236,7 +236,7 @@
                                  <li class="nav-item border-bottom w-100">
                                     <div class="form-check mb-2">
                                        <!-- input -->
-                                       <input class="form-check-input" type="radio" name="country" value="{{$val->id}}" id="countries{{$val->id}}" {{!empty($_GET['country']) && $_GET['country'] == $val->id ? 'checked' : ''}} {{empty($_GET['country']) && $val->id == '1' ? 'checked' : ''}}/>
+                                       <input class="form-check-input" type="radio" name="country" value="{{$val->id}}" id="countries{{$val->id}}" {{!empty($_GET['country']) && $_GET['country'] == $val->id ? 'checked' : ''}} {{empty($_GET['country']) && $val->id == config('app.country') ? 'checked' : ''}}/>
                                        <label class="form-check-label" for="countries{{$val->id}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</label>
                                     </div>
                                     <!-- accordion collapse -->
