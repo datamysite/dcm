@@ -91,10 +91,10 @@ class SeoController extends Controller
     public function snippet_edit($id){
         $id = base64_decode($id);
 
-        $data = SnippetCode::find($id);
+        $data['data'] = SnippetCode::find($id);
         $data['countries'] = Countries::all();
 
-        return view('admin.seo.snippet.edit', ['data' => $data]);
+        return view('admin.seo.snippet.edit')->with($data);
     }
 
     public function snippet_update(Request $request){
