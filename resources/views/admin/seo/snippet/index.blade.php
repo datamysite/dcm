@@ -114,7 +114,7 @@
             <div class="col-md-2">
               <div class="form-group">
                 <label>Country</label>
-                <select class="form-control" name="position" required>
+                <select class="form-control" name="country_id" required>
                   @foreach($countries as $val)
                     <option value="{{$val->id}}">{{$val->shortname}}</option>
                   @endforeach

@@ -19,6 +19,7 @@ class SnippetCode extends Model
         $c->position = $data['position'];
         $c->page_url = empty($data['page_url']) ? '' : $data['page_url'];
         $c->snippet_code = $data['snippet_code'];
+        $c->country_id = $data['country_id'];
         $c->created_by = Auth::guard('admin')->id();
         $c->save();
 
@@ -31,6 +32,7 @@ class SnippetCode extends Model
         $c->position = $data['position'];
         $c->page_url = empty($data['page_url']) ? '' : $data['page_url'];
         $c->snippet_code = $data['snippet_code'];
+        $c->country_id = $data['country_id'];
         $c->save();
 
         return $c->id;
