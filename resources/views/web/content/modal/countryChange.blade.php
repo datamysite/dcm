@@ -1,0 +1,25 @@
+<div class="card country-card">
+   <div class="d-flex justify-content-between align-items-start card-head">
+      <div>
+         <h5 class="text-center text-white">Country Preferences ! </h5>
+      </div>
+      <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+   </div>
+   <div style="padding:15px">
+      <div class="d-flex flex-column card-body" style="min-height:240px">
+         <p class="head-1">You are about to navigate to <strong>KSA's</strong> website.</p>
+         <p class="head-2">Would you like to:</p>
+
+
+         <a href="javascript:void(0)" class="loc-link loc-1 stayLocationBtn" data-location="KSA">
+            <span>Stay on {{$c1}}`s Website</span>
+            <img src="{{URL::to('/public/web_assets/images/countries/2.png')}}" width="25px" height="17.844px">
+         </a>
+
+         <a href="{{$cl2}}" class="loc-link loc-2">
+            <span>Proceed to {{$c2}}`s Website</span>
+            <img src="{{URL::to('/public/web_assets/images/countries/1.png')}}" width="25px" height="17.844px">
+         </a>
+      </div>
+   </div>
+</div>

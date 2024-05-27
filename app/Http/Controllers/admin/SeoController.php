@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MetaTags;
 use App\Models\SnippetCode;
+use App\Models\Countries;
 use Auth;
 
 class SeoController extends Controller
@@ -59,6 +60,7 @@ class SeoController extends Controller
     //Snippet Code
     public function snippet(){
         $data['menu'] = 'seo.snippet';
+        $data['countries'] = Countries::all();
 
         return view('admin.seo.snippet.index')->with($data);
     }
@@ -90,6 +92,7 @@ class SeoController extends Controller
         $id = base64_decode($id);
 
         $data = SnippetCode::find($id);
+        $data['countries'] = Countries::all();
 
         return view('admin.seo.snippet.edit', ['data' => $data]);
     }

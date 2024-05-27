@@ -32,6 +32,7 @@ Route::get('/migrate', function () {
 
 // Website
     Route::get('/', 'web\RegionController@get_lang');
+    Route::get('/getLocation', 'web\RegionController@get_location');
 
     //Region
     Route::group([

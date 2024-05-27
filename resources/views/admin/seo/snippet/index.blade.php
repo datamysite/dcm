@@ -50,9 +50,10 @@
                   <tr>
                     <th width="5%">#</th>
                     <th width="20%">Name</th>
-                    <th width="40%">Page Link</th>
-                    <th width="20%">Position</th>
-                    <th width="15%" class="text-right">Action</th>
+                    <th width="35%">Page Link</th>
+                    <th width="15%">Position</th>
+                    <th width="15%">Country</th>
+                    <th width="10%" class="text-right">Action</th>
                   </tr>
                   </thead>
                   <tbody id="snippetTableBody">
@@ -64,6 +65,7 @@
                     <th>Name</th>
                     <th>Page Link</th>
                     <th>Position</th>
+                    <th>Country</th>
                     <th class="text-right">Action</th>
                   </tr>
                   </tfoot>
@@ -94,18 +96,28 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
               <div class="form-group">
                 <label>Snippet Name</label>
                 <input type="text" class="form-control" name="name" required>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label>Position</label>
                 <select class="form-control" name="position" required>
                   <option>Head</option>
                   <option selected>Body</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Country</label>
+                <select class="form-control" name="position" required>
+                  @foreach($countries as $val)
+                    <option value="{{$val->id}}">{{$val->shortname}}</option>
+                  @endforeach
                 </select>
               </div>
             </div>

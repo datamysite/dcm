@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Countries;
 use Auth;
 
 class SnippetCode extends Model
@@ -33,5 +34,9 @@ class SnippetCode extends Model
         $c->save();
 
         return $c->id;
+    }
+
+    public function country(){
+        return $this->belongsTo(Countries::class, 'country_id', 'id');
     }
 }

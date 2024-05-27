@@ -60,8 +60,9 @@ return [
 
 
     'country' => env('APP_COUNTRY', "1"),
+    'country_short' => env('APP_COUNTRY_SHORT', "UAE"),
 
-    'storage' => env('APP_STORAGE', "https://www.dealsandcouponsmena.com/public/storage/"),
+    'storage' => env('APP_STORAGE', "https://www.dealsandcouponsmena.ae/public/storage/"),
 
     'retail' => (bool) env('APP_RETAIL', true),
 

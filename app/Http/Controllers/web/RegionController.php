@@ -5,6 +5,7 @@ namespace App\Http\Controllers\web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\States;
+use App\Models\Countries;
 use GuzzleHttp\Client;
 use Config;
 
@@ -55,6 +56,45 @@ class RegionController extends Controller
         //dd($_SESSION['region']);
 
         return redirect()->intended('/'.app()->getLocale().'/'.$region);
+    }
+
+
+    public function get_location(){
+        $userIp = RegionController::getIPAddress();
+        $client = new Client();
+        $response = $client->get("https://ipinfo.io/54.37.1.193?token=91b28de1f957f7");
+        $idata = json_decode($response->getBody());
+
+        $country = Countries::where('shortname_2', $idata->country)->first();
+
+        if(empty($country->id)){
+            $data['countries'] = Countries::all();
+            
+            return view('web.content.modal.countrySelect')->with($data);
+
+        }elseif($country->id != config('app.country')){
+            $data['country'] = $country;
+            if(config('app.country') == '1'){
+                $data['c1'] = 'UAE';
+                $data['cl1'] = 'https://dealsandcouponsmena.ae';
+
+                $data['c2'] = 'KSA';
+                $data['cl2'] = 'https://dealsandcouponsmena.com';
+            }else{
+
+                $data['c1'] = 'KSA';
+                $data['cl1'] = 'https://dealsandcouponsmena.com';
+
+                $data['c2'] = 'UAE';
+                $data['cl2'] = 'https://dealsandcouponsmena.ae';
+            }
+
+
+            return view('web.content.modal.countryChange')->with($data);
+        }else{
+            return "pass";
+        }
+
     }
 
 

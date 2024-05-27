@@ -9,18 +9,28 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div class="form-group">
           <label>Snippet Name</label>
           <input type="text" class="form-control" name="name" value="{{$data->name}}" required>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="form-group">
           <label>Position</label>
           <select class="form-control" name="position" required>
             <option {{$data->position == 'Head' ? 'selected' : ''}}>Head</option>
             <option  {{$data->position == 'Body' ? 'selected' : ''}}>Body</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Country</label>
+          <select class="form-control" name="position" required>
+            @foreach($countries as $val)
+              <option value="{{$val->id}}" {{$val->id == $data->country_id ? 'selected' : ''}}>{{$val->shortname}}</option>
+            @endforeach
           </select>
         </div>
       </div>
