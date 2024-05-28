@@ -364,4 +364,18 @@
 
         });
     </script>
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'show_coupon', {
+          'app_name': 'DCM_UAE',
+          'screen_name': 'Brand'
+      });
+      return false;
+    }
+    </script>
 @endsection
