@@ -728,4 +728,15 @@ return [
   The majority of time; stores display a “Coupon Box” with an “Apply Code” button so that customers can quickly recognize it.",
   "faq_page_text_answer_09_ksa" =>  "Note: If you are experiencing difficulties finding the coupon box then get in touch with customer service representatives.",
   "faq_page_text_07_ksa" =>  "Still have any question ?",
+
+  //Country Change 
+  "country_change_para_1" => "Country Preferences !",
+  "country_change_para_2_UAE" => "You are about to navigate to UAE's website.",
+  "country_change_para_2_KSA" => "You are about to navigate to KSA's website.",
+  "country_change_para_3" => "Would you like to:",
+  "country_change_para_4_UAE" => "Stay on UAE`s Website",
+  "country_change_para_4_KSA" => "Stay on KSA`s Website",
+
+  "country_change_para_5_UAE" => "Proceed to UAE`s Website",
+  "country_change_para_5_KSA" => "Proceed to KSA`s Website",
 ];
