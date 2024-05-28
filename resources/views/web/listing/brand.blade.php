@@ -390,5 +390,19 @@
           });
           return false;
         }
+
+
+        function gtag_report_qrcodeDownload(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'qrcode_download', {
+              'app_name': 'DCM_UAE',
+              'screen_name': 'Brand'
+          });
+          return false;
+        }
     </script>
 @endsection
