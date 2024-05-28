@@ -4,7 +4,7 @@
     border: 1px solid #2eb2ff;
 }
 .country-card .btn-close {
-    margin: -2px 6px 0 4px;
+    margin: -2px 5px 0 -10px;
     filter: invert(1);
 }
 .country-card h5{
@@ -31,7 +31,10 @@
 .country-card .card-head {
     background-color: #2eb2ff;
     text-align: center;
-    padding: 9px 0px 0px 15px;
+    padding: 9px 15px 0px 15px;
+}
+.country-card .card-body {
+    height: 300px;
 }
 .loc-link.loc-1 {
     border: 2px solid;
