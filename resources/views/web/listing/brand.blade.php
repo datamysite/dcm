@@ -404,5 +404,21 @@
           });
           return false;
         }
+
+
+
+
+        function gtag_report_whatsappButton(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'whatsapp_button', {
+              'app_name': 'DCM_UAE',
+              'screen_name': 'Brand'
+          });
+          return false;
+        }
     </script>
 @endsection

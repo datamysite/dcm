@@ -21,7 +21,7 @@
    <div>
      <a href="{{route('offers.redeemPDF', [$region, base64_encode($qrid)])}}" onclick="return gtag_report_qrcodeDownload;" target="_blank" class="grap_deal_icon">{{ __('translation.Download') }} &nbsp;<i class="fa fa-download"></i></a>
      |
-     <a href="javascript:void(0)" data-href="{{$offer->retailer->store_link}}" class="grap_deal_icon whatsapp_chat" data-id="{{$offer->id}}">{{ __('translation.Whatsapp') }} &nbsp;<i class="fa fa-whatsapp"></i></a>
+     <a href="javascript:void(0)" data-href="{{$offer->retailer->store_link}}" onclick="return gtag_report_whatsappButton;" class="grap_deal_icon whatsapp_chat" data-id="{{$offer->id}}">{{ __('translation.Whatsapp') }} &nbsp;<i class="fa fa-whatsapp"></i></a>
    </div>
 </div>
 
