@@ -32,7 +32,6 @@ Route::get('/migrate', function () {
 
 // Website
     Route::get('/', 'web\RegionController@get_lang');
-    Route::get('/getLocation', 'web\RegionController@get_location');
 
     //Region
     Route::group([
@@ -44,6 +43,7 @@ Route::get('/migrate', function () {
             ], function () {
         Route::get('/', 'RegionController@index');
         Route::get('/region/{name}', 'RegionController@set_region')->name('setRegion');
+        Route::get('/getLocation', 'RegionController@get_location');
 
         Route::prefix('{region}')->group(function(){
             //Home

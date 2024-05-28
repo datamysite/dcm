@@ -77,7 +77,7 @@ $(document).ready(function() {
 
 function checkLocation(){
   
-  $.get(host+'/../../getLocation', function(data){
+  $.get(host+'/../getLocation', function(data){
     //console.log(data);
     if(data != "pass"){
       if(document.cookie.includes("DCM-"+host_country)){
