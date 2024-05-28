@@ -12,7 +12,7 @@
   <div class="grap_deal_code">
      <p>{{ __('translation.your_coupon_code') }}</p>
      <h2>
-        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->merge('https://beta.dealsandcouponsmena.com/public/web_assets/images/logo/logo-DCM.png', .3, true)->size(200)->generate('https://dealsandcouponsmena.ae')) !!} ">
+        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->merge('https://dealsandcouponsmena.ae/public/web_assets/images/logo/logo-DCM.png', .5, true)->size(200)->generate('https://dealsandcouponsmena.ae')) !!} ">
      </h2>
   </div>
 </div>
