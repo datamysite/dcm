@@ -1,7 +1,7 @@
 <div class="card country-card">
    <div class="d-flex justify-content-between align-items-start card-head">
       <div>
-         <h5 class="text-center text-white">{{ __('translation.country_change_para_1') }}</h5>
+         <h5 class="text-center text-white">{{ __('translation.zero_commissions') }}</h5>
       </div>
       <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
    </div>
