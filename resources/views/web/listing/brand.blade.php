@@ -362,6 +362,14 @@
                 });
             });
 
+
+
+            $(document).on('click', '.downloadQrcode', function(){
+                var link = $(this).data('href');
+                $('#ShowCouponModal').modal('hide');
+                window.location.href = link;
+            });
+
         });
     </script>
     <script>
