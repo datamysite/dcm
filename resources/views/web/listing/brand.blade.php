@@ -375,7 +375,7 @@
     <script>
         function show_coupon_ev(url){
             gtag_report_showcoupon(url);
-            gtagSendEvent(url);
+            gtag_report_conversion(url);
         }
         function gtag_report_showcoupon(url) {
           var callback = function () {
@@ -390,19 +390,19 @@
           return false;
         }
 
-         function gtagSendEvent(url) {
-            var callback = function () {
-              if (typeof url === 'string') {
-                window.location = url;
-              }
-            };
-            gtag('event', 'conversion_event_purchase', {
-              'event_callback': callback,
-              'event_timeout': 2000,
-              // <event_parameters>
-            });
-            return false;
-          }
+        function gtag_report_conversion(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'conversion', {
+              'send_to': 'AW-10888181422/n0JTCKSN8LQZEK7t8cco',
+              'transaction_id': '',
+              'event_callback': callback
+          });
+          return false;
+        }
 
         function gtag_report_grabDeal(url) {
           var callback = function () {
