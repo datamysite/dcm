@@ -33,9 +33,9 @@ class ExtController extends Controller
             }
 
         }else{
-            $data['country_id'] = '2';
-            $data['state'] = 'riyadh';
-            $data['host_name'] = 'https://dealsandcouponsmena.com/';
+            $data['country_id'] = '1';
+            $data['state'] = 'dubai';
+            $data['host_name'] = 'https://dealsandcouponsmena.ae/';
         }
 
         return view('web.extension.index')->with($data);
