@@ -172,7 +172,7 @@
                             <span style="color:#fff;"></span>
 
                             <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" onclick="return gtag_report_showcoupon;" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
+                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" onclick="return show_coupon_ev;" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
                             </span>
                         </div>
                     </div>
@@ -373,6 +373,10 @@
         });
     </script>
     <script>
+        function show_coupon_ev(url){
+            gtag_report_showcoupon(url);
+            gtagSendEvent(url);
+        }
         function gtag_report_showcoupon(url) {
           var callback = function () {
             if (typeof(url) != 'undefined') {
@@ -385,6 +389,20 @@
           });
           return false;
         }
+
+         function gtagSendEvent(url) {
+            var callback = function () {
+              if (typeof url === 'string') {
+                window.location = url;
+              }
+            };
+            gtag('event', 'conversion_event_purchase', {
+              'event_callback': callback,
+              'event_timeout': 2000,
+              // <event_parameters>
+            });
+            return false;
+          }
 
         function gtag_report_grabDeal(url) {
           var callback = function () {
