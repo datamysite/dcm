@@ -1,5 +1,5 @@
 
-const host = "http://localhost/DCM/";
+const host = "https://dealsandcouponsmena.ae/";
 const enhomeSection = document.getElementById('en-homeSection');
 const encouponSection = document.getElementById('en-couponSection');
 const arhomeSection = document.getElementById('ar-homeSection');
@@ -97,24 +97,45 @@ async function fetchHomeRetailers_ar(url) {
 }
 
 
-/*document.getElementById("brandTab").addEventListener("click", function(){
+document.getElementById("en-brandTab").addEventListener("click", function(){
    
   if (this.classList.contains("active")) {
   } else {
     this.classList.add('active');
-    document.getElementById('couponTab').classList.remove('active');
-    document.getElementById('brands').classList.add('active');
-    document.getElementById('coupons').classList.remove('active');
+    document.getElementById('en-couponTab').classList.remove('active');
+    document.getElementById('en-brands').classList.add('active');
+    document.getElementById('en-coupons').classList.remove('active');
   }
 });
-document.getElementById("couponTab").addEventListener("click", function(){
+document.getElementById("en-couponTab").addEventListener("click", function(){
    
   if (this.classList.contains("active")) {
   } else {
     this.classList.add('active');
-    document.getElementById('brandTab').classList.remove('active');
-    document.getElementById('coupons').classList.add('active');
-    document.getElementById('brands').classList.remove('active');
+    document.getElementById('en-brandTab').classList.remove('active');
+    document.getElementById('en-coupons').classList.add('active');
+    document.getElementById('en-brands').classList.remove('active');
   }
-});*/
+});
+
+document.getElementById("ar-brandTab").addEventListener("click", function(){
+   
+  if (this.classList.contains("active")) {
+  } else {
+    this.classList.add('active');
+    document.getElementById('ar-couponTab').classList.remove('active');
+    document.getElementById('ar-brands').classList.add('active');
+    document.getElementById('ar-coupons').classList.remove('active');
+  }
+});
+document.getElementById("ar-couponTab").addEventListener("click", function(){
+   
+  if (this.classList.contains("active")) {
+  } else {
+    this.classList.add('active');
+    document.getElementById('ar-brandTab').classList.remove('active');
+    document.getElementById('ar-coupons').classList.add('active');
+    document.getElementById('ar-brands').classList.remove('active');
+  }
+});
 

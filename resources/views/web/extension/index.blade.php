@@ -453,10 +453,10 @@
 
               <ul class="nav justify-content-between nav-pills" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" href="javascript:void(0)" id="en-coupons">Coupons</a>
+                  <a class="nav-link active" href="javascript:void(0)" id="en-couponTab">Coupons</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="javascript:void(0)" id="en-brands">Brands</a>
+                  <a class="nav-link " href="javascript:void(0)" id="en-brandTab">Brands</a>
                 </li>
               </ul>
         </header>
@@ -504,10 +504,10 @@
 
               <ul class="nav justify-content-between nav-pills" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" href="javascript:void(0)" id="ar-coupons">كوبونات</a>
+                  <a class="nav-link active" href="javascript:void(0)" id="ar-couponTab">كوبونات</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="javascript:void(0)" id="ar-brands">العلامات التجارية</a>
+                  <a class="nav-link " href="javascript:void(0)" id="ar-brandTab">العلامات التجارية</a>
                 </li>
               </ul>
         </header>
