@@ -11,8 +11,8 @@ use App\Models\Coupon;
 class ExtController extends Controller
 {
     public function getRetailers($limit){
-        $data['brands'] = Retailers::with('coupons:id,heading,code,discount,retailer_id')
-                                        ->select('id', 'name', 'logo', 'slug', 'store_link', 'discount_upto')
+        $data['brands'] = Retailers::with('coupons:id,heading_ar,heading,code,discount,retailer_id')
+                                        ->select('id', 'name', 'logo', 'ar_logo', 'slug', 'store_link', 'discount_upto')
                                         ->where(['status' => '1', 'type' => '1'])
                                         ->limit($limit)->inRandomOrder()->get();
 
@@ -20,14 +20,14 @@ class ExtController extends Controller
     }
 
     public function getRetailerswithurl($limit, $url){
-        $data['brands'] = Retailers::with('coupons:id,heading,code,discount,retailer_id')
-                                        ->select('id', 'name', 'logo', 'slug', 'store_link', 'discount_upto')
+        $data['brands'] = Retailers::with('coupons:id,heading_ar,heading,code,discount,retailer_id')
+                                        ->select('id', 'name', 'logo', 'ar_logo', 'slug', 'store_link', 'discount_upto')
                                         ->where('store_link', 'LIKE', '%'.$url.'%')
                                         ->where(['status' => '1', 'type' => '1'])
                                         ->limit($limit)->get();
         if(count($data['brands']) == 0){
-            $data['brands'] = Retailers::with('coupons:id,heading,code,discount,retailer_id')
-                                        ->select('id', 'name', 'logo', 'slug', 'store_link', 'discount_upto')
+            $data['brands'] = Retailers::with('coupons:id,heading_ar,heading,code,discount,retailer_id')
+                                        ->select('id', 'name', 'logo', 'ar_logo', 'slug', 'store_link', 'discount_upto')
                                         ->where(['status' => '1', 'type' => '1'])
                                         ->limit($limit)->inRandomOrder()->get();
         }
@@ -47,8 +47,8 @@ class ExtController extends Controller
 
     public function findRetailer($val){
 
-        $data['brands'] = Retailers::with('coupons:id,heading,code,discount,retailer_id')
-                            ->select('id', 'name', 'logo', 'slug', 'store_link', 'discount_upto')
+        $data['brands'] = Retailers::with('coupons:id,heading_ar,heading,code,discount,retailer_id')
+                            ->select('id', 'name', 'logo', 'ar_logo', 'slug', 'store_link', 'discount_upto')
                             ->where('name', 'LIKE', '%'.$val.'%')
                             ->where(['status' => '1', 'type' => '1'])
                             ->limit(9)->get();

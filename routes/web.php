@@ -181,14 +181,13 @@ Route::get('/migrate', function () {
             Route::post('amp/subscribe', 'NewsletterController@subscribe_amp')->name('newsletter.subscribe.amp');
         });
 
+        //Chrome Extension
+        Route::prefix('ext')->group(function(){
+            Route::get('open/{url}', 'ExtController@index');
+        });
+
     });
 
-    
-    //Chrome Extension
-
-    Route::namespace('ext')->prefix('ext')->group(function(){
-        Route::get('open/{url}', 'ExtController@index');
-    });
 
 
 
