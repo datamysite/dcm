@@ -1,5 +1,5 @@
 
-const host = "https://dealsandcouponsmena.ae/";
+var host = $("meta[name='host_name']").attr("content");
 const enhomeSection = document.getElementById('en-homeSection');
 const encouponSection = document.getElementById('en-couponSection');
 const arhomeSection = document.getElementById('ar-homeSection');
