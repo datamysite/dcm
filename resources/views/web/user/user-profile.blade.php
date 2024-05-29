@@ -131,7 +131,7 @@
                         <div class="about-us-feature">
                             <div class="about-us-icon"></div>
                             <div class="about-us-title"> {{ __('translation.total_earnings_txt_heading_03') }} </div>
-                            <div class="about-us-text">{{ __('translation.total_earnings_txt_heading_03_txt') }}</div>
+                            <div class="about-us-text">{{ __('translation.profile_para_1') }}</div>
                             <a href="{{route('user.claimCashback')}}" class="btn btn-primary shadow-gray" {!! app()->getLocale() == 'ar' ? 'style="float: left;"' : 'style="float: right;"' !!}>{{ __('translation.view_more_btn_txt') }}</a>
                             <p></p>
                         </div>
@@ -151,7 +151,7 @@
                         <div class="about-us-feature">
                             <div class="about-us-icon"></div>
                             <div class="about-us-title">{{ __('translation.total_earnings_txt_heading_02') }} </div>
-                            <div class="about-us-text">{{ __('translation.total_earnings_txt_heading_02_txt') }}</div>
+                            <div class="about-us-text">{{ __('translation.profile_para_2') }}</div>
                             <a href="{{route('user.withdrawPayment')}}" class="btn btn-primary shadow-gray" {!! app()->getLocale() == 'ar' ? 'style="float: left;"' : 'style="float: right;"' !!}>{{ __('translation.view_more_btn_txt') }}</a>
                             <p></p>
                         </div>
@@ -161,7 +161,7 @@
                         <div class="about-us-feature">
                             <div class="about-us-icon"></div>
                             <div class="about-us-title">{{ __('translation.total_earnings_txt_heading_01') }}</div>
-                            <div class="about-us-text">{{ __('translation.total_earnings_txt_heading_01_txt') }}</div>
+                            <div class="about-us-text">{{ __('translation.profile_para_3') }}</div>
                             <a href="{{route('user.paymenyHistory')}}" class="btn btn-primary shadow-gray" {!! app()->getLocale() == 'ar' ? 'style="float: left;"' : 'style="float: right;"' !!}>{{ __('translation.view_more_btn_txt') }}</a>
                             <p></p>
                         </div>

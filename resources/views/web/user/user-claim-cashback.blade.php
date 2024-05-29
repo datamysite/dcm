@@ -41,7 +41,7 @@
                     <div class="row" style="background-color: #f0f3f2;border-radius: 10px">
                     <h4 class="mb-2 mt-5">{{ __('translation.total_earnings_txt_heading_03') }}</h4>
 
-                    <p class="mb-0 lead">{{ __('translation.cash_back_txt') }} </p>
+                    <p class="mb-0 lead">{{ __('translation.profile_para_1') }} </p>
 
 
 

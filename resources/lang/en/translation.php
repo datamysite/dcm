@@ -315,6 +315,10 @@ return [
   "contact_number_txt" => "Contact Number",
   "account_requested_txt" => "Account Requested",
 
+  "profile_para_1" => "Withdraw your cashback when it hits 100 AED. Transfer the total amount directly to your bank account.",
+  "profile_para_2" => "Choose the amount to start the withdrawal and enjoy your earnings.",
+  "profile_para_3" => "Monitor all transactions and verify any payments received from us.",
+
   //User Settings Menu
   "user_settings_txt" => "SETTINGS",
   "user_personal_details_txt" => "Personal Details",
