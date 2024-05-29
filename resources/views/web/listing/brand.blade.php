@@ -383,11 +383,6 @@
               'app_name': 'DCM_UAE',
               'screen_name': 'Brand'
           });
-          gtag('config', 'AW-10888181422');
-          gtag('event', 'conversion', {
-              'send_to': 'AW-10888181422/saMACJ-N7Y8YEK7t8cco',
-              'event_callback': callback
-          });
           return false;
         }
 

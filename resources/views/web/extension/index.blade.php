@@ -440,7 +440,9 @@
                 <a href="javascript:void(0)" class="changeLang" data-lang="ar">
                     <img width="10px" height="10px" src="https://dealsandcouponsmena.com/public/web_assets/images/icons/globe.svg"> AR
                 </a>
-                <img width="20px" height="14px" src="https://dealsandcouponsmena.com/public/uae-flag.png">
+                <a href="javascript:void(0)">
+                    <img width="20px" height="14px" src="https://dealsandcouponsmena.com/public/uae-flag.png">
+                </a>
 
             </div>
             </div>
@@ -491,8 +493,9 @@
                 <a href="javascript:void(0)" class="changeLang" data-lang="en">
                     <img width="10px" height="10px" src="https://dealsandcouponsmena.com/public/web_assets/images/icons/globe.svg"> EN
                 </a>
-                <img width="20px" height="14px" src="https://dealsandcouponsmena.com/public/uae-flag.png">
-
+                <a href="javascript:void(0)">
+                    <img width="20px" height="14px" src="https://dealsandcouponsmena.com/public/uae-flag.png">
+                </a>
             </div>
             </div>
 
