@@ -191,9 +191,9 @@ class HomeController extends Controller
             $lo = app()->getLocale() == 'ar' ? $val->ar_logo : $val->logo;
             $html .= '<a href="'.route('brand', [$region, $val->slug]).'" class="main-search-result-item">';
                 if(empty($req['m'])){
-                    $html .= '<img src="'.URL::to('public/storage/retailers/'.$lo).'" height="40px">';
+                    $html .= '<img src="'.config('app.storage').'retailers/'.$lo.'" height="40px">';
                 }else{
-                    $html .= '<amp-img src="'.URL::to('public/storage/retailers/'.$lo).'" layout="fixed" width="30px" height="40px"></amp-img>';
+                    $html .= '<amp-img src="'.config('app.storage').'retailers/'.$lo.'" layout="fixed" width="30px" height="40px"></amp-img>';
                 }
             $html .= ' | '.$na.'
                            </a>';
