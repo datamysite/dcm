@@ -62,8 +62,8 @@ class RetailerController extends Controller
                 $ext = $file->getClientOriginalExtension();
                 $newname = $id.date('dmyhis').'.'.$ext;
 
-                Image::make($file->getRealPath())->resize(252, 313)->save($newname);
-                //$file->move(public_path().'/storage/retailers',$newname);
+                //Image::make($file->getRealPath())->resize(252, 313)->save($newname);
+                $file->move(public_path().'/storage/retailers',$newname);
 
                 $c = Retailers::find($id);
                 $c->logo = $newname;
@@ -76,8 +76,8 @@ class RetailerController extends Controller
                 $ext = $file->getClientOriginalExtension();
                 $newname = $id.date('dmyhis').'.'.$ext;
 
-                Image::make($file->getRealPath())->resize(252, 313)->save($newname);
-                //$file->move(public_path().'/storage/retailers/ar',$newname);
+                /Image::make($file->getRealPath())->resize(252, 313)->save($newname);
+                $file->move(public_path().'/storage/retailers/ar',$newname);
 
                 $c = Retailers::find($id);
                 $c->ar_logo = $newname;
