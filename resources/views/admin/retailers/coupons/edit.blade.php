@@ -25,7 +25,11 @@
 
         <div class="form-group">
           <label>Heading</label>
-          <input type="text" class="form-control" name="heading" value="{{$data->heading}}" required>
+          <input type="text" class="form-control eheading_en" name="heading" value="{{$data->heading}}" required>
+        </div>
+        <div class="form-group">
+          <label>Heading <small>(Ar)</small></label>
+          <input type="text" class="form-control eheading_ar" dir="rtl" value="{{$data->heading_ar}}" name="heading_ar" required>
         </div>
 
         <div class="form-group">

@@ -151,7 +151,11 @@
               </div>
               <div class="form-group">
                 <label>Heading</label>
-                <input type="text" class="form-control" name="heading" required>
+                <input type="text" class="form-control heading_en" name="heading" required>
+              </div>
+              <div class="form-group">
+                <label>Heading <small>(Ar)</small></label>
+                <input type="text" class="form-control heading_ar" dir="rtl" name="heading_ar" required>
               </div>
               <div class="form-group">
                 <label>Link# <small>(Optional)</small></label>
@@ -268,7 +272,50 @@
 
 <script>
   $(function () {
-    loadCoupon();    
+    loadCoupon();
+
+    $(".heading_en").keyup(function() {
+
+      var heading = $(this).val();
+      if(heading != ''){
+        $.ajax({
+          url: "{{route('translate')}}",
+          cache: false,
+          type: 'POST',
+          data: {
+            "_token": "{{ csrf_token() }}",
+            text: heading,
+          },
+          success: function(response) {
+            $('.heading_ar').val(response);
+          }
+        });
+      }else{
+        $('.heading_ar').val('');
+      }
+    });
+
+     $(document).on('keyup', ".eheading_en", function() {
+
+      var heading = $(this).val();
+      if(heading != ''){
+        $.ajax({
+          url: "{{route('translate')}}",
+          cache: false,
+          type: 'POST',
+          data: {
+            "_token": "{{ csrf_token() }}",
+            text: heading,
+          },
+          success: function(response) {
+            $('.eheading_ar').val(response);
+          }
+        });
+      }else{
+        $('.eheading_ar').val('');
+      }
+    });
+
 
     $(document).on('keyup', '.discountCalculate', function(){
       var discount = parseInt($('.discount').val());
