@@ -10,7 +10,6 @@ use App\Models\Retailers;
 use App\Models\RetailerCountries;
 use App\Models\Seller;
 use App\Models\States;
-use Image;
 use Auth;
 
 class RetailerController extends Controller
@@ -76,7 +75,7 @@ class RetailerController extends Controller
                 $ext = $file->getClientOriginalExtension();
                 $newname = $id.date('dmyhis').'.'.$ext;
 
-                /Image::make($file->getRealPath())->resize(252, 313)->save($newname);
+                //Image::make($file->getRealPath())->resize(252, 313)->save($newname);
                 $file->move(public_path().'/storage/retailers/ar',$newname);
 
                 $c = Retailers::find($id);
