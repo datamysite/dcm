@@ -172,7 +172,7 @@
                             <span style="color:#fff;"></span>
 
                             <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" onclick="return gtag_report_showcoupon;" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
+                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" onclick="return gtag_report_conversion;" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
                             </span>
                         </div>
                     </div>
@@ -373,22 +373,7 @@
         });
     </script>
     <script>
-        function show_coupon_ev(url){
-            gtag_report_showcoupon(url);
-            gtag_report_conversion(url);
-        }
-        function gtag_report_showcoupon(url) {
-          var callback = function () {
-            if (typeof(url) != 'undefined') {
-              window.location = url;
-            }
-          };
-          gtag('event', 'show_coupon', {
-              'app_name': 'DCM_UAE',
-              'screen_name': 'Brand'
-          });
-          return false;
-        }
+
 
         function gtag_report_conversion(url) {
           var callback = function () {
@@ -404,47 +389,5 @@
           return false;
         }
 
-        function gtag_report_grabDeal(url) {
-          var callback = function () {
-            if (typeof(url) != 'undefined') {
-              window.location = url;
-            }
-          };
-          gtag('event', 'grab_deal', {
-              'app_name': 'DCM_UAE',
-              'screen_name': 'Brand'
-          });
-          return false;
-        }
-
-
-        function gtag_report_qrcodeDownload(url) {
-          var callback = function () {
-            if (typeof(url) != 'undefined') {
-              window.location = url;
-            }
-          };
-          gtag('event', 'qrcode_download', {
-              'app_name': 'DCM_UAE',
-              'screen_name': 'Brand'
-          });
-          return false;
-        }
-
-
-
-
-        function gtag_report_whatsappButton(url) {
-          var callback = function () {
-            if (typeof(url) != 'undefined') {
-              window.location = url;
-            }
-          };
-          gtag('event', 'whatsapp_button', {
-              'app_name': 'DCM_UAE',
-              'screen_name': 'Brand'
-          });
-          return false;
-        }
     </script>
 @endsection
