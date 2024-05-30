@@ -10,7 +10,7 @@ use App\Models\Retailers;
 use App\Models\RetailerCountries;
 use App\Models\Seller;
 use App\Models\States;
-use Intervention\Image\Facades\Image as Image;
+use Image;
 use Auth;
 
 class RetailerController extends Controller
