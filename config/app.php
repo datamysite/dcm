@@ -67,6 +67,10 @@ return [
     'retail' => (bool) env('APP_RETAIL', true),
 
     'admin' => (bool) env('APP_ADMIN', true),
+
+
+    'ipinfo' => env('APP_IPINFO', "52b869f75e12f2"),
+
     /*
     |--------------------------------------------------------------------------
     | Application URL

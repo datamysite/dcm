@@ -20,7 +20,7 @@ class ClicksCounter extends Model
         //dd($coup_type);
         $userIp = ClicksCounter::getIPAddress();
         $client = new Client();
-         $response = $client->get("https://ipinfo.io/{$userIp}?token=91b28de1f957f7");
+         $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
          $data = json_decode($response->getBody());
 
          $cc = new ClicksCounter;

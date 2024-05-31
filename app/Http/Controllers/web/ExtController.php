@@ -14,7 +14,7 @@ class ExtController extends Controller
         $data['url'] = $url;
         $userIp = ExtController::getIPAddress();
         $client = new Client();
-        $response = $client->get("https://ipinfo.io/".$userIp."?token=91b28de1f957f7");
+        $response = $client->get("https://ipinfo.io/".$userIp."?token=".config('app.ipinfo'));
         $idata = json_decode($response->getBody());
 
         $country = Countries::where('shortname_2', $idata->country)->first();
