@@ -280,7 +280,7 @@
               window.location = url;
             }
           };
-          gtag('event', 'allstore_view', {
+          gtag('event', 'emirates_view', {
             'button_name': 'myBtn',
             'screen_name': 'Home'
           });
