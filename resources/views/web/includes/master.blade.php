@@ -71,7 +71,7 @@
                      <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required/>
                      <label class="errors password_error"></label>
                      <br>
-                     <button type="submit" class="btn btn-primary shadow-gray" onclick="return gtag_report_signup;">{{ __('translation.sign_up_btn') }}</button>
+                     <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_up_btn') }}</button>
                   </form>
                </div>
                <div class="form-modal_container sign-in-modal_container">
