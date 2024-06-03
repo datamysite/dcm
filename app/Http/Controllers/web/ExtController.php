@@ -22,19 +22,19 @@ class ExtController extends Controller
         if(!empty($country->id)){
             if($country->id == '1'){
                 $data['country_id'] = '1';
-                $data['state'] = 'dubai';
+                $data['state_name'] = 'dubai';
                 $data['host_name'] = 'https://dealsandcouponsmena.ae/';
 
             }elseif($country->id == '2'){
                 $data['country_id'] = '2';
-                $data['state'] = 'riyadh';
+                $data['state_name'] = 'riyadh';
                 $data['host_name'] = 'https://dealsandcouponsmena.com/';
 
             }
 
         }else{
             $data['country_id'] = '1';
-            $data['state'] = 'dubai';
+            $data['state_name'] = 'dubai';
             $data['host_name'] = 'https://dealsandcouponsmena.ae/';
         }
 
