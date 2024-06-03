@@ -240,8 +240,8 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         <li class="nav-item dropdown w-100 w-lg-auto">
                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="{{route('stores', [$region, 'online'])}}">{{ __('translation.Online') }}</a></li>
-                              <li><a class="dropdown-item" href="{{route('stores', [$region, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
+                              <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'online'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Online') }}</a></li>
+                              <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'retail'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Retail') }}</a></li>
                            </ul>
                         </li>
                      @else
