@@ -375,6 +375,11 @@
     <script>
 
 
+        gtag('event', 'brand_view', {
+            'button_name': 'myBtn',
+            'screen_name': 'Brand'
+        });
+
         function gtag_report_showcoupon(url) {
           var callback = function () {
             if (typeof(url) != 'undefined') {
@@ -415,7 +420,7 @@
           });
           return false;
         }
-        
+
 
         function gtag_report_grabDeal(url) {
           var callback = function () {
