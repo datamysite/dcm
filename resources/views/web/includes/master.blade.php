@@ -244,6 +244,7 @@ window.addEventListener("load", executeCodes);
    <!-- {{$val->name}} // End -->
 
 @endforeach
+@include('web.includes.analyticsScript')
 
 @yield('addScript')
 </body>
