@@ -172,7 +172,7 @@
                             <span style="color:#fff;"></span>
 
                             <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" onclick="return gtag_report_conversion;" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
+                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" onclick="return gtag_report_showcoupon;" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
                             </span>
                         </div>
                     </div>
@@ -375,16 +375,57 @@
     <script>
 
 
-        function gtag_report_conversion(url) {
+        function gtag_report_showcoupon(url) {
           var callback = function () {
             if (typeof(url) != 'undefined') {
               window.location = url;
             }
           };
-          gtag('event', 'conversion', {
-              'send_to': 'AW-10888181422/n0JTCKSN8LQZEK7t8cco',
-              'transaction_id': '',
-              'event_callback': callback
+          gtag('event', 'show_coupon', {
+            'button_name': 'myBtn',
+            'screen_name': 'Brand'
+          });
+          return false;
+        }
+
+
+        function gtag_report_qrcodeDownload(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'qrcode_download', {
+            'button_name': 'myBtn',
+            'screen_name': 'Brand'
+          });
+          return false;
+        }
+
+
+        function gtag_report_whatsappButton(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'whatsapp_button', {
+            'button_name': 'myBtn',
+            'screen_name': 'Brand'
+          });
+          return false;
+        }
+        
+
+        function gtag_report_grabDeal(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'grab_deal', {
+            'button_name': 'myBtn',
+            'screen_name': 'Brand'
           });
           return false;
         }
