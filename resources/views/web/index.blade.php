@@ -10,7 +10,7 @@
       <div class="emirates-section-nav">
          @foreach($allstates as $val)
             <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}" aria-label="{{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}">
-               <div class="header_card emirates_view">
+               <div class="header_card emirates_view" onclick="return gtag_report_emiratesview;">
                   <img src="{{config('app.storage').'/states/'.$val->image}}" alt="Image - {{$val->name}}" />
                   {{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}
                </div>
@@ -268,6 +268,19 @@
             }
           };
           gtag('event', 'category_view', {
+            'button_name': 'myBtn',
+            'screen_name': 'Home'
+          });
+          return false;
+        }
+
+        function gtag_report_emiratesview(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'allstore_view', {
             'button_name': 'myBtn',
             'screen_name': 'Home'
           });
