@@ -343,6 +343,21 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/export', 'WebUserController@user_export')->name('admin.webUsers.export');
         });
 
+        //User Invoices
+        Route::prefix('invoices')->group(function () {
+            
+            Route::get('/', 'InvoiceController@index')->name('admin.invoices');
+            Route::get('/load', 'InvoiceController@load')->name('admin.invoices.load');
+            Route::get('/details/{id}', 'InvoiceController@details')->name('admin.invoices.details');
+            Route::get('/update/{id}/{status}', 'InvoiceController@UpdateStatus');
+            Route::get('/view/{id}', 'InvoiceController@viewInvoices');
+            Route::post('/filter', 'InvoiceController@filter')->name('admin.invoices.filter');
+
+            Route::get('/delete/{id}', 'InvoiceController@delAllInvoice');
+            Route::get('/deleteSingle/{id}', 'InvoiceController@delSingleInvoice') ;
+
+        });
+
         //Categories
         Route::prefix('categories')->group(function () {
             Route::get('/', 'CategoryController@index')->name('admin.categories');
