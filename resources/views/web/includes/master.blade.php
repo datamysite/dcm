@@ -55,7 +55,7 @@
          <div class="modal-body">
             <div class="modal_container" id="modal_container">
                <div class="form-modal_container sign-up-modal_container">
-                  <form action="{{route('user.create', [$region])}}" id="create_user_form" class="form_modal">
+                  <form action="{{route('user.create', [$region])}}" id="create_user_form"  onsubmit="return gtag_report_signup;" class="form_modal">
                      @csrf
                      <h2 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h2>
                      <div class="social-modal_container">
@@ -72,6 +72,7 @@
                      <label class="errors password_error"></label>
                      <br>
                      <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_up_btn') }}</button>
+                     <div class="signup-loader"><img src="{{URL::to('/public/loader.gif')}}"></div>
                   </form>
                </div>
                <div class="form-modal_container sign-in-modal_container">
@@ -90,6 +91,7 @@
                      <label class="errors password_error_l"></label>
                      <p><a href="javascript:void(0)" style="color:#1dace3"  role="button" data-bs-toggle="modal" data-bs-target="#forgetPassModal">{{ __('translation.forget_password_txt') }}</a></p>
                      <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_in_btn') }}</button>
+                     <div class="signin-loader"><img src="{{URL::to('/public/loader.gif')}}"></div>
                   </form>
                </div>
                <div class="overlay_modal-modal_container">
