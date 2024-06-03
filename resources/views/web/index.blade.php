@@ -25,7 +25,7 @@
       <div class="container np-container">
          <div class="hero-slider">
             @foreach($slider as $key => $val)
-               <a href="{{$val->img_url}}" target="_blank" aria-label="Banner {{++$key}}">
+               <a href="{{$val->img_url}}" target="_blank" aria-label="Banner">
                   <img fetchpriority="high" class="main_banner_{{++$key}} main_banner"  onclick="return gtag_report_mainbanner;" src="{{config('app.storage').'slider/'.$val->img_name}}" alt="Hero Slider {{++$key}}">
                </a>
             @endforeach
