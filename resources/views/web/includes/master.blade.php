@@ -71,7 +71,7 @@
                      <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required/>
                      <label class="errors password_error"></label>
                      <br>
-                     <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_up_btn') }}</button>
+                     <button type="submit" class="btn btn-primary shadow-gray" onclick="return gtag_report_signup;">{{ __('translation.sign_up_btn') }}</button>
                   </form>
                </div>
                <div class="form-modal_container sign-in-modal_container">
@@ -89,7 +89,7 @@
                      <input type="password" placeholder="{{ __('translation.password_dcm_form') }}" name="password" class="form_input" required />
                      <label class="errors password_error_l"></label>
                      <p><a href="javascript:void(0)" style="color:#1dace3"  role="button" data-bs-toggle="modal" data-bs-target="#forgetPassModal">{{ __('translation.forget_password_txt') }}</a></p>
-                     <button type="submit" class="btn btn-primary shadow-gray">{{ __('translation.sign_in_btn') }}</button>
+                     <button type="submit" class="btn btn-primary shadow-gray" onclick="return gtag_report_signin;">{{ __('translation.sign_in_btn') }}</button>
                   </form>
                </div>
                <div class="overlay_modal-modal_container">
