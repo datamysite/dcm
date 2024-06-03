@@ -10,8 +10,8 @@
       <div class="emirates-section-nav">
          @foreach($allstates as $val)
             <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}" aria-label="{{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}">
-               <div class="header_card emirates_view" onclick="return gtag_report_emiratesview;">
-                  <img src="{{config('app.storage').'/states/'.$val->image}}" alt="Image - {{$val->name}}" />
+               <div class="header_card">
+                  <img src="{{config('app.storage').'/states/'.$val->image}}" alt="Image - {{$val->name}}" class="{{$val->name}} emirates_view" onclick="return gtag_report_emiratesview;"/>
                   {{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}
                </div>
             </a>
