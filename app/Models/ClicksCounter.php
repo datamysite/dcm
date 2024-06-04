@@ -20,8 +20,11 @@ class ClicksCounter extends Model
         //dd($coup_type);
         $userIp = ClicksCounter::getIPAddress();
         $client = new Client();
-         $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
-         $data = json_decode($response->getBody());
+        /*$response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
+        $data = json_decode($response->getBody());*/
+
+        $response = $client->get("http://www.geoplugin.net/json.gp?ip={$userIp}");
+        $data = json_decode($response->getBody());
 
          $cc = new ClicksCounter;
          $cc->retailer_id = $id;
@@ -31,11 +34,11 @@ class ClicksCounter extends Model
             $cc->offer_id = $coup_id;
          }
          $cc->type = $type;
-         $cc->ipaddress = $data->ip;
-         $cc->coordinates = empty($data->loc) ? '' : $data->loc;
-         $cc->country = empty($data->country) ? '' : $data->country;
-         $cc->region = empty($data->region) ? '' : $data->region;
-         $cc->city = empty($data->city) ? '' : $data->city;
+         $cc->ipaddress = $data->geoplugin_request;
+         $cc->coordinates = empty($data->geoplugin_latitude) || empty($data->geoplugin_longitude) ? '' : $data->geoplugin_latitude.','.$data->geoplugin_longitude;
+         $cc->country = empty($data->geoplugin_countryName) ? '' : $data->geoplugin_countryName;
+         $cc->region = empty($data->geoplugin_region) ? '' : $data->geoplugin_region;
+         $cc->city = empty($data->geoplugin_city) ? '' : $data->geoplugin_city;
          $cc->save();
 
     }

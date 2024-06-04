@@ -16,9 +16,12 @@ class RegionController extends Controller
 
         $userIp = RegionController::getIPAddress();
         $client = new Client();
-        $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
-        $data = json_decode($response->getBody());
+        /*$response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
+        $data = json_decode($response->getBody());*/
 
+        $response = $client->get("http://www.geoplugin.net/json.gp?ip={$userIp}");
+        $idata = json_decode($response->getBody());
+        //dd($data);
         $defaulState = array('','dubai', 'riyadh');
         $states[1] = array('Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al-Khaimah', 'Fujairah', 'Umm Al-Quwain');
         $states[2] = array('Jeddah', 'Riyadh', 'Makkah', 'Madinah', 'Dammam', 'Khobar');
@@ -27,8 +30,8 @@ class RegionController extends Controller
           && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
           session_start();
         }
-        if(!empty($data->region) && in_array($data->region, $states[config('app.country')])){
-            $st = States::where('name', $data->region)->first();
+        if(!empty($idata->geoplugin_region) && in_array($idata->geoplugin_region, $states[config('app.country')])){
+            $st = States::where('name', $idata->geoplugin_region)->first();
             if(!empty($st->id)){
                 $region = $st->slug;
                 $_SESSION['region'] = $st->slug;
@@ -62,10 +65,13 @@ class RegionController extends Controller
     public function get_location(){
         $userIp = RegionController::getIPAddress();
         $client = new Client();
-        $response = $client->get("https://ipinfo.io/".$userIp."?token=".config('app.ipinfo'));
+        /*$response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
+        $data = json_decode($response->getBody());*/
+
+        $response = $client->get("http://www.geoplugin.net/json.gp?ip={$userIp}");
         $idata = json_decode($response->getBody());
 
-        $country = Countries::where('shortname_2', $idata->country)->first();
+        $country = Countries::where('shortname_2', $idata->geoplugin_countryCode)->first();
 
         if(empty($country->id) || $country->id != config('app.country')){
             $data['country'] = $country;
@@ -113,8 +119,12 @@ class RegionController extends Controller
 
         $userIp = RegionController::getIPAddress();
         $client = new Client();
-        $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
+        /*$response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
+        $data = json_decode($response->getBody());*/
+
+        $response = $client->get("http://www.geoplugin.net/json.gp?ip={$userIp}");
         $data = json_decode($response->getBody());
+        //dd($data);
 
         $defaulState = array('','dubai', 'riyadh');
         $states[1] = array('Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al-Khaimah', 'Fujairah', 'Umm Al-Quwain');
@@ -124,8 +134,8 @@ class RegionController extends Controller
           && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
           session_start();
         }
-        if(!empty($data->region) && in_array($data->region, $states[config('app.country')])){
-            $st = States::where('name', $data->region)->first();
+        if(!empty($data->geoplugin_region) && in_array($data->geoplugin_region, $states[config('app.country')])){
+            $st = States::where('name', $data->geoplugin_region)->first();
             if(!empty($st->id)){
                 $region = $st->slug;
                 $_SESSION['region'] = $st->slug;
