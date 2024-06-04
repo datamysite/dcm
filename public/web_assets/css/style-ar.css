@@ -1252,6 +1252,9 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .ext-banner{
+        display: none;
+    }
     .navbar-flag img {
         width: 34px;
         margin-left: 19px;

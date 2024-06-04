@@ -23,7 +23,7 @@
    <!-- Slider Section Start-->
    <section class="mb-lg-10 desktop-slider">
       <div class="container np-container">
-         <a href="https://chromewebstore.google.com/detail/dcm-savings-companion/pbgekicjfckaoopigiohnfbdmhllekhf?hl=en-GB" target="_blank">
+         <a href="https://chromewebstore.google.com/detail/dcm-savings-companion/pbgekicjfckaoopigiohnfbdmhllekhf?hl=en-GB" target="_blank" class="ext-banner">
             <img src="{{URL::to('/public/extension-new.png')}}" style="width:100%; height:auto;">
          </a>
 
