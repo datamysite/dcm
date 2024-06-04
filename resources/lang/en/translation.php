@@ -743,4 +743,6 @@ return [
 
   "country_change_para_5_UAE" => "Proceed to UAE`s Website",
   "country_change_para_5_KSA" => "Proceed to KSA`s Website",
+
+  "All Provices" => "All Provinces",
 ];

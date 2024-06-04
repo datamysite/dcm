@@ -81,7 +81,11 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                <a href="#" class="mobile-nav-button" data-option="emirates">
                   <i class="fa fa-crosshairs"></i>
+                  @if(config('app.country') == '1')
                   {{ __('translation.all_emirates') }}
+                  @else
+                  {{ __('translation.All Provices') }}
+                  @endif
                </a>
 
                @if(Auth::check())
