@@ -251,14 +251,14 @@
             <p>
                 Start saving now with
 
-                <a href="http://dealsandcouponsmena.com/en/dubai/pass-reset?rest=j875856u5" target="_blank"
+                <a href="https://dealsandcouponsmena.ae" target="_blank"
                     style="font-size: large; color: #00c5ff">
                     <strong style="text-decoration: underline">DealsAndCouponsMENA</strong>
                 </a>
             </p>
 
             <p style="padding-top: 10px">
-                <a href="http://dealsandcouponsmena.com/en/dubai/" target="_blank"
+                <a href="https://dealsandcouponsmena.com/en/dubai/" target="_blank"
                     style="font-size: larger; color: #00c5ff">
                     <strong style="text-decoration: underline">Happy Shopping!</strong>
                 </a>
