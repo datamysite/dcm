@@ -1,3 +1,15 @@
+.signup-loader, .signin-loader {
+    position: absolute;
+    background-color: #ffffffb8;
+    height: inherit;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.signup-loader img, .signin-loader img {
+    width: 30px;
+}
 .country-card {
     overflow: hidden;
     border-radius: 15px;

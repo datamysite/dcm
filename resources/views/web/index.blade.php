@@ -21,8 +21,12 @@
 
 
    <!-- Slider Section Start-->
-   <section class="mb-lg-10 my-8 desktop-slider">
+   <section class="mb-lg-10 desktop-slider">
       <div class="container np-container">
+         <a href="https://chromewebstore.google.com/detail/dcm-savings-companion/pbgekicjfckaoopigiohnfbdmhllekhf?hl=en-GB" target="_blank">
+            <img src="{{URL::to('/public/extension.png')}}" style="width:100%; height:auto;">
+         </a>
+
          <div class="hero-slider">
             @foreach($slider as $key => $val)
                <a href="{{$val->img_url}}" target="_blank" aria-label="Banner">
