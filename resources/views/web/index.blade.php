@@ -24,7 +24,7 @@
    <section class="mb-lg-10 desktop-slider">
       <div class="container np-container">
          <a href="https://chromewebstore.google.com/detail/dcm-savings-companion/pbgekicjfckaoopigiohnfbdmhllekhf?hl=en-GB" target="_blank">
-            <img src="{{URL::to('/public/extension.png')}}" style="width:100%; height:auto;">
+            <img src="{{URL::to('/public/extension-new.png')}}" style="width:100%; height:auto;">
          </a>
 
          <div class="hero-slider">
