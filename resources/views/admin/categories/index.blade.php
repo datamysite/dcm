@@ -47,12 +47,13 @@
                   <tr>
                     <th width="5%">#</th>
                     <th width="10%">Logo</th>
-                    <th width="25%">Name</th>
-                    <th width="20%">Parent Category</th>
+                    <th width="15%">Name</th>
+                    <th width="15%">Parent Category</th>
                     <th width="10%">Category Type</th>
-                    <th width="10%">Max. Discount %</th>
+                    <th width="5%">Discount %</th>
+                    <th width="10%">Main Menu Order</th>
                     <th width="10%">No. of Brands</th>
-                    <th width="20%" class="text-right">Action</th>
+                    <th width="10%" class="text-right">Action</th>
                   </tr>
                 </thead>
                 <tbody id="categoryTableBody">
@@ -65,6 +66,7 @@
                     <th>Parent Category</th>
                     <th>Category Type</th>
                     <th>Max. Discount %</th>
+                    <th>Main Menu Order</th>
                     <th>No. of Brands</th>
                     <th class="text-right">Action</th>
                   </tr>
@@ -139,6 +141,14 @@
               <div class="form-group">
                 <label>Max. Discount %</label>
                 <input type="number" class="form-control" step="any" name="max_discount" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Order on Main Menu</label>
+                <input type="number" class="form-control"  name="category_order" required>
               </div>
             </div>
           </div>
