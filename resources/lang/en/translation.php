@@ -44,7 +44,7 @@ return [
   "your_coupon_code" => "Your Coupon Code Is",
   "share_it" => "Share With Your Friends",
   "attention" => "Attention !",
-  "copy_it" => "Copy this exclusive code to unlock special savings when you check out! Don't forget to claim your cashback from us!",
+  "copy_it" => "Attention ! Present your downloaded coupon code at the store to enjoy an exclusive discount! Don't forget to claim your cashback from us!",
   "grab_deal" => "Grab Deal",
   "show_it" => "Claim your cashback by uploading your shopping receipt. Transfer cash to your bank account. Happy shopping!",
   "out_of" => "Out Of",
