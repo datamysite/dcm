@@ -39,9 +39,7 @@
                                 <li>
                                     <h5>{{ __('translation.earn_coupons_txt_02') }}</h5>
                                 </li>
-                                <li>
-                                    <h5>{{ __('translation.earn_coupons_txt_03') }}</h5>
-                                </li>
+                               
                             </ul>
 
                             </p>
