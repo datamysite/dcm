@@ -50,7 +50,14 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
             
             <div class="tray-item tray-emirates">
-               
+               @foreach($allstates as $val)
+                  <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}">
+                     <div class="header_card">
+                        <img src="{{config('app.storage').'states/'.$val->image}}" alt="{{$val->name}}" />
+                        {{$val->shortname}}
+                     </div>
+                  </a>
+               @endforeach
             </div>
          </div>
       </div>
