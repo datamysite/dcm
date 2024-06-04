@@ -58,6 +58,14 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Order on Main Menu</label>
+          <input type="number" class="form-control" value="{{$data->order}}" name="category_order" required>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="modal-footer justify-content-between">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
