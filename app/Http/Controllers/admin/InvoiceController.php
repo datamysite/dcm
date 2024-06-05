@@ -7,15 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\CashbackRequests;
 use App\Models\ContestScan;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
     public function index()
     {
         $data['menu'] = 'invoices';
-
-        $data['qr_counter'] = count(ContestScan::get());
-
         return view('admin.invoices.index', ['data' => $data, 'menu' => 'invoices']);
     }
 
@@ -25,9 +23,65 @@ class InvoiceController extends Controller
 
         $data['data'] = User::where('is_contested', 1)->withCount('cashbackRequests')->get();
 
+        return view('admin.invoices.load')->with($data);
+    }
+
+
+    public function scanned_qr()
+    {
+        $data['menu'] = 'scanned_qr';
+
+        $p = 1;
+        if (!empty($_GET['page'])) {
+            $p = $_GET['page'];
+        }
+
+        $data['qr_data'] = ContestScan::select('id', 'name', 'ip', 'city', 'region', 'country', 'created_at', DB::RAW('COUNT(id) as `total_scan`'))
+            ->orderBy('id', 'desc')
+            ->groupBy('ip')
+            ->paginate(10, ['*'], 'page', $p);
+
+        return view('admin.invoices.qr', ['data' => $data, 'menu' => 'scanned_qr']);
+    }
+
+    public function load_qr()
+    {
+        $data['menu'] = 'scanned_qr';
+
+        $p = 1;
+        if (!empty($_GET['page'])) {
+            $p = $_GET['page'];
+        }
+
+        $data['qr_data'] = ContestScan::select('id', 'name', 'ip', 'city', 'region', 'country', 'created_at', DB::RAW('COUNT(id) as `total_scan`'))
+        ->orderBy('id', 'desc')
+        ->groupBy('ip')
+        ->paginate(10, ['*'], 'page', $p);
+
         $data['qr_counter'] = count(ContestScan::get());
 
-        return view('admin.invoices.load')->with($data);
+        return view('admin.invoices.qr_load', ['data' => $data]);
+    }
+
+    public function qr_filter(Request $request)
+    {
+        $req = $request->all();
+        $get_date = $req['get_date'];
+
+        $date = \Carbon\Carbon::parse($get_date);
+        $new_date = $date->format('Y-m-d');
+
+        if ($get_date != '') {
+
+            $data['qr_data'] = ContestScan::select('id', 'name', 'ip', 'city', 'region', 'country', 'created_at', DB::RAW('COUNT(id) as `total_scan`'))
+            ->where('created_at', 'LIKE', $new_date . "%")->orderBy('id', 'desc')->groupBy('ip')->get();
+
+            $data['qr_counter']  = count(ContestScan::where('created_at', 'LIKE', $new_date . "%")->get());
+
+            if ($data['qr_data'] != '') {
+                return view('admin.invoices.qr_load', ['data' => $data]);
+            }
+        }
     }
 
     public function filter(Request $request)
@@ -43,15 +97,13 @@ class InvoiceController extends Controller
             $data['data'] = User::where('created_at', 'LIKE', $new_date . "%")->get();
 
             $qr_counter = ContestScan::where('created_at', 'LIKE', $new_date . "%")->get();
-            
+
             $data['qr_counter'] =  count($qr_counter);
 
-           //dd(  $data['qr_counter'] );
 
             if ($data['data'] != '') {
                 return view('admin.invoices.load')->with($data);
             }
-           
         }
     }
 
@@ -104,11 +156,21 @@ class InvoiceController extends Controller
         }
     }
 
+    public function delete_qr($id){
+
+        $id = base64_decode($id);
+
+        ContestScan::destroy($id);
+
+        $response = 'success';
+        return $response;
+    }
+
     public function delSingleInvoice($id)
     {
 
         //$path = './public/storage/invoices/';
-        $//path = '../landingPage/public/storage/invoices/';
+        $ //path = '../landingPage/public/storage/invoices/';
 
         $id = base64_decode($id);
         $cash_back = CashbackRequests::where('id', $id)->get();
@@ -118,7 +180,6 @@ class InvoiceController extends Controller
             $cb = CashbackRequests::find($id);
 
             CashbackRequests::destroy($id);
-            
         } else {
             $response['errors'] = 'Cannot delete this file !';
         }

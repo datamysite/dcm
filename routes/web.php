@@ -343,7 +343,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/export', 'WebUserController@user_export')->name('admin.webUsers.export');
         });
 
-        //User Invoices
+        //DCM Contest
         Route::prefix('invoices')->group(function () {
             
             Route::get('/', 'InvoiceController@index')->name('admin.invoices');
@@ -355,6 +355,13 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
             Route::get('/delete/{id}', 'InvoiceController@delAllInvoice');
             Route::get('/deleteSingle/{id}', 'InvoiceController@delSingleInvoice') ;
+
+            //QR 
+            Route::get('/scanned_qr', 'InvoiceController@scanned_qr')->name('admin.invoices.scanned_qr');
+            Route::get('/load_qr', 'InvoiceController@load_qr')->name('admin.invoices.load_qr');
+            Route::post('/qr_filter', 'InvoiceController@qr_filter')->name('admin.invoices.qr_filter');
+            Route::get('/delete_qr/{id}', 'InvoiceController@delete_qr');
+
 
         });
 
