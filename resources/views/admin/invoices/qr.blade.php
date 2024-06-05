@@ -44,9 +44,16 @@
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-md-3">
-                                        <label>Date</label>
-                                        <input type="date" name="get_date" class="form-control">
+                                    <div class="col-md-4">
+                                        <label>Filter By Date</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" placeholder="Select Date Range" class="form-control float-right" name="get_date" value="" id="filter_range" required>
+                                        </div>
                                     </div>
 
                                     <div class="col-md-1" style="display: inline-flex;justify-content: space-between;">
@@ -94,6 +101,22 @@
     $(function() {
 
         loadQr();
+
+        $('#filter_range').daterangepicker({
+            autoUpdateInput: false,
+            locale: {
+                format: 'DD/MMM/YYYY',
+                cancelLabel: 'Clear'
+            }
+        });
+
+        $('input[name="get_date"]').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('DD/MMM/YYYY') + ' - ' + picker.endDate.format('DD/MMM/YYYY'));
+        });
+
+        $('input[name="get_date"]').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+        });
 
         $(document).on('submit', "#add_category_form", function(event) {
             var form = $(this);
@@ -162,37 +185,37 @@
         });
 
 
-    $(document).on('click', '.deleteQR', function() {
-      var id = $(this).data('id');
+        $(document).on('click', '.deleteQR', function() {
+            var id = $(this).data('id');
 
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/panel/invoices/delete_qr')}}/" + id, function(data) {
-            console.log(data);
-            if (data == 'success') {
-              Toast.fire({
-                icon: 'success',
-                title: 'Success! QR Code Successfully Deleted.'
-              });
-              loadQr();
-            } else {
-              Toast.fire({
-                icon: 'error',
-                title: "Warning! QR Code Not Deleted."
-              });
-            }
-          });
-        }
-      });
-    });
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.get("{{URL::to('/admin/panel/invoices/delete_qr')}}/" + id, function(data) {
+                        console.log(data);
+                        if (data == 'success') {
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Success! QR Code Successfully Deleted.'
+                            });
+                            loadQr();
+                        } else {
+                            Toast.fire({
+                                icon: 'error',
+                                title: "Warning! QR Code Not Deleted."
+                            });
+                        }
+                    });
+                }
+            });
+        });
 
 
         $(document).on('click', '.editCategory', function() {

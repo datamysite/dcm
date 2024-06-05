@@ -54,9 +54,9 @@ class InvoiceController extends Controller
         }
 
         $data['qr_data'] = ContestScan::select('id', 'name', 'ip', 'city', 'region', 'country', 'created_at', DB::RAW('COUNT(id) as `total_scan`'))
-        ->orderBy('id', 'desc')
-        ->groupBy('ip')
-        ->paginate(10, ['*'], 'page', $p);
+            ->orderBy('id', 'desc')
+            ->groupBy('ip')
+            ->paginate(10, ['*'], 'page', $p);
 
         $data['qr_counter'] = count(ContestScan::get());
 
@@ -65,46 +65,47 @@ class InvoiceController extends Controller
 
     public function qr_filter(Request $request)
     {
-        $req = $request->all();
-        $get_date = $req['get_date'];
+        $data = $request->all();
 
-        $date = \Carbon\Carbon::parse($get_date);
-        $new_date = $date->format('Y-m-d');
+        if (!empty($data['get_date'])) {
+            $date = explode(' - ', $data['get_date']);
+            $date[0] = str_replace('/', '-', $date[0]);
+            $date[1] = str_replace('/', '-', $date[1]);
+            $data['start_date'] = date('Y-m-d', strtotime($date[0]));
+            $data['end_date'] = date('Y-m-d', strtotime("+1 day", strtotime($date[1])));
+        }
 
-        if ($get_date != '') {
+        $data['qr_data'] = ContestScan::select('id', 'name', 'ip', 'city', 'region', 'country', 'created_at', DB::RAW('COUNT(id) as `total_scan`'))
+            ->whereBetween('created_at', [$data['start_date'], $data['end_date']])->orderBy('id', 'desc')->groupBy('ip')->get();
 
-            $data['qr_data'] = ContestScan::select('id', 'name', 'ip', 'city', 'region', 'country', 'created_at', DB::RAW('COUNT(id) as `total_scan`'))
-            ->where('created_at', 'LIKE', $new_date . "%")->orderBy('id', 'desc')->groupBy('ip')->get();
+        $data['qr_counter']  = count(ContestScan::whereBetween('created_at', [$data['start_date'], $data['end_date']])->get());
 
-            $data['qr_counter']  = count(ContestScan::where('created_at', 'LIKE', $new_date . "%")->get());
-
-            if ($data['qr_data'] != '') {
-                return view('admin.invoices.qr_load', ['data' => $data]);
-            }
+        if ($data['qr_data'] != '') {
+            return view('admin.invoices.qr_load', ['data' => $data]);
         }
     }
 
     public function filter(Request $request)
     {
-        $req = $request->all();
-        $get_date = $req['get_date'];
+        $data = $request->all();
 
-        $date = \Carbon\Carbon::parse($get_date);
-        $new_date = $date->format('Y-m-d');
+        if (!empty($data['get_date'])) {
+            $date = explode(' - ', $data['get_date']);
+            $date[0] = str_replace('/', '-', $date[0]);
+            $date[1] = str_replace('/', '-', $date[1]);
+            $data['start_date'] = date('Y-m-d', strtotime($date[0]));
+            $data['end_date'] = date('Y-m-d', strtotime("+1 day", strtotime($date[1])));
+        }
+    
+            $data['data'] = User::whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
 
-        if ($get_date != '') {
-
-            $data['data'] = User::where('created_at', 'LIKE', $new_date . "%")->get();
-
-            $qr_counter = ContestScan::where('created_at', 'LIKE', $new_date . "%")->get();
+            $qr_counter = ContestScan::whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
 
             $data['qr_counter'] =  count($qr_counter);
 
-
             if ($data['data'] != '') {
                 return view('admin.invoices.load')->with($data);
-            }
-        }
+            } 
     }
 
     public function details($id)
@@ -156,7 +157,8 @@ class InvoiceController extends Controller
         }
     }
 
-    public function delete_qr($id){
+    public function delete_qr($id)
+    {
 
         $id = base64_decode($id);
 

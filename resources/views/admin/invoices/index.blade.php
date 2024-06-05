@@ -3,11 +3,11 @@
 @section('addStyle')
 <style type="text/css">
   .page-loader {
-      width: 100%;
-      height: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
 @endsection
@@ -43,9 +43,16 @@
               <form id="filterStores">
                 @csrf
                 <div class="row">
-                  <div class="col-md-3">
-                    <label>Date</label>
-                    <input type="date" name="get_date" class="form-control">
+                  <div class="col-md-4">
+                    <label>Filter By Date</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="far fa-calendar-alt"></i>
+                        </span>
+                      </div>
+                      <input type="text" placeholder="Select Date Range" class="form-control float-right" name="get_date" value="" id="filter_range" required>
+                    </div>
                   </div>
 
                   <div class="col-md-1" style="display: inline-flex;justify-content: space-between;">
@@ -60,16 +67,15 @@
               </form>
             </div>
           </div>
-        
+
           <div id="filterBlock">
-           
+
           </div>
           <!-- /.card -->
         </div>
         <!-- /.col -->
       </div>
     </div><!-- /.container-fluid -->
-
 
   </section>
   <!-- /.content -->
@@ -91,6 +97,22 @@
   $(function() {
 
     loadUsers();
+
+    $('#filter_range').daterangepicker({
+            autoUpdateInput: false,
+            locale: {
+                format: 'DD/MMM/YYYY',
+                cancelLabel: 'Clear'
+            }
+        });
+
+        $('input[name="get_date"]').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('DD/MMM/YYYY') + ' - ' + picker.endDate.format('DD/MMM/YYYY'));
+        });
+
+        $('input[name="get_date"]').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+        });
 
     $(document).on('submit', "#add_category_form", function(event) {
       var form = $(this);
@@ -203,26 +225,26 @@
 
   });
 
-  
-  $("#filterStores").submit(function(event) {
-      $('#filterBlock').html('<div class="page-loader"><img src="{{URL::to("/public/loader.gif")}}" height="30px"></div>');
-      var url = "{{route('admin.invoices.filter')}}";
-      var form = $(this);
-      $.ajax({
-        type: "POST",
-        url: url,
-        data: form.serialize(),
-        encode: true,
-      }).done(function(data) {
-        $('#filterBlock').html(data);
-        $("#categoryTableBody").DataTable();
-        $('.reset_button').html('<button type="button" class="btn btn-default mt-32 reset_filter" title="Reset Filter"><i class="fas fa-times"></i></button>')
-      });
 
-      event.preventDefault();
+  $("#filterStores").submit(function(event) {
+    $('#filterBlock').html('<div class="page-loader"><img src="{{URL::to("/public/loader.gif")}}" height="30px"></div>');
+    var url = "{{route('admin.invoices.filter')}}";
+    var form = $(this);
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: form.serialize(),
+      encode: true,
+    }).done(function(data) {
+      $('#filterBlock').html(data);
+      $("#categoryTableBody").DataTable();
+      $('.reset_button').html('<button type="button" class="btn btn-default mt-32 reset_filter" title="Reset Filter"><i class="fas fa-times"></i></button>')
     });
-    
-    $(document).on('click', '.reset_filter', function() {
+
+    event.preventDefault();
+  });
+
+  $(document).on('click', '.reset_filter', function() {
     loadRetailers();
     $("#filterStores").trigger('reset');
     $('.reset_button').html('');
