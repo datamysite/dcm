@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-@section('title', 'Invoices')
+@section('title', 'DCM Contest')
 @section('addStyle')
 <style type="text/css">
   .page-loader {
@@ -19,12 +19,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Invoices</h1>
+          <h1 class="m-0">DCM Contest</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-            <li class="breadcrumb-item active">Invoices</li>
+            <li class="breadcrumb-item active">DCM Contest</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->

@@ -138,16 +138,16 @@
               </li>
             </ul>
           </li>
-          <!-- Users Invoices Start Here -->
+          <!-- DCM Contest Start Here -->
           <li class="nav-item">
             <a href="{{route('admin.invoices')}}" class="nav-link {{$menu == 'invoices' ? 'active' : '' }}">
               <i class="nav-icon fas fa-tags"></i>
               <p>
-              User Invoice
+              DCM Contest
               </p>
             </a>
           </li>
-          <!-- Users Invoices End Here -->
+          <!-- DCM Contest End Here -->
           <li class="nav-item">
             <a href="{{route('admin.webUsers')}}" class="nav-link {{$menu == 'web.users' ? 'active' : ''}}">
               <i class="nav-icon fas fa-users"></i>
