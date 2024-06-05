@@ -39,7 +39,7 @@
                   @foreach($data['invoices'] as $key => $val)
                   <tr>
                     <td>{{++$key}}</td>
-                    <td><a href="{{URL::to('../landingPage/public/storage/invoices/'.$val->invoice_file)}}" target="_blank">{{$val->invoice_file}}</a></td>
+                    <td><a href="{{URL::to('/contest/dcm-extravaganza/public/storage/invoices/'.$val->invoice_file)}}" target="_blank">{{$val->invoice_file}}</a></td>
                     <td>{{$val->date}}</td>
                     <td>
                       @switch($val->status)
