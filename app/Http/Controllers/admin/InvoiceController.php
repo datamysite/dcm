@@ -21,7 +21,7 @@ class InvoiceController extends Controller
     {
         $data['menu'] = 'invoices';
 
-        $data['data'] = User::where('is_contested', 1)->withCount('cashbackRequests')->get();
+        $data['data'] = User::where('is_contested', 1)->withCount('cashbackRequests')->orderBy('id', 'desc')->get();
 
         return view('admin.invoices.load')->with($data);
     }
