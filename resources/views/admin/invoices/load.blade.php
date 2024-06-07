@@ -57,10 +57,10 @@
           <th>Name</th>
           <th>Email</th>
           <th>Verification</th>
-          <th>Registration Date</th>
+          <th>Number of Invoices</th>
           <th>Referral By</th>
           <th>Invoices</th>
-          <th>Number of Invoices</th>
+          <th>Registration Date</th>
         </tr>
       </tfoot>
     </table>
