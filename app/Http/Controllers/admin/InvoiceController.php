@@ -11,9 +11,38 @@ use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
+
+    public function toss(Request $request)
+    {
+        $users = User::where('email_verified', 1)
+            ->where('is_contested', 1)
+            ->whereHas('cashbackRequests', function ($query) {$query->havingRaw('COUNT(invoice_file) >= 4')->where('status', 2);})->withCount('cashbackRequests')->get();
+
+        if (count($users) > 0) {
+
+            $winner = $users->random();
+            $usernames = $users->pluck('name')->toArray();
+
+            return response()->json([
+                'winner' => $winner->name,
+                'usernames' => $usernames,
+                'user_id' => $winner->id,
+            ]);
+        } else {
+            return response()->json([
+                'winner' => 'no_winner',
+                'usernames' => 'no_winner',
+            ]);
+        }
+    }
+
     public function index()
     {
         $data['menu'] = 'invoices';
+
+        $data['get_referral']  = User::select('id', 'by_referral')->where('by_referral' ,'!=' ,'')
+        ->distinct('by_referral')->groupBy('by_referral')->orderBy('id','desc')->get();
+        
         return view('admin.invoices.index', ['data' => $data, 'menu' => 'invoices']);
     }
 
@@ -95,17 +124,18 @@ class InvoiceController extends Controller
             $date[1] = str_replace('/', '-', $date[1]);
             $data['start_date'] = date('Y-m-d', strtotime($date[0]));
             $data['end_date'] = date('Y-m-d', strtotime("+1 day", strtotime($date[1])));
-        }
-    
+
             $data['data'] = User::whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
+        }
 
-            $qr_counter = ContestScan::whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
+        if(!empty($data['by_referral'])){
+            $by_referral = $data['by_referral'];
+            $data['data'] = User::where('by_referral', 'LIKE' , '%'.$by_referral.'%')->get();
+        }
 
-            $data['qr_counter'] =  count($qr_counter);
-
-            if ($data['data'] != '') {
-                return view('admin.invoices.load')->with($data);
-            } 
+        if ($data['data'] != '') {
+            return view('admin.invoices.load')->with($data);
+        }
     }
 
     public function details($id)
@@ -172,7 +202,6 @@ class InvoiceController extends Controller
     {
 
         //$path = './public/storage/invoices/';
-        $ //path = '../landingPage/public/storage/invoices/';
 
         $id = base64_decode($id);
         $cash_back = CashbackRequests::where('id', $id)->get();

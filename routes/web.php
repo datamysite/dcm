@@ -362,6 +362,8 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/qr_filter', 'InvoiceController@qr_filter')->name('admin.invoices.qr_filter');
             Route::get('/delete_qr/{id}', 'InvoiceController@delete_qr');
 
+            //Toss
+            Route::post('/toss', 'InvoiceController@toss')->name('admin.invoices.toss');
 
         });
 
