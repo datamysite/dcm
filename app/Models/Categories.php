@@ -18,6 +18,7 @@ class Categories extends Model
         $c->parent_id = $data['parent_id'];
         $c->type = $data['category_type'];
         $c->max_discount = $data['max_discount'];
+        $c->name_ar = $data['name_ar'];
         $c->order = $data['category_order'];
         $c->created_by = Auth::guard('admin')->id();
         $c->save();

@@ -109,7 +109,15 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" name="name" required>
+                <input type="text" class="form-control" name="name" id="category_name" required onKeyUp="translation(this.value);">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>AR Name</label>
+                <input type="text" class="form-control" name="name_ar" id="category_name_ar_value" placeholder="Enter Arabic Title">
               </div>
             </div>
           </div>
@@ -148,7 +156,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Order on Main Menu</label>
-                <input type="number" class="form-control"  name="category_order" required>
+                <input type="number" class="form-control" name="category_order" required>
               </div>
             </div>
           </div>
@@ -182,7 +190,32 @@
 @section('addScript')
 
 <script>
+
+  //Arabic Translation//
+  function translation(word) {
+
+    var category_name = word;
+
+    if (category_name != '') {
+      $.ajax({
+        url: "{{route('translate')}}",
+        cache: false,
+        type: 'POST',
+        data: {
+          "_token": "{{ csrf_token() }}",
+          text: category_name,
+        },
+        success: function(response) {
+          $('#category_name_ar_value').val(response);
+        }
+      });
+    } else {
+      $('#category_name_ar_value').val('');
+    }
+  }
+
   $(function() {
+
     loadCategories();
 
     $('input[name="category_image"]').on('change', function() {
