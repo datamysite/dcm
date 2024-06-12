@@ -29,6 +29,7 @@
                   <tr>
                     <th width="5%">#</th>
                     <th width="20%">Invoice File</th>
+                    <th width="20%">Brand</th>
                     <th width="20%">Date</th>
                     <th width="20%">Current Status</th>
                     <th width="20%">Update Status</th>
@@ -40,6 +41,7 @@
                   <tr>
                     <td>{{++$key}}</td>
                     <td><a href="{{URL::to('/contest/dcm-extravaganza/public/storage/invoices/'.$val->invoice_file)}}" target="_blank">{{$val->invoice_file}}</a></td>
+                    <td>{{$val->retailerName ? $val->retailerName->name : ""}}</td>
                     <td>{{$val->date}}</td>
                     <td>
                       @switch($val->status)

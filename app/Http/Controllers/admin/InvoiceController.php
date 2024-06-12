@@ -162,7 +162,7 @@ class InvoiceController extends Controller
 
         $invoices = CashbackRequests::where('user_id', $id)->where('del', 0)->get();
 
-        $data['invoices'] = CashbackRequests::where('user_id', $id)->where('del', 0)->get();
+        $data['invoices'] = CashbackRequests::with('retailerName')->where('user_id', $id)->where('del', 0)->get();
 
         $count  = count($invoices);
         $data['count'] = $count;
