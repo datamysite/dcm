@@ -44,14 +44,31 @@
                 @csrf
                 <div class="row">
                   <div class="col-md-4">
-                    <label>Filter By Date</label>
+                    <label>By Date</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
                           <i class="far fa-calendar-alt"></i>
                         </span>
                       </div>
-                      <input type="text" placeholder="Select Date Range" class="form-control float-right" name="get_date" value="" id="filter_range" required>
+                      <input type="text" placeholder="Select Date Range" class="form-control float-right" name="get_date" value="" id="filter_range" >
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <label>By Referral</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-list"></i>
+                        </span>
+                      </div>
+                      <select class="form-control" name="by_referral">
+                        <option value="">Select Referral</option>
+                        @foreach ($data['get_referral'] as $get_referral)
+                        <option value="{{ $get_referral->by_referral }}">{{ $get_referral->by_referral }}</option>
+                        @endforeach
+  
+                      </select>
                     </div>
                   </div>
 
@@ -71,6 +88,17 @@
           <div id="filterBlock">
 
           </div>
+
+          <div class="card text-center">
+            <div class="card-header">
+              <div class="row mt-1" style="justify-content: center;">
+                <span class="text-center mt-1">
+                  <button class="btn btn-lg btn-primary" onclick="animateRandomUsernames()">Make a Toss</button>
+                </span>
+              </div>
+            </div>
+          </div>
+
           <!-- /.card -->
         </div>
         <!-- /.col -->
@@ -80,6 +108,24 @@
   </section>
   <!-- /.content -->
 </div>
+
+<!-- Winner Modal Start-->
+<div id="winner-modal" class="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="winner-modal-label">DCM Contest Winner is...</h3>
+      </div>
+      <div class="modal-body">
+        <div id="random-usernames-container"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Winner Modal End -->
 
 <div class="modal fade" id="editCategoryFormModal">
   <div class="modal-dialog modal-lg">
@@ -92,6 +138,39 @@
 </div>
 @endsection
 
+@section('addStyle')
+<style>
+  /* Animation styles */
+  .animation-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid #333;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    animation-name: randomUserAnimation;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes randomUserAnimation {
+
+    0%,
+    100% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+</style>
+@endsection
+
 @section('addScript')
 <script>
   $(function() {
@@ -99,20 +178,20 @@
     loadUsers();
 
     $('#filter_range').daterangepicker({
-            autoUpdateInput: false,
-            locale: {
-                format: 'DD/MMM/YYYY',
-                cancelLabel: 'Clear'
-            }
-        });
+      autoUpdateInput: false,
+      locale: {
+        format: 'DD/MMM/YYYY',
+        cancelLabel: 'Clear'
+      }
+    });
 
-        $('input[name="get_date"]').on('apply.daterangepicker', function(ev, picker) {
-            $(this).val(picker.startDate.format('DD/MMM/YYYY') + ' - ' + picker.endDate.format('DD/MMM/YYYY'));
-        });
+    $('input[name="get_date"]').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('DD/MMM/YYYY') + ' - ' + picker.endDate.format('DD/MMM/YYYY'));
+    });
 
-        $('input[name="get_date"]').on('cancel.daterangepicker', function(ev, picker) {
-            $(this).val('');
-        });
+    $('input[name="get_date"]').on('cancel.daterangepicker', function(ev, picker) {
+      $(this).val('');
+    });
 
     $(document).on('submit', "#add_category_form", function(event) {
       var form = $(this);
@@ -259,6 +338,154 @@
       //$('#categoryTable').DataTable();
     });
   }
+
+  ///DCM Contest Toss Start//
+  document.getElementById('select-winner-button').addEventListener('click', function() {
+    this.disabled = true;
+    animateRandomUsername();
+  });
+
+  function closeModal() {
+    var modal = document.getElementById('winner-modal');
+    modal.style.display = 'none';
+  }
+
+  // Animation function to display random usernames
+  function animateRandomUsernames() {
+
+    var modal = document.getElementById('winner-modal');
+    modal.style.display = 'block';
+
+    var loadingImage = document.createElement('img');
+    loadingImage.src = '{{URL::to("/public/web-loader.gif")}}';
+    loadingImage.alt = 'Loading';
+    loadingImage.style.display = 'block';
+    loadingImage.style.margin = '0 auto';
+    loadingImage.style.height = '200px';
+    loadingImage.style.width = '200px';
+
+    var randomUsernamesContainer = document.getElementById('random-usernames-container');
+    randomUsernamesContainer.innerHTML = '';
+    randomUsernamesContainer.appendChild(loadingImage);
+
+    setTimeout(function() {
+
+      fetch('{{ route("admin.invoices.toss") }}', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+
+          var usernames = data.usernames;
+          var winnerName = data.winner;
+          var user_id = data.user_id;
+
+          var duration = 3000;
+          var interval = 100;
+          var steps = duration / interval;
+
+          var currentStep = 0;
+          var intervalId = setInterval(function() {
+            currentStep++;
+            var randomIndex = Math.floor(Math.random() * usernames.length);
+            var randomUsername = usernames[randomIndex];
+
+            var animationContainer = document.createElement('div');
+            animationContainer.className = 'animation-container';
+            animationContainer.textContent = randomUsername;
+
+            randomUsernamesContainer.innerHTML = '';
+            randomUsernamesContainer.appendChild(animationContainer);
+
+            if (winnerName != 'no_winner') {
+
+              if (currentStep === steps) {
+                clearInterval(intervalId);
+                showWinnerImage(winnerName, user_id);
+
+              }
+            } else {
+              clearInterval(intervalId);
+              NoWinner('No Winners');
+            }
+
+          }, interval);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+
+    }, 1000);
+  }
+
+  // Function to show the winner's image and name
+  function showWinnerImage(winnerName, user_id) {
+    var randomUsernamesContainer = document.getElementById('random-usernames-container');
+
+    var winnerImage = document.createElement('img');
+    winnerImage.src = '{{URL::to("/public/winning.gif")}}';
+    winnerImage.alt = 'Winner Image';
+    winnerImage.style.display = 'block';
+    winnerImage.style.margin = '0 auto';
+    winnerImage.style.height = '220px';
+    winnerImage.style.width = '220px';
+
+    var winnerNameElement = document.createElement('hr');
+    var winnerNameElement = document.createElement('p');
+    var winnerNameElement = document.createElement('h3');
+    var winnerLinkElement = document.createElement('a');
+
+    var winnerLinkElement = document.createElement('a');
+
+    winnerLinkElement.href = "javascript:void(0)";
+    winnerLinkElement.className = "btn btn-lg btn-success editCategory";
+    winnerLinkElement.style.width = '220px';
+    winnerLinkElement.style.textTransform = 'uppercase';
+    winnerLinkElement.title = "More Details";
+    winnerLinkElement.setAttribute("data-id", btoa(user_id));
+    winnerLinkElement.textContent = winnerName;
+
+    winnerNameElement.appendChild(document.createTextNode(' '));
+
+    winnerNameElement.style.textAlign = 'center';
+    randomUsernamesContainer.innerHTML = '';
+
+    randomUsernamesContainer.appendChild(winnerImage);
+    randomUsernamesContainer.appendChild(winnerNameElement);
+    winnerNameElement.appendChild(winnerLinkElement);
+  }
+
+  function NoWinner(winnerName) {
+
+    var randomUsernamesContainer = document.getElementById('random-usernames-container');
+
+    var winnerNameElement = document.createElement('hr');
+    var winnerNameElement = document.createElement('p');
+    var winnerNameElement = document.createElement('h3');
+    var winnerLinkElement = document.createElement('a');
+
+    var winnerLinkElement = document.createElement('a');
+
+    winnerLinkElement.style.width = '220px';
+    winnerLinkElement.style.textTransform = 'uppercase';
+
+
+    winnerLinkElement.textContent = winnerName;
+    winnerNameElement.appendChild(document.createTextNode(' '));
+
+    winnerNameElement.style.textAlign = 'center';
+
+    randomUsernamesContainer.innerHTML = '';
+
+    randomUsernamesContainer.appendChild(winnerNameElement);
+    winnerNameElement.appendChild(winnerLinkElement);
+
+  }
+  ///DCM Contest Toss End//
 </script>
 
 @endsection

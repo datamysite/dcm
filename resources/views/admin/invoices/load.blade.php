@@ -5,12 +5,13 @@
       <thead>
         <tr>
           <th width="5%">#</th>
-          <th width="20%">Name</th>
-          <th width="15%">Email</th>
+          <th width="15%">Name</th>
+          <th width="10%">Email</th>
           <th width="10%">Verification</th>
-          <th width="10%">Registration Date</th>
           <th width="10%">Number of Invoices</th>
-          <th width="15%">Invoices</th>
+          <th width="10%">Referral By</th>
+          <th width="10%">Invoices</th>
+          <th width="10%">Registration Date</th>
         </tr>
       </thead>
       <tbody id="categoryTableBody">
@@ -25,8 +26,14 @@
             <label class="badge bagde-danger">Non Verified</label>
             @endif
           </td>
-          <td>{{$val->created_at}}</td>
           <td> {{count($val->cashbackRequests)}} </td>
+          <td>
+            @if($val->by_referral != '')
+            {{$val->by_referral}}
+            @else
+            Direct Link
+            @endif
+          </td>
           <td>
             @if( count($val->cashbackRequests) > 0)
             <a href="javascript:void(0)" class="btn btn-sm btn-info editCategory" title="Edit Category" data-id="{{base64_encode($val->id)}}">View Invoices</a>
@@ -34,6 +41,7 @@
             <label class="badge bagde-danger">No Invoices</label>
             @endif
           </td>
+          <td>{{date('d-M-Y | h:i A', strtotime($val->created_at))}}</td>
         </tr>
         @endforeach
 
@@ -49,9 +57,10 @@
           <th>Name</th>
           <th>Email</th>
           <th>Verification</th>
-          <th>Registration Date</th>
           <th>Number of Invoices</th>
+          <th>Referral By</th>
           <th>Invoices</th>
+          <th>Registration Date</th>
         </tr>
       </tfoot>
     </table>

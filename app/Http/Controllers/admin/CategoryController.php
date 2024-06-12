@@ -37,7 +37,7 @@ class CategoryController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['name']) || empty($data['max_discount']) || empty($data['category_order'])) {
+        if (empty($data['name']) || empty($data['max_discount']) || empty($data['name_ar']) || empty($data['category_order'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         } else {
@@ -68,6 +68,7 @@ class CategoryController extends Controller
                         $ca->parent_id = $data['parent_id'];
                         $ca->type = $data['category_type'];
                         $ca->max_discount = $data['max_discount'];
+                        $ca->name_ar = $data['name_ar'];
                         $ca->order = $data['category_order'];
 
                         if ($request->hasFile('edit_category_image')) {

@@ -27,6 +27,14 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
+          <label>AR Name</label>
+          <input type="text" class="form-control" name="name_ar" value="{{$data->name_ar}}" required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
           <label>Parent Category</label>
 
           <select class="form-control" name="parent_id">
