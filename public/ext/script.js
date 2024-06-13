@@ -11,13 +11,14 @@ fetchHomeRetailers_en(curr_url);
 fetchHomeRetailers_ar(curr_url);
 
 document.getElementById("mainSearch").addEventListener("keyup", function(){
-    findRetailers(this.value);
+    findRetailers_en(this.value);
+    findRetailers_ar(this.value);
 });
 
 
-async function findRetailers(val) {
-    homeSection.innerHTML = '<img class="loader" src="'+host+'public/ext-loader.gif">';
-    couponSection.innerHTML = '<img class="loader" src="'+host+'public/ext-loader.gif">';
+async function findRetailers_en(val) {
+    enhomeSection.innerHTML = '<img class="loader" src="'+host+'public/ext-loader.gif">';
+    encouponSection.innerHTML = '<img class="loader" src="'+host+'public/ext-loader.gif">';
     if(val != '' && val != ' '){
         const res=await fetch (host+"api/ext/home/findRetailer/"+val);
         const record=await res.json();
@@ -32,13 +33,41 @@ async function findRetailers(val) {
             }
         }
         brandHTML += "</div>"
-        homeSection.innerHTML = brandHTML;
+        enhomeSection.innerHTML = brandHTML;
 
 
         couponHTML += "</div>"
-        couponSection.innerHTML = couponHTML;
+        encouponSection.innerHTML = couponHTML;
     }else{
-        fetchHomeRetailers("chrome");
+        fetchHomeRetailers_en("chrome");
+    }
+
+}
+
+async function findRetailers_ar(val) {
+    arhomeSection.innerHTML = '<img class="loader" src="'+host+'public/ext-loader.gif">';
+    arcouponSection.innerHTML = '<img class="loader" src="'+host+'public/ext-loader.gif">';
+    if(val != '' && val != ' '){
+        const res=await fetch (host+"api/ext/home/findRetailer/"+val);
+        const record=await res.json();
+        var brandHTML = "<div class='row'>";
+        var couponHTML = "<div class='row'>";
+
+        for(var k in record['brands']) {
+           brandHTML += "<div class='col-4'><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></div></a></div>"
+        
+            for(var j in record['brands'][k]['coupons']) {
+           couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' target='_blank'><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' class='show-coupon-btn button has-code' target='_blank'><span class='is-code'>DCM</span><span class='is-code-text'><em>Show Coupon</em></span></a></div></div>"
+            }
+        }
+        brandHTML += "</div>"
+        arhomeSection.innerHTML = brandHTML;
+
+
+        couponHTML += "</div>"
+        arcouponSection.innerHTML = couponHTML;
+    }else{
+        fetchHomeRetailers_en("chrome");
     }
 
 }
