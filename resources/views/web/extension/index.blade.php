@@ -454,17 +454,17 @@
             </div>
 
             <div class="form-group d-flex flex-column align-items-end">
-                <input type="text" name="search" placeholder="Search" id="mainSearch" class="form-control form-control-sm">
+                <input type="text" name="search" placeholder="Search" id="mainSearch" onfocus="return gtag_report_searchbar;" class="form-control form-control-sm">
                 <img class="icon" src="{{URL::to('public/search.png')}}">
             </div>
             <hr>
 
               <ul class="nav justify-content-between nav-pills" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link coupon-tab-btn active" href="javascript:void(0)" id="en-couponTab">Coupons</a>
+                  <a class="nav-link coupon-tab-btn active" href="javascript:void(0)" onclick="return gtag_report_coupontab;" id="en-couponTab">Coupons</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link brand-tab-btn" href="javascript:void(0)" id="en-brandTab">Brands</a>
+                  <a class="nav-link brand-tab-btn" href="javascript:void(0)" onclick="return gtag_report_brandtab;" id="en-brandTab">Brands</a>
                 </li>
               </ul>
         </header>
@@ -513,10 +513,10 @@
 
               <ul class="nav justify-content-between nav-pills" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link coupon-tab-btn active" href="javascript:void(0)" id="ar-couponTab">كوبونات</a>
+                  <a class="nav-link coupon-tab-btn active" href="javascript:void(0)" onclick="return gtag_report_coupontab;" id="ar-couponTab">كوبونات</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link brand-tab-btn" href="javascript:void(0)" id="ar-brandTab">العلامات التجارية</a>
+                  <a class="nav-link brand-tab-btn" href="javascript:void(0)" onclick="return gtag_report_brandtab;" id="ar-brandTab">العلامات التجارية</a>
                 </li>
               </ul>
         </header>
@@ -562,6 +562,59 @@
 
     @include('web.extension.includes.body')
 
+    <script type="text/javascript">
+        function gtag_report_showcoupon(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'show_coupon', {
+            'button_name': 'myBtn',
+            'screen_name': 'Brand'
+          });
+          return false;
+        }
+
+        function gtag_report_brandtab(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'brand_tab', {
+            'button_name': 'myBtn',
+            'screen_name': 'Brand'
+          });
+          return false;
+        }
+
+        function gtag_report_coupontab(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'coupon_tab', {
+            'button_name': 'myBtn',
+            'screen_name': 'Brand'
+          });
+          return false;
+        }
+
+        function gtag_report_searchbar(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'coupon_tab', {
+            'button_name': 'myBtn',
+            'screen_name': 'Brand'
+          });
+          return false;
+        }
+    </script>
 </body>
 
 </html>
