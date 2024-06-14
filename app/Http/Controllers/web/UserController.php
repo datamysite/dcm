@@ -38,6 +38,27 @@ class UserController extends Controller
         return response()->json($response, 200);
     }
 
+    public function create_from_ext(Request $request){
+        $data = $request->all();
+        $response = [];
+
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users|max:255',
+            'password' => 'required|min:8'
+        ]);
+
+        $user = User::create($data);
+
+        Auth::login($user);
+
+        Mailer::sendMail('Email Verification on DCM!', $user->email, $user->name, 'web.emailers.email_otp', ['name' => $user->name, 'email' => $user->email, 'otp' => strval($user->email_otp)]);
+        Mailer::sendMail('Welcome to DCM!', $user->email, $user->name, 'web.emailers.welcome_user', ['name' => $user->name, 'email' => $user->email]);
+        //Mailer::sendMail('Reffer your friends and earn more!', $user->email, $user->name, 'web.emailers.referral_email', ['name' => $user->name, 'email' => $user->email]);
+
+        return redirect('/');
+    }
+
     public function login(Request $request){
         $data = $request->all();
         $response = [];

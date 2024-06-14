@@ -121,14 +121,16 @@ Route::get('/migrate', function () {
             //Anti-Spam
             Route::get('/anti-spam', 'HomeController@Anti_Spam')->name('Anti_Spam');
 
-            //test comment//
-
+            //Extension Page //
+            Route::get('/welcome', 'ExtController@welcomePage')->name('welcomePage');
 
         });
 
         //Users
         Route::prefix('user')->group(function(){
             Route::post('create', 'UserController@create')->name('user.create');
+            Route::post('create_from_ext', 'UserController@create_from_ext')->name('user.create_from_ext');
+            
             Route::post('login', 'UserController@login')->name('user.login');
 
             Route::post('forgotPassword', 'UserController@forgotPassword')->name('user.forgotPassword');
