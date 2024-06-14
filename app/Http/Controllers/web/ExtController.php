@@ -52,4 +52,9 @@ class ExtController extends Controller
         }  
         return $ip;  
     } 
+
+    public function welcomePage()
+    {
+        return view('web.extension.welcome');
+    }
 }
