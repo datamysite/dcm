@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Countries;
 use GuzzleHttp\Client;
+use Auth;
 
 class ExtController extends Controller
 {
@@ -16,8 +17,8 @@ class ExtController extends Controller
         $client = new Client();
         $response = $client->get("https://ipinfo.io/".$userIp."?token=".config('app.ipinfo'));
         $idata = json_decode($response->getBody());
-
-        $country = Countries::where('shortname_2', $idata->country)->first();
+        $icount = empty($idata->country) ? 'AE' : $idata->country;
+        $country = Countries::where('shortname_2', $icount)->first();
 
         if(!empty($country->id)){
             if($country->id == '1'){
@@ -39,6 +40,12 @@ class ExtController extends Controller
         }
 
         return view('web.extension.index')->with($data);
+        if(Auth::check()){
+
+        }else{
+
+            return view('web.extension.login')->with($data);
+        }
     }
 
 

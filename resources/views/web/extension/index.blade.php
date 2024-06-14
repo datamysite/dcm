@@ -5,11 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DCM</title>
+    <title>Home | DCM Extension</title>
     <meta charset="utf-8">
     <meta name="host_name" content="{{$host_name}}">
     <meta name="state_name" content="{{$state_name}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    
+    @include('web.extension.includes.head')
+
 </head>
 <body>
     <input type="hidden" id="curr_url" value="{{$url}}">
@@ -457,10 +461,10 @@
 
               <ul class="nav justify-content-between nav-pills" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" href="javascript:void(0)" id="en-couponTab">Coupons</a>
+                  <a class="nav-link coupon-tab-btn active" href="javascript:void(0)" id="en-couponTab">Coupons</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="javascript:void(0)" id="en-brandTab">Brands</a>
+                  <a class="nav-link brand-tab-btn" href="javascript:void(0)" id="en-brandTab">Brands</a>
                 </li>
               </ul>
         </header>
@@ -509,10 +513,10 @@
 
               <ul class="nav justify-content-between nav-pills" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" href="javascript:void(0)" id="ar-couponTab">كوبونات</a>
+                  <a class="nav-link coupon-tab-btn active" href="javascript:void(0)" id="ar-couponTab">كوبونات</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="javascript:void(0)" id="ar-brandTab">العلامات التجارية</a>
+                  <a class="nav-link brand-tab-btn" href="javascript:void(0)" id="ar-brandTab">العلامات التجارية</a>
                 </li>
               </ul>
         </header>
@@ -554,6 +558,10 @@
             }
         });
     </script>
+
+
+    @include('web.extension.includes.body')
+
 </body>
 
 </html>
