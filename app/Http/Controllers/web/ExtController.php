@@ -39,8 +39,8 @@ class ExtController extends Controller
             $data['host_name'] = 'https://dealsandcouponsmena.ae/';
         }
 
-        return view('web.extension.index')->with($data);
         if(Auth::check()){
+        return view('web.extension.index')->with($data);
 
         }else{
 
