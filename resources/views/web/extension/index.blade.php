@@ -656,7 +656,7 @@
                     <h5>Welcome!</h5>
                     <p class="title">Explore your preferred shops, apply discount codes, and earn cashback rewards.</p>
 
-                    <a class="google-login" href="{{route('auth.google')}}" target="_self"><img src="{{URL::to('/public/google-o.png')}}" height="25px"> Sign in with Google</a>
+                    <a class="google-login" href="{{route('auth.google')}}" target="_blank"><img src="{{URL::to('/public/google-o.png')}}" height="25px"> Sign in with Google</a>
                     <hr style="width: 100%;">
                     <span class="or">OR</span>
 
