@@ -276,9 +276,6 @@
             <div class="menu">
                 <img class="logo" width="87.859px" height="25px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
                 <div class="icons">
-                    <a href="javascript:void(0)" class="changeLang" data-lang="ar">
-                        <img width="10px" height="10px" src="https://dealsandcouponsmena.com/public/web_assets/images/icons/globe.svg"> AR
-                    </a>
                     <a href="javascript:void(0)">
                         <img width="20px" height="14px" src="{{$host_name}}/public/web_assets/images/countries/{{$country_id}}.png">
                     </a>
@@ -298,65 +295,20 @@
                 <hr style="width: 100%;">
                 <span class="or">OR</span>
 
-                <a class="email-login" href="{{route('auth.google')}}" target="_self">Sign in with e-mail</a>
-                <p class="sign-up-text">Don`t have an account yet? <a href="">Create</a></p>
+                <a class="email-login" href="{{$host_name}}en/dubai?ref=signin" target="_blank">Sign in with e-mail</a>
+                <p class="sign-up-text">Don`t have an account yet? <a href="{{$host_name}}en/dubai?ref=signup" target="_blank">Create</a></p>
 
             </div>
         </section>
 
         <footer>
-            <a href="https://dealsandcouponsmena.ae/en/dubai" target="_blank">Continue as a Guest
+            <a href="{{route('ext.open', [$url])}}?ref=guest" target="_self">Continue as a Guest
             </a>
         </footer>
     </div>
 
-    <div class="container dcm-container dcm-container-ar" {{app()->getLocale() == 'en' ? 'style=display:none;' : ''}}>
-        <header class="text-center">
-            <div class="menu">
-                <img class="logo" width="87.859px" height="25px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
-                <div class="icons">
-                    <a href="javascript:void(0)" class="changeLang" data-lang="en">
-                        <img width="10px" height="10px" src="https://dealsandcouponsmena.com/public/web_assets/images/icons/globe.svg"> EN
-                    </a>
-                    <a href="javascript:void(0)">
-                        <img width="20px" height="14px" src="{{$host_name}}/public/web_assets/images/countries/{{$country_id}}.png">
-                    </a>
-                </div>
-            </div>
-            <hr>
 
-              <ul class="nav justify-content-between nav-pills" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" href="javascript:void(0)" id="ar-couponTab">كوبونات</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="javascript:void(0)" id="ar-brandTab">العلامات التجارية</a>
-                </li>
-              </ul>
-        </header>
-
-        <!-- Nav pills -->
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div id="ar-brands" class="container tab-pane fade">
-                <section id="ar-homeSection" class="homeSection">
-                    <img class="loader" src="{{URL::to('public/ext-loader.gif')}}">
-                </section>
-            </div>
-            <div id="ar-coupons" class="container tab-pane active">
-                <section id="ar-couponSection" class="couponSection">
-                    <img class="loader" src="{{URL::to('public/ext-loader.gif')}}">
-                </section>
-            </div>
-          </div>
-
-        <footer>
-            اذهب إلى <a href="https://dealsandcouponsmena.ae/ar/dubai" target="_blank">dealsandcouponsmena
-            </a>
-        </footer>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>\
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).on('click', '.changeLang', function(){
             var lang = $(this).data('lang');

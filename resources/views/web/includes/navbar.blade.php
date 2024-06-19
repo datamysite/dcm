@@ -211,7 +211,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                            </li>
                         @else
                            <li class="nav-item dropdown" style="padding: 10px;">
-                              <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal"><b>{{ __('translation.Sign_Up') }}</b></a>
+                              <a class="nav-link" href="javascript:void(0)" id="open-signin" role="button" data-bs-toggle="modal" data-bs-target="#userModal"><b>{{ __('translation.Sign_Up') }}</b></a>
                            </li>
                         @endif
 

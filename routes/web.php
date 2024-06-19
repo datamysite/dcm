@@ -185,7 +185,8 @@ Route::get('/migrate', function () {
 
         //Chrome Extension
         Route::prefix('ext')->group(function(){
-            Route::get('open/{url}', 'ExtController@index');
+            Route::get('open/{url}', 'ExtController@index')->name('ext.open');
+            Route::get('login/{url}', 'ExtController@login')->name('ext.login');
         });
 
     });

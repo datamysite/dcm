@@ -250,6 +250,19 @@
 </main>
 @endsection
 @section('addScript')
+   <script type="text/javascript">
+       @if(!empty($_GET['ref']) && $_GET['ref'] == 'signin')
+            $(document).ready(function(){
+               document.getElementById('open-signin').click();
+            });
+        @endif
+       @if(!empty($_GET['ref']) && $_GET['ref'] == 'signup')
+            $(document).ready(function(){
+               document.getElementById('open-signin').click();
+               document.getElementById('open-signup').click();
+            });
+        @endif
+   </script>
    <script type="text/javascript" src="{{URL::to('/public/web_assets/js/home.js')}}"></script>
    <script type="text/javascript">
       function gtag_report_mainbanner(url) {
@@ -290,6 +303,9 @@
           });
           return false;
         }
+
+
+
 
    </script>
 @endsection

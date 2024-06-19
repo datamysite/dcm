@@ -105,7 +105,7 @@
                         <h2 style="color:#fff">DCM</h2>
                         <h2 style="color:#fff">{{ __('translation.dmc_modal_text01') }}</h2>
                         <p>{{ __('translation.dmc_modal_text02') }}</p>
-                        <button class="btn btn-primary shadow-gray signUp" style="background-color: #fff;color:#1dace3">{{ __('translation.sign_up_btn') }}</button>
+                        <button class="btn btn-primary shadow-gray signUp" id="open-signup" style="background-color: #fff;color:#1dace3">{{ __('translation.sign_up_btn') }}</button>
                      </div>
                   </div>
                </div>
