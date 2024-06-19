@@ -19,25 +19,29 @@ class ClicksCounter extends Model
     public static function hitCount($type, $id, $coup_id = null, $coup_type = null){
         //dd($coup_type);
         $userIp = ClicksCounter::getIPAddress();
-        $client = new Client();
-         $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
-         $data = json_decode($response->getBody());
 
-         $cc = new ClicksCounter;
-         $cc->retailer_id = $id;
-         if($coup_type == '1'){
-            $cc->coupon_id = $coup_id;
-         }elseif($coup_type == '2'){
-            $cc->offer_id = $coup_id;
-         }
-         $cc->type = $type;
-         $cc->ipaddress = $data->ip;
-         $cc->coordinates = empty($data->loc) ? '' : $data->loc;
-         $cc->country = empty($data->country) ? '' : $data->country;
-         $cc->region = empty($data->region) ? '' : $data->region;
-         $cc->city = empty($data->city) ? '' : $data->city;
-         $cc->save();
+        if($userIp != "216.144.248.28"){
 
+            $client = new Client();
+             $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
+             $data = json_decode($response->getBody());
+
+
+             $cc = new ClicksCounter;
+             $cc->retailer_id = $id;
+             if($coup_type == '1'){
+                $cc->coupon_id = $coup_id;
+             }elseif($coup_type == '2'){
+                $cc->offer_id = $coup_id;
+             }
+             $cc->type = $type;
+             $cc->ipaddress = $data->ip;
+             $cc->coordinates = empty($data->loc) ? '' : $data->loc;
+             $cc->country = empty($data->country) ? '' : $data->country;
+             $cc->region = empty($data->region) ? '' : $data->region;
+             $cc->city = empty($data->city) ? '' : $data->city;
+             $cc->save();
+        }
     }
 
 
