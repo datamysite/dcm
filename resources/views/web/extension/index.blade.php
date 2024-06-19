@@ -282,6 +282,97 @@
             font-size: 12px;
         }
 
+         .login-block {
+            background-color: #e6e6e65c;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            height: -webkit-fill-available;
+            position: relative;
+        }
+        .login-block .coins {
+            width: 130px;
+            margin-top: 10px;
+        }
+        .login-block .title {
+            text-align: center;
+            font-size: 15px;
+            line-height: 20px;
+            margin-top: 9px;
+        }
+        .login-block h5 {
+            margin-bottom: -5px;
+            margin-top: 10px;
+        }
+        .login-block .google-login {
+            border: 1px solid rgb(66, 133, 244);
+            border-radius: 20px;
+            padding: 5px 16px;
+            margin-bottom: 5px;
+            width: 75%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: auto;
+            color: rgb(66, 133, 244);
+            font-weight: 600;
+        }
+        .login-block .google-login:hover {
+            background-color: rgb(66, 133, 244);
+            color: #fff;
+        }
+
+        .login-block .google-login:hover img {
+            filter: brightness(0) invert(1);
+        }
+        .google-login img {
+            margin-top: -1px;
+        }
+
+        .login-block .email-login {
+            border: 1px solid #1dace3;
+            border-radius: 20px;
+            padding: 5px 16px;
+            margin-bottom: 5px;
+            width: 75%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: auto;
+            color: #1dace3;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .login-block .email-login:hover {
+            background-color: #1dace3;
+            color: #fff;
+        }
+        .or {
+            background-color: #f6f6f6;
+            margin-top: -28px;
+            z-index: 9;
+            padding: 0 12px;
+            font-weight: 600;
+        }
+
+        .sign-up-text {
+            text-align: center;
+            font-size: 13px;
+            margin: 5px 0;
+        }
+        .sign-up-text a {
+            text-decoration: auto;
+            font-weight: 600;
+            color: #f11e4b;
+        }
+        .guest-btn {
+            position: absolute;
+            bottom: 10px;
+            text-decoration: auto;
+            color: #f11e4b;
+            font-weight: 600;
+        }
 
         footer {
             background-color: #e6e6e6;
@@ -437,110 +528,151 @@
     </style>
     <div class="blur-container"></div>
 
-    <div class="container dcm-container dcm-container-en"  {{app()->getLocale() == 'ar' ? 'style=display:none;' : ''}}>
-        <header class="text-center">
-            <p><img width="20px" height="20px" src="https://dealsandcouponsmena.com/public/pointing.png">&nbsp;&nbsp;Exclusively for you</p>
-            <div class="menu">
-            <img class="logo" width="87.859px" height="25px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
-            <div class="icons">
-                <a href="javascript:void(0)" class="changeLang" data-lang="ar">
-                    <img width="10px" height="10px" src="https://dealsandcouponsmena.com/public/web_assets/images/icons/globe.svg"> AR
+    <div class="index-section"  {{Auth::check() ? 'style=display:block;' : 'style=display:none;'}}>
+        <div class="container dcm-container dcm-container-en"  {{app()->getLocale() == 'ar' ? 'style=display:none;' : ''}}>
+            <header class="text-center">
+                <p><img width="20px" height="20px" src="https://dealsandcouponsmena.com/public/pointing.png">&nbsp;&nbsp;Exclusively for you</p>
+                <div class="menu">
+                <img class="logo" width="87.859px" height="25px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
+                <div class="icons">
+                    <a href="javascript:void(0)" class="changeLang" data-lang="ar">
+                        <img width="10px" height="10px" src="https://dealsandcouponsmena.com/public/web_assets/images/icons/globe.svg"> AR
+                    </a>
+                    <a href="javascript:void(0)">
+                        <img width="20px" height="14px" src="{{$host_name}}/public/web_assets/images/countries/{{$country_id}}.png">
+                    </a>
+
+                </div>
+                </div>
+
+                <div class="form-group d-flex flex-column align-items-end">
+                    <input type="text" name="search" placeholder="Search" id="mainSearch" onfocus="return gtag_report_searchbar;" class="form-control form-control-sm">
+                    <img class="icon" src="{{URL::to('public/search.png')}}">
+                </div>
+                <hr>
+
+                  <ul class="nav justify-content-between nav-pills" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link coupon-tab-btn active" href="javascript:void(0)" onclick="return gtag_report_coupontab;" id="en-couponTab">Coupons</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link brand-tab-btn" href="javascript:void(0)" onclick="return gtag_report_brandtab;" id="en-brandTab">Brands</a>
+                    </li>
+                  </ul>
+            </header>
+
+            <!-- Nav pills -->
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div id="en-brands" class="container tab-pane fade">
+                    <section id="en-homeSection" class="homeSection">
+                        <img class="loader" src="{{URL::to('public/ext-loader.gif')}}">
+                    </section>
+                </div>
+                <div id="en-coupons" class="container tab-pane active">
+                    <section id="en-couponSection" class="couponSection">
+                        <img class="loader" src="{{URL::to('public/ext-loader.gif')}}">
+                    </section>
+                </div>
+              </div>
+
+            <footer>
+                Go to <a href="https://dealsandcouponsmena.ae/en/dubai" target="_blank">dealsandcouponsmena
                 </a>
-                <a href="javascript:void(0)">
-                    <img width="20px" height="14px" src="{{$host_name}}/public/web_assets/images/countries/{{$country_id}}.png">
+            </footer>
+        </div>
+
+        <div class="container dcm-container dcm-container-ar" {{app()->getLocale() == 'en' ? 'style=display:none;' : ''}}>
+            <header class="text-center">
+                <p><img width="20px" height="20px" src="https://dealsandcouponsmena.com/public/pointing.png">&nbsp;&nbsp;حصريا لك</p>
+                <div class="menu">
+                <img class="logo" width="87.859px" height="25px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
+                <div class="icons">
+                    <a href="javascript:void(0)" class="changeLang" data-lang="en">
+                        <img width="10px" height="10px" src="https://dealsandcouponsmena.com/public/web_assets/images/icons/globe.svg"> EN
+                    </a>
+                    <a href="javascript:void(0)">
+                        <img width="20px" height="14px" src="{{$host_name}}/public/web_assets/images/countries/{{$country_id}}.png">
+                    </a>
+                </div>
+                </div>
+
+                <div class="form-group d-flex flex-column align-items-end">
+                    <input type="text" name="search" placeholder="Search" id="mainSearch" class="form-control form-control-sm">
+                    <img class="icon" src="{{URL::to('public/search.png')}}">
+                </div>
+                <hr>
+
+                  <ul class="nav justify-content-between nav-pills" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link coupon-tab-btn active" href="javascript:void(0)" onclick="return gtag_report_coupontab;" id="ar-couponTab">كوبونات</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link brand-tab-btn" href="javascript:void(0)" onclick="return gtag_report_brandtab;" id="ar-brandTab">العلامات التجارية</a>
+                    </li>
+                  </ul>
+            </header>
+
+            <!-- Nav pills -->
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div id="ar-brands" class="container tab-pane fade">
+                    <section id="ar-homeSection" class="homeSection">
+                        <img class="loader" src="{{URL::to('public/ext-loader.gif')}}">
+                    </section>
+                </div>
+                <div id="ar-coupons" class="container tab-pane active">
+                    <section id="ar-couponSection" class="couponSection">
+                        <img class="loader" src="{{URL::to('public/ext-loader.gif')}}">
+                    </section>
+                </div>
+              </div>
+
+            <footer>
+                اذهب إلى <a href="https://dealsandcouponsmena.ae/ar/dubai" target="_blank">dealsandcouponsmena
                 </a>
-
-            </div>
-            </div>
-
-            <div class="form-group d-flex flex-column align-items-end">
-                <input type="text" name="search" placeholder="Search" id="mainSearch" onfocus="return gtag_report_searchbar;" class="form-control form-control-sm">
-                <img class="icon" src="{{URL::to('public/search.png')}}">
-            </div>
-            <hr>
-
-              <ul class="nav justify-content-between nav-pills" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link coupon-tab-btn active" href="javascript:void(0)" onclick="return gtag_report_coupontab;" id="en-couponTab">Coupons</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link brand-tab-btn" href="javascript:void(0)" onclick="return gtag_report_brandtab;" id="en-brandTab">Brands</a>
-                </li>
-              </ul>
-        </header>
-
-        <!-- Nav pills -->
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div id="en-brands" class="container tab-pane fade">
-                <section id="en-homeSection" class="homeSection">
-                    <img class="loader" src="{{URL::to('public/ext-loader.gif')}}">
-                </section>
-            </div>
-            <div id="en-coupons" class="container tab-pane active">
-                <section id="en-couponSection" class="couponSection">
-                    <img class="loader" src="{{URL::to('public/ext-loader.gif')}}">
-                </section>
-            </div>
-          </div>
-
-        <footer>
-            Go to <a href="https://dealsandcouponsmena.ae/en/dubai" target="_blank">dealsandcouponsmena
-            </a>
-        </footer>
+            </footer>
+        </div>
     </div>
 
-    <div class="container dcm-container dcm-container-ar" {{app()->getLocale() == 'en' ? 'style=display:none;' : ''}}>
-        <header class="text-center">
-            <p><img width="20px" height="20px" src="https://dealsandcouponsmena.com/public/pointing.png">&nbsp;&nbsp;حصريا لك</p>
-            <div class="menu">
-            <img class="logo" width="87.859px" height="25px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
-            <div class="icons">
-                <a href="javascript:void(0)" class="changeLang" data-lang="en">
-                    <img width="10px" height="10px" src="https://dealsandcouponsmena.com/public/web_assets/images/icons/globe.svg"> EN
+    <div class="login-section" {{Auth::check() ? 'style=display:none;' : 'style=display:block;'}}>
+         <div class="container dcm-container dcm-container-en"  {{app()->getLocale() == 'ar' ? 'style=display:none;' : ''}}>
+            <header class="text-center">
+                <div class="menu">
+                    <img class="logo" width="87.859px" height="25px" src="https://dealsandcouponsmena.com/public/web_assets/images/logo/m-logo.png">
+                    <div class="icons">
+                        <a href="javascript:void(0)">
+                            <img width="20px" height="14px" src="{{$host_name}}/public/web_assets/images/countries/{{$country_id}}.png">
+                        </a>
+
+                    </div>
+                </div>
+            </header>
+
+            
+            <section id="en-homeSection" class="homeSection">
+                <div class="login-block">
+                    <img class="coins" src="{{URL::to('/public/coins.png')}}">
+                    <h5>Welcome!</h5>
+                    <p class="title">Explore your preferred shops, apply discount codes, and earn cashback rewards.</p>
+
+                    <a class="google-login" href="{{route('auth.google')}}" target="_self"><img src="{{URL::to('/public/google-o.png')}}" height="25px"> Sign in with Google</a>
+                    <hr style="width: 100%;">
+                    <span class="or">OR</span>
+
+                    <a class="email-login" href="{{$host_name}}en/dubai?ref=signin" target="_blank">Sign in with e-mail</a>
+                    <p class="sign-up-text">Don`t have an account yet? <a href="{{$host_name}}en/dubai?ref=signup" target="_blank">Create</a></p>
+
+                </div>
+            </section>
+
+            <footer>
+                <a href="javascript:void(0)" class="login-guest" >Continue as a Guest
                 </a>
-                <a href="javascript:void(0)">
-                    <img width="20px" height="14px" src="{{$host_name}}/public/web_assets/images/countries/{{$country_id}}.png">
-                </a>
-            </div>
-            </div>
-
-            <div class="form-group d-flex flex-column align-items-end">
-                <input type="text" name="search" placeholder="Search" id="mainSearch" class="form-control form-control-sm">
-                <img class="icon" src="{{URL::to('public/search.png')}}">
-            </div>
-            <hr>
-
-              <ul class="nav justify-content-between nav-pills" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link coupon-tab-btn active" href="javascript:void(0)" onclick="return gtag_report_coupontab;" id="ar-couponTab">كوبونات</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link brand-tab-btn" href="javascript:void(0)" onclick="return gtag_report_brandtab;" id="ar-brandTab">العلامات التجارية</a>
-                </li>
-              </ul>
-        </header>
-
-        <!-- Nav pills -->
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div id="ar-brands" class="container tab-pane fade">
-                <section id="ar-homeSection" class="homeSection">
-                    <img class="loader" src="{{URL::to('public/ext-loader.gif')}}">
-                </section>
-            </div>
-            <div id="ar-coupons" class="container tab-pane active">
-                <section id="ar-couponSection" class="couponSection">
-                    <img class="loader" src="{{URL::to('public/ext-loader.gif')}}">
-                </section>
-            </div>
-          </div>
-
-        <footer>
-            اذهب إلى <a href="https://dealsandcouponsmena.ae/ar/dubai" target="_blank">dealsandcouponsmena
-            </a>
-        </footer>
+            </footer>
+        </div>
     </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{URL::to('public/ext/script.js')}}"></script>
@@ -556,6 +688,11 @@
                 $('.dcm-container-en').css({display: "none"});
                 $('.dcm-container-ar').css({display: "block"});
             }
+        });
+
+        $(document).on('click', '.login-guest', function(){
+           $('.login-section').css({display: 'none'});
+           $('.index-section').css({display: 'block'});
         });
     </script>
 

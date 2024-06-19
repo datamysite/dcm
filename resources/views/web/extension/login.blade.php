@@ -302,7 +302,7 @@
         </section>
 
         <footer>
-            <a href="{{route('ext.open', [$url])}}?ref=guest" target="_self">Continue as a Guest
+            <a href="javascript:void(0)" class="login-guest" data-href="{{route('ext.open', [$url])}}?ref=guest" target="_self">Continue as a Guest
             </a>
         </footer>
     </div>
@@ -321,6 +321,12 @@
                 $('.dcm-container-en').css({display: "none"});
                 $('.dcm-container-ar').css({display: "block"});
             }
+        });
+
+        $(document).on('click', '.login-guest', function(){
+            var src = $(this).data('href');
+
+            window.location.href = src;
         });
     </script>
 
