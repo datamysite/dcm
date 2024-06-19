@@ -20,7 +20,8 @@ class ClicksCounter extends Model
         //dd($coup_type);
         $userIp = ClicksCounter::getIPAddress();
 
-        if($userIp != "216.144.248.28"){
+        $ipset = explode('.', $userIp);
+        if($ipset[0] != "66" && $ipset[1] != "249" && $userIp != "216.144.248.28"){
 
             $client = new Client();
              $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
