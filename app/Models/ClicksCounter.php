@@ -21,7 +21,7 @@ class ClicksCounter extends Model
         $userIp = ClicksCounter::getIPAddress();
 
         $ipset = explode('.', $userIp);
-        if($ipset[0] != "66" && $ipset[1] != "249" && $userIp != "216.144.248.28"){
+        if((!empty($ipset[0]) && $ipset[0] != "66" && $ipset[1] != "249") && $userIp != "216.144.248.28"){
 
             $client = new Client();
              $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
