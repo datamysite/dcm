@@ -39,7 +39,7 @@
                   <div class="icon">
                     <i><img src="{{URL::to('/public/icons/traffic.png')}}"></i>
                   </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                 </div>
               </div>
 
@@ -55,7 +55,7 @@
                   <div class="icon">
                     <i><img src="{{URL::to('/public/icons/downloaded-coupons.png')}}"></i>
                   </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                 </div>
               </div>
               @endif
@@ -73,7 +73,7 @@
                   <div class="icon">
                     <i><img src="{{URL::to('/public/icons/downloaded-coupons.png')}}"></i>
                   </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                 </div>
               </div>
               @endif
@@ -90,7 +90,7 @@
                   <div class="icon">
                     <i><img src="{{URL::to('/public/icons/grab-deal.png')}}"></i>
                   </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                 </div>
               </div>
               @endif
@@ -106,7 +106,7 @@
                   <div class="icon">
                     <i><img src="{{URL::to('/public/icons/whatsapp-chat.png')}}"></i>
                   </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                 </div>
               </div>
               @endif
@@ -124,7 +124,7 @@
                   <div class="icon">
                     <i><img src="{{URL::to('/public/icons/all-coupons.png')}}"></i>
                   </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                 </div>
               </div>
               <!-- ./col -->
@@ -142,7 +142,7 @@
                   <div class="icon">
                     <i><img src="{{URL::to('/public/icons/all-coupons.png')}}"></i>
                   </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                 </div>
               </div>
               <!-- ./col -->
