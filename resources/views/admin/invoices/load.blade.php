@@ -26,7 +26,7 @@
             <label class="badge bagde-danger">Non Verified</label>
             @endif
           </td>
-          <td> {{count($val->cashbackRequests)}} </td>
+          <td> {{count($val->cashbackRequests)}} @if(count($val->cashbackRequests) >= 4) <span class="badge bagde-success">Eligible</span> @endif </td>
           <td>
             @if($val->by_referral != '')
             {{$val->by_referral}}
