@@ -50,13 +50,22 @@ class UserController extends Controller
 
         $user = User::create($data);
 
-        Auth::login($user);
+       if($user){
 
+        Auth::login($user);
+        
         Mailer::sendMail('Email Verification on DCM!', $user->email, $user->name, 'web.emailers.email_otp', ['name' => $user->name, 'email' => $user->email, 'otp' => strval($user->email_otp)]);
         Mailer::sendMail('Welcome to DCM!', $user->email, $user->name, 'web.emailers.welcome_user', ['name' => $user->name, 'email' => $user->email]);
         //Mailer::sendMail('Reffer your friends and earn more!', $user->email, $user->name, 'web.emailers.referral_email', ['name' => $user->name, 'email' => $user->email]);
 
-        return redirect('/');
+        return redirect('/en/user/profile');
+
+
+        }else{
+            return redirect('/en/dubai/welcome')->with('register_faulier', 'register_faulier');
+            }
+
+     
     }
 
     public function login(Request $request){
@@ -84,7 +93,27 @@ class UserController extends Controller
         return response()->json($response, $error_code);
     }
 
+    public function login_from_ext(Request $request){
+        $data = $request->all();
+        $response = [];
+        $error_code = 200;
+        $validated = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
+        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'is_active' => '1'])){
+
+            return redirect('/en/user/profile');
+
+        }else{
+
+            return redirect('/en/dubai/welcome')->with('login_faulier', 'login_faulier');
+
+        }
+
+        return response()->json($response, $error_code);
+    }
     public function forgotPassword(Request $request){
         $data = $request->all();
         $response = [];

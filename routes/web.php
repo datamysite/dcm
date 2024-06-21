@@ -132,6 +132,7 @@ Route::get('/migrate', function () {
             Route::post('create_from_ext', 'UserController@create_from_ext')->name('user.create_from_ext');
             
             Route::post('login', 'UserController@login')->name('user.login');
+            Route::post('login_from_ext', 'UserController@login_from_ext')->name('user.login_from_ext');
 
             Route::post('forgotPassword', 'UserController@forgotPassword')->name('user.forgotPassword');
             Route::get('resetPassword/{id}/{email}', 'UserController@resetPassword')->name('user.resetPassword');
