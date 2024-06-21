@@ -10,7 +10,7 @@
     <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="https://dealsandcouponsmena.ae/public/web_assets/images/logo/dcm-logo-r.png">
     <link rel="mask-icon" href="https://dealsandcouponsmena.ae/public/web_assets/images/logo/dcm-logo-r.png" color="#1DC6FE">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <script src="{{URL::to('/public')}}/web_assets/js/app.js"></script>
 
     <style>
@@ -1455,7 +1455,7 @@
 </head>
 
 
-        <script src="{{URL::to('/public')}}/web_assets/js/app.js"></script>
+<script src="{{URL::to('/public')}}/web_assets/js/app.js"></script>
 
 <body style=" font-family: Arial, Helvetica, sans-serif;">
     <nav class="navbar page__section ">
@@ -1487,7 +1487,20 @@
 
             </div>
         </div>
-        <div class="register-box">
+        <div class="register-box" id="sign_up">
+
+            @if(session('login_faulier'))
+            <div class="col-lg-4" style="padding: 20px;border-radius:10px;background-color:#FF7074;">
+                <span class="text-center" style="font-size: 17px;color:#fff;">Login Error. wrong email, password.</b>
+            </div>
+            @endif
+            @if(session('register_faulier'))
+            <div class="col-lg-4" style="padding: 20px;border-radius:10px;background-color:#FF7074;">
+                <span class="text-center" style="font-size: 17px;color:#fff;">Registration Error. exist user or not valid information.</b>
+            </div>
+            @endif
+
+            
             <div class="register-box__inner-container" id="register-box">
 
                 <h1 class="register-box__header">Create a DCM account</h1>
@@ -1505,7 +1518,7 @@
                             <span class="register-form__delimiter-text">OR</span>
                         </div>
 
-                        <form class="register-form__form register-form__form-register" id="create_user_form_ext"  action="{{route('user.create_from_ext', [$region])}}" method="POST">
+                        <form class="register-form__form register-form__form-register" id="create_user_form_ext" action="{{route('user.create_from_ext', [$region])}}" method="POST">
                             @csrf
                             <div class="register-form__input-container">
                                 <input type="text" class="register-form__input" placeholder="Name" name="name" required="required">
@@ -1526,20 +1539,60 @@
                             <button type="submit" class="register-form__submit btn btn--blue" style="color: #fff;">Register &amp; Earn</button>
                         </form>
 
-                     
+                        <span class="register-form__switch-button">Already have a DCM account? <a href="#sign_in" class="link"><b style="font-weight: 800;">Sign in</b></a></span>
+
 
                     </div>
 
-                    <div class="register-form">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="register-box" id="sign_in" style="display: none;">
+
+            <div class="register-box__inner-container" id="login-box">
+
+                <h1 class="register-box__header">Login with your account</h1>
+                <div class="register-box__form">
+
+                    <div class="register-form register-form--active">
+
+                        <div class="register-form__social-container register-form__social-container--icons-only">
+                            <p>
+                                <a href="{{route('auth.google', [$region])}}"><i class="fa fa-google-plus-square" style="font-size:48px;color:#ea4335;"></i></a>
+                            </p>
+                        </div>
 
                         <div class="register-form__delimiter">
                             <span class="register-form__delimiter-text">OR</span>
                         </div>
-                        <span class="register-form__switch-button">Don’t have an account yet? <a href="#" class="link">Sign up</a></span>
+
+                        <form class="register-form__form register-form__form-register" action="{{route('user.login_from_ext', [$region])}}" method="POST">
+                            @csrf
+
+
+                            <div class="register-form__input-container">
+                                <input type="email" class="register-form__input" placeholder="Email" name="email" required="required">
+                            </div>
+
+                            <div class="register-form__input-container">
+                                <input type="password" class="register-form__input register-form__input--password" placeholder="Password" name="password" required="required">
+                            </div>
+
+
+                            <button type="submit" class="register-form__submit btn btn--blue" style="color: #fff;">Login</button>
+                        </form>
+                        <span class="register-form__switch-button">Don’t have DCM account yet? <a href="#sign_up" class="link"><b style="font-weight: 800;">Sign Up</b></a></span>
+
+
+
                     </div>
+
                 </div>
             </div>
         </div>
+
     </div>
     <footer class="footer page__section">
         <div class="footer__container container">
@@ -1553,7 +1606,31 @@
             </div>
         </div>
 
+        <script>
+            var signInLink = document.querySelector('.register-form__switch-button a[href="#sign_in"]');
+            var signUpLink = document.querySelector('.register-form__switch-button a[href="#sign_up"]');
 
+            signInLink.addEventListener('click', function(event) {
+                event.preventDefault(); //
+
+                var signInDiv = document.getElementById('sign_in');
+                var signUpDiv = document.getElementById('sign_up');
+
+                signInDiv.style.display = 'block';
+                signUpDiv.style.display = 'none';
+
+            });
+
+            signUpLink.addEventListener('click', function(event) {
+                event.preventDefault(); //
+
+                var signInDiv = document.getElementById('sign_in');
+                var signUpDiv = document.getElementById('sign_up');
+
+                signUpDiv.style.display = 'block';
+                signInDiv.style.display = 'none';
+            });
+        </script>
     </footer>
 </body>
 
