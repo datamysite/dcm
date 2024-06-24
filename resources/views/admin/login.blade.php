@@ -17,7 +17,7 @@
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="{{URL::to('/public')}}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url({{URL::to('/public/seller-bg.png')}}); background-size: cover; background-repeat: no-repeat;">
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">

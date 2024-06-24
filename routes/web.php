@@ -416,6 +416,17 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/export', 'NewsletterController@user_export')->name('admin.newsletter.export');
         });
 
+
+        //Loyalty Program
+        Route::prefix('loyalty')->group(function () {
+
+            //Settings
+            Route::prefix('settings')->group(function(){
+
+                Route::get('/', 'LoyaltyController@settings')->name('admin.loyalty.settings');
+            });
+        });
+
         
         //Home :: Slider Section
         Route::prefix('home')->group(function () {

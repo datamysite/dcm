@@ -196,6 +196,12 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
+              <a href="{{route('admin.loyalty.settings')}}" class="nav-link {{$menu == 'settings.loyalty' ? 'active' : ''}}">
+                <i class="fas fa-angle-right nav-icon"></i>
+                <p>Loyalty Program</p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="{{route('admin.categories')}}" class="nav-link {{$menu == 'categories' ? 'active' : ''}}">
                 <i class="fas fa-angle-right nav-icon"></i>
                 <p>Caterogies</p>
