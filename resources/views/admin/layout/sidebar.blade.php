@@ -186,7 +186,7 @@
             </p>
           </a>
         </li>
-        <li class="nav-item  {{$menu == 'categories' || $menu == 'countries' || $menu == 'users' ? 'menu-open' : ''}}">
+        <li class="nav-item  {{$menu == 'categories' || $menu == 'countries' || $menu == 'users' || $menu == 'settings.loyalty' ? 'menu-open' : ''}}">
           <a href="javascript:void(0)" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>

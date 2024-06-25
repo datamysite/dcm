@@ -424,6 +424,17 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::prefix('settings')->group(function(){
 
                 Route::get('/', 'LoyaltyController@settings')->name('admin.loyalty.settings');
+                Route::prefix('conversionRate')->group(function(){
+                    Route::post('/add', 'LoyaltyController@addConverstionRate')->name('admin.loyalty.settings.conversionRate.add');
+                    Route::get('/delete/{id}', 'LoyaltyController@deleteConverstionRate');
+                    Route::get('/edit/{id}', 'LoyaltyController@editConverstionRate');
+                    Route::post('/update', 'LoyaltyController@updateConverstionRate')->name('admin.loyalty.settings.conversionRate.update');
+                });
+
+                Route::prefix('eligibility')->group(function(){
+                    Route::get('/edit/{id}', 'LoyaltyController@editEligibility');
+                    Route::post('/update', 'LoyaltyController@updateEligibility')->name('admin.loyalty.settings.eligibility.update');
+                });
             });
         });
 

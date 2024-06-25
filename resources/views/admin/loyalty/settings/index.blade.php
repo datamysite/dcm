@@ -39,9 +39,22 @@
                   <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Link" data-toggle="modal" data-target="#addAboutFormModal1"><i class="fas fa-plus"></i> Add New</a>
                 </div>
               </div>
-              <hr>
+              <br>
               <div class="row">
                 <div class="col-md-12">
+                  <table class="table">
+                    @foreach($ConversionRate as $val)
+                      <tr>
+                        <td style="width: 40%; padding-left: 0;">{{@$val->country->name}}</td>
+                        <td style="width: 20%;">{{$val->coins}} Coins</td>
+                        <td style="width: 20%;">{{number_format((float)$val->value, 1, '.', '')}} {{@$val->country->curr}}</td>
+                        <td style="width: 20%; text-align: right; padding-right: 0;">
+                          <a href="javascript:void(0)" class="btn btn-sm btn-primary editrate" data-id="{{base64_encode($val->id)}}"><i class="fa fa-edit"></i></a>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-danger deleterate" data-id="{{base64_encode($val->id)}}"><i class="fa fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </table>
                 </div>
               </div>
             </div>
@@ -57,15 +70,25 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-md-8">
-                    <h4>Popular Stores</h4>
+                    <h4>Eligibility Parameter</h4>
                 </div>
                 <div class="col-md-4">
-                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Link" data-toggle="modal" data-target="#addAboutFormModal2"><i class="fas fa-plus"></i> Add Link</a>
                 </div>
               </div>
-              <hr>
+              <br>
               <div class="row">
                 <div class="col-md-12">
+                  <table class="table">
+                    @foreach($claimtype as $val)
+                      <tr>
+                        <td style="width: 60%; padding-left: 0;">{{$val->type}}</td>
+                        <td style="width: 20%;">{{$val->eligibility}} Coins</td>
+                        <td style="width: 20%; text-align: right; padding-right: 0;">
+                          <a href="javascript:void(0)" class="btn btn-sm btn-primary editparameter" data-id="{{base64_encode($val->id)}}"><i class="fa fa-edit"></i></a>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </table>
                 </div>
               </div>
             </div>
@@ -108,11 +131,10 @@
 <div class="modal fade" id="addAboutFormModal1">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form method="post" action="{{route('admin.footer.create')}}" enctype="multipart/form-data">
+      <form method="post" action="{{route('admin.loyalty.settings.conversionRate.add')}}">
         @csrf
-        <input type="hidden" name="section_id" value="1">
         <div class="modal-header">
-          <h4 class="modal-title">Add Link</h4>
+          <h4 class="modal-title">Add Conversion Rate</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -120,25 +142,27 @@
         <div class="modal-body">
 
           <div class="row">
-            <div class="col-md-8">
-              <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" id="page_name" name="page_name" required>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Order</label>
-                <input type="number" class="form-control" name="order_number"  value="1" required>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label>URL</label>
-                <input type="url" class="form-control" name="page_url" required>
+                <label>Country</label>
+                <select class="form-control" name="country_id" required>
+                  <option value="">Select</option>
+                  @foreach($countries as $val)
+                    <option value="{{$val->id}}">{{$val->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Coins</label>
+                <input type="number" class="form-control" name="coins"  value="5" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Value</label>
+                <input type="number" class="form-control" name="value"  value="1.5" required>
               </div>
             </div>
           </div>
@@ -247,76 +271,8 @@
 @endsection
 @section('addScript')
 
-<script>
-  $(function() {
-
-    loadFooterContent();
-
-
-    $(document).on('submit', "#copyrightForm", function(event) {
-      var form = $(this);
-      var formData = new FormData($("#copyrightForm")[0]);
-      //console.log(formData);
-      $.ajax({
-        type: "POST",
-        url: form.attr("action"),
-        data: formData,
-        dataType: "json",
-        encode: true,
-        processData: false,
-        contentType: false,
-      }).done(function(data) {
-        if (data.success == 'success') {
-          Toast.fire({
-            icon: 'success',
-            title: data.message
-          });
-        } else {
-          Toast.fire({
-            icon: 'error',
-            title: data.errors
-          });
-        }
-      });
-
-      event.preventDefault();
-    });
-
-    $(document).on('submit', "#edit_about_form", function(event) {
-      var form = $(this);
-      var formData = new FormData($("#edit_about_form")[0]);
-      //console.log(formData);
-      $.ajax({
-        type: "POST",
-        url: form.attr("action"),
-        data: formData,
-        dataType: "json",
-        encode: true,
-        processData: false,
-        contentType: false,
-      }).done(function(data) {
-        if (data.success == 'success') {
-          Toast.fire({
-            icon: 'success',
-            title: data.message
-          });
-          $('.close-btn').click();
-          form.trigger("reset");
-          $('#editCategoryFormModal').modal('hide');
-          loadFooterContent();
-        } else {
-          Toast.fire({
-            icon: 'error',
-            title: data.errors
-          });
-        }
-      });
-
-      event.preventDefault();
-    });
-
-
-    $(document).on('click', '.deleteLink', function() {
+<script type="text/javascript">
+  $(document).on('click', '.deleterate', function() {
       var id = $(this).data('id');
 
       Swal.fire({
@@ -329,7 +285,7 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/panel/footer/delete')}}/" + id, function(data) {
+          $.get("{{URL::to('/admin/panel/loyalty/settings/conversionRate/delete')}}/" + id, function(data) {
             console.log(data);
             if (data == 'success') {
               Toast.fire({
@@ -351,86 +307,24 @@
     });
 
 
-    $(document).on('click', '.edit', function() {
+
+    $(document).on('click', '.editrate', function() {
       var id = $(this).data('id');
-      $('#editCategoryFormModal .modal-content').html('<img src="{{URL::to(' / public / loader.gif ')}}" height="50px" style="margin:150px auto;">');
+      $('#editCategoryFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
       $('#editCategoryFormModal').modal('show');
-      $.get("{{URL::to('/admin/footer/edit')}}/" + id, function(data) {
+      $.get("{{URL::to('/admin/panel/loyalty/settings/conversionRate/edit')}}/" + id, function(data) {
         $('#editCategoryFormModal .modal-content').html(data);
-        make_editor("content2");
       });
     });
 
-  });
 
-
-
-  function loadFooterContent() {
-    var url = "{{route('admin.footer.load')}}";
-
-    $('#aboutTableBody').html('<tr class="text-center"><td colspan="6"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px"></td></tr>');
-    $.get(url, function(data) {
-      $('#aboutTableBody').html(data);
-      //$('#categoryTable').DataTable();
-    });
-  }
-
-  //FILE
-  function readURL(input, obj) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        obj.css('background-image', 'url(' + e.target.result + ')');
-        obj.addClass('file-set');
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
-  };
-</script>
-
-<script>
-  function resetFormFileds() {
-    var sectionId = document.getElementById("section_id").value;
-
-    var pageNameInput = document.getElementById("page_name");
-    var retailerIdInput = document.getElementById("retailer_id");
-    var categoryIdInput = document.getElementById("category_id");
-    
-    if (sectionId === "1") {
-      retailerIdInput.value = "0";
-      categoryIdInput.value = "0";
-    }
-    if (sectionId === "2") {
-      pageNameInput.value = "";
-      categoryIdInput.value = "0";
-    }
-    if (sectionId === "3") {
-      pageNameInput.value = "";
-      retailerIdInput.value = "0";
-    }
-  }
-
-    $(document).ready(function() {
-      $('#section_id').change(function() {
-        var selectedSection = $(this).val();
-
-        if (selectedSection === "1") {
-          $('#retailer_row').hide();
-          $('#categoires_row').hide();
-          $('#page_row').show();
-        }
-        if (selectedSection === "2") {
-          $('#retailer_row').show();
-          $('#categoires_row').hide();
-          $('#page_row').hide();
-        }
-        if (selectedSection === "3") {
-          $('#categoires_row').show();
-          $('#retailer_row').hide();
-          $('#page_row').hide();
-        }
+    $(document).on('click', '.editparameter', function() {
+      var id = $(this).data('id');
+      $('#editCategoryFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
+      $('#editCategoryFormModal').modal('show');
+      $.get("{{URL::to('/admin/panel/loyalty/settings/eligibility/edit')}}/" + id, function(data) {
+        $('#editCategoryFormModal .modal-content').html(data);
       });
     });
 </script>
-
 @endsection

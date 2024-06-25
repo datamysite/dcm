@@ -32,6 +32,12 @@
    <div id="loading">
      <img id="loading-image" src="{{URL::to('/public/web_assets/images/logo/loader.png')}}" alt="Loading..." />
    </div>
+
+   <!-- Whatsapp Channel -->
+   <a href="https://whatsapp.com/channel/0029VagMPcIJkK7DkRIf8F1j" class="whatsapp-channel-btn" target="_blank">
+      <span>{{ __('translation.whatsapp-channel') }}</span>
+      <img src="{{URL::to('/public/whatsapp-channel.jpg')}}">
+   </a>
    <!-- navbar -->
 
       @include('web.includes.navbar')

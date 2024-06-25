@@ -1,3 +1,15 @@
+.swal2-icon-error .swal2-title {
+    color: #fff !important;
+}
+.swal2-icon-error {
+    background-color: #ff4330eb !important;
+}
+.swal2-icon-error .swal2-icon-show span>span {
+    background-color: #fff !important;
+}
+.swal2-icon-error .swal2-icon-show {
+    border-color: #fff !important;
+}
 .badge-sucess {
     background-color: #2ebd2e;
     color: #fff;

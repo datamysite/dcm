@@ -745,4 +745,6 @@ return [
   "country_change_para_5_KSA" => "Proceed to KSA`s Website",
 
   "All Provices" => "All Provinces",
+
+  "whatsapp-channel" => "Join our channel",
 ];
