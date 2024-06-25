@@ -36,7 +36,7 @@
    <!-- Whatsapp Channel -->
    <a href="https://whatsapp.com/channel/0029VagMPcIJkK7DkRIf8F1j" class="whatsapp-channel-btn" target="_blank">
       <span>{{ __('translation.whatsapp-channel') }}</span>
-      <img src="{{URL::to('/public/whatsapp-channel.jpg')}}">
+      <img src="{{URL::to('/public/whatsapp.png')}}">
    </a>
    <!-- navbar -->
 
