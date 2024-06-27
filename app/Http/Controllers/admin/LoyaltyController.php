@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Countries;
 use App\Models\ConversionRate;
 use App\Models\ClaimType;
+use App\Models\Wishcategories;
 
 class LoyaltyController extends Controller
 {
@@ -21,6 +22,7 @@ class LoyaltyController extends Controller
                 $data['countries'] = Countries::all();
                 $data['ConversionRate'] = ConversionRate::all();
                 $data['claimtype'] = ClaimType::all();
+                $data['categories'] = Wishcategories::where('del', '0')->get();
 
                 return view('admin.loyalty.settings.index')->with($data);
             }
@@ -105,6 +107,70 @@ class LoyaltyController extends Controller
                 }else{
                     return redirect()->back()->with('error', 'Something went wrong!');
                 }
+
+            }
+
+
+        //Wish Categories
+
+            public function addCategories(Request $request){
+                $data = $request->all();
+
+                $cat = Wishcategories::where('name', $data['name'])->first();
+
+                if(empty($cat->id)){
+                    $c = new Wishcategories;
+                    $c->name = $data['name'];
+                    $c->save();
+
+                    return redirect()->back()->with('success', 'Success!');
+                }else{
+                    return redirect()->back()->with('error', 'This category already exists!');
+                }
+
+            }
+
+            public function deleteCategories($id){
+                $id = base64_decode($id);
+
+                $cat = Wishcategories::find($id);
+                $cat->del = '1';
+                $cat->save();
+
+                return 'success';
+
+            }
+
+            public function editCategories($id){
+                $data['id'] = $id;
+                $id = base64_decode($id);
+
+                $data['cat'] = Wishcategories::find($id);
+
+                return view('admin.loyalty.settings.editCategory')->with($data);
+            }
+
+            public function updateCategories(Request $request){
+                $data = $request->all();
+
+                $cat = Wishcategories::where('name', $data['name'])->where('id', '!=', base64_decode($data['cat_id']))->first();
+
+                if(empty($cat->id)){
+                    $c = Wishcategories::find(base64_decode($data['cat_id']));
+
+                    if(!empty($c->id)){
+                        $c->name = $data['name'];
+                        $c->save();
+
+                        return redirect()->back()->with('success', 'Success!');
+                    }else{
+                        return redirect()->back()->with('error', 'Something went wrong!');
+                    }
+                }else{
+                    return redirect()->back()->with('error', 'This category already exists!');
+                }
+
+                
 
             }
 }

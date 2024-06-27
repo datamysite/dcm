@@ -345,6 +345,25 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::get('/load', 'WebUserController@load')->name('admin.webUsers.load');
             Route::post('/filter', 'WebUserController@user_filter')->name('admin.webUsers.filter');
             Route::post('/export', 'WebUserController@user_export')->name('admin.webUsers.export');
+
+            //Withdraw Requests
+            Route::prefix('withdraw')->group(function(){
+                Route::get('/', 'WithdrawController@index')->name('admin.users.withdraw');
+                Route::get('/approve/{id}', 'WithdrawController@approve');
+                Route::get('/transfer/{id}', 'WithdrawController@transfer');
+                Route::get('/reject/{id}', 'WithdrawController@reject');
+                Route::post('/reject', 'WithdrawController@rejectSubmit')->name('admin.users.withdraw.reject');
+            });
+
+            //Genie Wish Requests
+            Route::prefix('genie-wish')->group(function(){
+                Route::get('/', 'GenieWishController@index')->name('admin.users.geniewish');
+                Route::get('/view/{id}', 'GenieWishController@view');
+                Route::get('/approve/{id}', 'GenieWishController@approve');
+                Route::get('/close/{id}', 'GenieWishController@close');
+                Route::get('/reject/{id}', 'GenieWishController@reject');
+                Route::post('/reject', 'GenieWishController@rejectSubmit')->name('admin.users.geniewish.reject');
+            });
         });
 
         //DCM Contest
@@ -406,6 +425,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/update', 'UserController@update_user')->name('admin.users.update');
             Route::get('/delete/{id}', 'UserController@delete');
             Route::get('/changeStatus/{id}/{status}', 'UserController@changeStatus');
+
         });
 
         //Newsletter
@@ -434,6 +454,13 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
                 Route::prefix('eligibility')->group(function(){
                     Route::get('/edit/{id}', 'LoyaltyController@editEligibility');
                     Route::post('/update', 'LoyaltyController@updateEligibility')->name('admin.loyalty.settings.eligibility.update');
+                });
+
+                Route::prefix('categories')->group(function(){
+                    Route::post('/add', 'LoyaltyController@addCategories')->name('admin.loyalty.settings.categories.add');
+                    Route::get('/delete/{id}', 'LoyaltyController@deleteCategories');
+                    Route::get('/edit/{id}', 'LoyaltyController@editCategories');
+                    Route::post('/update', 'LoyaltyController@updateCategories')->name('admin.loyalty.settings.categories.update');
                 });
             });
         });

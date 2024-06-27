@@ -104,15 +104,26 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-md-8">
-                    <h4>Popular Categories</h4>
+                    <h4>Genie Wish Categories</h4>
                 </div>
                 <div class="col-md-4">
-                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Link" data-toggle="modal" data-target="#addAboutFormModal3"><i class="fas fa-plus"></i> Add Link</a>
+                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Link" data-toggle="modal" data-target="#addAboutFormModal3"><i class="fas fa-plus"></i> Add New</a>
                 </div>
               </div>
-              <hr>
+              <br>
               <div class="row">
                 <div class="col-md-12">
+                  <table class="table">
+                    @foreach($categories as $val)
+                      <tr>
+                        <td style="width: 80%; padding-left: 0;">{{$val->name}}</td>
+                        <td style="width: 20%; text-align: right; padding-right: 0;">
+                          <a href="javascript:void(0)" class="btn btn-sm btn-primary editCategory" data-id="{{base64_encode($val->id)}}"><i class="fa fa-edit"></i></a>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-danger deleteCategory" data-id="{{base64_encode($val->id)}}"><i class="fa fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </table>
                 </div>
               </div>
             </div>
@@ -180,53 +191,15 @@
   <!-- /.modal-dialog -->
 </div>
 
-<div class="modal fade" id="addAboutFormModal2">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form method="post" action="{{route('admin.footer.create')}}" enctype="multipart/form-data">
-        @csrf
-        <input type="hidden" name="section_id" value="2">
-        <div class="modal-header">
-          <h4 class="modal-title">Add Link</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Retailer/Store</label>
-                <select class="form-control" name="retailer_id" required>
-                  <option value="0">Select Retailer</option>
-                  
-                </select>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-        <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
-        </div>
-      </form>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
 
 <div class="modal fade" id="addAboutFormModal3">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form method="post" action="{{route('admin.footer.create')}}" enctype="multipart/form-data">
+      <form method="post" action="{{route('admin.loyalty.settings.categories.add')}}" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="section_id" value="3">
         <div class="modal-header">
-          <h4 class="modal-title">Add Link</h4>
+          <h4 class="modal-title">Add Wish category</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -236,11 +209,8 @@
           <div class="row" id="categoires_row">
             <div class="col-md-12">
               <div class="form-group">
-                <label>Categoires</label>
-                <select class="form-control" name="category_id" required>
-                  <option value="0">Select Category</option>
-                  
-                </select>
+                <label>Name</label>
+                <input type="text" class="form-control" name="name" required>
               </div>
             </div>
           </div>
@@ -290,7 +260,7 @@
             if (data == 'success') {
               Toast.fire({
                 icon: 'success',
-                title: 'Success! Link Successfully Deleted.'
+                title: 'Success! Item Successfully Deleted.'
               });
               setTimeout(function(){
                 window.location.reload();
@@ -298,7 +268,7 @@
             } else {
               Toast.fire({
                 icon: 'error',
-                title: "Warning! Link Cannot be deleted !."
+                title: "Warning! Item Cannot be deleted !."
               });
             }
           });
@@ -323,6 +293,50 @@
       $('#editCategoryFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
       $('#editCategoryFormModal').modal('show');
       $.get("{{URL::to('/admin/panel/loyalty/settings/eligibility/edit')}}/" + id, function(data) {
+        $('#editCategoryFormModal .modal-content').html(data);
+      });
+    });
+
+
+    $(document).on('click', '.deleteCategory', function() {
+      var id = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/admin/panel/loyalty/settings/categories/delete')}}/" + id, function(data) {
+            console.log(data);
+            if (data == 'success') {
+              Toast.fire({
+                icon: 'success',
+                title: 'Success! Item Successfully Deleted.'
+              });
+              setTimeout(function(){
+                window.location.reload();
+              }, 500);
+            } else {
+              Toast.fire({
+                icon: 'error',
+                title: "Warning! Item Cannot be deleted !."
+              });
+            }
+          });
+        }
+      });
+    });
+
+    $(document).on('click', '.editCategory', function() {
+      var id = $(this).data('id');
+      $('#editCategoryFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
+      $('#editCategoryFormModal').modal('show');
+      $.get("{{URL::to('/admin/panel/loyalty/settings/categories/edit')}}/" + id, function(data) {
         $('#editCategoryFormModal .modal-content').html(data);
       });
     });

@@ -1,0 +1,312 @@
+@extends('admin.layout.main')
+@section('title', 'Genie Wish Requests | Users')
+@section('content')
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Genie Wish <small><small> - Users </small></small></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('admin.webUsers')}}">Users</a></li>
+              <li class="breadcrumb-item active">Genie Wish</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                  <form method="get">
+                  @csrf
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Filter Date</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="far fa-calendar-alt"></i>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control float-right" name="date_range" value="{{@$req['date_range']}}" id="filter_range">
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <label>Category</label>
+                      <select class="form-control" name="category_id">
+                        <option value="">All</option>
+                        @foreach($categories as $val)
+                          <option value="{{$val->id}}" {{!empty($req['category_id']) && $req['category_id'] == $val->id ? 'selected' : ''}}>{{$val->name}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                    <div class="col-md-2">
+                      <label>Status</label>
+                      <select class="form-control" name="status">
+                        <option value="">All</option>
+                        <option value="1" {{!empty($req['status']) && $req['status'] == '1' ? 'selected' : ''}}>Pending</option>
+                        <option value="2" {{!empty($req['status']) && $req['status'] == '2' ? 'selected' : ''}}>Processing</option>
+                        <option value="3" {{!empty($req['status']) && $req['status'] == '3' ? 'selected' : ''}}>Closed</option>
+                        <option value="4" {{!empty($req['status']) && $req['status'] == '4' ? 'selected' : ''}}>Rejected</option>
+                      </select>
+                    </div>
+                    <div class="col-md-1" style="display: inline-flex;justify-content: space-between;align-items: flex-end;">
+                      <button type="submit" class="btn btn-primary mt-32"><i class="fas fa-search"></i></button>
+                      @if(!empty($req))
+                        <a href="{{route('admin.users.geniewish')}}" class="btn btn-default">Clear</a>
+                      @endif
+                    </div>
+                    <div class="col-md-4">
+                      
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="usersTable" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th width="5%">#</th>
+                    <th width="5%">Request#</th>
+                    <th width="25%">Users</th>
+                    <th width="10%">Coins</th>
+                    <th width="5%">Amount</th>
+                    <th width="10%">Category</th>
+                    <th width="10%">Status</th>
+                    <th width="10%">Request at</th>
+                    <th width="10%" class="text-right">Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($requests as $key => $val)
+                      <tr>
+                        <td>{{++$key}}</td>
+                        <td>{{sprintf("%05d", $val->id)}}</td>
+                        <td>
+                          <div class="user-profile-block">
+                            <p>
+                              <label>{{@$val->user->name}}</label>
+                              <span>{{@$val->user->email}}</span>
+                            </p>
+                            <span>Curr Wallet: <strong>1,000 <small><small>Coins</small></small></strong></span>
+                          </div>
+                        </td>
+                        <td><strong>{{number_format($val->coins)}}</strong> <small>Coins</small></td>
+                        <td><strong>{{number_format($val->amount)}}</strong> <small>{{$val->curr}}</small></td>
+                        <td>{{@$val->category->name}}</td>
+                        <td>
+                          @switch($val->status)
+                            @case('1')
+                              <span class="badge badge-warning">Pending</span>
+                              @break
+
+                            @case('2')
+                              <span class="badge badge-primary">Processing</span>
+                              @break
+
+                            @case('3')
+                              <span class="badge badge-success">Closed</span>
+                              @break
+
+                            @case('4')
+                              <span class="badge badge-danger">Rejected</span>
+                              @break
+
+                          @endswitch
+                        </td>
+                        <td><small>{{date('d-M-Y | H:i:a', strtotime($val->created_at))}}</small></td>
+                        <td class="text-right">
+                            <a href="javascript:void(0)" class="btn btn-sm btn-primary viewRequest" title="View Details" data-id="{{base64_encode($val->id)}}">
+                              <i class="fas fa-eye"></i>
+                            </a>
+                          @if($val->status == '1')
+                            <a href="javascript:void(0)" class="btn btn-sm btn-info approveRequest" title="Aprrove" data-id="{{base64_encode($val->id)}}"><i class="fas fa-check"></i></a>
+                            <a href="javascript:void(0)" class="btn btn-sm btn-danger rejectRequest" title="Reject" data-id="{{base64_encode($val->id)}}"><i class="fas fa-ban"></i></a>
+                          @endif
+                          @if($val->status == '2')
+                            <a href="javascript:void(0)" class="btn btn-sm btn-info closeRequest" title="Transferred" data-id="{{base64_encode($val->id)}}">
+                              <i class="fas fa-check"></i> Close
+                            </a>
+                          @endif
+                        </td>
+                      </tr>
+                    @endforeach
+                    @if(count($requests) == 0)
+                      <tr>
+                        <td colspan="9">No Requests Found.</td>
+                      </tr>
+                    @endif
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>#</th>
+                    <th>Request#</th>
+                    <th>Users</th>
+                    <th>Coins</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Request at</th>
+                    <th class="text-right">Action</th>
+                  </tr>
+                  </tfoot>
+                </table>
+
+                <div class="row mt-8 text-center">
+                   <div class="col">
+                      <!-- nav -->
+                      {{ $requests->links() }}
+                   </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+
+<div class="modal fade" id="rejectRequestFormModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+@endsection
+@section('addStyle')
+
+@endsection
+@section('addScript')
+  <script type="text/javascript">
+
+
+    $(document).on('click', '.viewRequest', function() {
+      var id = $(this).data('id');
+      $('#rejectRequestFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
+      $('#rejectRequestFormModal').modal('show');
+      $.get("{{URL::to('/admin/panel/web/users/genie-wish/view')}}/" + id, function(data) {
+        $('#rejectRequestFormModal .modal-content').html(data);
+        $('#rejectReason').focus();
+      });
+    });
+
+
+    $('#filter_range').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+            format: 'DD/MMM/YYYY',
+            cancelLabel: 'Clear'
+        }
+    });
+    $('input[name="date_range"]').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('DD/MMM/YYYY') + ' - ' + picker.endDate.format('DD/MMM/YYYY'));
+    });
+
+    $('input[name="date_range"]').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+    });
+
+    $(document).on('click', '.approveRequest', function() {
+      var id = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Approve it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/admin/panel/web/users/genie-wish/approve')}}/" + id, function(data) {
+            console.log(data);
+            if (data == 'success') {
+              Toast.fire({
+                icon: 'success',
+                title: 'Success! Request Successfully Approved.'
+              });
+              setTimeout(function(){
+                window.location.reload();
+              }, 500);
+            } else {
+              Toast.fire({
+                icon: 'error',
+                title: "Warning! Something went wrong!."
+              });
+            }
+          });
+        }
+      });
+    });
+
+    $(document).on('click', '.closeRequest', function() {
+      var id = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Close it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.get("{{URL::to('/admin/panel/web/users/genie-wish/close')}}/" + id, function(data) {
+            console.log(data);
+            if (data == 'success') {
+              Toast.fire({
+                icon: 'success',
+                title: 'Success! Request Successfully Closed.'
+              });
+              setTimeout(function(){
+                window.location.reload();
+              }, 500);
+            } else {
+              Toast.fire({
+                icon: 'error',
+                title: "Warning! Something went wrong!."
+              });
+            }
+          });
+        }
+      });
+    });
+
+    $(document).on('click', '.rejectRequest', function() {
+      var id = $(this).data('id');
+      $('#rejectRequestFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
+      $('#rejectRequestFormModal').modal('show');
+      $.get("{{URL::to('/admin/panel/web/users/genie-wish/reject')}}/" + id, function(data) {
+        $('#rejectRequestFormModal .modal-content').html(data);
+        $('#rejectReason').focus();
+      });
+    });
+  </script>
+@endsection

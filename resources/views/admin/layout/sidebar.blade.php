@@ -170,13 +170,34 @@
 
         <!-- DCM Contest End Here -->
 
-        <li class="nav-item">
-          <a href="{{route('admin.webUsers')}}" class="nav-link {{$menu == 'web.users' ? 'active' : ''}}">
+        <li class="nav-item  {{$menu == 'web.users' || $menu == 'web.users.withdraw' || $menu == 'web.users.genie-wish' ? 'menu-open' : ''}}">
+          <a href="javascript:void(0)" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
               Users
+              <i class="fas fa-angle-left right"></i>
             </p>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('admin.webUsers')}}" class="nav-link {{$menu == 'web.users' ? 'active' : ''}}">
+                <i class="fas fa-angle-right nav-icon"></i>
+                <p>Users List</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('admin.users.withdraw')}}" class="nav-link {{$menu == 'web.users.withdraw' ? 'active' : ''}}">
+                <i class="fas fa-angle-right nav-icon"></i>
+                <p>Withdraw Requests</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('admin.users.geniewish')}}" class="nav-link {{$menu == 'web.users.genie-wish' ? 'active' : ''}}">
+                <i class="fas fa-angle-right nav-icon"></i>
+                <p>Genie Wish Requests</p>
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item">
           <a href="{{route('admin.newsletter')}}" class="nav-link {{$menu == 'newsletter' ? 'active' : ''}}">

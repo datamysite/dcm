@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <label>Country</label>
+          <label>Category</label>
           <input type="text" class="form-control" name="type" value="{{$type->type}}" readonly>
             
         </div>
