@@ -124,18 +124,20 @@ class InvoiceController extends Controller
             $date[1] = str_replace('/', '-', $date[1]);
             $data['start_date'] = date('Y-m-d', strtotime($date[0]));
             $data['end_date'] = date('Y-m-d', strtotime("+1 day", strtotime($date[1])));
-
-            $data['data'] = User::whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
         }
 
-        if(!empty($data['by_referral'])){
-            $by_referral = $data['by_referral'];
-            $data['data'] = User::where('by_referral', 'LIKE' , '%'.$by_referral.'%')->get();
-        }
+        $data['data'] = User::when(!empty($data['get_date']), function($q) use ($data){
+                                    return $q->whereBetween('created_at', [$data['start_date'], $data['end_date']]);
+                                })
+                                ->when(!empty($data['by_referral']), function($q) use ($data){
+                                    return $q->where('by_referral', 'LIKE' , '%'.$data['by_referral'].'%');
+                                })
+                                ->where('is_contested', 1)
+                                ->withCount('cashbackRequests')->get();
+        
 
-        if ($data['data'] != '') {
+
             return view('admin.invoices.load')->with($data);
-        }
     }
 
     public function details($id)

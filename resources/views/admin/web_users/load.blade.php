@@ -2,7 +2,12 @@
   <tr>
     <td>{{++$key}}</td>
     <td><img src="{{URL::to('/public/user-placeholder.jpg')}}" class="table-img"></td>
-    <td>{{$val->name}}</td>
+    <td>
+      {{$val->name}}
+      @if($val->is_contested == '1')
+        &nbsp;&nbsp;|&nbsp;&nbsp;<span class="badge badge-info">Contest</span>
+      @endif
+    </td>
     <td>
       <div  class="user-email">
         <span>{{$val->email}}</span>

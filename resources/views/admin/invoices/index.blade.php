@@ -316,7 +316,7 @@
       encode: true,
     }).done(function(data) {
       $('#filterBlock').html(data);
-      $("#categoryTableBody").DataTable();
+      //$("#categoryTable").DataTable();
       $('.reset_button').html('<button type="button" class="btn btn-default mt-32 reset_filter" title="Reset Filter"><i class="fas fa-times"></i></button>')
     });
 
@@ -324,7 +324,7 @@
   });
 
   $(document).on('click', '.reset_filter', function() {
-    loadRetailers();
+    loadUsers();
     $("#filterStores").trigger('reset');
     $('.reset_button').html('');
   });

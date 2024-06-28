@@ -33,6 +33,7 @@ class UserExport implements FromArray, withHeadings
         $headings = [
             '#',
             'Name',
+            'Contest',
             'Email',
             'Email Verification',
             'Phone',
@@ -57,10 +58,11 @@ class UserExport implements FromArray, withHeadings
         foreach($users as $key => $val){
             $data[$i][0] = ++$key;
             $data[$i][1] = $val->name;
-            $data[$i][2] = $val->email;
-            $data[$i][3] = $val->email_verified == '0' ? 'Non verified' : 'verified';
-            $data[$i][4] = $val->phone;
-            $data[$i][5] = date('d-M-Y | h:i A', strtotime($val->created_at));
+            $data[$i][2] = $val->is_contested == '1' ? 'Yes' : ' ';
+            $data[$i][3] = $val->email;
+            $data[$i][4] = $val->email_verified == '0' ? 'Non verified' : 'verified';
+            $data[$i][5] = $val->phone;
+            $data[$i][6] = date('d-M-Y | h:i A', strtotime($val->created_at));
 
             $i++;
         }
