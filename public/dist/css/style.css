@@ -1,3 +1,17 @@
+.ana-table {
+    margin-bottom: 0;
+    background-color: transparent;
+    border: 0;
+}
+.ana-table tbody tr td, .ana-table tbody tr{
+    background-color: transparent !important;
+    border: none;
+    text-align: center;
+    padding: 0;
+}
+.card-body>.table>thead>tr>td, .card-body>.table>thead>tr>th{
+    vertical-align: middle;
+}
 .small-box-2>div {
     display: flex;
     justify-content: space-between;

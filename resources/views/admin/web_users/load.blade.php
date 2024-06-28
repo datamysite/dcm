@@ -1,7 +1,6 @@
 @foreach($data as $key => $val)
   <tr>
     <td>{{++$key}}</td>
-    <td><img src="{{URL::to('/public/user-placeholder.jpg')}}" class="table-img"></td>
     <td>
       {{$val->name}}
       @if($val->is_contested == '1')
@@ -18,7 +17,16 @@
         @endif
       </div>
     </td>
-    <td>{{$val->phone}}</td>
+    <td>
+      <table class="table ana-table">
+        <tr>
+          <td width="25%">{{number_format($val->wallet)}}</td>
+          <td width="25%">{{number_format(count($val->WithdrawRequests))}}</td>
+          <td width="25%">{{number_format(count($val->GenieWishRequests))}}</td>
+          <td width="25%">0</td>
+        <tr>
+      </table>
+    </td>
     <td class="text-right">
       <span><small>{{date('d-M-Y | h:i A', strtotime($val->created_at))}}</small></span>
     </td>

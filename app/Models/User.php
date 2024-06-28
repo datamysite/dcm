@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\CashbackRequests;
+use App\Models\GenieWishRequests;
+use App\Models\WithdrawRequests;
 
 class User extends Authenticatable
 {
@@ -62,5 +64,15 @@ class User extends Authenticatable
     public function cashbackRequests()
     {
         return $this->hasMany(CashbackRequests::class, 'user_id');
+    }
+
+    public function WithdrawRequests()
+    {
+        return $this->hasMany(WithdrawRequests::class, 'user_id');
+    }
+
+    public function GenieWishRequests()
+    {
+        return $this->hasMany(GenieWishRequests::class, 'user_id');
     }
 }

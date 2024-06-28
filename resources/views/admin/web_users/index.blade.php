@@ -75,10 +75,19 @@
                   <thead>
                   <tr>
                     <th width="5%">#</th>
-                    <th width="5%">Image</th>
                     <th width="25%">Name</th>
-                    <th width="25%">Email</th>
-                    <th width="15%">Phone</th>
+                    <th width="30%">Email</th>
+                    <th width="30%" style="text-align: center;">
+                      Analytics <hr style="margin: 0;">
+                      <table class="table ana-table">
+                        <tr>
+                          <td width="25%">Wallet</td>
+                          <td width="25%">Withdraw Req.</td>
+                          <td width="25%">Wish Req.</td>
+                          <td width="25%">Earning Trans.</td>
+                        <tr>
+                      </table>
+                    </th>
                     <th width="10%">Registered at</th>
                   </tr>
                   </thead>
@@ -87,7 +96,6 @@
                   <tfoot>
                   <tr>
                     <th>#</th>
-                    <th>Image</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
