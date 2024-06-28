@@ -28,46 +28,6 @@
         <div class="row">
           <div class="col-lg-9">
             <div class="row">
-              <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-white">
-                  <div class="inner">
-                    <h3 id="w-total-traffic">-</h3>
-
-                    <p>Total Traffic</p>
-                  </div>
-                  <div class="icon">
-                    <i><img src="{{URL::to('/public/icons/traffic.png')}}"></i>
-                  </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-
-                <!-- small box -->
-                <div class="small-box bg-white">
-                  <div class="inner">
-                    <h3 id="w-uae-traffic">-</h3>
-
-                    <p>UAE Traffic</p>
-                  </div>
-                  <div class="icon">
-                    <i><img src="{{URL::to('/public/icons/traffic.png')}}" class="w-seccond-item"></i>
-                  </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-
-                <!-- small box -->
-                <div class="small-box bg-white">
-                  <div class="inner">
-                    <h3 id="w-outside-traffic">-</h3>
-
-                    <p>Outside Traffic</p>
-                  </div>
-                  <div class="icon">
-                    <i><img src="{{URL::to('/public/icons/traffic.png')}}" class="w-third-item"></i>
-                  </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-              </div>
               <!-- ./col -->
               <div class="col-lg-3 col-6">
                 <!-- small box -->
@@ -192,6 +152,59 @@
                 </div>
               </div>
               <!-- ./col -->
+
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box small-box-2 bg-white">
+                  <div>
+                    <div class="inner">
+                      <h3 id="w-pending-request-c">-</h3>
+
+                      <p>Cash Withdraw</p>
+                    </div>
+                    <div class="inner">
+                      <h3 id="w-pending-request-g">-</h3>
+
+                      <p>Genie Wish</p>
+                    </div>
+                  </div>
+                  <a href="javascript:void(0)">Pending Request</a>
+                </div>
+
+                <!-- small box -->
+                <div class="small-box small-box-2 bg-white">
+                  <div>
+                    <div class="inner">
+                      <h3 id="w-pending-value-c">-</h3>
+
+                      <p>Cash Withdraw</p>
+                    </div>
+                    <div class="inner">
+                      <h3 id="w-pending-value-g">-</h3>
+
+                      <p>Genie Wish</p>
+                    </div>
+                  </div>
+                  <a href="javascript:void(0)">Value of Pending Request</a>
+                </div>
+
+                <!-- small box -->
+                <div class="small-box small-box-2 bg-white">
+                  <div>
+                    <div class="inner">
+                      <h3 id="w-approve-value-c">-</h3>
+
+                      <p>Cash Withdraw</p>
+                    </div>
+                    <div class="inner">
+                      <h3 id="w-approve-value-g">-</h3>
+
+                      <p>Genie Wish</p>
+                    </div>
+                  </div>
+                  <a href="javascript:void(0)">Value of Closed Request</a>
+                </div>
+              </div>
             </div>
 
             <div class="row">
@@ -287,9 +300,13 @@
 
       //Get Widgets
       $.getJSON("{{route('admin.dashboard.get_widgets')}}", function(data){
-          $('#w-total-traffic').html(data.total_traffic);
-          $('#w-uae-traffic').html(data.uae_traffic);
-          $('#w-outside-traffic').html(data.outside_traffic);
+          $('#w-pending-request-c').html(data.pending_request_c);
+          $('#w-pending-request-g').html(data.pending_request_g);
+          $('#w-pending-value-c').html(data.pending_value_c);
+          $('#w-pending-value-g').html(data.pending_value_g);
+          $('#w-approve-value-c').html(data.approve_value_c);
+          $('#w-approve-value-g').html(data.approve_value_g);
+
 
           $('#w-online-stores').html(data.online_stores);
           $('#w-show-coupons').html(data.show_coupons);

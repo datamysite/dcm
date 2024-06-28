@@ -1,3 +1,26 @@
+.small-box-2>div {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.small-box-2>div>.inner {
+    width: 50%;
+    padding-top: 20px;
+}
+.small-box-2 a {
+    background-color: rgb(28 170 226);
+    color: #fff !important;
+    display: block;
+    padding: 3px 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    z-index: 10;
+    border-radius: 4px;
+}
+.small-box-2>div>.inner>p {
+    margin-bottom: 17px;
+}
 .swal2-icon-error .swal2-title {
     color: #fff !important;
 }

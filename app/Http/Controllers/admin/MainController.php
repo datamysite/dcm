@@ -9,6 +9,8 @@ use App\Models\Retailers;
 use App\Models\User;
 use App\Models\Blogs;
 use App\Models\Testimonials;
+use App\Models\WithdrawRequests;
+use App\Models\GenieWishRequests;
 
 class MainController extends Controller
 {
@@ -23,9 +25,14 @@ class MainController extends Controller
     public function get_widgets(){
         $uae = array('Dubai', 'Abu Dhabi', 'Ajman', 'Sharjah', 'Fujairah', 'Ras Al-Khaimah', 'Umm Al Quwain');
 
-        $data['total_traffic'] = number_format(ClicksCounter::where('type', '1')->count());
-        $data['uae_traffic'] = number_format(ClicksCounter::where('type', '1')->whereIn('region', $uae)->count());
-        $data['outside_traffic'] = number_format(ClicksCounter::where('type', '1')->whereNotIn('region', $uae)->count());
+        $data['pending_request_c'] = number_format(WithdrawRequests::where('status', '1')->count());
+        $data['pending_request_g'] = number_format(GenieWishRequests::where('status', '1')->count());
+
+        $data['pending_value_c'] = number_format(WithdrawRequests::where('status', '1')->sum('amount'));
+        $data['pending_value_g'] = number_format(GenieWishRequests::where('status', '1')->sum('amount'));
+
+        $data['approve_value_c'] = number_format(WithdrawRequests::where('status', '3')->sum('amount'));
+        $data['approve_value_g'] = number_format(GenieWishRequests::where('status', '3')->sum('amount'));
 
 
         $data['online_stores'] = number_format(Retailers::where('type', '1')->count());
