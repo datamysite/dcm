@@ -6,15 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\CashbackRequests;
+use App\Models\Retailers;
 use App\Helpers\Mailer;
+use App\Models\BankAccounts;
 use Auth;
 use Hash;
 
 class UserController extends Controller
 {
-    
 
-    public function create(Request $request){
+
+    public function create(Request $request)
+    {
         $data = $request->all();
         $response = [];
 
@@ -38,7 +41,8 @@ class UserController extends Controller
         return response()->json($response, 200);
     }
 
-    public function create_from_ext(Request $request){
+    public function create_from_ext(Request $request)
+    {
         $data = $request->all();
         $response = [];
 
@@ -50,25 +54,22 @@ class UserController extends Controller
 
         $user = User::create($data);
 
-       if($user){
+        if ($user) {
 
-        Auth::login($user);
-        
-        Mailer::sendMail('Email Verification on DCM!', $user->email, $user->name, 'web.emailers.email_otp', ['name' => $user->name, 'email' => $user->email, 'otp' => strval($user->email_otp)]);
-        Mailer::sendMail('Welcome to DCM!', $user->email, $user->name, 'web.emailers.welcome_user', ['name' => $user->name, 'email' => $user->email]);
-        //Mailer::sendMail('Reffer your friends and earn more!', $user->email, $user->name, 'web.emailers.referral_email', ['name' => $user->name, 'email' => $user->email]);
+            Auth::login($user);
 
-        return redirect('/en/user/profile');
+            Mailer::sendMail('Email Verification on DCM!', $user->email, $user->name, 'web.emailers.email_otp', ['name' => $user->name, 'email' => $user->email, 'otp' => strval($user->email_otp)]);
+            Mailer::sendMail('Welcome to DCM!', $user->email, $user->name, 'web.emailers.welcome_user', ['name' => $user->name, 'email' => $user->email]);
+            //Mailer::sendMail('Reffer your friends and earn more!', $user->email, $user->name, 'web.emailers.referral_email', ['name' => $user->name, 'email' => $user->email]);
 
-
-        }else{
+            return redirect('/en/user/profile');
+        } else {
             return redirect('/en/dubai/welcome')->with('register_faulier', 'register_faulier');
-            }
-
-     
+        }
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $data = $request->all();
         $response = [];
         $error_code = 200;
@@ -77,12 +78,12 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'is_active' => '1'])){
+        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'is_active' => '1'])) {
 
             $error_code = 200;
             $response['success'] = 'success';
             $response['message'] = 'Success! You are successfully logged in.';
-        }else{
+        } else {
 
             $error_code = 49;
             $response['success'] = 'error';
@@ -93,7 +94,8 @@ class UserController extends Controller
         return response()->json($response, $error_code);
     }
 
-    public function login_from_ext(Request $request){
+    public function login_from_ext(Request $request)
+    {
         $data = $request->all();
         $response = [];
         $error_code = 200;
@@ -102,19 +104,18 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'is_active' => '1'])){
+        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'is_active' => '1'])) {
 
             return redirect('/en/user/profile');
-
-        }else{
+        } else {
 
             return redirect('/en/dubai/welcome')->with('login_faulier', 'login_faulier');
-
         }
 
         return response()->json($response, $error_code);
     }
-    public function forgotPassword(Request $request){
+    public function forgotPassword(Request $request)
+    {
         $data = $request->all();
         $response = [];
 
@@ -124,7 +125,7 @@ class UserController extends Controller
 
         $u = User::where('email', $data['email'])->first();
 
-        if(!empty($u->id)){
+        if (!empty($u->id)) {
 
 
             Mailer::sendMail('Reset Your Password!', $u->email, $u->name, 'web.emailers.reset_password', ['id' => $u->id, 'name' => $u->name, 'email' => $u->email]);
@@ -132,7 +133,7 @@ class UserController extends Controller
 
             $response['success'] = 'success';
             $response['message'] = 'Success! Reset Password link is sent to your email.';
-        }else{
+        } else {
 
             $response['success'] = 'error';
             $response['message'] = 'Invalid email address.';
@@ -142,17 +143,19 @@ class UserController extends Controller
         echo json_encode($response);
     }
 
-    public function resetPassword($lang, $id, $email){
+    public function resetPassword($lang, $id, $email)
+    {
         $data['id'] = base64_decode($id);
         $data['email'] = base64_decode($email);
         $u = User::where('id', $data['id'])->where('email', $data['email'])->first();
-        if(empty($u->id)){
+        if (empty($u->id)) {
             return redirect('/');
         }
         return view('web.user.password-reset')->with($data);
     }
 
-    public function updatePassword(Request $request){
+    public function updatePassword(Request $request)
+    {
         $data = $request->all();
         $response = [];
 
@@ -169,15 +172,15 @@ class UserController extends Controller
         $response['message'] = 'Success! Your password successfully updated.';
 
         echo json_encode($response);
-
     }
 
 
-    public function logout($lang){
+    public function logout($lang)
+    {
 
         Auth::logout();
 
-        return redirect('/'.$lang);
+        return redirect('/' . $lang);
     }
 
 
@@ -189,7 +192,8 @@ class UserController extends Controller
         return view('web.user.user-profile');
     }
 
-    public function verify_email($lang, Request $request){
+    public function verify_email($lang, Request $request)
+    {
         $data = $request->all();
         $response = [];
 
@@ -197,14 +201,14 @@ class UserController extends Controller
             'email_otp' => 'required'
         ]);
 
-        if(Auth::user()->email_otp == $data['email_otp']){
+        if (Auth::user()->email_otp == $data['email_otp']) {
             $u = User::find(Auth::id());
             $u->email_verified = '1';
             $u->save();
 
             $response['success'] = 'success';
             $response['message'] = 'Success! Email successfully Verified.';
-        }else{
+        } else {
 
             $response['success'] = 'error';
             $response['message'] = 'Incorrect OTP! Please try again.';
@@ -217,8 +221,13 @@ class UserController extends Controller
     public function claimCashback()
     {
         $data['requests'] = CashbackRequests::where('user_id', Auth::id())->orderBy('id', 'desc')->get();
+        $data['brands'] = Retailers::where('type', '1')
+            ->where('status', 1)
+            ->join('retailer_countries', 'retailer_countries.retailer_id', '=', 'retailers.id')
+            ->where('retailer_countries.country_id', 1)->orderBy('retailers.id', 'ASC')
+            ->get();
 
-        return view('web.user.user-claim-cashback')->with($data);
+        return view('web.user.user-claim-cashback', ['data' => $data]);
     }
 
     public function claimCashbackRequest(Request $request)
@@ -232,7 +241,7 @@ class UserController extends Controller
             $file = $request->file('user_invoice');
             $ext = $file->getClientOriginalExtension();
 
-            if(in_array($ext, $accepts)){
+            if (in_array($ext, $accepts)) {
                 $newname = Auth::id() . date('dmyhis') . '.' . $ext;
 
                 $file->move(public_path() . '/storage/users/invoices', $newname);
@@ -246,11 +255,11 @@ class UserController extends Controller
 
                 $response['success'] = 'success';
                 $response['message'] = 'Success! Your invoice successfully uploaded.';
-            }else{
+            } else {
                 $response['success'] = 'error';
                 $response['message'] = 'only these format are acceptable: PDF, PNG, JPG';
             }
-        }else{
+        } else {
             $response['success'] = 'error';
             $response['message'] = 'Please select invoice file first.';
         }
@@ -276,17 +285,25 @@ class UserController extends Controller
         return view('web.user.user-withdraw-payment');
     }
 
+
+    public function dashboard()
+    {
+
+        return view('web.user.user-dashboard');
+    }
+
     public function settings()
     {
 
         return view('web.user.user-settings');
     }
 
-    public function settings_update(Request $request){
+    public function settings_update(Request $request)
+    {
         $data = $request->all();
         $response = [];
 
-        if(!empty($data['current_password']) || !empty($data['password']) || !empty($data['password_confirmation'])){
+        if (!empty($data['current_password']) || !empty($data['password']) || !empty($data['password_confirmation'])) {
             $this->validate($request, [
                 'name' => 'required',
                 'phone' => 'required',
@@ -295,7 +312,7 @@ class UserController extends Controller
             ]);
             $u = User::find(Auth::id());
             if (Hash::check($data['current_password'], $u->password)) {
-                
+
                 $u->name = $data['name'];
                 $u->phone = $data['phone'];
                 $u->newsletter = empty($data['newsletter']) ? '0' : '1';
@@ -304,12 +321,11 @@ class UserController extends Controller
 
                 $response['success'] = 'success';
                 $response['message'] = 'Success! Your profile successfully uploaded.';
-            }else{
+            } else {
                 $response['success'] = 'error';
                 $response['message'] = array('current_password' => 'Current password is Incorrect.');
             }
-
-        }else{
+        } else {
 
             $this->validate($request, [
                 'name' => 'required',
@@ -321,12 +337,48 @@ class UserController extends Controller
             $u->phone = $data['phone'];
             $u->newsletter = empty($data['newsletter']) ? '0' : '1';
             $u->save();
-            
+
             $response['success'] = 'success';
             $response['message'] = 'Success! Your profile successfully uploaded.';
         }
 
         echo json_encode($response);
+    }
 
+    public function bank_details(Request $request)
+    {
+
+        $data = $request->all();
+        $response = [];
+        $user_id =  Auth::user()->id;
+
+        if (!empty($data['bank_id']) || !empty($data['bnk_account_name']) || !empty($data['bnk_iban']) || !empty($data['bnk_account_number'])) {
+            $this->validate($request, [
+                'bank_id' => 'required',
+                'bnk_account_name' => 'required',
+                'bnk_iban' => 'required',
+                'bnk_account_number' => 'required',
+            ]);
+
+            $bnk = BankAccounts::where('user_id', $user_id)->get();
+
+            if (count($bnk) == 0) {
+
+                $bank_account = BankAccounts::create($data);
+
+                if ($bank_account) {
+                    $response['success'] = 'success';
+                    $response['message'] = 'Success! Your account bank details successfully inseted.';
+                } else {
+                    $response['success'] = 'error';
+                    $response['message'] = 'error! error while insert data.';
+                }
+            } else {
+                $response['success'] = 'exist';
+                $response['message'] = 'exist! account details already exists for this user.';
+            }
+        }
+
+        echo json_encode($response);
     }
 }

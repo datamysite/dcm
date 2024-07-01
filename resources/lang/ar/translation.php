@@ -740,4 +740,47 @@ return [
   "All Provices" => "جميع المدن",
 
   "whatsapp-channel" => "إنضم الى قناتنا",
+
+   //Loyalty Program
+   "dcm_coins" => "عملات DCM",
+   "coins" => "",
+   "select_brand" => "إختار المتجر",
+   "status_processing" => "تحت المعالجة",
+   "status_accepted" => "تمت الموافقة",
+   "status_rejected" => "تم الرفض",
+   "transaction_history" => "سجل المعاملات",
+   "serial_number" => "الرقم المتسلسل",
+   "transaction_type" => "نوع المعاملة",
+   "transaction_date" => "تاريخ المعاملة",
+ 
+   "bnk_account_details" => "تفاصيل الحساب البنكي",
+   "bnk_form_bnk_name" => "أختار إسم البنك",
+   "bnk_form_account_holder_name" => "أدخل إسم صاحب الحساب",
+   "bnk_form_bnk_iban" => "أدخل الIBAN الخاص بالحساب",
+   "bnk_form_bnk_account_number" => "أدخل رقم الحساب",
+ 
+   "request_number" => "رقم الطلب",
+   "number_of_coins" => "العملات",
+   "amount" => "المبلغ",
+   "status" => "الحالة",
+   "date" => "التاريخ",
+   "your_coins" => "عملاتك",
+   "rate" => "السعر",
+   "aed" => "درهم إماراتي",
+ 
+   //User Menus
+   "hi_txt" => ", مرحبا",
+   "aed_txt" => "درهم",
+   "available_balance" => "الرصيد المتوفر: ",
+   "pending_balance" => "الرصيد المعلق: ",
+   "what_is_difference" => "ماهو الفرق ؟",
+   "dashboard" => "الرئيسية",
+ 
+   //General Text
+   "question_mark" => "؟",
+   "how_to_earn" => "كيف تحصل على؟",
+   "refer_and_get" => "شارك وأحصل علي 1.5 درهم",
+   "history" => "المعاملات السابقة",
+   "we_are_glade" => "نحن سعداء بوجودك هنا!",
+   "discover" => "إكتشف، تسوق واحصل على استرداد نقدي على الفور!",
 ];

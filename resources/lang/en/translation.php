@@ -200,30 +200,30 @@ return [
   "about_page_text_sec_04" => "Furthermore, it's crucial to remember that the goal wasn't just to get consumers to buy more, it was also to Settle their problems with money management. Users of Dealsandcouponmena.com's free discount coupons in GCC can purchase more items at a lower price and it is undoubtedly a treat.",
   "about_page_text_sec_05" => "To be honest, we have inspired a great number of people to realize their home-based shopping fantasies. We can safely say that we have converted nearly all the site visitors into loyal customers, which is a great privilege for our entire crew.",
 
-  "about_sec_02_title" => "OUR VISION & MISSION" ,
+  "about_sec_02_title" => "OUR VISION & MISSION",
 
-  "about_page_text_sec02_01" =>  "“Our mission is to provide genuine and significant services to all our GCC customers to purchase their desired products with amazing discounts. And of course, our vision is to become the most reputable and respectable coupon & discount service provider to all our loyal customers and also to be remembered as their courteous service provider.” Our Core Values" ,
-  "about_page_text_sec02_02" =>  "it's Really Hard to sustain in this fast-growing business world without maintaining your business’s core values. Additionally, a sizable number of customers rely on us greatly and take advantage of the best discount offers in Dubai, Kuwait, Oman, Jordan, Egypt, and KSA. As a result, it is our responsibility to respect certain elements." ,
-  "about_page_text_sec02_03" =>  "We provide discount Codes, which can be used in a wide range of categories. Some of the categories we offer are listed below" ,
+  "about_page_text_sec02_01" =>  "“Our mission is to provide genuine and significant services to all our GCC customers to purchase their desired products with amazing discounts. And of course, our vision is to become the most reputable and respectable coupon & discount service provider to all our loyal customers and also to be remembered as their courteous service provider.” Our Core Values",
+  "about_page_text_sec02_02" =>  "it's Really Hard to sustain in this fast-growing business world without maintaining your business’s core values. Additionally, a sizable number of customers rely on us greatly and take advantage of the best discount offers in Dubai, Kuwait, Oman, Jordan, Egypt, and KSA. As a result, it is our responsibility to respect certain elements.",
+  "about_page_text_sec02_03" =>  "We provide discount Codes, which can be used in a wide range of categories. Some of the categories we offer are listed below",
 
-  "about_page_text_sec02_04_list01" =>  "Clothing & Lifestyle" ,
-  "about_page_text_sec02_04_list02" =>  "Health & Wellness" ,
-  "about_page_text_sec02_04_list03" =>  "Beauty & Skincare" ,
-  "about_page_text_sec02_04_list04" =>  "Footwear" ,
-  "about_page_text_sec02_04_list05" =>  "Electronics" ,
-  "about_page_text_sec02_04_list06" =>  "Gifts" ,
+  "about_page_text_sec02_04_list01" =>  "Clothing & Lifestyle",
+  "about_page_text_sec02_04_list02" =>  "Health & Wellness",
+  "about_page_text_sec02_04_list03" =>  "Beauty & Skincare",
+  "about_page_text_sec02_04_list04" =>  "Footwear",
+  "about_page_text_sec02_04_list05" =>  "Electronics",
+  "about_page_text_sec02_04_list06" =>  "Gifts",
 
-  "about_page_text_sec02_06" =>  "Our objective is not just to offer as many GCC discount deals as possible. In order to provide our clients with excellent value for money, we always strive to improve and maintain quality. One of our important duties has always been maintaining quality." ,
-  "about_page_text_sec02_07" =>  "Our Loyal and Professional service team" ,
-  "about_page_text_sec02_08" =>  "To ensure that the services we provide are as simple as possible, our team receives frequent training. Customers put their complete trust in us, as we already mentioned, so it is our top priority to improve their experience by providing top-notch, error-free services" ,
-  "about_page_text_sec02_09" =>  "This is how our website / Service Work" ,
+  "about_page_text_sec02_06" =>  "Our objective is not just to offer as many GCC discount deals as possible. In order to provide our clients with excellent value for money, we always strive to improve and maintain quality. One of our important duties has always been maintaining quality.",
+  "about_page_text_sec02_07" =>  "Our Loyal and Professional service team",
+  "about_page_text_sec02_08" =>  "To ensure that the services we provide are as simple as possible, our team receives frequent training. Customers put their complete trust in us, as we already mentioned, so it is our top priority to improve their experience by providing top-notch, error-free services",
+  "about_page_text_sec02_09" =>  "This is how our website / Service Work",
 
-  
-  "about_page_text_sec02_04_list07" =>  "Visit the Official Site of your favorite brand" ,
-  "about_page_text_sec02_04_list08" =>  "Apply the Promo / Discount code in the Discount Box to get the discounted price." ,
-  "about_page_text_sec02_04_list09" =>  "Include your preferred shipping address to get your item on time." ,
-  "about_page_text_sec02_04_list10" =>  "Place the order and then complete the payment by selecting one of the available options." ,
-  "about_page_text_sec02_04_list11" =>  "That’s All, You have just saved an immense sum of money." ,
+
+  "about_page_text_sec02_04_list07" =>  "Visit the Official Site of your favorite brand",
+  "about_page_text_sec02_04_list08" =>  "Apply the Promo / Discount code in the Discount Box to get the discounted price.",
+  "about_page_text_sec02_04_list09" =>  "Include your preferred shipping address to get your item on time.",
+  "about_page_text_sec02_04_list10" =>  "Place the order and then complete the payment by selecting one of the available options.",
+  "about_page_text_sec02_04_list11" =>  "That’s All, You have just saved an immense sum of money.",
 
 
 
@@ -273,14 +273,14 @@ return [
   "dmc_modal_text02" => "Enter your personal details and start a journey with us. or you can Sign Up if you don't have an account",
   "sign_up_btn" => "SIGN UP",
 
-   "dcm_create_account" => "Create Account",
+  "dcm_create_account" => "Create Account",
   "dcm_reg_text" => "Or Use Your Email to Registration Account",
   "dcm_name_txt" => "User Name",
   "dcm_wlc_back" => "Welcome Back !",
   "dcm_wlc_back_txt" => "To keep connected with us please login with your personal info",
   "dcm_name_txt" => "Name",
 
-    //User Navbar//
+  //User Navbar//
   "menu" => "Menu",
   "claim_cashback_menu" => "Claim Cashback",
   "payment_history_menu" => "Payment History",
@@ -346,7 +346,7 @@ return [
   "referral_txt_09" => "How to use link ?",
   "referral_txt_10" => "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
 
-    //Forget-Password Modal//
+  //Forget-Password Modal//
 
   "forget_pass_txt_01" => "Forget Password",
   "forget_pass_txt_02" => "Your Email",
@@ -355,93 +355,93 @@ return [
   "forget_pass_txt_04" => "Already have an account?",
   "forget_pass_txt_05" => "Sign in",
 
-   //Password-Reset//
+  //Password-Reset//
 
-   "password_rest_txt_01" => "Reset Password",
-   "password_rest_txt_02" => "We can help you rest your password",
-   "password_rest_btn" => "Reset Password",
-   "password_rest_form_txt_01" => "Current Password",
-   "password_rest_form_txt_02" => "New Password",
-   "password_rest_form_txt_03" => "Confirm New Password",
-   "password_rest_form_txt_04" => "Hint :",
-   "password_rest_form_txt_05" => "Make sure to make your password strong by using a random string of mixed-case letters, numbers and symbols.",
+  "password_rest_txt_01" => "Reset Password",
+  "password_rest_txt_02" => "We can help you rest your password",
+  "password_rest_btn" => "Reset Password",
+  "password_rest_form_txt_01" => "Current Password",
+  "password_rest_form_txt_02" => "New Password",
+  "password_rest_form_txt_03" => "Confirm New Password",
+  "password_rest_form_txt_04" => "Hint :",
+  "password_rest_form_txt_05" => "Make sure to make your password strong by using a random string of mixed-case letters, numbers and symbols.",
 
-      ///Contact Us//
-   "about" => "About",
-   "read_more" => "Read More",
+  ///Contact Us//
+  "about" => "About",
+  "read_more" => "Read More",
 
-   "contact_us" => "Contact Us",
-   "get_in_touch" => "Reach & Get in Touch With Us !",
-   "contact_join_us" => "CONTACT & JOIN US",
-   "visit_us" => "Visit Us On",
-   "call_us" => "Call Us at",
-   "mail_us" => "Mail Us at",
-   "opening_hours" => "Opening Hours",
+  "contact_us" => "Contact Us",
+  "get_in_touch" => "Reach & Get in Touch With Us !",
+  "contact_join_us" => "CONTACT & JOIN US",
+  "visit_us" => "Visit Us On",
+  "call_us" => "Call Us at",
+  "mail_us" => "Mail Us at",
+  "opening_hours" => "Opening Hours",
 
-   "visit_us_txt" => "Visit us to know more about DCM.",
-   "call_us_txt" => "Feel free to call us any time.",
-   "mail_us_txt" => "Email us and We'll answer all your questions and concerns.",
-   "opening_hours_txt" => "We are open from 09:00AM to 06:00PM.",
+  "visit_us_txt" => "Visit us to know more about DCM.",
+  "call_us_txt" => "Feel free to call us any time.",
+  "mail_us_txt" => "Email us and We'll answer all your questions and concerns.",
+  "opening_hours_txt" => "We are open from 09:00AM to 06:00PM.",
 
-   "contact_us_form_01" => "Enter Your Name",
-   "contact_us_form_02" => "Enter Your Email",
-   "contact_us_form_03" => "Enter Your Phone",
-   "contact_us_form_04" => "Enter The Subject",
-   "contact_us_form_05" => "Your Message and feedback",
-   "contact_us_form_btn" => "Submit",
+  "contact_us_form_01" => "Enter Your Name",
+  "contact_us_form_02" => "Enter Your Email",
+  "contact_us_form_03" => "Enter Your Phone",
+  "contact_us_form_04" => "Enter The Subject",
+  "contact_us_form_05" => "Your Message and feedback",
+  "contact_us_form_btn" => "Submit",
 
-   "live_chat" => "Live Chat",
-   "live_chat_txt" => "Our team will happily take your questions, concerns and feedback !",
-   "lets_chat" => "Lets Chat",
+  "live_chat" => "Live Chat",
+  "live_chat_txt" => "Our team will happily take your questions, concerns and feedback !",
+  "lets_chat" => "Lets Chat",
 
-     //Careers//
-    "careers" => "Careers",
-    "Careers" => "Careers",
-    "careers_details" => "Careers",
-    "description" => "Description :",
-    "salary" => "Salary :",
-    "aed" => "AED",
-    "opening_date" => "Opening Date :",
-    "closing_date" => "Closing Date :",
-    "apply_now" => "Apply Now",
-    "location_01" => "Location : ",
-    "location_02" => "UAE",
-    "location_03" => "Dubai",
-    "job_apply" => "Job Apply",
-    "upload_resume" => "Upload Resume",
-    "note" => "Note : ",
-    "note_01" => "Resume file MUST be in this format only (PDF,DOC,DOCX).",
-    "note_02" => "Resume file size MUST not be more than 3MB.",
-    
-    "success_msg" => "You have successfully applied for this job , thank you !",
-    "failure_msg" => "Error occured while applying for this job, try again !",
-    "exist_msg" => "You already applied for this job.",
-    "extensions_msg" => "File extension not allowed !",
-    "filesize_msg" => "File size exceeds the allowed size which is 3MB !",
-    
-    "Sign_in_to_apply" => "Sign In To Apply",
-    "verification_txt" => "Your Account not verified yet, Check Your email for verification link !",
-    
-    "no_vacancies" => "No available vacancies for now !",
+  //Careers//
+  "careers" => "Careers",
+  "Careers" => "Careers",
+  "careers_details" => "Careers",
+  "description" => "Description :",
+  "salary" => "Salary :",
+  "aed" => "AED",
+  "opening_date" => "Opening Date :",
+  "closing_date" => "Closing Date :",
+  "apply_now" => "Apply Now",
+  "location_01" => "Location : ",
+  "location_02" => "UAE",
+  "location_03" => "Dubai",
+  "job_apply" => "Job Apply",
+  "upload_resume" => "Upload Resume",
+  "note" => "Note : ",
+  "note_01" => "Resume file MUST be in this format only (PDF,DOC,DOCX).",
+  "note_02" => "Resume file size MUST not be more than 3MB.",
 
-    "about_page_text_sec_01_01" =>  "Welcome to DCM, your Online Emporium where Businesses Thrive and Customers Delight!",
-  
-    "about_page_text_sec_01_02" =>  "We pride ourselves on being a one-stop-shop for both customers and businesses alike.",
-    
-    "about_page_text_sec_01_03" =>  "For our valued customers, we offer a wide array of top brands to explore, coupled with exclusive
+  "success_msg" => "You have successfully applied for this job , thank you !",
+  "failure_msg" => "Error occured while applying for this job, try again !",
+  "exist_msg" => "You already applied for this job.",
+  "extensions_msg" => "File extension not allowed !",
+  "filesize_msg" => "File size exceeds the allowed size which is 3MB !",
+
+  "Sign_in_to_apply" => "Sign In To Apply",
+  "verification_txt" => "Your Account not verified yet, Check Your email for verification link !",
+
+  "no_vacancies" => "No available vacancies for now !",
+
+  "about_page_text_sec_01_01" =>  "Welcome to DCM, your Online Emporium where Businesses Thrive and Customers Delight!",
+
+  "about_page_text_sec_01_02" =>  "We pride ourselves on being a one-stop-shop for both customers and businesses alike.",
+
+  "about_page_text_sec_01_03" =>  "For our valued customers, we offer a wide array of top brands to explore, coupled with exclusive
     deals and discounts to enhance your shopping experience.",
-    
-    "about_page_text_sec_01_04" =>  "For businesses, we provide a unique platform that goes beyond traditional e-commerce.",
 
-    "about_page_text_sec_01_05" =>  "By subscribing to our platform, businesses gain access to free marketing, lead generation,
+  "about_page_text_sec_01_04" =>  "For businesses, we provide a unique platform that goes beyond traditional e-commerce.",
+
+  "about_page_text_sec_01_05" =>  "By subscribing to our platform, businesses gain access to free marketing, lead generation,
     huge customer database and increased traffic, all without the burden of commission fees on
     their sales. We believe in fostering a thriving community where businesses can thrive and
     customers can discover the best deals, all in one convenient location.",
 
-    "about_page_text_sec_01_06" =>  "Join us at DCM and experience the future of an online emporium today!",
+  "about_page_text_sec_01_06" =>  "Join us at DCM and experience the future of an online emporium today!",
 
 
-    //New FAQ//
+  //New FAQ//
 
   "faq_page_text_01" =>  "YOUR COMPREHENSIVE GUIDE TO UNDERSTANDING UAE COUPONS AND PROMO CODES FOR SIGNIFICANT SAVINGS Looking for a deal and a discount? You've arrived at the appropriate location by selecting Dealsandcouponsmena.com. We are specialists and experts at helping online shoppers save a ton of money and purchase their preferred items. To avoid any issues, we advise customers to use the verified UAE discount coupon list. First-time users should concentrate on the FAQs area for more information.",
   "faq_page_text_02" =>  "Frequently Asked Questions",
@@ -451,16 +451,16 @@ return [
   "faq_page_text_question_03" =>  "Code Is No Longer Valid ?",
 
   "faq_page_text_question_04" =>  "Look for Exclusion ?",
-  
+
   "faq_page_text_answer_01" =>  "Simple digits or alphabets are used as coupons or promo codes to bring about discounts. These could be for the entire collection in the shopping basket or just a specific item, brand, or service. Here are some additional names or forms for these codes.",
-  
+
   "faq_page_text_question_02" =>  "Are you facing a problem with discount code ?",
 
   "faq_page_text_answer_02_01" =>  "Common Issues Include:",
 
   "faq_page_text_answer_02_02" =>  "Expired Codes: Discount codes often have expiration dates. If you are trying to use an old
   code, it might not work anymore.",
-  
+
   "faq_page_text_answer_02_03" =>  "Typographical Errors: Double-check the code you have entered. Even a small typo can
   prevent it from being applied successfully.",
 
@@ -493,7 +493,7 @@ return [
   "faq_page_text_answer_02_17" =>  "Feedback: Your feedback is valuable to us. If there's anything specific you'd like to share
   about your experience with the code, we're all ears.",
 
- 
+
   "faq_page_text_answer_02_18" =>  "Understanding Exclusions:",
   "faq_page_text_answer_02_19" =>  "Product Limitations: Some codes apply only to specific products or categories. If the items
   in your cart are excluded from the promotion, the code won't be valid.",
@@ -555,7 +555,7 @@ return [
 
   "faq_page_text_answer_02_41" =>  "Alternative Solutions: If your location is affecting the validity of your code, we can explore
   alternative discounts or promotions that are applicable to your region.",
-  
+
   "faq_page_text_answer_02_42" =>  "Personalised Assistance: Reach out to our customer support team for personalised
   assistance. We're here to ensure that you receive the discounts you're eligible for, regardless
   of your location.",
@@ -571,7 +571,7 @@ return [
   "faq_page_text_answer_09" =>  "Note: If you are experiencing difficulties finding the coupon box then get in touch with customer service representatives.",
   "faq_page_text_07" =>  "Still have any question ?",
 
-   //Cookies//
+  //Cookies//
   "cookies_policy" =>  "Cookies Policy",
   "cookie_para" => "On Your computer, a persistent cookie is set when you use our Services on the Platform. By tracking your purchases from our partner merchants using these cookies, we are able to offer you Cashbacks or Rewards. You won't be able to receive any Cashbacks or Rewards for any online purchases made through Our Platform if such persistent cookies are not enabled on your computer. Cookie blocking/enabling: By changing the settings in your browser, you can choose to accept or reject cookies. However, if cookies are disabled, You might not be able to access all the interactive elements of Our Platform.",
   "accept" =>  "Accept",
@@ -589,7 +589,7 @@ return [
   "gain_valuable" => "Gain valuable insights into your listing performance with ease using our user-friendly Seller Panel. Track sales, analyze metrics, and fine-tune your listing effortlessly.",
 
 
-   //New FAQ KSA//
+  //New FAQ KSA//
   "faq_page_text_01_ksa" =>  "YOUR COMPREHENSIVE GUIDE TO UNDERSTANDING KSA COUPONS AND PROMO CODES FOR SIGNIFICANT SAVINGS Looking for a deal and a discount? You've arrived at the appropriate location by selecting Dealsandcouponsmena.com. We are specialists and experts at helping online shoppers save a ton of money and purchase their preferred items. To avoid any issues, we advise customers to use the verified KSA discount coupon list. First-time users should concentrate on the FAQs area for more information.",
   "faq_page_text_02_ksa" =>  "Frequently Asked Questions",
   "faq_page_text_question_01_ksa" =>  "Learn About KSA Coupon Codes ?",
@@ -747,4 +747,53 @@ return [
   "All Provices" => "All Provinces",
 
   "whatsapp-channel" => "Join our channel",
+
+
+  //Loyalty Program
+  "dcm_coins" => "DCM Coins",
+  "coins" => "Coins",
+  "select_brand" => "Select Brand",
+  "status_processing" => "Processing",
+  "status_accepted" => "Accepted",
+  "status_rejected" => "Rejected",
+  "transaction_history" => "Transaction History",
+  "serial_number" => "Serial Number",
+  "transaction_type" => "Transaction Type",
+  "transaction_date" => "Transaction Date",
+
+  "bnk_account_details" => "Bank Account Details",
+  "bnk_form_bnk_name" => "Select Bank Name",
+  "bnk_form_account_holder_name" => "Enter Account Holder Name",
+  "bnk_form_bnk_iban" => "Enter Your IBAN",
+  "bnk_form_bnk_account_number" => "Enter Your Account Number",
+
+  "file_extension_not_allowed" => "File extension or size not allowed !",
+  "file_type_is_valid." => "File type is valid.",
+
+  "request_number" => "Request Number",
+  "number_of_coins" => "Number of Coins",
+  "amount" => "Amount",
+  "status" => "Status",
+  "date" => "Date",
+  "your_coins" => "Your Coins",
+  "rate" => "Rate",
+  "aed" => "AED",
+
+  //User Menus
+  "hi_txt" => "Hi, ",
+  "aed_txt" => "aed",
+  "available_balance" => "Available Balance:",
+  "pending_balance" => "Pending Balance:",
+  "what_is_difference" => "What is the difference?",
+  "dashboard" => "Dashboard",
+
+  //General Text
+  "brand_txt" => "Brand",
+  "question_mark" => "?",
+  "how_to_earn" => "How to Earn?",
+  "refer_and_get" => "Refer and earn 1.5 AED",
+  "history" => "History",
+  "we_are_glade" => "We're glade to have you here!",
+  "discover" => "Discover stores, shop, and earn cashback right away!",
+
 ];

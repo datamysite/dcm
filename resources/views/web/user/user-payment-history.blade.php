@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="mt-110">
+<section class="breadcrumbMENU mt-110">
         <div class="container">
             <!-- row -->
             <div class="row">
@@ -35,13 +35,13 @@
             <!-- col -->
             <div class="col-lg-8 m-1">
 
-                <div class="row" style="background-color: #F2F2F2;border-radius: 10px">
-                    <h4 class="mb-5 mt-5"> <b> {{ __('translation.total_earnings_txt_heading_01') }} </b></h4>
+                <div class="row" style="background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);">
+                    <h4 class="mb-5 mt-5"> <b style="color: #fff;"> {{ __('translation.total_earnings_txt_heading_01') }} </b></h4>
                 </div>
 
                 <div class="row mt-5" style="border-radius: 10px ; background-color:#f0f3f2;">
 
-                    <div class="table-responsive-xxl" style="width:100%;">
+                    <div class="table-responsive-xxl mt-5" style="width:100%;">
                         <!-- Table -->
                         <table class="table mb-0 text-nowrap text-center">
                             <!-- Table Head -->

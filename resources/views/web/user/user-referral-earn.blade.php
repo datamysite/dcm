@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="mt-110">
+<div class="breadcrumbMENU mt-110">
     <div class="container">
         <!-- row -->
         <div class="row">
@@ -33,10 +33,10 @@
             <!-- col -->
             <div class="col-lg-8 m-1">
 
-                <div class="row mt-1" style="border-radius: 10px ; background-color:#F2F2F2;">
+                <div class="row mt-1" style="color:#fff;background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
 
-                    <h3 class="mb-2 mt-5">Your Unique Referal Link</h3>
-                    <h5 class="mb-2 mt-5">How to use link ?</h5>
+                    <h3 class="mb-2 mt-5" style="color: #fff;">Your Unique Referal Link</h3>
+                    <h5 class="mb-2 mt-5" style="color: #fff;">How to use link ?</h5>
                     <p class="mb-0 lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <p></p>
                     <!-- col -->
@@ -51,10 +51,10 @@
                     <p></p>
                 </div>
 
-                <div class="row mt-5" style="border-radius: 10px ; background-color:#F2F2F2;">
+                <div class="row mt-5" style="color:#fff;background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
 
-                    <h3 class="mb-2 mt-5">Invite By Email</h3>
-                    <h5 class="mb-2 mt-5">How to use link ?</h5>
+                    <h3 class="mb-2 mt-5" style="color: #fff;">Invite By Email</h3>
+                    <h5 class="mb-2 mt-5" style="color: #fff;">How to use link ?</h5>
                     <p class="mb-0 lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <p></p>
                     <!-- col -->
@@ -69,21 +69,21 @@
                     <p></p>
                 </div>
 
-                <div class="row mt-5" style="border-radius: 10px ; background-color:#F2F2F2;">
+                <div class="row mt-5" style="color:#fff;background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
 
-                    <h3 class="mb-2 mt-5">Invite By Social Media</h3>
-                    <h5 class="mb-2 mt-5">How to use link ?</h5>
-                    <p class="mb-0 lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <h3 class="mb-2 mt-5"  style="color: #fff">Invite By Social Media</h3>
+                    <h5 class="mb-2 mt-5" style="color: #fff;">How to use link ?</h5>
+                    <p class="mb-0 lead" >Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <p></p>
                     <!-- col -->
                     <div class="col-12 text-center align-items-center">
 
                         <div class="">
                             <a href="#">
-                                <img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;" alt="Facebook">
+                                <img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;mix-blend-mode:hard-light !important;filter:brightness(0.5) invert(1);" alt="Facebook">
                             </a>
                             <a href="#">
-                                <img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;" alt="Whatsapp">
+                                <img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;mix-blend-mode:hard-light !important;filter:brightness(0.5) invert(1);" alt="Whatsapp">
                             </a>
 
                             <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="Copy Link" style="display: inline-block; margin-right: 20px;">

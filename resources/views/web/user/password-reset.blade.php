@@ -45,7 +45,7 @@
     </div>
 </section>
 
-<!-- Anti Spam Policy section Start -->
+<!-- Password Reset section Start -->
 <section class="my-lg-5 my-8">
     <!-- container -->
     <div class="container">
@@ -90,7 +90,7 @@
     </div>
 </section>
 
-<!-- Anti Spam Policy section End -->
+<!-- Password Reset section End -->
 
 
 @endsection

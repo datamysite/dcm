@@ -2,106 +2,108 @@
 $url = url()->full();
 $pos = strpos($url, "/".app()->getLocale()."/");
 @endphp
-   <div class="">
-      <div class="mobile-navbar">
-         <div class="list-inline d-flex ">
 
-            <div class="justify-content-center w-100 d-lg-none">
-               <a class="navbar-brand" href="{{route('home', [$region])}}">
-                  <img src="{{URL::to('/public')}}/web_assets/images/logo/m-logo.png" alt="dealsandcouponsmena" style="width: 140px;" />
-               </a>
-            </div>
+<style>
 
-            @if ( app()->getLocale() == 'en' )
-               <div class="d-flex align-items-center" style="padding: 4px 10px;">
-                  <i class="bi bi-globe"></i>&nbsp;&nbsp;
-                  <span> <a class="nav-link" href="{{ substr_replace($url,"/ar/",$pos,4) }}"><span><b>AR</b></span></a></span>
-               </div>
-         
-            @else
-               <div class="d-flex align-items-center" style="padding: 4px 10px;">
-                  <i class="bi bi-globe"></i>&nbsp;&nbsp;
-                  <span> <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}"><span><b>EN</b></span></a></span>
-               </div>
-            @endif
+</style>
 
-               <i class="navbar-flag">
-                  <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}" width="34px" height="24.281px">
-               </i>
+<div class="">
+   <div class="mobile-navbar">
+      <div class="list-inline d-flex ">
 
-            <div class="list-inline-item d-inline-block d-lg-none">
-               <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
-                  <img src="{{URL::to('/public/web_assets/images/icons/menu.svg')}}" width="36px" height="36px" alt="Menu"/>
-               </button>
-            </div>
+         <div class="justify-content-center w-100 d-lg-none">
+            <a class="navbar-brand" href="{{route('home', [$region])}}">
+               <img src="{{URL::to('/public')}}/web_assets/images/logo/m-logo.png" alt="dealsandcouponsmena" style="width: 140px;" />
+            </a>
          </div>
-         <div class="nav-tray">
 
-            <div class="tray-item tray-search">
-               <div class="input-group  main-search-div">
-                  <input class="form-control rounded mob-main-search" type="search" placeholder="{{ __('translation.Search') }}" />
-                  
+         @if ( app()->getLocale() == 'en' )
+         <div class="d-flex align-items-center" style="padding: 4px 10px;">
+            <i class="bi bi-globe"></i>&nbsp;&nbsp;
+            <span> <a class="nav-link" href="{{ substr_replace($url,"/ar/",$pos,4) }}"><span><b>AR</b></span></a></span>
+         </div>
 
+         @else
+         <div class="d-flex align-items-center" style="padding: 4px 10px;">
+            <i class="bi bi-globe"></i>&nbsp;&nbsp;
+            <span> <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}"><span><b>EN</b></span></a></span>
+         </div>
+         @endif
 
-                  <div class="mob-main-search-result">
-                  </div>
-               </div>
-            </div>
+         <i class="navbar-flag">
+            <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}" width="34px" height="24.281px">
+         </i>
 
-            
-            <div class="tray-item tray-emirates">
-               @foreach($allstates as $val)
-                  <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}">
-                     <div class="header_card">
-                        <img src="{{config('app.storage').'states/'.$val->image}}" alt="{{$val->name}}" />
-                        {{$val->shortname}}
-                     </div>
-                  </a>
-               @endforeach
-            </div>
+         <div class="list-inline-item d-inline-block d-lg-none">
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
+               <img src="{{URL::to('/public/web_assets/images/icons/menu.svg')}}" width="36px" height="36px" alt="Menu" />
+            </button>
          </div>
       </div>
+      <div class="nav-tray">
 
-      <div class="mobile-footbar">
-         <div class="list-inline d-flex ">
-               <a href="{{route('home', [$region])}}" class="" data-option="home">
-                  <i class="fa fa-home"></i>
-                  {{ __('translation.Home') }}
-               </a>
+         <div class="tray-item tray-search">
+            <div class="input-group  main-search-div">
+               <input class="form-control rounded mob-main-search" type="search" placeholder="{{ __('translation.Search') }}" />
 
-               <a href="#" class="mobile-nav-button" data-option="search">
-                  <i class="fa fa-search"></i>
-                  {{ __('translation.search_') }}
-               </a>
+               <div class="mob-main-search-result">
+               </div>
+            </div>
+         </div>
 
-               <a href="{{route('Sell_With_DCM', [$region])}}" class="center-nav-mob" data-option="home">
-                  <i class="fa fa-bullseye"></i>
-                  {{ __('translation.Sell_With_us') }}
-               </a>
-
-               <a href="#" class="mobile-nav-button" data-option="emirates">
-                  <i class="fa fa-crosshairs"></i>
-                  @if(config('app.country') == '1')
-                  {{ __('translation.all_emirates') }}
-                  @else
-                  {{ __('translation.All Provices') }}
-                  @endif
-               </a>
-
-               @if(Auth::check())
-                  <a href="{{route('user.profile')}}">
-                     <i class="fa fa-user-o"></i>
-                     {{ __('translation.Profile') }}
-                  </a>
-               @else
-                  <a href="#" class="" data-option="login"  data-bs-toggle="modal" data-bs-target="#userModal">
-                     <i class="fa fa-user-circle-o"></i>
-                     {{ __('translation.Sign_IN') }}
-                  </a>
-               @endif
+         <div class="tray-item tray-emirates">
+            @foreach($allstates as $val)
+            <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}">
+               <div class="header_card">
+                  <img src="{{config('app.storage').'states/'.$val->image}}" alt="{{$val->name}}" />
+                  {{$val->shortname}}
+               </div>
+            </a>
+            @endforeach
          </div>
       </div>
    </div>
+
+   <div class="mobile-footbar">
+      <div class="list-inline d-flex ">
+         <a href="{{route('home', [$region])}}" class="" data-option="home">
+            <i class="fa fa-home"></i>
+            {{ __('translation.Home') }}
+         </a>
+
+         <a href="#" class="mobile-nav-button" data-option="search">
+            <i class="fa fa-search"></i>
+            {{ __('translation.search_') }}
+         </a>
+
+         <a href="{{route('Sell_With_DCM', [$region])}}" class="center-nav-mob" data-option="home">
+            <i class="fa fa-bullseye"></i>
+            {{ __('translation.Sell_With_us') }}
+         </a>
+
+         <a href="#" class="mobile-nav-button" data-option="emirates">
+            <i class="fa fa-crosshairs"></i>
+            @if(config('app.country') == '1')
+            {{ __('translation.all_emirates') }}
+            @else
+            {{ __('translation.All Provices') }}
+            @endif
+         </a>
+
+         @if(Auth::check())
+         <a href="{{route('user.dashboard')}}">
+            <i class="fa fa-dashboard"></i>
+            {{ __('translation.dashboard') }}
+         </a>
+         @else
+         <a href="#" class="" data-option="login" data-bs-toggle="modal" data-bs-target="#userModal">
+            <i class="fa fa-user-circle-o"></i>
+            {{ __('translation.Sign_IN') }}
+         </a>
+         @endif
+      </div>
+   </div>
+</div>
 
 <nav class="navbar navbar-expand-lg navbar-light navbar-default py-0" aria-label="Offcanvas navbar large">
    <div class="container">
@@ -127,54 +129,52 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   <ul class="navbar-nav">
 
                      @if(config('app.retail'))
-                        <li class="nav-item dropdown" style="padding: 10px;">
+                     <li class="nav-item dropdown" style="padding: 10px;">
 
-                           <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
 
-                           <ul class="dropdown-menu">
-                              <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'online'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Online') }}</a></li>
-                              <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'retail'])}}" onclick="return gtag_report_allstore;" >{{ __('translation.Retail') }}</a></li>
-                           </ul>
+                        <ul class="dropdown-menu">
+                           <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'online'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Online') }}</a></li>
+                           <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'retail'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Retail') }}</a></li>
+                        </ul>
 
-                        </li>
+                     </li>
                      @else
-                        <li class="nav-item dropdown" style="padding: 10px;">
-                           <a class="nav-link" href="{{route('stores', [$region, 'online'])}}" role="button" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
-                        </li>
+                     <li class="nav-item dropdown" style="padding: 10px;">
+                        <a class="nav-link" href="{{route('stores', [$region, 'online'])}}" role="button" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
+                     </li>
                      @endif
-
-
 
                      <li class="nav-item dropdown w-100 w-lg-auto" style="padding: 10px;">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.Categories') }}</a>
 
                         <ul class="dropdown-menu desktopMenuCategories">
                            @foreach($navbarCategories as $val)
-                              @php
-                                 $string = strtolower(trim($val->name));
-                                  $string = str_replace('&', 'and', $string);
-                                  $string = str_replace(' ', '-', $string);
-                                  $slug = preg_replace('/[^a-z0-9-]/', '', $string);
-                              @endphp
-                              @if(config('app.retail'))
-                                 @if($val->type == 3)
-                                    <li class="dropdown-submenu dropend">
-                                       <a class="dropdown-item dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
-                                       <ul class="dropdown-menu">
+                           @php
+                           $string = strtolower(trim($val->name));
+                           $string = str_replace('&', 'and', $string);
+                           $string = str_replace(' ', '-', $string);
+                           $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                           @endphp
+                           @if(config('app.retail'))
+                           @if($val->type == 3)
+                           <li class="dropdown-submenu dropend">
+                              <a class="dropdown-item dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                              <ul class="dropdown-menu">
 
-                                          <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
-                                          <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
+                                 <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
+                                 <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
 
-                                       </ul>
-                                    </li>
-                                 @else
-                                    <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
-                                 @endif
-                              @else
-                                 <li>
-                                    <a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
-                                 </li>
-                              @endif
+                              </ul>
+                           </li>
+                           @else
+                           <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                           @endif
+                           @else
+                           <li>
+                              <a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                           </li>
+                           @endif
                            @endforeach
                         </ul>
                      </li>
@@ -199,36 +199,89 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                      </div>
                   </form>
 
+                  <!-- {{route('user.profile')}} -->
                   <ul class="navbar-nav">
                      <li class="nav-item dropdown" style="padding: 10px;">
                         <a class="nav-link" href="{{route('Sell_With_DCM', [$region])}}" role="button" aria-expanded="false"><b>{{ __('translation.Sell_With_DCM') }}</b></a>
                      </li>
                      <ul class="navbar-nav">
-
                         @if(Auth::check())
-                           <li class="nav-item dropdown" style="padding: 10px;">
-                              <a class="nav-link" href="{{route('user.profile')}}" role="button" aria-expanded="false"><b>{{ __('translation.Profile') }}</b></a>
-                           </li>
+                        <li class="nav-item dropdown" {!! app()->getLocale() == 'ar' ? 'style="padding: 5px;"' : 'style="padding: 10px;"' !!} >
+
+                           <a class="nav-link" href="#" role="button" aria-expanded="false">
+                              <i class="fa-solid fa-user" style="font-weight: bold; color: black; font-size:22px;"></i>
+                              | <span style="top: -5px; right: 0;">{{ __('translation.aed_txt') }}</span> <strong>0.0</strong>
+                              <i class="fa-solid fa-caret-down" style="margin-right: 2px;"></i>
+                           </a>
+
+                           <div class="dropdown-menuMainDIV">
+
+                              <div class="menuSubDIV mt-0">
+                                 <div class="row" style="text-align: left;padding-left:20px ;">
+                                    <div class="col-lg-12 mt-5">
+                                       <h6 class="mt-0" style="color: #fff;">{{ __('translation.hi_txt') }} Mohammed Abuelgassim</h6>
+                                    </div>
+                                 </div>
+                                 <div class="row text-center" style="color: #fff;">
+                                    <div class="col-lg-6 mt-5">
+                                       <span class="mt-0">{{ __('translation.available_balance') }}</span>
+                                       <span class="mt-2"><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_txt') }}</b> <b>0.00</b></span>
+                                    </div>
+                                    <div class="col-lg-6 mt-5">
+                                       <span class="mt-0"> {{ __('translation.pending_balance') }}</span><br>
+                                       <span><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_txt') }}</b> <b>0.00</b></span>
+                                    </div>
+
+                                    <div class="row mt-2" style="text-align: left; padding-left: 30px; text-decoration: underline;">
+                                       <span class="mt-2" style="color: #fff;">
+                                          <i class="fa fa-info-circle" aria-hidden="true" style="padding-right: 5px;"></i>
+                                          <a href="#" style="color: #fff;">{{ __('translation.what_is_difference') }}</a>
+                                       </span>
+                                    </div>
+                                    <div class="divider"></div>
+                                 </div>
+                              </div>
+
+                              <div class="menuSubDIV2 mt-2">
+                                 <div class="row" style="text-align: left; padding-left: 30px;">
+                                    <div class="nav nav-category" id="categoryCollapseMenu">
+                                       <ul>
+                                          <li class="nav-item border-bottom"><a href="{{route('user.dashboard')}}" class="nav-link collapsed">{{ __('translation.dashboard') }}</a></li>
+                                          <li class="nav-item border-bottom"><a href="{{route('user.claimCashback')}}" class="nav-link collapsed">{{ __('translation.claim_cashback_menu') }}</a></li>
+                                          <li class="nav-item border-bottom"><a href="{{route('user.withdrawPayment')}}" class="nav-link collapsed">{{ __('translation.with_draw_menu') }}</a></li>
+                                          <li class="nav-item border-bottom"><a href="{{route('user.referralEarn')}}" class="nav-link collapsed">{{ __('translation.referral_earn_menu') }}</a></li>
+                                          <li class="nav-item border-bottom"><a href="{{route('user.settings')}}" class="nav-link collapsed">{{ __('translation.settings_menu') }}</a></li>
+                                          <li class="nav-item border-bottom"><a href="{{route('user.logout')}}" class="nav-link collapsed"><b>{{ __('translation.logout_menu') }}</b></a></li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+
+                        <!-- <li class="nav-item dropdown" style="padding: 10px;">
+                           <a class="nav-link" href="{{route('user.profile')}}" role="button" aria-expanded="false"><b>{{ __('translation.Profile') }}</b></a>
+                        </li> -->
                         @else
-                           <li class="nav-item dropdown" style="padding: 10px;">
-                              <a class="nav-link" href="javascript:void(0)" id="open-signin" role="button" data-bs-toggle="modal" data-bs-target="#userModal"><b>{{ __('translation.Sign_Up') }}</b></a>
-                           </li>
+                        <li class="nav-item dropdown" style="padding: 10px;">
+                           <a class="nav-link" href="javascript:void(0)" id="open-signin" role="button" data-bs-toggle="modal" data-bs-target="#userModal"><b>{{ __('translation.Sign_Up') }}</b></a>
+                        </li>
                         @endif
 
                         @if ( app()->getLocale() == 'en' )
-                           <a class="nav-link" href="{{ substr_replace($url,"/ar/",$pos,4) }}">
-                              <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
-                                 <i class="bi bi-globe"></i>&nbsp;&nbsp;
-                                 <span><b>AR</b></span>
-                              </div>
-                           </a>
+                        <a class="nav-link" href="{{ substr_replace($url,"/ar/",$pos,4) }}">
+                           <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
+                              <i class="bi bi-globe"></i>&nbsp;&nbsp;
+                              <span><b>AR</b></span>
+                           </div>
+                        </a>
                         @else
-                           <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}">
-                              <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
-                                 <i class="bi bi-globe"></i>&nbsp;&nbsp;
-                                 <span><b>EN</b></span>
-                              </div>
-                           </a>
+                        <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}">
+                           <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
+                              <i class="bi bi-globe"></i>&nbsp;&nbsp;
+                              <span><b>EN</b></span>
+                           </div>
+                        </a>
                         @endif
                         <i class="navbar-flag" data-bs-toggle="modal" data-bs-target="#locationModal">
                            <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}" width="25px" height="17.844px">
@@ -239,15 +292,53 @@ $pos = strpos($url, "/".app()->getLocale()."/");
             </div>
             <!-- Desktop Menu End Here -->
 
+
             <!-- Mobile Menu Start Here -->
             <div class="mobile-nav">
+
+               @if(Auth::check())
+               <div class="MobileWallet mt-0" style="background-color: #1F428A;border-radius: 20px; background-image: linear-gradient(90deg, #1F428A, #2791CC);justify-items: center;justify-content: center;">
+
+                  <div class="mt-0">
+
+                     <div class="row" style="text-align: left;padding-left:20px ;">
+                        <div class="col-lg-12 mt-5">
+                           <h6 class="mt-0" style="color: #fff;">{{ __('translation.hi_txt') }} Mohammed Abuelgassim</h6>
+                        </div>
+                     </div>
+
+                     <div class="row" style="color: #fff;">
+
+                        <div class="col-6 mt-5">
+                           <span class="mt-0" style="padding-left:15px">{{ __('translation.available_balance') }}</span><br>
+                           <span class="mt-2" style="padding-left:15px"><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_txt') }}</b> <b>0.00</b></span>
+                        </div>
+
+                        <div class="col-6 mt-5">
+                           <span class="mt-0"> {{ __('translation.pending_balance') }}</span><br>
+                           <span><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_txt') }}</b> <b>0.00</b></span>
+                        </div>
+
+                        <div class="row mt-2" style="text-align: left; padding-left: 30px; text-decoration: underline;">
+                           <span class="mt-2" style="color: #fff;">
+                              <i class="fa fa-info-circle" aria-hidden="true" style="padding-right: 5px;"></i>
+                              <a href="#" style="color: #fff;">{{ __('translation.what_is_difference') }}</a>
+                           </span>
+                        </div>
+
+                        <div class="mt-2"></div>
+                     </div>
+                  </div>
+
+               </div>
+               @endif
 
                <div class="offcanvas-body">
 
                   <div>
                      <ul class="navbar-nav align-items-center">
 
-                     @if(config('app.retail'))
+                        @if(config('app.retail'))
                         <li class="nav-item dropdown w-100 w-lg-auto">
                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
                            <ul class="dropdown-menu">
@@ -255,41 +346,41 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                               <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'retail'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Retail') }}</a></li>
                            </ul>
                         </li>
-                     @else
+                        @else
                         <li class="nav-item w-100 w-lg-auto">
                            <a class="nav-link" href="{{route('stores', [$region, 'online'])}}">{{ __('translation.All_Stores') }}</a>
                         </li>
-                     @endif
+                        @endif
 
                         <li class="nav-item dropdown w-100 w-lg-auto">
                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.Categories') }}</a>
                            <ul class="dropdown-menu mobMenuCategories">
-                              
+
                               @foreach($navbarCategories as $val)
-                                 @php
-                                    $string = strtolower(trim($val->name));
-                                     $string = str_replace('&', 'and', $string);
-                                     $string = str_replace(' ', '-', $string);
-                                     $slug = preg_replace('/[^a-z0-9-]/', '', $string);
-                                 @endphp
+                              @php
+                              $string = strtolower(trim($val->name));
+                              $string = str_replace('&', 'and', $string);
+                              $string = str_replace(' ', '-', $string);
+                              $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                              @endphp
 
-                                 @if(config('app.retail'))
-                                    @if($val->type == 3)
-                                       <li class="dropdown-submenu dropend mob-nav">
-                                          <a class="dropdown-item dropdown-toggle nested-link" href="javascript:void(0)" data-link="{{$val->id}}" role="button" data-bs-toggle="dropdown">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
-                                          <ul class="dropdown-menu cat_{{$val->id}}">
+                              @if(config('app.retail'))
+                              @if($val->type == 3)
+                              <li class="dropdown-submenu dropend mob-nav">
+                                 <a class="dropdown-item dropdown-toggle nested-link" href="javascript:void(0)" data-link="{{$val->id}}" role="button" data-bs-toggle="dropdown">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                                 <ul class="dropdown-menu cat_{{$val->id}}">
 
-                                             <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
-                                             <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
+                                    <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
 
-                                          </ul>
-                                       </li>
-                                    @else
-                                       <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
-                                    @endif
-                                 @else
-                                       <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
-                                 @endif
+                                 </ul>
+                              </li>
+                              @else
+                              <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                              @endif
+                              @else
+                              <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                              @endif
                               @endforeach
                            </ul>
                         </li>
@@ -303,14 +394,14 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         </li>
 
                         @if(Auth::check())
-                           <li class="nav-item w-100 w-lg-auto dropdown">
-                              <a class="nav-link" href="{{route('user.logout', [$region])}}">{{ __('translation.Logout') }}</a>
-                           </li>
+                        <li class="nav-item w-100 w-lg-auto dropdown">
+                           <a class="nav-link" href="{{route('user.logout', [$region])}}">{{ __('translation.Logout') }}</a>
+                        </li>
                         @else
 
-                           <li class="nav-item w-100 w-lg-auto">
-                              <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal">{{ __('translation.Sign_IN') }}</a>
-                           </li>
+                        <li class="nav-item w-100 w-lg-auto">
+                           <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal">{{ __('translation.Sign_IN') }}</a>
+                        </li>
                         @endif
 
                         <li>
@@ -329,3 +420,96 @@ $pos = strpos($url, "/".app()->getLocale()."/");
       </div>
    </div>
 </nav>
+
+
+@if(!Str::contains(url()->current(), 'user') && Auth::check() && ( Request::url() == 'http://localhost/dcm/en/dubai' ) )
+<!-- Mobile Upper Menu Start Here -->
+
+<div class="MobileUpperMenu mt-12">
+   <div style="background-color: #1F428A; background-image: linear-gradient(90deg, #1F428A, #2791CC);">
+      <div class="row" style="height: 70px;">
+         <div class="col-9" style="color: #fff;padding-left: 25px;">
+            <h5 class="mt-2" style="color: #fff;">{{ __('translation.hi_txt') }} Mohammed Abuelgassim</h5>
+            <span style="color: #fff;">{{ __('translation.available_balance') }}</span>
+         </div>
+
+         <div class="col-3">
+            <span style="top: 2px; right: 4;color:#c3bcbc;">{{ __('translation.aed_txt') }}</span>
+            <h4 class="mt-0" style="color: #fff;padding-left:10px;">0.00</h4>
+         </div>
+
+      </div>
+   </div>
+
+   <div class="row" style="height: autopx;justify-items: center;justify-content: center; border-bottom: 1px solid gray;box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);">
+
+      <div class="col-3 text-center">
+         <h1 class="mt-2">{{ __('translation.question_mark') }}</h1>
+         <h6 style="color: black;">{{ __('translation.how_to_earn') }}</h6>
+      </div>
+
+      <div class="col-4 text-center">
+         <h1 class="mt-2">{{ __('translation.question_mark') }}</h1>
+         <h6 style="color: black;">{{ __('translation.refer_and_get') }}</h6>
+      </div>
+
+      <div class="col-3 text-center">
+         <h1 class="mt-2">{{ __('translation.question_mark') }}</h1>
+         <h6 style="color: black;">{{ __('translation.history') }}</h6>
+      </div>
+
+   </div>
+
+</div>
+@endif
+
+<style>
+   .col-3:not(:last-child) {
+      border-right: 1px solid black;
+   }
+
+   .col-4:not(:last-child) {
+      border-right: 1px solid black;
+   }
+</style>
+<!-- Mobile Upper Menu End Here -->
+
+
+<!-- UserLogin Welcome Message Start -->
+@if(Auth::check() && ( Request::url() == 'http://localhost/dcm/en/dubai' ) )
+<div class="MobileWelcomeMSG mt-10">
+   <div class="mt-0">
+      <div class="row" style="text-align: left;padding-left:25px ;">
+         <div class="col-sm-10 mt-5">
+            <h6 class="mt-2">{{ __('translation.hi_txt') }} Mohammed Abuelgassim</h6>
+            <b style="color:black;">{{ __('translation.we_are_glade') }}</b>
+            <p style="font-size: 15px; color:black;">
+               {{ __('translation.discover') }}
+            </p>
+         </div>
+         <div style="position: absolute; top: 10px; left: 85%;">
+            <a href="" onclick="closeWelcomeMessage()" style="color:red;">X</a>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="WebsiteWelcomeMSG mt-10">
+   <div class="mt-0">
+      <div class="row" style="text-align: left;padding-left:25px ;">
+         <div class="col-sm-10 mt-5">
+            <h6 class="mt-2">{{ __('translation.hi_txt') }} Mohammed Abuelgassim</h6>
+            <b style="color:black;">{{ __('translation.we_are_glade') }}</b>
+            <p style="font-size: 15px; color:black;">
+               {{ __('translation.discover') }}
+            </p>
+         </div>
+         <div style="position: absolute; top: 10px; left: 85%;">
+            <a href="#" onclick="closeWelcomeMessage()" style="color:red;">X</a>
+         </div>
+      </div>
+   </div>
+</div>
+@endif
+
+<!-- UserLogin Welcome Message end -->

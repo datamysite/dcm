@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="mt-110">
+<div class="breadcrumbMENU mt-110">
     <div class="container">
         <!-- row -->
         <div class="row">

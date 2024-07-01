@@ -25,3 +25,5 @@
 @else
 <link href="{{URL::to('/public')}}/web_assets/css/style.css" rel="stylesheet" />
 @endif
+
+<link href="{{URL::to('/public')}}/web_assets/css/user-profile-menu.css" rel="stylesheet" />
