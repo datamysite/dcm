@@ -8,6 +8,7 @@ use App\Models\Countries;
 use App\Models\ConversionRate;
 use App\Models\ClaimType;
 use App\Models\Wishcategories;
+use App\Models\RewardType;
 
 class LoyaltyController extends Controller
 {
@@ -22,6 +23,7 @@ class LoyaltyController extends Controller
                 $data['countries'] = Countries::all();
                 $data['ConversionRate'] = ConversionRate::all();
                 $data['claimtype'] = ClaimType::all();
+                $data['rewardtype'] = RewardType::all();
                 $data['categories'] = Wishcategories::where('del', '0')->get();
 
                 return view('admin.loyalty.settings.index')->with($data);
@@ -101,6 +103,36 @@ class LoyaltyController extends Controller
 
                 if(!empty($type->id)){
                     $type->eligibility  = $data['eligibility'];
+                    $type->save();
+
+                    return redirect()->back()->with('success', 'Success!');
+                }else{
+                    return redirect()->back()->with('error', 'Something went wrong!');
+                }
+
+            }
+
+
+
+        //Reward
+
+            public function editReward($id){
+                $data['id'] = $id;
+                $id = base64_decode($id);
+
+                $data['countries'] = Countries::all();
+                $data['type'] = RewardType::find($id);
+
+                return view('admin.loyalty.settings.editReward')->with($data);
+            }
+
+            public function updateReward(Request $request){
+                $data = $request->all();
+
+                $type = RewardType::find(base64_decode($data['type_id']));
+
+                if(!empty($type->id)){
+                    $type->reward  = $data['reward'];
                     $type->save();
 
                     return redirect()->back()->with('success', 'Success!');

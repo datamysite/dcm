@@ -346,6 +346,15 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/filter', 'WebUserController@user_filter')->name('admin.webUsers.filter');
             Route::post('/export', 'WebUserController@user_export')->name('admin.webUsers.export');
 
+            //Invoice Requests
+            Route::prefix('invoice')->group(function(){
+                Route::get('/', 'UserInvoiceController@index')->name('admin.users.invoice');
+                Route::get('/approve/{id}', 'UserInvoiceController@approve');
+                Route::get('/transfer/{id}', 'UserInvoiceController@transfer');
+                Route::get('/reject/{id}', 'UserInvoiceController@reject');
+                Route::post('/reject', 'UserInvoiceController@rejectSubmit')->name('admin.users.invoice.reject');
+            });
+
             //Withdraw Requests
             Route::prefix('withdraw')->group(function(){
                 Route::get('/', 'WithdrawController@index')->name('admin.users.withdraw');
@@ -454,6 +463,11 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
                 Route::prefix('eligibility')->group(function(){
                     Route::get('/edit/{id}', 'LoyaltyController@editEligibility');
                     Route::post('/update', 'LoyaltyController@updateEligibility')->name('admin.loyalty.settings.eligibility.update');
+                });
+
+                Route::prefix('reward')->group(function(){
+                    Route::get('/edit/{id}', 'LoyaltyController@editReward');
+                    Route::post('/update', 'LoyaltyController@updateReward')->name('admin.loyalty.settings.reward.update');
                 });
 
                 Route::prefix('categories')->group(function(){

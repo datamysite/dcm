@@ -93,6 +93,34 @@
               </div>
             </div>
           </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-8">
+                    <h4>Reward Parameter</h4>
+                </div>
+                <div class="col-md-4">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <table class="table">
+                    @foreach($rewardtype as $val)
+                      <tr>
+                        <td style="width: 60%; padding-left: 0;">{{$val->type}}</td>
+                        <td style="width: 20%;">{{$val->reward}} Coins</td>
+                        <td style="width: 20%; text-align: right; padding-right: 0;">
+                          <a href="javascript:void(0)" class="btn btn-sm btn-primary editReward" data-id="{{base64_encode($val->id)}}"><i class="fa fa-edit"></i></a>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- /.card -->
         </div>
 
@@ -293,6 +321,16 @@
       $('#editCategoryFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
       $('#editCategoryFormModal').modal('show');
       $.get("{{URL::to('/admin/panel/loyalty/settings/eligibility/edit')}}/" + id, function(data) {
+        $('#editCategoryFormModal .modal-content').html(data);
+      });
+    });
+
+
+    $(document).on('click', '.editReward', function() {
+      var id = $(this).data('id');
+      $('#editCategoryFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
+      $('#editCategoryFormModal').modal('show');
+      $.get("{{URL::to('/admin/panel/loyalty/settings/reward/edit')}}/" + id, function(data) {
         $('#editCategoryFormModal .modal-content').html(data);
       });
     });
