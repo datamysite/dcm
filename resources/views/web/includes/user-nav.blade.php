@@ -111,7 +111,7 @@ new color : #dfe1e5
             <div class="col-sm-3 d-flex flex-column justify-content-center" style="padding-top:25px">
 
                 <h4 class="text-center" style="color: #fff;">
-                    0.00
+                    {{number_format(Auth::user()->wallet)}}
                 </h4>
             </div>
             <div class="col-sm-4 d-flex flex-column justify-content-top" style="padding-top:15px">
