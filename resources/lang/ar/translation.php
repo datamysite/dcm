@@ -771,6 +771,7 @@ return [
    //User Menus
    "hi_txt" => ", مرحبا",
    "aed_txt" => "درهم",
+   "aed_coin" => "عملات",
    "available_balance" => "الرصيد المتوفر: ",
    "pending_balance" => "الرصيد المعلق: ",
    "what_is_difference" => "ماهو الفرق ؟",
