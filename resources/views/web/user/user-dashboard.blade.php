@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <!-- section start-->
 <div class="mt-8 mb-lg-14 mb-8">
@@ -30,11 +30,31 @@
             <!-- col -->
             <div class="col-lg-8 m-1">
 
-                <div class="row" style="background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);"> 
+                <div class="row" style="background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);">
                     <h4 class="mb-5 mt-5"> <b style="color: #fff;">Dashboard </b></h4>
                 </div>
 
                 <div class="row mt-5">
+
+                   
+                        <!-- col -->
+                        <div class="col-lg-12 alert alert-warning" style="background-color: #009DDE;background-image: linear-gradient(90deg, #2791CC, #1F428A);">
+                            <form id="verify_email_form" action="{{route('user.verify_email')}}">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <p style="color: #fff;">Please verify you email!</p>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <input type="number" name="email_otp" class="form-control form-control-sm" placeholder="Email OTP" min="100000" max="999999" required>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <button type="submit" class="btn btn-primary btn-sm pull-right">&nbsp;&nbsp;&nbsp;Verify&nbsp;&nbsp;&nbsp;</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                   
 
                     <div class="col-lg-12 col-12">
 

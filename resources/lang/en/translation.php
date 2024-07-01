@@ -782,6 +782,7 @@ return [
   //User Menus
   "hi_txt" => "Hi, ",
   "aed_txt" => "aed",
+  "aed_coin" => "coins",
   "available_balance" => "Available Balance:",
   "pending_balance" => "Pending Balance:",
   "what_is_difference" => "What is the difference?",
