@@ -386,4 +386,10 @@ class UserController extends Controller
 
         echo json_encode($response);
     }
+
+    public function transactionHistory()
+    {
+
+        return view('web.user.user-transaction-history');
+    }
 }
