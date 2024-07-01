@@ -220,12 +220,14 @@ class UserController extends Controller
 
     public function claimCashback()
     {
-        $data['requests'] = CashbackRequests::where('user_id', Auth::id())->orderBy('id', 'desc')->get();
+        $data['requests'] = CashbackRequests::where('user_id', Auth::id())->where('is_contested', 0)->with('retailerName')->orderBy('id', 'desc')->get();
         $data['brands'] = Retailers::where('type', '1')
             ->where('status', 1)
             ->join('retailer_countries', 'retailer_countries.retailer_id', '=', 'retailers.id')
             ->where('retailer_countries.country_id', 1)->orderBy('retailers.id', 'ASC')
             ->get();
+
+        //$data['invoices'] = CashbackRequests::where('user_id',  Auth::id())->where('is_contested', 0)->with('retailerName')->get();
 
         return view('web.user.user-claim-cashback', ['data' => $data]);
     }
@@ -233,6 +235,7 @@ class UserController extends Controller
     public function claimCashbackRequest(Request $request)
     {
         $data = $request->all();
+        $retailer_id = $data['retailer_id'];
         $response = [];
         $accepts = array('png', 'pdf', 'jpg', 'jpeg');
 
@@ -250,6 +253,8 @@ class UserController extends Controller
                 $c->date = date('Y-m-d');
                 $c->user_id = Auth::id();
                 $c->invoice_file = $newname;
+                $c->retailer_id = $retailer_id ;
+                $c->is_contested = 0;
                 $c->save();
 
 

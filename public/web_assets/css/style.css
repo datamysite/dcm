@@ -1558,6 +1558,11 @@ label.errors {
 
     .MobileUpperMenu {
         display: block;
+        position: fixed;
+        z-index: 9999;
+        width: 100%;
+        background-color: #fff;
+        top: 0px
     }
 
     .MobileWallet {

@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="row mt-5" style="background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
-                  
+
 
                     <p class="mb-0 lead" style="color: #fff;">{{ __('translation.profile_para_1') }} </p>
 
@@ -68,7 +68,7 @@
                                 <select class="form-control" name="retailer_id" style="border-radius:10px;" required>
                                     <option value="">{{ __('translation.select_brand') }} </option>
                                     @foreach ($data['brands'] as $brands)
-                                    <option value="{{ $brands->id }}">{{ app()->getLocale() == 'en' ? $brands->name : $brands->name_ar  }}</option>
+                                    <option value="{{ $brands->retailer_id }}">{{ app()->getLocale() == 'en' ? $brands->name : $brands->name_ar  }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -99,7 +99,6 @@
                                     <th>{{ __('translation.invoice_txt') }}</th>
                                     <th>{{ __('translation.status_txt') }}</th>
                                     <th>{{ __('translation.date_txt') }}</th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,8 +109,10 @@
                                     <td class="align-middle border-top-0">
                                         #{{str_pad($val->id, 5, '0', STR_PAD_LEFT);}}
                                     </td>
-                                    <td class="align-middle border-top-0">brand</td>
-                                    <td><a href="{{URL::to('/public/storage/invoices/'.$val->invoice_file)}}" target="_blank">{{ $val->invoice_file }}</a></td>
+                                    <td class="align-middle border-top-0">
+                                        {{$val->retailerName ? $val->retailerName->name : ""}}
+                                    </td>
+                                    <td><a href="{{URL::to('/public/storage/users/invoices/'.$val->invoice_file)}}" target="_blank">{{ $val->invoice_file }}</a></td>
                                     <td class="align-middle border-top-0">
                                         @switch($val->status)
                                         @case('1')

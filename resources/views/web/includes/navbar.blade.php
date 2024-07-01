@@ -425,7 +425,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 @if(!Str::contains(url()->current(), 'user') && Auth::check() && ( Request::url() == 'http://localhost/dcm/en/dubai' ) )
 <!-- Mobile Upper Menu Start Here -->
 
-<div class="MobileUpperMenu mt-12">
+<div class="MobileUpperMenu mt-11">
    <div style="background-color: #1F428A; background-image: linear-gradient(90deg, #1F428A, #2791CC);">
       <div class="row" style="height: 70px;">
          <div class="col-9" style="color: #fff;padding-left: 25px;">
