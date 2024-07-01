@@ -170,7 +170,7 @@
 
         <!-- DCM Contest End Here -->
 
-        <li class="nav-item  {{$menu == 'web.users' || $menu == 'web.users.withdraw' || $menu == 'web.users.genie-wish' ? 'menu-open' : ''}}">
+        <li class="nav-item  {{$menu == 'web.users' || $menu == 'web.users.withdraw' || $menu == 'web.users.genie-wish' || $menu == 'web.users.invoices' ? 'menu-open' : ''}}">
           <a href="javascript:void(0)" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
@@ -195,6 +195,12 @@
               <a href="{{route('admin.users.geniewish')}}" class="nav-link {{$menu == 'web.users.genie-wish' ? 'active' : ''}}">
                 <i class="fas fa-angle-right nav-icon"></i>
                 <p>Genie Wish Requests</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('admin.users.invoices')}}" class="nav-link {{$menu == 'web.users.invoices' ? 'active' : ''}}">
+                <i class="fas fa-angle-right nav-icon"></i>
+                <p>Invoices</p>
               </a>
             </li>
           </ul>

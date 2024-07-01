@@ -350,12 +350,10 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/export', 'WebUserController@user_export')->name('admin.webUsers.export');
 
             //Invoice Requests
-            Route::prefix('invoice')->group(function(){
-                Route::get('/', 'UserInvoiceController@index')->name('admin.users.invoice');
+            Route::prefix('invoices')->group(function(){
+                Route::get('/', 'UserInvoiceController@index')->name('admin.users.invoices');
                 Route::get('/approve/{id}', 'UserInvoiceController@approve');
-                Route::get('/transfer/{id}', 'UserInvoiceController@transfer');
                 Route::get('/reject/{id}', 'UserInvoiceController@reject');
-                Route::post('/reject', 'UserInvoiceController@rejectSubmit')->name('admin.users.invoice.reject');
             });
 
             //Withdraw Requests

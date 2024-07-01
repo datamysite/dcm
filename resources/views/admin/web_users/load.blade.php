@@ -23,7 +23,7 @@
           <td width="25%">{{number_format($val->wallet)}}</td>
           <td width="25%">{{number_format(count($val->WithdrawRequests))}}</td>
           <td width="25%">{{number_format(count($val->GenieWishRequests))}}</td>
-          <td width="25%">0</td>
+          <td width="25%">{{number_format(count($val->TransactionHistory))}}</td>
         <tr>
       </table>
     </td>

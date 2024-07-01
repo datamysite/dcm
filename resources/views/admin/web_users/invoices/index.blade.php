@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-@section('title', 'Withdraw Requests | Users')
+@section('title', 'Invoices | Users')
 @section('content')
 
 <div class="content-wrapper">
@@ -8,13 +8,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Withdraw <small><small> - Users </small></small></h1>
+            <h1 class="m-0">Invoices <small><small> - Users </small></small></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
               <li class="breadcrumb-item"><a href="{{route('admin.webUsers')}}">Users</a></li>
-              <li class="breadcrumb-item active">Withdraw</li>
+              <li class="breadcrumb-item active">Invoices</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -50,15 +50,14 @@
                       <select class="form-control" name="status">
                         <option value="">All</option>
                         <option value="1" {{!empty($req['status']) && $req['status'] == '1' ? 'selected' : ''}}>Pending</option>
-                        <option value="2" {{!empty($req['status']) && $req['status'] == '2' ? 'selected' : ''}}>Processing</option>
-                        <option value="3" {{!empty($req['status']) && $req['status'] == '3' ? 'selected' : ''}}>Transferred</option>
-                        <option value="4" {{!empty($req['status']) && $req['status'] == '4' ? 'selected' : ''}}>Rejected</option>
+                        <option value="2" {{!empty($req['status']) && $req['status'] == '2' ? 'selected' : ''}}>Accepted</option>
+                        <option value="4" {{!empty($req['status']) && $req['status'] == '3' ? 'selected' : ''}}>Rejected</option>
                       </select>
                     </div>
                     <div class="col-md-1" style="display: inline-flex;justify-content: space-between;align-items: flex-end;">
                       <button type="submit" class="btn btn-primary mt-32"><i class="fas fa-search"></i></button>
                       @if(!empty($req))
-                        <a href="{{route('admin.users.withdraw')}}" class="btn btn-default">Clear</a>
+                        <a href="{{route('admin.users.invoices')}}" class="btn btn-default">Clear</a>
                       @endif
                     </div>
                     <div class="col-md-4">
@@ -77,8 +76,7 @@
                     <th width="5%">#</th>
                     <th width="5%">Request#</th>
                     <th width="30%">Users</th>
-                    <th width="10%">Coins</th>
-                    <th width="10%">Amount</th>
+                    <th width="20%">Invoice</th>
                     <th width="10%">Status</th>
                     <th width="10%">Request at</th>
                     <th width="10%" class="text-right">Action</th>
@@ -92,14 +90,15 @@
                         <td>
                           <div class="user-profile-block">
                             <p>
-                              <label>{{@$val->user->name}}</label>
-                              <span>{{@$val->user->email}}</span>
+                              <label>{{@$val->userDetails->name}}</label>
+                              <span>{{@$val->userDetails->email}}</span>
                             </p>
-                            <span>Curr Wallet: <strong>1,000 <small><small>Coins</small></small></strong></span>
+                            <span>Curr Wallet: <strong>{{number_format(@$val->userDetails->wallet)}} <small><small>Coins</small></small></strong></span>
                           </div>
                         </td>
-                        <td><strong>{{number_format($val->coins)}}</strong> <small>Coins</small></td>
-                        <td><strong>{{number_format($val->amount)}}</strong> <small>{{$val->curr}}</small></td>
+                        <td>
+                          <a href="{{URL::to('/public/storage/users/invoices/'.$val->invoice_file)}}" target="_blank">{{$val->invoice_file}}</a>
+                        </td>
                         <td>
                           @switch($val->status)
                             @case('1')
@@ -107,14 +106,10 @@
                               @break
 
                             @case('2')
-                              <span class="badge badge-primary">Processing</span>
+                              <span class="badge badge-success">Accepted</span>
                               @break
 
                             @case('3')
-                              <span class="badge badge-success">Tansfered</span>
-                              @break
-
-                            @case('4')
                               <span class="badge badge-danger">Rejected</span>
                               @break
 
@@ -125,11 +120,6 @@
                           @if($val->status == '1')
                             <a href="javascript:void(0)" class="btn btn-sm btn-info approveRequest" title="Aprrove" data-id="{{base64_encode($val->id)}}"><i class="fas fa-check"></i></a>
                             <a href="javascript:void(0)" class="btn btn-sm btn-danger rejectRequest" title="Reject" data-id="{{base64_encode($val->id)}}"><i class="fas fa-ban"></i></a>
-                          @endif
-                          @if($val->status == '2')
-                            <a href="javascript:void(0)" class="btn btn-sm btn-info transferredRequest" title="Transferred" data-id="{{base64_encode($val->id)}}">
-                              <i class="fas fa-check"></i> Transferred
-                            </a>
                           @endif
                         </td>
                       </tr>
@@ -145,8 +135,7 @@
                     <th>#</th>
                     <th>Request#</th>
                     <th>Users</th>
-                    <th>Coins</th>
-                    <th>Amount</th>
+                    <th>Invoice</th>
                     <th>Status</th>
                     <th>Request at</th>
                     <th class="text-right">Action</th>
@@ -286,7 +275,7 @@
         confirmButtonText: 'Yes, Approve it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/panel/web/users/withdraw/approve')}}/" + id, function(data) {
+          $.get("{{URL::to('/admin/panel/web/users/invoices/approve')}}/" + id, function(data) {
             console.log(data);
             if (data == 'success') {
               Toast.fire({
@@ -307,7 +296,7 @@
       });
     });
 
-    $(document).on('click', '.transferredRequest', function() {
+    $(document).on('click', '.rejectRequest', function() {
       var id = $(this).data('id');
 
       Swal.fire({
@@ -317,15 +306,15 @@
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, Do it!'
+        confirmButtonText: 'Yes, Reject it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/panel/web/users/withdraw/transfer')}}/" + id, function(data) {
+          $.get("{{URL::to('/admin/panel/web/users/invoices/reject')}}/" + id, function(data) {
             console.log(data);
             if (data == 'success') {
               Toast.fire({
                 icon: 'success',
-                title: 'Success! Request Successfully Transferred.'
+                title: 'Success! Request Successfully Rejected.'
               });
               setTimeout(function(){
                 window.location.reload();
@@ -338,16 +327,6 @@
             }
           });
         }
-      });
-    });
-
-    $(document).on('click', '.rejectRequest', function() {
-      var id = $(this).data('id');
-      $('#rejectRequestFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
-      $('#rejectRequestFormModal').modal('show');
-      $.get("{{URL::to('/admin/panel/web/users/withdraw/reject')}}/" + id, function(data) {
-        $('#rejectRequestFormModal .modal-content').html(data);
-        $('#rejectReason').focus();
       });
     });
   </script>

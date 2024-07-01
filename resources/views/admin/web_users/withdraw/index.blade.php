@@ -95,7 +95,7 @@
                               <label>{{@$val->user->name}}</label>
                               <span>{{@$val->user->email}}</span>
                             </p>
-                            <span>Curr Wallet: <strong>1,000 <small><small>Coins</small></small></strong></span>
+                            <span>Curr Wallet: <strong>{{number_format(@$val->user->wallet)}} <small><small>Coins</small></small></strong></span>
                           </div>
                         </td>
                         <td><strong>{{number_format($val->coins)}}</strong> <small>Coins</small></td>

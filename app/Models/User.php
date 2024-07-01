@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\CashbackRequests;
 use App\Models\GenieWishRequests;
 use App\Models\WithdrawRequests;
+use App\Models\TransactionHistory;
 
 class User extends Authenticatable
 {
@@ -74,5 +75,10 @@ class User extends Authenticatable
     public function GenieWishRequests()
     {
         return $this->hasMany(GenieWishRequests::class, 'user_id');
+    }
+
+    public function TransactionHistory()
+    {
+        return $this->hasMany(TransactionHistory::class, 'user_id');
     }
 }
