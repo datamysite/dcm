@@ -293,7 +293,6 @@ $pos = strpos($url, "/".app()->getLocale()."/");
             </div>
             <!-- Desktop Menu End Here -->
 
-
             <!-- Mobile Menu Start Here -->
             <div class="mobile-nav">
 
@@ -315,6 +314,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                            <span class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="padding-right:15px"' : 'style="padding-left:15px"' !!} >{{ __('translation.available_balance') }}</span><br>
                            <span class="mt-2" {!! app()->getLocale() == 'ar' ? 'style="padding-right:15px"' : 'style="padding-left:15px"' !!}><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>0.00</b></span>
                         </div>
+
 
                         <div class="col-6 mt-5">
                            <span class="mt-0"> {{ __('translation.pending_balance') }}</span><br>

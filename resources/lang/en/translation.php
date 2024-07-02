@@ -836,6 +836,18 @@ return [
   "referal_invite_s_media_txt" => "Invite By Social Media",
   "referal_invite_s_media_txt_2" => "Our you can use social media to share referral link to your friends",
 
+  "withdraw_payment_txt" => "Withdraw your coins into real cash deposited instantly into your bank account!",
+  "cash_withdraw_request" => "Withdraw Cash Request",
+  "coins_to_aed_rate" => "Coins to AED Rate",
+  "equals_txt" => "equals",
+  "rate_txt" => "Rate",
+  "submit_txt" => "Submit",
+  
+
+
+
+
+
 
 
 ];
