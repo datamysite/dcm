@@ -11,6 +11,7 @@ use App\Models\CashbackRequests;
 use App\Models\GenieWishRequests;
 use App\Models\WithdrawRequests;
 use App\Models\TransactionHistory;
+use App\Models\RewardType;
 
 class User extends Authenticatable
 {
@@ -25,8 +26,24 @@ class User extends Authenticatable
         $u->email = $data['email'];
         $u->email_otp = random_int(100000, 999999);
         $u->password = bcrypt($data['password']);
+        $u->by_referral = empty($data['referral']) ? '' : $data['referral'];
         $u->save();
 
+        if(!empty($data['referral'])){
+            $ur = User::where('email', base64_decode($data['referral']))->first();
+            if(!empty($u->id)){
+                $r = RewardType::where('type', 'Referral')->first();
+                $ur->wallet = $ur->wallet+$r->reward;
+                $ur->save();
+
+                $t = new TransactionHistory;
+                $t->user_id = $ur->id;
+                $t->coins = $r->reward;
+                $t->type = 'referral';
+                $t->trans_type = 'credit';
+                $t->save();
+            }
+        }
         return $u;
     }
     /**

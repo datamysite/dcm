@@ -62,6 +62,15 @@ class HomeController extends Controller
         $data['slider'] = Slider::where('del', '0')->where('lang', app()->getLocale())->where('country_id', config('app.country'))->orderBy('img_order', 'asc')->get();
         //dd($data['slider']);
         $data['region'] = $region;
+
+        if(!empty($_GET['referal_link'])){
+            if ((function_exists('session_status') 
+          && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
+              session_start();
+            }
+
+            $_SESSION['referral'] = $_GET['referal_link'];
+        }
         return view($this->getView('web.index'))->with($data);
     }
 

@@ -42,7 +42,7 @@
                     <!-- col -->
                     <div class="col-8">
                         <div class="input-group ">
-                            <input type="text" class="form-control rounded" id="copyClipboard" name="referal_link" value="{{route('user.referral.link', [base64_encode(Auth::id()), base64_encode(Auth::user()->email)])}}" readonly="readonly">
+                            <input type="text" class="form-control rounded" id="copyClipboard" name="referal_link" value="{{route('home', [$region])}}?ref=signup&referal_link={{base64_encode(Auth::user()->email)}}" readonly="readonly">
                         </div>
                     </div>
                     <div class="col-4">
@@ -86,7 +86,7 @@
                                 <img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;mix-blend-mode:hard-light !important;filter:brightness(0.5) invert(1);" alt="Whatsapp">
                             </a>
 
-                            <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="Copy Link" style="display: inline-block; margin-right: 20px;">
+                            <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="Copy Link" onclick="copy()" style="display: inline-block; margin-right: 20px;">
 
                         </div>
 

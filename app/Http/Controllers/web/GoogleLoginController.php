@@ -9,6 +9,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\RedirectResponse;
 use App\Models\User;
 use App\Helpers\Mailer;
+use App\Models\RewardType;
+use App\Models\TransactionHistory;
 use Auth;
 
 class GoogleLoginController extends Controller
@@ -42,9 +44,25 @@ class GoogleLoginController extends Controller
             $newUser->email = $user->email;
             $newUser->google_id = $user->id;
             $newUser->email_verified = '1';
-            $newUser->password = bcrypt(request(Str::random())); // Set some random password
+            $newUser->password = bcrypt(request(Str::random()));
+            $newUser->by_referral = empty($_SESSION['referral']) ? '' : $_SESSION['referral'];
             $newUser->save();
 
+            if(!empty($_SESSION['referral'])){
+                $u = User::where('email', base64_decode($_SESSION['referral']))->first();
+                if(!empty($u->id)){
+                    $r = RewardType::where('type', 'Referral')->first();
+                    $u->wallet = $u->wallet+$r->reward;
+                    $u->save();
+
+                    $t = new TransactionHistory;
+                    $t->user_id = $u->id;
+                    $t->coins = $r->reward;
+                    $t->type = 'referral';
+                    $t->trans_type = 'credit';
+                    $t->save();
+                }
+            }
             // Log in the new user.
             auth()->login($newUser, true);
 

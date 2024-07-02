@@ -63,6 +63,9 @@
                <div class="form-modal_container sign-up-modal_container">
                   <form action="{{route('user.create', [$region])}}" id="create_user_form"  onsubmit="return gtag_report_signup;" class="form_modal">
                      @csrf
+                     @if(!empty($_GET['referal_link']))
+                        <input type="hidden" name="referral" value="{{$_GET['referal_link']}}">
+                     @endif
                      <h2 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h2>
                      <div class="social-modal_container">
                         <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
