@@ -1542,6 +1542,16 @@ label.errors {
     display: block;
 }
 
+.col-3:not(:last-child) {
+
+    border-right: 1px solid black;
+}
+
+.col-4:not(:last-child) {
+
+    border-right: 1px solid black;
+}
+
 /* UserMenu-Web-Mobile End*/
 
 
@@ -1574,8 +1584,8 @@ label.errors {
 
     .MobileUpperMenu {
         display: block;
-        position: fixed;
-        z-index: 9999;
+        /* position: fixed;
+        z-index: 9999; */
         width: 100%;
         background-color: #fff;
         top: 0px

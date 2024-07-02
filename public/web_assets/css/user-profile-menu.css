@@ -66,19 +66,21 @@
    .inline-menu li a {
       color: black;
       text-decoration: none;
-      padding: 10px;
+      padding: 5px;
       font-size: 15px;
       display: inline-block;
       width: 180px !important;
    }
 
-   .inline-menu li a.active {
+   .inline-menu li.active {
       border-bottom: 1px solid blue;
       position: relative;
+      padding: 5px;
+      font-size: bold;
    }
 
-   .inline-menu li a:hover {
-      background-color: #ccc;
+   .inline-menu li.first-order {
+      order: -1;
    }
 
    /* CSS for the inline menu end*/

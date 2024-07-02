@@ -39,10 +39,9 @@
                 </div>
 
                 <div class="row mt-5" style="background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);">
-                 
+
                     <p class="mb-0 lead" style="color: #fff;">
-                        DCM presents an excellent opportunity for individuals seeking to exchange their digital coins for immediate cash.
-                        you can effortlessly convert your cryptocurrency holdings into tangible currency.
+                        {{ __('translation.withdraw_payment_txt') }}
                     </p>
 
                     <div class="mt-5">
@@ -79,47 +78,47 @@
                             </thead>
                             <tbody>
                                 @foreach($requests as $key => $val)
-                                    <tr style="background-color: #f0f3f2;">
-                                        <td class="align-middle border-top-0">{{++$key}}</td>
-                                        <td class="align-middle border-top-0">{{sprintf("%05d", $val->id)}}</td>
-                                        <td class="align-middle border-top-0">{{number_format($val->coins)}} {{ __('translation.coins') }}</td>
-                                        <td class="align-middle border-top-0">{{number_format($val->coins)}} {{ __('translation.'.$val->curr) }}</td>
-                                        <td class="align-middle border-top-0"> 
-                                            @switch($val->status)
-                                                @case('1')
-                                                    <span class="badge bg-warning">Pending</span>
-                                                    @break
+                                <tr style="background-color: #f0f3f2;">
+                                    <td class="align-middle border-top-0">{{++$key}}</td>
+                                    <td class="align-middle border-top-0">{{sprintf("%05d", $val->id)}}</td>
+                                    <td class="align-middle border-top-0">{{number_format($val->coins)}} {{ __('translation.coins') }}</td>
+                                    <td class="align-middle border-top-0">{{number_format($val->coins)}} {{ __('translation.'.$val->curr) }}</td>
+                                    <td class="align-middle border-top-0">
+                                        @switch($val->status)
+                                        @case('1')
+                                        <span class="badge bg-warning">Pending</span>
+                                        @break
 
-                                                @case('2')
-                                                  <span class="badge bg-warning">Processing</span>
-                                                  @break
+                                        @case('2')
+                                        <span class="badge bg-warning">Processing</span>
+                                        @break
 
-                                                @case('3')
-                                                  <span class="badge bg-success">Tansfered</span>
-                                                  @break
+                                        @case('3')
+                                        <span class="badge bg-success">Tansfered</span>
+                                        @break
 
-                                                @case('4')
-                                                  <span class="badge bg-danger">Rejected</span>
-                                                  @break
-                                            @endswitch
-                                        </td>
-                                        <td class="align-middle border-top-0">{{date('d-M-Y | h:i a', strtotime($val->created_at))}}</td>
-                                    </tr>
+                                        @case('4')
+                                        <span class="badge bg-danger">Rejected</span>
+                                        @break
+                                        @endswitch
+                                    </td>
+                                    <td class="align-middle border-top-0">{{date('d-M-Y | h:i a', strtotime($val->created_at))}}</td>
+                                </tr>
                                 @endforeach
                                 @if(count($requests) == 0)
-                                    <tr>
-                                        <td colspan="6">No Record Found.</td>
-                                    </tr>
+                                <tr>
+                                    <td colspan="6">No Record Found.</td>
+                                </tr>
                                 @endif
 
                             </tbody>
                         </table>
-                        
+
                         <div class="row mt-8 text-center">
-                           <div class="col">
-                              <!-- nav -->
-                              {{ $requests->links() }}
-                           </div>
+                            <div class="col">
+                                <!-- nav -->
+                                {{ $requests->links() }}
+                            </div>
                         </div>
                     </div>
 
@@ -136,7 +135,7 @@
         <div class="modal-content p-4" style="background-color: #fff; position: relative;">
             <div class="withdraw-loader"><img src="{{URL::to('/public/loader.gif')}}"></div>
             <div class="modal-header border-0">
-                <h5 class="modal-title fs-3 fw-bold" id="userModalLabel">Cash Withdraw Request</h5>
+                <h5 class="modal-title fs-3 fw-bold" id="userModalLabel"> {{ __('translation.cash_withdraw_request') }}</h5>
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -145,24 +144,24 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        You can effortlessly convert your cryptocurrency holdings into tangible currency, with the updated conversion rate.
+                        {{ __('translation.withdraw_payment_txt') }}
                     </div>
                 </div>
                 <hr>
                 <div class="row mt-3">
                     <form action="{{route('user.withdrawPayment.submit')}}" id="submitFormWithdraw">
                         @csrf
-                        <h6>Coins to AED Rate</h6>
+                        <h6> {{ __('translation.coins_to_aed_rate') }}</h6>
                         <div class="row text-center" style="justify-items: center;justify-content: center;">
                             <div class="col-3 mb-1" style="border:0;">
                                 <input type="text" class="form-control" readonly="readonly" placeholder="Coins" value="{{$rate->coins}} Coins" disabled />
-                            </div> <span style="padding-top: 10px;width:auto">equals</span>
+                            </div> <span style="padding-top: 10px;width:auto">{{ __('translation.equals_txt') }}</span>
                             <div class="col-3 mb-1">
-                                <input type="text" class="form-control" readonly="readonly" placeholder="Rate" value="{{$rate->value}} {{$country->curr}}" disabled />
+                                <input type="text" class="form-control" readonly="readonly" placeholder="{{ __('translation.rate_txt') }}" value="{{$rate->value}} {{$country->curr}}" disabled />
                             </div>
                         </div>
                         <hr>
-                        <h6>Withdraw Cash Request</h6>
+                        <h6>{{ __('translation.cash_withdraw_request') }}</h6>
                         <div class="row text-center mt-1" style="justify-items: center;justify-content: center;">
                             <div class="col-6 mb-3">
                                 <input type="number" class="form-control" id="my_coins" name="coins" oninput="calculateCoinsRate()" inputmode="numeric" pattern="[0-9\s]{1,5}" min="1" max="{{Auth::user()->wallet }}" placeholder="Withdraw Coins {{5}}" required="required" />
@@ -172,7 +171,7 @@
                             </div>
                         </div>
 
-                        <input type="submit" class="btn btn-primary sub-btn" name="submit" value="Submit">
+                        <input type="submit" class="btn btn-primary sub-btn" name="submit" value="{{ __('translation.submit_txt') }}">
                     </form>
                 </div>
             </div>
@@ -184,26 +183,51 @@
 @endsection
 @section('addScript')
 <script type="text/javascript">
-    $(document).on("submit", "#submitFormWithdraw", function (s) {
-        $('.withdraw-loader').css({display: 'flex'});
+    $(document).on("submit", "#submitFormWithdraw", function(s) {
+        $('.withdraw-loader').css({
+            display: 'flex'
+        });
         var e = $(this),
             t = new FormData($("#submitFormWithdraw")[0]);
-        $(".errors").css({ display: "none" }),
-            $.ajax({ type: "POST", url: e.attr("action"), data: t, dataType: "json", encode: !0, processData: !1, contentType: !1 })
-                .done(function (s) {
-                    "success" == s.success
-                        ? (Toast.fire({ icon: "success", title: s.message }),
-                          setTimeout(function () {
-                              location.reload();
-                          }, 700))
-                        : Toast.fire({ icon: "error", title: s.message });
-                        $('.withdraw-loader').css({display: 'none'});
-                })
-                .fail(function (s) {
-                    $('.withdraw-loader').css({display: 'none'});
-                    Toast.fire({ icon: "error", title: 'Something went wrong!' });
-                    
-                }),
+        $(".errors").css({
+                display: "none"
+            }),
+            $.ajax({
+                type: "POST",
+                url: e.attr("action"),
+                data: t,
+                dataType: "json",
+                encode: !0,
+                processData: !1,
+                contentType: !1
+            })
+            .done(function(s) {
+                "success" == s.success ?
+                    (Toast.fire({
+                            icon: "success",
+                            title: s.message
+                        }),
+                        setTimeout(function() {
+                            location.reload();
+                        }, 700)) :
+                    Toast.fire({
+                        icon: "error",
+                        title: s.message
+                    });
+                $('.withdraw-loader').css({
+                    display: 'none'
+                });
+            })
+            .fail(function(s) {
+                $('.withdraw-loader').css({
+                    display: 'none'
+                });
+                Toast.fire({
+                    icon: "error",
+                    title: 'Something went wrong!'
+                });
+
+            }),
             s.preventDefault();
     });
 
@@ -214,7 +238,11 @@
         const coinsRateInput = document.getElementById('coins_rate');
 
         const myCoinsValue = myCoinsInput.value;
-        const conversionRate = {{$rate->value}};
+        const conversionRate = {
+            {
+                $rate - > value ;
+            }
+        };
 
         if (myCoinsValue < 0 || isNaN(myCoinsValue) || /^0[0-9]+$/.test(myCoinsValue)) {
             coinsRateInput.value = "0.0 {{$country->curr}}";

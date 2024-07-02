@@ -92,8 +92,8 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
          @if(Auth::check())
          <a href="{{route('user.dashboard')}}">
-            <i class="fa fa-dashboard"></i>
-            {{ __('translation.dashboard') }}
+            <i class="fa fa-user"></i>
+            {{ __('translation.Profile') }}
          </a>
          @else
          <a href="#" class="" data-option="login" data-bs-toggle="modal" data-bs-target="#userModal">
@@ -206,25 +206,25 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                      </li>
                      <ul class="navbar-nav">
                         @if(Auth::check())
-                        <li class="nav-item dropdown" {!! app()->getLocale() == 'ar' ? 'style="padding: 5px;"' : 'style="padding: 10px;"' !!} >
+                        <li class="nav-item dropdown" {!! app()->getLocale() == 'ar' ? 'style="padding: 4px;"' : 'style="padding: 10px;"' !!} >
 
                            <a class="nav-link" href="#" role="button" aria-expanded="false">
                               <i class="fa-solid fa-user" style="font-weight: bold; color: black; font-size:22px;"></i>
                               | <span style="top: -5px; right: 0;">{{ __('translation.aed_coin') }}</span> <strong>0.0</strong>
-                              <i class="fa-solid fa-caret-down" style="margin-right: 2px;"></i>
+                              <i class="fa-solid fa-caret-down" style="margin-right: 1px;"></i>
                            </a>
 
                            <div class="dropdown-menuMainDIV">
 
                               <div class="menuSubDIV mt-0">
-                                 <div class="row" style="text-align: left;padding-left:20px ;">
+                                 <div class="row" {!! app()->getLocale() == 'ar' ? 'style="text-align: right;padding-right:20px;"' : 'style="text-align: left;padding-left:20px"' !!} >
                                     <div class="col-lg-12 mt-5">
-                                       <h6 class="mt-0" style="color: #fff;">{{ __('translation.hi_txt') }} Mohammed Abuelgassim</h6>
+                                       <h6 class="mt-0" style="color: #fff;">{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>
                                     </div>
                                  </div>
                                  <div class="row text-center" style="color: #fff;">
                                     <div class="col-lg-6 mt-5">
-                                       <span class="mt-0">{{ __('translation.available_balance') }}</span>
+                                       <span class="mt-0">{{ __('translation.available_balance') }}</span><br>
                                        <span class="mt-2"><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>0.00</b></span>
                                     </div>
                                     <div class="col-lg-6 mt-5">
@@ -232,7 +232,8 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                        <span><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>0.00</b></span>
                                     </div>
 
-                                    <div class="row mt-2" style="text-align: left; padding-left: 30px; text-decoration: underline;">
+                                    <div class="row mt-2" {!! app()->getLocale() == 'ar' ? 'style="text-align: right; padding-right: 30px; text-decoration: underline;"' : 'style="text-align: left; padding-left: 30px; text-decoration: underline;"' !!}>
+
                                        <span class="mt-2" style="color: #fff;">
                                           <i class="fa fa-info-circle" aria-hidden="true" style="padding-right: 5px;"></i>
                                           <a href="#" style="color: #fff;">{{ __('translation.what_is_difference') }}</a>
@@ -292,7 +293,6 @@ $pos = strpos($url, "/".app()->getLocale()."/");
             </div>
             <!-- Desktop Menu End Here -->
 
-
             <!-- Mobile Menu Start Here -->
             <div class="mobile-nav">
 
@@ -301,25 +301,27 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                   <div class="mt-0">
 
-                     <div class="row" style="text-align: left;padding-left:20px ;">
+                     <div class="row" {!! app()->getLocale() == 'ar' ? 'style="text-align: right;padding-right:20px;"' : 'style="text-align: left;padding-left:20px;"' !!}>
                         <div class="col-lg-12 mt-5">
-                           <h6 class="mt-0" style="color: #fff;">{{ __('translation.hi_txt') }} Mohammed Abuelgassim</h6>
+                           <h4 class="mt-0" style="color: #fff;">{{ __('translation.hi_txt') }} <a href="{{route('user.dashboard')}}" style="color: #fff;">{{Auth::user()->name}} </a> </h4>
                         </div>
                      </div>
 
                      <div class="row" style="color: #fff;">
 
+
                         <div class="col-6 mt-5">
-                           <span class="mt-0" style="padding-left:15px">{{ __('translation.available_balance') }}</span><br>
-                           <span class="mt-2" style="padding-left:15px"><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>0.00</b></span>
+                           <span class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="padding-right:15px"' : 'style="padding-left:15px"' !!} >{{ __('translation.available_balance') }}</span><br>
+                           <span class="mt-2" {!! app()->getLocale() == 'ar' ? 'style="padding-right:15px"' : 'style="padding-left:15px"' !!}><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>0.00</b></span>
                         </div>
+
 
                         <div class="col-6 mt-5">
                            <span class="mt-0"> {{ __('translation.pending_balance') }}</span><br>
                            <span><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>0.00</b></span>
                         </div>
 
-                        <div class="row mt-2" style="text-align: left; padding-left: 30px; text-decoration: underline;">
+                        <div class="row mt-2" {!! app()->getLocale() == 'ar' ? 'style="text-align: right; padding-right: 30px; text-decoration: underline;"' : 'style="text-align: left; padding-left: 30px; text-decoration: underline;"' !!} >
                            <span class="mt-2" style="color: #fff;">
                               <i class="fa fa-info-circle" aria-hidden="true" style="padding-right: 5px;"></i>
                               <a href="#" style="color: #fff;">{{ __('translation.what_is_difference') }}</a>
@@ -410,32 +412,29 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                      </ul>
                   </div>
-
                </div>
-
             </div>
             <!-- Mobile Menu End Here -->
-
          </div>
       </div>
    </div>
 </nav>
 
 
-@if(!Str::contains(url()->current(), 'user') && Auth::check() && ( Request::url() == 'http://localhost/dcm/en/dubai' ) )
+@if(!Str::contains(url()->current(), 'user') && Auth::check() && ( Request::url() == 'http://localhost/dcm/en/dubai' || Request::url() == 'http://localhost/dcm/ar/dubai') )
 <!-- Mobile Upper Menu Start Here -->
 
 <div class="MobileUpperMenu mt-11">
    <div style="background-color: #1F428A; background-image: linear-gradient(90deg, #1F428A, #2791CC);">
       <div class="row" style="height: 70px;">
-         <div class="col-9" style="color: #fff;padding-left: 25px;">
-            <h5 class="mt-2" style="color: #fff;">{{ __('translation.hi_txt') }} Mohammed Abuelgassim</h5>
+         <div class="col-9" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right: 25px;"' : 'style="color: #fff;padding-left: 25px;"' !!} >
+            <h5 class="mt-3" style="color: #fff;">{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h5>
             <span style="color: #fff;">{{ __('translation.available_balance') }}</span>
          </div>
 
-         <div class="col-3">
-            <span style="top: 2px; right: 4;color:#c3bcbc;">{{ __('translation.aed_coin') }}</span>
-            <h4 class="mt-0" style="color: #fff;padding-left:10px;">0.00</h4>
+         <div class="col-3 mt-2">
+            <span style="top: 2px; right: 4;color:#fff;">{{ __('translation.aed_coin') }}</span>
+            <h4 class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:10px;"' : 'style="color: #fff;padding-left:10px;"' !!}>0.00</h4>
          </div>
 
       </div>
@@ -457,38 +456,29 @@ $pos = strpos($url, "/".app()->getLocale()."/");
          <h1 class="mt-2">{{ __('translation.question_mark') }}</h1>
          <h6 style="color: black;">{{ __('translation.history') }}</h6>
       </div>
-
    </div>
 
 </div>
 @endif
 
-<style>
-   .col-3:not(:last-child) {
-      border-right: 1px solid black;
-   }
-
-   .col-4:not(:last-child) {
-      border-right: 1px solid black;
-   }
-</style>
 <!-- Mobile Upper Menu End Here -->
 
 
 <!-- UserLogin Welcome Message Start -->
-@if(Auth::check() && ( Request::url() == 'http://localhost/dcm/en/dubai' ) )
+@if(Auth::check() && ( Request::url() == 'http://localhost/dcm/en/dubai' || Request::url() == 'http://localhost/dcm/ar/dubai' ) )
+
 <div class="MobileWelcomeMSG mt-10">
    <div class="mt-0">
-      <div class="row" style="text-align: left;padding-left:25px ;">
+      <div class="row" {!! app()->getLocale() == 'ar' ? 'style="text-align: right;padding-right:25px ;"' : 'style="text-align: left;padding-left:25px ;"' !!}>
          <div class="col-sm-10 mt-5">
-            <h6 class="mt-2">{{ __('translation.hi_txt') }} Mohammed Abuelgassim</h6>
+            <h6 class="mt-2">{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>
             <b style="color:black;">{{ __('translation.we_are_glade') }}</b>
             <p style="font-size: 15px; color:black;">
                {{ __('translation.discover') }}
             </p>
          </div>
-         <div style="position: absolute; top: 10px; left: 85%;">
-            <a href="" onclick="closeWelcomeMessage()" style="color:red;">X</a>
+         <div {!! app()->getLocale() == 'ar' ? 'style="position: absolute; top: 10px; right: 85%;"' : 'style="position: absolute; top: 10px; left: 85%;"' !!}>
+            <a href="javascript:void(0);" onclick="closeWelcomeMessage()" style="color:red;"><strong>x</strong></a>
          </div>
       </div>
    </div>
@@ -496,16 +486,16 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
 <div class="WebsiteWelcomeMSG mt-10">
    <div class="mt-0">
-      <div class="row" style="text-align: left;padding-left:25px ;">
+      <div class="row" {!! app()->getLocale() == 'ar' ? 'style="text-align: right;padding-right:25px ;"' : 'style="text-align: left;padding-left:25px ;"' !!}>
          <div class="col-sm-10 mt-5">
-            <h6 class="mt-2">{{ __('translation.hi_txt') }} Mohammed Abuelgassim</h6>
+            <h6 class="mt-2">{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>
             <b style="color:black;">{{ __('translation.we_are_glade') }}</b>
             <p style="font-size: 15px; color:black;">
                {{ __('translation.discover') }}
             </p>
          </div>
-         <div style="position: absolute; top: 10px; left: 85%;">
-            <a href="#" onclick="closeWelcomeMessage()" style="color:red;">X</a>
+         <div {!! app()->getLocale() == 'ar' ? 'style="position: absolute; top: 10px; right: 85%;"' : 'style="position: absolute; top: 10px; left: 85%;"' !!}>
+            <a href="javascript:void(0);" onclick="closeWelcomeMessage()" style="color:red;">X</a>
          </div>
       </div>
    </div>
