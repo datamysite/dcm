@@ -797,4 +797,41 @@ return [
   "we_are_glade" => "We're glade to have you here!",
   "discover" => "Discover stores, shop, and earn cashback right away!",
 
+  "verify" => "Verify",
+  "available_balance_txt" => "Available Balance",
+  "pending_balance_txt" => "Pending Balance",
+  "requested_cashback_txt" => "Requested Cashback",
+  "approved_cashback_txt" => "Approved Cashback",
+  "total_coupons_used_txt" => "Total Coupons Used",
+  "total_store_visits_txt" => "Total Store Visits",
+  "coupons_txt" => "Coupons",
+  "visit_txt" => "Visit",
+
+  "otp_txt" => "Enter Your OTP",
+
+  "referal_earn" => "Referal & Earn",
+
+  "referal_how_it_wors" => "How it Works ?",
+  "referal_how_it_wors_txt_1" => "Copy your referral link and share it with your friends.",
+  "referal_how_it_wors_txt_2" => "Your friend signs up and starts shopping to earn cashback.",
+  "referal_how_it_wors_txt_3" => "Once your friend has collected AED 20 of cashback, you will both receive an AED 15 bonus.",
+
+  "referal_terms_txt" => "Referral Terms: ",
+  "referal_terms_txt_1" => "To qualify for the referral bonus ensure your friend signs up with your unique referral code and earns AED 20 of confirmed cashback by shopping on DCM.",
+  "referal_terms_txt_2" => "To withdraw your referral bonus you must be an active user with a minimum confirmed cashback of at least AED 20 by shopping on DCM.",
+  "referal_terms_txt_3" => "Please refer to our",
+  "referal_terms_txt_4" => "Terms & Conditions",
+  "referal_terms_txt_5" => "for full details of the program.",
+
+  "referal_link_txt" => "Your Unique Referal Link.",
+
+  "referal_copy_link_txt" => "Copy Link",
+  "referal_invite_by_email_txt" => "Invite By Email",
+  "referal_invite_by_email_txt_1" => "You can invite your friends by their email address.",
+
+  "referal_invite_s_media_txt" => "Invite By Social Media",
+  "referal_invite_s_media_txt_2" => "Our you can use social media to share referral link to your friends",
+
+
+
 ];

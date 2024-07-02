@@ -63,6 +63,20 @@
       WebsiteWelcomeMSG.style.display = 'none';
    }
 
+   window.onload = function() {
+      var url = window.location.href;
+      var claimCashbackMenuItem = document.querySelector('a[href*="claimCashback"]').parentNode;
+
+      if (url.includes('claimCashback')) {
+         claimCashbackMenuItem.classList.add('active');
+         claimCashbackMenuItem.classList.add('first-order');
+         claimCashbackMenuItem.focus();
+      } else {
+         claimCashbackMenuItem.classList.remove('active');
+         claimCashbackMenuItem.classList.remove('first-order');
+      }
+   };
+
    // User Profile JS functions End
 </script>
 

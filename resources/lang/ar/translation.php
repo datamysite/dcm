@@ -283,7 +283,7 @@ return [
   "claim_cashback_menu" => "إسترد نقودك",
   "payment_history_menu" => "سجل الدفعيات",
   "with_draw_menu" => "السحب النقدي",
-  "referral_earn_menu" => "الأرباح",
+  "referral_earn_menu" => "الإحالة والمشاركة",
   "settings_menu" => "الإعدادت",
   "logout_menu" => "تسجيل خروج",
 
@@ -743,7 +743,7 @@ return [
 
    //Loyalty Program
    "dcm_coins" => "عملات DCM",
-   "coins" => "",
+   "coins" => "عملة",
    "select_brand" => "إختار المتجر",
    "status_processing" => "تحت المعالجة",
    "status_accepted" => "تمت الموافقة",
@@ -769,12 +769,12 @@ return [
    "aed" => "درهم إماراتي",
  
    //User Menus
-   "hi_txt" => ", مرحبا",
+   "hi_txt" => "مرحبا ,",
    "aed_txt" => "درهم",
    "aed_coin" => "عملات",
    "available_balance" => "الرصيد المتوفر: ",
    "pending_balance" => "الرصيد المعلق: ",
-   "what_is_difference" => "ماهو الفرق ؟",
+   "what_is_difference" => "ماهو الفري بيننا وبين الأخرين ؟",
    "dashboard" => "الرئيسية",
  
    //General Text
@@ -783,5 +783,40 @@ return [
    "refer_and_get" => "شارك وأحصل علي 1.5 درهم",
    "history" => "المعاملات السابقة",
    "we_are_glade" => "نحن سعداء بوجودك هنا!",
-   "discover" => "إكتشف، تسوق واحصل على استرداد نقدي على الفور!",
+   "discover" => "إكتشف، تسوق واحصل على إسترداد نقدي على الفور!",
+
+   "verify" => "تحقق",
+   "available_balance_txt" => "الرصيد المتاح",
+   "pending_balance_txt" => "الرصيد المعلق",
+   "requested_cashback_txt" => "طلب إسترداد النقود",
+   "approved_cashback_txt" => "طلب إسترداد موافق عليه",
+   "total_coupons_used_txt" => "مجموع القسائم",
+   "total_store_visits_txt" => "مجموع زيارة المتجر",
+   "coupons_txt" => "قسائم",
+   "visit_txt" => "زيارة",
+
+   "otp_txt" => "أدخل كود التحقق",
+
+   "referal_earn" => "Referal & Earn",
+
+   "referal_how_it_wors" => "كيف تعمل الإحالة ؟",
+   "referal_how_it_wors_txt_1" => "انسخ رابط الإحالة الخاص بك وشاركه مع أصدقائك.",
+   "referal_how_it_wors_txt_2" => "عندما يقوم صديقك بالتسجيل ويبدأ التسوق لكسب استرداد نقدي.",
+   "referal_how_it_wors_txt_3" => "بمجرد أن يجمع صديقك 20 درهمًا من الاسترداد النقدي، سيحصل كل منكما على مكافأة قدرها 15 درهمًا.",
+ 
+   "referal_terms_txt" => "شروط الإحالة: ",
+   "referal_terms_txt_1" => "للتأهل للحصول على مكافأة الإحالة، تأكد من قيام صديقك بالتسجيل باستخدام رمز الإحالة الفريد الخاص بك وكسب 20 درهمًا من الاسترداد النقدي المؤكد عن طريق التسوق على DCM.",
+   "referal_terms_txt_2" => "لسحب مكافأة الإحالة الخاصة بك، يجب أن تكون مستخدمًا نشطًا وأن يكون لديك حد أدنى للاسترداد النقدي المؤكد يبلغ 20 درهمًا إماراتيًا على الأقل عن طريق التسوق على DCM.",
+   "referal_terms_txt_3" => "يرجى الرجوع إلى ",
+   "referal_terms_txt_4" => "الشروط والأحكام",
+   "referal_terms_txt_5" => "للحصول على التفاصيل الكاملة للبرنامج.",
+ 
+   "referal_link_txt" => "رابط الإحالة الخاص بك.",
+ 
+   "referal_copy_link_txt" => "إنسخ الرابط",
+   "referal_invite_by_email_txt" => "ادعو بواسطة البريد الإلكتروني",
+   "referal_invite_by_email_txt_1" => "يمكنك دعوة أصدقائك عن طريق عنوان بريدهم الإلكتروني.",
+ 
+   "referal_invite_s_media_txt" => "الدعوة عبر وسائل التواصل الاجتماعي",
+   "referal_invite_s_media_txt_2" => "يمكنك استخدام وسائل التواصل الاجتماعي لمشاركة رابط الإحالة مع أصدقائك.",
 ];

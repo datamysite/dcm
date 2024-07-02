@@ -8,16 +8,44 @@
 new color : #dfe1e5 
  background-image: linear-gradient(90deg, #1F428A, #2791CC);
 -->
+
+<style>
+
+
+
+</style>
 <div class="MobileMenuNav mt-10">
     <div class="menu-container text-center">
         <div class="menu-wrapper">
             <ul class="inline-menu">
-                <li><a href="{{route('user.dashboard')}}" class="active">{{ __('translation.dashboard') }}</a></li>
-                <li><a href="{{route('user.claimCashback')}}">{{ __('translation.claim_cashback_menu') }}</a></li>
-                <li><a href="{{route('user.withdrawPayment')}}">{{ __('translation.with_draw_menu') }}</a></li>
-                <li><a href="{{route('user.referralEarn')}}">{{ __('translation.referral_earn_menu') }}</a></li>
-                <li><a href="{{route('user.settings')}}">{{ __('translation.settings_menu') }}</a></li>
-                <li><a href="{{route('user.logout')}}" style="color:red;">Logout</a></li>
+
+
+                <li class="{{ request()->routeIs('user.dashboard') ? 'active first-order' : '' }}">
+                    <a href="{{ route('user.dashboard') }}">{{ __('translation.dashboard') }}</a>
+                </li>
+                <li class="{{ request()->routeIs('user.claimCashback') ? 'active first-order' : '' }}">
+                    <a href="{{ route('user.claimCashback') }}">{{ __('translation.claim_cashback_menu') }}</a>
+                </li>
+                <li class="{{ request()->routeIs('user.paymenyHistory') ? 'active first-order' : '' }}">
+                    <a href="{{ route('user.paymenyHistory') }}">{{ __('translation.payment_history_menu') }}</a>
+                </li>
+
+                <li class="{{ request()->routeIs('user.referralEarn') ? 'active first-order' : '' }}">
+                    <a href="{{ route('user.referralEarn') }}">{{ __('translation.referral_earn_menu') }}</a>
+                </li>
+
+                <li class="{{ request()->routeIs('user.withdrawPayment') ? 'active first-order' : '' }}">
+                    <a href="{{ route('user.withdrawPayment') }}">{{ __('translation.with_draw_menu') }}</a>
+                </li>
+
+                <li class="{{ request()->routeIs('user.transactionHistory') ? 'active first-order' : '' }}">
+                    <a href="{{ route('user.transactionHistory') }}">{{ __('translation.transaction_history') }}</a>
+                </li>
+                <li class="{{ request()->routeIs('user.settings') ? 'active first-order' : '' }}">
+                    <a href="{{ route('user.settings') }}">{{ __('translation.settings_menu') }}</a>
+                </li>
+
+                <li><a href="{{ route('user.logout') }}" style="color:red;">{{ __('translation.logout_menu') }}</a></li>
             </ul>
         </div>
     </div>
@@ -61,11 +89,11 @@ new color : #dfe1e5
     <div class="MobileUserProfile mt-5" style="background-color: #1F428A;border-radius: 10px; background-image: linear-gradient(90deg, #1F428A, #2791CC);justify-items: center;justify-content: center;">
         <div class="row mt-2">
             <div class="col-sm-2">
-                <img src="{{URL::to('/public')}}/web_assets/images/reviews/male/1.png" alt="Circle Image" class="circle-image">
+                <img src="{{URL::to('/public')}}/web_assets/images/icons/bird.png" alt="Circle Image" class="circle-image" style="background-color:whitesmoke;">
             </div>
             <div class="col-sm-8 ">
-                <h6 class="mt-5" style="color: #fff;padding-left:25px;">Hi, Mohammed Abuelgassim Hussain</h6>
-                <p style="color: #fff;padding-left:25px;">
+                <h6 class="mt-5" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;"' : 'style="color: #fff;padding-left:25px;"' !!}>{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>
+                <p {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;"' : 'style="color: #fff;padding-left:25px;"' !!}>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 </p>
             </div>
@@ -77,10 +105,7 @@ new color : #dfe1e5
     </div>
     <!-- Main Mobile div for main profile End-->
 
-
     <!-- Mobile Section End-->
-
-
 
     <!-- Desktop Profile Div -->
     <!-- col -->
@@ -92,7 +117,7 @@ new color : #dfe1e5
 
         <div class="row">
             <div class="col">
-                <img src="{{URL::to('/public')}}/web_assets/images/reviews/male/1.png" alt="Circle Image" class="circle-image">
+                <img src="{{URL::to('/public')}}/web_assets/images/icons/bird.png" alt="Circle Image" class="circle-image" style="background-color:whitesmoke;">
             </div>
             <div class="mt-2">
                 <h6 style="color:#fff;">{{Auth::user()->name}}</h6>
@@ -108,14 +133,14 @@ new color : #dfe1e5
             <div class="col-sm-3 d-flex flex-column justify-content-top" style="padding-top:0px">
                 <span><img src="{{URL::to('/public')}}/web_assets/images/icons/coins.jpg" alt="DCM Coins" class="circle-image" style="width:50px; height:50px;mix-blend-mode:hard-light !important;filter:brightness(0.5) invert(1);"></span>
             </div>
-            <div class="col-sm-3 d-flex flex-column justify-content-center" style="padding-top:25px">
+            <div class="col-sm-3 d-flex flex-column justify-content-center" style="padding-top:20px">
 
                 <h4 class="text-center" style="color: #fff;">
                     {{number_format(Auth::user()->wallet)}}
                 </h4>
             </div>
-            <div class="col-sm-4 d-flex flex-column justify-content-top" style="padding-top:15px">
-                <b class="mt-0" style="color: #fff;"> Coins</b>
+            <div class="col-sm-4 d-flex flex-column justify-content-top" style="padding-top:20px">
+                <b class="mt-0" style="color: #fff;"> {{ __('translation.coins') }}</b>
             </div>
         </div>
         <div class="mt-2"></div>
