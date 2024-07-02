@@ -18,8 +18,8 @@ Route::get('/update-sitemap', function () {
 
 //Migration
 Route::get('/migrate', function () {
-    //Artisan::call('migrate');
-    Artisan::call('migrate', ['--force' => true ]);
+    Artisan::call('migrate');
+    //Artisan::call('migrate', ['--force' => true ]);
     dd('migrated!');
 });
 
@@ -164,6 +164,7 @@ Route::get('/migrate', function () {
                 Route::get('referral-earn', 'UserController@referralEarn')->name('user.referralEarn');
 
                 Route::get('withdraw-payment', 'UserController@withdrawPayment')->name('user.withdrawPayment');
+                Route::post('withdraw-payment', 'UserController@withdrawPaymentSubmit')->name('user.withdrawPayment.submit');
 
                 Route::get('dashboard', 'UserController@dashboard')->name('user.dashboard');
                 Route::get('transaction-history', 'UserController@transactionHistory')->name('user.transactionHistory');

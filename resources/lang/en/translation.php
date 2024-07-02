@@ -401,6 +401,8 @@ return [
   "description" => "Description :",
   "salary" => "Salary :",
   "aed" => "AED",
+  "AED" => "AED",
+  "SAR" => "SAR",
   "opening_date" => "Opening Date :",
   "closing_date" => "Closing Date :",
   "apply_now" => "Apply Now",
@@ -760,6 +762,8 @@ return [
   "serial_number" => "Serial Number",
   "transaction_type" => "Transaction Type",
   "transaction_date" => "Transaction Date",
+  "transaction_id" => "Transaction ID",
+  "type" => "Type",
 
   "bnk_account_details" => "Bank Account Details",
   "bnk_form_bnk_name" => "Select Bank Name",

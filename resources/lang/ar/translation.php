@@ -398,6 +398,8 @@ return [
     "description" => "وصف الوظيفة : ",
     "salary" => "المرتب : ",
     "aed" => "درهم",
+    "AED" => "درهم",
+    "SAR" => "ريال سعودي",
     "opening_date" => "مفتوحة من تاريخ : ",
     "closing_date" => "ينتهي تقديم الطلبات بتاريخ : ",
     "apply_now" => "قدم الان",
@@ -743,7 +745,7 @@ return [
 
    //Loyalty Program
    "dcm_coins" => "عملات DCM",
-   "coins" => "عملة",
+   "coins" => "عملات معدنية",
    "select_brand" => "إختار المتجر",
    "status_processing" => "تحت المعالجة",
    "status_accepted" => "تمت الموافقة",
@@ -752,6 +754,8 @@ return [
    "serial_number" => "الرقم المتسلسل",
    "transaction_type" => "نوع المعاملة",
    "transaction_date" => "تاريخ المعاملة",
+    "transaction_id" => "رقم المعاملة",
+    "type" => "يكتب",
  
    "bnk_account_details" => "تفاصيل الحساب البنكي",
    "bnk_form_bnk_name" => "أختار إسم البنك",
