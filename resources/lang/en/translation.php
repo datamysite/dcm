@@ -401,6 +401,8 @@ return [
   "description" => "Description :",
   "salary" => "Salary :",
   "aed" => "AED",
+  "AED" => "AED",
+  "SAR" => "SAR",
   "opening_date" => "Opening Date :",
   "closing_date" => "Closing Date :",
   "apply_now" => "Apply Now",

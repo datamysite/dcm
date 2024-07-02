@@ -51,7 +51,7 @@
                     <!-- col -->
                     <div class="col-6">
                         <div class="input-group">
-                            <h4 style="color: #fff;">0.00 {{ __('translation.coins') }}</h4>
+                            <h4 style="color: #fff;">{{number_format(Auth::user()->wallet)}} {{ __('translation.coins') }}</h4>
                         </div>
                     </div>
                     <div class="col-6">
@@ -78,42 +78,49 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($requests as $key => $val)
+                                    <tr style="background-color: #f0f3f2;">
+                                        <td class="align-middle border-top-0">{{++$key}}</td>
+                                        <td class="align-middle border-top-0">{{sprintf("%05d", $val->id)}}</td>
+                                        <td class="align-middle border-top-0">{{number_format($val->coins)}} {{ __('translation.coins') }}</td>
+                                        <td class="align-middle border-top-0">{{number_format($val->coins)}} {{ __('translation.'.$val->curr) }}</td>
+                                        <td class="align-middle border-top-0"> 
+                                            @switch($val->status)
+                                                @case('1')
+                                                    <span class="badge bg-warning">Pending</span>
+                                                    @break
 
-                                <tr style="background-color: #f0f3f2;">
-                                    <td class="align-middle border-top-0">9458</td>
-                                    <td class="align-middle border-top-0">478650678345605</td>
-                                    <td class="align-middle border-top-0">55.{{ __('translation.coins') }}</td>
-                                    <td class="align-middle border-top-0">100.{{ __('translation.aed') }}</td>
-                                    <td class="align-middle border-top-0"> <span class="badge bg-warning">status</span></td>
-                                    <td class="align-middle border-top-0">Jun 12, 2024</td>
-                                </tr>
-                                <tr style="background-color: #f0f3f2;">
-                                    <td class="align-middle border-top-0">9458</td>
-                                    <td class="align-middle border-top-0">478650678345605</td>
-                                    <td class="align-middle border-top-0">55.{{ __('translation.coins') }}</td>
-                                    <td class="align-middle border-top-0">100.{{ __('translation.aed') }}</td>
-                                    <td class="align-middle border-top-0"> <span class="badge bg-success">status</span></td>
-                                    <td class="align-middle border-top-0">Jun 12, 2024</td>
-                                </tr>
-                                <tr style="background-color: #f0f3f2;">
-                                    <td class="align-middle border-top-0">9458</td>
-                                    <td class="align-middle border-top-0">478650678345605</td>
-                                    <td class="align-middle border-top-0">55.{{ __('translation.coins') }}</td>
-                                    <td class="align-middle border-top-0">100.{{ __('translation.aed') }}</td>
-                                    <td class="align-middle border-top-0"> <span class="badge bg-danger">status</span></td>
-                                    <td class="align-middle border-top-0">Jun 12, 2024</td>
-                                </tr>
-                                <tr style="background-color: #f0f3f2;">
-                                    <td class="align-middle border-top-0">9458</td>
-                                    <td class="align-middle border-top-0">478650678345605</td>
-                                    <td class="align-middle border-top-0">55.{{ __('translation.coins') }}</td>
-                                    <td class="align-middle border-top-0">100.{{ __('translation.aed') }}</td>
-                                    <td class="align-middle border-top-0"> <span class="badge bg-warning">status</span></td>
-                                    <td class="align-middle border-top-0">Jun 12, 2024</td>
-                                </tr>
+                                                @case('2')
+                                                  <span class="badge bg-warning">Processing</span>
+                                                  @break
+
+                                                @case('3')
+                                                  <span class="badge bg-success">Tansfered</span>
+                                                  @break
+
+                                                @case('4')
+                                                  <span class="badge bg-danger">Rejected</span>
+                                                  @break
+                                            @endswitch
+                                        </td>
+                                        <td class="align-middle border-top-0">{{date('d-M-Y | h:i a', strtotime($val->created_at))}}</td>
+                                    </tr>
+                                @endforeach
+                                @if(count($requests) == 0)
+                                    <tr>
+                                        <td colspan="6">No Record Found.</td>
+                                    </tr>
+                                @endif
 
                             </tbody>
                         </table>
+                        
+                        <div class="row mt-8 text-center">
+                           <div class="col">
+                              <!-- nav -->
+                              {{ $requests->links() }}
+                           </div>
+                        </div>
                     </div>
 
                 </div>
@@ -126,7 +133,8 @@
 <!-- Cash WithDraw Modal Start-->
 <div class="modal fade" id="WithDrawModal" tabindex="-1" aria-labelledby="WithDrawModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content p-4" style="background-color: #fff;">
+        <div class="modal-content p-4" style="background-color: #fff; position: relative;">
+            <div class="withdraw-loader"><img src="{{URL::to('/public/loader.gif')}}"></div>
             <div class="modal-header border-0">
                 <h5 class="modal-title fs-3 fw-bold" id="userModalLabel">Cash Withdraw Request</h5>
 
@@ -142,26 +150,25 @@
                 </div>
                 <hr>
                 <div class="row mt-3">
-                    <form action="#" method="POST">
-                        <input type="hidden" name="user_id" value="{{Auth::user()->id }}">
+                    <form action="{{route('user.withdrawPayment.submit')}}" id="submitFormWithdraw">
                         @csrf
                         <h6>Coins to AED Rate</h6>
                         <div class="row text-center" style="justify-items: center;justify-content: center;">
-                            <div class="col-3 mb-1">
-                                <input type="text" class="form-control" readonly="readonly" placeholder="Coins" value="5 Coins" disabled />
+                            <div class="col-3 mb-1" style="border:0;">
+                                <input type="text" class="form-control" readonly="readonly" placeholder="Coins" value="{{$rate->coins}} Coins" disabled />
                             </div> <span style="padding-top: 10px;width:auto">equals</span>
                             <div class="col-3 mb-1">
-                                <input type="text" class="form-control" readonly="readonly" placeholder="Rate" value="1.5 AED" disabled />
+                                <input type="text" class="form-control" readonly="readonly" placeholder="Rate" value="{{$rate->value}} {{$country->curr}}" disabled />
                             </div>
                         </div>
                         <hr>
                         <h6>Withdraw Cash Request</h6>
                         <div class="row text-center mt-1" style="justify-items: center;justify-content: center;">
                             <div class="col-6 mb-3">
-                                <input type="number" class="form-control" id="my_coins" oninput="calculateCoinsRate()" inputmode="numeric" pattern="[0-9\s]{1,5}" min="0" placeholder="Withdraw Coins {{5}}" required="required" />
+                                <input type="number" class="form-control" id="my_coins" name="coins" oninput="calculateCoinsRate()" inputmode="numeric" pattern="[0-9\s]{1,5}" min="1" max="{{Auth::user()->wallet }}" placeholder="Withdraw Coins {{5}}" required="required" />
                             </div>
                             <div class="col-6 mb-3">
-                                <input type="text" class="form-control" id="coins_rate" placeholder="0.00 AED" value="" readonly="readonly" />
+                                <input type="text" class="form-control" id="coins_rate" placeholder="0.00 {{$country->curr}}" value="" disabled />
                             </div>
                         </div>
 
@@ -176,20 +183,45 @@
 
 @endsection
 @section('addScript')
-<script>
+<script type="text/javascript">
+    $(document).on("submit", "#submitFormWithdraw", function (s) {
+        $('.withdraw-loader').css({display: 'flex'});
+        var e = $(this),
+            t = new FormData($("#submitFormWithdraw")[0]);
+        $(".errors").css({ display: "none" }),
+            $.ajax({ type: "POST", url: e.attr("action"), data: t, dataType: "json", encode: !0, processData: !1, contentType: !1 })
+                .done(function (s) {
+                    "success" == s.success
+                        ? (Toast.fire({ icon: "success", title: s.message }),
+                          setTimeout(function () {
+                              location.reload();
+                          }, 700))
+                        : Toast.fire({ icon: "error", title: s.message });
+                        $('.withdraw-loader').css({display: 'none'});
+                })
+                .fail(function (s) {
+                    $('.withdraw-loader').css({display: 'none'});
+                    Toast.fire({ icon: "error", title: 'Something went wrong!' });
+                    
+                }),
+            s.preventDefault();
+    });
+
+
+
     function calculateCoinsRate() {
         const myCoinsInput = document.getElementById('my_coins');
         const coinsRateInput = document.getElementById('coins_rate');
 
         const myCoinsValue = myCoinsInput.value;
-        const conversionRate = 1.5;
+        const conversionRate = {{$rate->value}};
 
         if (myCoinsValue < 0 || isNaN(myCoinsValue) || /^0[0-9]+$/.test(myCoinsValue)) {
-            coinsRateInput.value = "0.0 AED";
+            coinsRateInput.value = "0.0 {{$country->curr}}";
             return;
         } else {
-            const coinsRateValue = Math.floor(myCoinsValue / 5) * conversionRate;
-            coinsRateInput.value = Math.abs(coinsRateValue.toFixed(2)) + " AED";
+            const coinsRateValue = parseFloat((myCoinsValue / 5) * conversionRate);
+            coinsRateInput.value = coinsRateValue + " {{$country->curr}}";
         }
 
 

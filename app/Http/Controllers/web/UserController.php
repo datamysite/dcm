@@ -9,6 +9,11 @@ use App\Models\CashbackRequests;
 use App\Models\Retailers;
 use App\Helpers\Mailer;
 use App\Models\BankAccounts;
+use App\Models\TransactionHistory;
+use App\Models\withdrawRequests;
+use App\Models\ConversionRate;
+use App\Models\Countries;
+use App\Models\ClaimType;
 use Auth;
 use Hash;
 
@@ -284,12 +289,76 @@ class UserController extends Controller
         return view('web.user.user-referral-earn');
     }
 
-    public function withdrawPayment()
-    {
+    public function withdrawPayment(){
 
-        return view('web.user.user-withdraw-payment');
+        $data['requests'] = withdrawRequests::where('user_id', Auth::id())->orderBy('id', 'desc')->paginate(6);
+        $data['rate'] = ConversionRate::where('country_id', config('app.country'))->first();
+        $data['country'] = Countries::find(config('app.country'));
+        $data['claimType'] = ClaimType::where('type' , 'Cash Withdraw')->first();
+
+        return view('web.user.user-withdraw-payment')->with($data);
     }
 
+    public function withdrawPaymentSubmit(Request $request){
+        $data = $request->all();
+        $response = [];
+
+        $claimType = ClaimType::where('type' , 'Cash Withdraw')->first();
+        $rate = ConversionRate::where('country_id', config('app.country'))->first();
+        $bank_account = BankAccounts::where('user_id', Auth::id())->first();
+        $country = Countries::find(config('app.country'));
+
+        if(empty($bank_account->id)){
+
+            $response['success'] = 'error';
+            $response['message'] = 'Alert! Please update your Bank Account before submit withdraw request.';
+            
+            return json_encode($response);
+        }
+
+        if($data['coins'] < $claimType->eligibility){
+
+            $response['success'] = 'error';
+            $response['message'] = 'Alert! You cannot submit request until you reach minimun ('.$claimType->eligibility.' coins).';
+            
+            return json_encode($response);
+        }
+
+
+        if($data['coins'] > Auth::user()->wallet){
+
+            $response['success'] = 'error';
+            $response['message'] = 'Alert! You cannot submit request with more than your available coins.';
+            
+            return json_encode($response);
+        }
+
+        $w = new withdrawRequests;
+        $w->user_id = Auth::id();
+        $w->coins = $data['coins'];
+        $w->amount = ($data['coins'] / $rate->coins) * $rate->value;
+        $w->curr = $country->curr;
+        $w->status = '1';
+        $w->save();
+
+        $u = User::find(Auth::id());
+        $u->wallet = $u->wallet-$data['coins'];
+        $u->save();
+
+        $t = new TransactionHistory;
+        $t->user_id = Auth::id();
+        $t->coins = $data['coins'];
+        $t->type = 'withdraw';
+        $t->trans_type = 'debit';
+        $t->save();
+
+
+
+        $response['success'] = 'success';
+        $response['message'] = 'Success! Your request successfully submitted.';
+
+        echo json_encode($response);
+    }
 
     public function dashboard()
     {
@@ -389,7 +458,8 @@ class UserController extends Controller
 
     public function transactionHistory()
     {
+        $data['history'] = TransactionHistory::where('user_id', Auth::id())->orderBy('id', 'desc')->paginate(10);
 
-        return view('web.user.user-transaction-history');
+        return view('web.user.user-transaction-history')->with($data);
     }
 }
