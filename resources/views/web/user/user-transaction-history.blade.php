@@ -48,38 +48,26 @@
                             <thead class="">
                                 <tr>
                                     <th>{{ __('translation.id_txt') }}</th>
-                                    <th>{{ __('translation.serial_number') }}</th>
-                                    <th>{{ __('translation.transaction_type') }}</th>
+                                    <th>{{ __('translation.transaction_id') }}</th>
+                                    <th>{{ __('translation.type') }}</th>
+                                    <th>{{ __('translation.aed_coin') }}</th>
                                     <th>{{ __('translation.transaction_date') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Table body -->
-                                <tr style="background-color: #f0f3f2;">
-                                    <td class="align-middle border-top-0">9458</td>
-                                    <td class="align-middle border-top-0">478650678345605</td>
-                                    <td class="align-middle border-top-0">Type</td>
-                                    <td class="align-middle border-top-0">Jun 12, 2024</td>
-                                </tr>
-                                <tr style="background-color: #f0f3f2;">
-                                    <td class="align-middle border-top-0">9458</td>
-                                    <td class="align-middle border-top-0">478650678345605</td>
-                                    <td class="align-middle border-top-0">Type</td>
-                                    <td class="align-middle border-top-0">Jun 12, 2024</td>
-                                </tr>
-                                <tr style="background-color: #f0f3f2;">
-                                    <td class="align-middle border-top-0">9458</td>
-                                    <td class="align-middle border-top-0">478650678345605</td>
-                                    <td class="align-middle border-top-0">Type</td>
-                                    <td class="align-middle border-top-0">Jun 12, 2024</td>
-                                </tr>
-                                <tr style="background-color: #f0f3f2;">
-                                    <td class="align-middle border-top-0">94581</td>
-                                    <td class="align-middle border-top-0">478650678345605</td>
-                                    <td class="align-middle border-top-0">Type</td>
-                                    <td class="align-middle border-top-0">Jun 12, 2024</td>
-                                </tr>
-
+                                @foreach(Auth::user()->TransactionHistory as $val)
+                                    <tr style="background-color: #f0f3f2;">
+                                        <td class="align-middle border-top-0">9458</td>
+                                        <td class="align-middle border-top-0">478650678345605</td>
+                                        <td class="align-middle border-top-0">Type</td>
+                                        <td class="align-middle border-top-0">Jun 12, 2024</td>
+                                    </tr>
+                                @endforeach
+                                @if(count(Auth::user()->TransactionHistory) == 0)
+                                    <tr>
+                                        <td colspan="5">No Record Found.</td>
+                                    </tr>
+                                @endif
                             </tbody>
                         </table>
                     </div>

@@ -760,6 +760,8 @@ return [
   "serial_number" => "Serial Number",
   "transaction_type" => "Transaction Type",
   "transaction_date" => "Transaction Date",
+  "transaction_id" => "Transaction ID",
+  "type" => "Type",
 
   "bnk_account_details" => "Bank Account Details",
   "bnk_form_bnk_name" => "Select Bank Name",

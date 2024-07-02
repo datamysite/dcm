@@ -752,6 +752,8 @@ return [
    "serial_number" => "الرقم المتسلسل",
    "transaction_type" => "نوع المعاملة",
    "transaction_date" => "تاريخ المعاملة",
+    "transaction_id" => "رقم المعاملة",
+    "type" => "يكتب",
  
    "bnk_account_details" => "تفاصيل الحساب البنكي",
    "bnk_form_bnk_name" => "أختار إسم البنك",
