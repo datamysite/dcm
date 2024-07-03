@@ -293,7 +293,7 @@ class UserController extends Controller
 
     public function withdrawPayment(){
 
-        $data['requests'] = withdrawRequests::where('user_id', Auth::id())->orderBy('id', 'desc')->paginate(6);
+        $data['requests'] = WithdrawRequests::where('user_id', Auth::id())->orderBy('id', 'desc')->paginate(6);
         $data['rate'] = ConversionRate::where('country_id', config('app.country'))->first();
         $data['country'] = Countries::find(config('app.country'));
         $data['claimType'] = ClaimType::where('type' , 'Cash Withdraw')->first();
