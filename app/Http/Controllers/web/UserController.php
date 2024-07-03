@@ -10,7 +10,7 @@ use App\Models\Retailers;
 use App\Helpers\Mailer;
 use App\Models\BankAccounts;
 use App\Models\TransactionHistory;
-use App\Models\withdrawRequests;
+use App\Models\WithdrawRequests;
 use App\Models\ConversionRate;
 use App\Models\Countries;
 use App\Models\ClaimType;
