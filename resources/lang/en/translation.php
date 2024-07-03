@@ -842,12 +842,23 @@ return [
   "equals_txt" => "equals",
   "rate_txt" => "Rate",
   "submit_txt" => "Submit",
-  
 
+  //Landing page
+  "how_to_earn_txt" => "How to earn Cashback?",
+  "how_to_earn_txt_1" => "Money makes more money, right? Well,",
+  "how_to_earn_txt_2" => "yeah, With",
+  "how_to_earn_txt_3" => "DCM",
+  "how_to_earn_txt_4" => "every time you",
+  "how_to_earn_txt_5" => "shop through the",
+  "how_to_earn_txt_6" => "website,",
+  "how_to_earn_txt_7" => "you get money back.",
+  "how_to_earn_txt_8" => "Start Shopping Now",
 
-
-
-
-
+  "how_to_earn_setps_txt_1" => "1. Sign up for a DCM account:",
+  "how_to_earn_setps_txt_2" => "Create an account on DCM website.",
+  "how_to_earn_setps_txt_3" => "2. Shop as usual:",
+  "how_to_earn_setps_txt_4" => "Browser stores and deals, visit your favorite stores and shop, We will track and add the cashback automatically to your wallet.",
+  "how_to_earn_setps_txt_5" => "3. Choose how to withdraw your cashback:",
+  "how_to_earn_setps_txt_6" => "You can then transfer your cashback to your bank account or withdraw it as a gift card instantly.",
 
 ];

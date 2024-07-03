@@ -11,9 +11,11 @@
     justify-content: center;
     align-items: center;
 }
+
 .withdraw-loader img {
     width: 35px;
 }
+
 .whatsapp-channel-btn {
     position: fixed;
     bottom: 25px;
@@ -1552,6 +1554,70 @@ label.errors {
     border-right: 1px solid black;
 }
 
+.DesktopView {
+    display: block;
+}
+
+.MobileView {
+    display: none;
+}
+
+.video-container {
+    border-radius: 40px;
+
+    overflow: hidden;
+}
+
+.video-player video {
+    width: 100%;
+}
+
+.video-text {
+    padding: 20px;
+}
+
+.vertical-line {
+    position: relative;
+    width: 2px;
+    height: 200px;
+    background-color: #2791CC;
+    margin: 0 auto;
+    left: 250px;
+}
+
+.circle1 {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #2791CC;
+}
+
+.circle2 {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #2791CC;
+}
+
+.circle3 {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #2791CC;
+}
+
 /* UserMenu-Web-Mobile End*/
 
 
@@ -1605,6 +1671,14 @@ label.errors {
 
     .WebsiteWelcomeMSG {
         display: none;
+    }
+
+    .DesktopView {
+        display: none;
+    }
+
+    .MobileView {
+        display: block;
     }
 
     /* UserMenu-Web-Mobile End*/
