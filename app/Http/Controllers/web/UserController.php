@@ -10,7 +10,7 @@ use App\Models\Retailers;
 use App\Helpers\Mailer;
 use App\Models\BankAccounts;
 use App\Models\TransactionHistory;
-use App\Models\withdrawRequests;
+use App\Models\WithdrawRequests;
 use App\Models\ConversionRate;
 use App\Models\Countries;
 use App\Models\ClaimType;
@@ -293,7 +293,7 @@ class UserController extends Controller
 
     public function withdrawPayment(){
 
-        $data['requests'] = withdrawRequests::where('user_id', Auth::id())->orderBy('id', 'desc')->paginate(6);
+        $data['requests'] = WithdrawRequests::where('user_id', Auth::id())->orderBy('id', 'desc')->paginate(6);
         $data['rate'] = ConversionRate::where('country_id', config('app.country'))->first();
         $data['country'] = Countries::find(config('app.country'));
         $data['claimType'] = ClaimType::where('type' , 'Cash Withdraw')->first();
