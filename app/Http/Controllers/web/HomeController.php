@@ -321,4 +321,11 @@ class HomeController extends Controller
     {
         return view('web.content.'.config('app.country').'.anti-spam-policy');
     }
+
+    //claim_cashback Landing Page
+    public function claim_cashback()
+    {
+        return view('web.content.'.config('app.country').'.claim-cashback');
+    }
+    
 }
