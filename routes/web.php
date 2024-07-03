@@ -126,7 +126,7 @@ Route::get('/migrate', function () {
             Route::get('/welcome', 'ExtController@welcomePage')->name('welcomePage');
 
             //Claim cashback LandingPage
-            Route::get('/claim-cashback', 'HomeController@claim_cashback')->name('claim_cashback');
+            Route::get('/claim/cashback', 'HomeController@claim_cashback')->name('claim_cashback');
 
         });
 
