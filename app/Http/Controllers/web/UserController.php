@@ -14,6 +14,8 @@ use App\Models\withdrawRequests;
 use App\Models\ConversionRate;
 use App\Models\Countries;
 use App\Models\ClaimType;
+use App\Models\RewardType;
+use App\Models\StoreVisits;
 use Auth;
 use Hash;
 
@@ -363,7 +365,16 @@ class UserController extends Controller
     public function dashboard()
     {
 
-        return view('web.user.user-dashboard');
+        $data['requested_cashback'] = CashbackRequests::where('user_id', Auth::id())->where('status', 1)->count('id');
+
+        $data['approved_cashback'] = CashbackRequests::where('user_id', Auth::id())->where('status', 2)->count('id');
+
+        $data['coupon_used'] = CashbackRequests::where('user_id', Auth::id())->count('id');
+
+        $data['store_visits'] = StoreVisits::where('user_id', Auth::id())->count();
+
+        //dd($data);
+        return view('web.user.user-dashboard')->with($data);
     }
 
     public function settings()

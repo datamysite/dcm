@@ -75,8 +75,9 @@
                   <tr>
                     <th width="5%">#</th>
                     <th width="5%">Request#</th>
-                    <th width="30%">Users</th>
-                    <th width="20%">Invoice</th>
+                    <th width="25%">Users</th>
+                    <th width="10%">Brand</th>
+                    <th width="15%">Invoice</th>
                     <th width="10%">Status</th>
                     <th width="10%">Request at</th>
                     <th width="10%" class="text-right">Action</th>
@@ -96,6 +97,7 @@
                             <span>Curr Wallet: <strong>{{number_format(@$val->userDetails->wallet)}} <small><small>Coins</small></small></strong></span>
                           </div>
                         </td>
+                        <td>{{@$val->retailerName->name}}</td>
                         <td>
                           <a href="{{URL::to('/public/storage/users/invoices/'.$val->invoice_file)}}" target="_blank">{{$val->invoice_file}}</a>
                         </td>
@@ -135,6 +137,7 @@
                     <th>#</th>
                     <th>Request#</th>
                     <th>Users</th>
+                    <th>Brand</th>
                     <th>Invoice</th>
                     <th>Status</th>
                     <th>Request at</th>

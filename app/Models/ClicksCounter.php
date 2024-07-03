@@ -21,27 +21,30 @@ class ClicksCounter extends Model
         $userIp = ClicksCounter::getIPAddress();
 
         $ipset = explode('.', $userIp);
-        if((!empty($ipset[0]) && $ipset[0] != "66" && $ipset[1] != "249") && $userIp != "216.144.248.28"){
 
-            $client = new Client();
-             $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
-             $data = json_decode($response->getBody());
+        if(!empty($ipset[0]) && !empty($ipset[1])){
+            if(($ipset[0] != "66" && $ipset[1] != "249") && $userIp != "216.144.248.28"){
+
+                $client = new Client();
+                 $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
+                 $data = json_decode($response->getBody());
 
 
-             $cc = new ClicksCounter;
-             $cc->retailer_id = $id;
-             if($coup_type == '1'){
-                $cc->coupon_id = $coup_id;
-             }elseif($coup_type == '2'){
-                $cc->offer_id = $coup_id;
-             }
-             $cc->type = $type;
-             $cc->ipaddress = $data->ip;
-             $cc->coordinates = empty($data->loc) ? '' : $data->loc;
-             $cc->country = empty($data->country) ? '' : $data->country;
-             $cc->region = empty($data->region) ? '' : $data->region;
-             $cc->city = empty($data->city) ? '' : $data->city;
-             $cc->save();
+                 $cc = new ClicksCounter;
+                 $cc->retailer_id = $id;
+                 if($coup_type == '1'){
+                    $cc->coupon_id = $coup_id;
+                 }elseif($coup_type == '2'){
+                    $cc->offer_id = $coup_id;
+                 }
+                 $cc->type = $type;
+                 $cc->ipaddress = $data->ip;
+                 $cc->coordinates = empty($data->loc) ? '' : $data->loc;
+                 $cc->country = empty($data->country) ? '' : $data->country;
+                 $cc->region = empty($data->region) ? '' : $data->region;
+                 $cc->city = empty($data->city) ? '' : $data->city;
+                 $cc->save();
+            }
         }
     }
 

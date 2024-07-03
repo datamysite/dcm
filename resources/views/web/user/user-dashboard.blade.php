@@ -35,20 +35,21 @@
                 </div>
 
                 <div class="row mt-5">
-
-                    <div class="text-center mt-0" style="display:block;background-color: #1F428A;border-radius: 10px; background-image: linear-gradient(90deg, #1F428A, #2791CC); ">
-                        <form id="verify_email_form" action="{{route('user.verify_email')}}">
-                            @csrf
-                            <div class="row col-lg-12 mt-1" style="justify-content:center;justify-items: center;justify-self: center;padding: 10px;">
-                                <div class="col-sm-4">
-                                    <input type="number" name="email_otp" class="form-control form-control-sm" placeholder="{{ __('translation.otp_txt') }}" min="100000" max="999999" required>
+                    @if(Auth::user()->email_verified == 0)
+                        <div class="text-center mt-0" style="display:block;background-color: #1F428A;border-radius: 10px; background-image: linear-gradient(90deg, #1F428A, #2791CC); ">
+                            <form id="verify_email_form" action="{{route('user.verify_email')}}">
+                                @csrf
+                                <div class="row col-lg-12 mt-1" style="justify-content:center;justify-items: center;justify-self: center;padding: 10px;">
+                                    <div class="col-sm-4">
+                                        <input type="number" name="email_otp" class="form-control form-control-sm" placeholder="{{ __('translation.otp_txt') }}" min="100000" max="999999" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <p><button type="submit" class="btn btn-primary btn-sm pull-right" style="width: 100px;">&nbsp;&nbsp;&nbsp;{{ __('translation.verify') }}&nbsp;&nbsp;&nbsp;</button></p>
+                                    </div>
                                 </div>
-                                <div class="col-4">
-                                    <p><button type="submit" class="btn btn-primary btn-sm pull-right" style="width: 100px;">&nbsp;&nbsp;&nbsp;{{ __('translation.verify') }}&nbsp;&nbsp;&nbsp;</button></p>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
+                    @endif
 
                     <div class="col-lg-12 col-12 mt-5">
 
@@ -61,7 +62,7 @@
                                     </div>
                                     <div class="about-us-text">
 
-                                        <span><b style="position: relative; top: -5px;">{{ __('translation.aed') }}</b> <b style="color: #009DDE;">0.00</b></span>
+                                        <span><b style="position: relative; top: -5px;">{{ __('translation.aed') }}</b> <b style="color: #009DDE;">{{number_format(Auth::user()->wallet)}}</b></span>
                                         <span style="padding-left:25px;">
                                             <img src="{{URL::to('/public')}}/web_assets/images/icons/available_balance.png" alt="Dashboard" style="width:45px; height:45px;">
                                         </span>
@@ -78,7 +79,7 @@
                                     </div>
                                     <div class="about-us-text">
 
-                                        <span><b style="position: relative; top: -5px;">{{ __('translation.aed') }}</b> <b style="color: #009DDE;">0.00</b></span>
+                                        <span><b style="position: relative; top: -5px;">{{ __('translation.aed') }}</b> <b style="color: #009DDE;">{{number_format($pending_balance)}}</b></span>
                                         <span style="padding-left:25px;">
                                             <img src="{{URL::to('/public')}}/web_assets/images/icons/pending_blance.png" alt="Dashboard" style="width:45px; height:45px;">
                                         </span>
@@ -95,7 +96,7 @@
                                     </div>
                                     <div class="about-us-text">
 
-                                        <span><b style="position: relative; top: -5px;">{{ __('translation.aed') }}</b> <b style="color: #009DDE;">0.00</b></span>
+                                        <span><b style="position: relative; top: -5px;"></b> <b style="color: #009DDE;">{{number_format($requested_cashback)}}</b></span>
                                         <span style="padding-left:25px;">
                                             <img src="{{URL::to('/public')}}/web_assets/images/icons/requested_cashback.png" alt="Dashboard" style="width:45px; height:45px;">
                                         </span>
@@ -121,7 +122,7 @@
                                     </div>
                                     <div class="about-us-text">
 
-                                        <span><b style="position: relative; top: -5px;">{{ __('translation.aed') }}</b> <b style="color: #009DDE;">0.00</b></span>
+                                        <span><b style="position: relative; top: -5px;"></b> <b style="color: #009DDE;">{{number_format($approved_cashback)}}</b></span>
                                         <span style="padding-left:25px;">
                                             <img src="{{URL::to('/public')}}/web_assets/images/icons/approved_cashback.png" alt="Dashboard" style="width:45px; height:45px;">
                                         </span>
@@ -138,7 +139,7 @@
                                     </div>
                                     <div class="about-us-text">
 
-                                        <span><b style="color: #009DDE;">5 {{ __('translation.coupons_txt') }}</b></span>
+                                        <span><b style="color: #009DDE;">{{number_format($coupon_used)}} {{ __('translation.coupons_txt') }}</b></span>
                                         <span style="padding-left:25px;">
                                             <img src="{{URL::to('/public')}}/web_assets/images/icons/total_coupons.png" alt="Dashboard" style="width:45px; height:45px;">
                                         </span>
@@ -155,7 +156,7 @@
                                     </div>
                                     <div class="about-us-text">
 
-                                        <span><b style="color: #009DDE;">10 {{ __('translation.visit_txt') }}</b></span>
+                                        <span><b style="color: #009DDE;">{{number_format($store_visits)}} {{ __('translation.visit_txt') }}</b></span>
                                         <span style="padding-left:25px;">
                                             <img src="{{URL::to('/public')}}/web_assets/images/icons/total_visit.png" alt="Dashboard" style="width:45px; height:45px;">
                                         </span>

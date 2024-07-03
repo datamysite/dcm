@@ -210,7 +210,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                            <a class="nav-link" href="#" role="button" aria-expanded="false">
                               <i class="fa-solid fa-user" style="font-weight: bold; color: black; font-size:22px;"></i>
-                              | <span style="top: -5px; right: 0;">{{ __('translation.aed_coin') }}</span> <strong>0.0</strong>
+                              | <span style="top: -5px; right: 0;">{{ __('translation.aed_coin') }}</span> <strong>{{number_format(Auth::user()->wallet)}}</strong>
                               <i class="fa-solid fa-caret-down" style="margin-right: 1px;"></i>
                            </a>
 
@@ -225,11 +225,11 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                  <div class="row text-center" style="color: #fff;">
                                     <div class="col-lg-6 mt-5">
                                        <span class="mt-0">{{ __('translation.available_balance') }}</span><br>
-                                       <span class="mt-2"><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>0.00</b></span>
+                                       <span class="mt-2"><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>{{number_format(Auth::user()->wallet)}}</b></span>
                                     </div>
                                     <div class="col-lg-6 mt-5">
                                        <span class="mt-0"> {{ __('translation.pending_balance') }}</span><br>
-                                       <span><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>0.00</b></span>
+                                       <span><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>{{number_format($pending_balance)}}</b></span>
                                     </div>
 
                                     <div class="row mt-2" {!! app()->getLocale() == 'ar' ? 'style="text-align: right; padding-right: 30px; text-decoration: underline;"' : 'style="text-align: left; padding-left: 30px; text-decoration: underline;"' !!}>
@@ -312,13 +312,13 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                         <div class="col-6 mt-5">
                            <span class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="padding-right:15px"' : 'style="padding-left:15px"' !!} >{{ __('translation.available_balance') }}</span><br>
-                           <span class="mt-2" {!! app()->getLocale() == 'ar' ? 'style="padding-right:15px"' : 'style="padding-left:15px"' !!}><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>0.00</b></span>
+                           <span class="mt-2" {!! app()->getLocale() == 'ar' ? 'style="padding-right:15px"' : 'style="padding-left:15px"' !!}><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>{{number_format(Auth::user()->wallet)}}</b></span>
                         </div>
 
 
                         <div class="col-6 mt-5">
                            <span class="mt-0"> {{ __('translation.pending_balance') }}</span><br>
-                           <span><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>0.00</b></span>
+                           <span><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>{{number_format($pending_balance)}}</b></span>
                         </div>
 
                         <div class="row mt-2" {!! app()->getLocale() == 'ar' ? 'style="text-align: right; padding-right: 30px; text-decoration: underline;"' : 'style="text-align: left; padding-left: 30px; text-decoration: underline;"' !!} >
