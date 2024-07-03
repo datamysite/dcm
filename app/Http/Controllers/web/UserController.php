@@ -227,7 +227,7 @@ class UserController extends Controller
 
     public function claimCashback()
     {
-        $data['requests'] = CashbackRequests::where('user_id', Auth::id())->where('is_contested', 0)->with('retailerName')->orderBy('id', 'desc')->get();
+        $data['requests'] = CashbackRequests::where('user_id', Auth::id())->with('retailerName')->orderBy('id', 'desc')->get();
         $data['brands'] = Retailers::where('type', '1')
             ->where('status', 1)
             ->join('retailer_countries', 'retailer_countries.retailer_id', '=', 'retailers.id')
