@@ -17,8 +17,10 @@ use App\Models\States;
 use App\Models\Offers;
 use App\Models\OfferQrCode;
 use App\Models\Seller;
+use App\Models\StoreVisits;
 use PDF;
 use Hash;
+use Auth;
 
 class ListingController extends Controller
 {
@@ -78,6 +80,16 @@ class ListingController extends Controller
         $data['isMobile'] = Agent::isMobile();
         //dd($data['isMobile']);
         ClicksCounter::hitCount('1', $data['retailer']->id);
+
+        if(Auth::check()){
+            $sv = StoreVisits::where('user_id', Auth::id())->where('retailer_id', $data['retailer']->id)->first();
+            if(empty($sv->id)){
+                $s = new StoreVisits;
+                $s->user_id = Auth::id();
+                $s->retailer_id = $data['retailer']->id;
+                $s->save();
+            }
+        }
 
         return view($this->getView('web.listing.brand'))->with($data);
     }

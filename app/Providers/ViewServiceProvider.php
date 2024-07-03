@@ -9,8 +9,11 @@ use App\Models\Retailers;
 use App\Models\SnippetCode;
 use App\Models\MetaTags;
 use App\Models\Footer;
+use App\Models\CashbackRequests;
+use App\Models\RewardType;
 use DB;
 use Config;
+use Auth;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -64,7 +67,13 @@ class ViewServiceProvider extends ServiceProvider
               session_start();
             }
             $data['region'] = empty($_SESSION['region']) ? 'dubai' : $_SESSION['region'];
-            //dd($data);
+            
+            if(Auth::check()){
+                $reward = RewardType::where('type', 'Purchase')->first();
+                $data['pending_balance'] = CashbackRequests::where('user_id', Auth::id())->where('status', 1)->count('id');
+                $data['pending_balance'] = $data['pending_balance']*$reward->reward;
+            }
+
             $view->with($data);
         });
     }

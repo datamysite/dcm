@@ -68,13 +68,13 @@
                     <p></p>
                 </div>
 
-                <div class="row mt-5" style="color:#fff;background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
+                <!-- <div class="row mt-5" style="color:#fff;background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
 
                     <h4 class="mb-2 mt-5" style="color: #fff;">{{ __('translation.referal_invite_by_email_txt') }}</h4>
 
                     <p class="mb-0 lead">{{ __('translation.referal_invite_by_email_txt_1') }}</p>
                     <p></p>
-                    <!-- col -->
+
                     <div class="col-8">
                         <div class="input-group ">
                             <input type="text" class="form-control rounded" name="email_link" placeholder="Enter Your Email ID" required="required">
@@ -84,7 +84,7 @@
                         <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="Invite">
                     </div>
                     <p></p>
-                </div>
+                </div> -->
 
                 <div class="row mt-5" style="color:#fff;background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
 
@@ -95,10 +95,10 @@
                     <div class="col-12 text-center align-items-center">
 
                         <div class="">
-                            <a href="#">
+                            <!-- <a href="javascript:void(0)" onclick="shareOnFacebook()">
                                 <img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;mix-blend-mode:hard-light !important;filter:brightness(0.5) invert(1);" alt="Facebook">
-                            </a>
-                            <a href="#">
+                            </a> -->
+                            <a href="https://api.whatsapp.com/send?text=DealsandCouponsMena%0a%0a{{route('home', [$region])}}?ref=signup%26referal_link={{base64_encode(Auth::user()->email)}}" target="_blank">
                                 <img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;mix-blend-mode:hard-light !important;filter:brightness(0.5) invert(1);" alt="Whatsapp">
                             </a>
                             <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="{{ __('translation.referal_copy_link_txt') }}" onclick="copy()"  style="display: inline-block; margin-right: 20px;">
@@ -122,7 +122,20 @@
 @endsection
 @section('addScript')
 <script type="text/javascript" src="{{URL::to('/public/web_assets/js/profile.js')}}"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 <script type="text/javascript">
+    FB.init({
+     appId: '443351671845547',
+     version: 'v10.0',
+    });
+
+    function shareOnFacebook() {
+     FB.ui({
+     method: 'share',
+     href: "{{route('home', [$region])}}?ref=signup%26referal_link={{base64_encode(Auth::user()->email)}}",
+     }, function(response){});
+    }
+
     function copy() {
         let copyText = document.getElementById("copyClipboard");
         copyText.select();
