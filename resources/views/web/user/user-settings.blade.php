@@ -97,9 +97,9 @@
                     </div>
                 </form>
 
-                <form action="{{route('user.settings.bank_details')}}" method="POST">
+                <!-- <form action="{{route('user.settings.bank_details')}}" method="POST">
                   
-                    @csrf
+                    @csrf -->
                     <div class="row mt-5" style="background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);">
                         <div class="col-lg-6"  style="color: #fff !important;">
                             <h4 class="mb-2 mt-5"  style="color: #fff;">{{ __('translation.bnk_account_details') }}</h4>
@@ -137,7 +137,7 @@
                         </div>
 
                     </div>
-                </form>
+                <!-- </form> -->
             </div>
 
         </div>
