@@ -182,6 +182,7 @@
 
 @endsection
 @section('addScript')
+<script type="text/javascript" src="{{URL::to('/public/web_assets/js/profile.js')}}"></script>
 <script type="text/javascript">
     $(document).on("submit", "#submitFormWithdraw", function(s) {
         $('.withdraw-loader').css({
@@ -238,11 +239,7 @@
         const coinsRateInput = document.getElementById('coins_rate');
 
         const myCoinsValue = myCoinsInput.value;
-        const conversionRate = {
-            {
-                $rate - > value ;
-            }
-        };
+        const conversionRate = {{$rate->value}};
 
         if (myCoinsValue < 0 || isNaN(myCoinsValue) || /^0[0-9]+$/.test(myCoinsValue)) {
             coinsRateInput.value = "0.0 {{$country->curr}}";
@@ -255,5 +252,4 @@
 
     }
 </script>
-<script type="text/javascript" src="{{URL::to('/public/web_assets/js/profile.js')}}"></script>
 @endsection
