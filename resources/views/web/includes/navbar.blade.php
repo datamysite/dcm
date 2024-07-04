@@ -199,7 +199,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                      </div>
                   </form>
 
-                  <!-- {{route('user.profile')}} -->
+               
                   <ul class="navbar-nav">
                      <li class="nav-item dropdown" style="padding: 10px;">
                         <a class="nav-link" href="{{route('Sell_With_DCM', [$region])}}" role="button" aria-expanded="false"><b>{{ __('translation.Sell_With_DCM') }}</b></a>
@@ -284,9 +284,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                            </div>
                         </li>
 
-                        <!-- <li class="nav-item dropdown" style="padding: 10px;">
-                           <a class="nav-link" href="{{route('user.profile')}}" role="button" aria-expanded="false"><b>{{ __('translation.Profile') }}</b></a>
-                        </li> -->
+                      
                         @else
                         <li class="nav-item dropdown" style="padding: 10px;">
                            <a class="nav-link" href="javascript:void(0)" id="open-signin" role="button" data-bs-toggle="modal" data-bs-target="#userModal"><b>{{ __('translation.Sign_Up') }}</b></a>

@@ -386,7 +386,33 @@ class UserController extends Controller
     public function settings()
     {
 
-        return view('web.user.user-settings');
+        $data['bank_details'] = BankAccounts::where('user_id', Auth::id())->first();
+
+        $data['bank_array'] = [
+            ['value' => '1', 'key' => 'First Abu Dhabi Bank', 'arabic_value' => 'بنك أبوظبي الأول' , 'eng_value' => 'First Abu Dhabi Bank'],
+            ['value' => '2', 'key' => 'Abu Dhabi Commercial Bank', 'arabic_value' => 'بنك أبوظبي التجاري' , 'eng_value' => 'Abu Dhabi Commercial Bank'],
+            ['value' => '3', 'key' => 'Arab Bank For Investment and Foreign Trade', 'arabic_value' => 'البنك العربي للاستثمار والتجارة الخارجية' , 'eng_value' => 'Arab Bank For Investment and Foreign Trade'],
+            ['value' => '4', 'key' => 'Commercial Bank of Dubai', 'arabic_value' => 'البنك التجاري لدبي' , 'eng_value' => 'Commercial Bank of Dubai'],
+            ['value' => '5', 'key' => 'Emirates NBD', 'arabic_value' => 'إمارات دبي الوطني' , 'eng_value' => 'Emirates NBD'],
+            ['value' => '6', 'key' => 'Mashreq', 'arabic_value' => 'بنك المشرق', 'eng_value' => 'Mashreq'],
+            ['value' => '7', 'key' => 'Bank of Sharjah', 'arabic_value' => 'بنك الشارقة' , 'eng_value' => 'Bank of Sharjah'],
+            ['value' => '8', 'key' => 'United Arab Bank', 'arabic_value' => 'البنك العربي المتحد' , 'eng_value' => 'United Arab Bank'],
+            ['value' => '9', 'key' => 'Invest Bank', 'arabic_value' => 'بنك الاستثمار' , 'eng_value' => 'Invest Bank'],
+            ['value' => '10', 'key' => 'RAKBANK', 'arabic_value' => 'راك بنك' , 'eng_value' => 'RAKBANK'],
+            ['value' => '11', 'key' => 'Dubai Islamic Bank', 'arabic_value' => 'بنك دبي الإسلامي' , 'eng_value' => 'Dubai Islamic Bank'],
+            ['value' => '12', 'key' => 'Emirates Islamic Bank', 'arabic_value' => 'بنك الإمارات الإسلامي', 'eng_value' => 'Emirates Islamic Bank'],
+            ['value' => '13', 'key' => 'Sharjah Islamic Bank', 'arabic_value' => 'بنك الشارقة الإسلامي', 'eng_value' => 'Sharjah Islamic Bank'],
+            ['value' => '14', 'key' => 'Abu Dhabi Islamic Bank', 'arabic_value' => 'بنك أبوظبي الإسلامي', 'eng_value' => 'Abu Dhabi Islamic Bank'],
+            ['value' => '15', 'key' => 'Al Hilal Bank', 'arabic_value' => 'بنك الهلال', 'eng_value' => 'Al Hilal Bank'],
+            ['value' => '16', 'key' => 'Ajman Bank', 'arabic_value' => 'بنك عجمان', 'eng_value' => 'Ajman Bank'],
+            ['value' => '17', 'key' => 'Emirates Investment Bank', 'arabic_value' => 'بنك الإمارات للاستثمار' , 'eng_value' => 'Emirates Investment Bank'],
+            ['value' => '18', 'key' => 'BNP Paribas', 'arabic_value' => 'BNP Paribas', 'eng_value' => 'BNP Paribas'],
+            ['value' => '19', 'key' => 'Standard Chartered', 'arabic_value' => 'Standard Chartered', 'eng_value' => 'Standard Chartered'],
+            ['value' => '20', 'key' => 'HSBC', 'arabic_value' => 'HSBC', 'eng_value' => 'HSBC'],
+        ];
+        
+
+        return view('web.user.user-settings', ['data' => $data]);
     }
 
     public function settings_update(Request $request)
@@ -444,8 +470,6 @@ class UserController extends Controller
         $msg = '';
         $user_id =  Auth::user()->id;
 
-        //dd($data);
-
         if (!empty($data['bank_id']) || !empty($data['bnk_account_name']) || !empty($data['bnk_iban']) || !empty($data['bnk_account_number'])) {
             $this->validate($request, [
                 'bank_id' => 'required',
@@ -467,17 +491,19 @@ class UserController extends Controller
                 }
             } else {
 
-                $ba = BankAccounts::find($user_id);
-                $ba->bank_id = $data['bank_id'];
-                $ba->user_id = $user_id;
-                $ba->account_holder_name = $data['bnk_account_name'];
-                $ba->iban = $data['bnk_iban'];
-                $ba->account_number = $data['bnk_account_number'];
+                if ($data['id'] != null) {
+                    $ba = BankAccounts::find($data['id']);
+                    $ba->bank_id = $data['bank_id'];
+                    $ba->user_id = $user_id;
+                    $ba->account_holder_name = $data['bnk_account_name'];
+                    $ba->iban = $data['bnk_iban'];
+                    $ba->account_number = $data['bnk_account_number'];
 
-                if ($ba->save()) {
-                    $msg = 'updated';
-                } else {
-                    $msg = 'error';
+                    if ($ba->save()) {
+                        $msg = 'updated';
+                    } else {
+                        $msg = 'error';
+                    }
                 }
             }
         }

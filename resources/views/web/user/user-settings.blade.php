@@ -101,12 +101,15 @@
 
                 <form action="{{route('user.settings.bank_details')}}" method="POST">
                     @csrf
+                    @if($data['bank_details'] !== null)
+                    <input type="hidden" name="id" value="{{ $data['bank_details']->id }}" />
+                    @endif
                     <div class="row mt-5" style="background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);">
 
                         @if(session('success') || session('updated'))
                         <div class="row mt-2" style="justify-content:center;justify-items:center;">
                             <div class="col-lg-8 text-center" style="padding: 20px;border-radius:10px;background-color:#50C878;">
-                                <span class="text-center" style="font-size: 17px;color:#fff;">Bank account details inserted/updated successfully!</b>
+                                <span class="text-center" style="font-size: 17px;color:#fff;">{{ __('translation.success_bnk_msg') }}</b>
                             </div>
                         </div>
                         @endif
@@ -114,7 +117,7 @@
                         @if(session('error'))
                         <div class="row mt-2" style="justify-content:center;justify-items:center;">
                             <div class="col-lg-8" style="padding: 20px;border-radius:10px;background-color:#FF7074;;">
-                                <span class="text-center" style="font-size: 17px;color:#fff;">Error occured while insetr/update account details!</b>
+                                <span class="text-center" style="font-size: 17px;color:#fff;">{{ __('translation.error_bnk_msg') }}</b>
                             </div>
                         </div>
 
@@ -125,16 +128,19 @@
                             <div class="input-group py-2">
                                 <select class="form-control rounded" name="bank_id" style="border-radius:10px;" required>
                                     <option value="">{{ __('translation.bnk_form_bnk_name') }}</option>
-                                    <option value="1">Bank 1</option>
-                                    <option value="2">Bank 2</option>
-                                    <option value="3">Bank 3</option>
-                                    <option value="4">Bank 4</option>
-                                    <option value="5">Bank 5</option>
+                                    @foreach ($data['bank_array'] as $bank)
+                                        @if($data['bank_details'] !== null)
+                                        <option value="{{ $bank['value'] }}" {{$data['bank_details']->bank_id == $bank['value'] ? 'selected' : ''}}>{!! app()->getLocale() == 'ar' ? $bank['arabic_value'] : $bank['eng_value'] !!}</option>
+                                        @else
+                                        <option value="{{ $bank['value'] }}">{!! app()->getLocale() == 'ar' ? $bank['arabic_value'] : $bank['eng_value'] !!}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
+
 
                             </div>
                             <div class="input-group py-2">
-                                <input class="form-control rounded " type="text" name="bnk_account_name" placeholder="{{ __('translation.bnk_form_account_holder_name') }}" value="" required="required" />
+                                <input class="form-control rounded " type="text" name="bnk_account_name" placeholder="{{ __('translation.bnk_form_account_holder_name') }}" value="{{ $data['bank_details'] !== null  ? $data['bank_details']->account_holder_name : '' }}" required="required" />
                             </div>
                         </div>
 
@@ -142,15 +148,15 @@
                             <div class="divider mt-1"></div>
 
                             <div class="input-group py-2 mt-0">
-                                <input class="form-control rounded " type="text" name="bnk_iban" placeholder="{{ __('translation.bnk_form_bnk_iban') }}" value="" required="required" />
+                                <input class="form-control rounded " type="text" name="bnk_iban" placeholder="{{ __('translation.bnk_form_bnk_iban') }}" value="{{ $data['bank_details'] !== null  ? $data['bank_details']->iban : '' }}" required="required" />
                             </div>
 
                             <div class="input-group py-2">
-                                <input class="form-control rounded " type="text" name="bnk_account_number" placeholder="{{ __('translation.bnk_form_bnk_account_number') }}" value="" required="required" />
+                                <input class="form-control rounded " type="number" name="bnk_account_number" placeholder="{{ __('translation.bnk_form_bnk_account_number') }}" value="{{ $data['bank_details'] !== null  ? $data['bank_details']->account_number : '' }}" required="required" />
                             </div>
 
                             <div class="py-2">
-                                <input type="submit" name="sing-up" class="btn btn-primary shadow-gray" style="font-weight: lighter; {!! app()->getLocale() == 'ar' ? 'float: left;' : 'float: right;' !!}" value="{{ __('translation.save_changes_btn_txt') }}">
+                                <input type="submit" name="sing-up" class="btn btn-primary shadow-gray" style="font-weight: lighter; {!! app()->getLocale() == 'ar' ? 'float: left;' : 'float: right;' !!}" value="{{ $data['bank_details'] !== null ? __('translation.edit_information_btn') : __('translation.save_changes_btn_txt') }}">
                             </div>
                             <div class="divider"></div>
                         </div>
@@ -158,7 +164,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
