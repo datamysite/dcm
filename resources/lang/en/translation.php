@@ -861,4 +861,9 @@ return [
   "how_to_earn_setps_txt_5" => "3. Choose how to withdraw your cashback:",
   "how_to_earn_setps_txt_6" => "You can then transfer your cashback to your bank account or withdraw it as a gift card instantly.",
 
+  "edit_information_btn" => "Edit Information",
+  "success_bnk_msg" => "Bank account details inserted/updated successfully!",
+  "error_bnk_msg" => "Error occured while insert/update account details!",
+
+
 ];
