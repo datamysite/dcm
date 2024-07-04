@@ -209,7 +209,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         <li class="nav-item dropdown" {!! app()->getLocale() == 'ar' ? 'style="padding: 4px;"' : 'style="padding: 10px;"' !!} >
 
                            <a class="nav-link" href="#" role="button" aria-expanded="false">
-                              <i class="fa-solid fa-user" style="font-weight: bold; color: black; font-size:22px;"></i>
+                              <i class="fa-solid fa-user" style="font-weight: bold; color: black; font-size:14px;"></i>
                               | <span style="top: -5px; right: 0;">{{ __('translation.aed_coin') }}</span> <strong>{{number_format(Auth::user()->wallet)}}</strong>
                               <i class="fa-solid fa-caret-down" style="margin-right: 1px;"></i>
                            </a>
@@ -218,23 +218,23 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                               <div class="menuSubDIV mt-0">
                                  <div class="row" {!! app()->getLocale() == 'ar' ? 'style="text-align: right;padding-right:20px;"' : 'style="text-align: left;padding-left:20px"' !!} >
-                                    <div class="col-lg-12 mt-5">
+                                    <div class="col-lg-12 mt-3">
                                        <h6 class="mt-0" style="color: #fff;">{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>
                                     </div>
                                  </div>
                                  <div class="row text-center" style="color: #fff;">
-                                    <div class="col-lg-6 mt-5">
+                                    <div class="col-lg-6 mt-3">
                                        <span class="mt-0">{{ __('translation.available_balance') }}</span><br>
-                                       <span class="mt-2"><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>{{number_format(Auth::user()->wallet)}}</b></span>
+                                       <span class="mt-2"><b style="position: relative; top: -2px; left:-10px; color:#ffb01b"><i class="fa fa-coins"></i></b> <b class="menu-coins">{{number_format(Auth::user()->wallet)}}</b></span>
                                     </div>
-                                    <div class="col-lg-6 mt-5">
+                                    <div class="col-lg-6 mt-3">
                                        <span class="mt-0"> {{ __('translation.pending_balance') }}</span><br>
-                                       <span><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>{{number_format($pending_balance)}}</b></span>
+                                       <span><b style="position: relative; top: -2px; left:-10px; color:#ffb01b"><i class="fa fa-coins"></i></b> <b class="menu-coins">{{number_format($pending_balance)}}</b></span>
                                     </div>
 
                                     <div class="row mt-2" {!! app()->getLocale() == 'ar' ? 'style="text-align: right; padding-right: 30px; text-decoration: underline;"' : 'style="text-align: left; padding-left: 30px; text-decoration: underline;"' !!}>
 
-                                       <span class="mt-2" style="color: #fff;">
+                                       <span class="menu-sub-difference" style="color: #fff;">
                                           <i class="fa fa-info-circle" aria-hidden="true" style="padding-right: 5px;"></i>
                                           <a href="#" style="color: #fff;">{{ __('translation.what_is_difference') }}</a>
                                        </span>
@@ -243,16 +243,40 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                  </div>
                               </div>
 
-                              <div class="menuSubDIV2 mt-2">
+                              <div class="menuSubDIV2">
                                  <div class="row" style="text-align: left; padding-left: 30px;">
                                     <div class="nav nav-category" id="categoryCollapseMenu">
                                        <ul>
-                                          <li class="nav-item border-bottom"><a href="{{route('user.dashboard')}}" class="nav-link collapsed">{{ __('translation.dashboard') }}</a></li>
-                                          <li class="nav-item border-bottom"><a href="{{route('user.claimCashback')}}" class="nav-link collapsed">{{ __('translation.claim_cashback_menu') }}</a></li>
-                                          <li class="nav-item border-bottom"><a href="{{route('user.withdrawPayment')}}" class="nav-link collapsed">{{ __('translation.with_draw_menu') }}</a></li>
-                                          <li class="nav-item border-bottom"><a href="{{route('user.referralEarn')}}" class="nav-link collapsed">{{ __('translation.referral_earn_menu') }}</a></li>
-                                          <li class="nav-item border-bottom"><a href="{{route('user.settings')}}" class="nav-link collapsed">{{ __('translation.settings_menu') }}</a></li>
-                                          <li class="nav-item border-bottom"><a href="{{route('user.logout')}}" class="nav-link collapsed"><b>{{ __('translation.logout_menu') }}</b></a></li>
+                                          <li class="nav-item border-bottom">
+                                             <a href="{{route('user.dashboard')}}" class="nav-link collapsed">
+                                                <span>{{ __('translation.dashboard') }}</span><span><i class="fa fa-dashboard"></i></span>
+                                             </a>
+                                          </li>
+                                          <li class="nav-item border-bottom">
+                                             <a href="{{route('user.claimCashback')}}" class="nav-link collapsed">
+                                                <span>{{ __('translation.claim_cashback_menu') }}</span><span><i class="fa fa-money"></i></span>
+                                             </a>
+                                          </li>
+                                          <li class="nav-item border-bottom">
+                                             <a href="{{route('user.withdrawPayment')}}" class="nav-link collapsed">
+                                                <span>{{ __('translation.with_draw_menu') }}</span><span><i class="fa fa-wallet"></i></span>
+                                             </a>
+                                          </li>
+                                          <li class="nav-item border-bottom">
+                                             <a href="{{route('user.referralEarn')}}" class="nav-link collapsed">
+                                                <span>{{ __('translation.referral_earn_menu') }}</span><span><i class="fa fa-user-plus"></i></span>
+                                             </a>
+                                          </li>
+                                          <li class="nav-item border-bottom">
+                                             <a href="{{route('user.settings')}}" class="nav-link collapsed">
+                                                <span>{{ __('translation.settings_menu') }}</span><span><i class="fa fa-cog"></i></span>
+                                             </a>
+                                          </li>
+                                          <li class="nav-item border-bottom">
+                                             <a href="{{route('user.logout')}}" class="nav-link collapsed">
+                                                <span><b>{{ __('translation.logout_menu') }}</b></span><span><i class="fa fa-sign-out"></i></span>
+                                             </a>
+                                          </li>
                                        </ul>
                                     </div>
                                  </div>

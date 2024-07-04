@@ -55,117 +55,66 @@
 
                         <div class="row text-center contact-us-pg">
 
-                            <div class="col-md-4" style="border-radius: 20px;">
-                                <div style="background-color: #F2F2F2; border: 1px solid;  border-color: white #009DDE;border-radius: 20px;" class="mt-5">
-                                    <div class="about-us-title">
-                                        <h5><b>{{ __('translation.available_balance_txt') }}</b></h5>
+                            <div class="col-md-4" style="border-radius: 15px;">
+                                <div class="profile-dashboard-widget">
+                                    <h5>{{ __('translation.available_balance_txt') }}</h5>
+                                    <div>
+                                        <span>{{number_format(Auth::user()->wallet)}}</span>
+                                        <img src="{{URL::to('/public')}}/web_assets/images/icons/available_balance.png" alt="Dashboard" style="width:45px; height:45px;">
                                     </div>
-                                    <div class="about-us-text">
-
-                                        <span><b style="position: relative; top: -5px;">{{ __('translation.aed') }}</b> <b style="color: #009DDE;">{{number_format(Auth::user()->wallet)}}</b></span>
-                                        <span style="padding-left:25px;">
-                                            <img src="{{URL::to('/public')}}/web_assets/images/icons/available_balance.png" alt="Dashboard" style="width:45px; height:45px;">
-                                        </span>
-                                    </div>
-                                    <hr>
-                                    <div class="divider" style="height: 5px;"></div>
                                 </div>
                             </div>
-
-                            <div class="col-md-4" style="border-radius: 20px">
-                                <div style="background-color: #F2F2F2; border: 1px solid;  border-color: white #009DDE;border-radius: 20px;" class="mt-5">
-                                    <div class="about-us-title">
-                                        <h5><b>{{ __('translation.pending_balance_txt') }}</b></h5>
+                            <div class="col-md-4" style="border-radius: 15px;">
+                                <div class="profile-dashboard-widget">
+                                    <h5>{{ __('translation.pending_balance_txt') }}</h5>
+                                    <div>
+                                        <span>{{number_format($pending_balance)}}</span>
+                                        <img src="{{URL::to('/public')}}/web_assets/images/icons/pending_blance.png" alt="Dashboard" style="width:45px; height:45px;">
                                     </div>
-                                    <div class="about-us-text">
-
-                                        <span><b style="position: relative; top: -5px;">{{ __('translation.aed') }}</b> <b style="color: #009DDE;">{{number_format($pending_balance)}}</b></span>
-                                        <span style="padding-left:25px;">
-                                            <img src="{{URL::to('/public')}}/web_assets/images/icons/pending_blance.png" alt="Dashboard" style="width:45px; height:45px;">
-                                        </span>
-                                    </div>
-                                    <hr>
-                                    <div class="divider" style="height: 5px;"></div>
                                 </div>
                             </div>
-
-                            <div class="col-md-4" style="border-radius: 20px">
-                                <div style="background-color: #F2F2F2; border: 1px solid;  border-color: white #009DDE;border-radius: 20px;" class="mt-5">
-                                    <div class="about-us-title">
-                                        <h5><b>{{ __('translation.requested_cashback_txt') }}</b></h5>
+                            <div class="col-md-4" style="border-radius: 15px;">
+                                <div class="profile-dashboard-widget">
+                                    <h5>{{ __('translation.requested_cashback_txt') }}</h5>
+                                    <div>
+                                        <span>{{number_format($requested_cashback)}}</span>
+                                        <img src="{{URL::to('/public')}}/web_assets/images/icons/requested_cashback.png" alt="Dashboard" style="width:45px; height:45px;">
                                     </div>
-                                    <div class="about-us-text">
-
-                                        <span><b style="position: relative; top: -5px;"></b> <b style="color: #009DDE;">{{number_format($requested_cashback)}}</b></span>
-                                        <span style="padding-left:25px;">
-                                            <img src="{{URL::to('/public')}}/web_assets/images/icons/requested_cashback.png" alt="Dashboard" style="width:45px; height:45px;">
-                                        </span>
-                                    </div>
-                                    <hr>
-                                    <div class="divider" style="height: 5px;"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-                <div class="row mt-5">
-
-                    <div class="col-lg-12 col-12">
+                        <br><br>
 
                         <div class="row text-center contact-us-pg">
 
-                            <div class="col-md-4" style="border-radius: 20px">
-                                <div style="background-color: #F2F2F2; border: 1px solid;  border-color: white #009DDE;border-radius: 20px;" class="mt-5">
-                                    <div class="about-us-title">
-                                        <h5><b>{{ __('translation.approved_cashback_txt') }}</b></h5>
+                            <div class="col-md-4" style="border-radius: 15px;">
+                                <div class="profile-dashboard-widget">
+                                    <h5>{{ __('translation.approved_cashback_txt') }}</h5>
+                                    <div>
+                                        <span>{{number_format($approved_cashback)}}</span>
+                                        <img src="{{URL::to('/public')}}/web_assets/images/icons/approved_cashback.png" alt="Dashboard" style="width:45px; height:45px;">
                                     </div>
-                                    <div class="about-us-text">
-
-                                        <span><b style="position: relative; top: -5px;"></b> <b style="color: #009DDE;">{{number_format($approved_cashback)}}</b></span>
-                                        <span style="padding-left:25px;">
-                                            <img src="{{URL::to('/public')}}/web_assets/images/icons/approved_cashback.png" alt="Dashboard" style="width:45px; height:45px;">
-                                        </span>
-                                    </div>
-                                    <hr>
-                                    <div class="divider" style="height: 5px;"></div>
                                 </div>
                             </div>
-
-                            <div class="col-md-4" style="border-radius: 20px">
-                                <div style="background-color: #F2F2F2; border: 1px solid;  border-color: white #009DDE;border-radius: 20px;" class="mt-5">
-                                    <div class="about-us-title">
-                                        <h5><b>{{ __('translation.total_coupons_used_txt') }}</b></h5>
+                            <div class="col-md-4" style="border-radius: 15px;">
+                                <div class="profile-dashboard-widget">
+                                    <h5>{{ __('translation.total_coupons_used_txt') }}</h5>
+                                    <div>
+                                        <span>{{number_format($coupon_used)}}</span>
+                                        <img src="{{URL::to('/public')}}/web_assets/images/icons/total_coupons.png" alt="Dashboard" style="width:45px; height:45px;">
                                     </div>
-                                    <div class="about-us-text">
-
-                                        <span><b style="color: #009DDE;">{{number_format($coupon_used)}} {{ __('translation.coupons_txt') }}</b></span>
-                                        <span style="padding-left:25px;">
-                                            <img src="{{URL::to('/public')}}/web_assets/images/icons/total_coupons.png" alt="Dashboard" style="width:45px; height:45px;">
-                                        </span>
-                                    </div>
-                                    <hr>
-                                    <div class="divider" style="height: 5px;"></div>
                                 </div>
                             </div>
-
-                            <div class="col-md-4" style="border-radius: 20px">
-                                <div style="background-color: #F2F2F2; border: 1px solid;  border-color: white #009DDE;border-radius: 20px;" class="mt-5">
-                                    <div class="about-us-title">
-                                        <h5><b>{{ __('translation.total_store_visits_txt') }}</b></h5>
+                            <div class="col-md-4" style="border-radius: 15px;">
+                                <div class="profile-dashboard-widget">
+                                    <h5>{{ __('translation.total_store_visits_txt') }}</h5>
+                                    <div>
+                                        <span>{{number_format($store_visits)}}</span>
+                                        <img src="{{URL::to('/public')}}/web_assets/images/icons/total_visit.png" alt="Dashboard" style="width:45px; height:45px;">
                                     </div>
-                                    <div class="about-us-text">
-
-                                        <span><b style="color: #009DDE;">{{number_format($store_visits)}} {{ __('translation.visit_txt') }}</b></span>
-                                        <span style="padding-left:25px;">
-                                            <img src="{{URL::to('/public')}}/web_assets/images/icons/total_visit.png" alt="Dashboard" style="width:45px; height:45px;">
-                                        </span>
-                                    </div>
-                                    <hr>
-                                    <div class="divider" style="height: 5px;"></div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 

@@ -26,9 +26,6 @@ new color : #dfe1e5
                 <li class="{{ request()->routeIs('user.claimCashback') ? 'active first-order' : '' }}">
                     <a href="{{ route('user.claimCashback') }}">{{ __('translation.claim_cashback_menu') }}</a>
                 </li>
-                <!-- <li class="{{ request()->routeIs('user.paymenyHistory') ? 'active first-order' : '' }}">
-                    <a href="{{ route('user.paymenyHistory') }}">{{ __('translation.payment_history_menu') }}</a>
-                </li> -->
 
                 <li class="{{ request()->routeIs('user.referralEarn') ? 'active first-order' : '' }}">
                     <a href="{{ route('user.referralEarn') }}">{{ __('translation.referral_earn_menu') }}</a>
@@ -69,14 +66,12 @@ new color : #dfe1e5
             <div class="collapse mt-2" id="collapseExample">
                 <div class="card card-body">
                     <ul class="mb-0 list-unstyled">
-                        <li><a class="dropdown-item" href="{{route('user.claimCashback')}}">{{ __('translation.dashboard') }}</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.claimCashback')}}">{{ __('translation.claim_cashback_menu') }}</a></li>
-                        <!-- <li><a class="dropdown-item" href="{{route('user.paymenyHistory')}}">{{ __('translation.payment_history_menu') }}</a></li> -->
-                        <!--   <li><a class="dropdown-item" href="{{route('user.referralEarn')}}">{{ __('translation.referral_earn_menu') }}</a></li> -->
-                        <li><a class="dropdown-item" href="{{route('user.withdrawPayment')}}">{{ __('translation.with_draw_menu') }}</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.transactionHistory')}}">{{ __('translation.transaction_history') }}</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.settings')}}">{{ __('translation.settings_menu') }}</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.logout')}}">{{ __('translation.logout_menu') }}</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.claimCashback')}}">{{ __('translation.dashboard') }}<i class="fa fa-dashboard"></i></a></li>
+                        <li><a class="dropdown-item" href="{{route('user.claimCashback')}}">{{ __('translation.claim_cashback_menu') }}<i class="fa fa-money"></i></a></li>
+                        <li><a class="dropdown-item" href="{{route('user.withdrawPayment')}}">{{ __('translation.with_draw_menu') }}<i class="fa fa-wallet"></i></a></li>
+                        <li><a class="dropdown-item" href="{{route('user.transactionHistory')}}">{{ __('translation.transaction_history') }}<i class="fa fa-history"></i></a></li>
+                        <li><a class="dropdown-item" href="{{route('user.settings')}}">{{ __('translation.settings_menu') }}<i class="fa fa-cog"></i></a></li>
+                        <li><a class="dropdown-item" href="{{route('user.logout')}}">{{ __('translation.logout_menu') }}<i class="fa fa-sign-out"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -127,39 +122,29 @@ new color : #dfe1e5
 
     <!-- Wallet Section Start -->
     <!-- //Default Wallet design -->
-    <div class="text-center mt-5" style="display:block;background-color: #1F428A;border-radius: 10px; background-image: linear-gradient(90deg, #1F428A, #2791CC); ">
 
-        <div class="row mt-2" style="justify-content: center;justify-items:center;">
-            <div class="col-sm-3 d-flex flex-column justify-content-top" style="padding-top:0px">
-                <span><img src="{{URL::to('/public')}}/web_assets/images/icons/coins.jpg" alt="DCM Coins" class="circle-image" style="width:50px; height:50px;mix-blend-mode:hard-light !important;filter:brightness(0.5) invert(1);"></span>
-            </div>
-            <div class="col-sm-3 d-flex flex-column justify-content-center" style="padding-top:20px">
-
-                <h4 class="text-center" style="color: #fff;">
-                    {{number_format(Auth::user()->wallet)}}
-                </h4>
-            </div>
-            <div class="col-sm-4 d-flex flex-column justify-content-top" style="padding-top:20px">
-                <b class="mt-0" style="color: #fff;"> {{ __('translation.coins') }}</b>
-            </div>
-        </div>
-        <div class="mt-2"></div>
+    <div class="profile-wallet">
+        <label>{{ __('translation.available_balance') }}</label>
+        <h4>
+            {{number_format(Auth::user()->wallet)}} <span>{{ __('translation.coins') }}</span>
+        </h4>
+        <img src="{{URL::to('/public')}}/web_assets/images/icons/coins.jpg" alt="DCM Coins" class="circle-image">
     </div>
+    
     <!-- Wallet Section End -->
     <div class="mt-5" style="background-color: #f0f3f2;border-radius: 10px">
 
         <div class="user-nav-desktop">
             <div class="row">
-                <div class="nav nav-category" id="categoryCollapseMenu">
+                <div class="nav nav-category desktop-nav-d" id="categoryCollapseMenu">
                     <ul>
-                        <li class="nav-item border-bottom"><a href="{{route('user.dashboard')}}" class="nav-link collapsed">{{ __('translation.dashboard') }}</a></li>
-                        <li class="nav-item border-bottom w-100"><a href="{{route('user.claimCashback')}}" class="nav-link collapsed">{{ __('translation.claim_cashback_menu') }}</a></li>
-                        <!-- <li class="nav-item border-bottom"><a href="{{route('user.paymenyHistory')}}" class="nav-link collapsed">{{ __('translation.payment_history_menu') }}</a></li> -->
-                        <li class="nav-item border-bottom"><a href="{{route('user.referralEarn')}}" class="nav-link collapsed">{{ __('translation.referral_earn_menu') }}</a></li>
-                        <li class="nav-item border-bottom"><a href="{{route('user.withdrawPayment')}}" class="nav-link collapsed">{{ __('translation.with_draw_menu') }}</a></li>
-                        <li class="nav-item border-bottom"><a href="{{route('user.transactionHistory')}}" class="nav-link collapsed">{{ __('translation.transaction_history') }}</a></li>
-                        <li class="nav-item border-bottom"><a href="{{route('user.settings')}}" class="nav-link collapsed">{{ __('translation.settings_menu') }}</a></li>
-                        <li class="nav-item border-bottom"><a href="{{route('user.logout')}}" class="nav-link collapsed"><b>{{ __('translation.logout_menu') }}</b></a></li>
+                        <li class="nav-item border-bottom"><a href="{{route('user.dashboard')}}" class="nav-link collapsed">{{ __('translation.dashboard') }}<i class="fa fa-dashboard"></i></a></li>
+                        <li class="nav-item border-bottom w-100"><a href="{{route('user.claimCashback')}}" class="nav-link collapsed">{{ __('translation.claim_cashback_menu') }}<i class="fa fa-money"></i></a></li>
+                        <li class="nav-item border-bottom"><a href="{{route('user.referralEarn')}}" class="nav-link collapsed">{{ __('translation.referral_earn_menu') }}<i class="fa fa-user-plus"></i></a></li>
+                        <li class="nav-item border-bottom"><a href="{{route('user.withdrawPayment')}}" class="nav-link collapsed">{{ __('translation.with_draw_menu') }}<i class="fa fa-wallet"></i></a></li>
+                        <li class="nav-item border-bottom"><a href="{{route('user.transactionHistory')}}" class="nav-link collapsed">{{ __('translation.transaction_history') }}<i class="fa fa-history"></i></a></li>
+                        <li class="nav-item border-bottom"><a href="{{route('user.settings')}}" class="nav-link collapsed">{{ __('translation.settings_menu') }}<i class="fa fa-cog"></i></a></li>
+                        <li class="nav-item border-bottom"><a href="{{route('user.logout')}}" class="nav-link collapsed"><b>{{ __('translation.logout_menu') }}</b><i class="fa fa-sign-out"></i></a></li>
                     </ul>
                 </div>
             </div>
