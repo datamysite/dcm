@@ -57,11 +57,40 @@
    }
 
    function closeWelcomeMessage() {
+      
       var welcomeMsgDiv = document.querySelector('.MobileWelcomeMSG');
       var WebsiteWelcomeMSG = document.querySelector('.WebsiteWelcomeMSG');
       welcomeMsgDiv.style.display = 'none';
       WebsiteWelcomeMSG.style.display = 'none';
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', "{{route('cancelWelcomeMsg', [$region])}}", true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      // xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+      xhr.onreadystatechange = function() {
+         if (xhr.readyState === 4 && xhr.status === 200) {
+            sessionStorage.setItem('welcomeMessageShown', 'true');
+         }
+      };
+      xhr.send();
+   
+   // Check if the welcome message should be hidden
+   if (sessionStorage.getItem('welcomeMessageShown')) {
+      document.getElementById('welcomeMessageDiv').style.display = 'none';
    }
+
+}
+  
+   
+
+   // Check if the welcome message should be hidden
+   if (sessionStorage.getItem('welcomeMessageShown')) {
+      document.getElementById('welcomeMessageDiv').style.display = 'none';
+   }
+
+   
+
+
 
    window.onload = function() {
       var url = window.location.href;

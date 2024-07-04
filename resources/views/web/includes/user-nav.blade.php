@@ -26,9 +26,9 @@ new color : #dfe1e5
                 <li class="{{ request()->routeIs('user.claimCashback') ? 'active first-order' : '' }}">
                     <a href="{{ route('user.claimCashback') }}">{{ __('translation.claim_cashback_menu') }}</a>
                 </li>
-                <li class="{{ request()->routeIs('user.paymenyHistory') ? 'active first-order' : '' }}">
+                <!-- <li class="{{ request()->routeIs('user.paymenyHistory') ? 'active first-order' : '' }}">
                     <a href="{{ route('user.paymenyHistory') }}">{{ __('translation.payment_history_menu') }}</a>
-                </li>
+                </li> -->
 
                 <li class="{{ request()->routeIs('user.referralEarn') ? 'active first-order' : '' }}">
                     <a href="{{ route('user.referralEarn') }}">{{ __('translation.referral_earn_menu') }}</a>
@@ -51,7 +51,7 @@ new color : #dfe1e5
     </div>
 </div>
 
-<div class="row col-lg-3 m-1 mt-1">
+<div class="row col-lg-3 m-1 mt-0">
 
     <div class="user-nav-mobile" style="display:none;">
         <div class="d-block d-lg-none mb-4">
@@ -71,7 +71,7 @@ new color : #dfe1e5
                     <ul class="mb-0 list-unstyled">
                         <li><a class="dropdown-item" href="{{route('user.claimCashback')}}">{{ __('translation.dashboard') }}</a></li>
                         <li><a class="dropdown-item" href="{{route('user.claimCashback')}}">{{ __('translation.claim_cashback_menu') }}</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.paymenyHistory')}}">{{ __('translation.payment_history_menu') }}</a></li>
+                        <!-- <li><a class="dropdown-item" href="{{route('user.paymenyHistory')}}">{{ __('translation.payment_history_menu') }}</a></li> -->
                         <!--   <li><a class="dropdown-item" href="{{route('user.referralEarn')}}">{{ __('translation.referral_earn_menu') }}</a></li> -->
                         <li><a class="dropdown-item" href="{{route('user.withdrawPayment')}}">{{ __('translation.with_draw_menu') }}</a></li>
                         <li><a class="dropdown-item" href="{{route('user.transactionHistory')}}">{{ __('translation.transaction_history') }}</a></li>
@@ -154,7 +154,7 @@ new color : #dfe1e5
                     <ul>
                         <li class="nav-item border-bottom"><a href="{{route('user.dashboard')}}" class="nav-link collapsed">{{ __('translation.dashboard') }}</a></li>
                         <li class="nav-item border-bottom w-100"><a href="{{route('user.claimCashback')}}" class="nav-link collapsed">{{ __('translation.claim_cashback_menu') }}</a></li>
-                        <li class="nav-item border-bottom"><a href="{{route('user.paymenyHistory')}}" class="nav-link collapsed">{{ __('translation.payment_history_menu') }}</a></li>
+                        <!-- <li class="nav-item border-bottom"><a href="{{route('user.paymenyHistory')}}" class="nav-link collapsed">{{ __('translation.payment_history_menu') }}</a></li> -->
                         <li class="nav-item border-bottom"><a href="{{route('user.referralEarn')}}" class="nav-link collapsed">{{ __('translation.referral_earn_menu') }}</a></li>
                         <li class="nav-item border-bottom"><a href="{{route('user.withdrawPayment')}}" class="nav-link collapsed">{{ __('translation.with_draw_menu') }}</a></li>
                         <li class="nav-item border-bottom"><a href="{{route('user.transactionHistory')}}" class="nav-link collapsed">{{ __('translation.transaction_history') }}</a></li>

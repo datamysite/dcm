@@ -12,7 +12,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
-                        <li class="breadcrumb-item"><a href="{{route('user.profile')}}" style="color: #000;"><strong>{{ __('translation.Profile') }}</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}" style="color: #000;"><strong>{{ __('translation.dashboard') }}</strong></a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{ __('translation.settings_menu') }}</a></strong></li>
                     </ol>
                 </nav>
@@ -97,12 +97,31 @@
                     </div>
                 </form>
 
-                <!-- <form action="{{route('user.settings.bank_details')}}" method="POST">
-                  
-                    @csrf -->
+
+
+                <form action="{{route('user.settings.bank_details')}}" method="POST">
+                    @csrf
                     <div class="row mt-5" style="background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);">
-                        <div class="col-lg-6"  style="color: #fff !important;">
-                            <h4 class="mb-2 mt-5"  style="color: #fff;">{{ __('translation.bnk_account_details') }}</h4>
+
+                        @if(session('success') || session('updated'))
+                        <div class="row mt-2" style="justify-content:center;justify-items:center;">
+                            <div class="col-lg-8 text-center" style="padding: 20px;border-radius:10px;background-color:#50C878;">
+                                <span class="text-center" style="font-size: 17px;color:#fff;">Bank account details inserted/updated successfully!</b>
+                            </div>
+                        </div>
+                        @endif
+
+                        @if(session('error'))
+                        <div class="row mt-2" style="justify-content:center;justify-items:center;">
+                            <div class="col-lg-8" style="padding: 20px;border-radius:10px;background-color:#FF7074;;">
+                                <span class="text-center" style="font-size: 17px;color:#fff;">Error occured while insetr/update account details!</b>
+                            </div>
+                        </div>
+
+                        @endif
+
+                        <div class="col-lg-6" style="color: #fff !important;">
+                            <h4 class="mb-2 mt-5" style="color: #fff;">{{ __('translation.bnk_account_details') }}</h4>
                             <div class="input-group py-2">
                                 <select class="form-control rounded" name="bank_id" style="border-radius:10px;" required>
                                     <option value="">{{ __('translation.bnk_form_bnk_name') }}</option>
@@ -112,7 +131,7 @@
                                     <option value="4">Bank 4</option>
                                     <option value="5">Bank 5</option>
                                 </select>
-                               
+
                             </div>
                             <div class="input-group py-2">
                                 <input class="form-control rounded " type="text" name="bnk_account_name" placeholder="{{ __('translation.bnk_form_account_holder_name') }}" value="" required="required" />
@@ -137,7 +156,7 @@
                         </div>
 
                     </div>
-                <!-- </form> -->
+                </form>
             </div>
 
         </div>

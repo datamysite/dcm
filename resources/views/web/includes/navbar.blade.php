@@ -421,20 +421,20 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 </nav>
 
 
-@if(!Str::contains(url()->current(), 'user') && Auth::check() && ( Request::url() == 'http://localhost/dcm/en/dubai' || Request::url() == 'http://localhost/dcm/ar/dubai') )
+@if(!Str::contains(url()->current(), 'user') && Auth::check() && Route::currentRouteName() === 'home' )
 <!-- Mobile Upper Menu Start Here -->
 
 <div class="MobileUpperMenu mt-11">
    <div style="background-color: #1F428A; background-image: linear-gradient(90deg, #1F428A, #2791CC);">
-      <div class="row" style="height: 70px;">
+      <div class="row" style="height: 75px;">
          <div class="col-9" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right: 25px;"' : 'style="color: #fff;padding-left: 25px;"' !!} >
-            <h5 class="mt-3" style="color: #fff;">{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h5>
+            <h6 class="mt-3" style="color: #fff;">{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>
             <span style="color: #fff;">{{ __('translation.available_balance') }}</span>
          </div>
 
          <div class="col-3 mt-2">
             <span style="top: 2px; right: 4;color:#fff;">{{ __('translation.aed_coin') }}</span>
-            <h4 class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:10px;"' : 'style="color: #fff;padding-left:10px;"' !!}>0.00</h4>
+            <h4 class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:5px;"' : 'style="color: #fff;padding-left:5px;"' !!}>0.00</h4>
          </div>
 
       </div>
@@ -465,7 +465,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
 
 <!-- UserLogin Welcome Message Start -->
-@if(Auth::check() && ( Request::url() == 'http://localhost/dcm/en/dubai' || Request::url() == 'http://localhost/dcm/ar/dubai' ) )
+@if (session()->get('welcomeMessageShown', false))
 
 <div class="MobileWelcomeMSG mt-10">
    <div class="mt-0">

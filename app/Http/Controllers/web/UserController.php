@@ -18,6 +18,7 @@ use App\Models\RewardType;
 use App\Models\StoreVisits;
 use Auth;
 use Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -86,6 +87,10 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'is_active' => '1'])) {
+
+
+            Session::put('welcomeMessageShown', true);
+            //session()->put('welcomeMessageShown', true);
 
             $error_code = 200;
             $response['success'] = 'success';
@@ -181,12 +186,11 @@ class UserController extends Controller
         echo json_encode($response);
     }
 
-
     public function logout($lang)
     {
 
         Auth::logout();
-
+        session()->forget('welcomeMessageShown');
         return redirect('/' . $lang);
     }
 
@@ -260,7 +264,7 @@ class UserController extends Controller
                 $c->date = date('Y-m-d');
                 $c->user_id = Auth::id();
                 $c->invoice_file = $newname;
-                $c->retailer_id = $retailer_id ;
+                $c->retailer_id = $retailer_id;
                 $c->is_contested = 0;
                 $c->save();
 
@@ -291,47 +295,49 @@ class UserController extends Controller
         return view('web.user.user-referral-earn');
     }
 
-    public function withdrawPayment(){
+    public function withdrawPayment()
+    {
 
         $data['requests'] = WithdrawRequests::where('user_id', Auth::id())->orderBy('id', 'desc')->paginate(6);
         $data['rate'] = ConversionRate::where('country_id', config('app.country'))->first();
         $data['country'] = Countries::find(config('app.country'));
-        $data['claimType'] = ClaimType::where('type' , 'Cash Withdraw')->first();
+        $data['claimType'] = ClaimType::where('type', 'Cash Withdraw')->first();
 
         return view('web.user.user-withdraw-payment')->with($data);
     }
 
-    public function withdrawPaymentSubmit(Request $request){
+    public function withdrawPaymentSubmit(Request $request)
+    {
         $data = $request->all();
         $response = [];
 
-        $claimType = ClaimType::where('type' , 'Cash Withdraw')->first();
+        $claimType = ClaimType::where('type', 'Cash Withdraw')->first();
         $rate = ConversionRate::where('country_id', config('app.country'))->first();
         $bank_account = BankAccounts::where('user_id', Auth::id())->first();
         $country = Countries::find(config('app.country'));
 
-        if(empty($bank_account->id)){
+        if (empty($bank_account->id)) {
 
             $response['success'] = 'error';
             $response['message'] = 'Alert! Please update your Bank Account before submit withdraw request.';
-            
+
             return json_encode($response);
         }
 
-        if($data['coins'] < $claimType->eligibility){
+        if ($data['coins'] < $claimType->eligibility) {
 
             $response['success'] = 'error';
-            $response['message'] = 'Alert! You cannot submit request until you reach minimun ('.$claimType->eligibility.' coins).';
-            
+            $response['message'] = 'Alert! You cannot submit request until you reach minimun (' . $claimType->eligibility . ' coins).';
+
             return json_encode($response);
         }
 
 
-        if($data['coins'] > Auth::user()->wallet){
+        if ($data['coins'] > Auth::user()->wallet) {
 
             $response['success'] = 'error';
             $response['message'] = 'Alert! You cannot submit request with more than your available coins.';
-            
+
             return json_encode($response);
         }
 
@@ -344,7 +350,7 @@ class UserController extends Controller
         $w->save();
 
         $u = User::find(Auth::id());
-        $u->wallet = $u->wallet-$data['coins'];
+        $u->wallet = $u->wallet - $data['coins'];
         $u->save();
 
         $t = new TransactionHistory;
@@ -435,7 +441,10 @@ class UserController extends Controller
 
         $data = $request->all();
         $response = [];
+        $msg = '';
         $user_id =  Auth::user()->id;
+
+        //dd($data);
 
         if (!empty($data['bank_id']) || !empty($data['bnk_account_name']) || !empty($data['bnk_iban']) || !empty($data['bnk_account_number'])) {
             $this->validate($request, [
@@ -452,19 +461,27 @@ class UserController extends Controller
                 $bank_account = BankAccounts::create($data);
 
                 if ($bank_account) {
-                    $response['success'] = 'success';
-                    $response['message'] = 'Success! Your account bank details successfully inseted.';
+                    $msg = 'success';
                 } else {
-                    $response['success'] = 'error';
-                    $response['message'] = 'error! error while insert data.';
+                    $msg = 'error';
                 }
             } else {
-                $response['success'] = 'exist';
-                $response['message'] = 'exist! account details already exists for this user.';
+
+                $ba = BankAccounts::find($user_id);
+                $ba->bank_id = $data['bank_id'];
+                $ba->user_id = $user_id;
+                $ba->account_holder_name = $data['bnk_account_name'];
+                $ba->iban = $data['bnk_iban'];
+                $ba->account_number = $data['bnk_account_number'];
+
+                if ($ba->save()) {
+                    $msg = 'updated';
+                } else {
+                    $msg = 'error';
+                }
             }
         }
-
-        echo json_encode($response);
+        return redirect()->route('user.settings')->with($msg, $msg);
     }
 
     public function transactionHistory()

@@ -32,174 +32,175 @@ Route::get('/migrate', function () {
 
 
 // Website
-    Route::get('/', 'web\RegionController@get_lang');
+Route::get('/', 'web\RegionController@get_lang');
 
-    //Region
-    Route::group([
-                'namespace' => 'web',
-                'prefix' => '{locale}',
-                'where' => ['locale' => '[a-zA-Z]{2}'],
-                'middleware' => ['setLocale','amp_validator'],
+//Region
+Route::group([
+    'namespace' => 'web',
+    'prefix' => '{locale}',
+    'where' => ['locale' => '[a-zA-Z]{2}'],
+    'middleware' => ['setLocale', 'amp_validator'],
 
-            ], function () {
-        Route::get('/', 'RegionController@index');
-        Route::get('/region/{name}', 'RegionController@set_region')->name('setRegion');
-        Route::get('/getLocation', 'RegionController@get_location');
+], function () {
+    Route::get('/', 'RegionController@index');
+    Route::get('/region/{name}', 'RegionController@set_region')->name('setRegion');
+    Route::get('/getLocation', 'RegionController@get_location');
 
-        Route::prefix('{region}')->group(function(){
-            //Home
-            Route::get('/', 'HomeController@index')->name('home');
-                //Includes Lazy Load
-                Route::prefix('includes')->group(function(){
-                    Route::get('getFooter', 'HomeController@get_footer');
-                });
-                //Home Lazy Load
-                Route::prefix('home')->group(function(){
-                    Route::get('getStates/{type}', 'HomeController@get_states');
-                    Route::get('getcategories', 'HomeController@get_categories');
-                    Route::get('getOnlineStores', 'HomeController@get_online_store');
-                    Route::get('getRetailStores', 'HomeController@get_retail_store');
-                    Route::get('getAllStores', 'HomeController@get_all_store');
-                });
-
-            Route::get('/search/{value}', 'HomeController@search');
-
-            //Listing
-            Route::prefix('stores')->group(function(){
-                Route::get('/{type}', 'ListingController@index')->name('stores');
-            });
-
-            Route::prefix('store')->group(function(){
-                Route::get('/{brand_slug}', 'ListingController@brand')->name('brand');
-                Route::get('{cat_slug}/{brand_slug}', 'ListingController@category_brand')->name('category.brand');
-            });
-            Route::prefix('coupon')->group(function(){
-                Route::get('/{id}', 'ListingController@show_coupon');
-                Route::get('/grabDeal/{id}', 'ListingController@coupon_grab_deal');
-            });
-            Route::prefix('offers')->group(function(){
-                Route::get('/{id}', 'ListingController@show_offer');
-                Route::get('/whatsapp/{id}', 'ListingController@redirect_whatsapp');
-                Route::get('/qrcode/{slug}/{id}', 'ListingController@generate_qrcode')->name('offers.qrcode');
-                Route::post('/qrcode/mark', 'ListingController@qrcode_markasused')->name('offers.qrcode.mark');
-                Route::get('/redeem-pdf/{id}', 'ListingController@redeem_pdf')->name('offers.redeemPDF');
-            });
-
-            Route::prefix('category')->group(function(){
-                Route::get('{cat_slug}', 'ListingController@category')->name('category');
-                Route::get('{cat_slug}/{type}', 'ListingController@category_sub')->name('category.sub');
-            });
-
-            //Blogs
-            Route::prefix('blogs')->middleware('BlogAccess')->group(function(){
-
-                Route::get('/', 'BlogController@index')->name('Blogs');
-         
-                Route::get('/{slug}', 'BlogController@detail')->name('blog.details');
-            });
-
-            //About-Us
-            Route::get('/about-Us', 'HomeController@About_Us')->name('About_Us');
-
-
-            //About-Us
-            Route::get('/contact-Us', 'HomeController@Contact_Us')->name('Contact_Us');
-            Route::post('/contact-Us', 'HomeController@Contact_Us_submit')->name('Contact_Us');
-
-            //Sell-With-DCM
-            Route::get('/sell-with-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
-            Route::post('/lead-generation', 'HomeController@lead_generation')->name('lead.generation');
-
-            
-            Route::get('/faqs', 'HomeController@FAQS')->name('FAQS');
-
-            //Terms
-            Route::get('/terms', 'HomeController@Terms')->name('Terms');
-
-            //Privacy-Policy
-            Route::get('/privacy-policy', 'HomeController@Privacy_Policy')->name('Privacy_Policy');
-
-            //Anti-Spam
-            Route::get('/anti-spam', 'HomeController@Anti_Spam')->name('Anti_Spam');
-
-            //Extension Page //
-            Route::get('/welcome', 'ExtController@welcomePage')->name('welcomePage');
-
-            //Claim cashback LandingPage
-            Route::get('/claim/cashback', 'HomeController@claim_cashback')->name('claim_cashback');
-
+    Route::prefix('{region}')->group(function () {
+        //Home
+        Route::get('/', 'HomeController@index')->name('home');
+        //Includes Lazy Load
+        Route::prefix('includes')->group(function () {
+            Route::get('getFooter', 'HomeController@get_footer');
+        });
+        //Home Lazy Load
+        Route::prefix('home')->group(function () {
+            Route::get('getStates/{type}', 'HomeController@get_states');
+            Route::get('getcategories', 'HomeController@get_categories');
+            Route::get('getOnlineStores', 'HomeController@get_online_store');
+            Route::get('getRetailStores', 'HomeController@get_retail_store');
+            Route::get('getAllStores', 'HomeController@get_all_store');
         });
 
-        //Users
-        Route::prefix('user')->group(function(){
-            Route::post('create', 'UserController@create')->name('user.create');
-            Route::post('create_from_ext', 'UserController@create_from_ext')->name('user.create_from_ext');
-            
-            Route::post('login', 'UserController@login')->name('user.login');
-            Route::post('login_from_ext', 'UserController@login_from_ext')->name('user.login_from_ext');
+        Route::get('/search/{value}', 'HomeController@search');
 
-            Route::post('forgotPassword', 'UserController@forgotPassword')->name('user.forgotPassword');
-            Route::get('resetPassword/{id}/{email}', 'UserController@resetPassword')->name('user.resetPassword');
-            Route::post('updatePassword', 'UserController@updatePassword')->name('user.updatePassword');
-
-            Route::get('logout', 'UserController@logout')->name('user.logout');
-
-            Route::get('/google', 'GoogleLoginController@redirectToGoogle')->name('auth.google');
-            Route::get('/google/callback', 'GoogleLoginController@handleGoogleCallback');
-
-            Route::get('/facebook', 'FacebookLoginController@redirectToFacebook')->name('auth.facebook');
-            Route::get('/facebook/callback', 'FacebookLoginController@handleFacebookCallback');
-
-            Route::get('referral/{id}/{email}', 'UserController@referral_link')->name('user.referral.link');
-
-            Route::middleware('userAuth')->group(function(){
-
-                Route::get('profile', 'UserController@profile')->name('user.profile');
-                Route::post('verify_email', 'UserController@verify_email')->name('user.verify_email');
-
-                Route::prefix('claim-cashback')->group(function(){
-                    Route::get('/', 'UserController@claimCashback')->name('user.claimCashback');
-                    Route::post('/request', 'UserController@claimCashbackRequest')->name('user.claimCashback.request');
-                });
-
-                Route::get('payment-history', 'UserController@paymenyHistory')->name('user.paymenyHistory');
-
-                Route::get('referral-earn', 'UserController@referralEarn')->name('user.referralEarn');
-
-                Route::get('withdraw-payment', 'UserController@withdrawPayment')->name('user.withdrawPayment');
-                Route::post('withdraw-payment', 'UserController@withdrawPaymentSubmit')->name('user.withdrawPayment.submit');
-
-                Route::get('dashboard', 'UserController@dashboard')->name('user.dashboard');
-                Route::get('transaction-history', 'UserController@transactionHistory')->name('user.transactionHistory');
-
-                Route::prefix('settings')->group(function(){
-                    Route::get('/', 'UserController@settings')->name('user.settings');
-                    Route::post('/update', 'UserController@settings_update')->name('user.settings.update');
-                    Route::post('/bank_details', 'UserController@bank_details')->name('user.settings.bank_details');
-                });
-            });
+        //Listing
+        Route::prefix('stores')->group(function () {
+            Route::get('/{type}', 'ListingController@index')->name('stores');
         });
 
-        //Careers
-        Route::prefix('careers/vacancies')->group(function () {
-            Route::get('/', 'CareerController@index')->name('careers');
-            Route::get('/{id}', 'CareerController@details')->name('careers.job-details');
-            Route::post('/apply', 'CareerController@apply')->name('careers.apply');
+        Route::prefix('store')->group(function () {
+            Route::get('/{brand_slug}', 'ListingController@brand')->name('brand');
+            Route::get('{cat_slug}/{brand_slug}', 'ListingController@category_brand')->name('category.brand');
+        });
+        Route::prefix('coupon')->group(function () {
+            Route::get('/{id}', 'ListingController@show_coupon');
+            Route::get('/grabDeal/{id}', 'ListingController@coupon_grab_deal');
+        });
+        Route::prefix('offers')->group(function () {
+            Route::get('/{id}', 'ListingController@show_offer');
+            Route::get('/whatsapp/{id}', 'ListingController@redirect_whatsapp');
+            Route::get('/qrcode/{slug}/{id}', 'ListingController@generate_qrcode')->name('offers.qrcode');
+            Route::post('/qrcode/mark', 'ListingController@qrcode_markasused')->name('offers.qrcode.mark');
+            Route::get('/redeem-pdf/{id}', 'ListingController@redeem_pdf')->name('offers.redeemPDF');
         });
 
-        //Newsletter
-        Route::prefix('newsletter')->group(function(){
-            Route::post('subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
-            Route::post('amp/subscribe', 'NewsletterController@subscribe_amp')->name('newsletter.subscribe.amp');
+        Route::prefix('category')->group(function () {
+            Route::get('{cat_slug}', 'ListingController@category')->name('category');
+            Route::get('{cat_slug}/{type}', 'ListingController@category_sub')->name('category.sub');
         });
 
-        //Chrome Extension
-        Route::prefix('ext')->group(function(){
-            Route::get('open/{url}', 'ExtController@index')->name('ext.open');
-            Route::get('login/{url}', 'ExtController@login')->name('ext.login');
+        //Blogs
+        Route::prefix('blogs')->middleware('BlogAccess')->group(function () {
+
+            Route::get('/', 'BlogController@index')->name('Blogs');
+
+            Route::get('/{slug}', 'BlogController@detail')->name('blog.details');
         });
 
+        //About-Us
+        Route::get('/about-Us', 'HomeController@About_Us')->name('About_Us');
+
+
+        //About-Us
+        Route::get('/contact-Us', 'HomeController@Contact_Us')->name('Contact_Us');
+        Route::post('/contact-Us', 'HomeController@Contact_Us_submit')->name('Contact_Us');
+
+        //Sell-With-DCM
+        Route::get('/sell-with-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
+        Route::post('/lead-generation', 'HomeController@lead_generation')->name('lead.generation');
+
+
+        Route::get('/faqs', 'HomeController@FAQS')->name('FAQS');
+
+        //Terms
+        Route::get('/terms', 'HomeController@Terms')->name('Terms');
+
+        //Privacy-Policy
+        Route::get('/privacy-policy', 'HomeController@Privacy_Policy')->name('Privacy_Policy');
+
+        //Anti-Spam
+        Route::get('/anti-spam', 'HomeController@Anti_Spam')->name('Anti_Spam');
+
+        //Extension Page //
+        Route::get('/welcome', 'ExtController@welcomePage')->name('welcomePage');
+
+        //Claim cashback LandingPage
+        Route::get('/claim/cashback', 'HomeController@claim_cashback')->name('claim_cashback');
+
+        //Cancel Welcome Message Session
+        Route::get('/cancelWelcomeMsg', 'HomeController@cancelWelcomeMsg')->name('cancelWelcomeMsg');
     });
+
+    //Users
+    Route::prefix('user')->group(function () {
+        Route::post('create', 'UserController@create')->name('user.create');
+        Route::post('create_from_ext', 'UserController@create_from_ext')->name('user.create_from_ext');
+
+        Route::post('login', 'UserController@login')->name('user.login');
+        Route::post('login_from_ext', 'UserController@login_from_ext')->name('user.login_from_ext');
+
+        Route::post('forgotPassword', 'UserController@forgotPassword')->name('user.forgotPassword');
+        Route::get('resetPassword/{id}/{email}', 'UserController@resetPassword')->name('user.resetPassword');
+        Route::post('updatePassword', 'UserController@updatePassword')->name('user.updatePassword');
+
+        Route::get('logout', 'UserController@logout')->name('user.logout');
+
+        Route::get('/google', 'GoogleLoginController@redirectToGoogle')->name('auth.google');
+        Route::get('/google/callback', 'GoogleLoginController@handleGoogleCallback');
+
+        Route::get('/facebook', 'FacebookLoginController@redirectToFacebook')->name('auth.facebook');
+        Route::get('/facebook/callback', 'FacebookLoginController@handleFacebookCallback');
+
+        Route::get('referral/{id}/{email}', 'UserController@referral_link')->name('user.referral.link');
+
+        Route::middleware('userAuth')->group(function () {
+
+            Route::get('profile', 'UserController@profile')->name('user.profile');
+            Route::post('verify_email', 'UserController@verify_email')->name('user.verify_email');
+
+            Route::prefix('claim-cashback')->group(function () {
+                Route::get('/', 'UserController@claimCashback')->name('user.claimCashback');
+                Route::post('/request', 'UserController@claimCashbackRequest')->name('user.claimCashback.request');
+            });
+
+            Route::get('payment-history', 'UserController@paymenyHistory')->name('user.paymenyHistory');
+
+            Route::get('referral-earn', 'UserController@referralEarn')->name('user.referralEarn');
+
+            Route::get('withdraw-payment', 'UserController@withdrawPayment')->name('user.withdrawPayment');
+            Route::post('withdraw-payment', 'UserController@withdrawPaymentSubmit')->name('user.withdrawPayment.submit');
+
+            Route::get('dashboard', 'UserController@dashboard')->name('user.dashboard');
+            Route::get('transaction-history', 'UserController@transactionHistory')->name('user.transactionHistory');
+
+            Route::prefix('settings')->group(function () {
+                Route::get('/', 'UserController@settings')->name('user.settings');
+                Route::post('/update', 'UserController@settings_update')->name('user.settings.update');
+                Route::post('/bank_details', 'UserController@bank_details')->name('user.settings.bank_details');
+            });
+        });
+    });
+
+    //Careers
+    Route::prefix('careers/vacancies')->group(function () {
+        Route::get('/', 'CareerController@index')->name('careers');
+        Route::get('/{id}', 'CareerController@details')->name('careers.job-details');
+        Route::post('/apply', 'CareerController@apply')->name('careers.apply');
+    });
+
+    //Newsletter
+    Route::prefix('newsletter')->group(function () {
+        Route::post('subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
+        Route::post('amp/subscribe', 'NewsletterController@subscribe_amp')->name('newsletter.subscribe.amp');
+    });
+
+    //Chrome Extension
+    Route::prefix('ext')->group(function () {
+        Route::get('open/{url}', 'ExtController@index')->name('ext.open');
+        Route::get('login/{url}', 'ExtController@login')->name('ext.login');
+    });
+});
 
 
 
@@ -223,10 +224,9 @@ Route::prefix('seller/panel')->namespace('seller')->group(function () {
         Route::post('/filter', 'MainController@dashboard_filter')->name('seller.filter');
 
         //Export
-        Route::prefix('export')->group(function(){
+        Route::prefix('export')->group(function () {
             Route::post('/', 'ExportController@index')->name('seller.export');
         });
-
     });
 });
 
@@ -248,7 +248,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
     Route::middleware('adminAuth')->group(function () {
         Route::get('/', 'MainController@index')->name('admin.dashboard');
         //Dashboard
-        Route::prefix('dashboard')->group(function(){
+        Route::prefix('dashboard')->group(function () {
             Route::get('/widgets', 'MainController@get_widgets')->name('admin.dashboard.get_widgets');
             Route::get('/recentActivities', 'MainController@get_recent_activities')->name('admin.dashboard.get_recent_activities');
         });
@@ -265,7 +265,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::get('/delete/{id}', 'RetailerController@delete');
 
             //Seller Panel
-            Route::prefix('sellerPanel')->group(function(){
+            Route::prefix('sellerPanel')->group(function () {
                 Route::post('/create', 'RetailerController@create_seller_panel')->name('admin.retailer.sellerpanel.create');
             });
 
@@ -315,8 +315,8 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //Careers
-         Route::prefix('careers')->group(function () {
-         
+        Route::prefix('careers')->group(function () {
+
             Route::get('/', 'CareerController@index')->name('admin.careers');
             Route::get('/applied', 'CareerController@applied')->name('admin.careers.applied');
             Route::get('/load', 'CareerController@load')->name('admin.careers.load');
@@ -324,7 +324,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/create', 'CareerController@create')->name('admin.careers.create');
             Route::get('/edit/{id}', 'CareerController@edit');
             Route::get('/details/{id}', 'CareerController@details')->name('admin.careers.details');
-            
+
             Route::get('/delete/{id}', 'CareerController@delete');
             Route::get('/deleteAplicant/{id}', 'CareerController@deleteAplicant');
         });
@@ -356,14 +356,14 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/export', 'WebUserController@user_export')->name('admin.webUsers.export');
 
             //Invoice Requests
-            Route::prefix('invoices')->group(function(){
+            Route::prefix('invoices')->group(function () {
                 Route::get('/', 'UserInvoiceController@index')->name('admin.users.invoices');
                 Route::get('/approve/{id}', 'UserInvoiceController@approve');
                 Route::get('/reject/{id}', 'UserInvoiceController@reject');
             });
 
             //Withdraw Requests
-            Route::prefix('withdraw')->group(function(){
+            Route::prefix('withdraw')->group(function () {
                 Route::get('/', 'WithdrawController@index')->name('admin.users.withdraw');
                 Route::get('/approve/{id}', 'WithdrawController@approve');
                 Route::get('/transfer/{id}', 'WithdrawController@transfer');
@@ -372,7 +372,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             });
 
             //Genie Wish Requests
-            Route::prefix('genie-wish')->group(function(){
+            Route::prefix('genie-wish')->group(function () {
                 Route::get('/', 'GenieWishController@index')->name('admin.users.geniewish');
                 Route::get('/view/{id}', 'GenieWishController@view');
                 Route::get('/approve/{id}', 'GenieWishController@approve');
@@ -384,7 +384,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
         //DCM Contest
         Route::prefix('invoices')->group(function () {
-            
+
             Route::get('/', 'InvoiceController@index')->name('admin.invoices');
             Route::get('/load', 'InvoiceController@load')->name('admin.invoices.load');
             Route::get('/details/{id}', 'InvoiceController@details')->name('admin.invoices.details');
@@ -393,7 +393,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/filter', 'InvoiceController@filter')->name('admin.invoices.filter');
 
             Route::get('/delete/{id}', 'InvoiceController@delAllInvoice');
-            Route::get('/deleteSingle/{id}', 'InvoiceController@delSingleInvoice') ;
+            Route::get('/deleteSingle/{id}', 'InvoiceController@delSingleInvoice');
 
             //QR 
             Route::get('/scanned_qr', 'InvoiceController@scanned_qr')->name('admin.invoices.scanned_qr');
@@ -403,7 +403,6 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
             //Toss
             Route::post('/toss', 'InvoiceController@toss')->name('admin.invoices.toss');
-
         });
 
         //Categories
@@ -441,7 +440,6 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::post('/update', 'UserController@update_user')->name('admin.users.update');
             Route::get('/delete/{id}', 'UserController@delete');
             Route::get('/changeStatus/{id}/{status}', 'UserController@changeStatus');
-
         });
 
         //Newsletter
@@ -457,27 +455,27 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         Route::prefix('loyalty')->group(function () {
 
             //Settings
-            Route::prefix('settings')->group(function(){
+            Route::prefix('settings')->group(function () {
 
                 Route::get('/', 'LoyaltyController@settings')->name('admin.loyalty.settings');
-                Route::prefix('conversionRate')->group(function(){
+                Route::prefix('conversionRate')->group(function () {
                     Route::post('/add', 'LoyaltyController@addConverstionRate')->name('admin.loyalty.settings.conversionRate.add');
                     Route::get('/delete/{id}', 'LoyaltyController@deleteConverstionRate');
                     Route::get('/edit/{id}', 'LoyaltyController@editConverstionRate');
                     Route::post('/update', 'LoyaltyController@updateConverstionRate')->name('admin.loyalty.settings.conversionRate.update');
                 });
 
-                Route::prefix('eligibility')->group(function(){
+                Route::prefix('eligibility')->group(function () {
                     Route::get('/edit/{id}', 'LoyaltyController@editEligibility');
                     Route::post('/update', 'LoyaltyController@updateEligibility')->name('admin.loyalty.settings.eligibility.update');
                 });
 
-                Route::prefix('reward')->group(function(){
+                Route::prefix('reward')->group(function () {
                     Route::get('/edit/{id}', 'LoyaltyController@editReward');
                     Route::post('/update', 'LoyaltyController@updateReward')->name('admin.loyalty.settings.reward.update');
                 });
 
-                Route::prefix('categories')->group(function(){
+                Route::prefix('categories')->group(function () {
                     Route::post('/add', 'LoyaltyController@addCategories')->name('admin.loyalty.settings.categories.add');
                     Route::get('/delete/{id}', 'LoyaltyController@deleteCategories');
                     Route::get('/edit/{id}', 'LoyaltyController@editCategories');
@@ -486,7 +484,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             });
         });
 
-        
+
         //Home :: Slider Section
         Route::prefix('home')->group(function () {
 
@@ -501,7 +499,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
             Route::prefix('stores')->group(function () {
 
-            
+
                 Route::get('/', 'CmsController@stores')->name('admin.home.stores');
                 Route::get('/get-retailers', 'CmsController@getRetailers')->name('admin.home.stores.get-retailers');
                 Route::post('/create', 'CmsController@create_stores')->name('admin.home.stores.create');
