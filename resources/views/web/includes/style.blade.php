@@ -25,5 +25,8 @@
 @else
 <link href="{{URL::to('/public')}}/web_assets/css/style.css" rel="stylesheet" />
 @endif
-
+@if ( app()->getLocale() == 'ar' )
+<link href="{{URL::to('/public')}}/web_assets/css/user-profile-menu-ar.css" rel="stylesheet" />
+@else
 <link href="{{URL::to('/public')}}/web_assets/css/user-profile-menu.css" rel="stylesheet" />
+@endif

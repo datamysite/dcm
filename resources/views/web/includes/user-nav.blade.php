@@ -81,22 +81,16 @@ new color : #dfe1e5
     <!-- Mobile Section Start-->
 
     <!-- Main Mobile div for main profile Start-->
-    <div class="MobileUserProfile mt-5" style="background-color: #1F428A;border-radius: 10px; background-image: linear-gradient(90deg, #1F428A, #2791CC);justify-items: center;justify-content: center;">
-        <div class="row mt-2">
-            <div class="col-sm-2">
-                <img src="{{URL::to('/public')}}/web_assets/images/icons/bird.png" alt="Circle Image" class="circle-image" style="background-color:whitesmoke;">
-            </div>
-            <div class="col-sm-8 ">
-                <h6 class="mt-5" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;"' : 'style="color: #fff;padding-left:25px;"' !!}>{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>
-                <p {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;"' : 'style="color: #fff;padding-left:25px;"' !!}>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                </p>
-            </div>
-            <div class="col-sm-2 d-flex flex-column justify-content-end">
-                <a href="{{route('user.logout')}}"><b class="mt-0" style="color: #fff;">{{ __('translation.logout_menu') }}</b></a>
-            </div>
+    <div class="MobileUserProfile mt-5" style="">
+        <img src="{{URL::to('/public')}}/web_assets/images/icons/bird.png" alt="Circle Image" class="circle-image">
+        <div>
+            <h6 class="mt-5" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;"' : 'style="color: #fff;padding-left:25px;"' !!}>{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>
+            <p {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;"' : 'style="color: #fff;padding-left:25px;"' !!}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
         </div>
-        <div class="mt-2"></div>
+        <a href="{{route('user.logout')}}"><b class="mt-0" style="color: #fff;"><i class="fa fa-sign-out"></i> {{ __('translation.logout_menu') }}</b></a>
+        
     </div>
     <!-- Main Mobile div for main profile End-->
 
