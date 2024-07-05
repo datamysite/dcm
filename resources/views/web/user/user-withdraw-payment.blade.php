@@ -263,11 +263,7 @@
         const coinsRateInput = document.getElementById('coins_rate');
 
         const myCoinsValue = myCoinsInput.value;
-        const conversionRate = {
-            {
-                $rate - > value
-            }
-        };
+        const conversionRate = parseFloat('{{$rate->value}}');
 
         if (myCoinsValue < 0 || isNaN(myCoinsValue) || /^0[0-9]+$/.test(myCoinsValue)) {
             coinsRateInput.value = "0.0 {{$country->curr}}";
