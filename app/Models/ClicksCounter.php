@@ -26,9 +26,9 @@ class ClicksCounter extends Model
             if(($ipset[0] != "66" && $ipset[1] != "249") && $userIp != "216.144.248.28"){
 
                 $client = new Client();
-                 $response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
-                 $data = json_decode($response->getBody());
-
+                 $response = $client->get("https://proxycheck.io/v2/{$userIp}?key=".config('app.proxycheck')."&vpn=1&asn=1");
+                 //$response = $client->get("https://ipinfo.io/{$userIp}?token=".config('app.ipinfo'));
+                 $data = json_decode($response->getBody(), true);
 
                  $cc = new ClicksCounter;
                  $cc->retailer_id = $id;
@@ -38,11 +38,11 @@ class ClicksCounter extends Model
                     $cc->offer_id = $coup_id;
                  }
                  $cc->type = $type;
-                 $cc->ipaddress = $data->ip;
-                 $cc->coordinates = empty($data->loc) ? '' : $data->loc;
-                 $cc->country = empty($data->country) ? '' : $data->country;
-                 $cc->region = empty($data->region) ? '' : $data->region;
-                 $cc->city = empty($data->city) ? '' : $data->city;
+                 $cc->ipaddress = $userIp;
+                 $cc->coordinates = empty($data[$userIp]['latitude']) ? '' : $data[$userIp]['latitude'].', '.$data[$userIp]['longitude'];
+                 $cc->country = empty($data[$userIp]['isocode']) ? '' : $data[$userIp]['isocode'];
+                 $cc->region = empty($data[$userIp]['region']) ? '' : $data[$userIp]['region'];
+                 $cc->city = empty($data[$userIp]['city']) ? '' : $data[$userIp]['city'];
                  $cc->save();
             }
         }

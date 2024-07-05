@@ -167,13 +167,13 @@
    .profile-wallet label {
        position: absolute;
        top: 5px;
-       left: 10px;
+       right: 10px;
        color: #fff;
        font-size: 12px;
    }
    .profile-wallet h4 {
        position: absolute;
-       left: 20px;
+       right: 35px;
        top: 27px;
        color: #fff;
        font-size: 26px;
@@ -189,7 +189,7 @@
        mix-blend-mode: hard-light !important;
        filter: brightness(0.5) invert(1);
        position: absolute;
-       right: 10px;
+       left: 25px;
        top: 3px;
    }
 
@@ -234,17 +234,17 @@
        height: 70px;
        width: auto;
        top: 12px;
-       left: 12px;
+       right: 12px;
    }
   .MobileUserProfile div {
        position: absolute;
-       left: 80px;
+       right: 80px;
        top: 8px;
    }
    .MobileUserProfile a {
        position: absolute;
        bottom: 8px;
-       left: 13px;
+       right: 13px;
        background-color: #2790cb;
        font-size: 12px;
        padding: 1px 6px;

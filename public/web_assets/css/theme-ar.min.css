@@ -5255,6 +5255,7 @@ fieldset:disabled .btn {
   list-style: none;
   margin-bottom: 0;
   padding-left: 0px;
+  padding-right: 10px;
 
 }
 .navbar-nav .nav-link.active,
@@ -26261,7 +26262,7 @@ span.flatpickr-weekday {
   display: none;
 }
 .desktop-nav form {
-    width: 45% !important;
+    width: 50% !important;
 }
 .custom_col {
   flex: 1 0 0%;

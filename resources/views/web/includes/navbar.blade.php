@@ -333,14 +333,14 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
 
                         <div class="col-6 mt-5">
-                           <span class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="padding-right:15px"' : 'style="padding-left:15px"' !!} >{{ __('translation.available_balance') }}</span><br>
-                           <span class="mt-2" {!! app()->getLocale() == 'ar' ? 'style="padding-right:15px"' : 'style="padding-left:15px"' !!}><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>{{number_format(Auth::user()->wallet)}}</b></span>
+                           <span class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="padding-right:10px"' : 'style="padding-left:10px"' !!} >{{ __('translation.available_balance') }}</span><br>
+                           <span class="mt-2" {!! app()->getLocale() == 'ar' ? 'style="padding-right:35px"' : 'style="padding-left:35px"' !!}><b style="position: relative; top: -2px; left:-10px; color:#ffb01b"><i class="fa fa-coins"></i></b> <b>{{number_format(Auth::user()->wallet)}}</b></span>
                         </div>
 
 
                         <div class="col-6 mt-5">
                            <span class="mt-0"> {{ __('translation.pending_balance') }}</span><br>
-                           <span><b style="position: relative; top: -5px; color:#c3bcbc">{{ __('translation.aed_coin') }}</b> <b>{{number_format($pending_balance)}}</b></span>
+                           <span {!! app()->getLocale() == 'ar' ? 'style="padding-right:35px"' : 'style="padding-left:35px"' !!}><b style="position: relative; top: -2px; left:-10px; color:#ffb01b"><i class="fa fa-coins"></i></b> <b>{{number_format($pending_balance)}}</b></span>
                         </div>
 
                         <div class="row mt-2" {!! app()->getLocale() == 'ar' ? 'style="text-align: right; padding-right: 30px; text-decoration: underline;"' : 'style="text-align: left; padding-left: 30px; text-decoration: underline;"' !!} >
