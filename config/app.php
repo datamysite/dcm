@@ -71,6 +71,8 @@ return [
 
     'ipinfo' => env('APP_IPINFO', "52b869f75e12f2"),
 
+    'proxycheck' => env('APP_PROXYCHECK', "951081-2m5u23-3678ef-7643yx"),
+
     /*
     |--------------------------------------------------------------------------
     | Application URL
