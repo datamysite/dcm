@@ -136,8 +136,6 @@
                                         @endif
                                     @endforeach
                                 </select>
-
-
                             </div>
                             <div class="input-group py-2">
                                 <input class="form-control rounded " type="text" name="bnk_account_name" placeholder="{{ __('translation.bnk_form_account_holder_name') }}" value="{{ $data['bank_details'] !== null  ? $data['bank_details']->account_holder_name : '' }}" required="required" />

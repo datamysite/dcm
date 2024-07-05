@@ -819,6 +819,7 @@ return [
   "referal_how_it_wors_txt_1" => "Copy your referral link and share it with your friends.",
   "referal_how_it_wors_txt_2" => "Your friend signs up and starts shopping to earn cashback.",
   "referal_how_it_wors_txt_3" => "Once your friend has collected AED 20 of cashback, you will both receive an AED 15 bonus.",
+  "referal_how_it_wors_txt_4" => "Check your email for the verification code to start referral.",
 
   "referal_terms_txt" => "Referral Terms: ",
   "referal_terms_txt_1" => "To qualify for the referral bonus ensure your friend signs up with your unique referral code and earns AED 20 of confirmed cashback by shopping on DCM.",
@@ -865,5 +866,6 @@ return [
   "success_bnk_msg" => "Bank account details inserted/updated successfully!",
   "error_bnk_msg" => "Error occured while insert/update account details!",
 
+  "email_verfication_msg_txt_1" => "To active withdraw payment, Kindly check your email for verification code !",
 
 ];

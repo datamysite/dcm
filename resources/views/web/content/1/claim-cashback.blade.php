@@ -107,7 +107,7 @@
             <div class="row mt-0">
                 <div class="col-lg-12">
                     <div class="row">
-
+                        
                         <div class="col-lg-2 d-flex flex-column justify-content-top">
                             <div class="vertical-line">
                                 <div class="circle2"></div>

@@ -44,7 +44,6 @@
 
                 <div class="row mt-5" style="background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
 
-
                     <p class="mb-0 lead" style="color: #fff;">{{ __('translation.profile_para_1') }} </p>
 
                     <div class="row text-center mt-5" style="justify-content: center;">
@@ -57,7 +56,8 @@
                         </div>
                     </div>
 
-                    <div class="mt-5">
+
+                    <div class="mt-0">
                         <h6 style="color: #fff;">{{ __('translation.upload_invoice_txt') }} </h6>
                     </div>
                     <form id="cashback_form" action="{{route('user.claimCashback.request')}}" class="mt-1" style="color: #fff;">
@@ -82,8 +82,9 @@
                             <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" {!! app()->getLocale() == 'ar' ? 'style="float: left;"' : 'style="float: right;"' !!} value="{{ __('translation.upload_btn') }}">
                         </div>
                     </form>
-
                 </div>
+      
+
 
                 <div class="row mt-5" style="border-radius: 10px ; background-color:#f0f3f2;">
 
@@ -139,6 +140,7 @@
                         </table>
                     </div>
                 </div>
+         
 
             </div>
         </div>

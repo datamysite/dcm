@@ -28,7 +28,7 @@
                 @include('web.includes.user-nav')
                 <!-- col -->
                 <div class="col-lg-8 m-0">
-
+                    
                     <div class="row" style="background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);width: 103%;{!! app()->getLocale() == 'ar' ? 'margin-right:-4px;' : 'margin-left:-4px;' !!}">
                         <h4 class="mb-5 mt-5"> <b style="color: #fff;">{{ __('translation.dashboard') }}</b></h4>
                     </div>
