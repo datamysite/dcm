@@ -39,7 +39,7 @@ class ClicksCounter extends Model
                  }
                  $cc->type = $type;
                  $cc->ipaddress = $userIp;
-                 $cc->coordinates = empty($data[$userIp]['latitude']) ? '' : $data[$userIp]['latitude'].','.$data[$userIp]['longitude'];
+                 $cc->coordinates = empty($data[$userIp]['latitude']) ? '' : $data[$userIp]['latitude'].', '.$data[$userIp]['longitude'];
                  $cc->country = empty($data[$userIp]['isocode']) ? '' : $data[$userIp]['isocode'];
                  $cc->region = empty($data[$userIp]['region']) ? '' : $data[$userIp]['region'];
                  $cc->city = empty($data[$userIp]['city']) ? '' : $data[$userIp]['city'];
