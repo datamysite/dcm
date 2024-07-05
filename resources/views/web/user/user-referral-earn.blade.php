@@ -40,6 +40,8 @@
                     <li class="mb-0 lead">{{ __('translation.referal_how_it_wors_txt_1') }}</li>
                     <li class="mb-0 lead">{{ __('translation.referal_how_it_wors_txt_2') }}</li>
                     <li class="mb-0 lead">{{ __('translation.referal_how_it_wors_txt_3') }}</li>
+
+                    
                     <p></p>
                     <h4 class="mb-2 mt-0" style="color: #fff;">{{ __('translation.referal_terms_txt') }}</h4>
                     <p>
@@ -101,16 +103,14 @@
                             <a href="https://api.whatsapp.com/send?text=DealsandCouponsMena%0a%0a{{route('home', [$region])}}?ref=signup%26referal_link={{base64_encode(Auth::user()->email)}}" target="_blank">
                                 <img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;mix-blend-mode:hard-light !important;filter:brightness(0.5) invert(1);" alt="Whatsapp">
                             </a>
-                            <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="{{ __('translation.referal_copy_link_txt') }}" onclick="copy()"  style="display: inline-block; margin-right: 20px;">
-
+                            <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="{{ __('translation.referal_copy_link_txt') }}" onclick="copy()" style="display: inline-block; margin-right: 20px;">
                         </div>
 
                     </div>
                     <p></p>
                 </div>
-
-
-
+             
+                 
             </div>
         </div>
     </div>
@@ -125,15 +125,15 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 <script type="text/javascript">
     FB.init({
-     appId: '443351671845547',
-     version: 'v10.0',
+        appId: '443351671845547',
+        version: 'v10.0',
     });
 
     function shareOnFacebook() {
-     FB.ui({
-     method: 'share',
-     href: "{{route('home', [$region])}}?ref=signup%26referal_link={{base64_encode(Auth::user()->email)}}",
-     }, function(response){});
+        FB.ui({
+            method: 'share',
+            href: "{{route('home', [$region])}}?ref=signup%26referal_link={{base64_encode(Auth::user()->email)}}",
+        }, function(response) {});
     }
 
     function copy() {

@@ -38,6 +38,7 @@
                     <h4 class="mb-5 mt-5"> <b style="color: #fff;">{{ __('translation.total_earnings_txt_heading_02') }} </b></h4>
                 </div>
 
+                @if(Auth::user()->email_verified == 1)
                 <div class="row mt-5" style="background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);">
 
                     <p class="mb-0 lead" style="color: #fff;">
@@ -58,7 +59,32 @@
                     </div>
                     <p></p>
                 </div>
+                @endif
 
+                @if(Auth::user()->email_verified == 0)
+                <div class="row mt-5" style="background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);">
+                    <div class="text-center mt-0">
+                        <form id="verify_email_form" action="{{route('user.verify_email')}}">
+                            @csrf
+                            <div class="row col-lg-12 mt-1" style="justify-content:center;justify-items: center;justify-self: center;padding: 10px;">
+                                <div class="col-sm-4">
+                                    <input type="number" name="email_otp" class="form-control form-control-sm" placeholder="{{ __('translation.otp_txt') }}" min="100000" max="999999" required>
+                                </div>
+                                <div class="col-4">
+                                    <p><button type="submit" class="btn btn-primary btn-sm pull-right" style="width: 100px;">&nbsp;&nbsp;&nbsp;{{ __('translation.verify') }}&nbsp;&nbsp;&nbsp;</button></p>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row mt-0" style="color: #FFF;text-align: center;">
+                            <div class="col-lg-12">
+                                <h6 style="color: #fff;">{{ __('translation.email_verfication_msg_txt_1') }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                @if(Auth::user()->email_verified == 1)
                 <div class="row mt-5" style="border-radius: 10px ; background-color:#f0f3f2;">
 
                     <div class="table-responsive-xxl" style="width:100%;">
@@ -73,7 +99,6 @@
                                     <th>{{ __('translation.amount') }}</th>
                                     <th>{{ __('translation.status') }}</th>
                                     <th>{{ __('translation.date_txt') }}</th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -121,9 +146,8 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
+                @endif
             </div>
         </div>
     </div>
@@ -239,7 +263,11 @@
         const coinsRateInput = document.getElementById('coins_rate');
 
         const myCoinsValue = myCoinsInput.value;
-        const conversionRate = {{$rate->value}};
+        const conversionRate = {
+            {
+                $rate - > value
+            }
+        };
 
         if (myCoinsValue < 0 || isNaN(myCoinsValue) || /^0[0-9]+$/.test(myCoinsValue)) {
             coinsRateInput.value = "0.0 {{$country->curr}}";
