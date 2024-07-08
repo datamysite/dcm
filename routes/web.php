@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -255,67 +256,67 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
 
         //Retailers
-        Route::prefix('retailer')->group(function () {
+        Route::prefix('retailer')->middleware('auth:admin', 'permission:Retailer view')->group(function () {
             Route::get('/', 'RetailerController@index')->name('admin.retailer');
             Route::get('/load', 'RetailerController@load')->name('admin.retailer.load');
             Route::post('/filter', 'RetailerController@retailers_filter')->name('admin.retailer.filter');
-            Route::post('/create', 'RetailerController@create')->name('admin.retailer.create');
-            Route::post('/update', 'RetailerController@update_retailer')->name('admin.retailer.update');
-            Route::get('/edit/{id}', 'RetailerController@edit');
-            Route::get('/delete/{id}', 'RetailerController@delete');
+            Route::post('/create', 'RetailerController@create')->middleware('auth:admin', 'permission:Retailer add')->name('admin.retailer.create');
+            Route::post('/update', 'RetailerController@update_retailer')->middleware('auth:admin', 'permission:Retailer edit')->name('admin.retailer.update');
+            Route::get('/edit/{id}', 'RetailerController@edit')->middleware('auth:admin', 'permission:Retailer edit');
+            Route::get('/delete/{id}', 'RetailerController@delete')->middleware('auth:admin', 'permission:Retailer delete');
 
             //Seller Panel
-            Route::prefix('sellerPanel')->group(function () {
+            Route::prefix('sellerPanel')->middleware('auth:admin', 'permission:Retailer edit')->group(function () {
                 Route::post('/create', 'RetailerController@create_seller_panel')->name('admin.retailer.sellerpanel.create');
             });
 
             //offers
-            Route::prefix('offers')->group(function () {
+            Route::prefix('offers')->middleware('auth:admin', 'permission:Retailer offer view')->group(function () {
                 Route::get('/{id}', 'OfferController@index')->name('admin.retailer.offer');
                 Route::get('/load/{id}', 'OfferController@load')->name('admin.retailer.offer.load');
                 Route::get('/search/{val}', 'OfferController@search_retailer');
-                Route::post('/create', 'OfferController@create')->name('admin.retailer.offer.create');
-                Route::get('/delete/{id}', 'OfferController@delete');
-                Route::get('/edit/{id}', 'OfferController@edit');
-                Route::post('/update', 'OfferController@update_coupon')->name('admin.retailer.offer.update');
+                Route::post('/create', 'OfferController@create')->middleware('auth:admin', 'permission:Retailer offer add')->name('admin.retailer.offer.create');
+                Route::get('/delete/{id}', 'OfferController@delete')->middleware('auth:admin', 'permission:Retailer offer delete');
+                Route::get('/edit/{id}', 'OfferController@edit')->middleware('auth:admin', 'permission:Retailer offer edit');
+                Route::post('/update', 'OfferController@update_coupon')->middleware('auth:admin', 'permission:Retailer offer edit')->name('admin.retailer.offer.update');
             });
 
             //Coupons
-            Route::prefix('coupon')->group(function () {
+            Route::prefix('coupon')->middleware('auth:admin', 'permission:Retailer coupon view')->group(function () {
                 Route::get('/{id}', 'CouponController@index')->name('admin.retailer.coupon');
                 Route::get('/load/{id}', 'CouponController@load')->name('admin.retailer.coupon.load');
                 Route::get('/search/{val}', 'CouponController@search_retailer');
-                Route::post('/create', 'CouponController@create')->name('admin.retailer.coupon.create');
-                Route::get('/delete/{id}', 'CouponController@delete');
-                Route::get('/edit/{id}', 'CouponController@edit');
-                Route::post('/update', 'CouponController@update_coupon')->name('admin.retailer.coupon.update');
+                Route::post('/create', 'CouponController@create')->middleware('auth:admin', 'permission:Retailer coupon add')->name('admin.retailer.coupon.create');
+                Route::get('/delete/{id}', 'CouponController@delete')->middleware('auth:admin', 'permission:Retailer coupon delete');
+                Route::get('/edit/{id}', 'CouponController@edit')->middleware('auth:admin', 'permission:Retailer coupon edit');
+                Route::post('/update', 'CouponController@update_coupon')->middleware('auth:admin', 'permission:Retailer coupon edit')->name('admin.retailer.coupon.update');
             });
 
             //Blogs
-            Route::prefix('blogs')->group(function () {
+            Route::prefix('blogs')->middleware('auth:admin', 'permission:Retailer blogs view')->group(function () {
                 Route::get('/{id}', 'RetailerBlogController@index')->name('admin.retailer.blog');
                 Route::get('/load/{id}', 'RetailerBlogController@load')->name('admin.retailer.blog.load');
                 Route::get('/search/{val}', 'RetailerBlogController@search_retailer');
-                Route::post('/create', 'RetailerBlogController@create')->name('admin.retailer.blog.create');
-                Route::get('/delete/{id}', 'RetailerBlogController@delete');
-                Route::get('/edit/{id}', 'RetailerBlogController@edit');
-                Route::post('/update', 'RetailerBlogController@update_blog')->name('admin.retailer.blog.update');
+                Route::post('/create', 'RetailerBlogController@create')->middleware('auth:admin', 'permission:Retailer blogs add')->name('admin.retailer.blog.create');
+                Route::get('/delete/{id}', 'RetailerBlogController@delete')->middleware('auth:admin', 'permission:Retailer blogs delete');
+                Route::get('/edit/{id}', 'RetailerBlogController@edit')->middleware('auth:admin', 'permission:Retailer blogs edit');
+                Route::post('/update', 'RetailerBlogController@update_blog')->middleware('auth:admin', 'permission:Retailer blogs edit')->name('admin.retailer.blog.update');
             });
         });
 
         //Blogs
-        Route::prefix('blogs')->group(function () {
+        Route::prefix('blogs')->middleware('auth:admin', 'permission:Blogs view')->group(function () {
             Route::get('/', 'BlogController@index')->name('admin.blog');
             Route::get('/load', 'BlogController@load')->name('admin.blog.load');
             Route::get('/search/{val}', 'BlogController@search');
-            Route::post('/create', 'BlogController@create')->name('admin.blog.create');
-            Route::get('/delete/{id}', 'BlogController@delete');
-            Route::get('/edit/{id}', 'BlogController@edit');
-            Route::post('/update', 'BlogController@update_blog')->name('admin.blog.update');
+            Route::post('/create', 'BlogController@create')->middleware('auth:admin', 'permission:Blogs add')->name('admin.blog.create');
+            Route::get('/delete/{id}', 'BlogController@delete')->middleware('auth:admin', 'permission:Blogs delete');
+            Route::get('/edit/{id}', 'BlogController@edit')->middleware('auth:admin', 'permission:Blogs edit');
+            Route::post('/update', 'BlogController@update_blog')->middleware('auth:admin', 'permission:Blogs edit')->name('admin.blog.update');
         });
 
         //Careers
-        Route::prefix('careers')->group(function () {
+        Route::prefix('careers')->middleware('auth:admin', 'permission:Career modify')->group(function () {
 
             Route::get('/', 'CareerController@index')->name('admin.careers');
             Route::get('/applied', 'CareerController@applied')->name('admin.careers.applied');
@@ -332,12 +333,12 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
         //SEO Tools
         Route::prefix('seo')->group(function () {
-            Route::prefix('meta')->group(function () {
+            Route::prefix('meta')->middleware('auth:admin', 'permission:SEO metatags')->group(function () {
                 Route::get('/', 'SeoController@meta')->name('admin.seo.meta');
                 Route::post('/check', 'SeoController@meta_check')->name('admin.seo.meta.check');
                 Route::post('/update', 'SeoController@meta_update')->name('admin.seo.meta.update');
             });
-            Route::prefix('snippet')->group(function () {
+            Route::prefix('snippet')->middleware('auth:admin', 'permission:SEO snippetcode')->group(function () {
                 Route::get('/', 'SeoController@snippet')->name('admin.seo.snippet');
                 Route::get('/load', 'SeoController@snippet_load')->name('admin.seo.snippet.load');
                 Route::post('/create', 'SeoController@snippet_create')->name('admin.seo.snippet.create');
@@ -349,7 +350,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
 
         //Website Users
-        Route::prefix('web/users')->group(function () {
+        Route::prefix('web/users')->middleware('auth:admin', 'permission:Webuser view')->group(function () {
             Route::get('/', 'WebUserController@index')->name('admin.webUsers');
             Route::get('/load', 'WebUserController@load')->name('admin.webUsers.load');
             Route::post('/filter', 'WebUserController@user_filter')->name('admin.webUsers.filter');
@@ -383,7 +384,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //DCM Contest
-        Route::prefix('invoices')->group(function () {
+        Route::prefix('invoices')->middleware('auth:admin', 'permission:Contest modify')->group(function () {
 
             Route::get('/', 'InvoiceController@index')->name('admin.invoices');
             Route::get('/load', 'InvoiceController@load')->name('admin.invoices.load');
@@ -406,7 +407,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //Categories
-        Route::prefix('categories')->group(function () {
+        Route::prefix('categories')->middleware('auth:admin', 'permission:Admin categories')->group(function () {
             Route::get('/', 'CategoryController@index')->name('admin.categories');
             Route::get('/load', 'CategoryController@load')->name('admin.categories.load');
             Route::post('/create', 'CategoryController@create')->name('admin.categories.create');
@@ -415,7 +416,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //Countries
-        Route::prefix('countries')->group(function () {
+        Route::prefix('countries')->middleware('auth:admin', 'permission:Admin countries')->group(function () {
             Route::get('/', 'CountryController@index')->name('admin.countries');
             Route::get('/load', 'CountryController@load')->name('admin.countries.load');
             Route::post('/create', 'CountryController@create')->name('admin.countries.create');
@@ -424,7 +425,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //States
-        Route::prefix('states')->group(function () {
+        Route::prefix('states')->middleware('auth:admin', 'permission:Admin countries')->group(function () {
             Route::get('/load', 'StateController@load')->name('admin.states.load');
             Route::post('/create', 'StateController@create')->name('admin.states.create');
             Route::get('/edit/{id}', 'StateController@edit');
@@ -432,7 +433,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //users
-        Route::prefix('users')->group(function () {
+        Route::prefix('users')->middleware('auth:admin', 'permission:Admin users')->group(function () {
             Route::get('/', 'UserController@index')->name('admin.users');
             Route::get('/load', 'UserController@load')->name('admin.users.load');
             Route::post('/create', 'UserController@create')->name('admin.users.create');
@@ -443,7 +444,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //Newsletter
-        Route::prefix('newsletter')->group(function () {
+        Route::prefix('newsletter')->middleware('auth:admin', 'permission:Newsletter')->group(function () {
             Route::get('/', 'NewsletterController@index')->name('admin.newsletter');
             Route::get('/load', 'NewsletterController@load')->name('admin.newsletter.load');
             Route::post('/filter', 'NewsletterController@user_filter')->name('admin.newsletter.filter');
@@ -452,7 +453,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
 
         //Loyalty Program
-        Route::prefix('loyalty')->group(function () {
+        Route::prefix('loyalty')->middleware('auth:admin', 'permission:Admin loyalty')->group(function () {
 
             //Settings
             Route::prefix('settings')->group(function () {
@@ -486,7 +487,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
 
 
         //Home :: Slider Section
-        Route::prefix('home')->group(function () {
+        Route::prefix('home')->middleware('auth:admin', 'permission:CMS modify')->group(function () {
 
             Route::prefix('slider')->group(function () {
 
@@ -511,7 +512,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //About-Us Content
-        Route::prefix('about')->group(function () {
+        Route::prefix('about')->middleware('auth:admin', 'permission:CMS modify')->group(function () {
             Route::get('/', 'CmsController@about')->name('admin.about');
             Route::get('/load', 'CmsController@load_about')->name('admin.about.load');
             Route::post('/create', 'CmsController@create_about')->name('admin.about.create');
@@ -520,7 +521,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //Contact-Us
-        Route::prefix('contact')->group(function () {
+        Route::prefix('contact')->middleware('auth:admin', 'permission:CMS modify')->group(function () {
             Route::get('/', 'CmsController@contact')->name('admin.contact');
             Route::get('/load', 'CmsController@load_contact')->name('admin.contact.load');
             Route::post('/create', 'CmsController@create_contact')->name('admin.contact.create');
@@ -529,7 +530,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //Footer Content
-        Route::prefix('footer')->group(function () {
+        Route::prefix('footer')->middleware('auth:admin', 'permission:CMS modify')->group(function () {
             Route::get('/', 'CmsController@footer')->name('admin.footer');
             Route::get('/load', 'CmsController@load_footer')->name('admin.footer.load');
             Route::post('/create', 'CmsController@create_footer')->name('admin.footer.create');

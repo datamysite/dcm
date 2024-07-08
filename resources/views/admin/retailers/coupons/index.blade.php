@@ -39,7 +39,9 @@
                       </div>
                     </div>
                     <div class="col-md-3">
-                      <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Coupon" data-toggle="modal" data-target="#addCouponFormModal"><i class="fas fa-plus"></i> Add Coupon</a>
+                      @if(auth('admin')->user()->can('Retailer coupon add'))
+                        <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Coupon" data-toggle="modal" data-target="#addCouponFormModal"><i class="fas fa-plus"></i> Add Coupon</a>
+                      @endif
                     </div>
                   </div>
                   <br>

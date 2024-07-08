@@ -12,11 +12,14 @@ use App\Models\GenieWishRequests;
 use App\Models\WithdrawRequests;
 use App\Models\TransactionHistory;
 use App\Models\RewardType;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
+    protected $guard_name = 'web';
+    
     protected $table = 'users';
 
 

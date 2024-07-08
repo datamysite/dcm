@@ -120,8 +120,12 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label>Designation</label>
-                <input type="text" class="form-control" name="designation" required>
+                <label>Access Role</label>
+                <select class="form-control" name="designation" required>
+                  <option value="">Select</option>
+                  <option value="admin">Administrator</option>
+                  <option value="seo_support">SEO Support</option>
+                </select>
               </div>
             </div>
           </div>

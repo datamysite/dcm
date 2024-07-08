@@ -39,7 +39,9 @@
                       </div>
                     </div>
                     <div class="col-md-3">
-                      <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Blog" data-toggle="modal" data-target="#addBlogFormModal"><i class="fas fa-plus"></i> Add Blog</a>
+                      @if(auth('admin')->user()->can('Retailer blogs add'))
+                        <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Blog" data-toggle="modal" data-target="#addBlogFormModal"><i class="fas fa-plus"></i> Add Blog</a>
+                      @endif
                     </div>
                   </div>
                   <br>

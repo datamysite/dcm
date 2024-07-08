@@ -39,7 +39,9 @@
                       </div>
                     </div>
                     <div class="col-md-3">
-                      <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Offer" data-toggle="modal" data-target="#addOffersFormModal"><i class="fas fa-plus"></i> Add Offer</a>
+                      @if(auth('admin')->user()->can('Retailer offer add'))
+                        <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Offer" data-toggle="modal" data-target="#addOffersFormModal"><i class="fas fa-plus"></i> Add Offer</a>
+                      @endif
                     </div>
                   </div>
                   <br>

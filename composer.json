@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.8",
         "maatwebsite/excel": "^3.1",
         "simplesoftwareio/simple-qrcode": "*",
+        "spatie/laravel-permission": "^6.9",
         "spatie/laravel-sitemap": "^7.2",
         "stichoza/google-translate-php": "^5.1"
     },

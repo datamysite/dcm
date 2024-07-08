@@ -39,19 +39,31 @@
         </button>
         <div class="dropdown-menu dropdown-menu-right table-dropdown" role="menu" style="">
           @if($val->type == '2' || $val->type == '3')
-            <a class="dropdown-item" href="{{route('admin.retailer.offer', base64_encode($val->id))}}" title="Retail offers" ><i class="fas fa-hand-holding-usd"></i> Retail Offers</a>
+            @if(auth('admin')->user()->can('Retailer offer view'))
+              <a class="dropdown-item" href="{{route('admin.retailer.offer', base64_encode($val->id))}}" title="Retail offers" ><i class="fas fa-hand-holding-usd"></i> Retail Offers</a>
+            @endif
           @endif
           @if($val->type == '1' || $val->type == '3')
-            <a class="dropdown-item" href="{{route('admin.retailer.coupon', base64_encode($val->id))}}" title="Online Coupons" ><i class="fas fa-tag"></i> Online Coupons</a>
+            @if(auth('admin')->user()->can('Retailer coupon view'))
+              <a class="dropdown-item" href="{{route('admin.retailer.coupon', base64_encode($val->id))}}" title="Online Coupons" ><i class="fas fa-tag"></i> Online Coupons</a>
+            @endif
           @endif
-          <a class="dropdown-item" href="{{route('admin.retailer.blog', base64_encode($val->id))}}" title="Blogs"><i class="fas fa-book"></i> Blogs</a>
-          <a class="dropdown-item editRetailer" href="javascript:void(0)" title="Edit Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i> Edit</a>
-          <div class="dropdown-divider"></div>
-          @if(empty($val->sellerPanel->id))
-            <a class="dropdown-item sellerPanel" href="javascript:void(0)" title="Create Seller Panel" data-id="{{base64_encode($val->id)}}" data-name="{{$val->name}}"><i class="fas fa-tachometer-alt"></i> Seller panel</a>
+          @if(auth('admin')->user()->can('Retailer blogs view'))
+            <a class="dropdown-item" href="{{route('admin.retailer.blog', base64_encode($val->id))}}" title="Blogs"><i class="fas fa-book"></i> Blogs</a>
+          @endif
+          @if(auth('admin')->user()->can('Retailer edit'))
+            <a class="dropdown-item editRetailer" href="javascript:void(0)" title="Edit Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i> Edit</a>
+          @endif
+          @if(auth('admin')->user()->can('Retailer edit'))
+            @if(empty($val->sellerPanel->id))
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item sellerPanel" href="javascript:void(0)" title="Create Seller Panel" data-id="{{base64_encode($val->id)}}" data-name="{{$val->name}}"><i class="fas fa-tachometer-alt"></i> Seller panel</a>
+            @endif
+          @endif
+          @if(auth('admin')->user()->can('Retailer delete'))
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-danger deleteRetailer" href="javascript:void(0)" title="Delete Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-trash"></i> Delete</a>
           @endif
-          <a class="dropdown-item text-danger deleteRetailer" href="javascript:void(0)" title="Delete Retailer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-trash"></i> Delete</a>
         </div>
       </div>
     </td>
