@@ -1499,6 +1499,14 @@ label.errors {
     display: block;
 }
 
+.WebsitePopUPMSG {
+    display: block;
+}
+
+.MWebPopUPMSG {
+    display: none;
+}
+
 .col-3:not(:last-child) {
 
     border-left: 1px solid black;
@@ -1540,6 +1548,51 @@ label.errors {
     right: 250px;
 }
 
+.horizontal-line {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background-color: #2791CC;
+    margin: 0 auto;
+    left: 0px;
+}
+
+.circleHR1 {
+    position: absolute;
+    top: 0px;
+    right: 20%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #2791CC;
+    animation: glow 2s infinite;
+}
+
+.circleHR2 {
+    position: absolute;
+    top: 0px;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #2791CC;
+    animation: glow 2s infinite;
+}
+
+.circleHR3 {
+    position: absolute;
+    top: 0px;
+    right: 80%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #2791CC;
+    animation: glow 2s infinite;
+}
+
 .circle1 {
     position: absolute;
     top: 25px;
@@ -1549,6 +1602,7 @@ label.errors {
     height: 20px;
     border-radius: 50%;
     background-color: #2791CC;
+    animation: glow 2s infinite;
 }
 
 .circle2 {
@@ -1560,6 +1614,7 @@ label.errors {
     height: 20px;
     border-radius: 50%;
     background-color: #2791CC;
+    animation: glow 2s infinite;
 }
 
 .circle3 {
@@ -1571,6 +1626,21 @@ label.errors {
     height: 20px;
     border-radius: 50%;
     background-color: #2791CC;
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #2791CC;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #2791CC, 0 0 30px #2791CC;
+    }
+
+    100% {
+        box-shadow: 0 0 5px #2791CC;
+    }
 }
 
 /* UserMenu-Web-Mobile End*/
@@ -1630,6 +1700,14 @@ label.errors {
 
     .WebsiteWelcomeMSG {
         display: none;
+    }
+
+    .WebsitePopUPMSG {
+        display: none;
+    }
+
+    .MWebPopUPMSG {
+        display: block;
     }
 
     .DesktopView {

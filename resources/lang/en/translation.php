@@ -12,6 +12,7 @@ return [
   "All_Stores" => "All Stores",
   "Categories" => "Categories",
   "About_Us" => "About Us",
+  "On_Cashback" => "On Cashback",
   "Search" => "Search...",
   "Sell_With_DCM" => "Sell With DCM",
   "Sell_With_us" => "Sell With US",
@@ -867,5 +868,9 @@ return [
   "error_bnk_msg" => "Error occured while insert/update account details!",
 
   "email_verfication_msg_txt_1" => "To active withdraw payment, Kindly check your email for verification code !",
+
+  "sign_up_sign_in" => "Sign Up/Sign In",
+
+  "your_profile_txt" => "Your Profile",
 
 ];

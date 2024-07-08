@@ -12,6 +12,7 @@ return [
   "All_Stores" => "كل المتاجر",
   "Categories" => "الفئات",
   "About_Us" => "عننا",
+  "On_Cashback" => "إسترد نقودك",
   "Search" => "إبحث...",
   "Sell_With_DCM" => "بيع معنا",
   "Sell_With_us" => "بيع معنا",
@@ -778,7 +779,7 @@ return [
   "aed_coin" => "عملات",
   "available_balance" => "الرصيد المتوفر: ",
   "pending_balance" => "الرصيد المعلق: ",
-  "what_is_difference" => "ماهو الفري بيننا وبين الأخرين ؟",
+  "what_is_difference" => "ماهو الفرق بيننا وبين الأخرين ؟",
   "dashboard" => "الرئيسية",
 
   //General Text
@@ -854,5 +855,7 @@ return [
   "error_bnk_msg" => "حدث خطاء أثناء تعديل/حفظ بيانات الحساب البنكي!",
 
   "email_verfication_msg_txt_1" => "لتفعيل عملية سحب النقود، يرجى التحقق من بريدك الإلكتروني للحصول على رمز التحقق!",
+
+  "sign_up_sign_in" => "أنشئ حساب / سجل الدخول",
 
 ];

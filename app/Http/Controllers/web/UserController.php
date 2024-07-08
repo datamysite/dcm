@@ -16,6 +16,7 @@ use App\Models\Countries;
 use App\Models\ClaimType;
 use App\Models\RewardType;
 use App\Models\StoreVisits;
+use App\Models\Bank;
 use Auth;
 use Hash;
 use Illuminate\Support\Facades\Session;
@@ -387,39 +388,8 @@ class UserController extends Controller
     {
 
         $data['bank_details'] = BankAccounts::where('user_id', Auth::id())->first();
+        $data['bank_array'] = Bank::get();
 
-        $data['bank_array'] = [
-            ['value' => '1', 'key' => 'First Abu Dhabi Bank', 'arabic_value' => 'بنك أبوظبي الأول' , 'eng_value' => 'First Abu Dhabi Bank'],
-            ['value' => '2', 'key' => 'Abu Dhabi Commercial Bank', 'arabic_value' => 'بنك أبوظبي التجاري' , 'eng_value' => 'Abu Dhabi Commercial Bank'],
-            ['value' => '3', 'key' => 'Arab Bank For Investment and Foreign Trade', 'arabic_value' => 'البنك العربي للاستثمار والتجارة الخارجية' , 'eng_value' => 'Arab Bank For Investment and Foreign Trade'],
-            ['value' => '4', 'key' => 'Commercial Bank of Dubai', 'arabic_value' => 'البنك التجاري لدبي' , 'eng_value' => 'Commercial Bank of Dubai'],
-            ['value' => '5', 'key' => 'Emirates NBD', 'arabic_value' => 'إمارات دبي الوطني' , 'eng_value' => 'Emirates NBD'],
-            ['value' => '6', 'key' => 'Mashreq', 'arabic_value' => 'بنك المشرق', 'eng_value' => 'Mashreq'],
-            ['value' => '7', 'key' => 'Bank of Sharjah', 'arabic_value' => 'بنك الشارقة' , 'eng_value' => 'Bank of Sharjah'],
-            ['value' => '8', 'key' => 'United Arab Bank', 'arabic_value' => 'البنك العربي المتحد' , 'eng_value' => 'United Arab Bank'],
-            ['value' => '9', 'key' => 'Invest Bank', 'arabic_value' => 'بنك الاستثمار' , 'eng_value' => 'Invest Bank'],
-            ['value' => '10', 'key' => 'National Bank of Ras Al-Khaimah PJSC (RAKBANK)', 'arabic_value' => 'بنك رأس الخيمة الوطني' , 'eng_value' => 'National Bank of Ras Al-Khaimah PJSC (RAKBANK)'],
-            ['value' => '11', 'key' => 'Dubai Islamic Bank', 'arabic_value' => 'بنك دبي الإسلامي' , 'eng_value' => 'Dubai Islamic Bank'],
-            ['value' => '12', 'key' => 'Emirates Islamic Bank', 'arabic_value' => 'بنك الإمارات الإسلامي', 'eng_value' => 'Emirates Islamic Bank'],
-            ['value' => '13', 'key' => 'Sharjah Islamic Bank', 'arabic_value' => 'بنك الشارقة الإسلامي', 'eng_value' => 'Sharjah Islamic Bank'],
-            ['value' => '14', 'key' => 'Abu Dhabi Islamic Bank', 'arabic_value' => 'بنك أبوظبي الإسلامي', 'eng_value' => 'Abu Dhabi Islamic Bank'],
-            ['value' => '15', 'key' => 'Al Hilal Bank', 'arabic_value' => 'بنك الهلال', 'eng_value' => 'Al Hilal Bank'],
-            ['value' => '16', 'key' => 'Ajman Bank', 'arabic_value' => 'بنك عجمان', 'eng_value' => 'Ajman Bank'],
-            ['value' => '17', 'key' => 'Emirates Investment Bank', 'arabic_value' => 'بنك الإمارات للاستثمار' , 'eng_value' => 'Emirates Investment Bank'],
-            ['value' => '18', 'key' => 'BNP Paribas', 'arabic_value' => 'BNP Paribas', 'eng_value' => 'BNP Paribas'],
-            ['value' => '19', 'key' => 'Standard Chartered', 'arabic_value' => 'Standard Chartered', 'eng_value' => 'Standard Chartered'],
-            ['value' => '20', 'key' => 'HSBC', 'arabic_value' => 'HSBC', 'eng_value' => 'HSBC'],
-            ['value' => '21', 'key' => 'Al Maryah Community Bank', 'arabic_value' => 'بنك المارية المحلي', 'eng_value' => 'Al Maryah Community Bank'],
-            ['value' => '22', 'key' => 'Al Masraf Arab Bank for Investment & Foreign Trade', 'arabic_value' => 'المصرف العربي للاستثمار والتجارة الخارجية', 'eng_value' => 'Al Masraf Arab Bank for Investment & Foreign Trade'],
-            ['value' => '23', 'key' => 'Commercial Bank International', 'arabic_value' => 'البنك التجاري الدولي', 'eng_value' => 'Commercial Bank International'],
-            ['value' => '24', 'key' => 'Dubai Bank', 'arabic_value' => 'بنك دبي', 'eng_value' => 'Dubai Bank'],
-            ['value' => '25', 'key' => 'Dubai Finance Bank', 'arabic_value' => 'بنك دبي المالي', 'eng_value' => 'Dubai Finance Bank'],
-            ['value' => '26', 'key' => 'National Bank of Fujairah', 'arabic_value' => 'بنك الفجيرة الوطني', 'eng_value' => 'National Bank of Fujairah'],
-            ['value' => '27', 'key' => 'National Bank of Umm Al-Quwain', 'arabic_value' => 'بنك أم القيوين الوطني', 'eng_value' => 'National Bank of Umm Al-Quwain'],
-            ['value' => '28', 'key' => 'Noor Bank', 'arabic_value' => 'بنك نور', 'eng_value' => 'Noor Bank'],
-            ['value' => '29', 'key' => 'Wio Bank', 'arabic_value' => 'ويو بنك ش.م.ع. مرخص من قبل مصرف', 'eng_value' => 'Wio Bank'],
-        ];
-        
         return view('web.user.user-settings', ['data' => $data]);
     }
 

@@ -180,7 +180,11 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                      </li>
 
                      <li class="nav-item dropdown" style="padding: 10px;">
+                        @if(config('app.country') == '1')
+                        <a class="nav-link" href="{{route('claim_cashback', [$region])}}" role="button" aria-expanded="false">{{ __('translation.On_Cashback') }}</a>
+                        @else
                         <a class="nav-link" href="{{route('About_Us', [$region])}}" role="button" aria-expanded="false">{{ __('translation.About_Us') }}</a>
+                        @endif
                      </li>
                   </ul>
                   <form class="ms-auto d-flex align-items-center" style="padding: 10px;">
@@ -199,14 +203,14 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                      </div>
                   </form>
 
-               
+
                   <ul class="navbar-nav">
                      <li class="nav-item dropdown" style="padding: 10px;">
                         <a class="nav-link" href="{{route('Sell_With_DCM', [$region])}}" role="button" aria-expanded="false"><b>{{ __('translation.Sell_With_DCM') }}</b></a>
                      </li>
                      <ul class="navbar-nav">
                         @if(Auth::check())
-                        <li class="nav-item dropdown" {!! app()->getLocale() == 'ar' ? 'style="padding: 4px;"' : 'style="padding: 10px;"' !!} >
+                        <li class="nav-item dropdown" {!! app()->getLocale() == 'ar' ? 'style="padding: 10px;"' : 'style="padding: 10px;"' !!} >
 
                            <a class="nav-link" href="#" role="button" aria-expanded="false">
                               <i class="fa-solid fa-user" style="font-weight: bold; color: black; font-size:14px;"></i>
@@ -225,17 +229,17 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                  <div class="row text-center" style="color: #fff;">
                                     <div class="col-lg-6 mt-3">
                                        <span class="mt-0">{{ __('translation.available_balance') }}</span><br>
-                                       <span class="mt-2"><b style="position: relative; top: -2px; left:-10px; color:#ffb01b"><i class="fa fa-coins"></i></b> <b class="menu-coins">{{number_format(Auth::user()->wallet)}}</b></span>
+                                       <span class="mt-2"><b {!! app()->getLocale() == 'ar' ? 'style="position: relative; top: -2px; right:-10px; color:#ffb01b"' : 'style="position: relative; top: -2px; left:-10px; color:#ffb01b"' !!} ><i class="fa fa-coins"></i></b> <b class="menu-coins">{{number_format(Auth::user()->wallet)}}</b></span>
                                     </div>
                                     <div class="col-lg-6 mt-3">
                                        <span class="mt-0"> {{ __('translation.pending_balance') }}</span><br>
-                                       <span><b style="position: relative; top: -2px; left:-10px; color:#ffb01b"><i class="fa fa-coins"></i></b> <b class="menu-coins">{{number_format($pending_balance)}}</b></span>
+                                       <span><b {!! app()->getLocale() == 'ar' ? 'style="position: relative; top: -2px; right:-10px; color:#ffb01b"' : 'style="position: relative; top: -2px; left:-10px; color:#ffb01b"' !!} ><i class="fa fa-coins"></i></b> <b class="menu-coins">{{number_format($pending_balance)}}</b></span>
                                     </div>
 
-                                    <div class="row mt-2" {!! app()->getLocale() == 'ar' ? 'style="text-align: right; padding-right: 30px; text-decoration: underline;"' : 'style="text-align: left; padding-left: 30px; text-decoration: underline;"' !!}>
+                                    <div class="row mt-0" {!! app()->getLocale() == 'ar' ? 'style="text-align: right; padding-right: 30px; text-decoration: underline;"' : 'style="text-align: left; padding-left: 30px; text-decoration: underline;"' !!} >
 
                                        <span class="menu-sub-difference" style="color: #fff;">
-                                          <i class="fa fa-info-circle" aria-hidden="true" style="padding-right: 5px;"></i>
+                                          <i class="fa fa-info-circle" aria-hidden="true" {!! app()->getLocale() == 'ar' ? 'style="padding-left: 5px;"' : 'style="padding-right: 5px;"' !!}></i>
                                           <a href="#" style="color: #fff;">{{ __('translation.what_is_difference') }}</a>
                                        </span>
                                     </div>
@@ -284,7 +288,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                            </div>
                         </li>
 
-                      
+
                         @else
                         <li class="nav-item dropdown" style="padding: 10px;">
                            <a class="nav-link" href="javascript:void(0)" id="open-signin" role="button" data-bs-toggle="modal" data-bs-target="#userModal"><b>{{ __('translation.Sign_Up') }}</b></a>
@@ -334,18 +338,20 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                         <div class="col-6 mt-5">
                            <span class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="padding-right:10px"' : 'style="padding-left:10px"' !!} >{{ __('translation.available_balance') }}</span><br>
-                           <span class="mt-2" {!! app()->getLocale() == 'ar' ? 'style="padding-right:35px"' : 'style="padding-left:35px"' !!}><b style="position: relative; top: -2px; left:-10px; color:#ffb01b"><i class="fa fa-coins"></i></b> <b>{{number_format(Auth::user()->wallet)}}</b></span>
+                           <span class="mt-2" {!! app()->getLocale() == 'ar' ? 'style="padding-right:35px"' : 'style="padding-left:35px"' !!} >
+                              <b {!! app()->getLocale() == 'ar' ? 'style="position: relative; top: -2px; right:-10px; color:#ffb01b"' : 'style="position: relative; top: -2px; left:-10px; color:#ffb01b"' !!}><i class="fa fa-coins"></i></b> <b>{{number_format(Auth::user()->wallet)}}</b></span>
                         </div>
 
 
                         <div class="col-6 mt-5">
                            <span class="mt-0"> {{ __('translation.pending_balance') }}</span><br>
-                           <span {!! app()->getLocale() == 'ar' ? 'style="padding-right:35px"' : 'style="padding-left:35px"' !!}><b style="position: relative; top: -2px; left:-10px; color:#ffb01b"><i class="fa fa-coins"></i></b> <b>{{number_format($pending_balance)}}</b></span>
+                           <span {!! app()->getLocale() == 'ar' ? 'style="padding-right:35px"' : 'style="padding-left:35px"' !!}>
+                              <b {!! app()->getLocale() == 'ar' ? 'style="position: relative; top: -2px; right:-10px; color:#ffb01b"' : 'style="position: relative; top: -2px; left:-10px; color:#ffb01b"' !!} ><i class="fa fa-coins"></i></b> <b>{{number_format($pending_balance)}}</b></span>
                         </div>
 
                         <div class="row mt-2" {!! app()->getLocale() == 'ar' ? 'style="text-align: right; padding-right: 30px; text-decoration: underline;"' : 'style="text-align: left; padding-left: 30px; text-decoration: underline;"' !!} >
                            <span class="mt-2" style="color: #fff;">
-                              <i class="fa fa-info-circle" aria-hidden="true" style="padding-right: 5px;"></i>
+                              <i class="fa fa-info-circle" aria-hidden="true" {!! app()->getLocale() == 'ar' ? 'style="padding-left: 5px;"' : 'style="padding-right: 5px;"' !!}></i>
                               <a href="#" style="color: #fff;">{{ __('translation.what_is_difference') }}</a>
                            </span>
                         </div>
@@ -410,7 +416,11 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
+                           @if(config('app.country') == '1')
+                           <a class="nav-link" href="{{route('claim_cashback', [$region])}}">{{ __('translation.On_Cashback') }}</a>
+                           @else
                            <a class="nav-link" href="{{route('About_Us', [$region])}}">{{ __('translation.About_Us') }}</a>
+                           @endif
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
@@ -523,5 +533,56 @@ $pos = strpos($url, "/".app()->getLocale()."/");
    </div>
 </div>
 @endif
-
 <!-- UserLogin Welcome Message end -->
+
+<!-- Cashback Popup Alert WEBSITE Message Start -->
+<div class="WebsitePopUPMSG mt-10">
+   <div class="mt-0">
+      <div class="row row text-center">
+         <div class="col-sm-12 mt-2">
+            <span class="mt-2" style="color: black;"><b>Login or Sign up to start earning cashback!</b></span>
+         </div>
+         @if(Auth::user() === null)
+         <div class="col-sm-12 mt-2 text-center">
+            <span class="mt-2" style="color: black;">
+               <a class="btn btn-primary shadow-gray" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal" style="border-radius: 10px;">Join Now or Sign In</a>
+            </span>
+         </div>
+         @endif
+
+         <div class="col-sm-12 mt-3 text-center">
+            <a href="{{route('claim_cashback', [$region])}}">
+               <h5>How To earn Cashback?</h5>
+            </a>
+         </div>
+         <p></p>
+      </div>
+   </div>
+</div>
+<!-- Cashback Popup Alert WEBSITE Message End -->
+
+<!-- Cashback Popup Alert MWeb Message Start -->
+<div class="MWebPopUPMSG mt-10">
+   <div class="mt-0">
+      <div class="row row text-center">
+         <div class="col-sm-12 mt-2">
+            <span class="mt-2" style="color: black;"><b>Login or Sign up to start earning cashback!</b></span>
+         </div>
+         @if(Auth::user() === null)
+         <div class="col-sm-12 mt-2 text-center">
+            <span class="mt-2" style="color: black;">
+               <a class="btn btn-primary shadow-gray" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal" style="border-radius: 10px;">Join Now or Sign In</a>
+            </span>
+         </div>
+         @endif
+
+         <div class="col-sm-12 mt-3 text-center">
+            <a href="{{route('claim_cashback', [$region])}}">
+               <h5>How To earn Cashback?</h5>
+            </a>
+         </div>
+         <p></p>
+      </div>
+   </div>
+</div>
+<!-- Cashback Popup Alert MWeb Message End -->

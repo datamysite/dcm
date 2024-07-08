@@ -130,9 +130,9 @@
                                     <option value="">{{ __('translation.bnk_form_bnk_name') }}</option>
                                     @foreach ($data['bank_array'] as $bank)
                                         @if($data['bank_details'] !== null)
-                                        <option value="{{ $bank['value'] }}" {{$data['bank_details']->bank_id == $bank['value'] ? 'selected' : ''}}>{!! app()->getLocale() == 'ar' ? $bank['arabic_value'] : $bank['eng_value'] !!}</option>
+                                        <option value="{{ $bank['id'] }}" {{$data['bank_details']->bank_id == $bank['id'] ? 'selected' : ''}}>{!! app()->getLocale() == 'ar' ? $bank['bank_name_ar'] : $bank['bank_name'] !!}</option>
                                         @else
-                                        <option value="{{ $bank['value'] }}">{!! app()->getLocale() == 'ar' ? $bank['arabic_value'] : $bank['eng_value'] !!}</option>
+                                        <option value="{{ $bank['id'] }}">{!! app()->getLocale() == 'ar' ? $bank['bank_name_ar'] : $bank['bank_name'] !!}</option>
                                         @endif
                                     @endforeach
                                 </select>

@@ -80,17 +80,17 @@
    }
 
 }
+
+const targetDiv = document.querySelector('.WebsitePopUPMSG');
+const targetDiv2 = document.querySelector('.MWebPopUPMSG');
+
+   document.addEventListener('click', function(event) {
+      if (!targetDiv.contains(event.target) || !targetDiv2.contains(event.target)) {
+         targetDiv.style.display = 'none';
+         targetDiv2.style.display = 'none';
+      }
+   });
   
-   
-
-   // Check if the welcome message should be hidden
-   if (sessionStorage.getItem('welcomeMessageShown')) {
-      document.getElementById('welcomeMessageDiv').style.display = 'none';
-   }
-
-   
-
-
 
    window.onload = function() {
       var url = window.location.href;
