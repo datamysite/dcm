@@ -11,8 +11,12 @@
     </td>
     <td>{{@$val->user->username}}</td>
     <td class="text-right">
-      <a href="javascript:void(0)" class="btn btn-sm btn-info editOffer" title="Edit Offer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i></a>
-      <a href="javascript:void(0)" class="btn btn-sm btn-danger deleteOffer" title="Delete Offer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-trash"></i></a>
+      @if(auth('admin')->user()->can('Retailer offer edit'))
+        <a href="javascript:void(0)" class="btn btn-sm btn-info editOffer" title="Edit Offer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-edit"></i></a>
+      @endif
+      @if(auth('admin')->user()->can('Retailer offer delete'))
+        <a href="javascript:void(0)" class="btn btn-sm btn-danger deleteOffer" title="Delete Offer" data-id="{{base64_encode($val->id)}}"><i class="fas fa-trash"></i></a>
+      @endif
     </td>
   </tr>
 @endforeach

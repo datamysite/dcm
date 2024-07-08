@@ -60,7 +60,10 @@
                       
                     </div>
                     <div class="col-md-2">
-                      <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Retailer" data-toggle="modal" data-target="#addRetailerFormModal"><i class="fas fa-plus"></i> Add Retailer</a>
+
+                      @if(auth('admin')->user()->can('Retailer add'))
+                        <a href="javascript:void(0)" class="btn btn-primary mt-32 pull-right" title="Add Retailer" data-toggle="modal" data-target="#addRetailerFormModal"><i class="fas fa-plus"></i> Add Retailer</a>
+                      @endif
                     </div>
                   </div>
                 </form>
@@ -315,7 +318,7 @@
 <script>
   $(function () {
     loadRetailers();
-
+    
     $(document).on('keyup', ".addImageAlt", function() {
 
       var alt_tag = $(this).val();

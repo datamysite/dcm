@@ -73,6 +73,10 @@ class UserController extends Controller
         }else{
             $us = Admin::find(base64_decode($data['user_id']));
             $us->fullname = $data['name'];
+
+            $us->removeRole($us->designation);
+            $us->assignRole($data['designation']);
+            
             $us->designation = $data['designation'];
 
             if($request->hasFile('edit_profile_image')){

@@ -32,230 +32,270 @@
           </a>
         </li>
 
-        <li class="nav-item {{$menu == 'home.stores'  || $menu == 'home.slider' || $menu == 'admin.about' || $menu == 'admin.footer' || $menu == 'admin.contact' ? 'menu-is-opening menu-open' : ''}} ">
+        @if(auth('admin')->user()->can('CMS modify'))
+          <li class="nav-item {{$menu == 'home.stores'  || $menu == 'home.slider' || $menu == 'admin.about' || $menu == 'admin.footer' || $menu == 'admin.contact' ? 'menu-is-opening menu-open' : ''}} ">
 
-          <a href="javascript:void(0)" class="nav-link {{$menu == 'home.stores' ? 'active' : ''}} menu-open">
-            <i class="nav-icon fas fa-copy"></i>
-            <p>
-              CMS
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
+            <a href="javascript:void(0)" class="nav-link {{$menu == 'home.stores' ? 'active' : ''}} menu-open">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                CMS
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
 
-          <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview">
 
-            <li class="nav-item {{$menu == 'home.slider' || $menu == 'home.stores' ? 'menu-open' : ''}}">
-              <a href="javascript:void(0)" class="nav-link">
+              <li class="nav-item {{$menu == 'home.slider' || $menu == 'home.stores' ? 'menu-open' : ''}}">
+                <a href="javascript:void(0)" class="nav-link">
 
-                <p>
-                  -- Home
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
+                  <p>
+                    -- Home
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
 
-              <ul class="nav nav-treeview">
+                <ul class="nav nav-treeview">
 
+                  <li class="nav-item">
+                    <a href="{{route('admin.home.slider')}}" class="nav-link {{$menu == 'home.slider' ? 'active' : '' }}">
+
+                      <p>- - - Sliders</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="{{route('admin.home.stores')}}" class="nav-link {{$menu == 'home.stores' ? 'active' : '' }}">
+
+                      <p>- - - Stores</p>
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('admin.about')}}" class="nav-link {{$menu == 'admin.about' ? 'active' : ''}}">
+
+                  <p>-- About-Us</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.footer')}}" class="nav-link {{$menu == 'admin.footer' ? 'active' : ''}}">
+
+                  <p>-- Footer</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        @endif
+
+        @if(auth('admin')->user()->can('Retailer view'))
+          <li class="nav-item">
+            <a href="{{route('admin.retailer')}}" class="nav-link {{$menu == 'retailers' ? 'active' : ''}}">
+              <i class="nav-icon fas fa-store-alt"></i>
+              <p>
+                Retailers
+              </p>
+            </a>
+          </li>
+        @endif
+
+        @if(auth('admin')->user()->can('Blogs view'))
+          <li class="nav-item">
+            <a href="{{route('admin.blog')}}" class="nav-link {{$menu == 'blogs' ? 'active' : ''}}">
+              <i class="nav-icon fa fa-pen"></i>
+              <p>
+                Blogs
+              </p>
+            </a>
+          </li>
+        @endif
+
+        @if(auth('admin')->user()->can('Career modify'))
+          <!-- Careers Menu Start Here -->
+          <li class="nav-item">
+            <a href="{{route('admin.careers')}}" class="nav-link {{$menu == 'careers.add'  || $menu == 'careers.applied'  ? 'active' : ''}}">
+              <i class="nav-icon fas fa-briefcase"></i>
+              <p>
+                Careers
+              </p>
+            </a>
+          </li>
+          <!-- Careers Menu End Here -->
+        @endif
+
+        @if(auth('admin')->user()->can('SEO metatags') || auth('admin')->user()->can('SEO snippetcode'))
+          <li class="nav-item {{$menu == 'seo.meta' || $menu == 'seo.snippet' ? 'menu-open' : ''}}">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-bullhorn"></i>
+              <p>
+                SEO Tools
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              @if(auth('admin')->user()->can('SEO metatags'))
                 <li class="nav-item">
-                  <a href="{{route('admin.home.slider')}}" class="nav-link {{$menu == 'home.slider' ? 'active' : '' }}">
-
-                    <p>- - - Sliders</p>
+                  <a href="{{route('admin.seo.meta')}}" class="nav-link {{$menu == 'seo.meta' ? 'active' : ''}}">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>Meta Tags</p>
                   </a>
                 </li>
+              @endif
 
+              @if(auth('admin')->user()->can('SEO snippetcode'))
+              <li class="nav-item">
+                <a href="{{route('admin.seo.snippet')}}" class="nav-link {{$menu == 'seo.snippet' ? 'active' : ''}}">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Snippet Code</p>
+                </a>
+              </li>
+              @endif
+
+            </ul>
+          </li>
+        @endif
+
+
+        @if(auth('admin')->user()->can('Contest modify'))
+          <!-- DCM Contest Start Here -->
+          <li class="nav-item {{ $menu == 'invoices' || $menu == 'scanned_qr' ? 'menu-is-opening menu-open' : ''}} ">
+
+            <a href="javascript:void(0)" class="nav-link {{$menu == 'invoices'  ? 'active' : ''}} menu-open">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                DCM Contest
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.invoices')}}" class="nav-link {{$menu == 'invoices' ? 'active' : ''}}">
+
+                  <p>-- Contested Users</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.invoices.scanned_qr')}}" class="nav-link {{$menu == 'scanned_qr' ? 'active' : ''}}">
+
+                  <p>-- Scanned QR </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- DCM Contest End Here -->
+        @endif
+
+        @if(auth('admin')->user()->can('Webuser view'))
+          <li class="nav-item  {{$menu == 'web.users' || $menu == 'web.users.withdraw' || $menu == 'web.users.genie-wish' || $menu == 'web.users.invoices' ? 'menu-open' : ''}}">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Users
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.webUsers')}}" class="nav-link {{$menu == 'web.users' ? 'active' : ''}}">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Users List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.users.withdraw')}}" class="nav-link {{$menu == 'web.users.withdraw' ? 'active' : ''}}">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Withdraw Requests</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.users.geniewish')}}" class="nav-link {{$menu == 'web.users.genie-wish' ? 'active' : ''}}">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Genie Wish Requests</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.users.invoices')}}" class="nav-link {{$menu == 'web.users.invoices' ? 'active' : ''}}">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Invoices</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        @endif
+
+        @if(auth('admin')->user()->can('Newsletter'))
+          <li class="nav-item">
+            <a href="{{route('admin.newsletter')}}" class="nav-link {{$menu == 'newsletter' ? 'active' : ''}}">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Newsletter
+              </p>
+            </a>
+          </li>
+        @endif
+
+        @if(auth('admin')->user()->can('Admin loyalty') || auth('admin')->user()->can('Admin categories') || auth('admin')->user()->can('Admin countries') || auth('admin')->user()->can('Admin users'))
+          <li class="nav-item  {{$menu == 'categories' || $menu == 'countries' || $menu == 'users' || $menu == 'settings.loyalty' ? 'menu-open' : ''}}">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Administrator
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              @if(auth('admin')->user()->can('Admin loyalty'))
                 <li class="nav-item">
-                  <a href="{{route('admin.home.stores')}}" class="nav-link {{$menu == 'home.stores' ? 'active' : '' }}">
-
-                    <p>- - - Stores</p>
+                  <a href="{{route('admin.loyalty.settings')}}" class="nav-link {{$menu == 'settings.loyalty' ? 'active' : ''}}">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>Loyalty Program</p>
                   </a>
                 </li>
+              @endif
 
-              </ul>
-            </li>
+              @if(auth('admin')->user()->can('Admin categories'))
+                <li class="nav-item">
+                  <a href="{{route('admin.categories')}}" class="nav-link {{$menu == 'categories' ? 'active' : ''}}">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>Caterogies</p>
+                  </a>
+                </li>
+              @endif
 
-            <li class="nav-item">
-              <a href="{{route('admin.about')}}" class="nav-link {{$menu == 'admin.about' ? 'active' : ''}}">
+              @if(auth('admin')->user()->can('Admin countries'))
+                <li class="nav-item">
+                  <a href="{{route('admin.countries')}}" class="nav-link {{$menu == 'countries' ? 'active' : ''}}">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>Countries</p>
+                  </a>
+                </li>
+              @endif
 
-                <p>-- About-Us</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('admin.footer')}}" class="nav-link {{$menu == 'admin.footer' ? 'active' : ''}}">
+              @if(auth('admin')->user()->can('Admin users'))
+                <li class="nav-item">
+                  <a href="{{route('admin.users')}}" class="nav-link {{$menu == 'users' ? 'active' : ''}}">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>Users</p>
+                  </a>
+                </li>
+              @endif
+            </ul>
+          </li>
+        @endif
 
-                <p>-- Footer</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a href="{{route('admin.retailer')}}" class="nav-link {{$menu == 'retailers' ? 'active' : ''}}">
-            <i class="nav-icon fas fa-store-alt"></i>
-            <p>
-              Retailers
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{route('admin.blog')}}" class="nav-link {{$menu == 'blogs' ? 'active' : ''}}">
-            <i class="nav-icon fa fa-pen"></i>
-            <p>
-              Blogs
-            </p>
-          </a>
-        </li>
-
-        <!-- Careers Menu Start Here -->
-        <li class="nav-item">
-          <a href="{{route('admin.careers')}}" class="nav-link {{$menu == 'careers.add'  || $menu == 'careers.applied'  ? 'active' : ''}}">
-            <i class="nav-icon fas fa-briefcase"></i>
-            <p>
-              Careers
-            </p>
-          </a>
-        </li>
-        <!-- Careers Menu End Here -->
-
-        <li class="nav-item {{$menu == 'seo.meta' || $menu == 'seo.snippet' ? 'menu-open' : ''}}">
-          <a href="javascript:void(0)" class="nav-link">
-            <i class="nav-icon fas fa-bullhorn"></i>
-            <p>
-              SEO Tools
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{route('admin.seo.meta')}}" class="nav-link {{$menu == 'seo.meta' ? 'active' : ''}}">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Meta Tags</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('admin.seo.snippet')}}" class="nav-link {{$menu == 'seo.snippet' ? 'active' : ''}}">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Snippet Code</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-
-        <!-- DCM Contest Start Here -->
-
-        <li class="nav-item {{ $menu == 'invoices' || $menu == 'scanned_qr' ? 'menu-is-opening menu-open' : ''}} ">
-
-          <a href="javascript:void(0)" class="nav-link {{$menu == 'invoices'  ? 'active' : ''}} menu-open">
-            <i class="nav-icon fas fa-tags"></i>
-            <p>
-              DCM Contest
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{route('admin.invoices')}}" class="nav-link {{$menu == 'invoices' ? 'active' : ''}}">
-
-                <p>-- Contested Users</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('admin.invoices.scanned_qr')}}" class="nav-link {{$menu == 'scanned_qr' ? 'active' : ''}}">
-
-                <p>-- Scanned QR </p>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <!-- DCM Contest End Here -->
-
-        <li class="nav-item  {{$menu == 'web.users' || $menu == 'web.users.withdraw' || $menu == 'web.users.genie-wish' || $menu == 'web.users.invoices' ? 'menu-open' : ''}}">
-          <a href="javascript:void(0)" class="nav-link">
-            <i class="nav-icon fas fa-users"></i>
-            <p>
-              Users
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{route('admin.webUsers')}}" class="nav-link {{$menu == 'web.users' ? 'active' : ''}}">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Users List</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('admin.users.withdraw')}}" class="nav-link {{$menu == 'web.users.withdraw' ? 'active' : ''}}">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Withdraw Requests</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('admin.users.geniewish')}}" class="nav-link {{$menu == 'web.users.genie-wish' ? 'active' : ''}}">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Genie Wish Requests</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('admin.users.invoices')}}" class="nav-link {{$menu == 'web.users.invoices' ? 'active' : ''}}">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Invoices</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="{{route('admin.newsletter')}}" class="nav-link {{$menu == 'newsletter' ? 'active' : ''}}">
-            <i class="nav-icon fas fa-copy"></i>
-            <p>
-              Newsletter
-            </p>
-          </a>
-        </li>
-        <li class="nav-item  {{$menu == 'categories' || $menu == 'countries' || $menu == 'users' || $menu == 'settings.loyalty' ? 'menu-open' : ''}}">
-          <a href="javascript:void(0)" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
-            <p>
-              Administrator
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{route('admin.loyalty.settings')}}" class="nav-link {{$menu == 'settings.loyalty' ? 'active' : ''}}">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Loyalty Program</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('admin.categories')}}" class="nav-link {{$menu == 'categories' ? 'active' : ''}}">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Caterogies</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('admin.countries')}}" class="nav-link {{$menu == 'countries' ? 'active' : ''}}">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Countries</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('admin.users')}}" class="nav-link {{$menu == 'users' ? 'active' : ''}}">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Users</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="" class="nav-link {{$menu == 'profile' ? 'active' : ''}}">
-            <i class="nav-icon fas fa-cog"></i>
-            <p>
-              Profile Settings
-            </p>
-          </a>
-        </li>
+        @if(auth('admin')->user()->can('Profile settings'))
+          <li class="nav-item">
+            <a href="" class="nav-link {{$menu == 'profile' ? 'active' : ''}}">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Profile Settings
+              </p>
+            </a>
+          </li>
+        @endif
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

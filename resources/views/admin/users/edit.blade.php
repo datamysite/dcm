@@ -33,8 +33,12 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <label>Designation</label>
-          <input type="text" class="form-control" name="designation" value="{{$data->designation}}" required>
+          <label>Access Role</label>
+          <select class="form-control" name="designation" required>
+            <option value="">Select</option>
+            <option value="admin" {{$data->designation == 'admin' ? 'selected' : ''}}>Administrator</option>
+            <option value="seo_support" {{$data->designation == 'seo_support' ? 'selected' : ''}}>SEO Support</option>
+          </select>
         </div>
       </div>
     </div>
