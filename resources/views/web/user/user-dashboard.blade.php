@@ -35,7 +35,7 @@
 
                     <div class="row mt-5">
                         @if(Auth::user()->email_verified == 0)
-                            <div class="text-center mt-0" style="display:block;background-color: #1F428A;border-radius: 10px; background-image: linear-gradient(90deg, #1F428A, #2791CC); ">
+                            <div class="text-center mt-0" style="display:block;background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
                                 <form id="verify_email_form" action="{{route('user.verify_email')}}">
                                     @csrf
                                     <div class="row col-lg-12 mt-1" style="justify-content:center;justify-items: center;justify-self: center;padding: 10px;">
