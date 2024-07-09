@@ -180,11 +180,9 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                      </li>
 
                      <li class="nav-item dropdown" style="padding: 10px;">
-                        @if(config('app.country') == '1')
+                       
                         <a class="nav-link" href="{{route('claim_cashback', [$region])}}" role="button" aria-expanded="false">{{ __('translation.Earn_Cashback') }}</a>
-                        @else
-                        <a class="nav-link" href="{{route('About_Us', [$region])}}" role="button" aria-expanded="false">{{ __('translation.About_Us') }}</a>
-                        @endif
+                      
                      </li>
                   </ul>
                   <form class="ms-auto d-flex align-items-center" style="padding: 10px;">
@@ -202,7 +200,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         </div>
                      </div>
                   </form>
-                  
+
                   <ul class="navbar-nav">
                      <li class="nav-item dropdown" style="padding: 10px;">
                         <a class="nav-link" href="{{route('Sell_With_DCM', [$region])}}" role="button" aria-expanded="false"><b>{{ __('translation.Sell_With_DCM') }}</b></a>
@@ -415,11 +413,9 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
-                           @if(config('app.country') == '1')
+                         
                            <a class="nav-link" href="{{route('claim_cashback', [$region])}}">{{ __('translation.Earn_Cashback') }}</a>
-                           @else
-                           <a class="nav-link" href="{{route('About_Us', [$region])}}">{{ __('translation.About_Us') }}</a>
-                           @endif
+                         
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
@@ -474,18 +470,15 @@ $pos = strpos($url, "/".app()->getLocale()."/");
    <div class="row" style="height: autopx;justify-items: center;justify-content: center; border-bottom: 1px solid gray;box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);">
 
       <div class="col-3 text-center">
-         <h1 class="mt-2">{{ __('translation.question_mark') }}</h1>
-         <a href="{{route('claim_cashback', [$region])}}"><h6 style="color: black;">{{ __('translation.how_to_earn') }}</h6></a>
+         <a href="{{route('claim_cashback', [$region])}}"><h6 class="mt-3" style="color: black;">{{ __('translation.how_to_earn') }}</h6></a>
       </div>
 
       <div class="col-4 text-center">
-         <h1 class="mt-2">{{ __('translation.question_mark') }}</h1>
-         <a href="{{route('user.referralEarn')}}"><h6 style="color: black;">{{ __('translation.refer_and_get') }}</h6></a>
+         <a href="{{route('user.referralEarn')}}"><h6 class="mt-3" style="color: black;">{{ __('translation.refer_and_get') }}</h6></a>
       </div>
 
       <div class="col-3 text-center">
-         <h1 class="mt-2">{{ __('translation.question_mark') }}</h1>
-         <a href="{{route('user.transactionHistory')}}"><h6 style="color: black;">{{ __('translation.history') }}</h6></a>
+         <a href="{{route('user.transactionHistory')}}"><h6 class="mt-3" style="color: black;">{{ __('translation.history') }}</h6></a>
       </div>
    </div>
 
