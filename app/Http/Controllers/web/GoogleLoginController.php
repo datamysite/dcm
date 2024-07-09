@@ -12,6 +12,7 @@ use App\Helpers\Mailer;
 use App\Models\RewardType;
 use App\Models\TransactionHistory;
 use Auth;
+use Illuminate\Support\Facades\Session;
 
 class GoogleLoginController extends Controller
 {
@@ -35,7 +36,9 @@ class GoogleLoginController extends Controller
         if ($existingUser) {
             $existingUser->google_id = $user->id;
             $existingUser->save();
-            
+
+            Session::put('welcomeMessageShown', true);
+
             auth()->login($existingUser, true);
         } else {
             // Create a new user.
@@ -63,9 +66,10 @@ class GoogleLoginController extends Controller
                     $t->save();
                 }
             }
+
+            Session::put('welcomeMessageShown', true);
             // Log in the new user.
             auth()->login($newUser, true);
-
 
             Mailer::sendMail('Welcome to DCM!', $newUser->email, $newUser->name, 'web.emailers.welcome_user', ['name' => $newUser->name, 'email' => $newUser->email]);
             //Mailer::sendMail('Reffer your friends and earn more!', $user->email, $user->name, 'web.emailers.referral_email', ['name' => $user->name, 'email' => $user->email]);

@@ -873,4 +873,11 @@ return [
 
   "your_profile_txt" => "Your Profile",
 
+  "cashback_txt" => "Login or Sign up to start earning cashback!",
+  "join_now_txt" => "Join Now or Sign In",
+
+
+ 
+  
+
 ];

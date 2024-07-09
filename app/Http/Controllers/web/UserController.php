@@ -38,6 +38,7 @@ class UserController extends Controller
 
         $user = User::create($data);
 
+        Session::put('welcomeMessageShown', true);
         Auth::login($user);
 
         Mailer::sendMail('Email Verification on DCM!', $user->email, $user->name, 'web.emailers.email_otp', ['name' => $user->name, 'email' => $user->email, 'otp' => strval($user->email_otp)]);
@@ -65,6 +66,7 @@ class UserController extends Controller
 
         if ($user) {
 
+            Session::put('welcomeMessageShown', true);
             Auth::login($user);
 
             Mailer::sendMail('Email Verification on DCM!', $user->email, $user->name, 'web.emailers.email_otp', ['name' => $user->name, 'email' => $user->email, 'otp' => strval($user->email_otp)]);
