@@ -12,7 +12,7 @@ return [
   "All_Stores" => "All Stores",
   "Categories" => "Categories",
   "About_Us" => "About Us",
-  "On_Cashback" => "On Cashback",
+  "Earn_Cashback" => "Earn Cashback",
   "Search" => "Search...",
   "Sell_With_DCM" => "Sell With DCM",
   "Sell_With_us" => "Sell With US",

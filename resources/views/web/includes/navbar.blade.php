@@ -181,7 +181,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                      <li class="nav-item dropdown" style="padding: 10px;">
                         @if(config('app.country') == '1')
-                        <a class="nav-link" href="{{route('claim_cashback', [$region])}}" role="button" aria-expanded="false">{{ __('translation.On_Cashback') }}</a>
+                        <a class="nav-link" href="{{route('claim_cashback', [$region])}}" role="button" aria-expanded="false">{{ __('translation.Earn_Cashback') }}</a>
                         @else
                         <a class="nav-link" href="{{route('About_Us', [$region])}}" role="button" aria-expanded="false">{{ __('translation.About_Us') }}</a>
                         @endif
@@ -417,7 +417,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                         <li class="nav-item w-100 w-lg-auto">
                            @if(config('app.country') == '1')
-                           <a class="nav-link" href="{{route('claim_cashback', [$region])}}">{{ __('translation.On_Cashback') }}</a>
+                           <a class="nav-link" href="{{route('claim_cashback', [$region])}}">{{ __('translation.Earn_Cashback') }}</a>
                            @else
                            <a class="nav-link" href="{{route('About_Us', [$region])}}">{{ __('translation.About_Us') }}</a>
                            @endif
@@ -532,57 +532,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
       </div>
    </div>
 </div>
+
 @endif
 <!-- UserLogin Welcome Message end -->
 
-<!-- Cashback Popup Alert WEBSITE Message Start -->
-<div class="WebsitePopUPMSG mt-10">
-   <div class="mt-0">
-      <div class="row row text-center">
-         <div class="col-sm-12 mt-2">
-            <span class="mt-2" style="color: black;"><b>Login or Sign up to start earning cashback!</b></span>
-         </div>
-         @if(Auth::user() === null)
-         <div class="col-sm-12 mt-2 text-center">
-            <span class="mt-2" style="color: black;">
-               <a class="btn btn-primary shadow-gray" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal" style="border-radius: 10px;">Join Now or Sign In</a>
-            </span>
-         </div>
-         @endif
-
-         <div class="col-sm-12 mt-3 text-center">
-            <a href="{{route('claim_cashback', [$region])}}">
-               <h5>How To earn Cashback?</h5>
-            </a>
-         </div>
-         <p></p>
-      </div>
-   </div>
-</div>
-<!-- Cashback Popup Alert WEBSITE Message End -->
-
-<!-- Cashback Popup Alert MWeb Message Start -->
-<div class="MWebPopUPMSG mt-10">
-   <div class="mt-0">
-      <div class="row row text-center">
-         <div class="col-sm-12 mt-2">
-            <span class="mt-2" style="color: black;"><b>Login or Sign up to start earning cashback!</b></span>
-         </div>
-         @if(Auth::user() === null)
-         <div class="col-sm-12 mt-2 text-center">
-            <span class="mt-2" style="color: black;">
-               <a class="btn btn-primary shadow-gray" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal" style="border-radius: 10px;">Join Now or Sign In</a>
-            </span>
-         </div>
-         @endif
-
-         <div class="col-sm-12 mt-3 text-center">
-            <a href="{{route('claim_cashback', [$region])}}">
-               <h5>How To earn Cashback?</h5>
-            </a>
-         </div>
-         <p></p>
-      </div>
-   </div>
-</div>
-<!-- Cashback Popup Alert MWeb Message End -->

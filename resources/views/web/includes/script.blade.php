@@ -81,17 +81,21 @@
 
 }
 
-const targetDiv = document.querySelector('.WebsitePopUPMSG');
-const targetDiv2 = document.querySelector('.MWebPopUPMSG');
+//Remove/Hide Stripe on click and Margin MwebSlider to top //
+
+/*
+const MWebPopUPMSG = document.querySelector('.MWebPopUPMSG');
+var MwebSlider = document.querySelector('.MwebSlider');
 
    document.addEventListener('click', function(event) {
-      if (!targetDiv.contains(event.target) || !targetDiv2.contains(event.target)) {
-         targetDiv.style.display = 'none';
-         targetDiv2.style.display = 'none';
+      if (!MWebPopUPMSG.contains(event.target)) {
+         MWebPopUPMSG.style.display = 'none';
+         MwebSlider.style.marginTop = '4rem';
+         MwebSlider.style.setProperty('margin-top', '4rem', 'important');
       }
    });
+*/
   
-
    window.onload = function() {
       var url = window.location.href;
       var claimCashbackMenuItem = document.querySelector('a[href*="claimCashback"]').parentNode;

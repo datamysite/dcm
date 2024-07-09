@@ -1499,10 +1499,6 @@ label.errors {
     display: block;
 }
 
-.WebsitePopUPMSG {
-    display: block;
-}
-
 .MWebPopUPMSG {
     display: none;
 }
@@ -1527,8 +1523,8 @@ label.errors {
 
 .video-container {
     border-radius: 40px;
-
     overflow: hidden;
+    /* box-shadow:-10px -10px 10px #d9e2e6 */
 }
 
 .video-player video {
@@ -1537,6 +1533,14 @@ label.errors {
 
 .video-text {
     padding: 20px;
+}
+
+.MwebSlider {
+    display: none;
+}
+
+.desktop-slider {
+    display: block;
 }
 
 .vertical-line {
@@ -1702,10 +1706,6 @@ label.errors {
         display: none;
     }
 
-    .WebsitePopUPMSG {
-        display: none;
-    }
-
     .MWebPopUPMSG {
         display: block;
     }
@@ -1716,6 +1716,14 @@ label.errors {
 
     .MobileView {
         display: block;
+    }
+
+    .MwebSlider {
+        display: block;
+    }
+
+    .desktop-slider {
+        display: none;
     }
 
     /* UserMenu-Web-Mobile End*/

@@ -12,7 +12,7 @@ return [
   "All_Stores" => "كل المتاجر",
   "Categories" => "الفئات",
   "About_Us" => "عننا",
-  "On_Cashback" => "إسترد نقودك",
+  "Earn_Cashback" => "إسترد نقودك",
   "Search" => "إبحث...",
   "Sell_With_DCM" => "بيع معنا",
   "Sell_With_us" => "بيع معنا",

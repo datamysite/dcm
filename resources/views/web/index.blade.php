@@ -19,9 +19,36 @@
    </div>
 </div>
 
+<!-- Cashback Popup Alert MWeb Message Start -->
+@if( Auth::check() == null && Route::currentRouteName() === 'home' )
+<div style="justify-content: center;justify-items:center;" {!! app()->getLocale() == 'ar' ? 'class="MWebPopUPMSG mt-1"' : 'class="MWebPopUPMSG mt-12"' !!}>
+   <div class="mt-0">
+      <div class="row row text-center">
+         <div class="col-sm-12 mt-2">
+            <span class="mt-2" style="color: black;"><b>Login or Sign up to start earning cashback!</b></span>
+         </div>
+         @if(Auth::user() === null)
+         <div class="col-sm-12 mt-2 text-center">
+            <span class="mt-2" style="color: black;">
+               <a class="btn btn-primary shadow-gray" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal" style="border-radius: 10px;">Join Now or Sign In</a>
+            </span>
+         </div>
+         @endif
 
-<!-- Slider Section Start-->
-<section {!! Auth::check()==null ? 'class="mt-12 mb-lg-10 desktop-slider"' : 'class="mt-1 mb-lg-10 desktop-slider"' !!}>
+         <div class="col-sm-12 mt-3 text-center">
+            <a href="{{route('claim_cashback', [$region])}}">
+               <h5>How To earn Cashback?</h5>
+            </a>
+         </div>
+         <p></p>
+      </div>
+   </div>
+</div>
+@endif
+<!-- Cashback Popup Alert MWeb Message End -->
+
+<!-- Slider Section Desktop Start-->
+<section class="mt-5 mb-lg-10 desktop-slider">
    <div class="container np-container">
       <a href="https://chromewebstore.google.com/detail/dcm-savings-companion/pbgekicjfckaoopigiohnfbdmhllekhf?hl=en-GB" target="_blank" class="ext-banner">
          <img src="{{URL::to('/public/extension-new.png')}}" style="width:100%; height:auto;">
@@ -36,6 +63,29 @@
       </div>
    </div>
 </section>
+<!-- Slider Section Desktop End-->
+
+
+<!-- Slider Section Mobile Start-->
+<<div class="MwebSlider" >
+   <section class="mt-0 mb-lg-10">
+      <div class="container np-container">
+         <a href="https://chromewebstore.google.com/detail/dcm-savings-companion/pbgekicjfckaoopigiohnfbdmhllekhf?hl=en-GB" target="_blank" class="ext-banner">
+            <img src="{{URL::to('/public/extension-new.png')}}" style="width:100%; height:auto;">
+         </a>
+
+         <div class="hero-slider">
+            @foreach($slider as $key => $val)
+            <a href="{{$val->img_url}}" target="_blank" aria-label="Banner">
+               <img fetchpriority="high" class="main_banner_{{++$key}} main_banner" onclick="return gtag_report_mainbanner;" src="{{config('app.storage').'slider/'.$val->img_name}}" alt="Hero Slider {{++$key}}">
+            </a>
+            @endforeach
+         </div>
+      </div>
+   </section>
+</div> 
+<!-- Slider Section Mobile End-->
+
 
 <!-- Category Section Start-->
 <section class="my-lg-12 my-8">
