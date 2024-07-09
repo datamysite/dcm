@@ -848,10 +848,10 @@ return [
   //Landing page
   "how_to_earn_txt" => "How to earn Cashback?",
   "how_to_earn_txt_1" => "Money makes more money, right? Well,",
-  "how_to_earn_txt_2" => "yeah, With",
+  "how_to_earn_txt_2" => "yeah. With",
   "how_to_earn_txt_3" => "DCM",
   "how_to_earn_txt_4" => "every time you",
-  "how_to_earn_txt_5" => "shop through the",
+  "how_to_earn_txt_5" => "shop get 2$ on every purchase, granted.",
   "how_to_earn_txt_6" => "website,",
   "how_to_earn_txt_7" => "you get money back.",
   "how_to_earn_txt_8" => "Start Shopping Now",

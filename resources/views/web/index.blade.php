@@ -67,7 +67,7 @@
 
 
 <!-- Slider Section Mobile Start-->
-<<div class="MwebSlider">
+<div class="MwebSlider">
    <section class="mt-0 mb-lg-10">
       <div class="container np-container">
          <a href="https://chromewebstore.google.com/detail/dcm-savings-companion/pbgekicjfckaoopigiohnfbdmhllekhf?hl=en-GB" target="_blank" class="ext-banner">

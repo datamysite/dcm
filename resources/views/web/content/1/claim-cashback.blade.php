@@ -22,7 +22,7 @@
                         </div>
                         <p class="mt-5" {!! app()->getLocale() == 'ar' ? 'style="text-align: right;font-size:18px"' : 'style="text-align: left;font-size:18px"' !!} >
                             {{ __('translation.how_to_earn_txt_1') }} <br> {{ __('translation.how_to_earn_txt_2') }} <a href="https://dealsandcouponsmena.ae/" style="color: #fff;"><b>{{ __('translation.how_to_earn_txt_3') }}</b></a> {{ __('translation.how_to_earn_txt_4') }} <br>
-                            {{ __('translation.how_to_earn_txt_5') }} <a href="https://dealsandcouponsmena.ae/" style="color: #fff;"><b>{{ __('translation.how_to_earn_txt_3') }}</b></a> {{ __('translation.how_to_earn_txt_6') }}<br> {{ __('translation.how_to_earn_txt_7') }}
+                            {{ __('translation.how_to_earn_txt_5') }}
                         </p>
                         <p class="mt-5" {!! app()->getLocale() == 'ar' ? 'style="text-align: right;"' : 'style="text-align: left;"' !!} >
                             <a href="https://dealsandcouponsmena.ae/" class="btn btn-white shadow-blue" style="color:#012a7d;" style="font-weight: lighter;">{{ __('translation.how_to_earn_txt_8') }}</a>
@@ -49,7 +49,7 @@
             <h4 class="text-center" style="padding-top:20px;color:#fff">{{ __('translation.how_to_earn_txt') }}</h4>
             <p class="text-center" style="color:#fff; font-size:15px">
                 {{ __('translation.how_to_earn_txt_1') }} <br> {{ __('translation.how_to_earn_txt_2') }} <a href="https://dealsandcouponsmena.ae/" style="color: #fff;"><b>{{ __('translation.how_to_earn_txt_3') }}</b></a> {{ __('translation.how_to_earn_txt_4') }} <br>
-                {{ __('translation.how_to_earn_txt_5') }} <a href="https://dealsandcouponsmena.ae/" style="color: #fff;"><b>{{ __('translation.how_to_earn_txt_3') }}</b></a> {{ __('translation.how_to_earn_txt_6') }}<br> {{ __('translation.how_to_earn_txt_7') }}
+                {{ __('translation.how_to_earn_txt_5') }}
             </p>
 
             <div class="video-container" style=" border-radius: 25px;margin:10px">
@@ -278,7 +278,7 @@
             <div class="mt-5 container ad-container np-container">
                 <div class="row">
                     <div class="col-12">
-                        <img src="{{URL::to('/public')}}/web_assets/images/banner/eid-banner.png" alt="Main Page Banner">
+                    <img src="{{URL::to('/public/web_assets/images/banner/cashback_banner.png')}}" alt="Cashback Banner" style="border-radius:20px;height:80%">
                     </div>
                 </div>
             </div>

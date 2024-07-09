@@ -189,7 +189,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   </ul>
                   <form class="ms-auto d-flex align-items-center" style="padding: 10px;">
                      <div class="input-group main-search-div">
-                        <input class="form-control main-search" type="text" placeholder="{{ __('translation.Search') }}" style="width: 420px;">
+                        <input class="form-control main-search" type="text" placeholder="{{ __('translation.Search') }}" style="width: 380px;">
                         @if ( app()->getLocale() == 'en' )
                         <span class="input-group-append">
                            <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
@@ -202,8 +202,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         </div>
                      </div>
                   </form>
-
-
+                  
                   <ul class="navbar-nav">
                      <li class="nav-item dropdown" style="padding: 10px;">
                         <a class="nav-link" href="{{route('Sell_With_DCM', [$region])}}" role="button" aria-expanded="false"><b>{{ __('translation.Sell_With_DCM') }}</b></a>
@@ -476,17 +475,17 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
       <div class="col-3 text-center">
          <h1 class="mt-2">{{ __('translation.question_mark') }}</h1>
-         <h6 style="color: black;">{{ __('translation.how_to_earn') }}</h6>
+         <a href="{{route('claim_cashback', [$region])}}"><h6 style="color: black;">{{ __('translation.how_to_earn') }}</h6></a>
       </div>
 
       <div class="col-4 text-center">
          <h1 class="mt-2">{{ __('translation.question_mark') }}</h1>
-         <h6 style="color: black;">{{ __('translation.refer_and_get') }}</h6>
+         <a href="{{route('user.referralEarn')}}"><h6 style="color: black;">{{ __('translation.refer_and_get') }}</h6></a>
       </div>
 
       <div class="col-3 text-center">
          <h1 class="mt-2">{{ __('translation.question_mark') }}</h1>
-         <h6 style="color: black;">{{ __('translation.history') }}</h6>
+         <a href="{{route('user.transactionHistory')}}"><h6 style="color: black;">{{ __('translation.history') }}</h6></a>
       </div>
    </div>
 
