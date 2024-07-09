@@ -1,3 +1,29 @@
+.join-cashback-block {
+    border: 0 !important;
+    background-color: #ebebeb !important;
+    border-radius: 0 !important;
+    margin: 35px 0 -100px 0 !important;
+    padding: 25px 0 100px 0 !important;
+    box-shadow: none !important;
+}
+.join-cashback-block .how-to-earn h5 {
+    color: #1dace3;
+}
+.join-cashback-block span b {
+    font-size: 18px;
+}
+.join-cashback-block .btn {
+    border-radius: 25px !important;
+    padding: 10px 55px;
+    width: 80%;
+    background-color: #1dace3;
+    border-color: #1dace3;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: -1px 5px 5px rgb(0 0 0 / 10%);
+}
+
    .dropdown-menuMainDIV {
        display: none;
        flex-direction: column;

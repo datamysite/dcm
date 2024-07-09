@@ -21,7 +21,7 @@
 
 <!-- Cashback Popup Alert MWeb Message Start -->
 @if( Auth::check() == null && Route::currentRouteName() === 'home' )
-<div style="justify-content: center;justify-items:center;" {!! app()->getLocale() == 'ar' ? 'class="MWebPopUPMSG mt-1"' : 'class="MWebPopUPMSG mt-12"' !!}>
+<div style="justify-content: center;justify-items:center;" {!! app()->getLocale() == 'ar' ? 'class="MWebPopUPMSG mt-1 join-cashback-block"' : 'class="MWebPopUPMSG mt-12 join-cashback-block"' !!}>
    <div class="mt-0">
       <div class="row row text-center">
          <div class="col-sm-12 mt-2">
@@ -30,13 +30,13 @@
          @if(Auth::user() === null)
          <div class="col-sm-12 mt-2 text-center">
             <span class="mt-2" style="color: black;">
-               <a class="btn btn-primary shadow-gray" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal" style="border-radius: 10px;">{{ __('translation.join_now_txt') }}</a>
+               <a class="btn" href="javascript:void(0)" role="button" data-bs-toggle="modal" data-bs-target="#userModal" style="border-radius: 10px;">{{ __('translation.join_now_txt') }}</a>
             </span>
          </div>
          @endif
 
          <div class="col-sm-12 mt-3 text-center">
-            <a href="{{route('claim_cashback', [$region])}}">
+            <a href="{{route('claim_cashback', [$region])}}" class="how-to-earn">
                <h5> {{ __('translation.how_to_earn_txt') }}</h5>
             </a>
          </div>
