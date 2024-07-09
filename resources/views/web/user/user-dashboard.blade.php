@@ -27,13 +27,13 @@
 
                 @include('web.includes.user-nav')
                 <!-- col -->
-                <div class="col-lg-8 m-0">
+                <div class="col-lg-8 m-0 pp-padding">
                     
                     <div class="row" style="background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);width: 103%;{!! app()->getLocale() == 'ar' ? 'margin-right:-4px;' : 'margin-left:-4px;' !!}">
                         <h4 class="mb-5 mt-5"> <b style="color: #fff;">{{ __('translation.dashboard') }}</b></h4>
                     </div>
 
-                    <div class="row mt-5">
+                    <div class="row mt-5 pi-padding">
                         @if(Auth::user()->email_verified == 0)
                             <div class="text-center mt-0" style="display:block;background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
                                 <form id="verify_email_form" action="{{route('user.verify_email')}}">
@@ -50,7 +50,7 @@
                             </div>
                         @endif
 
-                        <div class="col-lg-12 col-12 mt-5">
+                        <div class="col-lg-12 col-12 mt-1">
 
                             <div class="row text-center contact-us-pg">
 

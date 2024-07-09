@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden !important;
+}
 .withdraw-loader {
     position: absolute;
     top: 0;

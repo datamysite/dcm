@@ -31,15 +31,15 @@
             @include('web.includes.user-nav')
 
             <!-- col -->
-            <div class="col-lg-8 m-1">
+            <div class="col-lg-8 m-1 pp-padding2">
 
                 <div class="row mt-1" style="color:#fff;background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
 
                     <h4 class="mb-2 mt-5" style="color: #fff;">{{ __('translation.referal_how_it_wors') }}</h4>
 
-                    <li class="mb-0 lead">{{ __('translation.referal_how_it_wors_txt_1') }}</li>
-                    <li class="mb-0 lead">{{ __('translation.referal_how_it_wors_txt_2') }}</li>
-                    <li class="mb-0 lead">{{ __('translation.referal_how_it_wors_txt_3') }}</li>
+                    <li class="mb-0 lead"><p>{{ __('translation.referal_how_it_wors_txt_1') }}</p></li>
+                    <li class="mb-0 lead"><p>{{ __('translation.referal_how_it_wors_txt_2') }}</p></li>
+                    <li class="mb-0 lead"><p>{{ __('translation.referal_how_it_wors_txt_3') }}</p></li>
 
                     
                     <p></p>
@@ -56,7 +56,7 @@
 
                     <h4 class="mb-2 mt-5" style="color: #fff;">{{ __('translation.referal_link_txt') }}</h4>
                     <!-- <h5 class="mb-2 mt-5" style="color: #fff;">How to use link ?</h5> -->
-                    <p class="mb-0 lead">{{ __('translation.referal_how_it_wors_txt_1') }}</p>
+                    <p class="mb-0 lead ud-para">{{ __('translation.referal_how_it_wors_txt_1') }}</p>
                     <p></p>
                     <!-- col -->
                     <div class="col-8">
@@ -91,7 +91,7 @@
                 <div class="row mt-5" style="color:#fff;background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
 
                     <h4 class="mb-2 mt-5" style="color: #fff">{{ __('translation.referal_invite_s_media_txt') }}</h4>
-                    <p class="mb-0 lead">{{ __('translation.referal_invite_s_media_txt_2') }}</p>
+                    <p class="mb-0 lead ud-para">{{ __('translation.referal_invite_s_media_txt_2') }}</p>
                     <p></p>
                     <!-- col -->
                     <div class="col-12 text-center align-items-center">

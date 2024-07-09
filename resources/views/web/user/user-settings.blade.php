@@ -34,7 +34,7 @@
 
 
             <!-- col -->
-            <div class="col-lg-8 m-1">
+            <div class="col-lg-8 m-1 pp-padding2">
 
                 <div class="row" style="background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);">
                     <h4 class="mb-5 mt-5"> <b style="color: #fff;">{{ __('translation.user_settings_txt') }} </b></h4>
@@ -157,6 +157,7 @@
                                 <input type="submit" name="sing-up" class="btn btn-primary shadow-gray" style="font-weight: lighter; {!! app()->getLocale() == 'ar' ? 'float: left;' : 'float: right;' !!}" value="{{ $data['bank_details'] !== null ? __('translation.edit_information_btn') : __('translation.save_changes_btn_txt') }}">
                             </div>
                             <div class="divider"></div>
+                            <br><br>
                         </div>
 
                     </div>

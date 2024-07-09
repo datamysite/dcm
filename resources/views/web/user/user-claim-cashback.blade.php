@@ -36,7 +36,7 @@
             @include('web.includes.user-nav')
 
             <!-- col -->
-            <div class="col-lg-8 m-1">
+            <div class="col-lg-8 m-1 pp-padding2">
 
                 <div class="row" style="background-color: #F2F2F2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A);">
                     <h4 class="mb-5 mt-5"> <b style="color: #fff;">{{ __('translation.total_earnings_txt_heading_03') }} </b></h4>
@@ -44,7 +44,7 @@
 
                 <div class="row mt-5" style="background-color: #f0f3f2;border-radius: 10px; background-image: linear-gradient(90deg, #2791CC, #1F428A); ">
 
-                    <p class="mb-0 lead" style="color: #fff;">{{ __('translation.profile_para_1') }} </p>
+                    <p class="mb-0 lead ud-para" style="color: #fff;">{{ __('translation.profile_para_1') }} </p>
 
                     <div class="row text-center mt-5" style="justify-content: center;">
                         <div class="col-lg-6" style="padding: 20px;border-radius:10px;background-color:#50C878;display:none;" id="div_1">

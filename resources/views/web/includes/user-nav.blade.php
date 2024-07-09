@@ -48,7 +48,7 @@ new color : #dfe1e5
     </div>
 </div>
 
-<div class="row col-lg-3 m-1 mt-0">
+<div class="row col-lg-3 m-1 mt-0 pb-padding">
 
     <div class="user-nav-mobile" style="display:none;">
         <div class="d-block d-lg-none mb-4">
@@ -85,7 +85,7 @@ new color : #dfe1e5
         <img src="{{URL::to('/public')}}/web_assets/images/icons/bird.png" alt="Circle Image" class="circle-image">
         <div>
             <h6 class="mt-5" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;"' : 'style="color: #fff;padding-left:25px;"' !!}>{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>
-            <p {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;"' : 'style="color: #fff;padding-left:25px;"' !!}>
+            <p {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;padding-left:10px;"' : 'style="color: #fff;padding-left:25px;padding-right:10px;"' !!}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </p>
         </div>
@@ -106,10 +106,11 @@ new color : #dfe1e5
 
         <div class="row">
             <div class="col">
-                <img src="{{URL::to('/public')}}/web_assets/images/icons/bird.png" alt="Circle Image" class="circle-image" style="background-color:whitesmoke;">
+                <img src="{{URL::to('/public')}}/web_assets/images/icons/bird.png" alt="Circle Image" class="circle-image2" style="background-color:whitesmoke;">
             </div>
             <div class="mt-2">
                 <h6 style="color:#fff;">{{Auth::user()->name}}</h6>
+                <span class="ud-email">{{Auth::user()->email}}</span>
             </div>
         </div>
     </div>
@@ -126,7 +127,7 @@ new color : #dfe1e5
     </div>
     
     <!-- Wallet Section End -->
-    <div class="mt-5" style="background-color: #f0f3f2;border-radius: 10px">
+    <div style="background-color: #f0f3f2;border-radius: 10px; margin-top:0px ;">
 
         <div class="user-nav-desktop">
             <div class="row">
