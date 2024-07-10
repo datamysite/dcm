@@ -851,7 +851,7 @@ return [
   "how_to_earn_txt_2" => "yeah. With",
   "how_to_earn_txt_3" => "DCM",
   "how_to_earn_txt_4" => "every time you",
-  "how_to_earn_txt_5" => "shop get 2$ on every purchase, guaranteed.",
+  "how_to_earn_txt_5" => "shop get 2$ on every purchase, guaranteed!",
   "how_to_earn_txt_6" => "website,",
   "how_to_earn_txt_7" => "you get money back.",
   "how_to_earn_txt_8" => "Start Shopping Now",

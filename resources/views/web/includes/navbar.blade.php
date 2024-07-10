@@ -460,8 +460,8 @@ $pos = strpos($url, "/".app()->getLocale()."/");
          </div>
 
          <div class="col-3 mt-2">
-            <span style="top: 2px; right: 4;color:#fff;">{{ __('translation.aed_coin') }}</span>
-            <h4 class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:5px;"' : 'style="color: #fff;padding-left:5px;"' !!}>0.00</h4>
+            <span style="top: 2px; padding-left: 10px;color:#ffa804;">{{ __('translation.aed_coin') }}</span>
+            <h4 class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:0px;"' : 'style="color: #fff;padding-left:0px;"' !!}> {{number_format(Auth::user()->wallet)}}</h4>
          </div>
 
       </div>
