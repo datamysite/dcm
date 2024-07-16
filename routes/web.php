@@ -313,6 +313,14 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::get('/delete/{id}', 'BlogController@delete')->middleware('auth:admin', 'permission:Blogs delete');
             Route::get('/edit/{id}', 'BlogController@edit')->middleware('auth:admin', 'permission:Blogs edit');
             Route::post('/update', 'BlogController@update_blog')->middleware('auth:admin', 'permission:Blogs edit')->name('admin.blog.update');
+
+        //Blog FAQs Permission Need to be added //
+            Route::get('/{id}', 'BlogController@FAQ')->name('admin.blog.faq');
+            Route::post('/createFAQ', 'BlogController@createFAQ')->name('admin.blog.faq.create');
+            Route::get('/loadFAQ/{id}', 'BlogController@loadFAQ')->name('admin.blog.faq.load');
+            Route::get('/faq/edit/{id}', 'BlogController@editFAQ');
+            Route::post('/faq/update', 'BlogController@updateFAQ')->name('admin.blog.faq.update');
+            Route::get('/faq/delete/{id}', 'BlogController@deleteFAQ');
         });
 
         //Careers
@@ -537,6 +545,16 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::get('/edit/{id}', 'CmsController@edit_footer');
             Route::get('/delete/{id}', 'CmsController@delete_footer');
             Route::post('/copyright/save', 'CmsController@footer_copyright_save')->name('admin.footer.copyright.save');
+        });
+
+        //FAQ Content
+        Route::prefix('faq')->middleware('auth:admin', 'permission:SEO faqs')->group(function () {
+            Route::get('/', 'FaqController@index')->name('admin.faq');
+            Route::post('/create', 'FaqController@create')->name('admin.faq.create');
+            Route::get('/load', 'FaqController@load')->name('admin.faq.load');
+            Route::get('/edit/{id}', 'FaqController@edit');
+            Route::post('/update', 'FaqController@update')->name('admin.faq.update');
+            Route::get('/delete/{id}', 'FaqController@delete');
         });
     });
 });

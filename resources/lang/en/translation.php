@@ -231,6 +231,7 @@ return [
   //New//
   "faq_page_text_01" =>  "YOUR COMPREHENSIVE GUIDE TO UNDERSTANDING UAE COUPONS AND PROMO CODES FOR SIGNIFICANT SAVINGS Looking for a deal and a discount? You've arrived at the appropriate location by selecting Dealsandcouponsmena.com. We are specialists and experts at helping online shoppers save a ton of money and purchase their preferred items. To avoid any issues, we advise customers to use the verified UAE discount coupon list. First-time users should concentrate on the FAQs area for more information.",
   "faq_page_text_02" =>  "Frequently Asked Questions",
+  "faq_page_text_0202" =>  "Blog Frequently Asked Questions",
   "faq_page_text_question_01" =>  "Learn About UAE Coupon Codes ?",
   "faq_page_text_answer_01" =>  "Simple digits or alphabets are used as coupons or promo codes to bring about discounts. These could be for the entire collection in the shopping basket or just a specific item, brand, or service. Here are some additional names or forms for these codes.",
   "faq_page_text_question_02" =>  "Are you facing a problem with discount code ?",

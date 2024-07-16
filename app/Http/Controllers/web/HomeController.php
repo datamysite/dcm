@@ -11,6 +11,7 @@ use App\Models\HomeStores;
 use App\Models\About;
 use App\Models\Footer;
 use App\Models\Slider;
+use App\Models\Faq;
 use URL;
 use DB;
 use App\Helpers\Mailer;
@@ -315,7 +316,8 @@ class HomeController extends Controller
     //FAQS
     public function FAQS()
     {
-        return view('web.content.' . config('app.country') . '.faqs');
+        $data['faq'] = Faq::where('blog_id', 0)->where('country_id' , config('app.country'))->get();
+        return view('web.content.' . config('app.country') . '.faqs' , ['data' => $data]);
     }
 
     //Terms
