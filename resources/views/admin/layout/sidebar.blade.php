@@ -33,7 +33,7 @@
         </li>
 
         @if(auth('admin')->user()->can('CMS modify'))
-          <li class="nav-item {{$menu == 'home.stores'  || $menu == 'home.slider' || $menu == 'admin.about' || $menu == 'admin.footer' || $menu == 'admin.contact' ? 'menu-is-opening menu-open' : ''}} ">
+          <li class="nav-item {{$menu == 'home.stores'  || $menu == 'home.slider' || $menu == 'admin.about' || $menu == 'admin.footer' || $menu == 'admin.contact' || $menu == 'admin.faq' ? 'menu-is-opening menu-open' : ''}} ">
 
             <a href="javascript:void(0)" class="nav-link {{$menu == 'home.stores' ? 'active' : ''}} menu-open">
               <i class="nav-icon fas fa-copy"></i>
@@ -80,7 +80,14 @@
                 </a>
               </li>
 
-  
+              
+              <li class="nav-item">
+                <a href="{{route('admin.faq')}}" class="nav-link {{$menu == 'admin.faq' ? 'active' : ''}}">
+
+                  <p>-- FAQs</p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="{{route('admin.footer')}}" class="nav-link {{$menu == 'admin.footer' ? 'active' : ''}}">
 
@@ -91,7 +98,7 @@
           </li>
         @endif
 
-        @if(auth('admin')->user()->can('SEO faqs') || auth('admin')->user()->can('CMS modify'))
+        @if(auth('admin')->user()->can('SEO faqs'))
           <li class="nav-item">
             <a href="{{route('admin.faq')}}" class="nav-link {{$menu == 'admin.faq' ? 'active' : ''}}">
               <i class="nav-icon fas fa-book-open"></i>
