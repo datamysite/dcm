@@ -91,7 +91,7 @@
           </li>
         @endif
 
-        @if(auth('admin')->user()->can('Seo faqs modify'))
+        @if(auth('admin')->user()->can('SEO FAQ modify'))
           <li class="nav-item">
             <a href="{{route('admin.faq')}}" class="nav-link {{$menu == 'admin.faq' ? 'active' : ''}}">
               <i class="nav-icon fas fa-book-open"></i>

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Admin;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,16 @@ Route::get('/migrate', function () {
     dd('migrated!');
 });
 
+//Create New Permission
+Route::get('create-permission', function(){
+    $role = Role::find(4);
+    $role2 = Role::find(5);
+    $permission = Permission::create(['name' => 'SEO FAQ modify', 'guard_name' => 'admin']);
+    $permission->assignRole($role);
+    $permission->assignRole($role2);
+
+    dd('created');
+});
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -548,7 +560,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //FAQ Content
-        Route::prefix('faq')->middleware('auth:admin', 'permission:Seo faqs modify')->group(function () {
+        Route::prefix('faq')->middleware('auth:admin', 'permission:SEO FAQ modify')->group(function () {
             Route::get('/', 'FaqController@index')->name('admin.faq');
             Route::post('/create', 'FaqController@create')->name('admin.faq.create');
             Route::get('/load', 'FaqController@load')->name('admin.faq.load');
