@@ -548,7 +548,7 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
         });
 
         //FAQ Content
-        Route::prefix('faq')->middleware('auth:admin', 'permission:SEO faqs|permission:CMS modify')->group(function () {
+        Route::prefix('faq')->middleware('auth:admin', 'permission:Seo faqs modify')->group(function () {
             Route::get('/', 'FaqController@index')->name('admin.faq');
             Route::post('/create', 'FaqController@create')->name('admin.faq.create');
             Route::get('/load', 'FaqController@load')->name('admin.faq.load');
