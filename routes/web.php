@@ -27,15 +27,15 @@ Route::get('/migrate', function () {
 });
 
 //Create New Permission
-Route::get('create-permission', function(){
-    $role = Role::find(4);
-    $role2 = Role::find(5);
-    $permission = Permission::create(['name' => 'SEO FAQ modify', 'guard_name' => 'admin']);
-    $permission->assignRole($role);
-    $permission->assignRole($role2);
+// Route::get('create-permission', function(){
+//     $role = Role::find(4);
+//     $role2 = Role::find(5);
+//     $permission = Permission::create(['name' => 'SEO FAQ modify', 'guard_name' => 'admin']);
+//     $permission->assignRole($role);
+//     $permission->assignRole($role2);
 
-    dd('created');
-});
+//     dd('created');
+// });
 /*
 |--------------------------------------------------------------------------
 | Web Routes
