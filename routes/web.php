@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Models\Admin;
 
 /*
@@ -43,13 +44,17 @@ Route::group([
     'middleware' => ['setLocale', 'amp_validator'],
 
 ], function () {
-    Route::get('/', 'RegionController@index');
+    //Route::get('/', 'RegionController@index');
     Route::get('/region/{name}', 'RegionController@set_region')->name('setRegion');
     Route::get('/getLocation', 'RegionController@get_location');
 
-    Route::prefix('{region}')->group(function () {
+
+/* ----------- States Routes -----*/
+
+
         //Home
         Route::get('/', 'HomeController@index')->name('home');
+ 
         //Includes Lazy Load
         Route::prefix('includes')->group(function () {
             Route::get('getFooter', 'HomeController@get_footer');
@@ -70,10 +75,9 @@ Route::group([
             Route::get('/{type}', 'ListingController@index')->name('stores');
         });
 
-        Route::prefix('store')->group(function () {
-            Route::get('/{brand_slug}', 'ListingController@brand')->name('brand');
-            Route::get('{cat_slug}/{brand_slug}', 'ListingController@category_brand')->name('category.brand');
-        });
+        //Store
+        //Route::get('{cat_slug}/{brand_slug}', 'ListingController@category_brand')->name('category.brand');
+        
         Route::prefix('coupon')->group(function () {
             Route::get('/{id}', 'ListingController@show_coupon');
             Route::get('/grabDeal/{id}', 'ListingController@coupon_grab_deal');
@@ -86,10 +90,7 @@ Route::group([
             Route::get('/redeem-pdf/{id}', 'ListingController@redeem_pdf')->name('offers.redeemPDF');
         });
 
-        Route::prefix('category')->group(function () {
-            Route::get('{cat_slug}', 'ListingController@category')->name('category');
-            Route::get('{cat_slug}/{type}', 'ListingController@category_sub')->name('category.sub');
-        });
+        //Route::get('{cat_slug}/{type}', 'ListingController@category_sub')->name('category.sub');
 
         //Blogs
         Route::prefix('blogs')->middleware('BlogAccess')->group(function () {
@@ -131,7 +132,9 @@ Route::group([
 
         //Cancel Welcome Message Session
         Route::get('/cancelWelcomeMsg', 'HomeController@cancelWelcomeMsg')->name('cancelWelcomeMsg');
-    });
+
+
+/* ----------- States Routes -----*/
 
     //Users
     Route::prefix('user')->group(function () {
@@ -203,7 +206,55 @@ Route::group([
     });
 });
 
+/* --------- Clean routes -----------------*/
 
+Route::group([
+    'namespace' => 'web',
+    'prefix' => '{locale}',
+    'where' => ['locale' => '[a-zA-Z]{2}'],
+    'middleware' => ['setLocale', 'amp_validator'],
+
+], function () {
+
+    Route::get('/{wildcard}', function ($lang, $wildcard, Request $request) { 
+        $cat_slug = str_replace('-',' ',$wildcard);
+        $cat_slug = str_replace('and','&',$cat_slug);
+        $cat_slug = ucwords($cat_slug);
+
+        $is_category = App\Models\Categories::where('name', $cat_slug)->first();
+        $is_brand = App\Models\Retailers::where('slug', $wildcard)->where('status', '1')->first();
+        //dd($is_category);
+        if(null !== $is_category){
+            $controller = app()->make('App\Http\Controllers\web\ListingController');  
+            return $controller->callAction('category', ['cat_slug' => $wildcard, 'request' => $request->all()]); 
+            //return redirect()->action('web\ListingController@category', ['cat_slug' => $wildcard]);
+        } else if(null !== $is_brand){
+            $controller = app()->make('App\Http\Controllers\web\ListingController');  
+            return $controller->callAction('brand', ['brand_slug' => $wildcard]); 
+            //return redirect()->action('web\ListingController@brand', ['brand_slug' => $wildcard]);
+        }
+    });
+
+    Route::get('/{wildcard}/{wildcard2}', function ($lang, $wildcard, $wildcard2, Request $request) { 
+        $cat_slug = str_replace('-',' ',$wildcard);
+        $cat_slug = str_replace('and','&',$cat_slug);
+        $cat_slug = ucwords($cat_slug);
+
+        $is_brand = App\Models\Retailers::where('slug', $wildcard2)->where('status', '1')->first();
+        //dd($is_category);
+        if($wildcard2 == 'online' || $wildcard2 == 'retail'){
+            $controller = app()->make('App\Http\Controllers\web\ListingController');  
+            return $controller->callAction('category_sub', ['cat_slug' => $wildcard, 'type' => $wildcard2, 'request' => $request->all()]); 
+            //return redirect()->action('web\ListingController@category', ['cat_slug' => $wildcard]);
+        } else if(null !== $is_brand){
+            $controller = app()->make('App\Http\Controllers\web\ListingController');  
+            return $controller->callAction('category_brand', ['cat_slug' => $wildcard, 'brand_slug' => $wildcard2]); 
+            //return redirect()->action('web\ListingController@brand', ['brand_slug' => $wildcard]);
+        }
+    });
+
+});
+/* --------- Clean routes -----------------*/
 
 
 

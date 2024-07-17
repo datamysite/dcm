@@ -18,7 +18,9 @@ class setLocale
         }else{
             app()->setLocale($request->segment(1));
             URL::defaults(['locale' => $request->segment(1)]);
+
         }
+
         return $next($request);
     }
 }

@@ -41,7 +41,7 @@ class RegionController extends Controller
             $_SESSION['region'] = $defaulState[config('app.country')];
         }
 
-        return redirect()->intended('/'.app()->getLocale().'/'.$region);
+        return redirect()->intended('/'.app()->getLocale());
     }
 
     public function set_region($lang, $name){
@@ -55,7 +55,7 @@ class RegionController extends Controller
         $region = $_SESSION['region'];
         //dd($_SESSION['region']);
 
-        return redirect()->intended('/'.app()->getLocale().'/'.$region);
+        return redirect()->back();
     }
 
 
@@ -138,6 +138,6 @@ class RegionController extends Controller
             $_SESSION['region'] = $defaulState[config('app.country')];
         }
         
-        return redirect()->intended('/'.app()->getLocale().'/'.$region);
+        return redirect(route('home', app()->getLocale()));
     }
 }

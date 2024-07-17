@@ -9,7 +9,7 @@
 <div class="container emirates-container np-container">
    <div class="emirates-section-nav">
       @foreach($allstates as $val)
-      <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}" aria-label="{{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}">
+      <a href="{{route('setRegion', [app()->getLocale(), $val->slug])}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}" aria-label="{{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}">
          <div class="header_card">
             <img src="{{config('app.storage').'/states/'.$val->image}}" alt="Image - {{$val->name}}" class="{{$val->name}} emirates_view" onclick="return gtag_report_emiratesview;" />
             {{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}
@@ -104,7 +104,7 @@
             $slug = preg_replace('/[^a-z0-9-]/', '', $string);
             @endphp
             <div class="item ">
-               <a href="{{route('category', [$region, $slug])}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
+               <a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
                   <img src="{{config('app.storage').'categories/'.$val->image}}" alt="Image - {{$val->name}}" onclick="return gtag_report_categoryview;" class="{{$slug}} category_view" width="100px" height="100px" />
                   <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
                </a>
@@ -181,7 +181,7 @@
                            </a>
                         </div>
                         <div class="back">
-                           <a href="{{route('brand',[$region, $val->slug])}}" class="img-pop-up" aria-label="Online Store - {{$val->name}}">
+                           <a href="{{URL::to('/'.app()->getLocale().'/'.$val->slug)}}" class="img-pop-up" aria-label="Online Store - {{$val->name}}">
                               <img class="img-fluid w-100" src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" style="border-radius: 20px;" />
                            </a>
                         </div>

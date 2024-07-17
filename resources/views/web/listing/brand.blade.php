@@ -17,9 +17,9 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
                         @if(!empty($category_slug))
-                            <li class="breadcrumb-item"><a href="{{route('category', [$region, $category_slug])}}" style="color: #000;"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
+                            <li class="breadcrumb-item"><a href="{{URL::to('/'.app()->getLocale().'/'.$category_slug)}}" style="color: #000;"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
                         @endif
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</a></strong></li>
                     </ol>
@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-12">
                 <div class=" text-lg-center">
-                    <a href="{{route('brand', [$region, $retailer->slug])}}"><h1 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h1></a><br>
+                    <a href="{{URL::to('/'.app()->getLocale().'/'.$retailer->slug)}}"><h1 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h1></a><br>
                     @php 
                         if($retailer->type == '1'){
                             $brand_domain = explode('/', $retailer->store_link);
@@ -134,13 +134,13 @@
                         <div class="row suggested-brand">
                             <div class="col-lg-12"><p>{{$suggestedHeading[$sg]}}</p></div>
                             <div class="col-6">
-                                <a href="{{route('brand', [$region, $suggested[$sg]->slug])}}">
+                                <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
                                     <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
                                 </a>
                             </div>
                             @php $sg++; @endphp
                             <div class="col-6">
-                                <a href="{{route('brand', [$region, $suggested[$sg]->slug])}}">
+                                <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
                                     <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
                                 </a>
                             </div>
@@ -226,13 +226,13 @@
                         <div class="row suggested-brand">
                             <div class="col-lg-12"><p>{{$suggestedHeading[$sg]}}</p></div>
                             <div class="col-6">
-                                <a href="{{route('brand', [$region, $suggested[$sg]->slug])}}">
+                                <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
                                     <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
                                 </a>
                             </div>
                             @php $sg++; @endphp
                             <div class="col-6">
-                                <a href="{{route('brand', [$region, $suggested[$sg]->slug])}}">
+                                <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
                                     <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
                                 </a>
                             </div>
@@ -314,7 +314,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
                 $('#ShowCouponModal').modal('show');
-                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/coupon')}}/"+id, function(data){
+                $.get("{{URL::to('/'.app()->getlocale().'/coupon')}}/"+id, function(data){
                     $('#ShowCouponModal .grap_deal_main').html(data);
                 });
             });
@@ -324,7 +324,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
                 $('#ShowCouponModal').modal('show');
-                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/offers')}}/"+id, function(data){
+                $.get("{{URL::to('/'.app()->getlocale().'/offers')}}/"+id, function(data){
                     $('#ShowCouponModal .grap_deal_main').html(data);
                 });
             });
@@ -345,7 +345,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal').modal('hide');
                 $('#loading').css({display: 'block'});
-                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/coupon/grabDeal')}}/"+id, function(data){
+                $.get("{{URL::to('/'.app()->getlocale().'/coupon/grabDeal')}}/"+id, function(data){
                     $('#loading').css({display: 'none'});
                     window.location.href = link;
                 });
@@ -356,7 +356,7 @@
                 var id = $(this).data('id');
                 $('#ShowCouponModal').modal('hide');
                 $('#loading').css({display: 'block'});
-                $.get("{{URL::to('/'.app()->getlocale().'/'.$region.'/offers/whatsapp')}}/"+id, function(data){
+                $.get("{{URL::to('/'.app()->getlocale().'/offers/whatsapp')}}/"+id, function(data){
                     $('#loading').css({display: 'none'});
                     window.location.href = link;
                 });

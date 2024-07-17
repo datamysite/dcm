@@ -21,7 +21,7 @@
                <h6 class="mb-4"><strong>{{ __('translation.footer_section_2_text01') }}</strong></h6>
                <ul class="nav flex-column">
                   @foreach($footBrand as $val)
-                     <li class="nav-item mb-2"><a href="{{route('brand', [$region, $val->retailer->slug])}}" class="nav-link">{{app()->getLocale() == 'ar' ? $val->retailer->name_ar : $val->retailer->name}}</a></li>
+                     <li class="nav-item mb-2"><a href="{{URL::to('/'.app()->getLocale().'/'.$val->retailer->slug)}}" class="nav-link">{{app()->getLocale() == 'ar' ? $val->retailer->name_ar : $val->retailer->name}}</a></li>
                   @endforeach
                </ul>
             </div>
@@ -37,7 +37,7 @@
                          $string = str_replace(' ', '-', $string);
                          $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                      @endphp
-                     <li class="nav-item mb-2"><a href="{{route('category', [$region, $slug])}}" class="nav-link">{{app()->getLocale() == 'ar' ? $val->category->name_ar : $val->category->name}}</a></li>
+                     <li class="nav-item mb-2"><a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}" class="nav-link">{{app()->getLocale() == 'ar' ? $val->category->name_ar : $val->category->name}}</a></li>
                   @endforeach
                </ul>
             </div>

@@ -14,8 +14,8 @@
                   </a>
                </div>
                <div class="back">
-                  <a href="{{route('brand',[$region, $val->retailer->slug])}}" class="img-pop-up" aria-label="Online Store - {{$val->retailer->name}}">
-                     <img class="img-fluid w-100" src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->retailer->ar_logo : $val->retailer->logo}}" alt="Yalla Toys Store" style="border-radius: 20px;" />
+                  <a href="{{URL::to('/'.app()->getLocale().'/'.$val->retailer->slug)}}" class="img-pop-up" aria-label="Online Store - {{$val->retailer->name}}">
+                     <img class="img-fluid w-100" src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->retailer->ar_logo : $val->retailer->logo}}" alt="{{$val->retailer->name}}" style="border-radius: 20px;" />
                   </a>
                </div>
             </div>
