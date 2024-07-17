@@ -5,6 +5,7 @@ namespace App\Http\Controllers\web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blogs;
+use App\Models\Faq;
 
 class BlogController extends Controller
 {
@@ -20,7 +21,9 @@ class BlogController extends Controller
     public function detail($lang, $region, $slug)
     {
         $data['blog'] = Blogs::where('slug', $slug)->first();
-
-        return view($this->getView('web.blogs.single-blog'))->with($data);
+        $id = $data['blog']['id'];
+        $data['faq'] = Faq::where('blog_id', $id)->with('country')->get();
+        
+        return view($this->getView('web.blogs.single-blog'), ['data'=> $data]);
     }
 }

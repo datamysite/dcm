@@ -33,7 +33,7 @@
         </li>
 
         @if(auth('admin')->user()->can('CMS modify'))
-          <li class="nav-item {{$menu == 'home.stores'  || $menu == 'home.slider' || $menu == 'admin.about' || $menu == 'admin.footer' || $menu == 'admin.contact' ? 'menu-is-opening menu-open' : ''}} ">
+          <li class="nav-item {{$menu == 'home.stores'  || $menu == 'home.slider' || $menu == 'admin.about' || $menu == 'admin.footer' || $menu == 'admin.contact' || $menu == 'admin.faq' ? 'menu-is-opening menu-open' : ''}} ">
 
             <a href="javascript:void(0)" class="nav-link {{$menu == 'home.stores' ? 'active' : ''}} menu-open">
               <i class="nav-icon fas fa-copy"></i>
@@ -79,6 +79,8 @@
                   <p>-- About-Us</p>
                 </a>
               </li>
+
+              
               <li class="nav-item">
                 <a href="{{route('admin.footer')}}" class="nav-link {{$menu == 'admin.footer' ? 'active' : ''}}">
 
@@ -86,6 +88,17 @@
                 </a>
               </li>
             </ul>
+          </li>
+        @endif
+
+        @if(auth('admin')->user()->can('SEO FAQ modify'))
+          <li class="nav-item">
+            <a href="{{route('admin.faq')}}" class="nav-link {{$menu == 'admin.faq' ? 'active' : ''}}">
+              <i class="nav-icon fas fa-book-open"></i>
+              <p>
+              FAQs
+              </p>
+            </a>
           </li>
         @endif
 
@@ -102,7 +115,7 @@
 
         @if(auth('admin')->user()->can('Blogs view'))
           <li class="nav-item">
-            <a href="{{route('admin.blog')}}" class="nav-link {{$menu == 'blogs' ? 'active' : ''}}">
+            <a href="{{route('admin.blog')}}" class="nav-link {{$menu == 'blogs' || $menu == 'FAQ' ? 'active' : ''}}">
               <i class="nav-icon fa fa-pen"></i>
               <p>
                 Blogs

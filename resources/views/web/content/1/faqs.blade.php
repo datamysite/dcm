@@ -73,7 +73,30 @@
 
             </div>
         </div>
-
+        @if(count($data['faq']) != 0 )
+        <div class="row mb-5">
+            <div class="col-lg-12 col-12 mb-5">
+                <h2 class="mb-5"> {{ __('translation.faq_page_text_02') }} </h2>
+                @foreach ($data['faq'] as $faq)
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button id="accordion-button-1" aria-expanded="false">
+                            <span class="accordion-title"> {{ $faq->heading }} </span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            {!! $faq->content !!}
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                <div class="row mt-5">
+                    <h3 style="color:#1DACE3" class="text-center">{{ __('translation.faq_page_text_07') }}</h3>
+                    <span class="mt-2" style="text-align: center;"><input type="submit" name="sing-up" class="btn btn-primary px-5 " style="font-weight: lighter;" value="{{ __('translation.contact_us') }}"></span>
+                </div>
+            </div>
+        </div>
+        @else
         <div class="row mb-5">
             <div class="col-lg-12 col-12 mb-5">
 
@@ -135,7 +158,7 @@
                                 <li>{{ __('translation.faq_page_text_answer_02_07') }}</li>
                                 <li>{{ __('translation.faq_page_text_answer_02_08') }}</li>
                                 <li>{{ __('translation.faq_page_text_answer_02_09') }}</li>
-                           
+
                             </ul>
                         </div>
                     </div>
@@ -145,14 +168,14 @@
                             <span class="icon" aria-hidden="true"></span>
                         </button>
                         <div class="accordion-content">
-                        <p>
+                            <p>
                                 <strong>{{ __('translation.faq_page_text_answer_02_10') }}</strong>
                             </p>
                             <ul>
                                 <li>{{ __('translation.faq_page_text_answer_02_11') }}</li>
                                 <li>{{ __('translation.faq_page_text_answer_02_12') }}</li>
                                 <li>{{ __('translation.faq_page_text_answer_02_13') }}</li>
-            
+
                             </ul>
                             <p>
                                 <strong>{{ __('translation.faq_page_text_answer_02_14') }}</strong>
@@ -161,7 +184,7 @@
                                 <li>{{ __('translation.faq_page_text_answer_02_15') }}</li>
                                 <li>{{ __('translation.faq_page_text_answer_02_16') }}</li>
                                 <li>{{ __('translation.faq_page_text_answer_02_17') }}</li>
-                           
+
                             </ul>
                         </div>
                     </div>
@@ -199,7 +222,7 @@
                                 {{ __('translation.faq_page_text_answer_02_26') }}
                             </p>
                             <p>
-                            {{ __('translation.faq_page_text_answer_02_27') }}
+                                {{ __('translation.faq_page_text_answer_02_27') }}
                             </p>
                             <ul>
                                 <li>{{ __('translation.faq_page_text_answer_02_28') }}</li>
@@ -252,6 +275,7 @@
             </div>
 
         </div>
+        @endif
 
     </div>
 </section>
