@@ -48,7 +48,7 @@ class RetailerBlogController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['country']) || empty($data['description'])) {
+        if (empty($data['heading']) || empty($data['country']) || empty($data['description']) || empty($data['section_id']) ) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         }else{
@@ -75,7 +75,7 @@ class RetailerBlogController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['country']) || empty($data['description'])) {
+        if (empty($data['heading']) || empty($data['country']) || empty($data['description']) || empty($data['section_id']) ) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         }else{

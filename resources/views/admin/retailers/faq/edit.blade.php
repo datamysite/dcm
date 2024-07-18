@@ -1,4 +1,4 @@
-<form id="edit_faq_form" action="{{route('admin.blog.faq.update')}}">
+<form id="edit_faq_form" action="{{route('admin.retailer.faq.update')}}">
     @csrf
     <input type="hidden" name="faq_id" value="{{base64_encode($data['data']->id)}}">
     <div class="modal-header">

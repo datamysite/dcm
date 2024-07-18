@@ -314,10 +314,19 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
                 Route::get('/edit/{id}', 'RetailerBlogController@edit')->middleware('auth:admin', 'permission:Retailer blogs edit');
                 Route::post('/update', 'RetailerBlogController@update_blog')->middleware('auth:admin', 'permission:Retailer blogs edit')->name('admin.retailer.blog.update');
             });
+            //FAQs
+            //Add Retailers FAQs Permission if Needed //
+            Route::get('/{id}', 'FaqController@Retailer_FAQs')->name('admin.retailer.faq');
+            Route::post('/createRetailerFAQ', 'FaqController@createRetailerFAQ')->name('admin.retailer.faq.create');
+            Route::get('/loadRetailerFAQ/{id}', 'FaqController@loadRetailerFAQ')->name('admin.retailer.faq.load');
+            Route::get('/faq/editRetailerFAQ/{id}', 'FaqController@editRetailerFAQ');
+            Route::post('/faq/updateRetailerFAQ', 'FaqController@updateRetailerFAQ')->name('admin.retailer.faq.update');
+            Route::get('/faq/delete/{id}', 'FaqController@deleteFAQ');
         });
 
         //Blogs
         Route::prefix('blogs')->middleware('auth:admin', 'permission:Blogs view')->group(function () {
+
             Route::get('/', 'BlogController@index')->name('admin.blog');
             Route::get('/load', 'BlogController@load')->name('admin.blog.load');
             Route::get('/search/{val}', 'BlogController@search');
@@ -326,13 +335,22 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
             Route::get('/edit/{id}', 'BlogController@edit')->middleware('auth:admin', 'permission:Blogs edit');
             Route::post('/update', 'BlogController@update_blog')->middleware('auth:admin', 'permission:Blogs edit')->name('admin.blog.update');
 
-        //Blog FAQs Permission Need to be added //
+            //Add Blog FAQs Permission if Needed //
             Route::get('/{id}', 'BlogController@FAQ')->name('admin.blog.faq');
             Route::post('/createFAQ', 'BlogController@createFAQ')->name('admin.blog.faq.create');
             Route::get('/loadFAQ/{id}', 'BlogController@loadFAQ')->name('admin.blog.faq.load');
             Route::get('/faq/edit/{id}', 'BlogController@editFAQ');
             Route::post('/faq/update', 'BlogController@updateFAQ')->name('admin.blog.faq.update');
             Route::get('/faq/delete/{id}', 'BlogController@deleteFAQ');
+        });
+
+        Route::prefix('author')->middleware('auth:admin', 'permission:Blogs view')->group(function () {
+
+            Route::get('/', 'AuthorController@index')->name('admin.author');
+            Route::post('/create', 'AuthorController@create')->name('admin.author.create');
+            Route::get('/load', 'AuthorController@load')->name('admin.author.load');
+            Route::get('/edit/{id}', 'AuthorController@edit');
+            Route::get('/delete/{id}', 'AuthorController@delete');
         });
 
         //Careers

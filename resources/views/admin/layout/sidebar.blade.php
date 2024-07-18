@@ -114,15 +114,48 @@
         @endif
 
         @if(auth('admin')->user()->can('Blogs view'))
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="{{route('admin.blog')}}" class="nav-link {{$menu == 'blogs' || $menu == 'FAQ' ? 'active' : ''}}">
               <i class="nav-icon fa fa-pen"></i>
               <p>
                 Blogs
               </p>
             </a>
+          </li> -->
+        @endif
+
+
+        @if(auth('admin')->user()->can('Blogs view'))
+          <li class="nav-item {{$menu == 'blogs' || $menu == 'admin.author'  ? 'menu-open' : ''}}">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-pen"></i>
+              <p>
+                DCM Blogs
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+             
+                <li class="nav-item">
+                  <a href="{{route('admin.blog')}}" class="nav-link {{$menu == 'blogs' ? 'active' : ''}}">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>Blogs</p>
+                  </a>
+                </li>
+            
+
+              <li class="nav-item">
+                <a href="{{route('admin.author')}}" class="nav-link {{$menu == 'admin.author' ? 'active' : ''}}">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Authors</p>
+                </a>
+              </li>
+       
+
+            </ul>
           </li>
         @endif
+
 
         @if(auth('admin')->user()->can('Career modify'))
           <!-- Careers Menu Start Here -->

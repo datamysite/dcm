@@ -9,19 +9,30 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <div class="form-group">
           <label>Heading</label>
           <input type="text" class="form-control" name="heading" value="{{$data->heading}}" required>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="form-group">
           <label>Country</label>
           <select class="form-control" name="country" required>
             @foreach($country as $val)
-              <option value="{{$val->id}}" {{$data->country_id == $val->id ? 'selected' : ''}}>{{$val->shortname}}</option>
+            <option value="{{$val->id}}" {{$data->country_id == $val->id ? 'selected' : ''}}>{{$val->shortname}}</option>
             @endforeach
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Section</label>
+          <select class="form-control" name="section_id" required>
+ 
+            <option value="1" {{ $data->section_id == 1 ? 'selected' : '' }}>Header</option>
+            <option value="2" {{ $data->section_id  == 2 ? 'selected' : '' }}>Footer</option>
+
           </select>
         </div>
       </div>

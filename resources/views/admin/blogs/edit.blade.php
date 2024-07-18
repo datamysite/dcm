@@ -22,6 +22,32 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Blog Category</label>
+          <select class="form-control" name="category_id" required>
+            <option value="">Select Blog Category</option>
+            @foreach($data['categories'] as $category)
+            <option value="{{ $category->id }}" {{ $category->id == $data->category_id ? 'selected' : '' }} >{{ $category->name }}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Blog Author</label>
+          <select class="form-control" name="author_id" required>
+            <option value="">Select Blog Author</option>
+            @foreach ($data['authors'] as $author)
+            <option value="{{ $author->id }}" {{ $author->id == $data->author_id ? 'selected' : '' }} >{{ $author->name }}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">

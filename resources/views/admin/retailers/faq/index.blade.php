@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-@section('title', 'Blogs | Retailers')
+@section('title', 'Retailers | FAQ')
 @section('content')
 
 <div class="content-wrapper">
@@ -8,13 +8,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Blogs | Retailers</h1>
+          <h1 class="m-0">Retailers | FAQs</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{route('admin.retailer')}}">Retailers</a></li>
-            <li class="breadcrumb-item active">Blogs</li>
+            <li class="breadcrumb-item active">FAQs</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -28,131 +28,90 @@
       <div class="row">
         <div class="col-12">
           <!-- /.card -->
-
           <div class="card">
             <div class="card-header">
               <div class="row">
-                <div class="col-md-9 searchbar">
-                  <input type="text" placeholder="Search for Retailer..." class="form-control searchRetailer">
-                  <i class="fas fa-search"></i>
-                  <div class="searchbar-suggestion">
-                  </div>
+                <div class="col-md-8 mt-1">
+
+                  <h4 class="text-center">
+                    <input type="text" class="form-control" value="Retailer : {{ $data['retailer']->name }}" readonly="readonly">
+                  </h4>
+
                 </div>
-                <div class="col-md-3">
-                  @if(auth('admin')->user()->can('Retailer blogs add'))
-                  <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Blog" data-toggle="modal" data-target="#addBlogFormModal"><i class="fas fa-plus"></i> Add Blog</a>
-                  @endif
+                <div class="col-md-3 mt-1">
+                  <!-- Permission goes here -->
+                  <a href="javascript:void(0)" class="btn btn-primary" title="Add Retailer FAQs" data-toggle="modal" data-target="#addBlogFormModal"><i class="fas fa-plus"></i>Add Retailer FAQs</a>
                 </div>
               </div>
-              <br>
-              <div class="row coupon-row">
-                <div class="col-md-5">
-                  <div class="coupon-brand-image">
-                    <img src="{{URL::to('/public/storage/retailers/'.$retailer->logo)}}">
-                  </div>
-                </div>
-                <div class="col-md-3 coupon-brand-detail">
-                  <label>Name:</label>
-                  <p>{{$retailer->name}} <a href="{{empty($retailer->store_link) ? 'javascript:void(0)' : $retailer->store_link}}" target="_blank"><i class="fa fa-external-link"></i></a></p>
 
-                  <label>Countries:</label>
-                  <p>
-                    @php
-                    $countries = '';
-                    foreach($retailer->countries as $cval){
-                    $countries .= empty($countries) ? $cval->country->shortname : ', '.$cval->country->shortname;
-                    }
-                    echo $countries;
-                    @endphp
-                  </p>
-                </div>
-                <div class="col-md-3 coupon-brand-detail">
-                  <label>No. of Coupons:</label>
-                  <p>0 Coupons</p>
-
-                  <label>Discount Upto %:</label>
-                  <p>{{$retailer->discount_upto}} %</p>
-                </div>
+            </div>
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="blogsTable" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th width="5%">#</th>
+                      <th width="40%">FAQ Heading</th>
+                      <th width="25%">Country</th>
+                      <th width="10%">Created At</th>
+                      <th width="10%" class="text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="faqsTableBody">
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>#</th>
+                      <th>FAQ Heading</th>
+                      <th>Country</th>
+                      <th>Created by</th>
+                      <th class="text-right">Action</th>
+                    </tr>
+                  </tfoot>
+                </table>
               </div>
+              <!-- /.card-body -->
             </div>
+            <!-- /.card -->
           </div>
-          <div class="card">
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="blogsTable" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th width="5%">#</th>
-                    <th width="10%">Country</th>
-                    <th width="50%">Blog Heading</th>
-                    <th width="20%">Section</th>
-                    <th width="10%">Created by</th>
-                    <th width="10%" class="text-right">Action</th>
-                  </tr>
-                </thead>
-                <tbody id="blogsTableBody">
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th>#</th>
-                    <th>Country</th>
-                    <th>Blog Heading</th>
-                    <th>Section</th>
-                    <th>Created by</th>
-                    <th class="text-right">Action</th>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
+          <!-- /.col -->
         </div>
-        <!-- /.col -->
-      </div>
-    </div><!-- /.container-fluid -->
+      </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
 </div>
 
-
 <div class="modal fade" id="addBlogFormModal">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
-      <form id="add_retialer_blog_form" action="{{route('admin.retailer.blog.create')}}">
+      <form id="add_retailer_faq_form" action="{{route('admin.retailer.faq.create')}}">
         @csrf
-        <input type="hidden" name="retailer_id" value="{{base64_encode($retailer->id)}}">
+
+        <input type="hidden" value="{{ $data['retailer_id'] }}" name="retailer_id">
+        <input type="hidden" value="0" name="blog_id">
         <div class="modal-header">
-          <h4 class="modal-title">Add Blog</h4>
+          <h4 class="modal-title">Add {{ $data['retailer']->name }} FAQ</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
               <div class="form-group">
                 <label>Heading</label>
                 <input type="text" class="form-control" name="heading" required>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <div class="form-group">
                 <label>Country</label>
-                <select class="form-control" name="country" required>
-                  @foreach($country as $val)
-                  <option value="{{$val->id}}">{{$val->shortname}}</option>
+                <select class="form-control" name="country_id" required>
+                  <option value="">Select</option>
+                  @foreach ($data['countries'] as $country)
+                  <option value="{{ $country->id }}">{{ $country->name }}</option>
                   @endforeach
-                </select>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Section</label>
-                <select class="form-control" name="section_id" required>
-                  <option value="">Select Section</option>
-                  <option value="1">Header</option>
-                  <option value="2">Footer</option>
                 </select>
               </div>
             </div>
@@ -161,7 +120,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Description</label>
-                <textarea class="form-control" name="description" id="content" rows="10">
+                <textarea class="form-control" name="content" id="content" rows="10">
                 </textarea>
               </div>
             </div>
@@ -177,8 +136,6 @@
   </div>
   <!-- /.modal-dialog -->
 </div>
-
-
 
 <div class="modal fade" id="editBlogFormModal">
   <div class="modal-dialog modal-xl">
@@ -214,26 +171,14 @@
 <script>
 </script>
 <script>
+  loadFAQ();
+
   $(function() {
     make_editor("content");
-    loadBlogs();
 
-    $(document).on('keyup', '.searchRetailer', function() {
-      $('.searchbar-suggestion').html('<img src="{{URL::to(' / public / loader - gif.gif ')}}" height="30px">');
-      var val = $(this).val();
-      if (val != '') {
-        $.get("{{URL::to('/admin/panel/retailer/blogs/search')}}/" + val, function(data) {
-          $('.searchbar-suggestion').html(data);
-        });
-      } else {
-        $('.searchbar-suggestion').html('');
-      }
-    });
-
-    $(document).on('submit', "#add_retialer_blog_form", function(event) {
+    $(document).on('submit', "#add_retailer_faq_form", function(event) {
       var form = $(this);
-      var formData = new FormData($("#add_retialer_blog_form")[0]);
-      //console.log(formData);
+      var formData = new FormData($("#add_retailer_faq_form")[0]);
       $.ajax({
         type: "POST",
         url: form.attr("action"),
@@ -250,7 +195,7 @@
           });
           form.trigger("reset");
           $('#addBlogFormModal').modal('hide');
-          loadBlogs();
+          loadFAQ();
         } else {
           Toast.fire({
             icon: 'error',
@@ -263,7 +208,7 @@
     });
 
 
-    $(document).on('click', '.deleteBlog', function() {
+    $(document).on('click', '.deleteFAQ', function() {
       var id = $(this).data('id');
 
       Swal.fire({
@@ -276,33 +221,34 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/panel/retailer/blogs/delete')}}/" + id, function(data) {
+          $.get("{{URL::to('/admin/panel/retailer/faq/delete')}}/" + id, function(data) {
             Toast.fire({
               icon: 'success',
-              title: 'Success! Blog Successfully Deleted.'
+              title: 'Success! Retailer FAQ Successfully Deleted.'
             });
-            loadBlogs();
+            loadFAQ();
           });
         }
       });
     });
 
 
-    $(document).on('click', '.editBlog', function() {
+    $(document).on('click', '.editFAQ', function() {
       var val = $(this).data('id');
+
 
       $('#editBlogFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
       $('#editBlogFormModal').modal('show');
 
-      $.get("{{URL::to('/admin/panel/retailer/blogs/edit')}}/" + val, function(data) {
+      $.get("{{URL::to('/admin/panel/retailer/faq/editRetailerFAQ/')}}/" + val, function(data) {
         $('#editBlogFormModal .modal-content').html(data);
         make_editor("content2");
       });
     });
 
-    $(document).on('submit', "#edit_retialer_blog_form", function(event) {
+    $(document).on('submit', "#edit_faq_form", function(event) {
       var form = $(this);
-      var formData = new FormData($("#edit_retialer_blog_form")[0]);
+      var formData = new FormData($("#edit_faq_form")[0]);
       //console.log(formData);
       $.ajax({
         type: "POST",
@@ -320,7 +266,7 @@
           });
           form.trigger("reset");
           $('#editBlogFormModal').modal('hide');
-          loadBlogs();
+          loadFAQ();
         } else {
           Toast.fire({
             icon: 'error',
@@ -331,19 +277,15 @@
 
       event.preventDefault();
     });
-
   });
 
+  function loadFAQ() {
 
-  function loadBlogs() {
-    var url = "{{route('admin.retailer.blog.load', base64_encode($retailer->id))}}";
+    var url = "{{ route('admin.retailer.faq.load', base64_encode($data['retailer_id']) )  }}";
 
-    $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px"></td></tr>');
+    $('#faqsTableBody').html('<tr class="text-center"><td colspan="6"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px"></td></tr>');
     $.get(url, function(data) {
-
-      $('#blogsTableBody').html(data);
-
-      //$("#couponsTable").DataTable();
+      $('#faqsTableBody').html(data);
     });
   }
 
