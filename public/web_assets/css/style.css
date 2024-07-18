@@ -1,6 +1,7 @@
-body{
+body {
     overflow-x: hidden !important;
 }
+
 .withdraw-loader {
     position: absolute;
     top: 0;
@@ -1696,6 +1697,12 @@ label.errors {
     }
 }
 
+
+.DesktopAuthorSection {
+    display: block;
+}
+
+
 /* UserMenu-Web-Mobile End*/
 
 
@@ -1772,6 +1779,11 @@ label.errors {
     }
 
     /* UserMenu-Web-Mobile End*/
+
+    .DesktopAuthorSection{
+        display: none;
+    }
+    
 
     .navbar-flag img {
         width: 34px;

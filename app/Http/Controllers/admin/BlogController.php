@@ -5,18 +5,23 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blogs;
+use App\Models\Categories;
 use App\Models\Countries;
 use App\Models\Faq;
+use App\Models\Author;
 use Auth;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        $data['menu'] = 'blogs';
+        //$data['menu'] = 'blogs';
 
-        $data['data'] = Blogs::orderBy('id', 'desc')->paginate(10);
-        return view('admin.blogs.index')->with($data);
+        $data['data'] = Blogs::orderBy('id', 'desc')->with('category')->with('author')->paginate(10);
+        $data['categories'] = Categories::where('parent_id' , 0)->where('status' , 1)->get() ; 
+        $data['authors'] = Author::get() ; 
+
+        return view('admin.blogs.index' , ['data'=>$data , 'menu'=>'blogs']);
     }
 
     public function load()
@@ -45,7 +50,7 @@ class BlogController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['short_description'])) {
+        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['short_description']) || empty($data['category_id']) || empty($data['author_id']) ) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         } else {
@@ -76,7 +81,7 @@ class BlogController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['short_description'])) {
+        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['short_description']) || empty($data['category_id']) || empty($data['author_id'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         } else {
@@ -203,6 +208,9 @@ class BlogController extends Controller
         $id = base64_decode($id);
 
         $data = Blogs::find($id);
+
+        $data['categories'] = Categories::where('parent_id' , 0)->where('status' , 1)->get() ; 
+        $data['authors'] = Author::get() ; 
 
         return view('admin.blogs.edit', ['data' => $data]);
     }

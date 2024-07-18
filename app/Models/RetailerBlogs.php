@@ -22,6 +22,7 @@ class RetailerBlogs extends Model
         $r->country_id = $data['country'];
         $r->description = empty($data['description']) ? '' : $data['description'];
         $r->status = '1';
+        $r->section_id =  $data['section_id'];
         $r->created_by = Auth::guard('admin')->id();
         $r->save();
 
@@ -34,6 +35,7 @@ class RetailerBlogs extends Model
         $r->heading = $data['heading'];
         $r->country_id = $data['country'];
         $r->description = empty($data['description']) ? '' : $data['description'];
+        $r->section_id =  $data['section_id'];
         $r->save();
 
         return $r->id;

@@ -17,8 +17,8 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
-                        <li class="breadcrumb-item"><a href="{{route('Blogs', [$region])}}" style="color: #000;"><strong>Blogs</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('Blogs')}}" style="color: #000;"><strong>Blogs</strong></a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$data['blog']->heading}}</strong></a></li>
                     </ol>
                 </nav>
@@ -27,27 +27,87 @@
     </div>
 </div>
 
+@if($data['blog']->author_id == 0)
 <!-- Slider Section Start-->
 <section class="mt-2">
     <div class="container">
         <div class="hero-slider">
-
             <div class="feather-image-blog">
                 <img src="{{config('app.storage').'/blogs/'.$data['blog']->banner}}" alt="{{empty($data['blog']->banner_alt) ? $data['blog']->slug : $data['blog']->banner_alt}}">
-                <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-                    <div class="slider_div2" style="box-shadow: none; background-color: transparent;">
-
-                        <br><br><br><br><br><br>
-
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>
 </section>
+@endif
 <!-- Slider Section End-->
 
+@if($data['blog']->author_id != 0)
+<!-- Blog author details section start -->
+<section class="my-lg-5 my-8 mt-5">
+    <div Class="DesktopAuthorSection">
+        <div class="container" style="background-color: #1F428A;border-radius: 10px; background-image: linear-gradient(90deg, #051129, #2791CC);width:100%;height:200px;">
+            <div class="row">
+                <div class="col-lg-12 tex-center mt-5">
+                    <div class="row">
+
+                        <!-- <div class="col-lg-3" style="text-align: end;">
+                            <img src="{{URL::to('/public/storage/authors/'.$data['author']->image)}}" style="background-color:whitesmoke;height:160px;width:160px;border-radius:10px;object-fit:cover;">
+                        </div> -->
+                       
+                        <div class="col-lg-9">
+                            <h4 class="mt-5"><a href="{{route('blog.author',[ base64_encode($data['author']->id) ])}}" style="color: #fff;">{{ $data['author']->name }}</a></h4>
+
+                            <ul class="list-inline text-md-right social-media">
+
+                                @if($data['author']->linkedin_url != '')
+                                <li class="list-inline-item">
+                                    <a href="{{ $data['author']->linkedin_url }}" target="_blank" class="btn btn-xs" aria-label="Linkedin" style="color: #fff;">
+                                        <i class="fa fa-linkedin-square"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">|</li>
+                                @endif
+                                @if($data['author']->x_url != '')
+                                <li class="list-inline-item first">
+                                    <a href="{{ $data['author']->x_url }}" target="_blank" class="btn btn-xs" aria-label="Twitter" style="color: #fff;">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">|</li>
+                                @endif
+                                @if($data['author']->facebook_url != '')
+                                <li class="list-inline-item">
+                                    <a href="{{ $data['author']->facebook_url }}" target="_blank" class="btn btn-xs" aria-label="Facebook" style="color: #fff;">
+                                        <i class="fa fa-facebook-square"></i>
+                                    </a>
+                                </li>
+                                @endif
+                            </ul>
+                            <span class="mt-0" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="MobileUserProfile mt-5" style="height: 140px;">
+        <img src="{{URL::to('/public/storage/authors/'.$data['author']->image)}}" alt="Circle Image" class="circle-image" style="top:30px;">
+        <div class="row" style="color: #fff;padding-left:25px;">
+            <h4 class="mt-5" style="color: #fff;">{{ $data['author']->name }}</h4>
+            <p style="color: #fff;">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+          
+        </div>
+      
+
+
+    </div>
+</section>
+<!-- Blog author details section end -->
+@endif
 
 <!-- Single Blog section Start Here -->
 <section class="my-lg-5 my-8">
@@ -69,7 +129,7 @@
 
         @if(count($data['faq']) != 0 )
         <hr style="border-top: 1px solid #1caae2;">
-        
+
         <div class="row mb-5 mt-5">
             <div class="col-lg-12 col-12 mb-5">
                 <h2 class="mb-5"> {{ __('translation.faq_page_text_02') }} </h2>
