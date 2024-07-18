@@ -305,6 +305,17 @@
 @endsection
 
 @section('addScript')
+
+    
+   <!-- Schema Code  (start)-->
+
+      @include('web.includes.schema.speakable')
+      @include('web.includes.schema.organization')
+      @include('web.includes.schema.breadcrumbs')
+
+   <!-- Schema Code (end) -->
+
+   
     <script type="text/javascript" src="{{URL::to('/public/web_assets/js/review_slider.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){

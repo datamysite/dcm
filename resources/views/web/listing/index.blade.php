@@ -335,4 +335,11 @@
    <!--Ads Section 1 End Here-->
 
 
+   <!-- Schema Code  (start)-->
+
+      @include('web.includes.schema.speakable')
+      @include('web.includes.schema.organization')
+      @include('web.includes.schema.breadcrumbs')
+
+   <!-- Schema Code (end) -->
 @endsection

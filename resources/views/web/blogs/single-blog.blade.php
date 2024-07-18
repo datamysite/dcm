@@ -33,7 +33,7 @@
         <div class="hero-slider">
 
             <div class="feather-image-blog">
-                <img src="{{URL::to('/public/storage/blogs/'.$data['blog']->banner)}}" alt="{{empty($data['blog']->banner_alt) ? $data['blog']->slug : $data['blog']->banner_alt}}">
+                <img src="{{config('app.storage').'/blogs/'.$data['blog']->banner}}" alt="{{empty($data['blog']->banner_alt) ? $data['blog']->slug : $data['blog']->banner_alt}}">
                 <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
                     <div class="slider_div2" style="box-shadow: none; background-color: transparent;">
 
@@ -95,5 +95,41 @@
 </section>
 <!-- Single Blog section End Here -->
 
+    
 
+   <!-- Schema Code  (start)-->
+
+      @include('web.includes.schema.speakable')
+      @include('web.includes.schema.organization')
+      @include('web.includes.schema.breadcrumbs')
+
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{$actual_url}}"
+              },
+              "headline": "{{$data['blog']->heading}}",
+              "description": "{{$data['blog']->short_description}}",
+              "image": "{{config('app.storage').'/blogs/'.$data['blog']->banner}}",  
+              "author": {
+                "@type": "Organization",
+                "name": "Deals and Coupons Mena"
+              },  
+              "publisher": {
+                "@type": "Organization",
+                "name": "Author Name Here",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "{{URL::to('/')}}/public/web_assets/images/logo/logo-DCM.png"
+                }
+              },
+              "datePublished": "{{date('Y-m-d', strtotime($data['blog']->created_at))}}",
+              "dateModified": "{{date('Y-m-d', strtotime($data['blog']->updated_at))}}"
+            }
+        </script>
+
+   <!-- Schema Code (end) -->
 @endsection
