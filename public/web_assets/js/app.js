@@ -122,7 +122,7 @@ $(document).ready(function () {
 });
 $(window).scroll(function (s) {
     var e = $(window).scrollTop();
-    if (lazyload == 0 && e > 400) {
+    if (lazyload == 0 && e > 150) {
         getFooter();
         lazyload = 1;
     }
@@ -204,7 +204,7 @@ $(document).ready(function () {
 });
 
 function checkLocation() {
-    $.get(host + "/../getLocation", function (data) {
+    $.get(host + "/getLocation", function (data) {
         //console.log(data);
         if (data != "pass") {
             if (document.cookie.includes("DCM-" + host_country)) {

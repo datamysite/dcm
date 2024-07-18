@@ -118,7 +118,7 @@ var MwebSlider = document.querySelector('.MwebSlider');
       var val = $(this).val();
       if (val != '') {
          $('.main-search-result').html("<img src='{{URL::to('/public/loader-gif.gif')}}' height='25px'/>");
-         $.get("{{URL::to('/'.app()->getLocale().'/'.$region.'/search')}}/" + val, function(data) {
+         $.get("{{URL::to('/'.app()->getLocale().'/search')}}/" + val, function(data) {
             $('.main-search-result').html(data);
          });
       } else {
@@ -130,7 +130,7 @@ var MwebSlider = document.querySelector('.MwebSlider');
       var val = $(this).val();
       if (val != '') {
          $('.mob-main-search-result').html("<img src='{{URL::to('/public/loader-gif.gif')}}' height='25px'/>");
-         $.get("{{URL::to('/'.app()->getLocale().'/'.$region.'/search')}}/" + val, function(data) {
+         $.get("{{URL::to('/'.app()->getLocale().'/search')}}/" + val, function(data) {
             $('.nav-tray').css({
                overflow: 'visible'
             });

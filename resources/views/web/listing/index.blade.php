@@ -13,7 +13,7 @@
             <!-- breadcrumb -->
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                  <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
                   <li class="breadcrumb-item"><a href="javascript:void(0)" style="color: #000;"><strong>{{ __('translation.All_Stores') }}</strong></a></li>
                   <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.'.$type) }}</strong></li>
                </ol>
@@ -88,7 +88,7 @@
                                      $string = str_replace(' ', '-', $string);
                                      $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
-                                     $url = $val->type != '3' ? route('category', [$region, $slug]) : route('category.sub', [$region, $slug, $type]);
+                                     $url = $val->type != '3' ? URL::to('/'.app()->getLocale().'/'.$slug) : URL::to('/'.app()->getLocale().'/'.$slug.'/'.$type);
                                      
                                  @endphp
                                  <li class="nav-item border-bottom w-100">
@@ -276,7 +276,7 @@
                                  <!-- badge -->
                                  <div class="text-center position-relative py-1 mb-3 box">
                                     <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
-                                    <a href="{{route('brand', [$region, $val->slug])}}">
+                                    <a href="{{URL::to('/'.app()->getlocale().'/'.$val->slug)}}">
                                        <!-- img -->
                                        <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" class="mb-5 img-fluid" />
                                     </a>

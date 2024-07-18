@@ -12,7 +12,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
       <div class="list-inline d-flex ">
 
          <div class="justify-content-center w-100 d-lg-none">
-            <a class="navbar-brand" href="{{route('home', [$region])}}">
+            <a class="navbar-brand" href="{{route('home')}}">
                <img src="{{URL::to('/public')}}/web_assets/images/logo/m-logo.png" alt="dealsandcouponsmena" style="width: 140px;" />
             </a>
          </div>
@@ -53,7 +53,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
          <div class="tray-item tray-emirates">
             @foreach($allstates as $val)
-            <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}">
+            <a href="{{route('setRegion', [app()->getLocale(), $val->slug])}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}">
                <div class="header_card">
                   <img src="{{config('app.storage').'states/'.$val->image}}" alt="{{$val->name}}" />
                   {{$val->shortname}}
@@ -91,7 +91,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
          </a>
 
          @if(Auth::check())
-         <a href="{{route('user.dashboard')}}">
+         <a href="{{route('user.dashboard',[app()->getLocale()])}}">
             <i class="fa fa-user"></i>
             {{ __('translation.Profile') }}
          </a>
@@ -118,7 +118,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
             <!-- Desktop Menu Start Here -->
             <div class="d-flex align-items-center">
-               <a class="desktop-navbar-brand" href="{{route('home', [$region])}}">
+               <a class="desktop-navbar-brand" href="{{route('home')}}">
                   <img src="{{URL::to('/public')}}/web_assets/images/logo/logo-DCM.png" alt="Logo" width="90px" height="50px">
                </a>
             </div>
@@ -134,14 +134,14 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
 
                         <ul class="dropdown-menu">
-                           <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'online'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Online') }}</a></li>
-                           <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'retail'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Retail') }}</a></li>
+                           <li><a class="dropdown-item allstore_view" href="{{route('stores', ['online'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Online') }}</a></li>
+                           <li><a class="dropdown-item allstore_view" href="{{route('stores', ['retail'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Retail') }}</a></li>
                         </ul>
 
                      </li>
                      @else
                      <li class="nav-item dropdown" style="padding: 10px;">
-                        <a class="nav-link" href="{{route('stores', [$region, 'online'])}}" role="button" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
+                        <a class="nav-link" href="{{route('stores', ['online'])}}" role="button" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
                      </li>
                      @endif
 
@@ -162,17 +162,17 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                               <a class="dropdown-item dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
                               <ul class="dropdown-menu">
 
-                                 <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
-                                 <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
+                                 <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug.'/online')}}">{{ __('translation.Online') }}</a></li>
+                                 <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug.'/retail')}}">{{ __('translation.Retail') }}</a></li>
 
                               </ul>
                            </li>
                            @else
-                           <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                           <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
                            @endif
                            @else
                            <li>
-                              <a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                              <a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug.'/online')}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
                            </li>
                            @endif
                            @endforeach
@@ -181,7 +181,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                      <li class="nav-item dropdown" style="padding: 10px;">
                        
-                        <a class="nav-link" href="{{route('claim_cashback', [$region])}}" role="button" aria-expanded="false">{{ __('translation.Earn_Cashback') }}</a>
+                        <a class="nav-link" href="{{route('claim_cashback')}}" role="button" aria-expanded="false">{{ __('translation.Earn_Cashback') }}</a>
                       
                      </li>
                   </ul>
@@ -203,7 +203,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                   <ul class="navbar-nav">
                      <li class="nav-item dropdown" style="padding: 10px;">
-                        <a class="nav-link" href="{{route('Sell_With_DCM', [$region])}}" role="button" aria-expanded="false"><b>{{ __('translation.Sell_With_DCM') }}</b></a>
+                        <a class="nav-link" href="{{route('Sell_With_DCM')}}" role="button" aria-expanded="false"><b>{{ __('translation.Sell_With_DCM') }}</b></a>
                      </li>
                      <ul class="navbar-nav">
                         @if(Auth::check())
@@ -326,7 +326,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                      <div class="row" {!! app()->getLocale() == 'ar' ? 'style="text-align: right;padding-right:20px;"' : 'style="text-align: left;padding-left:20px;"' !!}>
                         <div class="col-lg-12 mt-5">
-                           <h4 class="mt-0" style="color: #fff;">{{ __('translation.hi_txt') }} <a href="{{route('user.dashboard')}}" style="color: #fff;">{{Auth::user()->name}} </a> </h4>
+                           <h4 class="mt-0" style="color: #fff;">{{ __('translation.hi_txt') }} <a href="{{route('user.dashboard', [app()->getLocale()])}}" style="color: #fff;">{{Auth::user()->name}} </a> </h4>
                         </div>
                      </div>
 
@@ -369,8 +369,8 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         <li class="nav-item dropdown w-100 w-lg-auto">
                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'online'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Online') }}</a></li>
-                              <li><a class="dropdown-item allstore_view" href="{{route('stores', [$region, 'retail'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Retail') }}</a></li>
+                              <li><a class="dropdown-item allstore_view" href="{{route('stores', ['online'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Online') }}</a></li>
+                              <li><a class="dropdown-item allstore_view" href="{{route('stores', ['retail'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Retail') }}</a></li>
                            </ul>
                         </li>
                         @else
@@ -397,16 +397,16 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                  <a class="dropdown-item dropdown-toggle nested-link" href="javascript:void(0)" data-link="{{$val->id}}" role="button" data-bs-toggle="dropdown">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
                                  <ul class="dropdown-menu cat_{{$val->id}}">
 
-                                    <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a></li>
-                                    <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a></li>
+                                    <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug.'/online')}}">{{ __('translation.Online') }}</a></li>
+                                    <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug.'/retail')}}">{{ __('translation.Retail') }}</a></li>
 
                                  </ul>
                               </li>
                               @else
-                              <li><a class="dropdown-item" href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                              <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
                               @endif
                               @else
-                              <li><a class="dropdown-item" href="{{route('category.sub', [$region, $slug, 'online'])}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                              <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug.'/online')}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
                               @endif
                               @endforeach
                            </ul>
@@ -414,17 +414,17 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                         <li class="nav-item w-100 w-lg-auto">
                          
-                           <a class="nav-link" href="{{route('claim_cashback', [$region])}}">{{ __('translation.Earn_Cashback') }}</a>
+                           <a class="nav-link" href="{{route('claim_cashback')}}">{{ __('translation.Earn_Cashback') }}</a>
                          
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
-                           <a class="nav-link" href="{{route('Sell_With_DCM', [$region])}}">{{ __('translation.Sell_With_DCM') }}</a>
+                           <a class="nav-link" href="{{route('Sell_With_DCM')}}">{{ __('translation.Sell_With_DCM') }}</a>
                         </li>
 
                         @if(Auth::check())
                         <li class="nav-item w-100 w-lg-auto dropdown">
-                           <a class="nav-link" href="{{route('user.logout', [$region])}}">{{ __('translation.Logout') }}</a>
+                           <a class="nav-link" href="{{route('user.logout')}}">{{ __('translation.Logout') }}</a>
                         </li>
                         @else
 
@@ -470,7 +470,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
    <div class="row" style="height: autopx;justify-items: center;justify-content: center; border-bottom: 1px solid gray;box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);">
 
       <div class="col-3 text-center">
-         <a href="{{route('claim_cashback', [$region])}}"><h6 class="mt-3" style="color: black;">{{ __('translation.how_to_earn') }}</h6></a>
+         <a href="{{route('claim_cashback')}}"><h6 class="mt-3" style="color: black;">{{ __('translation.how_to_earn') }}</h6></a>
       </div>
 
       <div class="col-4 text-center">

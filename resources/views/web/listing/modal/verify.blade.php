@@ -142,7 +142,7 @@
 				    if (result.value) {
 				    	var formData = {id: '{{base64_encode($qrcode->id)}}', fieldValue: result.value, _token: '{{csrf_token()}}'};
 
-				    	$.post("{{route('offers.qrcode.mark', [$region])}}",formData, function(data, status){
+				    	$.post("{{route('offers.qrcode.mark')}}",formData, function(data, status){
 				    		console.log(data);
 				    		if(data == 'success'){
 				    			Toast.fire({

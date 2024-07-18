@@ -39,7 +39,7 @@
                    $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                @endphp
                <div class="item {{$val->id == $category->id ? 'active' : ''}}">
-                  <a href="{{route('category', [$region, $slug])}}" class="text-decoration-none text-inherit">
+                  <a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}" class="text-decoration-none text-inherit">
                      <img src="{{config('app.storage').'categories/'.$val->image}}" alt="Mart" class="img-fluid" />
                      <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
                   </a>
@@ -116,7 +116,7 @@
                                         $string = str_replace(' ', '-', $string);
                                         $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
-                                        $url = empty($type) ? route('category', [$region, $slug]) : route('category.sub', [$region, $slug, $type]);
+                                        $url = empty($type) ? URL::to('/'.app()->getLocale().'/'.$slug) : route('category.sub', [$region, $slug, $type]);
                                         if(empty($type) && !empty($val->parentCategory->id)){
                                           $url = route('category.sub', [$region, $slug, 'online']);
                                         }
@@ -340,7 +340,7 @@
                                  <!-- badge -->
                                  <div class="text-center position-relative py-1 mb-3 box">
                                     <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
-                                    <a href="{{route('category.brand', [$region, $category_slug, $val->slug])}}">
+                                    <a href="{{URL::to('/'.app()->getLocale().'/'.$category_slug.'/'.$val->slug)}}">
                                        <!-- img -->
                                        <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" class="mb-5 img-fluid" />
                                     </a>

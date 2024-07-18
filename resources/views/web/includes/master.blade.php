@@ -5,7 +5,7 @@
    <!-- Required meta tags -->
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no" />
-   <meta name="home_url" content="{{@URL::to('/'.app()->getLocale().'/'.$region)}}">
+   <meta name="home_url" content="{{@URL::to('/'.app()->getLocale())}}">
    <meta name="country" content="{{config('app.country_short')}}">
    <title>{{@$metaTags->title}}</title>
    <meta name="keywords" content="{{@$metaTags->keywords}}" />
@@ -61,7 +61,7 @@
          <div class="modal-body">
             <div class="modal_container" id="modal_container">
                <div class="form-modal_container sign-up-modal_container">
-                  <form action="{{route('user.create', [$region])}}" id="create_user_form"  onsubmit="return gtag_report_signup;" class="form_modal">
+                  <form action="{{route('user.create')}}" id="create_user_form"  onsubmit="return gtag_report_signup;" class="form_modal">
                      @csrf
                      @if(!empty($_GET['referal_link']))
                         <input type="hidden" name="referral" value="{{$_GET['referal_link']}}">
@@ -69,7 +69,7 @@
                      <h2 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h2>
                      <div class="social-modal_container">
                         <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                        <a href="{{route('auth.google', [$region])}}" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="{{route('auth.google')}}" class="social"><i class="fab fa-google-plus-g"></i></a>
 
                      </div>
                      <span>{{ __('translation.dcm_reg_text') }}</span>
@@ -85,12 +85,12 @@
                   </form>
                </div>
                <div class="form-modal_container sign-in-modal_container">
-                  <form action="{{route('user.login', [$region])}}" id="login_user_form"  onsubmit="return gtag_report_signin;" class="form_modal">
+                  <form action="{{route('user.login')}}" id="login_user_form"  onsubmit="return gtag_report_signin;" class="form_modal">
                      @csrf
                      <h2 style="color:#1dace3">{{ __('translation.sign_in_to_dcm') }}</h2>
                      <div class="social-modal_container">
                         <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
-                        <a href="{{route('auth.google', [$region])}}" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="{{route('auth.google')}}" class="social"><i class="fab fa-google-plus-g"></i></a>
 
                      </div>
                      <span>{{ __('translation.or_use_your_account') }}</span>
@@ -136,7 +136,7 @@
        
          <div class="modal-body" style="text-align: center;">
          
-            <form id="forgotPasswordForm" action="{{route('user.forgotPassword')}}">
+            <form id="forgotPasswordForm" action="{{route('user.forgotPassword', [app()->getLocale()])}}">
                @csrf
                <div class="mb-3">
                   <label for="email" class="form-label">{{ __('translation.forget_pass_txt_02') }}</label>

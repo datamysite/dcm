@@ -20,8 +20,14 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
-    public function index($lang, $region)
+    public function index($lang = 'en', $region = 'dubai')
     {
+        if ((function_exists('session_status')
+                && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
+            session_start();
+        }
+
+        //$region = empty($_SESSION['region']) ? 'dubai' : $_SESSION['region'];
 
         $isMobile = Agent::isMobile();
         $data['isMobile'] = $isMobile;
@@ -71,10 +77,6 @@ class HomeController extends Controller
         $data['region'] = $region;
 
         if (!empty($_GET['referal_link'])) {
-            if ((function_exists('session_status')
-                && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
-                session_start();
-            }
 
             $_SESSION['referral'] = $_GET['referal_link'];
         }
@@ -116,7 +118,7 @@ class HomeController extends Controller
 
     //Includes Lazy Load
 
-    public function get_footer($lang, $region)
+    public function get_footer($lang, $region = 'dubai')
     {
         $data['footCat'] = Footer::where('section_id', '3')->get();
         $data['footBrand'] = Footer::where('section_id', '2')->get();
@@ -131,7 +133,7 @@ class HomeController extends Controller
 
     // Home lazy load
 
-    public function get_states($lang, $region, $type)
+    public function get_states($lang, $region = 'dubai', $type)
     {
         $data['type'] = $type;
         $data['allstates'] = States::where('country_id',  config('app.country'))->orderBy('name', 'asc')->get();
@@ -140,7 +142,7 @@ class HomeController extends Controller
         return view($this->getView('web.content.lazyload.home.getStates'))->with($data);
     }
 
-    public function get_categories($lang, $region)
+    public function get_categories($lang, $region = 'dubai')
     {
         $data['categories'] = Categories::where('parent_id', 0)->get();
 
@@ -149,7 +151,7 @@ class HomeController extends Controller
     }
 
 
-    public function get_online_store($lang, $region)
+    public function get_online_store($lang, $region = 'dubai')
     {
         $data['onlinestores'] = HomeStores::where('retailer_type', '1')->limit(10)->orderBy('id', 'desc')->get();
 
@@ -157,7 +159,7 @@ class HomeController extends Controller
         return view($this->getView('web.content.lazyload.home.getOnlineStores'))->with($data);
     }
 
-    public function get_retail_store($lang, $region)
+    public function get_retail_store($lang, $region = 'dubai')
     {
         $isMobile = Agent::isMobile();
         $data['retailstores'] = HomeStores::where('retailer_type', '2')
@@ -175,7 +177,7 @@ class HomeController extends Controller
         return view($this->getView('web.content.lazyload.home.getRetailStores'))->with($data);
     }
 
-    public function get_all_store($lang, $region)
+    public function get_all_store($lang, $region = 'dubai')
     {
         $isMobile = Agent::isMobile();
         $data['allstores'] = HomeStores::where('retailer_type', '3')->when(config('app.amp') == true && $isMobile, function ($q) {
@@ -194,7 +196,7 @@ class HomeController extends Controller
 
     // Home lazy load
 
-    public function search($lang, $region, $value, Request $request)
+    public function search($region, $value, Request $request)
     {
         $req = $request->all();
         $re = Retailers::whereHas('countries', function ($q) {
@@ -212,7 +214,7 @@ class HomeController extends Controller
         foreach ($re as $key => $val) {
             $na = app()->getLocale() == 'ar' ? $val->name_ar : $val->name;
             $lo = app()->getLocale() == 'ar' ? $val->ar_logo : $val->logo;
-            $html .= '<a href="' . route('brand', [$region, $val->slug]) . '" class="main-search-result-item">';
+            $html .= '<a href="' . URL::to('/'.app()->getLocale().'/'.$val->slug) . '" class="main-search-result-item">';
             if (empty($req['m'])) {
                 $html .= '<img src="' . config('app.storage') . 'retailers/' . $lo . '" height="40px">';
             } else {

@@ -22,8 +22,8 @@
 <div class="grap_deal_social">
    <p>{{ __('translation.share_it') }}</p>
    <div>
-     <a href="https://wa.me/?text={{route('brand', [$region, $coupon->retailer->slug])}}" data-action="share/whatsapp/share" class="grap_deal_icon" target="_blank"><i class="fa fa-whatsapp"></i></a>
-     <a href="https://www.facebook.com/share.php?u={{route('brand', [$region, $coupon->retailer->slug])}}" target="_blank" class="grap_deal_icon"><i class="fa fa-facebook-square"></i></a>
+     <a href="https://wa.me/?text={{URL::to('/'.app()->getLocale().'/'.$coupon->retailer->slug)}}" data-action="share/whatsapp/share" class="grap_deal_icon" target="_blank"><i class="fa fa-whatsapp"></i></a>
+     <a href="https://www.facebook.com/share.php?u={{URL::to('/'.app()->getLocale().'/'.$coupon->retailer->slug)}}" target="_blank" class="grap_deal_icon"><i class="fa fa-facebook-square"></i></a>
    </div>
 </div>
 
