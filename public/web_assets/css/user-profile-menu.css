@@ -346,8 +346,6 @@ li.lead p {
        margin-bottom: 32px;
    }
 
-
-
    @media (min-width: 390px) and (max-width: 575px) {
        .profile-dashboard-widget {
            margin-bottom: 18px;

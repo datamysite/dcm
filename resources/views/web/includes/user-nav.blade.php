@@ -81,7 +81,7 @@ new color : #dfe1e5
     <!-- Mobile Section Start-->
 
     <!-- Main Mobile div for main profile Start-->
-    <div class="MobileUserProfile mt-5" style="">
+    <div class="MobileUserProfile mt-5">
         <img src="{{URL::to('/public')}}/web_assets/images/icons/bird.png" alt="Circle Image" class="circle-image">
         <div>
             <h6 class="mt-5" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;"' : 'style="color: #fff;padding-left:25px;"' !!}>{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>

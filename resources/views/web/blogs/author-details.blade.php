@@ -3,13 +3,13 @@
 <link rel="amphtml" href="{{$actual_link_m}}" />
 @endsection
 @section('addImagesrc')
-<link rel="image_src" href="{{URL::to('/public/storage/blogs/'.$data['blog']->banner)}}" />
+
 @endsection
 @section('content')
 
 
 <div class="mt-110">
-    <div class="container">
+    <div class="container np-container">
         <!-- row -->
         <div class="row">
             <!-- col -->
@@ -17,9 +17,8 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
-                        <li class="breadcrumb-item"><a href="{{route('Blogs')}}" style="color: #000;"><strong>Blogs</strong></a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$data['blog']->heading}}</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="Blogs" style="color:#1DACE3;"><strong>Blogs</a></strong></li>
                     </ol>
                 </nav>
             </div>
@@ -27,21 +26,6 @@
     </div>
 </div>
 
-@if($data['blog']->author_id == 0)
-<!-- Slider Section Start-->
-<section class="mt-2">
-    <div class="container">
-        <div class="hero-slider">
-            <div class="feather-image-blog">
-                <img src="{{URL::to('/public/storage/blogs/'.$data['blog']->banner)}}" alt="{{empty($data['blog']->banner_alt) ? $data['blog']->slug : $data['blog']->banner_alt}}">
-            </div>
-        </div>
-    </div>
-</section>
-@endif
-<!-- Slider Section End-->
-
-@if($data['blog']->author_id != 0)
 <!-- Blog author details section start -->
 <section class="my-lg-5 my-8 mt-5">
     <div Class="DesktopAuthorSection">
@@ -50,14 +34,14 @@
                 <div class="col-lg-12 tex-center mt-5">
                     <div class="row">
 
-                        <!-- <div class="col-lg-3" style="text-align: end;">
+                        <div class="col-lg-3" style="text-align: end;">
                             <img src="{{URL::to('/public/storage/authors/'.$data['author']->image)}}" style="background-color:whitesmoke;height:160px;width:160px;border-radius:10px;object-fit:cover;">
-                        </div> -->
-                       
-                        <div class="col-lg-9">
-                            <h4 class="mt-5"><a href="{{route('blog.author',[ base64_encode($data['author']->id) ])}}" style="color: #fff;">{{ $data['author']->name }}</a></h4>
+                        </div>
 
-                            <ul class="list-inline text-md-right social-media">
+                        <div class="col-lg-9">
+                            <h4 class="mt-10"><a href="{{route('blog.author',[ base64_encode($data['author']->id) ])}}" style="color: #fff;">{{ $data['author']->name }}</a></h4>
+
+                            <ul class="list-inline text-md-right social-media mt-5">
 
                                 @if($data['author']->linkedin_url != '')
                                 <li class="list-inline-item">
@@ -83,7 +67,6 @@
                                 </li>
                                 @endif
                             </ul>
-                            <span class="mt-0" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</span>
                         </div>
 
                     </div>
@@ -99,61 +82,53 @@
             <p style="color: #fff;">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </p>
-          
+
         </div>
-      
-
-
     </div>
 </section>
 <!-- Blog author details section end -->
-@endif
 
-<!-- Single Blog section Start Here -->
+<!-- About author section start -->
+<div class="container np-container">
+    <div class="row text-center">
+        <h4  style="text-align: left;">About Author: </h4>
+        <div style="text-align: left;">
+        {!! $data['author']->about !!}
+        </div>
+    </div>
+</div>
+<!-- About author section end -->
+
+
+<!-- Blogs section Start Here -->
 <section class="my-lg-5 my-8">
     <!-- container -->
-    <div class="container">
+    <div class="container np-container">
 
-        <div class="row">
-            <div class="col-12">
-                <div class="mb-8">
-                    <!-- heading -->
-                    <h1 style="text-align: left;">{{$data['blog']->heading}}</h1>
+        <div class="row" style="align-items: center;justify-content: center;">
+            @foreach($data['blog'] as $val)
+            <div class="col-lg-4 blogItem mt-5">
+                <div class="post-feather">
+                    <img src="{{URL::to('/public/storage/blogs/'.$val->banner)}}" alt="{{empty($val->banner_alt) ? $val->slug : $val->banner_alt}}">
+                    <a href="{{route('blog.details', [$val->slug])}}" target="blank" class="readMorebutton">Read More</a>
                 </div>
+                <h5 title="{{$val->heading}}">{{$val->heading}}</h5>
+                <p title="{{ $val->short_description }}">{{ $val->short_description }}</p>
             </div>
+            @endforeach
+
         </div>
 
-        <br><br>
-
-        {!! $data['blog']->description !!}
-
-        @if(count($data['faq']) != 0 )
-        <hr style="border-top: 1px solid #1caae2;">
-
-        <div class="row mb-5 mt-5">
-            <div class="col-lg-12 col-12 mb-5">
-                <h2 class="mb-5"> {{ __('translation.faq_page_text_02') }} </h2>
-                @foreach ($data['faq'] as $faq)
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <button id="accordion-button-1" aria-expanded="false">
-                            <span class="accordion-title"> {{ $faq->heading }} </span>
-                            <span class="icon" aria-hidden="true"></span>
-                        </button>
-                        <div class="accordion-content">
-                            {!! $faq->content !!}
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+        <div class="row mt-8 text-center">
+            <div class="col">
+                <!-- nav -->
+                {{ $data['blog']->links() }}
             </div>
         </div>
-        @endif
-
 
     </div>
 </section>
-<!-- Single Blog section End Here -->
+<!-- Blogs section End Here -->
 
 
 @endsection
