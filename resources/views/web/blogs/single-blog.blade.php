@@ -169,7 +169,7 @@
               "@type": "BlogPosting",
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "{{$actual_url}}"
+                "@id": "{{$actual_link}}"
               },
               "headline": "{{$data['blog']->heading}}",
               "description": "{{$data['blog']->short_description}}",
