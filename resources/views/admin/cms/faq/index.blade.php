@@ -83,6 +83,7 @@
             <form id="add_faq_blog_form" action="{{route('admin.faq.create')}}">
                 @csrf
                 <input type="hidden" class="form-control" name="blog_id" value="0">
+                <input type="hidden" class="form-control" name="retailer_id" value="0">
                 <div class="modal-header">
                     <h4 class="modal-title">Add FAQ</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

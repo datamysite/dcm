@@ -12,7 +12,8 @@ use URL;
 
 class RetailerBlogController extends Controller
 {
-    public function index($id){
+    public function index($id)
+    {
         $data['menu'] = 'retailers';
         $data['retailer'] = Retailers::find(base64_decode($id));
         $data['country'] = Countries::all();
@@ -20,48 +21,62 @@ class RetailerBlogController extends Controller
         return view('admin.retailers.blogs.index')->with($data);
     }
 
-    public function load($id){
+    public function load($id)
+    {
         $response = [];
         $data = RetailerBlogs::where('retailer_id', base64_decode($id))->get();
-        
+
         return view('admin.retailers.blogs.load', ['data' => $data]);
     }
 
-    public function search_retailer($val){
+    public function search_retailer($val)
+    {
         $html = '';
 
-        $data = Retailers::where('name', 'like', '%'.$val.'%')->limit(7)->get();
+        $data = Retailers::where('name', 'like', '%' . $val . '%')->limit(7)->get();
         foreach ($data as $key => $value) {
-            $html .= '<a href="'.route('admin.retailer.blog', base64_encode($value->id)).'">
+            $html .= '<a href="' . route('admin.retailer.blog', base64_encode($value->id)) . '">
                           <p>
-                            <img src="'.URL::to("/public/storage/retailers/".$value->logo).'">&nbsp;&nbsp;&nbsp;&nbsp;|
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span>'.$value->name.'</span>
+                            <img src="' . URL::to("/public/storage/retailers/" . $value->logo) . '">&nbsp;&nbsp;&nbsp;&nbsp;|
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span>' . $value->name . '</span>
                           </p>
                         </a>';
         }
 
-        echo $html;               
+        echo $html;
     }
 
 
-    public function create(Request $request){
+    public function create(Request $request)
+    {
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['country']) || empty($data['description']) || empty($data['section_id']) ) {
+        if (empty($data['heading']) || empty($data['country']) || empty($data['description']) || empty($data['section_id'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
-        }else{
-            $id = RetailerBlogs::create($data);
+        } else {
 
-            $response['success'] = 'success';
-            $response['message'] = 'Success! New blog Added.';
+            $retailer_blog = RetailerBlogs::where('section_id', $data['section_id'])->get();
+
+            if (count($retailer_blog) == 0) {
+
+                $id = RetailerBlogs::create($data);
+
+                $response['success'] = 'success';
+                $response['message'] = 'Success! New blog Added.';
+
+            } else {
+                $response['success'] = false;
+                $response['errors'] = 'Error! Section Already Exist !';
+            }
 
             echo json_encode($response);
         }
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $id = base64_decode($id);
 
         $data['country'] = Countries::all();
@@ -71,14 +86,15 @@ class RetailerBlogController extends Controller
     }
 
 
-    public function update_blog(Request $request){
+    public function update_blog(Request $request)
+    {
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['country']) || empty($data['description']) || empty($data['section_id']) ) {
+        if (empty($data['heading']) || empty($data['country']) || empty($data['description']) || empty($data['section_id'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
-        }else{
+        } else {
             $id = RetailerBlogs::update_blog(base64_decode($data['blog_id']), $data);
 
             $response['success'] = 'success';
@@ -88,7 +104,8 @@ class RetailerBlogController extends Controller
         }
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $id = base64_decode($id);
 
         RetailerBlogs::destroy($id);
