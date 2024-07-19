@@ -2,11 +2,7 @@
 @section('amphtml')
 <link rel="amphtml" href="{{$actual_link_m}}" />
 @endsection
-@section('addImagesrc')
-
-@endsection
 @section('content')
-
 
 <div class="mt-110">
     <div class="container np-container">
@@ -17,8 +13,8 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="Blogs" style="color:#1DACE3;"><strong>Blogs</a></strong></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="{{route('Blogs')}}" style="color:#1DACE3;"><strong>Blogs</a></strong></li>
                     </ol>
                 </nav>
             </div>
@@ -39,7 +35,7 @@
                         </div>
 
                         <div class="col-lg-9">
-                            <h4 class="mt-10"><a href="{{route('blog.author',[ base64_encode($data['author']->id) ])}}" style="color: #fff;">{{ $data['author']->name }}</a></h4>
+                            <h4 class="mt-10" style="padding-left:10px"><a href="{{route('blog.author',[ base64_encode($data['author']->id) ])}}" style="color: #fff;">{{ $data['author']->name }}</a></h4>
 
                             <ul class="list-inline text-md-right social-media mt-5">
 
@@ -75,14 +71,34 @@
         </div>
     </div>
 
-    <div class="MobileUserProfile mt-5" style="height: 140px;">
-        <img src="{{URL::to('/public/storage/authors/'.$data['author']->image)}}" alt="Circle Image" class="circle-image" style="top:30px;">
-        <div class="row" style="color: #fff;padding-left:25px;">
-            <h4 class="mt-5" style="color: #fff;">{{ $data['author']->name }}</h4>
-            <p style="color: #fff;">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            </p>
+    <div class="MobileAuthorSection mt-0" style="border-radius:0px;height:100%;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);">
 
+        <div class="row col-lg-8 mt-0" style="justify-content:center">
+            <img src="{{URL::to('/public/storage/authors/'.$data['author']->image)}}" style="margin-top:10px;background-color:whitesmoke;height:150px;width:150px;border-radius:10px;object-fit:cover;">
+        </div>
+        <div class="row align-items-center" style="justify-items:center;justify-content:center;">
+            <h6 class="mt-5 text-center" style="color: #fff;">{{ $data['author']->name }}</h6>
+            <div class="social-icons" style="display: flex;align-items: center;justify-content:space-evenly">
+                <li class="list-inline-item">
+                    <a href="{{ $data['author']->linkedin_url }}" target="_blank" class="btn btn-xs" aria-label="Linkedin" style="color: #fff;">
+                        <i class="fa fa-linkedin-square" style="font-size: 24px;"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">|</li>
+
+                <li class="list-inline-item first">
+                    <a href="{{ $data['author']->x_url }}" target="_blank" class="btn btn-xs" aria-label="Twitter" style="color: #fff;">
+                        <i class="fa fa-twitter" style="font-size: 24px;"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">|</li>
+
+                <li class="list-inline-item">
+                    <a href="{{ $data['author']->facebook_url }}" target="_blank" class="btn btn-xs" aria-label="Facebook" style="color: #fff;">
+                        <i class="fa fa-facebook-square" style="font-size: 24px;"></i>
+                    </a>
+                </li>
+            </div>
         </div>
     </div>
 </section>
@@ -91,20 +107,18 @@
 <!-- About author section start -->
 <div class="container np-container">
     <div class="row text-center">
-        <h4  style="text-align: left;">About Author: </h4>
+        <h4 style="text-align: left;">About Author: </h4>
         <div style="text-align: left;">
-        {!! $data['author']->about !!}
+            {!! $data['author']->about !!}
         </div>
     </div>
 </div>
 <!-- About author section end -->
 
-
 <!-- Blogs section Start Here -->
 <section class="my-lg-5 my-8">
     <!-- container -->
     <div class="container np-container">
-
         <div class="row" style="align-items: center;justify-content: center;">
             @foreach($data['blog'] as $val)
             <div class="col-lg-4 blogItem mt-5">
@@ -116,7 +130,6 @@
                 <p title="{{ $val->short_description }}">{{ $val->short_description }}</p>
             </div>
             @endforeach
-
         </div>
 
         <div class="row mt-8 text-center">

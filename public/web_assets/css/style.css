@@ -1697,9 +1697,12 @@ label.errors {
     }
 }
 
-
 .DesktopAuthorSection {
     display: block;
+}
+
+.MobileAuthorSection{
+    display: none;
 }
 
 
@@ -1783,7 +1786,9 @@ label.errors {
     .DesktopAuthorSection{
         display: none;
     }
-    
+    .MobileAuthorSection{
+        display: block;
+    }
 
     .navbar-flag img {
         width: 34px;

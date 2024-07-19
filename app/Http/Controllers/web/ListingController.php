@@ -18,6 +18,8 @@ use App\Models\Offers;
 use App\Models\OfferQrCode;
 use App\Models\Seller;
 use App\Models\StoreVisits;
+use App\Models\Faq;
+use App\Models\RetailerBlogs; 
 use PDF;
 use Hash;
 use Auth;
@@ -73,7 +75,13 @@ class ListingController extends Controller
         $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)->where('status', '1')->get();
         $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
         $data['testimonials'] = Testimonials::where('status', '1')->get();
-        
+        //Get retailer FAqs
+        $data['faq'] = Faq::where('retailer_id', $data['retailer']->id)->get();
+        $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id' , 1)->get();
+        $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id' , 2)->get();
+
+        //dd($data['retailor_blog_header'] ) ;
+
         $data['suggestedHeading'] = array('Most Searched Brands','', 'Suggested Brands','', 'Popular Brands', '','Most Searched Brands','', 'Suggested Brands','', 'Popular Brands', '','Most Searched Brands','', 'Suggested Brands','', 'Popular Brands');
         $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
 

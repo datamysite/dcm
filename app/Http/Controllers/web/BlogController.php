@@ -21,7 +21,7 @@ class BlogController extends Controller
 
     public function detail($lang, $slug)
     {
-        $data['blog'] = Blogs::where('slug', $slug)->first();
+        $data['blog'] = Blogs::where('slug', $slug)->with('category')->first();
         $id = $data['blog']['id'];
         $author_id = $data['blog']['author_id'];
 
