@@ -340,6 +340,7 @@
       @include('web.includes.schema.speakable')
       @include('web.includes.schema.organization')
       @include('web.includes.schema.breadcrumbs')
+      @include('web.includes.schema.localBusiness')
 
    <!-- Schema Code (end) -->
 @endsection

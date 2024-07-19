@@ -281,4 +281,27 @@
 </section>
 <!-- FAQs section end-->
 
+
+
+@if(count($data['faq']) != 0 )
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+           "mainEntity": [
+              @foreach ($data['faq'] as $faq)
+                  {
+                    "@type": "Question",
+                    "name": "{{ $faq->heading }}",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "{{ $faq->content }}"
+                    }
+                  },
+              @endforeach
+            ]
+        }
+    </script>
+@endif
+        
 @endsection

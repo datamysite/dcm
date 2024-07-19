@@ -162,6 +162,7 @@
       @include('web.includes.schema.speakable')
       @include('web.includes.schema.organization')
       @include('web.includes.schema.breadcrumbs')
+      @include('web.includes.schema.localBusiness')
 
         <script type="application/ld+json">
             {
@@ -180,7 +181,7 @@
               },  
               "publisher": {
                 "@type": "Organization",
-                "name": "Author Name Here",
+                "name": "{{ @$data['author']->name }}",
                 "logo": {
                   "@type": "ImageObject",
                   "url": "{{URL::to('/')}}/public/web_assets/images/logo/logo-DCM.png"
@@ -190,6 +191,27 @@
               "dateModified": "{{date('Y-m-d', strtotime($data['blog']->updated_at))}}"
             }
         </script>
+
+        @if(count($data['faq']) != 0 )
+            <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                   "mainEntity": [
+                      @foreach ($data['faq'] as $faq)
+                          {
+                            "@type": "Question",
+                            "name": "{{ $faq->heading }}",
+                            "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "{{ $faq->content }}"
+                            }
+                          },
+                      @endforeach
+                    ]
+                }
+            </script>
+        @endif
 
    <!-- Schema Code (end) -->
 @endsection
