@@ -76,7 +76,7 @@ class ListingController extends Controller
         $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
         $data['testimonials'] = Testimonials::where('status', '1')->get();
         //Get retailer FAqs
-        $data['faq'] = Faq::where('retailer_id', $data['retailer']->id)->get();
+        $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->get();
         $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id' , 1)->get();
         $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id' , 2)->get();
 

@@ -248,13 +248,13 @@
         <!-- //Stroe Blog Footer Section End// -->
 
         <!-- //Stroe FAQs Section Start// -->
-        @if(count($faq) != 0)
+        @if(count($faqs) != 0)
         <div class="container np-container mt-10">
             <hr style="border-top: 1px solid #1caae2;" class="mt-5">
             <div class="row mb-5">
                 <div class="col-lg-12 col-12 mb-5">
                     <h2 class="mb-5"> {{ __('translation.faq_page_text_02') }} </h2>
-                    @foreach ($faq as $faq)
+                    @foreach ($faqs as $faq)
                     <div class="accordion">
                         <div class="accordion-item">
                             <button id="accordion-button-1" aria-expanded="false">
