@@ -26,10 +26,10 @@ async function findRetailers_en(val) {
         var couponHTML = "<div class='row'>";
 
         for(var k in record['brands']) {
-           brandHTML += "<div class='col-4'><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></div></a></div>"
+           brandHTML += "<div class='col-4'><a href='"+host+"en/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></div></a></div>"
         
             for(var j in record['brands'][k]['coupons']) {
-           couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' target='_blank'><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' data-brand='"+record['brands'][k]['slug']+"' onclick='return gtag_report_showcoupon;' class='show-coupon-btn button has-code' target='_blank'><span class='is-code'>DCM</span><span class='is-code-text'><em>Show Coupon</em></span></a></div></div>"
+           couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/"+record['brands'][k]['slug']+"' target='_blank'><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/"+record['brands'][k]['slug']+"' data-brand='"+record['brands'][k]['slug']+"' onclick='return gtag_report_showcoupon;' class='show-coupon-btn button has-code' target='_blank'><span class='is-code'>DCM</span><span class='is-code-text'><em>Show Coupon</em></span></a></div></div>"
             }
         }
         brandHTML += "</div>"
@@ -54,10 +54,10 @@ async function findRetailers_ar(val) {
         var couponHTML = "<div class='row'>";
 
         for(var k in record['brands']) {
-           brandHTML += "<div class='col-4'><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></div></a></div>"
+           brandHTML += "<div class='col-4'><a href='"+host+"en/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></div></a></div>"
         
             for(var j in record['brands'][k]['coupons']) {
-           couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' target='_blank'><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' data-brand='"+record['brands'][k]['slug']+"' onclick='return gtag_report_showcoupon;' class='show-coupon-btn button has-code' target='_blank'><span class='is-code'>DCM</span><span class='is-code-text'><em>Show Coupon</em></span></a></div></div>"
+           couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/"+record['brands'][k]['slug']+"' target='_blank'><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/"+record['brands'][k]['slug']+"' data-brand='"+record['brands'][k]['slug']+"' onclick='return gtag_report_showcoupon;' class='show-coupon-btn button has-code' target='_blank'><span class='is-code'>DCM</span><span class='is-code-text'><em>Show Coupon</em></span></a></div></div>"
             }
         }
         brandHTML += "</div>"
@@ -84,10 +84,10 @@ async function fetchHomeRetailers_en(url) {
     var couponHTML = "<div class='row'>";
 
     for(var k in record['brands']) {
-       brandHTML += "<div class='col-4'><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></div></a></div>"
+       brandHTML += "<div class='col-4'><a href='"+host+"en/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></div></a></div>"
     
         for(var j in record['brands'][k]['coupons']) {
-           couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' target='_blank'><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' data-brand='"+record['brands'][k]['slug']+"' onclick='return gtag_report_showcoupon;' class='show-coupon-btn button has-code' target='_blank'><span class='is-code'>DCM</span><span class='is-code-text'><em>Show Coupon</em></span></a></div></div>"
+           couponHTML += "<div class='col-12'><div class='brand-img'><p>Flat: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span> Off</p><a href='"+host+"en/"+record['brands'][k]['slug']+"' target='_blank'><img src='https://dealsandcouponsmena.ae/public/storage/retailers/"+record['brands'][k]['logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading']+"</h4><a href='"+host+"en/"+record['brands'][k]['slug']+"' data-brand='"+record['brands'][k]['slug']+"' onclick='return gtag_report_showcoupon;' class='show-coupon-btn button has-code' target='_blank'><span class='is-code'>DCM</span><span class='is-code-text'><em>Show Coupon</em></span></a></div></div>"
         }
     }
     brandHTML += "</div>"
@@ -111,10 +111,10 @@ async function fetchHomeRetailers_ar(url) {
     var couponHTML = "<div class='row'>";
 
     for(var k in record['brands']) {
-       brandHTML += "<div class='col-4'><a href='"+host+"ar/"+state+"/store/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='https://dealsandcouponsmena.ae/public/storage/retailers/ar/"+record['brands'][k]['ar_logo']+"'/></div></a></div>"
+       brandHTML += "<div class='col-4'><a href='"+host+"ar/"+record['brands'][k]['slug']+"' target='_blank'><div class='brand-img'><p>Upto: <span>"+record['brands'][k]['discount_upto']+"%</span> Off</p><img src='https://dealsandcouponsmena.ae/public/storage/retailers/ar/"+record['brands'][k]['ar_logo']+"'/></div></a></div>"
     
         for(var j in record['brands'][k]['coupons']) {
-           couponHTML += "<div class='col-12'><div class='brand-img'><p>تخفيض: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span></p><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' target='_blank'><img src='https://dealsandcouponsmena.ae/public/storage/retailers/ar/"+record['brands'][k]['ar_logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading_ar']+"</h4><a href='"+host+"en/"+state+"/store/"+record['brands'][k]['slug']+"' data-brand='"+record['brands'][k]['slug']+"' onclick='return gtag_report_showcoupon;' class='show-coupon-btn button has-code' target='_blank'><span class='is-code'>DCM</span><span class='is-code-text'><em>أظهر القسيمة</em></span></a></div></div>"
+           couponHTML += "<div class='col-12'><div class='brand-img'><p>تخفيض: <span>"+record['brands'][k]['coupons'][j]['discount']+"<font>%</font></span></p><a href='"+host+"en/"+record['brands'][k]['slug']+"' target='_blank'><img src='https://dealsandcouponsmena.ae/public/storage/retailers/ar/"+record['brands'][k]['ar_logo']+"'/></a> <h4>"+record['brands'][k]['coupons'][j]['heading_ar']+"</h4><a href='"+host+"en/"+record['brands'][k]['slug']+"' data-brand='"+record['brands'][k]['slug']+"' onclick='return gtag_report_showcoupon;' class='show-coupon-btn button has-code' target='_blank'><span class='is-code'>DCM</span><span class='is-code-text'><em>أظهر القسيمة</em></span></a></div></div>"
         }
     }
     brandHTML += "</div>"

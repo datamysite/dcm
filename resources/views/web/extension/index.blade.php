@@ -577,7 +577,7 @@
               </div>
 
             <footer>
-                Go to <a href="https://dealsandcouponsmena.ae/en/dubai" target="_blank">dealsandcouponsmena
+                Go to <a href="https://dealsandcouponsmena.ae/en" target="_blank">dealsandcouponsmena
                 </a>
             </footer>
         </div>
@@ -629,7 +629,7 @@
               </div>
 
             <footer>
-                اذهب إلى <a href="https://dealsandcouponsmena.ae/ar/dubai" target="_blank">dealsandcouponsmena
+                اذهب إلى <a href="https://dealsandcouponsmena.ae/ar" target="_blank">dealsandcouponsmena
                 </a>
             </footer>
         </div>
