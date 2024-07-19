@@ -114,12 +114,13 @@
     </div>
 </div>
 <!-- About author section end -->
-
-<!-- Blogs section Start Here -->
+@if(count($data['blog']) != 0 )
+<!-- Author Blogs section Start Here -->
 <section class="my-lg-5 my-8">
     <!-- container -->
     <div class="container np-container">
         <div class="row" style="align-items: center;justify-content: center;">
+            <hr style="border-top: 1px solid #1caae2;" class="mt-5">
             @foreach($data['blog'] as $val)
             <div class="col-lg-4 blogItem mt-5">
                 <div class="post-feather">
@@ -138,10 +139,9 @@
                 {{ $data['blog']->links() }}
             </div>
         </div>
-
     </div>
 </section>
-<!-- Blogs section End Here -->
-
+<!-- Author Blogs section End Here -->
+@endif
 
 @endsection
