@@ -20,7 +20,7 @@
                         <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
                         <li class="breadcrumb-item"><a href="{{route('Blogs')}}" style="color: #000;"><strong>Blogs</strong></a></li>
                         @if($data['blog']->category_id != 0)
-                        <li class="breadcrumb-item"><a href="{{URL::to('/'.app()->getLocale().'/'.$data['blog']->category->name )}}" style="color: #000;"><strong>{{$data['blog']->category->name }}</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('blog.categories',[ base64_encode($data['blog']->category->id) ])}}" style="color: #000;"><strong>{{$data['blog']->category->name }}</strong></a></li>
                         @endif
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$data['blog']->heading}}</strong></a></li>
                     </ol>
@@ -116,59 +116,58 @@
 <!-- Single Blog section End Here -->
 
 
-      @include('web.includes.schema.speakable')
-      @include('web.includes.schema.organization')
-      @include('web.includes.schema.breadcrumbs')
-      @include('web.includes.schema.localBusiness')
+@include('web.includes.schema.speakable')
+@include('web.includes.schema.organization')
+@include('web.includes.schema.breadcrumbs')
+@include('web.includes.schema.localBusiness')
 
-        <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "{{$actual_link}}"
-              },
-              "headline": "{{$data['blog']->heading}}",
-              "description": "{{$data['blog']->short_description}}",
-              "image": "{{config('app.storage').'/blogs/'.$data['blog']->banner}}",  
-              "author": {
-                "@type": "Organization",
-                "name": "Deals and Coupons Mena"
-              },  
-              "publisher": {
-                "@type": "Organization",
-                "name": "{{ @$data['author']->name }}",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "{{URL::to('/')}}/public/web_assets/images/logo/logo-DCM.png"
-                }
-              },
-              "datePublished": "{{date('Y-m-d', strtotime($data['blog']->created_at))}}",
-              "dateModified": "{{date('Y-m-d', strtotime($data['blog']->updated_at))}}"
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{$actual_link}}"
+        },
+        "headline": "{{$data['blog']->heading}}",
+        "description": "{{$data['blog']->short_description}}",
+        "image": "{{config('app.storage').'/blogs/'.$data['blog']->banner}}",
+        "author": {
+            "@type": "Organization",
+            "name": "Deals and Coupons Mena"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{ @$data['author']->name }}",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{URL::to('/')}}/public/web_assets/images/logo/logo-DCM.png"
             }
-        </script>
-        
-        @if(count($data['faq']) != 0 )
-            <script type="application/ld+json">
-                {
-                  "@context": "https://schema.org",
-                  "@type": "FAQPage",
-                   "mainEntity": [
-                      @foreach ($data['faq'] as $faq)
-                          {
-                            "@type": "Question",
-                            "name": "{{ $faq->heading }}",
-                            "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "{{ $faq->content }}"
-                            }
-                          },
-                      @endforeach
-                    ]
-                }
-            </script>
-        @endif
+        },
+        "datePublished": "{{date('Y-m-d', strtotime($data['blog']->created_at))}}",
+        "dateModified": "{{date('Y-m-d', strtotime($data['blog']->updated_at))}}"
+    }
+</script>
 
-   <!-- Schema Code (end) -->
+@if(count($data['faq']) != 0 )
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            @foreach($data['faq'] as $faq) {
+                "@type": "Question",
+                "name": "{{ $faq->heading }}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{{ $faq->content }}"
+                }
+            },
+            @endforeach
+        ]
+    }
+</script>
+@endif
+
+<!-- Schema Code (end) -->
 @endsection

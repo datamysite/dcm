@@ -56,9 +56,10 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- //Stroe Blog Header Section Start// -->
-            @if($retailor_blog_header->isNotEmpty() && $retailor_blog_header->first()->section_id == 1)
+            @if( count($retailor_blog_header) != 0 )
+            @if($retailor_blog_header->first()->section_id == 1)
             <div class="col-12">
                 <div class="retailer-blog-content" id="retailerBlogs">
                     @foreach($retailer->blogs as $val)
@@ -66,6 +67,7 @@
                     @endforeach
                 </div>
             </div>
+            @endif
             @endif
             <!-- //Stroe Blog Header Section End// -->
 
@@ -232,18 +234,20 @@
         @endforeach
 
         <!-- //Stroe Blog Footer Section Start// -->
-        @if($retailor_blog_footer->isNotEmpty() && $retailor_blog_footer->first()->section_id == 2)
-        <div class="container np-container mt-10">
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div>
-                        @foreach($retailor_blog_footer as $footer_blog)
-                        {!! $footer_blog->description !!}
-                        @endforeach
+        @if ( count($retailor_blog_footer) != 0 )
+            @if($retailor_blog_footer->first()->section_id == 2)
+            <div class="container np-container mt-10">
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <div>
+                            @foreach($retailor_blog_footer as $footer_blog)
+                            {!! $footer_blog->description !!}
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            @endif
         @endif
         <!-- //Stroe Blog Footer Section End// -->
 
@@ -335,32 +339,31 @@
 
 <!-- Schema Code  (start)-->
 
-      @include('web.includes.schema.speakable')
-      @include('web.includes.schema.organization')
-      @include('web.includes.schema.breadcrumbs')
-      @include('web.includes.schema.localBusiness')
-      
-        
-        @if(count($faqs) != 0)
-            <script type="application/ld+json">
-                {
-                  "@context": "https://schema.org",
-                  "@type": "FAQPage",
-                   "mainEntity": [
-                      @foreach ($faqs as $faq)
-                          {
-                            "@type": "Question",
-                            "name": "{{ $faq->heading }}",
-                            "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "{{ $faq->content }}"
-                            }
-                          },
-                      @endforeach
-                    ]
+@include('web.includes.schema.speakable')
+@include('web.includes.schema.organization')
+@include('web.includes.schema.breadcrumbs')
+@include('web.includes.schema.localBusiness')
+
+
+@if(count($faqs) != 0)
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            @foreach($faqs as $faq) {
+                "@type": "Question",
+                "name": "{{ $faq->heading }}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{{ $faq->content }}"
                 }
-            </script>
-        @endif
+            },
+            @endforeach
+        ]
+    }
+</script>
+@endif
 
 <!-- Schema Code (end) -->
 
@@ -372,7 +375,7 @@
         let ar = 0;
         $(document).on('click', '.showCoupon', function() {
             var id = $(this).data('id');
-            $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
+            $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to(" / public / web - loader.gif ")}}'>");
             $('#ShowCouponModal').modal('show');
             $.get("{{URL::to('/'.app()->getlocale().'/coupon')}}/" + id, function(data) {
                 $('#ShowCouponModal .grap_deal_main').html(data);
@@ -382,7 +385,7 @@
 
         $(document).on('click', '.showOffer', function() {
             var id = $(this).data('id');
-            $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
+            $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to(" / public / web - loader.gif ")}}'>");
             $('#ShowCouponModal').modal('show');
             $.get("{{URL::to('/'.app()->getlocale().'/offers')}}/" + id, function(data) {
                 $('#ShowCouponModal .grap_deal_main').html(data);
