@@ -14,13 +14,41 @@
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
-                  <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.All_Stores') }}</strong></li>
+                  <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.Categories') }}</strong></li>
                </ol>
             </nav>
          </div>
       </div>
    </div>
 </div>
+
+     <!-- Category Section Start-->
+   <section class="">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 mb-6 text-center">
+               <h1 class="mb-0 page-title">{{ __('translation.Categories') }}</h1>
+            </div>
+         </div>
+         <div class="ccategory-slider category-slider">
+            @foreach($categories_f as $val)
+               @php
+                  $string = strtolower(trim($val->name));
+                   $string = str_replace('&', 'and', $string);
+                   $string = str_replace(' ', '-', $string);
+                   $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+               @endphp
+               <div class="item">
+                  <a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}" class="text-decoration-none text-inherit">
+                     <img src="{{config('app.storage').'categories/'.$val->image}}" alt="Mart" class="img-fluid" />
+                     <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
+                  </a>
+               </div>
+            @endforeach
+         </div>
+
+      </div>
+   </section>
 
 
    <!-- categoires section start-->
@@ -71,32 +99,6 @@
                               </ul>
                            </div>
                         
-                        <div class="mb-8">
-                           <!-- title -->
-                           <h5 class="mb-3">{{ __('translation.Categories') }}</h5>
-                           <!-- nav -->
-                           <ul class="nav nav-category" id="categoryCollapseMenu">
-                              @foreach($categories_f as $val)
-                                 @php
-                                    $string = strtolower(trim($val->name));
-                                     $string = str_replace('&', 'and', $string);
-                                     $string = str_replace(' ', '-', $string);
-                                     $slug = preg_replace('/[^a-z0-9-]/', '', $string);
-
-                                     $url = $val->type != '3' ? URL::to('/'.app()->getLocale().'/'.$slug) : URL::to('/'.app()->getLocale().'/'.$slug);
-                                     
-                                 @endphp
-                                 <li class="nav-item border-bottom w-100">
-                                    <a href="{{$url}}" class="nav-link collapsed">
-                                       {{ app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}
-                                       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                                          <path fill="currentColor" fill-rule="evenodd" d="M12 16a4 4 0 1 0 0-8a4 4 0 0 0 0 8m0 6C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-18h2v2h-2zm6 5h2v2h-2zM5 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4-7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m8 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m2 7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4 2h2v2h-2zm-4 3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-5-4h2v2H6zM5 8h2v2H5z" />
-                                       </svg>
-                                    </a>
-                                 </li>
-                              @endforeach
-                           </ul>
-                        </div>
 
                            <div class="mb-8">
                               <!-- title -->
@@ -124,36 +126,7 @@
                               </ul>
                            </div>
                         
-                           @if(!empty($category->id) && ($category->id == '2' || $category->id == '3' || $category->id == '10'))
-                              <div class="mb-8">
-                                 <!-- title -->
-                                 <h5 class="mb-3">{{ __('translation.Gender') }}</h5>
-                                 <!-- nav -->
-                                 <ul class="nav nav-category" id="">
-
-                                    <li class="nav-item border-bottom w-100">
-                                       <div class="form-check mb-2">
-                                          <!-- input -->
-                                          <input class="form-check-input" type="radio" value="male" name="g" id="gender1" {{!empty($_GET['g']) && $_GET['g'] == 'male' ? 'checked' : ''}}/>
-                                          <label class="form-check-label" for="gender1">{{ __('translation.Male') }}</label>
-                                       </div>
-                                       <!-- accordion collapse -->
-                                    </li>
-
-                                    <li class="nav-item border-bottom w-100">
-                                       <div class="form-check mb-2">
-                                          <!-- input -->
-                                          <input class="form-check-input" type="radio" value="female" name="g" id="gender1" {{!empty($_GET['g']) && $_GET['g'] == 'female' ? 'checked' : ''}}/>
-                                          <label class="form-check-label" for="gender1">{{ __('translation.Female') }}</label>
-                                       </div>
-                                       <!-- accordion collapse -->
-                                    </li>
-
-                                 </ul>
-                              </div>
-                           @endif
-                     
-
+                       
                         <div class="mb-8">
                            <!-- title -->
                            <h5 class="mb-3">{{ __('translation.Location') }}</h5>
@@ -164,7 +137,7 @@
                                     <div class="form-check mb-2">
                                        <!-- input -->
                                        <input class="form-check-input" type="radio" name="state" value="{{$val->id}}" id="states{{$val->id}}" {{!empty($_GET['state']) && $_GET['state'] == $val->id ? 'checked' : ''}}/>
-                                       <label class="form-check-label" for="states{{$val->id}}">{{ app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</label>
+                                       <label class="form-check-label" for="states{{$val->id}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</label>
                                     </div>
                                     <!-- accordion collapse -->
                                  </li>
@@ -189,7 +162,7 @@
                @if(count($retailers) != 0)
                   <!-- list icon -->
 
-                  <div class="d-lg-flex {{app()->getlocale() == 'ar' ? 'justify-content-end' : 'justify-content-end' }} align-items-center">
+                  <div class="d-lg-flex justify-content-end align-items-center">
 
                      {{ $retailers->links('vendor.pagination.label') }}
                      
@@ -245,7 +218,7 @@
                                  <!-- badge -->
                                  <div class="text-center position-relative py-1 mb-3 box">
                                     <div class="ribbon-2"><span>{{ __('translation.discount_to') }}</span> {{$val->discount_upto}}%</div>
-                                    <a href="{{URL::to('/'.app()->getlocale().'/'.$val->slug)}}">
+                                    <a href="{{URL::to('/'.app()->getLocale().'/'.$val->slug)}}">
                                        <!-- img -->
                                        <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$val->ar_logo : $val->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($val->alt_tag_ar) ? $val->name_ar : $val->alt_tag_ar}} @else {{empty($val->alt_tag) ? $val->name : $val->alt_tag}} @endif" class="mb-5 img-fluid" />
                                     </a>
@@ -261,7 +234,7 @@
                   <div class="row mt-8 text-center">
                      <div class="col">
                         <!-- nav -->
-                        {{ $retailers->onEachSide(1)->links() }}
+                        {{ $retailers->links() }}
                      </div>
                   </div>
                @else
@@ -304,6 +277,7 @@
    <!--Ads Section 1 End Here-->
 
 
+   
    <!-- Schema Code  (start)-->
 
       @include('web.includes.schema.speakable')

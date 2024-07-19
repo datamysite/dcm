@@ -14,7 +14,8 @@
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
-                  <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.All_Stores') }}</strong></li>
+                  <li class="breadcrumb-item"><a href="{{URL::to('/'.app()->getLocale().'/stores')}}" style="color: #000;"><strong>{{ __('translation.All_Stores') }}</strong></a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.'.$type) }}</strong></li>
                </ol>
             </nav>
          </div>
@@ -44,6 +45,7 @@
 
                      <div class="offcanvas-body ps-lg-2 pt-lg-0 mb-6 mb-md-0">
 
+                        @if(empty($type) || $type == 'online' || $type == 'retail')
                            <div class="mb-8">
                               <!-- title -->
                               <h5 class="mb-3">{{ __('translation.Store') }}</h5>
@@ -51,25 +53,28 @@
                               <ul class="nav nav-category" id="">
 
 
+
                                  <li class="nav-item border-bottom w-100">
-                                    <a href="{{URL::to('/'.app()->getLocale().'/stores/online')}}" class="nav-link collapsed">
-                                       {{ __('translation.Online') }}
-                                       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                                          <path fill="currentColor" fill-rule="evenodd" d="M12 16a4 4 0 1 0 0-8a4 4 0 0 0 0 8m0 6C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-18h2v2h-2zm6 5h2v2h-2zM5 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4-7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m8 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m2 7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4 2h2v2h-2zm-4 3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-5-4h2v2H6zM5 8h2v2H5z" />
-                                       </svg>
-                                    </a>
+                                    <div class="form-check mb-2">
+                                       <!-- input -->
+                                       <input class="form-check-input" type="radio" id="type1" {{!empty($type) && $type == 'online' ? 'checked' : 'disabled'}}/>
+                                       <label class="form-check-label" for="type">{{ __('translation.Online') }}</label>
+                                    </div>
+                                    <!-- accordion collapse -->
                                  </li>
+
                                  <li class="nav-item border-bottom w-100">
-                                    <a href="{{URL::to('/'.app()->getLocale().'/stores/retail')}}" class="nav-link collapsed">
-                                       {{ __('translation.Retail') }}
-                                       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                                          <path fill="currentColor" fill-rule="evenodd" d="M12 16a4 4 0 1 0 0-8a4 4 0 0 0 0 8m0 6C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-18h2v2h-2zm6 5h2v2h-2zM5 14a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4-7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m8 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m2 7a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-4 2h2v2h-2zm-4 3a1 1 0 1 0 0-2a1 1 0 0 0 0 2m-5-4h2v2H6zM5 8h2v2H5z" />
-                                       </svg>
-                                    </a>
+                                    <div class="form-check mb-2">
+                                       <!-- input -->
+                                       <input class="form-check-input" type="radio" id="type2" {{!empty($type) && $type == 'retail' ? 'checked' : 'disabled'}} {{empty($type) ? 'checked' : ''}}/>
+                                       <label class="form-check-label" for="type2">{{ __('translation.Retail') }}</label>
+                                    </div>
+                                    <!-- accordion collapse -->
                                  </li>
 
                               </ul>
                            </div>
+                        @endif
                         
                         <div class="mb-8">
                            <!-- title -->
@@ -83,7 +88,7 @@
                                      $string = str_replace(' ', '-', $string);
                                      $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
-                                     $url = $val->type != '3' ? URL::to('/'.app()->getLocale().'/'.$slug) : URL::to('/'.app()->getLocale().'/'.$slug);
+                                     $url = $val->type != '3' ? URL::to('/'.app()->getLocale().'/'.$slug) : URL::to('/'.app()->getLocale().'/'.$slug.'/'.$type);
                                      
                                  @endphp
                                  <li class="nav-item border-bottom w-100">
@@ -98,6 +103,7 @@
                            </ul>
                         </div>
 
+                        @if(empty($type) || $type == 'online' || $type == 'retail')
                            <div class="mb-8">
                               <!-- title -->
                               <h5 class="mb-3">{{ __('translation.Discount') }}</h5>
@@ -123,7 +129,9 @@
                                  </li>
                               </ul>
                            </div>
-                        
+                        @endif
+
+                        @if(!empty($type) && $type == 'retail')
                            @if(!empty($category->id) && ($category->id == '2' || $category->id == '3' || $category->id == '10'))
                               <div class="mb-8">
                                  <!-- title -->
@@ -152,8 +160,30 @@
                                  </ul>
                               </div>
                            @endif
-                     
+                        @endif
 
+                        @if(empty($type) || $type == 'online')
+                        <div class="mb-8">
+                           <!-- title -->
+                           <h5 class="mb-3">{{ __('translation.Location') }}</h5>
+                           <!-- nav -->
+                           <ul class="nav nav-category" id="">
+                              @foreach($countries_f as $val)
+                                 <li class="nav-item border-bottom w-100">
+                                    <div class="form-check mb-2">
+                                       <!-- input -->
+                                       <input class="form-check-input" type="radio" name="country" value="{{$val->id}}" id="countries{{$val->id}}" {{!empty($_GET['country']) && $_GET['country'] == $val->id ? 'checked' : ''}} {{empty($_GET['country']) && $val->id == config('app.country') ? 'checked' : ''}}/>
+                                       <label class="form-check-label" for="countries{{$val->id}}">{{ app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</label>
+                                    </div>
+                                    <!-- accordion collapse -->
+                                 </li>
+                              @endforeach
+
+                           </ul>
+                        </div>
+                        @endif
+
+                        @if(!empty($type) && $type == 'retail')
                         <div class="mb-8">
                            <!-- title -->
                            <h5 class="mb-3">{{ __('translation.Location') }}</h5>
@@ -172,6 +202,7 @@
 
                            </ul>
                         </div>
+                        @endif
 
 
                         <div class="text-center">

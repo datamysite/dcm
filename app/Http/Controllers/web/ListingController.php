@@ -40,7 +40,7 @@ class ListingController extends Controller
                                                 })
                                                 ->get();
         $data['countries_f'] = Countries::select('id', 'name')->get();
-        $data['states_f'] = States::select('id', 'name')->get();
+        $data['states_f'] = States::select('id', 'name')->where('country_id', config('app.country'))->get();
         //Filter -- end
 
         $data['retailers'] = Retailers::where('type', $type)
@@ -52,6 +52,40 @@ class ListingController extends Controller
                                                 });
                                             });
                                         })
+                                        ->when(!empty($req['country']), function($q) use ($req){
+                                            return $q->whereHas('countries', function($qq) use ($req){
+                                                return $qq->where('country_id', $req['country']);
+                                            });
+                                        })
+                                        ->when(empty($req['country']), function($q) use ($req){
+                                            return $q->whereHas('countries', function($qq) use ($req){
+                                                return $qq->where('country_id', config('app.country'));
+                                            });
+                                        })
+                                        ->when(!empty($req['discount']), function($q) use ($req){
+                                                return $q->where('discount_upto', '<=', $req['discount']);
+                                        })
+                                        ->paginate(12);
+
+        return view($this->getView('web.listing.store_type'))->with($data);
+    }
+
+    public function all_stores($lang, Request $request, $region = 'dubai'){
+        $req = $request->all();
+        //dd($region);
+        //Filters -- start
+        $data['categories_f'] = Categories::select('id', 'name', 'name_ar', 'type')
+                                                ->where('parent_id', 0)
+                                                ->where('status', '1')
+                                                ->when(config('app.retail') == false, function($q){
+                                                    return $q->limit(6);
+                                                })
+                                                ->get();
+        $data['countries_f'] = Countries::select('id', 'name')->get();
+        $data['states_f'] = States::select('id', 'name')->where('country_id', config('app.country'))->get();
+        //Filter -- end
+
+        $data['retailers'] = Retailers::where('status', '1')
                                         ->when(!empty($req['country']), function($q) use ($req){
                                             return $q->whereHas('countries', function($qq) use ($req){
                                                 return $qq->where('country_id', $req['country']);
@@ -145,7 +179,7 @@ class ListingController extends Controller
                                                 ->get();
         $data['subcategories_f'] = Categories::select('id', 'name', 'name_ar', 'type')->where('parent_id', $data['category']->id)->where('status', '1')->get();
         $data['countries_f'] = Countries::select('id', 'name')->get();
-        $data['states_f'] = States::select('id', 'name')->get();
+        $data['states_f'] = States::select('id', 'name')->where('country_id', config('app.country'))->get();
         //Filter -- end
 
         if($type == '1'){
@@ -199,7 +233,7 @@ class ListingController extends Controller
                                                 ->get();
         $data['subcategories_f'] = Categories::select('id', 'name', 'name_ar', 'type')->where('parent_id', $data['category']->id)->where('status', '1')->get();
         $data['countries_f'] = Countries::select('id', 'name')->get();
-        $data['states_f'] = States::select('id', 'name')->get();
+        $data['states_f'] = States::select('id', 'name')->where('country_id', config('app.country'))->get();
         //Filter -- end
 
         if(!empty($req['type']) && $req['type'] == '1'){
@@ -239,6 +273,37 @@ class ListingController extends Controller
         //dd($data);
         return view($this->getView('web.listing.categories'))->with($data);
     }
+
+    public function all_categories($request, $region = 'dubai'){
+        $req = $request;
+        $data['categories_f'] = Categories::select('id', 'name', 'name_ar', 'type', 'image')
+                                                ->where('parent_id', 0)
+                                                ->where('status', '1')
+                                                ->when(config('app.retail') == false, function($q){
+                                                    return $q->limit(6);
+                                                })
+                                                ->get();
+        $data['states_f'] = States::select('id', 'name')->where('country_id', config('app.country'))->get();
+        
+        $data['retailers'] = Retailers::when(!empty($req['country']), function($q) use ($req){
+                                            return $q->whereHas('countries', function($qq) use ($req){
+                                                return $qq->where('country_id', $req['country']);
+                                            });
+                                        })
+                                        ->when(empty($req['country']), function($q) use ($req){
+                                            return $q->whereHas('countries', function($qq) use ($req){
+                                                return $qq->where('country_id', config('app.country'));
+                                            });
+                                        })
+                                        ->when(!empty($req['discount']), function($q) use ($req){
+                                                return $q->where('discount_upto', '<=', $req['discount']);
+                                        })
+                                        ->where('status', '1')
+                                        ->paginate(12);
+
+        return view($this->getView('web.listing.all_categories'))->with($data);
+    }
+
 
     public function show_coupon($lang, $id){
         $id = base64_decode($id);

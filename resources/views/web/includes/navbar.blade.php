@@ -131,7 +131,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                      @if(config('app.retail'))
                      <li class="nav-item dropdown" style="padding: 10px;">
 
-                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
+                        <a class="nav-link dropdown-toggle" href="{{URL::to('/'.app()->getLocale().'/stores')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
 
                         <ul class="dropdown-menu">
                            <li><a class="dropdown-item allstore_view" href="{{route('stores', ['online'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Online') }}</a></li>
@@ -367,7 +367,7 @@ $pos = strpos($url, "/".app()->getLocale()."/");
 
                         @if(config('app.retail'))
                         <li class="nav-item dropdown w-100 w-lg-auto">
-                           <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
+                           <a class="nav-link dropdown-toggle" href="{{URL::to('/'.app()->getLocale().'/stores')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
                            <ul class="dropdown-menu">
                               <li><a class="dropdown-item allstore_view" href="{{route('stores', ['online'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Online') }}</a></li>
                               <li><a class="dropdown-item allstore_view" href="{{route('stores', ['retail'])}}" onclick="return gtag_report_allstore;">{{ __('translation.Retail') }}</a></li>

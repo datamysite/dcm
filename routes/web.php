@@ -83,7 +83,11 @@ Route::group([
         Route::get('/search/{value}', 'HomeController@search');
 
         //Listing
+
+        Route::get('/category', 'ListingController@all_categories');
+
         Route::prefix('stores')->group(function () {
+            Route::get('/', 'ListingController@all_stores');
             Route::get('/{type}', 'ListingController@index')->name('stores');
         });
 
