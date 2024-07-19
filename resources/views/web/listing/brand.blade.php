@@ -339,6 +339,28 @@
       @include('web.includes.schema.organization')
       @include('web.includes.schema.breadcrumbs')
       @include('web.includes.schema.localBusiness')
+      
+        
+        @if(count($faq) != 0)
+            <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                   "mainEntity": [
+                      @foreach ($faq as $faq)
+                          {
+                            "@type": "Question",
+                            "name": "{{ $faq->heading }}",
+                            "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "{{ $faq->content }}"
+                            }
+                          },
+                      @endforeach
+                    ]
+                }
+            </script>
+        @endif
 
 <!-- Schema Code (end) -->
 
@@ -350,7 +372,7 @@
         let ar = 0;
         $(document).on('click', '.showCoupon', function() {
             var id = $(this).data('id');
-            $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to(" / public / web - loader.gif ")}}'>");
+            $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
             $('#ShowCouponModal').modal('show');
             $.get("{{URL::to('/'.app()->getlocale().'/coupon')}}/" + id, function(data) {
                 $('#ShowCouponModal .grap_deal_main').html(data);
@@ -360,7 +382,7 @@
 
         $(document).on('click', '.showOffer', function() {
             var id = $(this).data('id');
-            $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to(" / public / web - loader.gif ")}}'>");
+            $('#ShowCouponModal .grap_deal_main').html("<img src='{{URL::to("/public/web-loader.gif")}}'>");
             $('#ShowCouponModal').modal('show');
             $.get("{{URL::to('/'.app()->getlocale().'/offers')}}/" + id, function(data) {
                 $('#ShowCouponModal .grap_deal_main').html(data);

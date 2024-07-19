@@ -116,8 +116,6 @@
 <!-- Single Blog section End Here -->
 
 
-
-<<<<<<< HEAD
       @include('web.includes.schema.speakable')
       @include('web.includes.schema.organization')
       @include('web.includes.schema.breadcrumbs')
@@ -148,43 +146,9 @@
               },
               "datePublished": "{{date('Y-m-d', strtotime($data['blog']->created_at))}}",
               "dateModified": "{{date('Y-m-d', strtotime($data['blog']->updated_at))}}"
-=======
-<!-- Schema Code  (start)-->
-
-@include('web.includes.schema.speakable')
-@include('web.includes.schema.organization')
-@include('web.includes.schema.breadcrumbs')
-
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "{{$actual_link}}"
-        },
-        "headline": "{{$data['blog']->heading}}",
-        "description": "{{$data['blog']->short_description}}",
-        "image": "{{config('app.storage').'/blogs/'.$data['blog']->banner}}",
-        "author": {
-            "@type": "Organization",
-            "name": "Deals and Coupons Mena"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Author Name Here",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "{{URL::to('/')}}/public/web_assets/images/logo/logo-DCM.png"
->>>>>>> 3c7b00b989a4179ec0b84b8ecfb0ae1284d5aa4f
             }
-        },
-        "datePublished": "{{date('Y-m-d', strtotime($data['blog']->created_at))}}",
-        "dateModified": "{{date('Y-m-d', strtotime($data['blog']->updated_at))}}"
-    }
-</script>
-
-<<<<<<< HEAD
+        </script>
+        
         @if(count($data['faq']) != 0 )
             <script type="application/ld+json">
                 {
@@ -207,7 +171,4 @@
         @endif
 
    <!-- Schema Code (end) -->
-=======
-<!-- Schema Code (end) -->
->>>>>>> 3c7b00b989a4179ec0b84b8ecfb0ae1284d5aa4f
 @endsection
