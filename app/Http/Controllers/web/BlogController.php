@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Blogs;
 use App\Models\Faq;
 use App\Models\Author;
+use App\Models\Categories;
 
 class BlogController extends Controller
 {
-    
+
     public function index()
     {
         $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->orderBy('id', 'desc')->first();
@@ -28,17 +29,33 @@ class BlogController extends Controller
         $data['faq'] = Faq::where('blog_id', $id)->with('country')->get();
 
         $data['author'] = Author::where('id', $author_id)->first();
-        
-        return view($this->getView('web.blogs.single-blog'), ['data'=> $data]);
+
+        return view($this->getView('web.blogs.single-blog'), ['data' => $data]);
     }
 
-    public function author($lang, $id){
+    public function author($lang, $id)
+    {
 
         $id = base64_decode($id);
-   
+
         $data['blog'] = Blogs::where('author_id', $id)->orderBy('id', 'desc')->paginate(9);
         $data['author'] = Author::where('id', $id)->first();
 
-        return view($this->getView('web.blogs.author-details') , ['data'=> $data]);
+        return view($this->getView('web.blogs.author-details'), ['data' => $data]);
+    }
+
+    public function categories($lang, $id)
+    {
+
+        $id = base64_decode($id);
+
+        //dd($id);
+
+        $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->orderBy('id', 'desc')->where('category_id', $id)->first();
+        $data['blog'] = Blogs::where('category_id', $id)->orderBy('id', 'desc')->paginate(9);
+        $data['category'] = Categories::where('id', $id)->first();
+
+
+        return view($this->getView('web.blogs.categories'), ['data' => $data]);
     }
 }

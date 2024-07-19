@@ -116,7 +116,9 @@ Route::group([
             Route::get('/{slug}', 'BlogController@detail')->name('blog.details');
 
             Route::get('/author/{id}', 'BlogController@author')->name('blog.author');
-            
+
+            Route::get('/categories/{id}', 'BlogController@categories')->name('blog.categories');
+
         });
 
         //About-Us
