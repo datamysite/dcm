@@ -92,7 +92,7 @@
       <div class="container">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <h3 class="mb-0 page-title">{{ __('translation.Categories') }}</h3>
+               <a href="{{URL::to('/'.app()->getLocale().'/category')}}"><h3 class="mb-0 page-title">{{ __('translation.Categories') }}</h3></a>
             </div>
          </div>
          <div class="category-slider" id="hcategory-slider">
@@ -248,7 +248,7 @@
       <div class="container np-container" id="all-stores">
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <a href="?i=all-stores">
+               <a href="{{URL::to('/'.app()->getLocale().'/stores')}}">
                   <h3 class="mb-0 page-title">{{ __('translation.All_Stores') }}</h3>
                </a>
             </div>
