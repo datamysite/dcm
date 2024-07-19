@@ -341,13 +341,13 @@
       @include('web.includes.schema.localBusiness')
       
         
-        @if(count($faq) != 0)
+        @if(count($faqs) != 0)
             <script type="application/ld+json">
                 {
                   "@context": "https://schema.org",
                   "@type": "FAQPage",
                    "mainEntity": [
-                      @foreach ($faq as $faq)
+                      @foreach ($faqs as $faq)
                           {
                             "@type": "Question",
                             "name": "{{ $faq->heading }}",
