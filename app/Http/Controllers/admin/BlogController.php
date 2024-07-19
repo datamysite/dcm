@@ -18,10 +18,10 @@ class BlogController extends Controller
         //$data['menu'] = 'blogs';
 
         $data['data'] = Blogs::orderBy('id', 'desc')->with('category')->with('author')->paginate(10);
-        $data['categories'] = Categories::where('parent_id' , 0)->where('status' , 1)->get() ; 
-        $data['authors'] = Author::get() ; 
+        $data['categories'] = Categories::where('parent_id', 0)->where('status', 1)->get();
+        $data['authors'] = Author::get();
 
-        return view('admin.blogs.index' , ['data'=>$data , 'menu'=>'blogs']);
+        return view('admin.blogs.index', ['data' => $data, 'menu' => 'blogs']);
     }
 
     public function load()
@@ -50,27 +50,36 @@ class BlogController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['short_description']) || empty($data['category_id']) || empty($data['author_id']) ) {
+        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['short_description']) || empty($data['category_id']) || empty($data['author_id'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         } else {
 
-            $id = Blogs::create($data);
+            $blog = Blogs::where('heading', $data['heading'])->where('category_id', $data['category_id'])->get();
 
-            if ($request->hasFile('coupon_image')) {
-                $file = $request->file('coupon_image');
-                $ext = $file->getClientOriginalExtension();
-                $newname = $id . date('dmyhis') . '.' . $ext;
+            if (count($blog) == 0) {
 
-                $file->move(public_path() . '/storage/blogs', $newname);
+                $id = Blogs::create($data);
 
-                $b = Blogs::find($id);
-                $b->banner = $newname;
-                $b->save();
+                if ($request->hasFile('coupon_image')) {
+                    $file = $request->file('coupon_image');
+                    $ext = $file->getClientOriginalExtension();
+                    $newname = $id . date('dmyhis') . '.' . $ext;
+
+                    $file->move(public_path() . '/storage/blogs', $newname);
+
+                    $b = Blogs::find($id);
+                    $b->banner = $newname;
+                    $b->save();
+                }
+
+                $response['success'] = 'success';
+                $response['message'] = 'Success! New Blog Added.';
+            } else {
+
+                $response['success'] = false;
+                $response['errors'] = 'Erorr, Blog already exist.';
             }
-
-            $response['success'] = 'success';
-            $response['message'] = 'Success! New Blog Added.';
         }
 
         echo json_encode($response);
@@ -170,7 +179,8 @@ class BlogController extends Controller
     }
 
 
-    public function updateFAQ(Request $request){
+    public function updateFAQ(Request $request)
+    {
 
         $data = $request->all();
         $response = [];
@@ -178,20 +188,19 @@ class BlogController extends Controller
         if (empty($data['heading']) || empty($data['country_id']) || empty($data['content'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
-        } else { 
+        } else {
 
             $id = Faq::updateFAQ(base64_decode($data['faq_id']), $data);
 
             $response['success'] = 'success';
             $response['message'] = 'Success! Blog FAQ Successfully Updated.';
-
         }
 
         echo json_encode($response);
-
     }
 
-    public function deleteFAQ($id){
+    public function deleteFAQ($id)
+    {
 
         $id = base64_decode($id);
 
@@ -209,8 +218,8 @@ class BlogController extends Controller
 
         $data = Blogs::find($id);
 
-        $data['categories'] = Categories::where('parent_id' , 0)->where('status' , 1)->get() ; 
-        $data['authors'] = Author::get() ; 
+        $data['categories'] = Categories::where('parent_id', 0)->where('status', 1)->get();
+        $data['authors'] = Author::get();
 
         return view('admin.blogs.edit', ['data' => $data]);
     }
