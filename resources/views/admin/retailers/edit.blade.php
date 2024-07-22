@@ -30,13 +30,25 @@
         </div>
       </div>
       <div class="col-md-12"><hr></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Heading (En) - <small>(Optional)</small></label>
+          <input type="text" class="form-control editRetailerheading" value="{{$data->heading}}" name="heading">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Heading (Ar) - <small>(Optional)</small></label>
+          <input type="text" class="form-control editRetailerheading_ar" value="{{$data->heading_ar}}" style="dir:rtl; text-align: right;" name="heading_ar">
+        </div>
+      </div>
       <div class="col-md-7">
         <div class="form-group">
           <label>Name</label>
           <input type="text" class="form-control editRetailerName" value="{{$data->name}}" name="name" required>
         </div>
         <div class="form-group">
-          <label>Slug <span>{{env('APP_DOMAIN')}}<strong>"slug-here"</strong></span></label>
+          <label>Slug <span>{{env('APP_DOMAIN')}}en/<strong>"slug-here"</strong></span></label>
           <input type="text" class="form-control editRetailerSlug" value="{{$data->slug}}" name="slug" required>
         </div>
         <div class="form-group form-control type-radio">

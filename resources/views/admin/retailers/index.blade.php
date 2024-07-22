@@ -151,13 +151,25 @@
               </div>
             </div>
             <div class="col-md-12"><hr></div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Heading (En) - <small>(Optional)</small></label>
+                <input type="text" class="form-control addRetailerheading" name="heading">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Heading (Ar) - <small>(Optional)</small></label>
+                <input type="text" class="form-control addRetailerheading_ar" name="heading_ar" style="dir:rtl; text-align: right;">
+              </div>
+            </div>
             <div class="col-md-7">
               <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control retailerName" name="name" required>
               </div>
               <div class="form-group">
-                <label>Slug <span>{{env('APP_DOMAIN')}}<strong>"slug-here"</strong></span></label>
+                <label>Slug <span>{{env('APP_DOMAIN')}}en/<strong>"slug-here"</strong></span></label>
                 <input type="text" class="form-control retailerSlug" name="slug" required>
               </div>
               <div class="form-group form-control type-radio">
@@ -612,6 +624,49 @@
       loadRetailers();
       $("#filterRetailers").trigger('reset');
       $('.reset_button').html('');
+    });
+
+    $(document).on('keyup', ".addRetailerheading", function() {
+
+      var alt_tag = $(this).val();
+      if(alt_tag != ''){
+        $.ajax({
+          url: "{{route('translate')}}",
+          cache: false,
+          type: 'POST',
+          data: {
+            "_token": "{{ csrf_token() }}",
+            text: alt_tag,
+          },
+          success: function(response) {
+            $('.addRetailerheading_ar').val(response);
+          }
+        });
+      }else{
+        $('.addImageAlt_ar').val('');
+      }
+    });
+
+
+    $(document).on('keyup', ".editRetailerheading", function() {
+
+      var alt_tag = $(this).val();
+      if(alt_tag != ''){
+        $.ajax({
+          url: "{{route('translate')}}",
+          cache: false,
+          type: 'POST',
+          data: {
+            "_token": "{{ csrf_token() }}",
+            text: alt_tag,
+          },
+          success: function(response) {
+            $('.editRetailerheading_ar').val(response);
+          }
+        });
+      }else{
+        $('.editImageAlt_ar').val('');
+      }
     });
   });
 

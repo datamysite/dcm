@@ -1,4 +1,5 @@
 @extends('web.includes.master')
+@section('dynamic_date', ' | '.date('M-Y'))
 @section('amphtml')
 <link rel="amphtml" href="{{$actual_link_m}}" />
 @endsection
@@ -37,7 +38,13 @@
             <div class="col-12">
                 <div class=" text-lg-center">
                     <a href="{{URL::to('/'.app()->getLocale().'/'.$retailer->slug)}}">
-                        <h1 class=" page-title">{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</h1>
+                        <h1 class=" page-title">
+                            @if(app()->getLocale() == 'ar')
+                                {{!empty($retailer->heading_ar) ? $retailer->name_ar : $retailer->heading_ar}}
+                            @else
+                                {{!empty($retailer->heading) ? $retailer->heading : $retailer->name}}
+                            @endif
+                        </h1>
                     </a><br>
                     @php
                     if($retailer->type == '1'){

@@ -28,6 +28,8 @@ class Retailers extends Model
         $r->store_link = empty($data['store_link']) ? '' : $data['store_link'];
         $r->alt_tag = empty($data['alt_tag']) ? '' : $data['alt_tag'];
         $r->alt_tag_ar = empty($data['alt_tag_ar']) ? '' : $data['alt_tag_ar'];
+        $r->heading = empty($data['heading']) ? '' : $data['heading'];
+        $r->heading_ar = empty($data['heading_ar']) ? '' : $data['heading_ar'];
         $r->link_type = empty($data['store_link']) ? '' : $data['link_type'];
         $r->discount_upto = $data['discount_upto'];
         $r->discount_tags = empty($data['discount_tags']) ? '' : $data['discount_tags'];
@@ -70,6 +72,8 @@ class Retailers extends Model
         $r->store_link = empty($data['store_link']) ? '' : $data['store_link'];
         $r->alt_tag = empty($data['alt_tag']) ? '' : $data['alt_tag'];
         $r->alt_tag_ar = empty($data['alt_tag_ar']) ? '' : $data['alt_tag_ar'];
+        $r->heading = empty($data['heading']) ? '' : $data['heading'];
+        $r->heading_ar = empty($data['heading_ar']) ? '' : $data['heading_ar'];
         $r->link_type = empty($data['store_link']) ? '' : $data['link_type'];
         $r->discount_upto = $data['discount_upto'];
         $r->discount_tags = empty($data['discount_tags']) ? '' : $data['discount_tags'];
