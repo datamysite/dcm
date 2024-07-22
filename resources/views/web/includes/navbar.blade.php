@@ -1,11 +1,8 @@
 @php
 $url = url()->full();
-$pos = strpos($url, "/".app()->getLocale()."/");
+$pos = strpos($url, "/".app()->getLocale());
 @endphp
 
-<style>
-
-</style>
 
 <div class="">
    <div class="mobile-navbar">
@@ -20,13 +17,13 @@ $pos = strpos($url, "/".app()->getLocale()."/");
          @if ( app()->getLocale() == 'en' )
          <div class="d-flex align-items-center" style="padding: 4px 10px;">
             <i class="bi bi-globe"></i>&nbsp;&nbsp;
-            <span> <a class="nav-link" href="{{ substr_replace($url,"/ar/",$pos,4) }}"><span><b>AR</b></span></a></span>
+            <span> <a class="nav-link" href="{{ substr_replace($url,"/ar",$pos,3) }}"><span><b>AR</b></span></a></span>
          </div>
 
          @else
          <div class="d-flex align-items-center" style="padding: 4px 10px;">
             <i class="bi bi-globe"></i>&nbsp;&nbsp;
-            <span> <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}"><span><b>EN</b></span></a></span>
+            <span> <a class="nav-link" href="{{ substr_replace($url,"/en",$pos,3) }}"><span><b>EN</b></span></a></span>
          </div>
          @endif
 
@@ -293,14 +290,14 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                         @endif
 
                         @if ( app()->getLocale() == 'en' )
-                        <a class="nav-link" href="{{ substr_replace($url,"/ar/",$pos,4) }}">
+                        <a class="nav-link" href="{{ substr_replace($url,"/ar",$pos,3) }}">
                            <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
                               <i class="bi bi-globe"></i>&nbsp;&nbsp;
                               <span><b>AR</b></span>
                            </div>
                         </a>
                         @else
-                        <a class="nav-link" href="{{ substr_replace($url,"/en/",$pos,4) }}">
+                        <a class="nav-link" href="{{ substr_replace($url,"/en",$pos,3) }}">
                            <div class="nav-link ms-3 d-flex align-items-center" style="padding: 10px;">
                               <i class="bi bi-globe"></i>&nbsp;&nbsp;
                               <span><b>EN</b></span>
