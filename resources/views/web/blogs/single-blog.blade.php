@@ -81,14 +81,127 @@
     <!-- container -->
     <div class="container">
 
+        <div class="row">
+            
+            <div class="col-lg-8">
+                {!! $data['blog']->description !!}
+            </div>
+
+            <div class="col-lg-1">
+                <div class="vertical-line" style="margin: 0px;left:40px;background-color:#d8cfcf;height:100%"></div>
+            </div>
+
+            @if(!empty($data['blogs_category']) )
+            <div class="col-lg-3">
+
+                <div class="row">
+
+                    <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
+                        <div class="text-left">
+                            <h5 class="mt-2" style="color: #fff;">Categories</h5>
+                        </div>
+                    </div>
+
+                    <div class="nav nav-category" id="categoryCollapseMenu">
+                        <ul style="padding-left:20px">
+                            @foreach($data['category'] as $val)
+                            <li class="nav-item border-bottom">
+
+                                <a href="{{route('blog.categories',[ base64_encode($val->id) ])}}" class="nav-link collapsed active">
+                                    <span>{{$val->name}}</span>
+                                </a>
+
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row mt-1">
+
+                    <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
+                        <div class="text-left">
+                            <h5 class="mt-2" style="color: #fff;">Related Blogs</h5>
+                        </div>
+                    </div>
 
 
+                    @foreach($data['blogs_category'] as $val)
+                    <div class="row mt-5">
+                        <div class="col-lg-4" style="text-align: center;">
+                            @if($val->author->image !='')
+                            <a href="{{route('blog.author',[ base64_encode($val->author->id) ])}}">
+                                <img src="{{URL::to('/public/storage/authors/'.$val->author->image)}}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
+                            </a>
+                            @else
+                            <img src="{{URL::to('/public/storage/authors/4170724111224.png')}}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
+                            @endif
+
+                        </div>
+                        <div class="col-lg-8">
+                            <h6>{{ $val->heading }}</h6>
+                            <p style="color: #000;">
+                                {!! Str::limit($val->short_description, 80, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">Read More</a></b>
+                            </p>
+                            <p><b style="color:#000;">{{date('d-M-Y', strtotime($val->created_at))}}</b></p>
+                        </div>
+                        <hr style="border-top: 2px solid #d8cfcf;">
+                    </div>
+                    @endforeach
+
+                </div>
+
+                <div class="row">
+
+                    <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
+                        <div class="text-left">
+                            <h5 class="mt-2" style="color: #fff;">Follow Us</h5>
+                        </div>
+                    </div>
+                </div>
 
 
-        {!! $data['blog']->description !!}
+                <div class="row mt-0">
+                    <div class="col-lg-12">
+
+                        <ul class="list-inline text-md-center social-media">
+                            <ul class="list-inline social-media">
+
+                                <li class="list-inline-item first">
+                                    <a href="https://www.facebook.com/profile.php?id=100091291623092" target="_blank" class="btn btn-xs" aria-label="Facebook">
+                                        <i class="fa fa-facebook-square" style="font-size: 33px;"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">|</li>
+                                <li class="list-inline-item">
+                                    <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com?trk=public_post_feed-actor-name" target="_blank" class="btn btn-xs" aria-label="Linkedin">
+                                        <i class="fa fa-linkedin-square" style="font-size: 33px;"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">|</li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank" class="btn btn-xs" aria-label="Instagram">
+                                        <i class="fa fa-instagram" style="font-size: 33px;"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">|</li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.tiktok.com/@dcm_uae?_t=8ld3djl4gC8&amp;_r=1" class="btn btn-xs" aria-label="TikTok">
+                                        <i class="fa fa-tiktok" style="font-size: 33px;"></i>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+        </div>
 
         @if(count($data['faq']) != 0 )
-        <hr style="border-top: 1px solid #1caae2;">
+        <hr style="border-top: 1px solid #d8cfcf;">
 
         <div class="row mb-5 mt-5">
             <div class="col-lg-12 col-12 mb-5">

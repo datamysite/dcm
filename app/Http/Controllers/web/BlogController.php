@@ -23,12 +23,18 @@ class BlogController extends Controller
     public function detail($lang, $slug)
     {
         $data['blog'] = Blogs::where('slug', $slug)->with('category')->first();
+
         $id = $data['blog']['id'];
+        $category_id = $data['blog']['category_id'];
         $author_id = $data['blog']['author_id'];
 
         $data['faq'] = Faq::where('blog_id', $id)->with('country')->get();
 
         $data['author'] = Author::where('id', $author_id)->first();
+
+        //For the Blog Categories and Related Blogs
+        $data['category'] = Categories::where('parent_id', 0)->get();
+        $data['blogs_category'] = Blogs::where('category_id', $category_id)->with('author')->get()->shuffle()->take(3);
 
         return view($this->getView('web.blogs.single-blog'), ['data' => $data]);
     }
@@ -48,8 +54,6 @@ class BlogController extends Controller
     {
 
         $id = base64_decode($id);
-
-        //dd($id);
 
         $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->orderBy('id', 'desc')->where('category_id', $id)->first();
         $data['blog'] = Blogs::where('category_id', $id)->orderBy('id', 'desc')->paginate(9);
