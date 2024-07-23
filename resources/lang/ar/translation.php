@@ -10,6 +10,7 @@ return [
   "online" => "أونلاين",
   "offline" => "أوفلاين",
   "All_Stores" => "كل المتاجر",
+  "Stores" => "متاجر",
   "Categories" => "الفئات",
   "About_Us" => "عننا",
   "Earn_Cashback" => "إسترد",

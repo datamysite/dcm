@@ -19,6 +19,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{URL::to('/'.app()->getLocale().'/stores')}}" style="color: #000;"><strong>{{ __('translation.Stores') }}</strong></a></li>
                         @if(!empty($category_slug))
                         <li class="breadcrumb-item"><a href="{{URL::to('/'.app()->getLocale().'/'.$category_slug)}}" style="color: #000;"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
                         @endif

@@ -32,143 +32,146 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        // En Sitemap
 
-            $ensitmap = Sitemap::create();
-            $blogSitemap = Sitemap::create();
-            States::get()->each(function (States $state) use ($ensitmap, $blogSitemap) {
-                $ensitmap->add(
-                    Url::create("/en/".$state->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+        //Links En Sitemap
+
+            $linksensitmap = Sitemap::create();
+            $linksensitmap->add(Url::create("/en/")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksensitmap->add(Url::create("/en/about-Us")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksensitmap->add(Url::create("/en/about-Us")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksensitmap->add(Url::create("/en/sell-sith-dcm")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksensitmap->add(Url::create("/en/faqs")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY));
+            $linksensitmap->add(Url::create("/en/privacy-policy")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksensitmap->add(Url::create("/en/terms")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksensitmap->add(Url::create("/en/anti-spam")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksensitmap->add(Url::create("/en/claim/cashback")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+
+
+            $linksensitmap->writeToFile(base_path('/sitemaps/links-en.xml'));
+
+        //Links ar Sitemap
+
+            $linksarsitmap = Sitemap::create();
+
+            $linksarsitmap->add(Url::create("/en/")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksarsitmap->add(Url::create("/ar/about-Us")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksarsitmap->add(Url::create("/ar/about-Us")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksarsitmap->add(Url::create("/ar/sell-sith-dcm")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksarsitmap->add(Url::create("/ar/faqs")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY));
+            $linksarsitmap->add(Url::create("/ar/privacy-policy")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksarsitmap->add(Url::create("/ar/terms")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksarsitmap->add(Url::create("/ar/anti-spam")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksarsitmap->add(Url::create("/ar/claim/cashback")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+
+
+            $linksensitmap->writeToFile(base_path('/sitemaps/links-ar.xml'));
+
+
+
+        //Listing En Sitemap
+
+            $listingensitmap = Sitemap::create();
+
+            $listingensitmap->add(Url::create("/en/stores")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $listingensitmap->add(Url::create("/en/stores/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $listingensitmap->add(Url::create("/en/stores/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+
+            Categories::get()->each(function (Categories $cat) use ($listingensitmap) {
+
+               $string = strtolower(trim($cat->name));
+               $string = str_replace('&', 'and', $string);
+               $string = str_replace(' ', '-', $string);
+               $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+
+                $listingensitmap->add(
+                    Url::create("/en/".$slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
                 );
 
-                $ensitmap->add(Url::create("/en/".$state->slug."/stores/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/en/".$state->slug."/stores/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-
-                Categories::get()->each(function (Categories $cat) use ($ensitmap, $state) {
-
-                   $string = strtolower(trim($cat->name));
-                   $string = str_replace('&', 'and', $string);
-                   $string = str_replace(' ', '-', $string);
-                   $slug = preg_replace('/[^a-z0-9-]/', '', $string);
-
-                    $ensitmap->add(
-                        Url::create("/en/".$state->slug."/category/".$slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
-                    );
-
-                    if($cat->id <= 6){
-                        $ensitmap->add(Url::create("/en/".$state->slug."/category/".$slug."/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                        $ensitmap->add(Url::create("/en/".$state->slug."/category/".$slug."/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())); 
-                    }
-
-                });
-
-                Retailers::where('type', '1')->get()->each(function (Retailers $ret) use ($ensitmap, $state) {
-
-                    $ensitmap->add(
-                        Url::create("/en/".$state->slug."/store/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
-                    );
-
-                });
-
-                Retailers::where('type', '2')
-                ->whereHas('states', function($q) use ($state){
-                    $q->where('state_id', $state->id);
-                })
-                ->get()->each(function (Retailers $ret) use ($ensitmap, $state) {
-
-                    $ensitmap->add(
-                        Url::create("/en/".$state->slug."/store/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
-                    );
-
-                });
-
-                $ensitmap->add(Url::create("/en/".$state->slug."/about-Us")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/en/".$state->slug."/sell-sith-dcm")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/en/".$state->slug."/faqs")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY));
-                $ensitmap->add(Url::create("/en/".$state->slug."/privacy-policy")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/en/".$state->slug."/terms")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/en/".$state->slug."/anti-spam")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-
-
-                //Blogs
-
-                $blogSitemap->add(Url::create("/en/".$state->slug."/blogs")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                Blogs::where('status', '1')->get()->each(function (Blogs $b) use ($blogSitemap, $state) {
-
-                    $blogSitemap->add(
-                        Url::create("/en/".$state->slug."/blogs/".$b->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
-                    );
-
-                });
-
-
-
+                if($cat->id <= 6){
+                    $listingensitmap->add(Url::create("/en/".$slug."/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+                    $listingensitmap->add(Url::create("/en/".$slug."/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())); 
+                }
 
             });
-            $ensitmap->writeToFile(base_path('/en/sitemap.xml'));
-            $blogSitemap->writeToFile(base_path('/en/blogs/sitemap.xml'));
+
+            Retailers::get()->each(function (Retailers $ret) use ($listingensitmap) {
+
+                $listingensitmap->add(
+                    Url::create("/en/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+                );
+
+            });
 
 
+            $listingensitmap->writeToFile(base_path('/sitemaps/listing-en.xml'));
 
+
+            //Blogs
+            $blogenSitemap = Sitemap::create();
+
+            $blogenSitemap->add(Url::create("/en/blogs")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            Blogs::where('status', '1')->get()->each(function (Blogs $b) use ($blogenSitemap) {
+
+                $blogenSitemap->add(
+                    Url::create("/en/blogs/".$b->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+                );
+
+            });
+
+            $blogenSitemap->writeToFile(base_path('/sitemaps/blogs-en.xml'));
 
 // Ar Sitemap----------------------------------------------------------------------------------------------------------
 
-            $ensitmap = Sitemap::create();
-            States::get()->each(function (States $state) use ($ensitmap) {
-                $ensitmap->add(
-                    Url::create("/ar/".$state->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+             //Listing ar Sitemap
+
+            $listingarsitmap = Sitemap::create();
+
+            $listingarsitmap->add(Url::create("/ar/stores")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $listingarsitmap->add(Url::create("/ar/stores/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $listingarsitmap->add(Url::create("/ar/stores/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+
+            Categories::get()->each(function (Categories $cat) use ($listingarsitmap) {
+
+               $string = strtolower(trim($cat->name));
+               $string = str_replace('&', 'and', $string);
+               $string = str_replace(' ', '-', $string);
+               $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+
+                $listingarsitmap->add(
+                    Url::create("/ar/".$slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
                 );
 
-                $ensitmap->add(Url::create("/ar/".$state->slug."/stores/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/ar/".$state->slug."/stores/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-
-                Categories::get()->each(function (Categories $cat) use ($ensitmap, $state) {
-
-                   $string = strtolower(trim($cat->name));
-                   $string = str_replace('&', 'and', $string);
-                   $string = str_replace(' ', '-', $string);
-                   $slug = preg_replace('/[^a-z0-9-]/', '', $string);
-
-                    $ensitmap->add(
-                        Url::create("/ar/".$state->slug."/category/".$slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
-                    );
-
-                    if($cat->id <= 6){
-                        $ensitmap->add(Url::create("/ar/".$state->slug."/category/".$slug."/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                        $ensitmap->add(Url::create("/ar/".$state->slug."/category/".$slug."/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())); 
-                    }
-
-                });
-
-                Retailers::where('type', '1')->get()->each(function (Retailers $ret) use ($ensitmap, $state) {
-
-                    $ensitmap->add(
-                        Url::create("/ar/".$state->slug."/store/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
-                    );
-
-                });
-
-                Retailers::where('type', '2')
-                ->whereHas('states', function($q) use ($state){
-                    $q->where('state_id', $state->id);
-                })
-                ->get()->each(function (Retailers $ret) use ($ensitmap, $state) {
-
-                    $ensitmap->add(
-                        Url::create("/ar/".$state->slug."/store/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
-                    );
-
-                });
-
-
-                $ensitmap->add(Url::create("/ar/".$state->slug."/about-Us")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/ar/".$state->slug."/sell-sith-dcm")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/ar/".$state->slug."/faqs")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/ar/".$state->slug."/privacy-policy")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/ar/".$state->slug."/terms")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                $ensitmap->add(Url::create("/ar/".$state->slug."/anti-spam")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+                if($cat->id <= 6){
+                    $listingarsitmap->add(Url::create("/ar/".$slug."/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+                    $listingarsitmap->add(Url::create("/ar/".$slug."/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())); 
+                }
 
             });
-            $ensitmap->writeToFile(base_path('/ar/sitemap.xml'));
+
+            Retailers::get()->each(function (Retailers $ret) use ($listingarsitmap) {
+
+                $listingarsitmap->add(
+                    Url::create("/ar/".$ret->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+                );
+
+            });
+
+
+            $listingarsitmap->writeToFile(base_path('/sitemaps/listing-ar.xml'));
+
+
+            //Blogs
+            $blogarSitemap = Sitemap::create();
+
+            $blogarSitemap->add(Url::create("/ar/blogs")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            Blogs::where('status', '1')->get()->each(function (Blogs $b) use ($blogarSitemap) {
+
+                $blogarSitemap->add(
+                    Url::create("/ar/blogs/".$b->slug)->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+                );
+
+            });
+
+            $blogarSitemap->writeToFile(base_path('/sitemaps/blogs-ar.xml'));
     }
 }
