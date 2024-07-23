@@ -10,6 +10,7 @@ return [
   "online" => "Online",
   "offline" => "Offline",
   "All_Stores" => "All Stores",
+  "Stores" => "Stores",
   "Categories" => "Categories",
   "About_Us" => "About Us",
   "Earn_Cashback" => "Earn Cashback",

@@ -3,6 +3,7 @@
 /pwa
 /en
 /ar
+/sitemaps
 /.phpunit.cache
 /node_modules
 /public/build
@@ -10,6 +11,7 @@
 /public/storage
 /storage/*.key
 /vendor
+sitemap.xml
 google6d2bacabfcaa842a.html
 googlee278fcb90f3d50a4.html
 robots.txt
