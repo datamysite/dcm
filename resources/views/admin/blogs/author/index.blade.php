@@ -47,7 +47,8 @@
                                     <tr>
                                         <th width="5%">#</th>
                                         <th width="10%">Profile</th>
-                                        <th width="20%">Name</th>
+                                        <th width="15%">Name</th>
+                                        <th width="15%">Slug</th>
                                         <th width="15%">LinkedIn</th>
                                         <th width="15%">X</th>
                                         <th width="15%">Facebook</th>
@@ -61,6 +62,7 @@
                                         <th>#</th>
                                         <th>Profile</th>
                                         <th>Name</th>
+                                        <th>Slug</th>
                                         <th>LinkedIn</th>
                                         <th>X</th>
                                         <th>Facebook</th>
@@ -103,10 +105,16 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Author Full Name</label>
-                                <input type="text" class="form-control" name="name" required>
+                                <input type="text" class="form-control authorName" name="name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Slug</label>
+                                <input type="text" class="form-control authorSlug"  name="slug" required readonly="readonly">
                             </div>
                         </div>
                     </div>
@@ -123,19 +131,19 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>LinkedIn URL</label>
-                                <input type="text" class="form-control" name="linkedin_url" required>
+                                <input type="text" class="form-control" name="linkedin_url" value="">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>X (Twitter) URL</label>
-                                <input type="text" class="form-control" name="x_url" required>
+                                <input type="text" class="form-control" name="x_url" value="">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Facebook URL</label>
-                                <input type="text" class="form-control" name="facebook_url" required>
+                                <input type="text" class="form-control" name="facebook_url" value="">
                             </div>
                         </div>
                     </div>
@@ -188,6 +196,22 @@
 </script>
 <script>
     loadAuthors();
+
+    $(document).on('keyup', '.authorName', function() {
+      var a = $(this).val();
+
+      var b = a.toLowerCase().replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
+      $('.authorSlug').val(b);
+    });
+
+    $(document).on('keyup', '.eauthorName', function() {
+      var a = $(this).val();
+
+      var b = a.toLowerCase().replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
+      $('.eauthorSlug').val(b);
+    });
 
     $(function() {
 

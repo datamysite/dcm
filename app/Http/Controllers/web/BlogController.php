@@ -39,27 +39,32 @@ class BlogController extends Controller
         return view($this->getView('web.blogs.single-blog'), ['data' => $data]);
     }
 
-    public function author($lang, $id)
+    public function author($lang, $slug)
     {
 
-        $id = base64_decode($id);
-
-        $data['blog'] = Blogs::where('author_id', $id)->orderBy('id', 'desc')->paginate(9);
-        $data['author'] = Author::where('id', $id)->first();
+        $data['author'] = Author::where('slug', $slug)->first();
+        $data['blog'] = Blogs::where('author_id', $data['author']['id'])->orderBy('id', 'desc')->paginate(9);
 
         return view($this->getView('web.blogs.author-details'), ['data' => $data]);
     }
 
-    public function categories($lang, $id)
+    public function categories($lang, $slug)
     {
 
-        $id = base64_decode($id);
+        $data['category_slug'] = $slug;
+        $data['category'] = Categories::where('name', BlogController::sanitizeStringForUrl($slug))->first();
 
-        $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->orderBy('id', 'desc')->where('category_id', $id)->first();
-        $data['blog'] = Blogs::where('category_id', $id)->orderBy('id', 'desc')->paginate(9);
-        $data['category'] = Categories::where('id', $id)->first();
-
+        $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->orderBy('id', 'desc')->where('category_id', $data['category']['id'])->first();
+        $data['blog'] = Blogs::where('category_id', $data['category']['id'])->orderBy('id', 'desc')->paginate(9);
 
         return view($this->getView('web.blogs.categories'), ['data' => $data]);
+    }
+
+    function sanitizeStringForUrl($string)
+    {
+        $string = str_replace('-', ' ', $string);
+        $string = str_replace('and', '&', $string);
+        $string = ucwords($string);
+        return $string;
     }
 }

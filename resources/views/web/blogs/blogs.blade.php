@@ -3,7 +3,7 @@
    <link rel="amphtml" href="{{$actual_link_m}}" />
 @endsection
 @section('addImagesrc')
-<link rel="image_src" href="{{URL::to('/public/storage/blogs/'.$featured->banner)}}" />
+<link rel="image_src" href="{{ config('app.storage').'blogs/'.$featured->banner }}" />
 @endsection
 @section('content')
 
@@ -32,7 +32,7 @@
         <div class="hero-slider">
 
             <div class="feather-image-blog">
-                <img src="{{URL::to('/public/storage/blogs/'.$featured->banner)}}" alt="{{empty($featured->banner_alt) ? $featured->slug : $featured->banner_alt}}">
+                <img src="{{ config('app.storage').'blogs/'.$featured->banner }}" alt="{{empty($featured->banner_alt) ? $featured->slug : $featured->banner_alt}}">
                 <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
                     <div class="slider_div2">
                         <h3>Featured</h3>
@@ -59,7 +59,7 @@
             @foreach($blogs as $val)
                 <div class="col-lg-4 blogItem mt-5">
                     <div class="post-feather">
-                        <img src="{{URL::to('/public/storage/blogs/'.$val->banner)}}" alt="{{empty($val->banner_alt) ? $val->slug : $val->banner_alt}}">
+                        <img src="{{ config('app.storage').'blogs/'.$val->banner }}" alt="{{empty($val->banner_alt) ? $val->slug : $val->banner_alt}}">
                         <a href="{{route('blog.details', [$val->slug])}}" target="blank" class="readMorebutton">Read More</a>
                     </div>
                     <h5 title="{{$val->heading}}">{{$val->heading}}</h5>
