@@ -11,7 +11,7 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
                         <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}" style="color: #000;"><strong>{{ __('translation.dashboard') }} </strong></a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{ __('translation.referal_earn') }}</a></strong></li>
                     </ol>
@@ -47,7 +47,7 @@
                     <p>
                         {{ __('translation.referal_terms_txt_1') }}
                         {{ __('translation.referal_terms_txt_2') }}
-                        {{ __('translation.referal_terms_txt_3') }} <a href="{{route('Terms', [$region])}}" style="color: #fff;" target="_blank"><strong>{{ __('translation.referal_terms_txt_4') }}</strong></a> {{ __('translation.referal_terms_txt_5') }}
+                        {{ __('translation.referal_terms_txt_3') }} <a href="{{route('Terms')}}" style="color: #fff;" target="_blank"><strong>{{ __('translation.referal_terms_txt_4') }}</strong></a> {{ __('translation.referal_terms_txt_5') }}
                     </p>
 
                 </div>
@@ -61,7 +61,7 @@
                     <!-- col -->
                     <div class="col-8">
                         <div class="input-group ">
-                            <input type="text" class="form-control rounded" id="copyClipboard" name="referal_link" value="{{route('home', [$region])}}?ref=signup&referal_link={{base64_encode(Auth::user()->email)}}" readonly="readonly">
+                            <input type="text" class="form-control rounded" id="copyClipboard" name="referal_link" value="{{route('home')}}?ref=signup&referal_link={{base64_encode(Auth::user()->email)}}" readonly="readonly">
                         </div>
                     </div>
                     <div class="col-4">
@@ -100,7 +100,7 @@
                             <!-- <a href="javascript:void(0)" onclick="shareOnFacebook()">
                                 <img src="{{URL::to('/public/web_assets/images/emails')}}/facebook.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;mix-blend-mode:hard-light !important;filter:brightness(0.5) invert(1);" alt="Facebook">
                             </a> -->
-                            <a href="https://api.whatsapp.com/send?text=DealsandCouponsMena%0a%0a{{route('home', [$region])}}?ref=signup%26referal_link={{base64_encode(Auth::user()->email)}}" target="_blank">
+                            <a href="https://api.whatsapp.com/send?text=DealsandCouponsMena%0a%0a{{route('home')}}?ref=signup%26referal_link={{base64_encode(Auth::user()->email)}}" target="_blank">
                                 <img src="{{URL::to('/public/web_assets/images/emails')}}/whatsapp.png" class="circle-image" style="display: inline-block; width:30px ; height:30px; margin-right: 20px;mix-blend-mode:hard-light !important;filter:brightness(0.5) invert(1);" alt="Whatsapp">
                             </a>
                             <input type="submit" name="upload-file" class="btn btn-primary shadow-gray" value="{{ __('translation.referal_copy_link_txt') }}" onclick="copy()" style="display: inline-block; margin-right: 20px;">
@@ -132,7 +132,7 @@
     function shareOnFacebook() {
         FB.ui({
             method: 'share',
-            href: "{{route('home', [$region])}}?ref=signup%26referal_link={{base64_encode(Auth::user()->email)}}",
+            href: "{{route('home')}}?ref=signup%26referal_link={{base64_encode(Auth::user()->email)}}",
         }, function(response) {});
     }
 

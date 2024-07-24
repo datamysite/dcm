@@ -295,14 +295,16 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            @foreach($data['faq'] as $faq) {
+            @foreach($data['faq'] as $key => $faq) 
+            {{$key > 0 ? ',' : ''}}
+            {
                 "@type": "Question",
                 "name": "{{ $faq->heading }}",
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "{{ $faq->content }}"
                 }
-            },
+            }
             @endforeach
         ]
     }

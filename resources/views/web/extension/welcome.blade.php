@@ -1510,7 +1510,7 @@
 
                         <div class="register-form__social-container register-form__social-container--icons-only">
                             <p>
-                                <a href="{{route('auth.google', [$region])}}"><i class="fa fa-google-plus-square" style="font-size:48px;color:#ea4335;"></i></a>
+                                <a href="{{route('auth.google')}}"><i class="fa fa-google-plus-square" style="font-size:48px;color:#ea4335;"></i></a>
                             </p>
                         </div>
 
@@ -1518,7 +1518,7 @@
                             <span class="register-form__delimiter-text">OR</span>
                         </div>
 
-                        <form class="register-form__form register-form__form-register" id="create_user_form_ext" action="{{route('user.create_from_ext', [$region])}}" method="POST">
+                        <form class="register-form__form register-form__form-register" id="create_user_form_ext" action="{{route('user.create_from_ext')}}" method="POST">
                             @csrf
                             <div class="register-form__input-container">
                                 <input type="text" class="register-form__input" placeholder="Name" name="name" required="required">
@@ -1560,7 +1560,7 @@
 
                         <div class="register-form__social-container register-form__social-container--icons-only">
                             <p>
-                                <a href="{{route('auth.google', [$region])}}"><i class="fa fa-google-plus-square" style="font-size:48px;color:#ea4335;"></i></a>
+                                <a href="{{route('auth.google')}}"><i class="fa fa-google-plus-square" style="font-size:48px;color:#ea4335;"></i></a>
                             </p>
                         </div>
 
@@ -1568,7 +1568,7 @@
                             <span class="register-form__delimiter-text">OR</span>
                         </div>
 
-                        <form class="register-form__form register-form__form-register" action="{{route('user.login_from_ext', [$region])}}" method="POST">
+                        <form class="register-form__form register-form__form-register" action="{{route('user.login_from_ext')}}" method="POST">
                             @csrf
 
 

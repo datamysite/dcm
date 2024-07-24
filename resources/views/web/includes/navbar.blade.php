@@ -63,7 +63,7 @@ $pos = strpos($url, "/".app()->getLocale());
 
    <div class="mobile-footbar">
       <div class="list-inline d-flex ">
-         <a href="{{route('home', [$region])}}" class="" data-option="home">
+         <a href="{{route('home')}}" class="" data-option="home">
             <i class="fa fa-home"></i>
             {{ __('translation.Home') }}
          </a>
@@ -73,7 +73,7 @@ $pos = strpos($url, "/".app()->getLocale());
             {{ __('translation.search_') }}
          </a>
 
-         <a href="{{route('Sell_With_DCM', [$region])}}" class="center-nav-mob" data-option="home">
+         <a href="{{route('Sell_With_DCM')}}" class="center-nav-mob" data-option="home">
             <i class="fa fa-bullseye"></i>
             {{ __('translation.Sell_With_us') }}
          </a>
@@ -107,7 +107,7 @@ $pos = strpos($url, "/".app()->getLocale());
 
       <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar-default" aria-labelledby="navbar-defaultLabel">
          <div class="offcanvas-header pb-1">
-            <a href="{{route('home', [$region])}}"><img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" width="50px" height="50px" alt="DCM" /></a>
+            <a href="{{route('home')}}"><img src="{{URL::to('/public')}}/web_assets/images/logo/dcm-logo-r.png" width="50px" height="50px" alt="DCM" /></a>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
          </div>
 
@@ -372,7 +372,7 @@ $pos = strpos($url, "/".app()->getLocale());
                         </li>
                         @else
                         <li class="nav-item w-100 w-lg-auto">
-                           <a class="nav-link" href="{{route('stores', [$region, 'online'])}}">{{ __('translation.All_Stores') }}</a>
+                           <a class="nav-link" href="{{URL::to('/'.app()->getLocale().'/stores')}}">{{ __('translation.All_Stores') }}</a>
                         </li>
                         @endif
 

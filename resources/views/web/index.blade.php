@@ -36,7 +36,7 @@
          @endif
 
          <div class="col-sm-12 mt-3 text-center">
-            <a href="{{route('claim_cashback', [$region])}}" class="how-to-earn">
+            <a href="{{route('claim_cashback')}}" class="how-to-earn">
                <h5> {{ __('translation.how_to_earn_txt') }}</h5>
             </a>
          </div>
@@ -118,7 +118,7 @@
 
    <!-- How To Eearn Coupon Section Start-->
    <section class="my-lg-12 my-8 how-to-are-section">
-      <a href="{{route('claim_cashback', [$region])}}">
+      <a href="{{route('claim_cashback')}}">
 
          <!-- <div class="container np-container">
          <div class="animated-banner">
@@ -158,7 +158,7 @@
          <!-- row -->
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <a href="{{route('stores', [$region, 'online'])}}">
+               <a href="{{URL::to('/'.app()->getLocale().'/stores/online')}}">
                   <h3 class="mb-0 page-title">{{ __('translation.ONLINE_STORES') }}</h3>
                </a>
             </div>
@@ -219,7 +219,7 @@
          <!-- row -->
          <div class="row">
             <div class="col-12 mb-6 text-center">
-               <a href="{{route('stores', [$region, 'retail'])}}">
+               <a href="{{URL::to('/'.app()->getLocale().'/stores/retail')}}">
                   <h3 class="mb-0 page-title">{{ __('translation.RETAIL_STORES') }}</h3>
                </a>
             </div>

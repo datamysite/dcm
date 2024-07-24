@@ -14,6 +14,7 @@
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                  <li class="breadcrumb-item"><a href="{{URL::to('/'.app()->getLocale().'/category')}}" style="color: #000;"><strong>{{ __('translation.Categories') }}</strong></a></li>
                   @if(!empty($category->parentCategory->id))
                      @php
                         $string = strtolower(trim($category->parentCategory->name));
@@ -134,7 +135,7 @@
 
                                         $url = empty($type) ? URL::to('/'.app()->getLocale().'/'.$slug) : URL::to('/'.app()->getLocale().'/'.$slug.'/'.$type);
                                         if(empty($type) && !empty($val->parentCategory->id)){
-                                          $url = route('category.sub', [$region, $slug, 'online']);
+                                          $url = URL::to('/'.app()->getLocale().'/'.$slug.'/online);
                                         }
                                     @endphp
                                     <li class="nav-item border-bottom w-100">

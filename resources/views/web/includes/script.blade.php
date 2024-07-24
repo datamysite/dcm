@@ -64,7 +64,7 @@
       WebsiteWelcomeMSG.style.display = 'none';
 
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', "{{route('cancelWelcomeMsg', [$region])}}", true);
+      xhr.open('GET', "{{route('cancelWelcomeMsg')}}", true);
       xhr.setRequestHeader('Content-Type', 'application/json');
       // xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
       xhr.onreadystatechange = function() {

@@ -74,6 +74,10 @@ class ViewServiceProvider extends ServiceProvider
                 $data['pending_balance'] = $data['pending_balance']*$reward->reward;
             }
 
+
+            $data['en_link'] = substr_replace($data['actual_link'],"/en",strpos($data['actual_link'], "/".app()->getLocale()),3);
+            $data['ar_link'] = substr_replace($data['actual_link'],"/ar",strpos($data['actual_link'], "/".app()->getLocale()),3);
+
             $view->with($data);
         });
     }

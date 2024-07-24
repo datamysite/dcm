@@ -11,7 +11,7 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="User-Profile" style="color:#1DACE3;"><strong>{{ __('translation.dashboard') }}</a></strong></li>
                     </ol>
                 </nav>
