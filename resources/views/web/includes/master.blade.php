@@ -10,7 +10,13 @@
    <title>{{@$metaTags->title}} @yield('dynamic_date')</title>
    <meta name="keywords" content="{{@$metaTags->keywords}}" />
    <meta name="description" content="{{@$metaTags->description}}" />
+   
+   <!-- canonical -->
    <link rel="canonical" href="{{$actual_link}}" />
+   <link rel="alternate" href="{{$en_link}}" hreflang="en" />
+   <link rel="alternate" href="{{$ar_link}}" hreflang="ar" />
+   <link rel="alternate" href="{{$en_link}}" hreflang="x-default" />
+
    @yield('amphtml')
    @yield('addImagesrc')
    @include('web.includes.style')

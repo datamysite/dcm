@@ -14,11 +14,11 @@
                     <ol class="breadcrumb mb-0">
 
                         @if ( app()->getLocale() == 'en' )
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{ __('translation.FAQs') }}</a></strong></li>
                         @endif
                         @if ( app()->getLocale() == 'ar' )
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong> {{ __('translation.FAQs') }} </a></strong></li>
                         @endif
 
@@ -289,7 +289,8 @@
           "@context": "https://schema.org",
           "@type": "FAQPage",
            "mainEntity": [
-              @foreach ($data['faq'] as $faq)
+              @foreach ($data['faq'] as $key => $faq)
+                {{$key > 0 ? ',' : ''}}
                   {
                     "@type": "Question",
                     "name": "{{ $faq->heading }}",
@@ -297,7 +298,7 @@
                       "@type": "Answer",
                       "text": "{{ $faq->content }}"
                     }
-                  },
+                  }
               @endforeach
             ]
         }

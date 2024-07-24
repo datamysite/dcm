@@ -12,7 +12,7 @@
                     <!-- breadcrumb -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
                             <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{ __('translation.Sell_With_DCM') }}</a></strong></li>
                         </ol>
                     </nav>
@@ -50,7 +50,7 @@
                     <!-- text -->
                     <div class="" style="border-radius: 10px;">
 
-                        <form class="form-control p-10" id="lead_form" action="{{route('lead.generation', [$region])}}">
+                        <form class="form-control p-10" id="lead_form" action="{{route('lead.generation')}}">
                             @csrf
                             <div class="input-group py-2">
                                 <input class="form-control rounded " type="text" name="business_name" placeholder="{{ __('translation.business_name') }}" />

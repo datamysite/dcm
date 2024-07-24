@@ -13,7 +13,8 @@
             <!-- breadcrumb -->
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                  <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                  <li class="breadcrumb-item"><a href="{{URL::to('/'.app()->getLocale().'/category')}}" style="color: #000;"><strong>{{ __('translation.Categories') }}</strong></a></li>
                   <li class="breadcrumb-item active"><a href="javascript:void(0)" style="color: #000;"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
                </ol>
             </nav>
@@ -116,9 +117,9 @@
                                         $string = str_replace(' ', '-', $string);
                                         $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
-                                        $url = empty($type) ? URL::to('/'.app()->getLocale().'/'.$slug) : route('category.sub', [$region, $slug, $type]);
+                                        $url = empty($type) ? URL::to('/'.app()->getLocale().'/'.$slug) : URL::to('/'.app()->getLocale().'/'.$slug.'/'.$type);
                                         if(empty($type) && !empty($val->parentCategory->id)){
-                                          $url = route('category.sub', [$region, $slug, 'online']);
+                                          $url = URL::to('/'.app()->getLocale().'/'.$slug.'/online);
                                         }
                                     @endphp
                                     @if(!empty($_GET['type']) && $_GET['type'] == '1')
@@ -151,7 +152,7 @@
                                         $string = str_replace(' ', '-', $string);
                                         $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
-                                        $url = empty($type) ? route('category', [$region, $slug]) : route('category.sub', [$region, $slug, $type]);
+                                        $url = empty($type) ? URL::to('/'.app()->getLocale().'/'.$slug) : URL::to('/'.app()->getLocale().'/'.$slug.'/'.$type);
                                     @endphp
                                     <li class="nav-item border-bottom w-100">
                                        <a href="{{$url}}" class="nav-link">

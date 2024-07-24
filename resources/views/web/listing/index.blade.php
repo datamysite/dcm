@@ -14,6 +14,7 @@
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                  <li class="breadcrumb-item"><a href="{{URL::to('/'.app()->getLocale().'/category')}}" style="color: #000;"><strong>{{ __('translation.Categories') }}</strong></a></li>
                   <li class="breadcrumb-item active" aria-current="page"><strong>{{ __('translation.All_Stores') }}</strong></li>
                </ol>
             </nav>

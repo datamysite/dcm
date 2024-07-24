@@ -13,11 +13,11 @@
                     <ol class="breadcrumb mb-0">
 
                         @if ( app()->getLocale() == 'en' )
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>Privacy-Policy</a></strong></li>
                         @endif
                         @if ( app()->getLocale() == 'ar' )
-                        <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong> الرئيسية </strong></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong> الرئيسية </strong></a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>سياسية الخصوصية </a></strong></li>
                         @endif
 
