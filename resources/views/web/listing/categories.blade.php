@@ -119,7 +119,7 @@
 
                                         $url = empty($type) ? URL::to('/'.app()->getLocale().'/'.$slug) : URL::to('/'.app()->getLocale().'/'.$slug.'/'.$type);
                                         if(empty($type) && !empty($val->parentCategory->id)){
-                                          $url = URL::to('/'.app()->getLocale().'/'.$slug.'/online);
+                                          $url = URL::to('/'.app()->getLocale().'/'.$slug.'/online');
                                         }
                                     @endphp
                                     @if(!empty($_GET['type']) && $_GET['type'] == '1')
