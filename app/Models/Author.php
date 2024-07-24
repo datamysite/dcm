@@ -15,6 +15,7 @@ class Author extends Model
         
         $a = new Author;
         $a->name = $data['name'];
+        $a->slug = $data['slug'];
         $a->about = $data['about'];
         $a->linkedin_url = $data['linkedin_url'];
         $a->x_url = $data['x_url'];

@@ -21,7 +21,7 @@ class AuthorController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['name']) || empty($data['about']) || empty($data['linkedin_url']) || empty($data['x_url']) || empty($data['facebook_url']) ) {
+        if (empty($data['name']) || empty($data['about']) || empty($data['slug']) ) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         } else {
@@ -44,12 +44,14 @@ class AuthorController extends Controller
 
                 $response['success'] = 'success';
                 $response['message'] = 'Success! New Author successfully Created.';
+
             } else {
                 if (!empty($data['author_id'])) {
                     $au = Author::where('name', $data['name'])->where('id', '!=', base64_decode($data['author_id']))->get();
                     if (count($au) == 0) {
                         $au = Author::find(base64_decode($data['author_id']));
                         $au->name = $data['name'];
+                        $au->slug = $data['slug'];
                         $au->about = $data['about'];
                         $au->linkedin_url = $data['linkedin_url'];
                         $au->x_url = $data['x_url'];
@@ -69,11 +71,11 @@ class AuthorController extends Controller
                         $response['message'] = 'Success! Author Details successfully Updated.';
                     } else {
                         $response['success'] = false;
-                        $response['errors'] = 'Alert! This Author (' . $data["name"] . ') is already availble.';
+                        $response['errors'] = 'Alert! Author (' . $data["name"] . ') is already available.';
                     }
                 } else {
                     $response['success'] = false;
-                    $response['errors'] = 'Alert! This Author (' . $data["name"] . ') is already availble.';
+                    $response['errors'] = 'Alert! Author (' . $data["name"] . ') is already available.';
                 }
             }
         }

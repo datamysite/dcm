@@ -61,101 +61,102 @@ Route::group([
     Route::get('/getLocation', 'RegionController@get_location');
 
 
-/* ----------- States Routes -----*/
+    /* ----------- States Routes -----*/
 
 
-        //Home
-        Route::get('/', 'HomeController@index')->name('home');
- 
-        //Includes Lazy Load
-        Route::prefix('includes')->group(function () {
-            Route::get('getFooter', 'HomeController@get_footer');
-        });
-        //Home Lazy Load
-        Route::prefix('home')->group(function () {
-            Route::get('getStates/{type}', 'HomeController@get_states');
-            Route::get('getcategories', 'HomeController@get_categories');
-            Route::get('getOnlineStores', 'HomeController@get_online_store');
-            Route::get('getRetailStores', 'HomeController@get_retail_store');
-            Route::get('getAllStores', 'HomeController@get_all_store');
-        });
+    //Home
+    Route::get('/', 'HomeController@index')->name('home');
+    //404
+    //Route::get('/404', 'HomeController@not_found')->name('not_found');
 
-        Route::get('/search/{value}', 'HomeController@search');
+    //Includes Lazy Load
+    Route::prefix('includes')->group(function () {
+        Route::get('getFooter', 'HomeController@get_footer');
+    });
+    //Home Lazy Load
+    Route::prefix('home')->group(function () {
+        Route::get('getStates/{type}', 'HomeController@get_states');
+        Route::get('getcategories', 'HomeController@get_categories');
+        Route::get('getOnlineStores', 'HomeController@get_online_store');
+        Route::get('getRetailStores', 'HomeController@get_retail_store');
+        Route::get('getAllStores', 'HomeController@get_all_store');
+    });
 
-        //Listing
+    Route::get('/search/{value}', 'HomeController@search');
 
-        Route::get('/category', 'ListingController@all_categories');
+    //Listing
 
-        Route::prefix('stores')->group(function () {
-            Route::get('/', 'ListingController@all_stores');
-            Route::get('/{type}', 'ListingController@index')->name('stores');
-        });
+    Route::get('/category', 'ListingController@all_categories');
 
-        //Store
-        //Route::get('{cat_slug}/{brand_slug}', 'ListingController@category_brand')->name('category.brand');
-        
-        Route::prefix('coupon')->group(function () {
-            Route::get('/{id}', 'ListingController@show_coupon');
-            Route::get('/grabDeal/{id}', 'ListingController@coupon_grab_deal');
-        });
-        Route::prefix('offers')->group(function () {
-            Route::get('/{id}', 'ListingController@show_offer');
-            Route::get('/whatsapp/{id}', 'ListingController@redirect_whatsapp');
-            Route::get('/qrcode/{slug}/{id}', 'ListingController@generate_qrcode')->name('offers.qrcode');
-            Route::post('/qrcode/mark', 'ListingController@qrcode_markasused')->name('offers.qrcode.mark');
-            Route::get('/redeem-pdf/{id}', 'ListingController@redeem_pdf')->name('offers.redeemPDF');
-        });
+    Route::prefix('stores')->group(function () {
+        Route::get('/', 'ListingController@all_stores');
+        Route::get('/{type}', 'ListingController@index')->name('stores');
+    });
 
-        //Route::get('{cat_slug}/{type}', 'ListingController@category_sub')->name('category.sub');
+    //Store
+    //Route::get('{cat_slug}/{brand_slug}', 'ListingController@category_brand')->name('category.brand');
 
-        //Blogs
-        Route::prefix('blogs')->middleware('BlogAccess')->group(function () {
+    Route::prefix('coupon')->group(function () {
+        Route::get('/{id}', 'ListingController@show_coupon');
+        Route::get('/grabDeal/{id}', 'ListingController@coupon_grab_deal');
+    });
+    Route::prefix('offers')->group(function () {
+        Route::get('/{id}', 'ListingController@show_offer');
+        Route::get('/whatsapp/{id}', 'ListingController@redirect_whatsapp');
+        Route::get('/qrcode/{slug}/{id}', 'ListingController@generate_qrcode')->name('offers.qrcode');
+        Route::post('/qrcode/mark', 'ListingController@qrcode_markasused')->name('offers.qrcode.mark');
+        Route::get('/redeem-pdf/{id}', 'ListingController@redeem_pdf')->name('offers.redeemPDF');
+    });
 
-            Route::get('/', 'BlogController@index')->name('Blogs');
+    //Route::get('{cat_slug}/{type}', 'ListingController@category_sub')->name('category.sub');
 
-            Route::get('/{slug}', 'BlogController@detail')->name('blog.details');
+    //Blogs
+    Route::prefix('blogs')->middleware('BlogAccess')->group(function () {
 
-            Route::get('/author/{id}', 'BlogController@author')->name('blog.author');
+        Route::get('/', 'BlogController@index')->name('Blogs');
 
-            Route::get('/categories/{id}', 'BlogController@categories')->name('blog.categories');
+        Route::get('/{slug}', 'BlogController@detail')->name('blog.details');
 
-        });
+        Route::get('/author/{slug}', 'BlogController@author')->name('blog.author');
 
-        //About-Us
-        Route::get('/about-Us', 'HomeController@About_Us')->name('About_Us');
+        Route::get('/categories/{slug}', 'BlogController@categories')->name('blog.categories');
+    });
 
-
-        //About-Us
-        Route::get('/contact-Us', 'HomeController@Contact_Us')->name('Contact_Us');
-        Route::post('/contact-Us', 'HomeController@Contact_Us_submit')->name('Contact_Us');
-
-        //Sell-With-DCM
-        Route::get('/sell-with-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
-        Route::post('/lead-generation', 'HomeController@lead_generation')->name('lead.generation');
+    //About-Us
+    Route::get('/about-Us', 'HomeController@About_Us')->name('About_Us');
 
 
-        Route::get('/faqs', 'HomeController@FAQS')->name('FAQS');
+    //About-Us
+    Route::get('/contact-Us', 'HomeController@Contact_Us')->name('Contact_Us');
+    Route::post('/contact-Us', 'HomeController@Contact_Us_submit')->name('Contact_Us');
 
-        //Terms
-        Route::get('/terms', 'HomeController@Terms')->name('Terms');
-
-        //Privacy-Policy
-        Route::get('/privacy-policy', 'HomeController@Privacy_Policy')->name('Privacy_Policy');
-
-        //Anti-Spam
-        Route::get('/anti-spam', 'HomeController@Anti_Spam')->name('Anti_Spam');
-
-        //Extension Page //
-        Route::get('/welcome', 'ExtController@welcomePage')->name('welcomePage');
-
-        //Claim cashback LandingPage
-        Route::get('/claim/cashback', 'HomeController@claim_cashback')->name('claim_cashback');
-
-        //Cancel Welcome Message Session
-        Route::get('/cancelWelcomeMsg', 'HomeController@cancelWelcomeMsg')->name('cancelWelcomeMsg');
+    //Sell-With-DCM
+    Route::get('/sell-with-dcm', 'HomeController@Sell_With_DCM')->name('Sell_With_DCM');
+    Route::post('/lead-generation', 'HomeController@lead_generation')->name('lead.generation');
 
 
-/* ----------- States Routes -----*/
+    Route::get('/faqs', 'HomeController@FAQS')->name('FAQS');
+
+    //Terms
+    Route::get('/terms', 'HomeController@Terms')->name('Terms');
+
+    //Privacy-Policy
+    Route::get('/privacy-policy', 'HomeController@Privacy_Policy')->name('Privacy_Policy');
+
+    //Anti-Spam
+    Route::get('/anti-spam', 'HomeController@Anti_Spam')->name('Anti_Spam');
+
+    //Extension Page //
+    Route::get('/welcome', 'ExtController@welcomePage')->name('welcomePage');
+
+    //Claim cashback LandingPage
+    Route::get('/claim/cashback', 'HomeController@claim_cashback')->name('claim_cashback');
+
+    //Cancel Welcome Message Session
+    Route::get('/cancelWelcomeMsg', 'HomeController@cancelWelcomeMsg')->name('cancelWelcomeMsg');
+
+
+    /* ----------- States Routes -----*/
 
     //Users
     Route::prefix('user')->group(function () {
@@ -237,43 +238,42 @@ Route::group([
 
 ], function () {
 
-    Route::get('/{wildcard}', function ($lang, $wildcard, Request $request) { 
-        $cat_slug = str_replace('-',' ',$wildcard);
-        $cat_slug = str_replace('and','&',$cat_slug);
+    Route::get('/{wildcard}', function ($lang, $wildcard, Request $request) {
+        $cat_slug = str_replace('-', ' ', $wildcard);
+        $cat_slug = str_replace('and', '&', $cat_slug);
         $cat_slug = ucwords($cat_slug);
 
         $is_category = App\Models\Categories::where('name', $cat_slug)->first();
         $is_brand = App\Models\Retailers::where('slug', $wildcard)->where('status', '1')->first();
         //dd($is_category);
-        if(null !== $is_category){
-            $controller = app()->make('App\Http\Controllers\web\ListingController');  
-            return $controller->callAction('category', ['cat_slug' => $wildcard, 'request' => $request->all()]); 
+        if (null !== $is_category) {
+            $controller = app()->make('App\Http\Controllers\web\ListingController');
+            return $controller->callAction('category', ['cat_slug' => $wildcard, 'request' => $request->all()]);
             //return redirect()->action('web\ListingController@category', ['cat_slug' => $wildcard]);
-        } else if(null !== $is_brand){
-            $controller = app()->make('App\Http\Controllers\web\ListingController');  
-            return $controller->callAction('brand', ['brand_slug' => $wildcard]); 
+        } else if (null !== $is_brand) {
+            $controller = app()->make('App\Http\Controllers\web\ListingController');
+            return $controller->callAction('brand', ['brand_slug' => $wildcard]);
             //return redirect()->action('web\ListingController@brand', ['brand_slug' => $wildcard]);
         }
     });
 
-    Route::get('/{wildcard}/{wildcard2}', function ($lang, $wildcard, $wildcard2, Request $request) { 
-        $cat_slug = str_replace('-',' ',$wildcard);
-        $cat_slug = str_replace('and','&',$cat_slug);
+    Route::get('/{wildcard}/{wildcard2}', function ($lang, $wildcard, $wildcard2, Request $request) {
+        $cat_slug = str_replace('-', ' ', $wildcard);
+        $cat_slug = str_replace('and', '&', $cat_slug);
         $cat_slug = ucwords($cat_slug);
 
         $is_brand = App\Models\Retailers::where('slug', $wildcard2)->where('status', '1')->first();
         //dd($is_category);
-        if($wildcard2 == 'online' || $wildcard2 == 'retail'){
-            $controller = app()->make('App\Http\Controllers\web\ListingController');  
-            return $controller->callAction('category_sub', ['cat_slug' => $wildcard, 'type' => $wildcard2, 'request' => $request->all()]); 
+        if ($wildcard2 == 'online' || $wildcard2 == 'retail') {
+            $controller = app()->make('App\Http\Controllers\web\ListingController');
+            return $controller->callAction('category_sub', ['cat_slug' => $wildcard, 'type' => $wildcard2, 'request' => $request->all()]);
             //return redirect()->action('web\ListingController@category', ['cat_slug' => $wildcard]);
-        } else if(null !== $is_brand){
-            $controller = app()->make('App\Http\Controllers\web\ListingController');  
-            return $controller->callAction('category_brand', ['cat_slug' => $wildcard, 'brand_slug' => $wildcard2]); 
+        } else if (null !== $is_brand) {
+            $controller = app()->make('App\Http\Controllers\web\ListingController');
+            return $controller->callAction('category_brand', ['cat_slug' => $wildcard, 'brand_slug' => $wildcard2]);
             //return redirect()->action('web\ListingController@brand', ['brand_slug' => $wildcard]);
         }
     });
-
 });
 /* --------- Clean routes -----------------*/
 

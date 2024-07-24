@@ -18,10 +18,16 @@
     </div>
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <div class="form-group">
           <label>Author Full Name</label>
-          <input type="text" class="form-control" name="name" value="{{$data->name}}" required>
+          <input type="text" class="form-control eauthorName" name="name" value="{{$data->name}}" required>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Slug</label>
+          <input type="text" class="form-control eauthorSlug" name="slug" required readonly="readonly" value="{{$data->slug}}" >
         </div>
       </div>
     </div>
@@ -39,19 +45,19 @@
       <div class="col-md-4">
         <div class="form-group">
           <label>LinkedIn URL</label>
-          <input type="text" class="form-control" name="linkedin_url" value="{{$data->linkedin_url}}" required>
+          <input type="text" class="form-control" name="linkedin_url" value="{{$data->linkedin_url}}" >
         </div>
       </div>
       <div class="col-md-4">
         <div class="form-group">
           <label>X (Twitter) URL</label>
-          <input type="text" class="form-control" name="x_url" value="{{$data->x_url}}" required>
+          <input type="text" class="form-control" name="x_url" value="{{$data->x_url}}" >
         </div>
       </div>
       <div class="col-md-4">
         <div class="form-group">
           <label>Facebook URL</label>
-          <input type="text" class="form-control" name="facebook_url" value="{{$data->facebook_url}}" required>
+          <input type="text" class="form-control" name="facebook_url" value="{{$data->facebook_url}}" >
         </div>
       </div>
     </div>

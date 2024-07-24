@@ -3,6 +3,7 @@
   <td>{{++$key}}</td>
   <td><img src="{{URL::to('/public/storage/authors/'.$val->image)}}" class="table-img"></td>
   <td>{{$val->name}}</td>
+  <td>{{$val->slug}}</td>
   <td><a href="{{ $val->linkedin_url }}" target="_blank">{{ $val->linkedin_url }}</a></td>
   <td><a href="{{ $val->x_url }}" target="_blank">{{ $val->x_url }}</a></td>
   <td><a href="{{ $val->facebook_url }}" target="_blank">{{ $val->facebook_url }}</a></td>

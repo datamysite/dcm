@@ -66,7 +66,7 @@
                      @if(!empty($_GET['referal_link']))
                         <input type="hidden" name="referral" value="{{$_GET['referal_link']}}">
                      @endif
-                     <h2 style="color:#1dace3">{{ __('translation.dcm_create_account') }}</h2>
+                     <b style="color:#1dace3;font-size:1.75rem;">{{ __('translation.dcm_create_account') }}</b>
                      <div class="social-modal_container">
                         <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
                         <a href="{{route('auth.google')}}" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -87,7 +87,7 @@
                <div class="form-modal_container sign-in-modal_container">
                   <form action="{{route('user.login')}}" id="login_user_form"  onsubmit="return gtag_report_signin;" class="form_modal">
                      @csrf
-                     <h2 style="color:#1dace3">{{ __('translation.sign_in_to_dcm') }}</h2>
+                     <b style="color:#1dace3;font-size:1.75rem;">{{ __('translation.sign_in_to_dcm') }}</b>
                      <div class="social-modal_container">
                         <!-- <a href="{{route('auth.facebook', [$region])}}" class="social"><i class="fab fa-facebook-f"></i></a> -->
                         <a href="{{route('auth.google')}}" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -106,13 +106,13 @@
                <div class="overlay_modal-modal_container">
                   <div class="overlay_modal">
                      <div class="overlay_modal-panel overlay_modal-left" style="background-color: #1dace3;">
-                        <h2 style="color:#fff">{{ __('translation.dcm_wlc_back') }}</h2>
+                        <b style="color:#fff;font-size:1.75rem;">{{ __('translation.dcm_wlc_back') }}</b>
                         <p>{{ __('translation.dcm_wlc_back_txt') }}</p>
                         <button class="btn btn-primary shadow-gray signIn" style="background-color: #fff;color:#1dace3">{{ __('translation.sign_in_btn') }}</button>
                      </div>
                      <div class="overlay_modal-panel overlay_modal-right" style="background-color: #1dace3;color:#fff">
-                        <h2 style="color:#fff">DCM</h2>
-                        <h2 style="color:#fff">{{ __('translation.dmc_modal_text01') }}</h2>
+                        <b style="color:#fff;font-size:1.75rem;">DCM</b>
+                        <b style="color:#fff;font-size:1.75rem;">{{ __('translation.dmc_modal_text01') }}</b>
                         <p>{{ __('translation.dmc_modal_text02') }}</p>
                         <button class="btn btn-primary shadow-gray signUp" id="open-signup" style="background-color: #fff;color:#1dace3">{{ __('translation.sign_up_btn') }}</button>
                      </div>

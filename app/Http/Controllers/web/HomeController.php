@@ -361,4 +361,11 @@ class HomeController extends Controller
         }
         return json_encode($response);
     }
+
+    //404 Page
+    public function not_found()
+    {
+        //return view('web.content.404');
+    }
+    
 }
