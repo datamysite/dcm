@@ -1,5 +1,19 @@
 @extends('web.includes.master')
-@section('dynamic_date', ' | '.date('M-Y'))
+
+@section('default_title')
+    @if(!empty($metaTags->title))
+        {{' | '.date('M-Y')}}
+    @else
+        {{$retailer->name.' Coupons, Voucher & Promo Codes | Up To '.$retailer->discount_upto.'% OFF | '.date('M-Y')}}
+    @endif
+@endsection
+
+@section('default_description')
+    @if(empty($metaTags->description))
+        {{'Find top deals and promotions on '.$retailer->name.' online. Get the best discounts, coupons, vouchers & offers on '.$retailer->name.' and save up to '.$retailer->discount_upto.'% with Deals and Coupons Mena'}}
+    @endif
+@endsection
+
 @section('amphtml')
 <link rel="amphtml" href="{{$actual_link_m}}" />
 @endsection
