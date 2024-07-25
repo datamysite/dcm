@@ -17,7 +17,7 @@
    <meta property="og:url" content="{{$actual_link}}" />
    <meta property="og:type" content="website" />
    <meta property="og:site_name" content="Deals and Coupons Mena" />
-   <meta property="og:image"content="{{URL::To('/')}}/public/web_assets/images/logo/logo-DCM.png"/>
+   <meta property="og:image"content="{{URL::To('/')}}/public/Icon-Black.png"/>
 
    <!-- Twitter Card Tags -->
    <meta name="twitter:card" content="summary" />
