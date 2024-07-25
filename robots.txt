@@ -2,6 +2,10 @@ User-agent: *
 Disallow: /private/
 Disallow: /admin/
 Allow: /public/
-Sitemap: https://dealsandcouponsmena.com/en/sitemap.xml
-Sitemap: https://dealsandcouponsmena.com/ar/sitemap.xml
-Sitemap: https://dealsandcouponsmena.com/en/blogs/sitemap.xml
+Sitemap: https://dealsandcouponsmena.com/sitemap.xml
+Sitemap: https://dealsandcouponsmena.com/sitemaps/links-en.xml
+Sitemap: https://dealsandcouponsmena.com/sitemaps/links-ar.xml
+Sitemap: https://dealsandcouponsmena.com/sitemaps/listing-en.xml
+Sitemap: https://dealsandcouponsmena.com/sitemaps/listing-ar.xml
+Sitemap: https://dealsandcouponsmena.com/sitemaps/blogs-en.xml
+Sitemap: https://dealsandcouponsmena.com/sitemaps/blogs-ar.xml

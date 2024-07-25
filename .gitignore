@@ -12,9 +12,9 @@
 /storage/*.key
 /vendor
 sitemap.xml
+robots.txt
 google6d2bacabfcaa842a.html
 googlee278fcb90f3d50a4.html
-robots.txt
 ads.txt
 .env
 .env.backup
