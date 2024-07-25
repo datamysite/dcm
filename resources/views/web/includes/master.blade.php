@@ -11,6 +11,19 @@
    <meta name="keywords" content="{{@$metaTags->keywords}}" />
    <meta name="description" content="{{@$metaTags->description}}@yield('default_description')" />
    
+   <!-- OG Tags -->
+   <meta property="og:title" content="{{@$metaTags->title}}@yield('default_title')" />
+   <meta property="og:description" content="{{@$metaTags->description}}@yield('default_description')" />
+   <meta property="og:url" content="{{$actual_link}}" />
+   <meta property="og:type" content="website" />
+   <meta property="og:site_name" content="Deals and Coupons Mena" />
+   <meta property="og:image"content="{{URL::To('/')}}/public/web_assets/images/logo/logo-DCM.png"/>
+
+   <!-- Twitter Card Tags -->
+   <meta name="twitter:card" content="summary" />
+   <meta name="twitter:title" content="{{@$metaTags->title}}@yield('default_title')"/>
+   <meta name="twitter:description" content="{{@$metaTags->description}}@yield('default_description')"/>
+   
    <!-- canonical -->
    <link rel="canonical" href="{{$actual_link}}" />
    <link rel="alternate" href="{{$en_link}}" hreflang="en" />
