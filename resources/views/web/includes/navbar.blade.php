@@ -169,7 +169,7 @@ $pos = strpos($url, "/".app()->getLocale());
                            @endif
                            @else
                            <li>
-                              <a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug.'/online')}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                              <a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
                            </li>
                            @endif
                            @endforeach
@@ -403,7 +403,7 @@ $pos = strpos($url, "/".app()->getLocale());
                               <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
                               @endif
                               @else
-                              <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug.'/online')}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
+                              <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a></li>
                               @endif
                               @endforeach
                            </ul>

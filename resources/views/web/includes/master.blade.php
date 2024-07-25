@@ -7,9 +7,22 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no" />
    <meta name="home_url" content="{{@URL::to('/'.app()->getLocale())}}">
    <meta name="country" content="{{config('app.country_short')}}">
-   <title>{{@$metaTags->title}} @yield('dynamic_date')</title>
+   <title>{{@$metaTags->title}}@yield('default_title')</title>
    <meta name="keywords" content="{{@$metaTags->keywords}}" />
-   <meta name="description" content="{{@$metaTags->description}}" />
+   <meta name="description" content="{{@$metaTags->description}}@yield('default_description')" />
+   
+   <!-- OG Tags -->
+   <meta property="og:title" content="{{@$metaTags->title}}@yield('default_title')" />
+   <meta property="og:description" content="{{@$metaTags->description}}@yield('default_description')" />
+   <meta property="og:url" content="{{$actual_link}}" />
+   <meta property="og:type" content="website" />
+   <meta property="og:site_name" content="Deals and Coupons Mena" />
+   <meta property="og:image"content="{{URL::To('/')}}/public/Icon-Black.png"/>
+
+   <!-- Twitter Card Tags -->
+   <meta name="twitter:card" content="summary" />
+   <meta name="twitter:title" content="{{@$metaTags->title}}@yield('default_title')"/>
+   <meta name="twitter:description" content="{{@$metaTags->description}}@yield('default_description')"/>
    
    <!-- canonical -->
    <link rel="canonical" href="{{$actual_link}}" />

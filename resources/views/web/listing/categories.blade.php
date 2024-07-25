@@ -1,4 +1,19 @@
 @extends('web.includes.master')
+
+@section('default_title')
+    @if(!empty($metaTags->title))
+        {{' | '.date('M-Y')}}
+    @else
+        {{$category->name.' Coupon Codes & Discounts | Up To 80% OFF | '.date('M-Y')}}
+    @endif
+@endsection
+
+@section('default_description')
+    @if(empty($metaTags->description))
+        {{'Grab best deals and offers on '.$category->name.' at Deals and Coupons Mena. Get exclusive discounts & deals  on top '.$category->name.' brands.'}}
+    @endif
+@endsection
+
 @section('amphtml')
    <link rel="amphtml" href="{{$actual_link_m}}" />
 @endsection
@@ -119,7 +134,7 @@
 
                                         $url = empty($type) ? URL::to('/'.app()->getLocale().'/'.$slug) : URL::to('/'.app()->getLocale().'/'.$slug.'/'.$type);
                                         if(empty($type) && !empty($val->parentCategory->id)){
-                                          $url = URL::to('/'.app()->getLocale().'/'.$slug.'/online);
+                                          $url = URL::to('/'.app()->getLocale().'/'.$slug.'/online');
                                         }
                                     @endphp
                                     @if(!empty($_GET['type']) && $_GET['type'] == '1')
