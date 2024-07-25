@@ -365,7 +365,7 @@ class HomeController extends Controller
     //404 Page
     public function not_found()
     {
-        //return view('web.content.404');
+        return view('web.content.404');
     }
     
 }

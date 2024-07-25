@@ -67,7 +67,7 @@ Route::group([
     //Home
     Route::get('/', 'HomeController@index')->name('home');
     //404
-    //Route::get('/404', 'HomeController@not_found')->name('not_found');
+    Route::get('/404', 'HomeController@not_found')->name('not_found');
 
     //Includes Lazy Load
     Route::prefix('includes')->group(function () {
