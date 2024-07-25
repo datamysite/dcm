@@ -28,7 +28,7 @@
     <div class="mt-5 container ad-container np-container">
         <div class="row text-center" style="justify-content: center;">
             <div class="col-12 text-center">
-                <img src="{{URL::to('/public/web_assets/images/404.png')}}" alt="Cashback Banner" style="border-radius:20px;height:80%;width:70%">
+                <img src="{{URL::to('/public/web_assets/images/404.png')}}" alt="Cashback Banner" style="border-radius:20px;height:auto;width:50%;padding:70px 0px;">
             </div>
         </div>
     </div>
