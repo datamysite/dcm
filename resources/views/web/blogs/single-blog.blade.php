@@ -22,12 +22,12 @@
                         @if($data['blog']->category_id != 0)
 
                         @php
-                            $string = strtolower(trim($data['blog']->category->name));
-                            $string = str_replace('&', 'and', $string);
-                            $string = str_replace(' ', '-', $string);
-                            $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                        $string = strtolower(trim($data['blog']->category->name));
+                        $string = str_replace('&', 'and', $string);
+                        $string = str_replace(' ', '-', $string);
+                        $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                         @endphp
-                        
+
                         <li class="breadcrumb-item"><a href="{{route('blog.categories',[ ($slug) ])}}" style="color: #000;"><strong>{{$data['blog']->category->name }}</strong></a></li>
                         @endif
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$data['blog']->heading}}</strong></a></li>
@@ -77,7 +77,7 @@
     <div class="MobileUserProfile mt-5" style="border-radius:0px;height:145px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);">
         <div class="row" style="color: #fff;left: 20px;">
             <h1 class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</h1>
-            <p class="mt-1" style="color: #fff;">Author: <a href="{{route('blog.author',[ base64_encode($data['author']->id) ])}}" style="color:#fff;position:relative;bottom:0px;left:0px;background-color:transparent;">{{ $data['author']->name }}</a></p>
+            <p class="mt-1" style="color: #fff;">Author: <a href="{{route('blog.author', $data['author']->slug )}}" style="color:#fff;position:relative;bottom:0px;left:0px;background-color:transparent;">{{ $data['author']->name }}</a></p>
             <p class="mt-1" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</p>
         </div>
     </div>
@@ -171,6 +171,7 @@
                             @if($val->author->image !='')
                             <a href="{{route('blog.author',$val->author->slug ) }}">
                                 <img src="{{ config('app.storage').'authors/'.$val->author->image }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
+                                <p class="mt-2" style="color:#000;font-size: 11px;font-weight: bolder;">{{$val->author->name}}</p>
                             </a>
                             @else
                             <img src="{{ config('app.storage').'authors/4170724111224.png' }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">

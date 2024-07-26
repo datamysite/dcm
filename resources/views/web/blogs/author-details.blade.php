@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="col-lg-9">
-                            <p class="mt-10" style="padding-left:10px"><a href="{{route('blog.author',[ base64_encode($data['author']->id) ])}}" style="color: #fff;font-size:22px;">{{ $data['author']->name }}</a></p>
+                            <p class="mt-10" style="padding-left:10px;font-size:1.75rem;color:#fff;">{{ $data['author']->name }}</p>
 
                             <ul class="list-inline text-md-right social-media mt-5">
 
@@ -77,7 +77,7 @@
             <img src="{{ config('app.storage').'authors/'.$data['author']->image }}" style="margin-top:10px;background-color:whitesmoke;height:150px;width:150px;border-radius:10px;object-fit:cover;">
         </div>
         <div class="row align-items-center" style="justify-items:center;justify-content:center;">
-            <p class="mt-5 text-center" style="color: #fff;">{{ $data['author']->name }}</p>
+            <p class="mt-5 text-center" style="font-size:1.75rem;color:#fff;">{{ $data['author']->name }}</p>
             <div class="social-icons" style="display: flex;align-items: center;justify-content:space-evenly">
                 <li class="list-inline-item">
                     <a href="{{ $data['author']->linkedin_url }}" target="_blank" class="btn btn-xs" aria-label="Linkedin" style="color: #fff;">
