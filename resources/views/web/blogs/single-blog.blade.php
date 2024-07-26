@@ -20,7 +20,15 @@
                         <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
                         <li class="breadcrumb-item"><a href="{{route('Blogs')}}" style="color: #000;"><strong>Blogs</strong></a></li>
                         @if($data['blog']->category_id != 0)
-                        <li class="breadcrumb-item"><a href="{{route('blog.categories',[ base64_encode($data['blog']->category->id) ])}}" style="color: #000;"><strong>{{$data['blog']->category->name }}</strong></a></li>
+
+                        @php
+                            $string = strtolower(trim($data['blog']->category->name));
+                            $string = str_replace('&', 'and', $string);
+                            $string = str_replace(' ', '-', $string);
+                            $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                        @endphp
+                        
+                        <li class="breadcrumb-item"><a href="{{route('blog.categories',[ ($slug) ])}}" style="color: #000;"><strong>{{$data['blog']->category->name }}</strong></a></li>
                         @endif
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$data['blog']->heading}}</strong></a></li>
                     </ol>
@@ -295,9 +303,11 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            @foreach($data['faq'] as $key => $faq) 
-            {{$key > 0 ? ',' : ''}}
-            {
+            @foreach($data['faq'] as $key => $faq) {
+                {
+                    $key > 0 ? ',' : ''
+                }
+            } {
                 "@type": "Question",
                 "name": "{{ $faq->heading }}",
                 "acceptedAnswer": {
