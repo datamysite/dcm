@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function index($lang = 'en', $region = 'dubai')
     {
         if ((function_exists('session_status')
-                && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
+            && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {
             session_start();
         }
 
@@ -214,7 +214,7 @@ class HomeController extends Controller
         foreach ($re as $key => $val) {
             $na = app()->getLocale() == 'ar' ? $val->name_ar : $val->name;
             $lo = app()->getLocale() == 'ar' ? $val->ar_logo : $val->logo;
-            $html .= '<a href="' . URL::to('/'.app()->getLocale().'/'.$val->slug) . '" class="main-search-result-item">';
+            $html .= '<a href="' . URL::to('/' . app()->getLocale() . '/' . $val->slug) . '" class="main-search-result-item">';
             if (empty($req['m'])) {
                 $html .= '<img src="' . config('app.storage') . 'retailers/' . $lo . '" height="40px">';
             } else {
@@ -318,8 +318,8 @@ class HomeController extends Controller
     //FAQS
     public function FAQS()
     {
-        $data['faq'] = Faq::where('blog_id', 0)->where('country_id' , config('app.country'))->get();
-        return view('web.content.' . config('app.country') . '.faqs' , ['data' => $data]);
+        $data['faq'] = Faq::where('blog_id', 0)->where('country_id', config('app.country'))->get();
+        return view('web.content.' . config('app.country') . '.faqs', ['data' => $data]);
     }
 
     //Terms
@@ -353,11 +353,11 @@ class HomeController extends Controller
         $sessionVariableName = 'welcomeMessageShown';
         $currentSessionValue = session()->get($sessionVariableName);
 
-        if($currentSessionValue){
+        if ($currentSessionValue) {
             Session::forget('welcomeMessageShown');
             $response = 200;
-        }else{
-            $response = 400; 
+        } else {
+            $response = 400;
         }
         return json_encode($response);
     }
@@ -365,7 +365,16 @@ class HomeController extends Controller
     //404 Page
     public function not_found()
     {
-        return view('web.content.404');
+        $data['categories'] = DB::table('categories')->select('id', 'name', 'type', 'name_ar', 'image')->where('parent_id', 0)
+            ->when(config('app.retail') == true, function ($q) {
+                $q->limit(8);
+            })
+            ->when(config('app.retail') == false, function ($q) {
+                $q->limit(6);
+            })
+            ->get();
+
+
+        return view($this->getView('errors.404'))->with($data);
     }
-    
 }

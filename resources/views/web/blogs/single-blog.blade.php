@@ -76,7 +76,7 @@
     </div>
     <div class="MobileUserProfile mt-5" style="border-radius:0px;height:145px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);">
         <div class="row" style="color: #fff;left: 20px;">
-            <h1 class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</h1>
+            <b style="font-size:1.75rem;" class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</b>
             <p class="mt-1" style="color: #fff;">Author: <a href="{{route('blog.author', $data['author']->slug )}}" style="color:#fff;position:relative;bottom:0px;left:0px;background-color:transparent;">{{ $data['author']->name }}</a></p>
             <p class="mt-1" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</p>
         </div>
