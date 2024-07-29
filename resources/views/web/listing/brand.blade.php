@@ -68,7 +68,7 @@
                     }
                     @endphp
                     @if($retailer->type == '1')
-                    <a class="brand_store_link" href="{{$retailer->store_link}}">{{$brand_domain}}</a>
+                    <a class="brand_store_link" href="{{$retailer->store_link}}" rel="nofollow">{{$brand_domain}}</a>
                     @endif
                 </div>
                 <div>

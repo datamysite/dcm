@@ -138,7 +138,7 @@ $pos = strpos($url, "/".app()->getLocale());
                      </li>
                      @else
                      <li class="nav-item dropdown" style="padding: 10px;">
-                        <a class="nav-link" href="{{route('stores', ['online'])}}" role="button" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
+                        <a class="nav-link" href="{{URL::to('/'.app()->getLocale().'/stores')}}" role="button" aria-expanded="false">{{ __('translation.All_Stores') }}</a>
                      </li>
                      @endif
 
