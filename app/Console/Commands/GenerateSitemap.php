@@ -53,7 +53,7 @@ class GenerateSitemap extends Command
 
             $linksarsitmap = Sitemap::create();
 
-            $linksarsitmap->add(Url::create("/en/")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            $linksarsitmap->add(Url::create("/ar/")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
             $linksarsitmap->add(Url::create("/ar/about-Us")->setPriority(0.8)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
             $linksarsitmap->add(Url::create("/ar/about-Us")->setPriority(0.8)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
             $linksarsitmap->add(Url::create("/ar/sell-sith-dcm")->setPriority(0.8)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
@@ -64,7 +64,7 @@ class GenerateSitemap extends Command
             $linksarsitmap->add(Url::create("/ar/claim/cashback")->setPriority(0.8)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
 
 
-            $linksensitmap->writeToFile(base_path('/sitemaps/links-ar.xml'));
+            $linksarsitmap->writeToFile(base_path('/sitemaps/links-ar.xml'));
 
 
 
