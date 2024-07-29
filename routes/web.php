@@ -15,8 +15,6 @@ use Spatie\Permission\Models\Permission;
 
 // Update Sitemap
 Route::get('/update-sitemap', function () {
-    Artisan::call('route:clear');
-    Artisan::call('cache:clear');
     Artisan::call('app:generate-sitemap');
     dd('Sitemap Updated!');
 });
