@@ -74,7 +74,7 @@
                 <div class="col-md-12">
                   @foreach($section2 as $val)
                     <div class="callout callout-warning callout-footer">
-                      <a href="{{route('brand', ['en', $val->retailer->states[0]->state->slug, $val->retailer->slug])}}" target="_blank"><h5>{{$val->retailer->name}}</h5></a>
+                      <a href="{{URL::to('/en/'.$val->retailer->slug)}}" target="_blank"><h5>{{$val->retailer->name}}</h5></a>
                       <a href="javascript:void(0)" class="btn btn-sm btn-default deleteLink" data-id="{{base64_encode($val->id)}}"><i class="fa fa-trash"></i></a>
                     </div>
                   @endforeach
@@ -110,7 +110,7 @@
                          $slug = preg_replace('/[^a-z0-9-]/', '', $string);
                      @endphp
                     <div class="callout callout-danger callout-footer">
-                      <a href="{{route('category', ['en', 'dubai', $slug])}}" target="_blank"><h5>{{$val->category->name}}</h5></a>
+                      <a href="{{URL::to('/en/'.$slug)}}" target="_blank"><h5>{{$val->category->name}}</h5></a>
                       <a href="javascript:void(0)" class="btn btn-sm btn-default deleteLink" data-id="{{base64_encode($val->id)}}"><i class="fa fa-trash"></i></a>
                     </div>
                   @endforeach
