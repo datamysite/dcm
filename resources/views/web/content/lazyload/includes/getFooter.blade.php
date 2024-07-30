@@ -23,6 +23,8 @@
                   @foreach($footBrand as $val)
                      <li class="nav-item mb-2"><a href="{{URL::to('/'.app()->getLocale().'/'.$val->retailer->slug)}}" class="nav-link">{{app()->getLocale() == 'ar' ? $val->retailer->name_ar : $val->retailer->name}}</a></li>
                   @endforeach
+
+                  <li class="nav-item mb-2"><a href="{{URL::to('/'.app()->getLocale().'/stores')}}" class="nav-link" style="text-decoration: underline; font-weight: bold;">{{ __('translation.view_more_btn_txt') }}</a></li>
                </ul>
             </div>
 
