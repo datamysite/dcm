@@ -2,6 +2,13 @@ User-agent: *
 Disallow: /private/
 Disallow: /admin/
 Allow: /public/
+
+Disallow: /?type=*
+Disallow: /?b=*
+Disallow: /slider_posters/*
+Disallow: /region/en?*
+Disallow: /region/ar?*
+
 Sitemap: https://dealsandcouponsmena.com/sitemap.xml
 Sitemap: https://dealsandcouponsmena.com/sitemaps/links-en.xml
 Sitemap: https://dealsandcouponsmena.com/sitemaps/links-ar.xml

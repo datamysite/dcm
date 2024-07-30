@@ -74,7 +74,10 @@ class GenerateSitemap extends Command
 
             $listingensitmap->add(Url::create("/en/stores")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
             $listingensitmap->add(Url::create("/en/stores/online")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-            $listingensitmap->add(Url::create("/en/stores/retail")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            
+            if(config('app.retail')){
+                $listingensitmap->add(Url::create("/en/stores/retail")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            }
 
             Categories::get()->each(function (Categories $cat) use ($listingensitmap) {
 
@@ -89,7 +92,11 @@ class GenerateSitemap extends Command
 
                 if($cat->id <= 6){
                     $listingensitmap->add(Url::create("/en/".$slug."/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                    $listingensitmap->add(Url::create("/en/".$slug."/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())); 
+                    
+                    if(config('app.retail')){
+                        $listingensitmap->add(Url::create("/en/".$slug."/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())); 
+                    }
+
                 }
 
             });
@@ -128,7 +135,10 @@ class GenerateSitemap extends Command
 
             $listingarsitmap->add(Url::create("/ar/stores")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
             $listingarsitmap->add(Url::create("/ar/stores/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-            $listingarsitmap->add(Url::create("/ar/stores/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+
+            if(config('app.retail')){
+                $listingarsitmap->add(Url::create("/ar/stores/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            }
 
             Categories::get()->each(function (Categories $cat) use ($listingarsitmap) {
 
@@ -143,7 +153,10 @@ class GenerateSitemap extends Command
 
                 if($cat->id <= 6){
                     $listingarsitmap->add(Url::create("/ar/".$slug."/online")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                    $listingarsitmap->add(Url::create("/ar/".$slug."/retail")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())); 
+
+                    if(config('app.retail')){
+                        $listingarsitmap->add(Url::create("/ar/".$slug."/retail")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())); 
+                    }
                 }
 
             });
