@@ -1,7 +1,15 @@
 body {
     overflow-x: hidden !important;
 }
-
+.hero-slider {
+    margin-top: -10px !important;
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+.desktop-slider .slick-list{
+    margin-top: -15px;
+}
 .withdraw-loader {
     position: absolute;
     top: 0;
@@ -1590,6 +1598,8 @@ label.errors {
 
 .desktop-slider {
     display: block;
+    margin-top: -30px !important;
+    margin-bottom: -25px !important;
 }
 
 .vertical-line {

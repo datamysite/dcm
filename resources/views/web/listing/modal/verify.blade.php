@@ -84,6 +84,17 @@
 		.verification p {
 		    margin-bottom: -10px;
 		}
+		.showPassGroup {
+		    padding: 0px 23px;
+		    margin-bottom: -10px;
+		    margin-top: -4px;
+		    display: flex;
+		}
+		.showPassGroup label {
+		    cursor: pointer;
+		    margin-top: 12px;
+		    margin-left: 5px;
+		}
 	</style>
 </head>
 <body>
@@ -135,6 +146,9 @@
 				    inputAttributes: {
 				        required: true
 				      },
+				    didOpen: function () {
+					    $("<div class='form-group showPassGroup'><input type='checkbox' class='showPassBtn' id='showPassCheck'> <label for='showPassCheck'>Show Password</label></div>").insertAfter(".swal2-input");
+					},
 				    showLoaderOnConfirm: true,
 				    showCancelButton: true,
 				    allowOutsideClick: false
@@ -169,6 +183,15 @@
 				    }
 				});
 			});
+
+
+			$(document).on('change', '#showPassCheck', function() {
+		        if($(this).is(":checked")) {
+		        	$('#swal2-input').attr('type', 'text');
+		        }else{
+		        	$('#swal2-input').attr('type', 'password');
+		        }       
+		    });
 		});
 	</script>
 </body>
