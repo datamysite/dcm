@@ -126,12 +126,14 @@
             <hr style="border-top: 1px solid #1caae2;" class="mt-5">
             @foreach($data['blog'] as $val)
             <div class="col-lg-4 blogItem mt-5">
-                <div class="post-feather">
-                    <img src="{{ config('app.storage').'blogs/'.$val->banner }}" alt="{{empty($val->banner_alt) ? $val->slug : $val->banner_alt}}">
-                    <a href="{{route('blog.details', [$val->slug])}}" target="blank" class="readMorebutton">Read More</a>
-                </div>
-                <h5 title="{{$val->heading}}">{{$val->heading}}</h5>
-                <p title="{{ $val->short_description }}">{{ $val->short_description }}</p>
+                <a href="{{route('blog.details', [$val->slug])}}" target="blank" style="color:#000;">
+                    <div class="post-feather">
+                        <img src="{{ config('app.storage').'blogs/'.$val->banner }}" alt="{{empty($val->banner_alt) ? $val->slug : $val->banner_alt}}">
+                        <a href="{{route('blog.details', [$val->slug])}}" target="blank" class="readMorebutton">Read More</a>
+                    </div>
+                    <h5 title="{{$val->heading}}">{{$val->heading}}</h5>
+                    <p title="{{ $val->short_description }}">{{ $val->short_description }}</p>
+                </a>
             </div>
             @endforeach
         </div>

@@ -244,7 +244,7 @@ Route::group([
         $cat_slug = ucwords($cat_slug);
 
         $is_category = App\Models\Categories::where('name', $cat_slug)->first();
-        $is_brand = App\Models\Retailers::where('slug', $wildcard)->where('status', '1')->first();
+        $is_brand = App\Models\Retailers::where('slug', $wildcard)->first();
         //dd($is_category);
         if (null !== $is_category) {
             $controller = app()->make('App\Http\Controllers\web\ListingController');
