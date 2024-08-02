@@ -1,3 +1,15 @@
+.pb-padding {
+    padding: 0 19px 0px 26px;
+}
+.pp-padding2 {
+    padding: 0px 36px 0 42px;
+}
+.pp-padding {
+    padding: 10px 30px 0 25px;
+}
+.pi-padding {
+    padding: 0 3px 0 10px;
+}
 .join-cashback-block {
     border: 0 !important;
     background-color: #ebebeb !important;
@@ -290,16 +302,16 @@
     justify-items: center;
     justify-content: center;
     position: relative;
-    height: 120px;
+    height: 100px;
 }
 
 .MobileUserProfile img {
-    background-color: whitesmoke;
-    position: absolute;
-    height: 70px;
-    width: auto;
-    top: 12px;
-    right: 12px;
+   background-color: whitesmoke;
+   position: absolute;
+   height: 75px;
+   width: auto;
+   top: 13px;
+   right: 12px;
 }
 
 .MobileUserProfile div {
@@ -310,12 +322,12 @@
 
 .MobileUserProfile a {
     position: absolute;
-    bottom: 8px;
-    right: 13px;
-    background-color: #2790cb;
-    font-size: 12px;
-    padding: 1px 6px;
-    border-radius: 5px;
+    top: 10px;
+    left: 13px;
+    background-color: #2790cba1;
+    font-size: 25px;
+    padding: 0px 12px;
+    border-radius: 10px;
 }
 
 .profile-dashboard-widget {

@@ -2,7 +2,7 @@
     padding: 0 25px 0px 18px;
 }
 .pp-padding2 {
-    padding: 10px 40px 0 34px;
+    padding: 0px 40px 0 34px;
 }
 .pp-padding {
     padding: 10px 30px 0 25px;
@@ -314,15 +314,15 @@ li.lead p {
        justify-items: center;
        justify-content: center;
        position: relative;
-       height: 120px;
+       height: 100px;
    }
 
    .MobileUserProfile img {
        background-color: whitesmoke;
        position: absolute;
-       height: 70px;
+       height: 75px;
        width: auto;
-       top: 12px;
+       top: 13px;
        left: 12px;
    }
 
@@ -333,14 +333,14 @@ li.lead p {
    }
 
    .MobileUserProfile a {
-       position: absolute;
-       bottom: 8px;
-       left: 13px;
-       background-color: #2790cb;
-       font-size: 12px;
-       padding: 1px 6px;
-       border-radius: 5px;
-   }
+        position: absolute;
+        top: 10px;
+        right: 13px;
+        background-color: #1f438b94;
+        font-size: 25px;
+        padding: 0px 12px;
+        border-radius: 10px;
+    }
 
    .profile-dashboard-widget {
        margin-bottom: 32px;
