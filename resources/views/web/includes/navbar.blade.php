@@ -73,19 +73,30 @@ $pos = strpos($url, "/".app()->getLocale());
             {{ __('translation.search_') }}
          </a>
 
-         <a href="{{route('Sell_With_DCM')}}" class="center-nav-mob" data-option="home">
+         <a href="{{route('claim_cashback')}}" class="center-nav-mob" data-option="home">
+            <i class="fa-solid fa-dollar"></i>
+            {{ __('translation.Earn_Cashback') }}
+         </a>
+
+         <!-- <a href="{{route('Sell_With_DCM')}}" class="center-nav-mob" data-option="home">
+            <i class="fa fa-bullseye"></i>
+            {{ __('translation.Sell_With_us') }}
+         </a> -->
+
+         <a href="#" class="mobile-nav-button" data-option="home">
             <i class="fa fa-bullseye"></i>
             {{ __('translation.Sell_With_us') }}
          </a>
 
-         <a href="#" class="mobile-nav-button" data-option="emirates">
+
+         <!-- <a href="#" class="mobile-nav-button" data-option="emirates">
             <i class="fa fa-crosshairs"></i>
             @if(config('app.country') == '1')
             {{ __('translation.all_emirates') }}
             @else
             {{ __('translation.All Provices') }}
             @endif
-         </a>
+         </a> -->
 
          @if(Auth::check())
          <a href="{{route('user.dashboard',[app()->getLocale()])}}">

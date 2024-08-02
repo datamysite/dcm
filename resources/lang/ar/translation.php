@@ -13,7 +13,7 @@ return [
   "Stores" => "متاجر",
   "Categories" => "الفئات",
   "About_Us" => "عننا",
-  "Earn_Cashback" => "إسترد",
+  "Earn_Cashback" => "إسترد نقودك",
   "Search" => "إبحث...",
   "Sell_With_DCM" => "بيع معنا",
   "Sell_With_us" => "بيع معنا",
@@ -113,6 +113,7 @@ return [
 
   "ONLINE_STORES" => "متاجر أونلاين",
   "RETAIL_STORES" => "متاجر أوفلاين",
+  "TOP_STORES" => "أفضل المتاجر",
   //UAE Icons//
   "ABU DHABI" => "ابوظبي",
   "DUBAI" => "دبي",
@@ -867,4 +868,8 @@ return [
   "suggested_brands_txt" => "المتاجر المقترحة",
   "popular_brands_txt" => "متاجر شائعة",
   "related_stores_txt" =>  "المتاجر ذات الصلة",
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5c03298ea7f656a4bc53f64763b9daf94f8a8700
 ];

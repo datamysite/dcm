@@ -169,7 +169,7 @@
                                 <div class="mb-8">
                                     <div class="card bg-light border-0" style="border-radius: 10px;">
                                         <div class="d-flex align-items-center">
-                                            <div>
+                                            <div style="padding-left:10px;">
                                                 <img src="{{ config('app.storage').'authors/'.$val->author->image }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
                                             </div>
                                             <div class="ms-3 lh-1">
@@ -179,8 +179,9 @@
                                         </div>
                                         <div class="card-body p-0" style="padding: 15px !important;">
                                             <p style="color: #000;">
-                                                {!! Str::limit($val->short_description, 80, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">Read More</a></b>
+                                                {!! Str::limit($val->short_description, 150, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">Read More</a></b>
                                             </p>
+                                            <p><b style="color:#000;">{{date('d-M-Y', strtotime($val->created_at))}}</b></p>
                                         </div>
                                     </div>
                                 </div>

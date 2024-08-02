@@ -14,7 +14,9 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="{{route('Blogs')}}" style="color:#1DACE3;"><strong>Blogs</a></strong></li>
+                        <li class="breadcrumb-item" aria-current="page"><a href="{{route('Blogs')}}" style="color:#000;"><strong>Blogs</a></strong></li>
+                        <li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0)" style="color:#000;"><strong>Authors</a></strong></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$data['author']->name }}</a></strong></li>
                     </ol>
                 </nav>
             </div>
