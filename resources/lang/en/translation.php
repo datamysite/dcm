@@ -13,7 +13,7 @@ return [
   "Stores" => "Stores",
   "Categories" => "Categories",
   "About_Us" => "About Us",
-  "Earn_Cashback" => "Earn Cashback",
+  "Earn_Cashback" => "Earn",
   "Search" => "Search...",
   "Sell_With_DCM" => "Sell With DCM",
   "Sell_With_us" => "Sell With US",
@@ -878,6 +878,11 @@ return [
 
   "cashback_txt" => "Login or Sign up to start earning cashback!",
   "join_now_txt" => "Join Now or Sign In",
+
+  "most_searched_brands_txt" => "Most Searched Brands",
+  "suggested_brands_txt" => "Suggested Brands",
+  "popular_brands_txt" => "Popular Brands",
+  "related_stores_txt" => "Related Stores",
 
 
  

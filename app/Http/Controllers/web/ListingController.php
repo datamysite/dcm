@@ -121,8 +121,6 @@ class ListingController extends Controller
         $data['suggestedHeading'] = array('Most Searched Brands', '', 'Suggested Brands', '', 'Popular Brands', '', 'Most Searched Brands', '', 'Suggested Brands', '', 'Popular Brands', '', 'Most Searched Brands', '', 'Suggested Brands', '', 'Popular Brands');
         $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
 
-        $data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(10);
-
         $data['isMobile'] = Agent::isMobile();
         //dd($data['isMobile']);
         ClicksCounter::hitCount('1', $data['retailer']->id);
@@ -160,7 +158,6 @@ class ListingController extends Controller
         $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->get();
         $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->get();
 
-        $data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(10);
 
         $data['suggestedHeading'] = array('Most Searched Brands', '', 'Suggested Brands', '', 'Popular Brands', '', 'Most Searched Brands', '', 'Suggested Brands', '', 'Popular Brands', '', 'Most Searched Brands', '', 'Suggested Brands', '', 'Popular Brands');
         $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
