@@ -1,3 +1,18 @@
+.suggested-brand .top_stores {
+    background-color: #e6e6e6;
+    padding: 2px 10px;
+    margin-bottom: 2px;
+}
+.suggested-brand a .top_stores {
+    color: #000;
+    font-size: 13px;
+}
+.suggested-brand a .top_stores:hover{
+    font-weight: bold;
+}
+.suggested-brand{
+    margin-bottom: 15px;
+}
 body{
     overflow-x: hidden !important;
 }

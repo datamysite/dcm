@@ -26554,12 +26554,11 @@ span.flatpickr-weekday {
 }
 
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 65px;
+  height: 65px;
   background-size: cover;
   position: relative;
   margin: 0 auto;
-  border: 2px solid #1caae2;
 }
 
 .cus_profile .avatar .camera {

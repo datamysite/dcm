@@ -863,4 +863,8 @@ return [
   "cashback_txt" => "إنشئ حساب او سجل الدخول, لتسترد نقودك معنا",
   "join_now_txt" => "إنضم الينا الان او سجل الدخول",
 
+  "most_searched_brands_txt" => "المتاجر الأكثر بحثا",
+  "suggested_brands_txt" => "المتاجر المقترحة",
+  "popular_brands_txt" => "متاجر شائعة",
+  "related_stores_txt" =>  "المتاجر ذات الصلة",
 ];

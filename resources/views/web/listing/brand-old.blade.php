@@ -94,95 +94,65 @@
             <!-- //Stroe Blog Header Section End// -->
 
         </div>
-        <br><br>
-        <div class="row">
+
+        @php $bg = 2; $it = 0; $sg = 0; @endphp
+        @foreach($offers as $val)
+        @php if($bg == count($stripColors)){ $bg = 2;} @endphp
+        <div class="row d-flex  m-mt-16 mt-16" style="align-items: center;">
             <div class="col-lg-9">
-                @php $bg = 2; $it = 0; $sg = 0; @endphp
-                @foreach($offers as $val)
-                    @php if($bg == count($stripColors)){ $bg = 2;} @endphp
+                <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
 
-                    <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
-
-                        <div class="Lside_div">
-                            <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($retailer->alt_tag_ar) ? $retailer->name_ar : $retailer->alt_tag_ar}} @else {{empty($retailer->alt_tag) ? $retailer->name : $retailer->alt_tag}} @endif" class="img" style="height:80%">
-                        </div>
-
-                        <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
-                            <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->title_ar : $val->title}}</span>
-
-                            <span style="color:#fff;"></span>
-
-                            <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showOffer" onclick="return gtag_report_showcoupon;" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
-                            </span>
-                        </div>
-                    </div>
-                    <script type="application/ld+json">
-                        {
-                            "@context": "http://schema.org",
-                            "@type": "SaleEvent",
-                            "name": "{{$val->title}}",
-                            "url": "{{$actual_link}}",
-                            "startDate": "{{date('Y-m-d',strtotime('-1 days'))}}",
-                            "endDate": "{{date('Y-m-d',strtotime('+5 days'))}}",
-                            "location": {
-                                "@type": "Place",
-                                "name": "{{$retailer->name}}",
-                                "url": "{{$retailer->store_link}}",
-                                "address": "{{$retailer->name}}"
-                            }
-                        }
-                    </script>
-                    <br><br><br><br>
-                    @php $bg++; $it++; @endphp
-                @endforeach
-
-
-                @php $bg = 0; $it = 0; $sg = 0; @endphp
-                @foreach($coupons as $val)
-                    @php if($bg == count($stripColors)){ $bg = 0;} @endphp
-
-                    <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
-
-                        <div class="Lside_div">
-                            <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($retailer->alt_tag_ar) ? $retailer->name_ar : $retailer->alt_tag_ar}} @else {{empty($retailer->alt_tag) ? $retailer->name : $retailer->alt_tag}} @endif" class="img" style="height:80%">
-                        </div>
-
-                        <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
-                            <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->heading_ar : $val->heading}}</span>
-
-                            <span style="color:#fff;"></span>
-
-                            <span class="col text-center">
-                                <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" onclick="return gtag_report_showcoupon;" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
-                            </span>
-                        </div>
+                    <div class="Lside_div">
+                        <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($retailer->alt_tag_ar) ? $retailer->name_ar : $retailer->alt_tag_ar}} @else {{empty($retailer->alt_tag) ? $retailer->name : $retailer->alt_tag}} @endif" class="img" style="height:80%">
                     </div>
 
-                    <script type="application/ld+json">
-                        {
-                            "@context": "http://schema.org",
-                            "@type": "SaleEvent",
-                            "name": "{{$val->heading}}",
-                            "url": "{{$actual_link}}",
-                            "startDate": "{{date('Y-m-d',strtotime('-1 days'))}}",
-                            "endDate": "{{date('Y-m-d',strtotime('+5 days'))}}",
-                            "location": {
-                                "@type": "Place",
-                                "name": "{{$retailer->name}}",
-                                "url": "{{$retailer->store_link}}",
-                                "address": "{{$retailer->name}}"
-                            }
+                    <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
+                        <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->title_ar : $val->title}}</span>
+
+                        <span style="color:#fff;"></span>
+
+                        <span class="col text-center">
+                            <a href="javascript:void(0)" class="btn btn-white shadow-green showOffer" onclick="return gtag_report_showcoupon;" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
+                        </span>
+                    </div>
+                </div>
+                <script type="application/ld+json">
+                    {
+                        "@context": "http://schema.org",
+                        "@type": "SaleEvent",
+                        "name": "{{$val->title}}",
+                        "url": "{{$actual_link}}",
+                        "startDate": "{{date('Y-m-d',strtotime('-1 days'))}}",
+                        "endDate": "{{date('Y-m-d',strtotime('+5 days'))}}",
+                        "location": {
+                            "@type": "Place",
+                            "name": "{{$retailer->name}}",
+                            "url": "{{$retailer->store_link}}",
+                            "address": "{{$retailer->name}}"
                         }
-                    </script>
-                    <br><br><br><br>
-                    @php $bg++; $it++; @endphp
-                @endforeach
+                    }
+                </script>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 brand-ad-section">
+                @if($it % 2 == 0)
+                @if($isMobile)
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638" crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-g1-1j+1s-5u+hd" data-ad-client="ca-pub-3180751570116638" data-ad-slot="7508887874"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                @else
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638" crossorigin="anonymous"></script>
+                <!-- DCM Responsive -->
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3180751570116638" data-ad-slot="1784464113" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                @endif
+                @else
                 <div class="row suggested-brand">
                     <div class="col-lg-12">
-                        <p>{{ __('translation.most_searched_brands_txt') }}</p>
+                        <p>{{$suggestedHeading[$sg]}}</p>
                     </div>
                     <div class="col-6">
                         <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
@@ -197,61 +167,93 @@
                     </div>
                     @php $sg++; @endphp
                 </div>
-                <br>
-                <div class="row suggested-brand">
-                    <div class="col-lg-12">
-                        <p>{{ __('translation.related_stores_txt') }}</p>
-                    </div>
-                    <div class="col-lg-12">
-                        @foreach($top_stores as $val)
-                        <a href="">
-                            <div class="top_stores">
-                                {{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}
-                            </div>
-                        </a>
-                        @endforeach
-                    </div>
-                    
-                </div>
-                <br>
-                <div class="row suggested-brand">
-                    <div class="col-lg-12">
-                        <p>{{ __('translation.suggested_brands_txt') }}</p>
-                    </div>
-                    <div class="col-6">
-                        <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
-                            <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
-                        </a>
-                    </div>
-                    @php $sg++; @endphp
-                    <div class="col-6">
-                        <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
-                            <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
-                        </a>
-                    </div>
-                    @php $sg++; @endphp
-                </div>
-                <br>
-                <div class="row suggested-brand">
-                    <div class="col-lg-12">
-                        <p>{{ __('translation.popular_brands_txt') }}</p>
-                    </div>
-                    <div class="col-6">
-                        <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
-                            <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
-                        </a>
-                    </div>
-                    @php $sg++; @endphp
-                    <div class="col-6">
-                        <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
-                            <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
-                        </a>
-                    </div>
-                    @php $sg++; @endphp
-                </div>
+                @endif
             </div>
         </div>
 
+
+
+        @php $bg++; $it++; @endphp
+        @endforeach
+
+        @php $bg = 0; $it = 0; $sg = 0; @endphp
+        @foreach($coupons as $val)
+        @php if($bg == count($stripColors)){ $bg = 0;} @endphp
+        <div class="row d-flex  m-mt-16 mt-16" style="align-items: center;">
+            <div class="col-lg-9">
+                <div class="main_div_container" style="background-color: {{$stripColors[$bg]}};">
+
+                    <div class="Lside_div">
+                        <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($retailer->alt_tag_ar) ? $retailer->name_ar : $retailer->alt_tag_ar}} @else {{empty($retailer->alt_tag) ? $retailer->name : $retailer->alt_tag}} @endif" class="img" style="height:80%">
+                    </div>
+
+                    <div class="row col-8 col-xs-8 mt-0 p-5" style="align-items: left;">
+                        <span style="color:#fff;">{{app()->getLocale() == 'ar' ? $val->heading_ar : $val->heading}}</span>
+
+                        <span style="color:#fff;"></span>
+
+                        <span class="col text-center">
+                            <a href="javascript:void(0)" class="btn btn-white shadow-green showCoupon" onclick="return gtag_report_showcoupon;" data-id="{{base64_encode($val->id)}}" style="font-weight:bold; color:#1dace3;">{{ __('translation.show_coupon') }}</a>
+                        </span>
+                    </div>
+                </div>
+
+                <script type="application/ld+json">
+                    {
+                        "@context": "http://schema.org",
+                        "@type": "SaleEvent",
+                        "name": "{{$val->heading}}",
+                        "url": "{{$actual_link}}",
+                        "startDate": "{{date('Y-m-d',strtotime('-1 days'))}}",
+                        "endDate": "{{date('Y-m-d',strtotime('+5 days'))}}",
+                        "location": {
+                            "@type": "Place",
+                            "name": "{{$retailer->name}}",
+                            "url": "{{$retailer->store_link}}",
+                            "address": "{{$retailer->name}}"
+                        }
+                    }
+                </script>
+            </div>
+            <div class="col-lg-3 brand-ad-section">
+                @if($it % 2 == 0)
+                @if($isMobile)
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638" crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-g1-1j+1s-5u+hd" data-ad-client="ca-pub-3180751570116638" data-ad-slot="7508887874"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                @else
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3180751570116638" crossorigin="anonymous"></script>
+                <!-- DCM Responsive -->
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3180751570116638" data-ad-slot="1784464113" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                @endif
+                @else
+                <div class="row suggested-brand">
+                    <div class="col-lg-12">
+                        <p>{{$suggestedHeading[$sg]}}</p>
+                    </div>
+                    <div class="col-6">
+                        <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
+                            <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
+                        </a>
+                    </div>
+                    @php $sg++; @endphp
+                    <div class="col-6">
+                        <a href="{{URL::to('/'.app()->getLocale().'/'.$suggested[$sg]->slug)}}">
+                            <img src="{{config('app.storage').'retailers/'}}/{{app()->getLocale() == 'ar' ? 'ar/'.$suggested[$sg]->ar_logo : $suggested[$sg]->logo}}" alt="@if(app()->getLocale() == 'ar') {{empty($suggested[$sg]->alt_tag_ar) ? $suggested[$sg]->name_ar : $suggested[$sg]->alt_tag_ar}} @else {{empty($suggested[$sg]->alt_tag) ? $suggested[$sg]->name : $suggested[$sg]->alt_tag}} @endif">
+                        </a>
+                    </div>
+                    @php $sg++; @endphp
+                </div>
+                @endif
+            </div>
+        </div>
+        @php $bg++; $it++; @endphp
+        @endforeach
 
         <!-- //Stroe Blog Footer Section Start// -->
         @if ( count($retailor_blog_footer) != 0 )
@@ -298,6 +300,11 @@
         <!-- //Stroe FAQs Section End// -->
 
         <div class="container np-container">
+            <div class="row mt-16">
+                <div class="col-12 mb- text-center">
+                    <h3 class="mb-5">{{ __('translation.Feedback') }}</h3>
+                </div>
+            </div>
 
             <div class="mt-10 review-slider-second" id="slider-reviews">
 
@@ -305,20 +312,14 @@
                 <div class="item">
                     <div class="mb-8">
 
-                        <div class="card feedback-card " style="border-radius: 10px;">
-                            <div class="d-flex align-items-center flex-column">
+                        <div class="card bg-light border-0" style="border-radius: 10px;">
+                            <div class="d-flex align-items-center">
                                 <div>
                                     <img src="{{URL::to('/public')}}/web_assets/images/reviews/{{$val->gender}}/{{rand(1,3)}}.png" alt="" class="avatar avatar-md rounded-circle" />
                                 </div>
-                                <div class="mt-1 lh-1 text-center">
+                                <div class="ms-3 lh-1">
                                     <h6 class="mb-0">{{$val->name}}</h6>
-                                    <div class="feedback-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
+                                    <small>{{ __('translation.Customer') }}</small>
                                 </div>
                             </div>
                             <div class="card-body p-5">
@@ -335,15 +336,6 @@
 
 
     </div>
-        <div class="bg-gray pb-4 pt-12 feedback-heading">
-            <div class="container np-container">
-                <div class="row mb-4 mt-12">
-                    <div class="col-12 text-center">
-                        <h3 class="mb-5 text-white">{{ __('translation.Feedback') }}</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
 </section>
 <!-- Store Prodcut Section End-->
 
