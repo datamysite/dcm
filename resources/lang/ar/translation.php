@@ -868,8 +868,5 @@ return [
   "suggested_brands_txt" => "المتاجر المقترحة",
   "popular_brands_txt" => "متاجر شائعة",
   "related_stores_txt" =>  "المتاجر ذات الصلة",
-<<<<<<< HEAD
-=======
-
->>>>>>> 5c03298ea7f656a4bc53f64763b9daf94f8a8700
+  
 ];
