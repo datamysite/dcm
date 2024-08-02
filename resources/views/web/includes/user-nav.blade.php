@@ -84,12 +84,12 @@ new color : #dfe1e5
     <div class="MobileUserProfile mt-5">
         <img src="{{URL::to('/public')}}/web_assets/images/icons/bird.png" alt="Circle Image" class="circle-image">
         <div>
-            <h6 class="mt-5" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;"' : 'style="color: #fff;padding-left:25px;"' !!}>{{ __('translation.hi_txt') }} {{Auth::user()->name}}</h6>
-            <p {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:25px;padding-left:10px;"' : 'style="color: #fff;padding-left:25px;padding-right:10px;"' !!}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            <h6 class="mt-5" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:32px;"' : 'style="color: #fff;padding-left:32px;"' !!}>{{ __('translation.hi_txt') }} <br>{{Auth::user()->name}}</h6>
+            <p {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:32px;padding-left:10px;"' : 'style="color: #fff;padding-left:32px;padding-right:10px;"' !!}>
+                <span class="ud-email">{{Auth::user()->email}}</span>
             </p>
         </div>
-        <a href="{{route('user.logout')}}"><b class="mt-0" style="color: #fff;"><i class="fa fa-sign-out"></i> {{ __('translation.logout_menu') }}</b></a>
+        <a href="{{route('user.logout')}}"><b class="mt-0" style="color: #fff;"><i class="fa fa-sign-out"></i></b></a>
         
     </div>
     <!-- Main Mobile div for main profile End-->
