@@ -204,7 +204,7 @@
                     </div>
                     <div class="col-lg-12">
                         @foreach($top_stores as $val)
-                        <a href="">
+                        <a href="{{URL::to('/'.app()->getLocale().'/'.$val->slug)}}">
                             <div class="top_stores">
                                 {{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}
                             </div>
