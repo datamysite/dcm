@@ -6,7 +6,7 @@
 
 <div class="nav-spacing"></div>
 
-<div class="container emirates-container np-container">
+<!-- <div class="container emirates-container np-container">
    <div class="emirates-section-nav">
       @foreach($allstates as $val)
       <a href="{{route('setRegion', [app()->getLocale(), $val->slug])}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}" aria-label="{{app()->getLocale() == 'ar'  ? $val->name_ar : $val->name}}">
@@ -17,7 +17,7 @@
       </a>
       @endforeach
    </div>
-</div>
+</div> -->
 
 <!-- Cashback Popup Alert MWeb Message Start -->
 @if( Auth::check() == null && Route::currentRouteName() === 'home' )
