@@ -7,6 +7,8 @@
 @endsection
 @section('content')
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
 <div class="mt-110">
     <div class="container">
@@ -74,7 +76,7 @@
             </div>
         </div>
     </div>
-    <div class="MobileUserProfile mt-5" style="border-radius:0px;height:145px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);">
+    <div class="MobileUserProfile mt-5" style="border-radius:0px;height:240px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);">
         <div class="row" style="color: #fff;left: 20px;">
             <b style="font-size:1.75rem;" class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</b>
             <p class="mt-1" style="color: #fff;">Author: <a href="{{route('blog.author', $data['author']->slug )}}" style="color:#fff;position:relative;bottom:0px;left:0px;background-color:transparent;">{{ $data['author']->name }}</a></p>
@@ -100,13 +102,98 @@
             </div>
 
             @if(!empty($data['blogs_category']) )
+
             <div class="col-lg-3">
 
                 <div class="row">
+                    <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
+                        <div class="text-left">
+                            <h5 class="mt-2" style="color: #fff;">Top Stores</h5>
+                        </div>
+                    </div>
+
+                    <div class="nav nav-category" id="categoryCollapseMenu">
+                        <ul style="padding-left:20px">
+                            @foreach($data['top_stores'] as $val)
+                            <li class="nav-item border-bottom">
+
+                                <a href="{{URL::to('/'.app()->getLocale().'/'.$val->slug)}}" class="nav-link collapsed active">
+                                    <span>{{$val->name}}</span>
+                                </a>
+
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="row mt-1">
 
                     <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
                         <div class="text-left">
-                            <h5 class="mt-2" style="color: #fff;">Categories</h5>
+                            <h5 class="mt-2" style="color: #fff;">Related Blogs</h5>
+                        </div>
+                    </div>
+
+                    @foreach($data['blogs_category'] as $val)
+                    <div class="DesktopRelatedBlogs">
+
+                        <div class="row mt-5">
+                            <div class="col-lg-4" style="text-align: center;">
+                                @if($val->author->image !='')
+                                <a href="{{route('blog.author',$val->author->slug ) }}">
+                                    <img src="{{ config('app.storage').'authors/'.$val->author->image }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
+                                    <p class="mt-2" style="color:#000;font-size: 11px;font-weight: bolder;">{{$val->author->name}}</p>
+                                </a>
+                                @else
+                                <img src="{{ config('app.storage').'authors/4170724111224.png' }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
+                                @endif
+                            </div>
+                            <div class="col-lg-8">
+                                <h6>{{ $val->heading }}</h6>
+                                <p style="color: #000;">
+                                    {!! Str::limit($val->short_description, 80, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">Read More</a></b>
+                                </p>
+                                <p><b style="color:#000;">{{date('d-M-Y', strtotime($val->created_at))}}</b></p>
+                            </div>
+                            <hr style="border-top: 2px solid #d8cfcf;">
+                        </div>
+                    </div>
+                    @endforeach
+
+                    <div class="MwebRelatedBlogs mt-5">
+                        <div class="review-slider-second" id="slider-reviews">
+                            @foreach ($data['blogs_category'] as $val)
+                            <div class="item">
+                                <div class="mb-8">
+                                    <div class="card bg-light border-0" style="border-radius: 10px;">
+                                        <div class="d-flex align-items-center">
+                                            <div>
+                                                <img src="{{ config('app.storage').'authors/'.$val->author->image }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
+                                            </div>
+                                            <div class="ms-3 lh-1">
+                                                <h6 class="mb-0">{{$val->author->name}}</h6>
+                                                <small>Author</small>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-0" style="padding: 15px !important;">
+                                            <p style="color: #000;">
+                                                {!! Str::limit($val->short_description, 80, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">Read More</a></b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
+                        <div class="text-left">
+                            <h5 class="mt-2" style="color: #fff;">Blog Categories</h5>
                         </div>
                     </div>
 
@@ -129,66 +216,6 @@
                             @endforeach
                         </ul>
                     </div>
-                </div>
-
-                <div class="row mt-1">
-
-                    <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
-                        <div class="text-left">
-                            <h5 class="mt-2" style="color: #fff;">Related Blogs</h5>
-                        </div>
-                    </div>
-
-
-                    @foreach($data['blogs_category'] as $val)
-
-                    <!-- <div class="row mt-5">
-                        <div class="col-lg-12">
-                            <h6>{{ $val->heading }}</h6>
-                            <p style="color: #000;">{{date('d-M-Y', strtotime($val->created_at))}}</p>
-                            <p style="color: #000;">
-                                {!! Str::limit($val->short_description, 80, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">Read More</a></b>
-                            </p>
-                        </div>
-
-                        @if($val->author->image !='')
-                        <div class="">
-                            <img src="{{ config('app.storage').'authors/'.$val->author->image }}" alt="Circle Image" class="circle-image" style="margin-top:1px;width:35px;height:35px;background-color:antiquewhite;">
-                            <b style="font-size: 12px;">
-                                <a href="{{route('blog.author',$val->author->slug ) }}" style="color: #000;padding-left:10px;">{{$val->author->name }}</a>
-                            </b>
-                        </div>
-                        @else
-                        <img src="{{ config('app.storage').'authors/4170724111224.png' }}" alt="Circle Image" class="circle-image" style="margin-top:1px;width:35px;height:35px;background-color:antiquewhite;">
-                        @endif
-
-                        <p></p>
-                        <hr style="border-top: 2px solid #d8cfcf;">
-                    </div> -->
-
-                    <div class="row mt-5">
-                        <div class="col-lg-4" style="text-align: center;">
-                            @if($val->author->image !='')
-                            <a href="{{route('blog.author',$val->author->slug ) }}">
-                                <img src="{{ config('app.storage').'authors/'.$val->author->image }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
-                                <p class="mt-2" style="color:#000;font-size: 11px;font-weight: bolder;">{{$val->author->name}}</p>
-                            </a>
-                            @else
-                            <img src="{{ config('app.storage').'authors/4170724111224.png' }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
-                            @endif
-                        </div>
-                        <div class="col-lg-8">
-                            <h6>{{ $val->heading }}</h6>
-                            <p style="color: #000;">
-                                {!! Str::limit($val->short_description, 80, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">Read More</a></b>
-                            </p>
-                            <p><b style="color:#000;">{{date('d-M-Y', strtotime($val->created_at))}}</b></p>
-                        </div>
-                        <hr style="border-top: 2px solid #d8cfcf;">
-                    </div>
-
-                    @endforeach
-
                 </div>
 
                 <div class="row">
@@ -261,6 +288,26 @@
         </div>
 </section>
 <!-- Single Blog section End Here -->
+<!-- Releated blogs slider js -->
+<script>
+    $(document).ready(function() {
+        $('#slider-reviews').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }]
+        });
+    });
+</script>
 
 <!-- Facebook Share Lib -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0" nonce="kqdFOKnl"></script>

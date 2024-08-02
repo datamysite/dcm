@@ -115,6 +115,7 @@ return [
 
   "ONLINE_STORES" => "Online Stores",
   "RETAIL_STORES" => "Retail Stores",
+  "TOP_STORES" => "TOP Stores",
 
   //UAE Icons//
   "ABU DHABI" => "ABU DHABI",

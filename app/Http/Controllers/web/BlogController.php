@@ -8,6 +8,7 @@ use App\Models\Blogs;
 use App\Models\Faq;
 use App\Models\Author;
 use App\Models\Categories;
+use App\Models\Retailers;
 
 class BlogController extends Controller
 {
@@ -36,6 +37,8 @@ class BlogController extends Controller
         $data['category'] = Categories::where('parent_id', 0)->get();
         $data['blogs_category'] = Blogs::where('category_id', $category_id)->with('author')->get()->shuffle()->take(3);
 
+        $data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(10);
+        
         return view($this->getView('web.blogs.single-blog'), ['data' => $data]);
     }
 

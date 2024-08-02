@@ -1701,7 +1701,15 @@ label.errors {
     display: block;
 }
 
-.MobileAuthorSection{
+.MobileAuthorSection {
+    display: none;
+}
+
+.DesktopRelatedBlogs {
+    display: block;
+}
+
+.MwebRelatedBlogs {
     display: none;
 }
 
@@ -1716,6 +1724,31 @@ label.errors {
 @media (max-width: 990px) {
     .whatsapp-channel-btn {
         display: none;
+    }
+
+    .DesktopRelatedBlogs {
+        display: none;
+    }
+
+    .MwebRelatedBlogs {
+        display: block;
+        height: 225px;
+    }
+
+    .MwebRelatedBlogs .slick-dots {
+        bottom: 0 !important;
+    }
+
+    .MwebRelatedBlogs .slick-slider .slick-prev {
+        display: none !important;
+    }
+
+    .MwebRelatedBlogs .slick-slider .slick-next {
+        display: none !important;
+    }
+
+    .MwebRelatedBlogs .slick-prev .slick-arrow {
+        display: none !important;
     }
 
     .ext-banner {
@@ -1783,10 +1816,11 @@ label.errors {
 
     /* UserMenu-Web-Mobile End*/
 
-    .DesktopAuthorSection{
+    .DesktopAuthorSection {
         display: none;
     }
-    .MobileAuthorSection{
+
+    .MobileAuthorSection {
         display: block;
     }
 
@@ -2024,7 +2058,7 @@ label.errors {
     }
 
     .custom_col {
-        height: 240px;
+        height: auto;
     }
 
     .category-slider .text-truncate {
@@ -2586,6 +2620,7 @@ label.errors {
     .text-lg-center a .page-title {
         margin-bottom: 0;
     }
+
 }
 
 
@@ -2595,6 +2630,7 @@ label.errors {
     .lazyload-category {
         height: 90.188px;
     }
+
 
     .lazyload-product {
         height: 200px;
@@ -2632,4 +2668,5 @@ label.errors {
     .main-search-div input {
         width: 100% !important;
     }
+
 }
