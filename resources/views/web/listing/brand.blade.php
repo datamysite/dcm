@@ -71,12 +71,6 @@
                     <a class="brand_store_link" href="{{$retailer->store_link}}" rel="nofollow">{{$brand_domain}}</a>
                     @endif
                 </div>
-                <div>
-                    <div class="col-12 text-right blogToggle">
-                        <button class="btn btn-sm btn-primary btn-blog">About {{$retailer->name}} <span class="arr"><i class="fa fa-arrow-down" aria-hidden="true"></i></span></button>
-
-                    </div>
-                </div>
             </div>
 
             <!-- //Stroe Blog Header Section Start// -->
