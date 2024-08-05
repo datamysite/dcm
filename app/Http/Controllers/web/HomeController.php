@@ -51,16 +51,14 @@ class HomeController extends Controller
                 return $q->limit(10);
             })->orderBy('homestores.id', 'desc')->get();
 
-            $data['topstores'] = DB::table('homestores')->where('retailer_type', '1')
-            ->select('retailers.id', 'retailers.name', 'retailers.name_ar', 'retailers.alt_tag', 'retailers.alt_tag_ar', 'retailers.logo', 'retailers.ar_logo', 'retailers.slug', 'retailers.discount_upto')
-            ->join('retailers', 'retailers.id', '=', 'homestores.retailer_id')
-            ->where('homestores.del', '0')
+            $retailersArray = [2,27,55,75,54,14,57,56];
+            $data['topstores'] = Retailers::where('status', 1)->whereIn('id', $retailersArray)->orderByRaw("FIELD(id, " . implode(",", $retailersArray) . ")")
             ->when(config('app.amp') == true && $isMobile, function ($q) {
                 return $q->limit(4);
             })
             ->when($isMobile == false, function ($q) {
                 return $q->limit(10);
-            })->orderBy('homestores.id', 'desc')->get()->shuffle();
+            })->get();
 
         $data['retailstores'] = HomeStores::where('retailer_type', '2')
             ->where('del', '0')
