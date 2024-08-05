@@ -299,25 +299,57 @@
 
         <div class="container np-container">
 
+            <div class="row">
+                <div class="col-lg-12">
+                    @if(Auth::check())
+                        <h3 class="mb-5">Write a Review</h3>
+                        <form method="post" action="{{route('write_review')}}">
+                            @csrf
+                            <label>Score:</label>
+                            <div class="star-rating">
+                              <input type="radio" id="5-stars" name="rating" value="5" />
+                              <label for="5-stars" class="star">&#9733;</label>
+                              <input type="radio" id="4-stars" name="rating" value="4" checked/>
+                              <label for="4-stars" class="star">&#9733;</label>
+                              <input type="radio" id="3-stars" name="rating" value="3" />
+                              <label for="3-stars" class="star">&#9733;</label>
+                              <input type="radio" id="2-stars" name="rating" value="2" />
+                              <label for="2-stars" class="star">&#9733;</label>
+                              <input type="radio" id="1-star" name="rating" value="1" />
+                              <label for="1-star" class="star">&#9733;</label>
+                            </div>
+
+                            <label>Review:</label>
+                            <textarea rows="4" class="form-control" name="description" placeholder="Excellent Service!"></textarea>
+                            <button type="submit" class="btn btn-outline-gray-400 writeReviewSubmit">Post</button>
+                        </form>
+                    @else
+                        <a href="javascript:void(0)" class="btn btn-outline-gray-400 text-dark" data-bs-toggle="modal" data-bs-target="#userModal"><i class="fa fa-edit"></i> Write a Review</a>
+                    @endif
+                    <br>
+                </div>
+            </div>
+
             <div class="mt-10 review-slider-second" id="slider-reviews">
 
-                @foreach($testimonials as $val)
+                @foreach($testimonials as $key => $val)
                 <div class="item">
                     <div class="mb-8">
 
                         <div class="card feedback-card " style="border-radius: 10px;">
                             <div class="d-flex align-items-center flex-column">
                                 <div>
-                                    <img src="{{URL::to('/public')}}/web_assets/images/reviews/{{$val->gender}}/{{rand(1,3)}}.png" alt="" class="avatar avatar-md rounded-circle" />
+                                    <img src="{{URL::to('/public/review-dp/'.(++$key))}}.jpg" alt="" class="avatar avatar-md rounded-circle" />
                                 </div>
                                 <div class="mt-1 lh-1 text-center">
                                     <h6 class="mb-0">{{$val->name}}</h6>
                                     <div class="feedback-rating">
+                                        @for($i=1; $i<=$val->rating; $i++)
                                         <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                        @endfor
+                                        @for($i=1; $i<=(5 - $val->rating); $i++)
+                                        <i class="fa fa-star-o"></i>
+                                        @endfor
                                     </div>
                                 </div>
                             </div>

@@ -122,6 +122,8 @@ Route::group([
         Route::get('/categories/{slug}', 'BlogController@categories')->name('blog.categories');
     });
 
+    //Write a Review
+    Route::post('/write_review', 'HomeController@write_review')->name('write_review');
     //About-Us
     Route::get('/about-Us', 'HomeController@About_Us')->name('About_Us');
 
