@@ -302,10 +302,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     @if(Auth::check())
-                        <h3 class="mb-5">Write a Review</h3>
+                        <h3 class="mb-5">{{ __('translation.write_a_review_txt') }}</h3>
                         <form method="post" action="{{route('write_review')}}">
                             @csrf
-                            <label>Score:</label>
+                            <label>{{ __('translation.score_txt') }}:</label>
                             <div class="star-rating">
                               <input type="radio" id="5-stars" name="rating" value="5" />
                               <label for="5-stars" class="star">&#9733;</label>
@@ -319,12 +319,12 @@
                               <label for="1-star" class="star">&#9733;</label>
                             </div>
 
-                            <label>Review:</label>
-                            <textarea rows="4" class="form-control" name="description" placeholder="Excellent Service!"></textarea>
-                            <button type="submit" class="btn btn-outline-gray-400 writeReviewSubmit">Post</button>
+                            <label>{{ __('translation.review_txt') }}:</label>
+                            <textarea rows="4" class="form-control" name="description" placeholder="{{ __('translation.excellant_txt') }}"></textarea>
+                            <button type="submit" class="btn btn-outline-gray-400 writeReviewSubmit">{{ __('translation.post_txt') }}</button>
                         </form>
                     @else
-                        <a href="javascript:void(0)" class="btn btn-outline-gray-400 text-dark" data-bs-toggle="modal" data-bs-target="#userModal"><i class="fa fa-edit"></i> Write a Review</a>
+                        <a href="javascript:void(0)" class="btn btn-outline-gray-400 text-dark" data-bs-toggle="modal" data-bs-target="#userModal"><i class="fa fa-edit"></i> {{ __('translation.write_a_review_txt') }}</a>
                     @endif
                     <br>
                 </div>

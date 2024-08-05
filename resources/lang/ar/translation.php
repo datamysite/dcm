@@ -869,4 +869,10 @@ return [
   "popular_brands_txt" => "متاجر شائعة",
   "related_stores_txt" =>  "المتاجر ذات الصلة",
   
+  "write_a_review_txt" => "اكتب تقييمك هنا",
+  "score_txt" => "إختار رقم",
+  "review_txt" => "قييم",
+  "post_txt" => "أنشر.",
+  "excellant_txt" => "خدمة ممتازة",  
+  
 ];

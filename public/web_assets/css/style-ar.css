@@ -28,7 +28,13 @@
 .feedback-rating i{
     color: gold;
 }
+#slider-reviews {
+    direction: ltr;
+}
 
+#slider-reviews .feedback-card{
+    text-align: left;
+}
 
 .star-rating {
   margin-top: -5px;
