@@ -872,7 +872,7 @@ return [
   "write_a_review_txt" => "اكتب تقييمك هنا",
   "score_txt" => "إختار رقم",
   "review_txt" => "قييم",
-  "post_txt" => "أنشر.",
+  "post_txt" => "أرسل تقييمك",
   "excellant_txt" => "خدمة ممتازة",  
   
 ];
