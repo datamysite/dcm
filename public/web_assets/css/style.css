@@ -17,6 +17,7 @@
     padding: 15px 10px;
     background-color: #fff;
     border: 1px solid #777;
+    height: 250px !important;
 }
 .bg-gray{
     background-color: #777;
@@ -27,6 +28,45 @@
 .feedback-rating i{
     color: gold;
 }
+
+
+.star-rating {
+  margin-top: -5px;
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.5em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:5em;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#fc0;
+}
+.writeReviewSubmit {
+    padding: 0 25px;
+    color: #1caae2;
+    border-color: #1caae2;
+    float: right;
+    margin-top: -30px;
+    margin-right: 5px;
+}
+
 body {
     overflow-x: hidden !important;
 }
@@ -868,7 +908,7 @@ body {
 }
 
 #retailerBlogs {
-    display: none;
+    border-top: 1px solid #e6e6e6;
 }
 
 .blogToggle {

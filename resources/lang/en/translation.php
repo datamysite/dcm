@@ -883,6 +883,11 @@ return [
   "suggested_brands_txt" => "Suggested Brands", 
   "popular_brands_txt" => "Popular Brands",
   "related_stores_txt" => "Related Stores",
-    
+  
+  "write_a_review_txt" => "Write a Review",
+  "score_txt" => "Score",
+  "review_txt" => "Review",
+  "post_txt" => "Post",
+  "excellant_txt" => "Excellent Service!",  
 
 ];

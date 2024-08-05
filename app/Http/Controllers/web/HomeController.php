@@ -12,8 +12,10 @@ use App\Models\About;
 use App\Models\Footer;
 use App\Models\Slider;
 use App\Models\Faq;
+use App\Models\Testimonials;
 use URL;
 use DB;
+use Auth;
 use App\Helpers\Mailer;
 use Jenssegers\Agent\Facades\Agent;
 use Illuminate\Support\Facades\Session;
@@ -323,6 +325,28 @@ class HomeController extends Controller
         echo json_encode($response);
     }
 
+    //Write a Review
+    public function write_review(Request $request){
+        $data = $request->all();
+        if(Auth::check()){
+            $t = Testimonials::where('created_by', Auth::id())->first();
+            if(empty($t->id)){
+                $nt = new Testimonials;
+                $nt->name = Auth::user()->name;
+                $nt->description = $data['description'];
+                $nt->rating = $data['rating'];
+                $nt->created_by = Auth::id();
+                $nt->save();
+
+                return redirect()->back()->with('success', 'Review submited successfully!');
+            }else{
+                return redirect()->back()->with('error', 'You already submitted a review.!');
+            }
+        }else{
+            return redirect()->back()->with('error', 'Unautherized request.!');
+        }
+
+    }
 
     //FAQS
     public function FAQS()

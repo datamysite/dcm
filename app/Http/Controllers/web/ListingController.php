@@ -111,7 +111,7 @@ class ListingController extends Controller
         $data['retailer'] = Retailers::where('slug', $brand_slug)->first();
         $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)->where('status', '1')->get();
         $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
-        $data['testimonials'] = Testimonials::where('status', '1')->get();
+        $data['testimonials'] = Testimonials::where('status', '1')->orderBy('created_at', 'desc')->limit(10)->get();
 
         //Get retailer FAqs
         $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->get();
@@ -151,7 +151,7 @@ class ListingController extends Controller
                 return $q->where('category_id', $data['category']->id);
             })
             ->where('status', '1')->get();
-        $data['testimonials'] = Testimonials::where('status', '1')->get();
+        $data['testimonials'] = Testimonials::where('status', '1')->orderBy('created_at', 'desc')->limit(10)->get();
         $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
 
         //Get retailer FAqs

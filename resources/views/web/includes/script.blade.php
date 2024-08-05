@@ -151,6 +151,13 @@ var MwebSlider = document.querySelector('.MwebSlider');
       showConfirmButton: false,
       timer: 2000
    });
+
+   @if(session()->has('success'))
+      Toast.fire({ icon: "success", title: '{{ session()->get("success") }}' });
+   @endif
+   @if(session()->has('error'))
+      Toast.fire({ icon: "error", title: '{{ session()->get("error") }}' });
+   @endif
 </script>
 <script src="{{URL::to('/public')}}/web_assets/js/app.js"></script>
 <script>
