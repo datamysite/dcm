@@ -40,7 +40,10 @@ class BlogController extends Controller
         $data['category'] = Categories::where('parent_id', 0)->get();
         $data['blogs_category'] = Blogs::where('category_id', $category_id)->with('author')->get()->shuffle()->take(3);
 
-        $data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(10);
+        //$data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(10);
+
+        $retailersArray = [2,27,55,75,54,14,57,56];
+        $data['top_stores'] = Retailers::where('status', 1)->whereIn('id', $retailersArray)->orderByRaw("FIELD(id, " . implode(",", $retailersArray) . ")")->get();
         
         return view($this->getView('web.blogs.single-blog'), ['data' => $data]);
     }
