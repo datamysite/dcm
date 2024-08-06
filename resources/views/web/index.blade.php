@@ -2,10 +2,10 @@
 @section('amphtml')
 <link rel="amphtml" href="{{$actual_link_m}}" />
 
-@foreach($slider as $key => $val)
    <!-- Slider Preload -->
+   @foreach($slider as $key => $val)
    <link rel="preload" as="image" href="{{config('app.storage').'slider/'.$val->img_name}}">
-@endforeach
+   @endforeach
 @endsection
 @section('content')
 
