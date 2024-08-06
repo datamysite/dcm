@@ -1,6 +1,11 @@
 @extends('web.includes.master')
 @section('amphtml')
 <link rel="amphtml" href="{{$actual_link_m}}" />
+
+@foreach($slider as $key => $val)
+   <!-- Slider Preload -->
+   <link rel="preload" as="image" href="{{config('app.storage').'slider/'.$val->img_name}}">
+@endforeach
 @endsection
 @section('content')
 
