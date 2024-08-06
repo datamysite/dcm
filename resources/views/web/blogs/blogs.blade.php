@@ -32,10 +32,10 @@
         <div class="hero-slider">
 
             <div class="feather-image-blog">
-                <img src="{{ config('app.storage').'blogs/'.$featured->banner }}" alt="{{empty($featured->banner_alt) ? $featured->slug : $featured->banner_alt}}">
+                <img src="{{ config('app.storage').'blogs/8040424110844.png' }}" alt="{{empty($featured->banner_alt) ? $featured->slug : $featured->banner_alt}}" style="object-fit:cover !important ;">
                 <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
-                    <div class="slider_div2">
-                        <h3>Featured</h3>
+                    <div class="slider_div2" style="background-color:#889397 !important ;">
+                        <!-- <h3>Featured</h3> -->
                         <h6>{{$featured->heading}}</h6>
                         <p>{{ $featured->short_description }}</p>
                         <a href="{{route('blog.details', [$featured->slug])}}" target="_blank">Read More</a>
@@ -63,7 +63,7 @@
                         <img src="{{ config('app.storage').'blogs/'.$val->banner }}" alt="{{empty($val->banner_alt) ? $val->slug : $val->banner_alt}}">
                         <a href="{{route('blog.details', [$val->slug])}}" target="blank" class="readMorebutton">Read More</a>
                     </div>
-                    <h5 title="{{$val->heading}}">{{$val->heading}}</h5>
+                    <a href="{{route('blog.details', [$val->slug])}}" target="blank"><h5 title="{{$val->heading}}">{{$val->heading}}</h5></a>
                     <p title="{{ $val->short_description }}">{{ $val->short_description }}</p>
                 </a>
             </div>

@@ -15,7 +15,10 @@ class BlogController extends Controller
 
     public function index()
     {
-        $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->orderBy('id', 'desc')->first();
+        //$data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->orderBy('id', 'desc')->first();
+        //$data['blogs'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->where('id', '!=', $data['featured']->id)->orderBy('id', 'desc')->paginate(9);
+
+        $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->inRandomOrder()->first();
         $data['blogs'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->where('id', '!=', $data['featured']->id)->orderBy('id', 'desc')->paginate(9);
 
         return view($this->getView('web.blogs.blogs'))->with($data);
@@ -37,7 +40,10 @@ class BlogController extends Controller
         $data['category'] = Categories::where('parent_id', 0)->get();
         $data['blogs_category'] = Blogs::where('category_id', $category_id)->with('author')->get()->shuffle()->take(3);
 
-        $data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(10);
+        //$data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(10);
+
+        $retailersArray = [2,27,55,75,54,14,57,56];
+        $data['top_stores'] = Retailers::where('status', 1)->whereIn('id', $retailersArray)->orderByRaw("FIELD(id, " . implode(",", $retailersArray) . ")")->get();
         
         return view($this->getView('web.blogs.single-blog'), ['data' => $data]);
     }

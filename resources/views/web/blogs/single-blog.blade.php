@@ -167,7 +167,7 @@
                             @foreach ($data['blogs_category'] as $val)
                             <div class="item">
                                 <div class="mb-8">
-                                    <div class="card bg-light border-0" style="border-radius: 10px;">
+                                    <div class="card bg-light border-0" style="border-radius: 10px;height: 200px !important;">
                                         <div class="d-flex align-items-center">
                                             <div style="padding-left:10px;">
                                                 <img src="{{ config('app.storage').'authors/'.$val->author->image }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">

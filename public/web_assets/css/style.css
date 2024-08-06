@@ -1815,7 +1815,7 @@ label.errors {
     }
 
     .MwebRelatedBlogs .slick-dots {
-        bottom: 0 !important;
+        bottom: 10px !important;
     }
 
     .MwebRelatedBlogs .slick-slider .slick-prev {
@@ -1912,7 +1912,7 @@ label.errors {
     }
 
     .feather-image-blog .slider_div2 {
-        width: 360px;
+        width: 100%;
         position: absolute;
         left: 0px;
         bottom: 0px;
