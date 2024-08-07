@@ -95,7 +95,7 @@
 
 
    <!-- Category Section Start-->
-   <section class="my-lg-12 my-8">
+   <section class="my-lg-12 my-8 home-category">
       <div class="container">
          <div class="row">
             <div class="col-12 mb-6 text-center">
