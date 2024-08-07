@@ -1678,6 +1678,10 @@ label.errors {
     display: none;
 }
 
+.MwebCashBackPromot{
+    display: none  ;
+}
+
 .desktop-slider {
     display: block;
     margin-top: -30px !important;
@@ -1917,7 +1921,7 @@ label.errors {
     }
 
     .MwebCashBackPromot {
-        display: block !important;;
+        display: block ;
         height: 140px !important;
     }
 
