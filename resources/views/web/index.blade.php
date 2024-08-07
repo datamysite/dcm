@@ -6,6 +6,9 @@
    @foreach($slider as $key => $val)
    <link rel="preload" as="image" href="{{config('app.storage').'slider/'.$val->img_name}}">
    @endforeach
+   @foreach($categories as $val)
+   <link rel="preload" as="image" href="{{config('app.storage').'categories/'.$val->image}}">
+   @endforeach
 @endsection
 @section('content')
 
