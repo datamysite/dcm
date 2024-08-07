@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Retailers;
 use App\Models\Coupon;
 use App\Models\Categories;
+use App\Models\CategoryBlogs;
 use App\Models\Countries;
 use App\Models\ClicksCounter;
 use App\Models\Testimonials;
@@ -179,6 +180,10 @@ class ListingController extends Controller
         $data['type'] = $type;
         $type = ($type == 'online' ? '1' : '2');
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
+
+        $data['headblog'] = CategoryBlogs::where('category_id', $data['category']->id)->where('type', 'head')->first();
+        $data['footblog'] = CategoryBlogs::where('category_id', $data['category']->id)->where('type', 'foot')->first();
+
         //dd(ListingController::sanitizeStringForUrl($cat_slug));
         //Filters -- start
         $data['categories_f'] = Categories::select('id', 'name', 'name_ar', 'type')
@@ -237,6 +242,8 @@ class ListingController extends Controller
         $region = 'dubai';
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
 
+        $data['headblog'] = CategoryBlogs::where('category_id', $data['category']->id)->where('type', 'head')->first();
+        $data['footblog'] = CategoryBlogs::where('category_id', $data['category']->id)->where('type', 'foot')->first();
 
         //Filters -- start
         $data['categories_f'] = Categories::select('id', 'name', 'name_ar', 'type')

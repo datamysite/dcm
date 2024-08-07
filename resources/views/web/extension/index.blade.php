@@ -48,7 +48,7 @@
         .dcm-container {
                 position: fixed;
                 right: 80px;
-                top: 240px;
+                top: 145px;
                     box-shadow: inset 2px -2em 3em rgb(255 255 255 / 14%), 0px 0px 0 0px white, -5px 5px 17px 0px rgb(191 191 191 / 49%);
                 border-radius: 10px;
                 overflow: hidden;

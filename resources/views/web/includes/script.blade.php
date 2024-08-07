@@ -8,13 +8,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-   // User Profile JS functions Start
-
-   $(document).ready(function() {
-      $('#myTable').DataTable();
-   });
-</script>
-<script>
    function verifyFileType() {
 
       var file_type_is_valid;

@@ -45,23 +45,30 @@
             <div class="col-12 mb-6 text-center">
                <h1 class="mb-0 page-title">{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</h1>
             </div>
-         </div>
-         <div class="ccategory-slider category-slider">
-            @foreach($categories as $val)
-               @php
-                  $string = strtolower(trim($val->name));
-                   $string = str_replace('&', 'and', $string);
-                   $string = str_replace(' ', '-', $string);
-                   $slug = preg_replace('/[^a-z0-9-]/', '', $string);
-               @endphp
-               <div class="item {{$val->id == $category->id ? 'active' : ''}}">
-                  <a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}" class="text-decoration-none text-inherit">
-                     <img src="{{config('app.storage').'categories/'.$val->image}}" alt="Mart" class="img-fluid" />
-                     <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
-                  </a>
+            @if(!empty($headblog) && app()->getLocale() == 'en')
+               <div class="col-12 p-0 text-center">
+                  {!! $headblog->content !!}
                </div>
-            @endforeach
+            @endif
          </div>
+         @if(config('app.retail'))
+            <div class="ccategory-slider category-slider">
+               @foreach($categories as $val)
+                  @php
+                     $string = strtolower(trim($val->name));
+                      $string = str_replace('&', 'and', $string);
+                      $string = str_replace(' ', '-', $string);
+                      $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                  @endphp
+                  <div class="item {{$val->id == $category->id ? 'active' : ''}}">
+                     <a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}" class="text-decoration-none text-inherit">
+                        <img src="{{config('app.storage').'categories/'.$val->image}}" alt="Mart" class="img-fluid" />
+                        <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
+                     </a>
+                  </div>
+               @endforeach
+            </div>
+         @endif
 
       </div>
    </section>
@@ -409,6 +416,14 @@
                        (adsbygoogle = window.adsbygoogle || []).push({});
                   </script>
             </div>
+         </div>
+
+         <div class="row">
+            @if(!empty($footblog) && app()->getLocale() == 'en')
+               <div class="col-12 p-0">
+                  {!! $footblog->content !!}
+               </div>
+            @endif
          </div>
       </div>
    </section>

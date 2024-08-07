@@ -1818,6 +1818,15 @@ label.errors {
 
 /* Responsives */
 @media (max-width: 990px) {
+    .home-category{
+        height: 140.578px;
+    }
+    .home-category .category-slider{
+        height: 90.188px;
+    }
+    .home-category .category-slider{
+        height: 90.188px;
+    }
     .whatsapp-channel-btn {
         display: none;
     }
