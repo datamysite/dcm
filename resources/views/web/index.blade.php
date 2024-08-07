@@ -26,7 +26,7 @@
 </div> -->
 <!-- Cashback Popup Alert MWeb Message Start -->
 @if(!Auth::check() && Route::currentRouteName() === 'home')
-<div class="MwebCashBackPromot">
+<div class="MwebCashBackPromot" style="display: none ;">
    <div class="flex-container"  style="background-image: url('{{ asset('public/web_assets/images/mweb_header_banner.png') }}');">
       <div class="row mt-10">
 
