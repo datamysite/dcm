@@ -797,7 +797,7 @@ return [
   "how_to_earn_cashback" => "كيف تحصل علي إسترداد نقدي؟",
   "login_to_earn_cashback" => "سجل دخولك او أنشئ حساب معنا لتسترد",
   "earn_now" => "إسترد الان",
-  "earn_txt" => "إسترد ألان",
+  "earn_txt" => "إسترد",
 
   "verify" => "تحقق",
   "available_balance_txt" => "الرصيد المتاح",

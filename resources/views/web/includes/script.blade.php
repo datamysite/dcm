@@ -81,10 +81,13 @@ function closePromotMessage() {
       MwebCashBackPromot.style.display = 'none';
 
       var MwebSlider= document.querySelector('.MwebSlider');
-      MwebSlider.style.setProperty('padding-top', '50px', 'important');
+
+      if (window.location.pathname.includes('/en')){
+         MwebSlider.style.setProperty('padding-top', '20px', 'important');
+      }
 
       if (window.location.pathname.includes('/ar')){
-         MwebSlider.style.setProperty('padding-top', '0px', 'important');
+         MwebSlider.style.setProperty('margin-top', '-40px', 'important');
       }
 }
 

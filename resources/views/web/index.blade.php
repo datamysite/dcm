@@ -27,7 +27,7 @@
 <!-- Cashback Popup Alert MWeb Message Start -->
 @if(!Auth::check() && Route::currentRouteName() === 'home')
 <div class="MwebCashBackPromot">
-   <div class="flex-container"  style="background-image: url('{{ asset('public/web_assets/images/mweb_header_banner.png') }}');">
+   <div class="flex-container"  style="background-image: url('{{ asset('public/web_assets/images/mweb_header_bannerII.png') }}');">
       <div class="row mt-10">
 
          <div class="col-1 text-end" style="margin-top:20px;">
@@ -36,19 +36,19 @@
             </a>
          </div>
 
-         <div class="col-9" {!! app()->getLocale() == 'ar' ? 'style="width: 70% !important ;"' : 'style="width: 75% !important ;"' !!}>
+         <div class="col-8" {!! app()->getLocale() == 'ar' ? 'style="width: 65% !important ;"' : 'style="width: 65% !important ;"' !!}>
             <p class="mt-2">
                <a href="{{route('user.referralEarn')}}">
-                  <b class="mt-0" style="color: #fff;font-size:15px">{{ __('translation.login_to_earn_cashback') }}</b>
+                  <b class="mt-0" style="color: #fff;font-size:12px">{{ __('translation.login_to_earn_cashback') }}</b>
                </a><br>
                <a href="{{route('user.referralEarn')}}">
                   <b class="mt-0" style="color: #fff;font-size:12px">{{ __('translation.how_to_earn_cashback') }}</b>
                </a>
             </p>
          </div>
-         
-         <div class="col-2" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:0px;margin-top:15px;"' : 'style="color: #fff;padding-left:0px;margin-top:15px;"' !!} >
-            <a class="btn btn-primary btn-sm shadow-gray" {!! app()->getLocale() == 'ar' ? 'style="background-color: #f0f3f2;color:#1F428A;width:100px;margin-right:-10px"' : 'style="background-color: #f0f3f2;color:#1F428A;"' !!} href="{{route('claim_cashback')}}">{{ __('translation.earn_txt') }}</a>
+  
+         <div class="col-3" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:0px;margin-top:15px;"' : 'style="color: #fff;padding-left:0px;margin-top:15px;"' !!} >
+            <a class="btn btn-primary btn-sm shadow-gray" role="button" data-bs-toggle="modal" data-bs-target="#userModal" {!! app()->getLocale() == 'ar' ? 'style="background-color: #f0f3f2;color:#1F428A;width:100px;margin-right:-10px"' : 'style="background-color: #f0f3f2;color:#1F428A;width: 90px;"' !!} href="{{route('claim_cashback')}}" >{{ __('translation.earn_txt') }}</a>
          </div>
 
       </div>
@@ -76,7 +76,7 @@
 
 <!-- Slider Section Mobile Start-->
 <div class="MwebSlider">
-   <section class="mt-8 mb-lg-10">
+   <section class="mt-10 mb-lg-10">
       <div class="container np-container">
          <a href="https://chromewebstore.google.com/detail/dcm-savings-companion/pbgekicjfckaoopigiohnfbdmhllekhf?hl=en-GB" target="_blank" class="ext-banner">
             <img src="{{URL::to('/public/extension-new.png')}}" style="width:100%; height:auto;">
