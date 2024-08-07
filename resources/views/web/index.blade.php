@@ -76,7 +76,7 @@
 
 <!-- Slider Section Mobile Start-->
 <div class="MwebSlider">
-   <section class="mt-5 mb-lg-10">
+   <section class="mt-8 mb-lg-10">
       <div class="container np-container">
          <a href="https://chromewebstore.google.com/detail/dcm-savings-companion/pbgekicjfckaoopigiohnfbdmhllekhf?hl=en-GB" target="_blank" class="ext-banner">
             <img src="{{URL::to('/public/extension-new.png')}}" style="width:100%; height:auto;">
