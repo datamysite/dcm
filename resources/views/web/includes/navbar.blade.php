@@ -551,11 +551,11 @@ $pos = strpos($url, "/".app()->getLocale());
          <div class="col-sm-12 mt-5">
             <b style="color:black;font-size: 14px;">{{ __('translation.login_or_sigup_txt') }}</b>
             <p style="font-size: 15px; color:black;">
-               <a class="nav-link" href="javascript:void(0)" onclick="closePromotMessage()" role="button" data-bs-toggle="modal" data-bs-target="#userModal">
+               <a class="nav-link" href="{{route('claim_cashback')}}" onclick="closePromotMessage()" >
                   {{ __('translation.how_to_earn_cashback') }}</a>
             </p>
             <p>
-               <a class="btn btn-primary btn-sm shadow-gray" onclick="closePromotMessage()" href="{{route('claim_cashback')}}">{{ __('translation.earn_now') }}</a>
+               <a class="btn btn-primary btn-sm shadow-gray" onclick="closePromotMessage()" href="javascript:void(0);" role="button" data-bs-toggle="modal" data-bs-target="#userModal">{{ __('translation.earn_now') }}</a>
             </p>
          </div>
          <div {!! app()->getLocale() == 'ar' ? 'style="position: absolute; top: 5px; right: 90%;"' : 'style="position: absolute; top: 5px; left: 90%;"' !!}>
