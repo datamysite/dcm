@@ -188,9 +188,9 @@ $pos = strpos($url, "/".app()->getLocale());
                      </li>
 
                      <li class="nav-item dropdown" style="padding: 10px;">
-                       
+
                         <a class="nav-link" href="{{route('claim_cashback')}}" role="button" aria-expanded="false">{{ __('translation.Earn_Cashback') }}</a>
-                      
+
                      </li>
                   </ul>
                   <form class="ms-auto d-flex align-items-center" style="padding: 10px;">
@@ -421,9 +421,9 @@ $pos = strpos($url, "/".app()->getLocale());
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
-                         
+
                            <a class="nav-link" href="{{route('claim_cashback')}}">{{ __('translation.Earn_Cashback') }}</a>
-                         
+
                         </li>
 
                         <li class="nav-item w-100 w-lg-auto">
@@ -478,16 +478,23 @@ $pos = strpos($url, "/".app()->getLocale());
    <div class="row" style="height: autopx;justify-items: center;justify-content: center; border-bottom: 1px solid gray;box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);">
 
       <div class="col-3 text-center">
-         <a href="{{route('claim_cashback')}}"><h6 class="mt-3" style="color: black;">{{ __('translation.how_to_earn') }}</h6></a>
+         <a href="{{route('claim_cashback')}}">
+            <h6 class="mt-3" style="color: black;">{{ __('translation.how_to_earn') }}</h6>
+         </a>
       </div>
 
       <div class="col-4 text-center">
-         <a href="{{route('user.referralEarn')}}"><h6 class="mt-3" style="color: black;">{{ __('translation.refer_and_get') }}</h6></a>
+         <a href="{{route('user.referralEarn')}}">
+            <h6 class="mt-3" style="color: black;">{{ __('translation.refer_and_get') }}</h6>
+         </a>
       </div>
 
       <div class="col-3 text-center">
-         <a href="{{route('user.transactionHistory')}}"><h6 class="mt-3" style="color: black;">{{ __('translation.history') }}</h6></a>
+         <a href="{{route('user.transactionHistory')}}">
+            <h6 class="mt-3" style="color: black;">{{ __('translation.history') }}</h6>
+         </a>
       </div>
+
    </div>
 
 </div>
@@ -535,4 +542,28 @@ $pos = strpos($url, "/".app()->getLocale());
 
 @endif
 <!-- UserLogin Welcome Message end -->
+@if( Route::currentRouteName() === 'home' && !Auth::check() )
+
+<!-- Promot Message (SignIn,SignUp) start -->
+<div class="WebsiteWelcomeMSG mt-11" style="width:420px !important; border-radius:10px !important ; ">
+   <div class="mt-0">
+      <div class="row" {!! app()->getLocale() == 'ar' ? 'style="text-align: right;padding-right:25px ;"' : 'style="text-align: left;padding-left:25px ;"' !!}>
+         <div class="col-sm-12 mt-5">
+            <b style="color:black;font-size: 14px;">{{ __('translation.login_or_sigup_txt') }}</b>
+            <p style="font-size: 15px; color:black;">
+               <a class="nav-link" href="javascript:void(0)" onclick="closePromotMessage()" role="button" data-bs-toggle="modal" data-bs-target="#userModal">
+                  {{ __('translation.how_to_earn_cashback') }}</a>
+            </p>
+            <p>
+               <a class="btn btn-primary btn-sm shadow-gray" onclick="closePromotMessage()" href="{{route('claim_cashback')}}">{{ __('translation.earn_now') }}</a>
+            </p>
+         </div>
+         <div {!! app()->getLocale() == 'ar' ? 'style="position: absolute; top: 5px; right: 90%;"' : 'style="position: absolute; top: 5px; left: 90%;"' !!}>
+            <a href="javascript:void(0);" onclick="closePromotMessage()" style="color:red;">X</a>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Promot Message end -->
+@endif
 

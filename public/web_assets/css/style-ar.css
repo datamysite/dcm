@@ -1,69 +1,92 @@
+.flex-container {
+    /* display: flex; */
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    color: #fff;
+    justify-content: center;
+    box-sizing: border-box;
+    background-size: 100% 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    top: 25px !important;
+}
+
 .suggested-brand .top_stores {
     background-color: #e6e6e6;
     padding: 2px 10px;
     margin-bottom: 2px;
 }
+
 .suggested-brand a .top_stores {
     color: #000;
     font-size: 13px;
 }
-.suggested-brand a .top_stores:hover{
+
+.suggested-brand a .top_stores:hover {
     font-weight: bold;
 }
-.suggested-brand{
+
+.suggested-brand {
     margin-bottom: 15px;
 }
+
 .feedback-card {
     padding: 15px 10px;
     background-color: #fff;
     border: 1px solid #777;
     height: 250px !important;
 }
-.bg-gray{
+
+.bg-gray {
     background-color: #777;
 }
+
 .feedback-heading {
     margin-top: -110px;
 }
-.feedback-rating i{
+
+.feedback-rating i {
     color: gold;
 }
+
 #slider-reviews {
     direction: ltr;
 }
 
-#slider-reviews .feedback-card{
+#slider-reviews .feedback-card {
     text-align: left;
 }
 
 .star-rating {
-  margin-top: -5px;
-  display:flex;
-  flex-direction: row-reverse;
-  font-size:1.5em;
-  justify-content:space-around;
-  padding:0 .2em;
-  text-align:center;
-  width:5em;
+    margin-top: -5px;
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 1.5em;
+    justify-content: space-around;
+    padding: 0 .2em;
+    text-align: center;
+    width: 5em;
 }
 
 .star-rating input {
-  display:none;
+    display: none;
 }
 
 .star-rating label {
-  color:#ccc;
-  cursor:pointer;
+    color: #ccc;
+    cursor: pointer;
 }
 
-.star-rating :checked ~ label {
-  color:#f90;
+.star-rating :checked~label {
+    color: #f90;
 }
 
 .star-rating label:hover,
-.star-rating label:hover ~ label {
-  color:#fc0;
+.star-rating label:hover~label {
+    color: #fc0;
 }
+
 .writeReviewSubmit {
     padding: 0 25px;
     color: #1caae2;
@@ -73,15 +96,17 @@
     margin-left: 5px;
 }
 
-body{
+body {
     overflow-x: hidden !important;
 }
+
 .hero-slider {
     margin-top: -10px !important;
     max-height: 450px;
     overflow: hidden;
     border-radius: 25px;
 }
+
 .withdraw-loader {
     position: absolute;
     top: 0;
@@ -1623,6 +1648,10 @@ label.errors {
     display: none;
 }
 
+.MwebCashBackPromot {
+    display: none;
+}
+
 .desktop-slider {
     display: block;
     margin-top: -30px !important;
@@ -1743,7 +1772,7 @@ label.errors {
 
 
 /* Responsives */
-@media (max-width: 990px) {
+@media (max-width: 990px) {cccc
     .whatsapp-channel-btn {
         display: none;
     }
@@ -1807,11 +1836,24 @@ label.errors {
         display: block;
     }
 
+    .MwebCashBackPromot {
+        display: block;
+        height: 75px !important;
+    }
+
     .desktop-slider {
         display: none;
     }
 
     /* UserMenu-Web-Mobile End*/
+
+    .DesktopAuthorSection {
+        display: none;
+    }
+
+    .MobileAuthorSection {
+        display: block;
+    }
 
     .navbar-flag img {
         width: 34px;
@@ -2075,7 +2117,7 @@ label.errors {
         top: 0;
         z-index: 99999;
         width: 100%;
-        box-shadow: 0 0 0px 0px #a11e1e1a, 3px 4px 8px 0px rgb(139 139 139 / 67%);
+        /* box-shadow: 0 0 0px 0px #a11e1e1a, 3px 4px 8px 0px rgb(139 139 139 / 67%); */
     }
 
     .mobile-footbar {

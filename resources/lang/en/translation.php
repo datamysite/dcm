@@ -805,6 +805,13 @@ return [
   "we_are_glade" => "We're glade to have you here!",
   "discover" => "Discover stores, shop, and earn cashback right away!",
 
+  "login_or_sigup_txt" => "Login or Sign Up to Start Earning Cashback!",
+  "how_to_earn_cashback" => "How to earn Cashback?",
+  "login_to_earn_cashback" => "Login,Signup to start earning cashback!",
+  "earn_now" => "Earn Now",
+  "earn_txt" => "Earn",
+  
+
   "verify" => "Verify",
   "available_balance_txt" => "Available Balance",
   "pending_balance_txt" => "Pending Balance",

@@ -73,12 +73,26 @@
          }
       };
       xhr.send();
-   
    // Check if the welcome message should be hidden
    if (sessionStorage.getItem('welcomeMessageShown')) {
       document.getElementById('welcomeMessageDiv').style.display = 'none';
    }
+}
 
+function closePromotMessage() {
+   
+      var welcomeMsgDiv = document.querySelector('.WebsiteWelcomeMSG');
+      welcomeMsgDiv.style.display = 'none';
+
+      var MwebCashBackPromot = document.querySelector('.MwebCashBackPromot');
+      MwebCashBackPromot.style.display = 'none';
+
+      var MwebSlider= document.querySelector('.MwebSlider');
+      MwebSlider.style.setProperty('padding-top', '50px', 'important');
+
+      if (window.location.pathname.includes('/ar')){
+         MwebSlider.style.setProperty('padding-top', '0px', 'important');
+      }
 }
 
 //Remove/Hide Stripe on click and Margin MwebSlider to top //
