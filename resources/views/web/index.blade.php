@@ -32,7 +32,7 @@
 
          <div class="col-1 text-end" style="margin-top:20px;">
             <a href="javascript:void(0)" onclick="closePromotMessage()">
-               <h6 class="mt-0"{!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:0px;"' : 'style="color: #fff;padding-left:10px;"' !!} >X</h6>
+               <h6 class="mt-0"{!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:10px;"' : 'style="color: #fff;padding-left:10px;"' !!} >X</h6>
             </a>
          </div>
 
