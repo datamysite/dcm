@@ -9,7 +9,7 @@
       background-size: 100% 100%;
       -webkit-box-align: center;
       align-items: center;
-      padding-top: 10px;
+      padding-top: 0px;
    }
 .suggested-brand .top_stores {
     background-color: #e6e6e6;
@@ -1922,7 +1922,7 @@ label.errors {
 
     .MwebCashBackPromot {
         display: block ;
-        height: 130px !important;
+        height: 95px !important;
     }
 
     /* UserMenu-Web-Mobile End*/

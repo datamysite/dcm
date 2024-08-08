@@ -83,11 +83,11 @@ function closePromotMessage() {
       var MwebSlider= document.querySelector('.MwebSlider');
 
       if (window.location.pathname.includes('/en')){
-         MwebSlider.style.setProperty('padding-top', '20px', 'important');
+         MwebSlider.style.setProperty('padding-top', '55px', 'important');
       }
 
       if (window.location.pathname.includes('/ar')){
-         MwebSlider.style.setProperty('margin-top', '-40px', 'important');
+         MwebSlider.style.setProperty('margin-top', '-15px', 'important');
       }
 }
 

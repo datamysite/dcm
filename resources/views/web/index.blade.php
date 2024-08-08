@@ -2,11 +2,11 @@
 @section('amphtml')
 <link rel="amphtml" href="{{$actual_link_m}}" />
 
-   <!-- Slider Preload -->
-   @foreach($slider as $key => $val)
-   <link rel="preload" as="image" href="{{config('app.storage').'slider/'.$val->img_name}}">
-   @endforeach
-   
+<!-- Slider Preload -->
+@foreach($slider as $key => $val)
+<link rel="preload" as="image" href="{{config('app.storage').'slider/'.$val->img_name}}">
+@endforeach
+
 @endsection
 @section('content')
 
@@ -24,30 +24,32 @@
       @endforeach
    </div>
 </div> -->
+
+
 <!-- Cashback Popup Alert MWeb Message Start -->
 @if(!Auth::check() && Route::currentRouteName() === 'home')
 <div class="MwebCashBackPromot">
-   <div class="flex-container"  style="background-image: url('{{ asset('public/web_assets/images/mweb_header_bannerII.png') }}');">
+   <div class="flex-container" style="background-image: url('{{ asset('public/web_assets/images/mweb_header_bannerII.png') }}');">
       <div class="row mt-10">
 
-         <div class="col-1 text-end" style="margin-top:20px;">
+         <div class="col-1 text-end" {!! app()->getLocale() == 'ar' ? 'style="margin-top:5px;" ' : 'style="margin-top:10px;" ' !!} >
             <a href="javascript:void(0)" onclick="closePromotMessage()">
-               <h6 class="mt-0"{!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:10px;"' : 'style="color: #fff;padding-left:10px;"' !!} >X</h6>
+               <h6 class="mt-0" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:10px;"' : 'style="color: #fff;padding-left:10px;"' !!} >X</h6>
             </a>
          </div>
 
-         <div class="col-8" {!! app()->getLocale() == 'ar' ? 'style="width: 65% !important ;"' : 'style="width: 65% !important ;"' !!}>
-            <p class="mt-2">
-               <a href="{{route('user.referralEarn')}}">
-                  <b class="mt-0" style="color: #fff;font-size:12px">{{ __('translation.login_to_earn_cashback') }}</b>
-               </a><br>
-               <a href="{{route('user.referralEarn')}}">
-                  <b class="mt-0" style="color: #fff;font-size:12px">{{ __('translation.how_to_earn_cashback') }}</b>
+         <div class="col-8" {!! app()->getLocale() == 'ar' ? 'style="width: 65% !important ;padding-top: 0px !important;"' : 'style="width: 65% !important ;padding-top: 0px !important;"' !!}>
+            <p class="mt-0">
+               <b style="color: #fff;font-size:12px">{{ __('translation.login_to_earn_cashback') }}</b>
+         
+            <p style="margin-bottom:0px !important;margin-top:-20px !important;">
+               <a href="{{route('claim_cashback')}}">
+                  <b style="color: #fff;font-size:10px">{{ __('translation.how_to_earn_cashback') }}</b>
                </a>
             </p>
          </div>
-  
-         <div class="col-3" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:0px;margin-top:15px;"' : 'style="color: #fff;padding-left:0px;margin-top:15px;"' !!} >
+
+         <div class="col-3" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:0px;margin-top:0px;"' : 'style="color: #fff;padding-left:0px;margin-top:5px;"' !!} >
             <a class="btn btn-primary btn-sm shadow-gray" role="button" data-bs-toggle="modal" data-bs-target="#userModal" {!! app()->getLocale() == 'ar' ? 'style="background-color: #f0f3f2;color:#1F428A;width:80px;margin-right:-10px"' : 'style="background-color: #f0f3f2;color:#1F428A;width:80px;"' !!} href="{{route('claim_cashback')}}" >{{ __('translation.earn_txt') }}</a>
          </div>
 
@@ -76,7 +78,9 @@
 
 <!-- Slider Section Mobile Start-->
 <div class="MwebSlider">
-   <section class="mt-10 mb-lg-10">
+
+@if ( app()->getLocale() == 'en' )<section class="mt-5 mb-lg-10"> @else <section class="mt-5 mb-lg-10"> @endif
+
       <div class="container np-container">
          <a href="https://chromewebstore.google.com/detail/dcm-savings-companion/pbgekicjfckaoopigiohnfbdmhllekhf?hl=en-GB" target="_blank" class="ext-banner">
             <img src="{{URL::to('/public/extension-new.png')}}" style="width:100%; height:auto;">
@@ -95,32 +99,32 @@
 <!-- Slider Section Mobile End-->
 
 
-   <!-- Category Section Start-->
-   <section class="my-lg-12 my-8 home-category">
-      <div class="container">
-         <div class="row">
-            <div class="col-12 mb-6 text-center">
-               <a href="{{URL::to('/'.app()->getLocale().'/category')}}">
-                  <h3 class="mb-0 page-title">{{ __('translation.Categories') }}</h3>
-               </a>
-            </div>
+<!-- Category Section Start-->
+<section class="my-lg-12 my-8 home-category">
+   <div class="container">
+      <div class="row">
+         <div class="col-12 mb-6 text-center">
+            <a href="{{URL::to('/'.app()->getLocale().'/category')}}">
+               <h3 class="mb-0 page-title">{{ __('translation.Categories') }}</h3>
+            </a>
          </div>
-         <div class="category-slider" id="hcategory-slider">
-            @foreach($categories as $val)
-            @php
-            $string = strtolower(trim($val->name));
-            $string = str_replace('&', 'and', $string);
-            $string = str_replace(' ', '-', $string);
-            $slug = preg_replace('/[^a-z0-9-]/', '', $string);
-            @endphp
-            <div class="item ">
-               <a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
-                  <img src="{{config('app.storage').'categories/'.$val->image}}" alt="Image - {{$val->name}}" onclick="return gtag_report_categoryview;" class="{{$slug}} category_view" width="100px" height="100px" />
-                  <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
-               </a>
-            </div>
-            @endforeach
+      </div>
+      <div class="category-slider" id="hcategory-slider">
+         @foreach($categories as $val)
+         @php
+         $string = strtolower(trim($val->name));
+         $string = str_replace('&', 'and', $string);
+         $string = str_replace(' ', '-', $string);
+         $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+         @endphp
+         <div class="item ">
+            <a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
+               <img src="{{config('app.storage').'categories/'.$val->image}}" alt="Image - {{$val->name}}" onclick="return gtag_report_categoryview;" class="{{$slug}} category_view" width="100px" height="100px" />
+               <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
+            </a>
          </div>
+         @endforeach
+      </div>
 
    </div>
 </section>
