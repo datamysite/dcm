@@ -249,7 +249,7 @@
                 <div class="row mb-5">
                     <div class="col-12">
                         <div>
-                            {!! $$retailor_blog_footer->description !!}
+                            {!! $retailor_blog_footer->description !!}
                         </div>
                     </div>
                 </div>
