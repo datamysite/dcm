@@ -74,16 +74,12 @@
             </div>
 
             <!-- //Stroe Blog Header Section Start// -->
-            @if( count($retailor_blog_header) != 0 )
-            @if($retailor_blog_header->first()->section_id == 1)
+            @if(!empty($retailor_blog_header->id))
             <div class="col-12">
                 <div class="retailer-blog-content" id="retailerBlogs">
-                    @foreach($retailer->blogs as $val)
-                    {!! $val->description !!}
-                    @endforeach
+                    {!! $retailor_blog_header->description !!}
                 </div>
             </div>
-            @endif
             @endif
             <!-- //Stroe Blog Header Section End// -->
 
@@ -248,21 +244,17 @@
 
 
         <!-- //Stroe Blog Footer Section Start// -->
-        @if ( count($retailor_blog_footer) != 0 )
-            @if($retailor_blog_footer->first()->section_id == 2)
+            @if(!empty($retailor_blog_footer->id))
             <div class="container np-container mt-10">
                 <div class="row mb-5">
                     <div class="col-12">
                         <div>
-                            @foreach($retailor_blog_footer as $footer_blog)
-                            {!! $footer_blog->description !!}
-                            @endforeach
+                            {!! $retailor_blog_footer->description !!}
                         </div>
                     </div>
                 </div>
             </div>
             @endif
-        @endif
         <!-- //Stroe Blog Footer Section End// -->
 
         <!-- //Stroe FAQs Section Start// -->

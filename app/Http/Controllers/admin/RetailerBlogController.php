@@ -57,7 +57,7 @@ class RetailerBlogController extends Controller
             $response['errors'] = 'Please Fill all required fields.';
         } else {
 
-            $retailer_blog = RetailerBlogs::where('section_id', $data['section_id'])->get();
+            $retailer_blog = RetailerBlogs::where('section_id', $data['section_id'])->where('retailer_id', base64_decode($data['retailer_id']))->get();
 
             if (count($retailer_blog) == 0) {
 
