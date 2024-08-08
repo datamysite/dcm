@@ -807,7 +807,7 @@ return [
 
   "login_or_sigup_txt" => "Login or Sign Up to Start Earning Cashback!",
   "how_to_earn_cashback" => "How to earn Cashback?",
-  "login_to_earn_cashback" => "Login, Signup to Start Earning Cashback",
+  "login_to_earn_cashback" => "Login to Start Earning Cashback",
   "earn_now" => "Earn Now",
   "earn_txt" => "Earn Now",
   

@@ -62,10 +62,7 @@
                 <div class="col-lg-12 tex-center mt-5">
                     <div class="row">
 
-                        <!-- <div class="col-lg-3" style="text-align: end;">
-                            <img src="{{URL::to('/public/storage/authors/'.$data['author']->image)}}" style="background-color:whitesmoke;height:160px;width:160px;border-radius:10px;object-fit:cover;">
-                        </div> -->
-
+             
                         <div class="col-lg-9">
                             <h1 class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</h1>
                             <p class="mt-5" style="color: #fff;">Author: <a href="{{route('blog.author',$data['author']->slug )}}" style="color: #fff;">{{ $data['author']->name }}</a></p>
