@@ -114,7 +114,7 @@
             $slug = preg_replace('/[^a-z0-9-]/', '', $string);
             @endphp
             <div class="item ">
-               <a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}/?type={{$val->type == '3' ? '1' : '2'}}" class="text-decoration-none text-inherit">
+               <a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}" class="text-decoration-none text-inherit">
                   <img src="{{config('app.storage').'categories/'.$val->image}}" alt="Image - {{$val->name}}" onclick="return gtag_report_categoryview;" class="{{$slug}} category_view" width="100px" height="100px" />
                   <div class="text-truncate">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</div>
                </a>
