@@ -1797,6 +1797,11 @@ label.errors {
     display: block;
 }
 
+.MwebAuthorSection{
+    display: none;
+}
+
+
 .MobileAuthorSection {
     display: none;
 }
@@ -1929,6 +1934,10 @@ label.errors {
 
     .DesktopAuthorSection {
         display: none;
+    }
+
+    .MwebAuthorSection{
+        display: block;
     }
 
     .MobileAuthorSection {

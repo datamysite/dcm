@@ -56,13 +56,12 @@
 @if($data['blog']->author_id != 0)
 <!-- Blog author details section start -->
 <section class="my-lg-5 my-8 mt-5">
+
     <div Class="DesktopAuthorSection">
         <div class="container" style="background-color: #1F428A;border-radius: 10px; background-image: linear-gradient(90deg, #051129, #2791CC);width:100%;height:100%;">
             <div class="row">
                 <div class="col-lg-12 tex-center mt-5">
                     <div class="row">
-
-             
                         <div class="col-lg-9">
                             <h1 class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</h1>
                             <p class="mt-5" style="color: #fff;">Author: <a href="{{route('blog.author',$data['author']->slug )}}" style="color: #fff;">{{ $data['author']->name }}</a></p>
@@ -73,13 +72,15 @@
             </div>
         </div>
     </div>
-    <div class="MobileUserProfile mt-5" style="border-radius:0px;height:240px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);">
-        <div class="row" style="color: #fff;left: 20px;">
+
+    <div class="MwebAuthorSection mt-5" style="border-radius:0px;height:100%;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);">
+        <div class="row" style="color: #fff;left: 20px;padding-left:10px;">
             <b style="font-size:1.75rem;" class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</b>
-            <p class="mt-1" style="color: #fff;">Author: <a href="{{route('blog.author', $data['author']->slug )}}" style="color:#fff;position:relative;bottom:0px;left:0px;background-color:transparent;">{{ $data['author']->name }}</a></p>
-            <p class="mt-1" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</p>
+            <p class="mt-3" style="color: #fff;"><b>Author: </b> <a href="{{route('blog.author', $data['author']->slug )}}" style="color:#fff;">{{ $data['author']->name }}</a></p>
+            <p class="mt-0" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</p>
         </div>
     </div>
+
 </section>
 <!-- Blog author details section end -->
 @endif
