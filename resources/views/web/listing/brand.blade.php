@@ -244,21 +244,17 @@
 
 
         <!-- //Stroe Blog Footer Section Start// -->
-        @if ( count($retailor_blog_footer) != 0 )
-            @if($retailor_blog_footer->first()->section_id == 2)
+            @if(!empty($retailor_blog_footer->id))
             <div class="container np-container mt-10">
                 <div class="row mb-5">
                     <div class="col-12">
                         <div>
-                            @foreach($retailor_blog_footer as $footer_blog)
-                            {!! $footer_blog->description !!}
-                            @endforeach
+                            {!! $$retailor_blog_footer->description !!}
                         </div>
                     </div>
                 </div>
             </div>
             @endif
-        @endif
         <!-- //Stroe Blog Footer Section End// -->
 
         <!-- //Stroe FAQs Section Start// -->
