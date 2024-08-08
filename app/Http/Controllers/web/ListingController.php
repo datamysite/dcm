@@ -116,8 +116,8 @@ class ListingController extends Controller
 
         //Get retailer FAqs
         $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->get();
-        $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->get();
-        $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->get();
+        $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->first();
+        $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->first();
 
         $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
 
