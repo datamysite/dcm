@@ -211,10 +211,10 @@ li.lead p {
 
    .WebsiteWelcomeMSG {
        width: 350px;
-       top: 20px;
-       right: 20%;
+       top: 15px;
+       right: 15%;
        position: fixed;
-       z-index: 99999;
+       z-index: 999;
        background-color: #fff;
        border-radius: 20px;
        border: 1px solid #2791CC;

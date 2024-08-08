@@ -246,7 +246,8 @@ Route::group([
         $cat_slug = ucwords($cat_slug);
 
         $is_category = App\Models\Categories::where('name', $cat_slug)->first();
-        $is_brand = App\Models\Retailers::where('slug', $wildcard)->where('status', '1')->first();
+        //$is_brand = App\Models\Retailers::where('slug', $wildcard)->where('status', '1')->first();
+        $is_brand = App\Models\Retailers::where('slug', $wildcard)->first();
         //dd($is_category);
         if (null !== $is_category) {
             $controller = app()->make('App\Http\Controllers\web\ListingController');
@@ -264,7 +265,8 @@ Route::group([
         $cat_slug = str_replace('and', '&', $cat_slug);
         $cat_slug = ucwords($cat_slug);
 
-        $is_brand = App\Models\Retailers::where('slug', $wildcard2)->where('status', '1')->first();
+       // $is_brand = App\Models\Retailers::where('slug', $wildcard2)->where('status', '1')->first();
+       $is_brand = App\Models\Retailers::where('slug', $wildcard2)->first();
         //dd($is_category);
         if ($wildcard2 == 'online' || $wildcard2 == 'retail') {
             $controller = app()->make('App\Http\Controllers\web\ListingController');
