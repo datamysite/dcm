@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Author;
+use App\Models\Blogs;
 use Illuminate\Support\Facades\File;
 
 
@@ -102,9 +103,25 @@ class AuthorController extends Controller
 
     public function delete($id)
     {
-        $id = base64_decode($id);
 
+        $id = base64_decode($id);
+     
         $author = Author::find($id);
+        $blogs = Blogs::where('author_id', $id)->get();
+
+        if ($blogs->isNotEmpty()) {
+            foreach ($blogs as $blog) {
+                $blog->status = 0;
+                if ($blog->save()) {
+                    $response = 'success';
+                } else {
+                    $response = 'error';
+                    break; 
+                }
+            }
+        } else {
+            $response = 'error';
+        }
 
         if ($author) {
             $imagePath = public_path('storage/authors/' . $author->image);
@@ -114,7 +131,6 @@ class AuthorController extends Controller
             }
     
             Author::destroy($id);
-    
             $response = 'success';
 
         } else {
