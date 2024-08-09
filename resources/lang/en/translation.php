@@ -809,7 +809,7 @@ return [
   "how_to_earn_cashback" => "How to earn Cashback?",
   "login_to_earn_cashback" => "Login to Start Earning Cashback",
   "earn_now" => "Earn Now",
-  "earn_txt" => "Earn Now",
+  "earn_txt" => "Earn",
   
 
   "verify" => "Verify",
