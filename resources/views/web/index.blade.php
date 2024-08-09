@@ -50,7 +50,7 @@
          </div>
 
          <div class="col-3" {!! app()->getLocale() == 'ar' ? 'style="color: #fff;padding-right:0px;margin-top:0px;"' : 'style="color: #fff;padding-left:0px;margin-top:5px;"' !!} >
-            <a class="btn btn-primary btn-sm shadow-gray" role="button" data-bs-toggle="modal" data-bs-target="#userModal" {!! app()->getLocale() == 'ar' ? 'style="background-color: #f0f3f2;color:#1F428A;width:80px;margin-right:-10px"' : 'style="background-color: #f0f3f2;color:#1F428A;width:80px;"' !!} href="{{route('claim_cashback')}}" >{{ __('translation.earn_txt') }}</a>
+            <a class="btn btn-primary btn-sm shadow-gray" role="button" data-bs-toggle="modal" data-bs-target="#userModal" {!! app()->getLocale() == 'ar' ? 'style="background-color: #f0f3f2;color:#1F428A;width:100px;margin-right:-10px"' : 'style="background-color: #f0f3f2;color:#1F428A;width:100px;"' !!} href="{{route('claim_cashback')}}" >{{ __('translation.earn_txt') }}</a>
          </div>
 
       </div>
