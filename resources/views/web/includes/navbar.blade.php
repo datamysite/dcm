@@ -443,7 +443,7 @@ $pos = strpos($url, "/".app()->getLocale());
                         </li>
 
                         @if(app()->getLocale() == 'en')
-                        <li class="nav-item dropdown w-100 w-lg-auto" style="padding: 10px;">
+                        <li class="nav-item dropdown w-100 w-lg-auto">
                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blogs</a>
 
                            <ul class="dropdown-menu desktopMenuCategories">
