@@ -5,6 +5,7 @@
   <td>{{$val->heading}}</td>
   <td>{{$val->category ? $val->category->name : ""}}</td>
   <td>{{$val->author ? $val->author->name : ""}}</td>
+  <td>{{$val->read_time ? $val->read_time : "0"}} Minutes</td>
   <td class="text-right"><small>{{date('d-M-Y | h:i A', strtotime($val->created_at))}}</small></td>
 
   <td class="text-right">

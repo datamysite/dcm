@@ -187,6 +187,28 @@ $pos = strpos($url, "/".app()->getLocale());
                         </ul>
                      </li>
 
+                     @if(app()->getLocale() == 'en')
+                     <li class="nav-item dropdown w-100 w-lg-auto" style="padding: 10px;">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blogs</a>
+
+                        <ul class="dropdown-menu desktopMenuCategories">
+                           @foreach($navbarBlogs as $val)
+                           @php
+                           $string = strtolower(trim($val->name));
+                           $string = str_replace('&', 'and', $string);
+                           $string = str_replace(' ', '-', $string);
+                           $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                           @endphp
+
+                           <li>
+                              <a class="dropdown-item" href="{{route('blog.categories', $slug )}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                           </li>
+
+                           @endforeach
+                        </ul>
+                     </li>
+                     @endif
+
                      <li class="nav-item dropdown" style="padding: 10px;">
 
                         <a class="nav-link" href="{{route('claim_cashback')}}" role="button" aria-expanded="false">{{ __('translation.Earn_Cashback') }}</a>
@@ -420,6 +442,29 @@ $pos = strpos($url, "/".app()->getLocale());
                            </ul>
                         </li>
 
+                        @if(app()->getLocale() == 'en')
+                        <li class="nav-item dropdown w-100 w-lg-auto" style="padding: 10px;">
+                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blogs</a>
+
+                           <ul class="dropdown-menu desktopMenuCategories">
+                              @foreach($navbarBlogs as $val)
+                              @php
+                              $string = strtolower(trim($val->name));
+                              $string = str_replace('&', 'and', $string);
+                              $string = str_replace(' ', '-', $string);
+                              $slug = preg_replace('/[^a-z0-9-]/', '', $string);
+                              @endphp
+
+                              <li>
+                                 <a class="dropdown-item" href="{{route('blog.categories', $slug )}}">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</a>
+                              </li>
+
+                              @endforeach
+                           </ul>
+                        </li>
+                        @endif
+
+
                         <li class="nav-item w-100 w-lg-auto">
 
                            <a class="nav-link" href="{{route('claim_cashback')}}">{{ __('translation.Earn_Cashback') }}</a>
@@ -551,7 +596,7 @@ $pos = strpos($url, "/".app()->getLocale());
          <div class="col-sm-12 mt-5">
             <b style="color:black;font-size: 14px;">{{ __('translation.login_or_sigup_txt') }}</b>
             <p style="font-size: 15px; color:black;">
-               <a class="nav-link" href="{{route('claim_cashback')}}" onclick="closePromotMessage()" >
+               <a class="nav-link" href="{{route('claim_cashback')}}" onclick="closePromotMessage()">
                   {{ __('translation.how_to_earn_cashback') }}</a>
             </p>
             <p>
@@ -566,4 +611,3 @@ $pos = strpos($url, "/".app()->getLocale());
 </div>
 <!-- Promot Message end -->
 @endif
-

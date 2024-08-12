@@ -24,7 +24,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="form-group">
           <label>Blog Category</label>
           <select class="form-control" name="category_id" required>
@@ -35,7 +35,7 @@
           </select>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="form-group">
           <label>Blog Author</label>
           <select class="form-control" name="author_id" required>
@@ -46,6 +46,12 @@
           </select>
         </div>
       </div>
+      <div class="col-md-4">
+              <div class="form-group">
+                <label>Reading Time</label>
+                <input type="number" class="form-control" name="read_time" placeholder="Enter reading time in minutes" required value="{{$data->read_time}}">
+              </div>
+            </div>
     </div>
 
     <div class="row">

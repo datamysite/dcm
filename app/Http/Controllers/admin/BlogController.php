@@ -50,7 +50,7 @@ class BlogController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['short_description']) || empty($data['category_id']) || empty($data['author_id'])) {
+        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['read_time']) || empty($data['short_description']) || empty($data['category_id']) || empty($data['author_id'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         } else {
@@ -90,7 +90,7 @@ class BlogController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['short_description']) || empty($data['category_id']) || empty($data['author_id'])) {
+        if (empty($data['heading']) || empty($data['slug']) || empty($data['description']) || empty($data['read_time']) || empty($data['short_description']) || empty($data['category_id']) || empty($data['author_id'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         } else {

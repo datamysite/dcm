@@ -64,7 +64,9 @@
                     <div class="row">
                         <div class="col-lg-9">
                             <h1 class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</h1>
-                            <p class="mt-5" style="color: #fff;">Author: <a href="{{route('blog.author',$data['author']->slug )}}" style="color: #fff;">{{ $data['author']->name }}</a></p>
+                            <p class="mt-5" style="color: #fff;">Author: <a href="{{route('blog.author',$data['author']->slug )}}" style="color: #fff;">{{ $data['author']->name }}</a>
+                                | <b>{{$data['blog']->read_time}} </b> Minute Read
+                            </p>
                             <p class="mt-5" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</p>
                         </div>
                     </div>
@@ -76,7 +78,10 @@
     <div class="MwebAuthorSection mt-5" style="border-radius:0px;height:100%;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);">
         <div class="row" style="color: #fff;left: 20px;padding-left:10px;">
             <b style="font-size:1.75rem;" class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</b>
-            <p class="mt-3" style="color: #fff;"><b>Author: </b> <a href="{{route('blog.author', $data['author']->slug )}}" style="color:#fff;">{{ $data['author']->name }}</a></p>
+            <p class="mt-3" style="color: #fff;">
+                <b>Author: </b> <a href="{{route('blog.author', $data['author']->slug )}}" style="color:#fff;">{{ $data['author']->name }}</a>
+                | <b>{{$data['blog']->read_time}} </b> Minute Read
+            </p>
             <p class="mt-0" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</p>
         </div>
     </div>

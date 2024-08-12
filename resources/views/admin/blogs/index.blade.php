@@ -53,7 +53,8 @@
                     <th width="30%">Slug</th>
                     <th width="20%">Blog Heading</th>
                     <th width="15%">Category</th>
-                    <th width="20%">Author</th>
+                    <th width="10%">Author</th>
+                    <th width="10%">ReadTime</th>
                     <th width="15%" class="text-right">Created at</th>
                     <!-- <th width="10%" class="text-right">Action</th> -->
                     <th class="text-right">Action</th>
@@ -68,6 +69,7 @@
                     <th>Blog Heading</th>
                     <th>Category</th>
                     <th>Author</th>
+                    <th>ReadTime</th>
                     <th class="text-right">Created at</th>
                     <!-- <th class="text-right">Action</th> -->
                     <th width="20%" class="text-right">Action</th>
@@ -122,7 +124,7 @@
           </div>
 
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <label>Blog Category</label>
                 <select class="form-control" name="category_id" required>
@@ -133,15 +135,21 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <label>Blog Author</label>
-                <select class="form-control" name="author_id" required> 
-                <option value="">Select Blog Author</option>
+                <select class="form-control" name="author_id" required>
+                  <option value="">Select Blog Author</option>
                   @foreach ($data['authors'] as $author)
                   <option value="{{ $author->id }}">{{ $author->name }}</option>
                   @endforeach
                 </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Reading Time</label>
+                <input type="number" class="form-control" name="read_time" placeholder="Enter reading time in minutes" required>
               </div>
             </div>
           </div>

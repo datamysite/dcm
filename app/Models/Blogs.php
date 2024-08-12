@@ -19,6 +19,7 @@ class Blogs extends Model
         $b->banner_alt = $data['banner_alt'];
         $b->slug = $data['slug'];
         $b->description = $data['description'];
+        $b->read_time = $data['read_time'];
         $b->short_description = $data['short_description'];
         $b->category_id = $data['category_id'];
         $b->author_id = $data['author_id'];
@@ -36,6 +37,7 @@ class Blogs extends Model
         $b->banner_alt = $data['banner_alt'];
         $b->slug = $data['slug'];
         $b->description = $data['description'];
+        $b->read_time = $data['read_time'];
         $b->short_description = $data['short_description'];
         $b->category_id = $data['category_id'];
         $b->author_id = $data['author_id'];

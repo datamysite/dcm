@@ -37,7 +37,7 @@ class ViewServiceProvider extends ServiceProvider
             $data['headSnippet'] = SnippetCode::where('position', 'Head')->where('country_id',  config('app.country'))->get();
             $data['bodySnippet'] = SnippetCode::where('position', 'Body')->where('country_id',  config('app.country'))->get();
             $data['navbarCategories'] = Categories::select('id', 'image', 'name_ar', 'name', 'type', 'parent_id')->when(config('app.retail') == false, function($q){ $q->where('id', '!=', '52')->limit(6); })->where('parent_id', 0)->OrderBy('order','ASC')->get();
-
+            $data['navbarBlogs'] = Categories::where('parent_id', 0)->get();
 
             $data['footCat'] = Footer::where('section_id', '3')->get();
             $data['footBrand'] = Footer::where('section_id', '2')->get();
