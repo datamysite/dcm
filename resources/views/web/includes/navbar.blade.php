@@ -217,7 +217,7 @@ $pos = strpos($url, "/".app()->getLocale());
                   </ul>
                   <form class="ms-auto d-flex align-items-center" style="padding: 10px;">
                      <div class="input-group main-search-div">
-                        <input class="form-control main-search" type="text" placeholder="{{ __('translation.Search') }}" style="width: 380px;">
+                        <input class="form-control main-search" type="text" placeholder="{{ __('translation.Search') }}" style="width: 340px;">
                         @if ( app()->getLocale() == 'en' )
                         <span class="input-group-append">
                            <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
