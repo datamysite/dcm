@@ -17,6 +17,9 @@ class MainController extends Controller
     public function index(){
         $data['menu'] = 'dashboard';
         $data['start_date'] = date('Y-m-d', strtotime('-30 days'));
+        if($data['start_date'] < Auth::guard('seller')->user()->created_at){
+            $data['start_date'] = date('Y-m-d', strtotime(Auth::guard('seller')->user()->created_at));
+        }
         $data['end_date'] = date('Y-m-d', strtotime('+1 days'));
         $data['total_traffic'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '1')->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->count();
 
