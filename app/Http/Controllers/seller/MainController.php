@@ -29,22 +29,22 @@ class MainController extends Controller
             $data['active_coupons'] = Coupon::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('status', '1')->count();
 
             $data['coupon_analytics'] = ClicksCounter::with('coupon')
-                                                        ->where('type', '2')
-                                                        ->where('coupon_id', '!=', null)
-                                                        ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
-                                                        ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
-                                                        ->select('coupon_id', DB::raw('count(*) as total'))
-                                                        ->groupBy('coupon_id')
-                                                        ->get();
+                                                    ->where('type', '2')
+                                                    ->where('coupon_id', '!=', null)
+                                                    ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
+                                                    ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
+                                                    ->select('coupon_id', DB::raw('count(*) as total'))
+                                                    ->groupBy('coupon_id')
+                                                    ->get();
 
             $data['grabDeal_analytics'] = ClicksCounter::with('coupon')
-                                                        ->where('type', '4')
-                                                        ->where('coupon_id', '!=', null)
-                                                        ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
-                                                        ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
-                                                        ->select('coupon_id', DB::raw('count(*) as total'))
-                                                        ->groupBy('coupon_id')
-                                                        ->get();
+                                                    ->where('type', '4')
+                                                    ->where('coupon_id', '!=', null)
+                                                    ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
+                                                    ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
+                                                    ->select('coupon_id', DB::raw('count(*) as total'))
+                                                    ->groupBy('coupon_id')
+                                                    ->get();
 
         }elseif (Auth::guard('seller')->user()->retailer->type == '2') {
             $data['total_downloads'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '3')->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->count();
@@ -57,22 +57,22 @@ class MainController extends Controller
                                                 ->whereBetween('updated_at', [$data['start_date'], $data['end_date']])->count();
 
             $data['offer_analytics'] = ClicksCounter::with('offer')
-                                                        ->where('type', '3')
-                                                        ->where('offer_id', '!=', null)
-                                                        ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
-                                                        ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
-                                                        ->select('offer_id', DB::raw('count(*) as total'))
-                                                        ->groupBy('offer_id')
-                                                        ->get();
+                                                    ->where('type', '3')
+                                                    ->where('offer_id', '!=', null)
+                                                    ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
+                                                    ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
+                                                    ->select('offer_id', DB::raw('count(*) as total'))
+                                                    ->groupBy('offer_id')
+                                                    ->get();
 
             $data['whatsapp_analytics'] = ClicksCounter::with('offer')
-                                                        ->where('type', '5')
-                                                        ->where('offer_id', '!=', null)
-                                                        ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
-                                                        ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
-                                                        ->select('offer_id', DB::raw('count(*) as total'))
-                                                        ->groupBy('offer_id')
-                                                        ->get();
+                                                    ->where('type', '5')
+                                                    ->where('offer_id', '!=', null)
+                                                    ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
+                                                    ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
+                                                    ->select('offer_id', DB::raw('count(*) as total'))
+                                                    ->groupBy('offer_id')
+                                                    ->get();
         }
 
         $data['visiter_regional'] = ClicksCounter::select('region', DB::raw('count(*) as total'))->where('type', '1')->where('retailer_id', Auth::guard('seller')->user()->retailer_id)->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->groupBy('region')->orderBy('region', 'desc')->get()->toArray();
@@ -117,22 +117,22 @@ class MainController extends Controller
             $data['active_coupons'] = Coupon::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('status', '1')->whereBetween('created_at', [$data['start_date'], $data['end_date']])->count();
 
             $data['coupon_analytics'] = ClicksCounter::with('coupon')
-                                                        ->where('type', '2')
-                                                        ->where('coupon_id', '!=', null)
-                                                        ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
-                                                        ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
-                                                        ->select('coupon_id', DB::raw('count(*) as total'))
-                                                        ->groupBy('coupon_id')
-                                                        ->get();
+                                                    ->where('type', '2')
+                                                    ->where('coupon_id', '!=', null)
+                                                    ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
+                                                    ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
+                                                    ->select('coupon_id', DB::raw('count(*) as total'))
+                                                    ->groupBy('coupon_id')
+                                                    ->get();
 
             $data['grabDeal_analytics'] = ClicksCounter::with('coupon')
-                                                        ->where('type', '4')
-                                                        ->where('coupon_id', '!=', null)
-                                                        ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
-                                                        ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
-                                                        ->select('coupon_id', DB::raw('count(*) as total'))
-                                                        ->groupBy('coupon_id')
-                                                        ->get();
+                                                    ->where('type', '4')
+                                                    ->where('coupon_id', '!=', null)
+                                                    ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
+                                                    ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
+                                                    ->select('coupon_id', DB::raw('count(*) as total'))
+                                                    ->groupBy('coupon_id')
+                                                    ->get();
 
         }elseif (Auth::guard('seller')->user()->retailer->type == '2') {
             $data['total_downloads'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '3')->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->count();
@@ -145,22 +145,22 @@ class MainController extends Controller
                                                 ->whereBetween('updated_at', [$data['start_date'], $data['end_date']])->count();
 
             $data['offer_analytics'] = ClicksCounter::with('offer')
-                                                        ->where('type', '3')
-                                                        ->where('offer_id', '!=', null)
-                                                        ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
-                                                        ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
-                                                        ->select('offer_id', DB::raw('count(*) as total'))
-                                                        ->groupBy('offer_id')
-                                                        ->get();
+                                                    ->where('type', '3')
+                                                    ->where('offer_id', '!=', null)
+                                                    ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
+                                                    ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
+                                                    ->select('offer_id', DB::raw('count(*) as total'))
+                                                    ->groupBy('offer_id')
+                                                    ->get();
 
             $data['whatsapp_analytics'] = ClicksCounter::with('offer')
-                                                        ->where('type', '5')
-                                                        ->where('offer_id', '!=', null)
-                                                        ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
-                                                        ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
-                                                        ->select('offer_id', DB::raw('count(*) as total'))
-                                                        ->groupBy('offer_id')
-                                                        ->get();
+                                                    ->where('type', '5')
+                                                    ->where('offer_id', '!=', null)
+                                                    ->where('retailer_id', Auth::guard('seller')->user()->retailer_id)
+                                                    ->whereBetween('created_at',[$data['start_date'], $data['end_date']] )
+                                                    ->select('offer_id', DB::raw('count(*) as total'))
+                                                    ->groupBy('offer_id')
+                                                    ->get();
         }
 
         $data['visiter_regional'] = ClicksCounter::select('region', DB::raw('count(*) as total'))->where('type', '1')->where('retailer_id', Auth::guard('seller')->user()->retailer_id)->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->groupBy('region')->orderBy('region', 'desc')->get()->toArray();

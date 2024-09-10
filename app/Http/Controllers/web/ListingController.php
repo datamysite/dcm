@@ -230,6 +230,7 @@ class ListingController extends Controller
                 return $q->where('discount_upto', '<=', $req['discount']);
             })
             ->where('status', '1')
+            ->orderBy('sequence')
             ->paginate(12);
 
         return view($this->getView('web.listing.categories_with_type'))->with($data);
