@@ -115,9 +115,9 @@ class ListingController extends Controller
         $data['testimonials'] = Testimonials::where('status', '1')->orderBy('created_at', 'desc')->limit(10)->get();
 
         //Get retailer FAqs
-        $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->get();
-        $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->first();
-        $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->first();
+        $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->where('country_id', config('app.country'))->get();
+        $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->where('country_id', config('app.country'))->first();
+        $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->where('country_id', config('app.country'))->first();
 
         $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
 
@@ -156,9 +156,9 @@ class ListingController extends Controller
         $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
 
         //Get retailer FAqs
-        $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->get();
-        $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->first();
-        $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->first();
+        $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->where('country_id', config('app.country'))->get();
+        $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->where('country_id', config('app.country'))->first();
+        $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->where('country_id', config('app.country'))->first();
 
 
         $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
