@@ -346,6 +346,17 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
                 Route::post('/create', 'RetailerController@create_seller_panel')->name('admin.retailer.sellerpanel.create');
             });
 
+            //Branch
+            Route::prefix('branch')->group(function () {
+                Route::get('/{id}', 'RetailerBranchController@index')->name('admin.retailer.branch');
+                Route::get('/load/{id}', 'RetailerBranchController@load')->name('admin.retailer.branch.load');
+                Route::get('/search/{val}', 'RetailerBranchController@search_retailer');
+                Route::post('/create', 'RetailerBranchController@create')->name('admin.retailer.branch.create');
+                Route::get('/delete/{id}', 'RetailerBranchController@delete');
+                Route::get('/edit/{id}', 'RetailerBranchController@edit');
+                Route::post('/update', 'RetailerBranchController@update_coupon')->name('admin.retailer.branch.update');
+            });
+
             //offers
             Route::prefix('offers')->middleware('auth:admin', 'permission:Retailer offer view')->group(function () {
                 Route::get('/{id}', 'OfferController@index')->name('admin.retailer.offer');

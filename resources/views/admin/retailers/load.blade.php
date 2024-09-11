@@ -38,6 +38,9 @@ $countries .= empty($countries) ? $cval->country->shortname : ', '.$cval->countr
         <span class="sr-only">Action</span>
       </button>
       <div class="dropdown-menu dropdown-menu-right table-dropdown" role="menu" style="">
+        
+        <a class="dropdown-item" href="{{route('admin.retailer.branch', base64_encode($val->id))}}" title="FAQs"><i class="fas fa-code-branch"></i> Branches</a>
+
         @if($val->type == '2' || $val->type == '3')
         @if(auth('admin')->user()->can('Retailer offer view'))
         <a class="dropdown-item" href="{{route('admin.retailer.offer', base64_encode($val->id))}}" title="Retail offers"><i class="fas fa-hand-holding-usd"></i> Retail Offers</a>
