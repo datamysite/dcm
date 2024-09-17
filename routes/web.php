@@ -354,7 +354,21 @@ Route::prefix('admin/panel')->namespace('admin')->group(function () {
                 Route::post('/create', 'RetailerBranchController@create')->name('admin.retailer.branch.create');
                 Route::get('/delete/{id}', 'RetailerBranchController@delete');
                 Route::get('/edit/{id}', 'RetailerBranchController@edit');
-                Route::post('/update', 'RetailerBranchController@update_coupon')->name('admin.retailer.branch.update');
+                Route::post('/update', 'RetailerBranchController@update_branch')->name('admin.retailer.branch.update');
+
+                //FAQ
+                Route::prefix('faqs')->group(function(){
+                    Route::get('/{id}', 'BranchFAQController@index')->name('admin.retailer.branch.faq');
+                    Route::get('/load/{id}', 'BranchFAQController@load')->name('admin.retailer.branch.faq.load');
+                    Route::post('/create', 'BranchFAQController@create')->name('admin.retailer.branch.faq.create');
+                });
+
+                //Blogs
+                Route::prefix('blogs')->middleware('auth:admin', 'permission:Retailer blogs view')->group(function () {
+                    Route::get('/{id}', 'RetailerBranchBlogController@index')->name('admin.retailer.branch.blog');
+                    Route::get('/load/{id}', 'RetailerBranchBlogController@load')->name('admin.retailer.branch.blog.load');
+                    Route::post('/create', 'RetailerBranchBlogController@create')->middleware('auth:admin', 'permission:Retailer blogs add')->name('admin.retailer.branch.blog.create');
+                });
             });
 
             //offers

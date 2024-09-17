@@ -39,7 +39,7 @@
                       </div>
                     </div>
                     <div class="col-md-3">
-                        <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Branch" data-toggle="modal" data-target="#addCouponFormModal"><i class="fas fa-plus"></i> Add Branch</a>
+                        <a href="javascript:void(0)" class="btn btn-primary pull-right" title="Add Branch" data-toggle="modal" data-target="#addBranchFormModal"><i class="fas fa-plus"></i> Add Branch</a>
                     </div>
                   </div>
                   <br>
@@ -110,10 +110,10 @@
   </div>
 
 
-<div class="modal fade" id="addCouponFormModal">
+<div class="modal fade" id="addBranchFormModal">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form id="add_retialer_coupon_form" action="{{route('admin.retailer.coupon.create')}}">
+      <form id="add_retialer_branch_form" action="{{route('admin.retailer.branch.create')}}">
         @csrf
         <input type="hidden" name="retailer_id" value="{{base64_encode($retailer->id)}}">
         <div class="modal-header">
@@ -127,7 +127,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Branch Name</label>
-                <input type="text" class="form-control" name="code" required>
+                <input type="text" class="form-control" name="name" required>
               </div>
             </div>
           </div>
@@ -145,7 +145,7 @@
 
 
 
-<div class="modal fade" id="editCouponFormModal">
+<div class="modal fade" id="editBranchFormModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       
@@ -170,62 +170,14 @@
 
 <script>
   $(function () {
-    loadCoupon();
+    loadBranch();
 
-    $(".heading_en").keyup(function() {
-
-      var heading = $(this).val();
-      if(heading != ''){
-        $.ajax({
-          url: "{{route('translate')}}",
-          cache: false,
-          type: 'POST',
-          data: {
-            "_token": "{{ csrf_token() }}",
-            text: heading,
-          },
-          success: function(response) {
-            $('.heading_ar').val(response);
-          }
-        });
-      }else{
-        $('.heading_ar').val('');
-      }
-    });
-
-     $(document).on('keyup', ".eheading_en", function() {
-
-      var heading = $(this).val();
-      if(heading != ''){
-        $.ajax({
-          url: "{{route('translate')}}",
-          cache: false,
-          type: 'POST',
-          data: {
-            "_token": "{{ csrf_token() }}",
-            text: heading,
-          },
-          success: function(response) {
-            $('.eheading_ar').val(response);
-          }
-        });
-      }else{
-        $('.eheading_ar').val('');
-      }
-    });
-
-
-    $(document).on('keyup', '.discountCalculate', function(){
-      var discount = parseInt($('.discount').val());
-      var cashback = parseInt($('.dcmCashback').val());
-      $('.totalDiscount').val(discount+cashback);
-    });
 
     $(document).on('keyup', '.searchRetailer', function(){
       $('.searchbar-suggestion').html('<img src="{{URL::to('/public/loader-gif.gif')}}" height="30px">');
       var val = $(this).val();
       if(val != ''){
-        $.get("{{URL::to('/admin/panel/retailer/coupon/search')}}/"+val, function(data){
+        $.get("{{URL::to('/admin/panel/retailer/branch/search')}}/"+val, function(data){
           $('.searchbar-suggestion').html(data);
         });
       }else{
@@ -242,32 +194,10 @@
         }, 200);
     });
 
-    $('input[name="coupon_image"]').on('change', function(){
-      readURL(this, $('.coupon-image-wrapper'));  //Change the image
-    });
 
-    $(document).on('change','input[name="edit_coupon_image"]', function(){
-      readURL(this, $('.edit_coupon-image-wrapper'));  //Change the image
-    });
-
-    $(document).on('click','.close-btn', function(){ //Unset the image
-       let file = $('input[name="coupon_image"]');
-       $('.coupon-image-wrapper').css('background-image', 'unset');
-       $('.coupon-image-wrapper').removeClass('file-set');
-       file.replaceWith( file = file.clone( true ) );
-
-       let file2 = $('input[name="edit_coupon_image"]');
-       $('.edit_coupon-image-wrapper').css('background-image', 'unset');
-       $('.edit_coupon-image-wrapper').removeClass('file-set');
-       file2.replaceWith( file2 = file2.clone( true ) );
-    });
-
-
-
-
-    $(document).on('submit', "#add_retialer_coupon_form", function (event) {
+    $(document).on('submit', "#add_retialer_branch_form", function (event) {
       var form=$(this);
-      var formData = new FormData($("#add_retialer_coupon_form")[0]);
+      var formData = new FormData($("#add_retialer_branch_form")[0]);
       //console.log(formData);
       $.ajax({
         type: "POST",
@@ -285,8 +215,8 @@
           });
           $('.close-btn').click();
           form.trigger("reset");
-          $('#addCouponFormModal').modal('hide');
-          loadCoupon();
+          $('#addBranchFormModal').modal('hide');
+          loadBranch();
         }else{
           Toast.fire({
             icon: 'error',
@@ -299,7 +229,7 @@
     });
 
 
-    $(document).on('click', '.deleteCoupon', function(){
+    $(document).on('click', '.deleteRetailerBranch', function(){
       var id = $(this).data('id');
 
       Swal.fire({
@@ -312,12 +242,12 @@
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          $.get("{{URL::to('/admin/panel/retailer/coupon/delete')}}/"+id, function(data){
+          $.get("{{URL::to('/admin/panel/retailer/branch/delete')}}/"+id, function(data){
             Toast.fire({
               icon: 'success',
-              title: 'Success! Coupon Successfully Deleted.'
+              title: 'Success! Branch Successfully Deleted.'
             });
-            loadCoupon();
+            loadBranch();
           });
         }
       });
@@ -325,21 +255,21 @@
 
 
 
-    $(document).on('click', '.editCoupon', function(){
+    $(document).on('click', '.editRetailerBranch', function(){
       var val = $(this).data('id');
 
-      $('#editCouponFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
-      $('#editCouponFormModal').modal('show');
+      $('#editBranchFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
+      $('#editBranchFormModal').modal('show');
 
-      $.get("{{URL::to('/admin/panel/retailer/coupon/edit')}}/"+val, function(data){
-        $('#editCouponFormModal .modal-content').html(data);
+      $.get("{{URL::to('/admin/panel/retailer/branch/edit')}}/"+val, function(data){
+        $('#editBranchFormModal .modal-content').html(data);
       });
     });
     
 
-    $(document).on('submit', "#edit_retialer_coupon_form", function (event) {
+    $(document).on('submit', "#edit_retialer_branch_form", function (event) {
       var form=$(this);
-      var formData = new FormData($("#edit_retialer_coupon_form")[0]);
+      var formData = new FormData($("#edit_retialer_branch_form")[0]);
       //console.log(formData);
       $.ajax({
         type: "POST",
@@ -357,8 +287,8 @@
           });
           $('.close-btn').click();
           form.trigger("reset");
-          $('#editCouponFormModal').modal('hide');
-          loadCoupon();
+          $('#editBranchFormModal').modal('hide');
+          loadBranch();
         }else{
           Toast.fire({
             icon: 'error',
@@ -374,7 +304,7 @@
   });
 
 
-  function loadCoupon(){
+  function loadBranch(){
     var url = "{{route('admin.retailer.branch.load', base64_encode($retailer->id))}}";
 
     $('#couponsTableBody').html('<tr class="text-center"><td colspan="9"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
@@ -387,16 +317,5 @@
   }
 
 
-  //FILE
-  function readURL(input, obj){
-    if(input.files && input.files[0]){
-      var reader = new FileReader();
-      reader.onload = function(e){
-        obj.css('background-image', 'url('+e.target.result+')');
-        obj.addClass('file-set');
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
-  };
 </script>
 @endsection

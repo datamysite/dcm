@@ -18,6 +18,9 @@ class RetailerBlogs extends Model
     public static function create(array $data){
         $r = new RetailerBlogs;
         $r->retailer_id = base64_decode($data['retailer_id']);
+        if(!empty($data['branch_id'])){
+            $r->branch_id = base64_decode($data['branch_id']);
+        }
         $r->heading = $data['heading'];
         $r->country_id = $data['country'];
         $r->description = empty($data['description']) ? '' : $data['description'];

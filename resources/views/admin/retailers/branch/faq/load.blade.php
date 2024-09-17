@@ -15,3 +15,8 @@
 
 </tr>
 @endforeach
+@if(count($data['faq']) == 0)
+  <tr>
+    <td colspan="5">No Result Found.</td>
+  </tr>
+@endif
