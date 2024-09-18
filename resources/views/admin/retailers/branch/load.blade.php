@@ -1,7 +1,7 @@
 @foreach($data as $key => $val)
   <tr>
     <td>{{++$key}}</td>
-    <td>{{$val->name}}</td>
+    <td>{{$val->name}} &nbsp;&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;<a href="https://dealsandcouponsmena.com/en/{{$val->retailer->slug}}/{{$val->name}}" target="_blank"> KSA <small><i class="fas fa-link"></i></small></a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="https://dealsandcouponsmena.ae/en/{{$val->retailer->slug}}/{{$val->name}}" target="_blank"> UAE <small><i class="fas fa-link"></i></small></a></small></td>
     <td>{{@$val->admin->fullname}}</td>
     <td class="text-right">
       <div class="btn-group">

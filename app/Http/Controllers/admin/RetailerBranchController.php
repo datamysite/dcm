@@ -25,7 +25,7 @@ class RetailerBranchController extends Controller
     {
         $response = [];
         $data = RetailerBranch::where('retailer_id', base64_decode($id))->get();
-
+        
         return view('admin.retailers.branch.load', ['data' => $data]);
     }
 
