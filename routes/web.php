@@ -267,6 +267,7 @@ Route::group([
 
        // $is_brand = App\Models\Retailers::where('slug', $wildcard2)->where('status', '1')->first();
        $is_brand = App\Models\Retailers::where('slug', $wildcard2)->first();
+       $is_branch = App\Models\RetailerBranch::where('name', $wildcard2)->first();
         //dd($is_category);
         if ($wildcard2 == 'online' || $wildcard2 == 'retail') {
             $controller = app()->make('App\Http\Controllers\web\ListingController');
@@ -275,6 +276,10 @@ Route::group([
         } else if (null !== $is_brand) {
             $controller = app()->make('App\Http\Controllers\web\ListingController');
             return $controller->callAction('category_brand', ['cat_slug' => $wildcard, 'brand_slug' => $wildcard2]);
+            //return redirect()->action('web\ListingController@brand', ['brand_slug' => $wildcard]);
+        } else if (null !== $is_branch) {
+            $controller = app()->make('App\Http\Controllers\web\ListingController');
+            return $controller->callAction('branch_branch', ['branch_name' => $wildcard2, 'brand_slug' => $wildcard]);
             //return redirect()->action('web\ListingController@brand', ['brand_slug' => $wildcard]);
         }
     });

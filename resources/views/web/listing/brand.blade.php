@@ -37,7 +37,13 @@
                         @if(!empty($category_slug))
                         <li class="breadcrumb-item"><a href="{{URL::to('/'.app()->getLocale().'/'.$category_slug)}}" style="color: #000;"><strong>{{app()->getLocale() == 'ar' ? $category->name_ar : $category->name}}</strong></a></li>
                         @endif
+                        @if(empty($branch))
                         <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</a></strong></li>
+                        @else
+                            <li class="breadcrumb-item" aria-current="page"><a href="{{URL::to('/'.app()->getLocale().'/'.$retailer->slug)}}" style="color:#000;"><strong>{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}}</a></strong></li>
+                            
+                            <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0)" style="color:#1DACE3;"><strong>{{$branch->name}}</a></strong></li>
+                        @endif
                     </ol>
                 </nav>
             </div>
