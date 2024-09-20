@@ -9,10 +9,19 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="form-group">
           <label>Heading</label>
           <input type="text" class="form-control" name="heading" value="{{$data->heading}}" required>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Lang</label>
+          <select class="form-control" name="lang" required>
+            <option value="en" {{$data->lang == 'en' ? 'selected' : ''}}>English</option>
+            <option value="ar" {{$data->lang == 'ar' ? 'selected' : ''}}>Arabic</option>
+          </select>
         </div>
       </div>
       <div class="col-md-3">

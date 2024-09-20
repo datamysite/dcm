@@ -37,12 +37,12 @@ class RetailerBranchBlogController extends Controller
         $data = $request->all();
         $response = [];
 
-        if (empty($data['heading']) || empty($data['country']) || empty($data['description']) || empty($data['section_id'])) {
+        if (empty($data['heading']) || empty($data['country']) || empty($data['description']) || empty($data['section_id']) || empty($data['lang'])) {
             $response['success'] = false;
             $response['errors'] = 'Please Fill all required fields.';
         } else {
 
-            $retailer_blog = RetailerBlogs::where('section_id', $data['section_id'])->where('retailer_id', base64_decode($data['retailer_id']))->where('branch_id', base64_decode($data['branch_id']))->get();
+            $retailer_blog = RetailerBlogs::where('section_id', $data['section_id'])->where('retailer_id', base64_decode($data['retailer_id']))->where('branch_id', base64_decode($data['branch_id']))->where('lang', $data['lang'])->get();
             //dd($retailer_blog);
             if (count($retailer_blog) == 0) {
 

@@ -84,7 +84,8 @@
                   <tr>
                     <th width="5%">#</th>
                     <th width="10%">Country</th>
-                    <th width="50%">Blog Heading</th>
+                    <th width="10%">Lang</th>
+                    <th width="40%">Blog Heading</th>
                     <th width="20%">Section</th>
                     <th width="10%">Created by</th>
                     <th width="10%" class="text-right">Action</th>
@@ -96,6 +97,7 @@
                   <tr>
                     <th>#</th>
                     <th>Country</th>
+                    <th>Lang</th>
                     <th>Blog Heading</th>
                     <th>Section</th>
                     <th>Created by</th>
@@ -130,10 +132,19 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <label>Heading</label>
                 <input type="text" class="form-control" name="heading" required>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Lang</label>
+                <select class="form-control" name="lang" required>
+                  <option value="en">English</option>
+                  <option value="ar">Arabic</option>
+                </select>
               </div>
             </div>
             <div class="col-md-3">
@@ -219,7 +230,7 @@
     loadBlogs();
 
     $(document).on('keyup', '.searchRetailer', function() {
-      $('.searchbar-suggestion').html('<img src="{{URL::to(' / public / loader - gif.gif ')}}" height="30px">');
+      $('.searchbar-suggestion').html('<img src="{{URL::to('/public/loader-gif.gif')}}" height="30px">');
       var val = $(this).val();
       if (val != '') {
         $.get("{{URL::to('/admin/panel/retailer/blogs/search')}}/" + val, function(data) {
@@ -291,7 +302,7 @@
     $(document).on('click', '.editBlog', function() {
       var val = $(this).data('id');
 
-      $('#editBlogFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
+      $('#editBlogFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
       $('#editBlogFormModal').modal('show');
 
       $.get("{{URL::to('/admin/panel/retailer/blogs/edit')}}/" + val, function(data) {
@@ -338,7 +349,7 @@
   function loadBlogs() {
     var url = "{{route('admin.retailer.blog.load', base64_encode($retailer->id))}}";
 
-    $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px"></td></tr>');
+    $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data) {
 
       $('#blogsTableBody').html(data);

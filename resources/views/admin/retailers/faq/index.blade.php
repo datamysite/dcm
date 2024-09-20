@@ -52,8 +52,9 @@
                   <thead>
                     <tr>
                       <th width="5%">#</th>
-                      <th width="40%">FAQ Heading</th>
-                      <th width="25%">Country</th>
+                      <th width="10%">Lang</th>
+                      <th width="35%">FAQ Heading</th>
+                      <th width="20%">Country</th>
                       <th width="10%">Created At</th>
                       <th width="10%" class="text-right">Action</th>
                     </tr>
@@ -63,6 +64,7 @@
                   <tfoot>
                     <tr>
                       <th>#</th>
+                      <th>Lang</th>
                       <th>FAQ Heading</th>
                       <th>Country</th>
                       <th>Created by</th>
@@ -98,10 +100,19 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
               <div class="form-group">
                 <label>Heading</label>
                 <input type="text" class="form-control" name="heading" required>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Lang</label>
+                <select class="form-control" name="lang" required>
+                  <option value="en">English</option>
+                  <option value="ar">Arabic</option>
+                </select>
               </div>
             </div>
             <div class="col-md-4">
@@ -237,7 +248,7 @@
       var val = $(this).data('id');
 
 
-      $('#editBlogFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
+      $('#editBlogFormModal .modal-content').html('<div class="text-center"><img src="{{URL::to('/public/loader.gif')}}" height="30px" style="margin-top:60px; margin-bottom:60px;"></div>');
       $('#editBlogFormModal').modal('show');
 
       $.get("{{URL::to('/admin/panel/retailer/faq/editRetailerFAQ/')}}/" + val, function(data) {
@@ -283,7 +294,7 @@
 
     var url = "{{ route('admin.retailer.faq.load', base64_encode($data['retailer_id']) )  }}";
 
-    $('#faqsTableBody').html('<tr class="text-center"><td colspan="6"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px"></td></tr>');
+    $('#faqsTableBody').html('<tr class="text-center"><td colspan="6"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data) {
       $('#faqsTableBody').html(data);
     });

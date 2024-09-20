@@ -1,6 +1,13 @@
 @foreach($data['faq'] as $key => $val)
 <tr>
   <td>{{++$key}}</td>
+  <td>
+    @if($val->lang == 'en')
+      English
+    @elseif($val->lang == 'ar')
+      Arabic
+    @endif
+  </td>
   <td>{{$val->heading}}</td>
   <td>{{ $val->country->name }} </td>
   <td class="text-right"><small>{{date('d-M-Y | h:i A', strtotime($val->created_at))}}</small></td>

@@ -2,6 +2,13 @@
 <tr>
   <td>{{++$key}}</td>
   <td>{{@$val->country->shortname}}</td>
+  <td>
+    @if($val->lang == 'en')
+      English
+    @elseif($val->lang == 'ar')
+      Arabic
+    @endif
+  </td>
   <td>{{$val->heading}}</td>
   <td>
     @if($val->section_id == 1)

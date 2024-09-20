@@ -53,6 +53,7 @@
                   <thead>
                     <tr>
                       <th width="5%">#</th>
+                      <th width="10%">Lang</th>
                       <th width="40%">FAQ Heading</th>
                       <th width="25%">Country</th>
                       <th width="10%">Created At</th>
@@ -64,6 +65,7 @@
                   <tfoot>
                     <tr>
                       <th>#</th>
+                      <th>Lang</th>
                       <th>FAQ Heading</th>
                       <th>Country</th>
                       <th>Created by</th>
@@ -100,10 +102,19 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
               <div class="form-group">
                 <label>Heading</label>
                 <input type="text" class="form-control" name="heading" required>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Lang</label>
+                <select class="form-control" name="lang" required>
+                  <option value="en">English</option>
+                  <option value="ar">Arabic</option>
+                </select>
               </div>
             </div>
             <div class="col-md-4">

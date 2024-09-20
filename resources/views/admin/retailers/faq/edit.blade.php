@@ -17,8 +17,16 @@
                     <input type="text" class="form-control eblogHeading" value="{{$data['data']->heading}}" name="heading" required>
                 </div>
             </div>
-
-            <div class="col-md-6">
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label>Lang</label>
+                  <select class="form-control" name="lang" required>
+                    <option value="en" {{$data['data']->lang == 'en' ? 'selected' : ''}}>English</option>
+                    <option value="ar" {{$data['data']->lang == 'ar' ? 'selected' : ''}}>Arabic</option>
+                  </select>
+                </div>
+              </div>
+            <div class="col-md-4">
                 <div class="form-group">
                     <label>Country</label>
                     <select class="form-control" name="country_id" required>

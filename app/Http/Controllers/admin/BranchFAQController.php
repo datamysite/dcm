@@ -36,7 +36,7 @@ class BranchFAQController extends Controller
             $response['errors'] = 'Please Fill all required fields.';
         } else {
 
-            $faq = Faq::where('heading', $data['heading'])->where('country_id', $data['country_id'])->where('branch_id', $data['branch_id'])->get();
+            $faq = Faq::where('heading', $data['heading'])->where('country_id', $data['country_id'])->where('branch_id', $data['branch_id'])->where('lang', $data['lang'])->get();
 
             if (count($faq) == 0) {
 

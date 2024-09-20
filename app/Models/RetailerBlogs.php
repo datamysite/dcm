@@ -23,6 +23,7 @@ class RetailerBlogs extends Model
         }
         $r->heading = $data['heading'];
         $r->country_id = $data['country'];
+        $r->lang = $data['lang'];
         $r->description = empty($data['description']) ? '' : $data['description'];
         $r->status = '1';
         $r->section_id =  $data['section_id'];
@@ -37,6 +38,7 @@ class RetailerBlogs extends Model
         $r = RetailerBlogs::find($id);
         $r->heading = $data['heading'];
         $r->country_id = $data['country'];
+        $r->lang = $data['lang'];
         $r->description = empty($data['description']) ? '' : $data['description'];
         $r->section_id =  $data['section_id'];
         $r->save();

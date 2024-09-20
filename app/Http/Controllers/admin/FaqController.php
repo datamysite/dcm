@@ -28,7 +28,7 @@ class FaqController extends Controller
             $response['errors'] = 'Please Fill all required fields.';
         } else {
 
-            $faq = Faq::where('heading', $data['heading'])->where('country_id', $data['country_id'])->get();
+            $faq = Faq::where('heading', $data['heading'])->where('country_id', $data['country_id'])->where('lang', $data['lang'])->get();
 
             if (count($faq) == 0) {
 
