@@ -26,7 +26,7 @@
    
    <!-- canonical -->
    <link rel="canonical" href="{{$actual_link}}" />
-   @if(empty($is_blog))
+   @if(empty($data['is_blog']))
       <link rel="alternate" href="{{$en_link}}" hreflang="en" />
       <link rel="alternate" href="{{$ar_link}}" hreflang="ar" />
       <link rel="alternate" href="{{$en_link}}" hreflang="x-default" />
