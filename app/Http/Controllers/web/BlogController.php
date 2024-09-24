@@ -26,26 +26,30 @@ class BlogController extends Controller
 
     public function detail($lang, $slug)
     {
-        $data['blog'] = Blogs::where('slug', $slug)->where('status',1)->with('category')->first();
+        $data['blog'] = Blogs::where('slug', $slug)->where('status',1)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->with('category')->first();
 
-        $id = $data['blog']['id'];
-        $category_id = $data['blog']['category_id'];
-        $author_id = $data['blog']['author_id'];
+        if(!empty($data['blog']->id)){
+            $id = $data['blog']['id'];
+            $category_id = $data['blog']['category_id'];
+            $author_id = $data['blog']['author_id'];
 
-        $data['faq'] = Faq::where('blog_id', $id)->with('country')->get();
+            $data['faq'] = Faq::where('blog_id', $id)->with('country')->get();
 
-        $data['author'] = Author::where('id', $author_id)->first();
+            $data['author'] = Author::where('id', $author_id)->first();
 
-        //For the Blog Categories and Related Blogs
-        $data['category'] = Categories::where('parent_id', 0)->get();
-        $data['blogs_category'] = Blogs::where('category_id', $category_id)->where('status',1)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->with('author')->get()->shuffle()->take(3);
+            //For the Blog Categories and Related Blogs
+            $data['category'] = Categories::where('parent_id', 0)->get();
+            $data['blogs_category'] = Blogs::where('category_id', $category_id)->where('status',1)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->with('author')->get()->shuffle()->take(3);
 
-        //$data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(10);
+            //$data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(10);
 
-        $retailersArray = [2,27,55,75,54,14,57,56];
-        $data['top_stores'] = Retailers::where('status', 1)->whereIn('id', $retailersArray)->orderByRaw("FIELD(id, " . implode(",", $retailersArray) . ")")->get();
-        $data['is_blog'] = '1';
-        return view($this->getView('web.blogs.single-blog'), ['data' => $data]);
+            $retailersArray = [2,27,55,75,54,14,57,56];
+            $data['top_stores'] = Retailers::where('status', 1)->whereIn('id', $retailersArray)->orderByRaw("FIELD(id, " . implode(",", $retailersArray) . ")")->get();
+            $data['is_blog'] = '1';
+            return view($this->getView('web.blogs.single-blog'), ['data' => $data]);
+        }else{
+            return redirect(route('Blogs'));   
+        }
     }
 
     public function author($lang, $slug)
