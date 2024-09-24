@@ -41,6 +41,28 @@
     text-align: right !important;
 }
 
+.DesktopAuthorSection {
+    display: block;
+}
+
+.MwebAuthorSection{
+    display: none;
+}
+
+
+.MobileAuthorSection {
+    display: none;
+}
+
+.DesktopRelatedBlogs {
+    display: block;
+}
+
+.MwebRelatedBlogs {
+    display: none;
+}
+
+
 .flex-container {
     /* display: flex; */
     z-index: 1;
@@ -1815,7 +1837,86 @@ label.errors {
 
 
 /* Responsives */
-@media (max-width: 990px) {cccc
+@media (max-width: 990px) {
+    /* UserMenu-Web-Mobile Start*/
+
+    .MobileMenuNav {
+        display: block;
+    }
+
+    .MobileUserProfile {
+        display: block;
+    }
+
+    .DesktopUserMenu {
+        display: none;
+    }
+
+    .MobileUpperMenu {
+        display: block;
+        /* position: fixed;
+        z-index: 9999; */
+        width: 100%;
+        background-color: #fff;
+        top: 0px
+    }
+
+    .MobileWallet {
+        display: block;
+    }
+
+    .breadcrumbMENU {
+        display: none;
+    }
+
+    .MobileWelcomeMSG {
+        display: block;
+    }
+
+    .WebsiteWelcomeMSG {
+        display: none;
+    }
+
+    .MWebPopUPMSG {
+        display: block;
+    }
+
+    .DesktopView {
+        display: none;
+    }
+
+    .MobileView {
+        display: block;
+    }
+
+    .desktop-slider {
+        display: none;
+    }
+
+    .MwebSlider {
+        display: block;
+        /* padding-top:50px !important;  */
+    }
+
+    .MwebCashBackPromot {
+        display: block ;
+        height: 95px !important;
+    }
+
+    /* UserMenu-Web-Mobile End*/
+
+    .DesktopAuthorSection {
+        display: none;
+    }
+
+    .MwebAuthorSection{
+        display: block;
+    }
+
+    .MobileAuthorSection {
+        display: block;
+    }
+    
     .whatsapp-channel-btn {
         display: none;
     }
