@@ -110,7 +110,7 @@
 
                 <div class="row">
                     <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
-                        <div class="text-left">
+                        <div class="{{app()->getlocale() == 'ar' ? 'text-right' : 'text-left'}}">
                             <h5 class="mt-2" style="color: #fff;">{{ __('translation.TOP_STORES') }}</h5>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                 <div class="row mt-1">
 
                     <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
-                        <div class="text-left">
+                        <div class="{{app()->getlocale() == 'ar' ? 'text-right' : 'text-left'}}">
                             <h5 class="mt-2" style="color: #fff;">{{ __('translation.related_blogs_txt') }}</h5>
                         </div>
                     </div>
@@ -196,7 +196,7 @@
 
                 <div class="row">
                     <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
-                        <div class="text-left">
+                        <div class="{{app()->getlocale() == 'ar' ? 'text-right' : 'text-left'}}">
                             <h5 class="mt-2" style="color: #fff;">{{ __('translation.blog_categories_txt') }}</h5>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                 <div class="row">
 
                     <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
-                        <div class="text-left">
+                        <div class="{{app()->getlocale() == 'ar' ? 'text-right' : 'text-left'}}">
                             <h5 class="mt-2" style="color: #fff;">{{ __('translation.share_blog_txt') }}</h5>
                         </div>
                     </div>
