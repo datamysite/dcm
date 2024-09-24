@@ -38,7 +38,7 @@ class BlogController extends Controller
 
         //For the Blog Categories and Related Blogs
         $data['category'] = Categories::where('parent_id', 0)->get();
-        $data['blogs_category'] = Blogs::where('category_id', $category_id)->where('status',1)->with('author')->get()->shuffle()->take(3);
+        $data['blogs_category'] = Blogs::where('category_id', $category_id)->where('status',1)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->with('author')->get()->shuffle()->take(3);
 
         //$data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(10);
 

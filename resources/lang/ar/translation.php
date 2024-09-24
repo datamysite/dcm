@@ -881,4 +881,7 @@ return [
   "post_txt" => "أرسل تقييمك",
   "excellant_txt" => "خدمة ممتازة",  
   
+  "related_blogs_txt" => "المدونات ذات الصلة",
+  "share_blog_txt" => "مشاركة المدونة",
+  "blog_categories_txt" => "فئات المدونة",
 ];

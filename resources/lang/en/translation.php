@@ -897,4 +897,7 @@ return [
   "post_txt" => "Post",
   "excellant_txt" => "Excellent Service!",  
 
+  "related_blogs_txt" => "Related Blogs",
+  "share_blog_txt" => "Share Blog",
+  "blog_categories_txt" => "Blog Categories",
 ];

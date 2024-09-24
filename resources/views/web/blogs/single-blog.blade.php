@@ -111,7 +111,7 @@
                 <div class="row">
                     <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
                         <div class="text-left">
-                            <h5 class="mt-2" style="color: #fff;">Top Stores</h5>
+                            <h5 class="mt-2" style="color: #fff;">{{ __('translation.TOP_STORES') }}</h5>
                         </div>
                     </div>
 
@@ -121,7 +121,7 @@
                             <li class="nav-item border-bottom">
 
                                 <a href="{{URL::to('/'.app()->getLocale().'/'.$val->slug)}}" class="nav-link collapsed active">
-                                    <span>{{$val->name}}</span>
+                                    <span>{{app()->getlocale() == 'ar' ? $val->name_ar : $val->name}}</span>
                                 </a>
 
                             </li>
@@ -135,7 +135,7 @@
 
                     <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
                         <div class="text-left">
-                            <h5 class="mt-2" style="color: #fff;">Related Blogs</h5>
+                            <h5 class="mt-2" style="color: #fff;">{{ __('translation.related_blogs_txt') }}</h5>
                         </div>
                     </div>
 
@@ -156,7 +156,7 @@
                             <div class="col-lg-8">
                                 <h6>{{ $val->heading }}</h6>
                                 <p style="color: #000;">
-                                    {!! Str::limit($val->short_description, 80, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">Read More</a></b>
+                                    {!! Str::limit($val->short_description, 80, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">{{ __('translation.read_more') }}</a></b>
                                 </p>
                                 <p><b style="color:#000;">{{date('d-M-Y', strtotime($val->created_at))}}</b></p>
                             </div>
@@ -182,7 +182,7 @@
                                         </div>
                                         <div class="card-body p-0" style="padding: 15px !important;">
                                             <p style="color: #000;">
-                                                {!! Str::limit($val->short_description, 150, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">Read More</a></b>
+                                                {!! Str::limit($val->short_description, 150, '...') !!}<b><a href="{{route('blog.details', [$val->slug])}}">{{ __('translation.read_more') }}</a></b>
                                             </p>
                                             <p><b style="color:#000;">{{date('d-M-Y', strtotime($val->created_at))}}</b></p>
                                         </div>
@@ -197,7 +197,7 @@
                 <div class="row">
                     <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
                         <div class="text-left">
-                            <h5 class="mt-2" style="color: #fff;">Blog Categories</h5>
+                            <h5 class="mt-2" style="color: #fff;">{{ __('translation.blog_categories_txt') }}</h5>
                         </div>
                     </div>
 
@@ -213,7 +213,7 @@
                             <li class="nav-item border-bottom">
 
                                 <a href="{{route('blog.categories', $slug )}}" class="nav-link collapsed active">
-                                    <span>{{$val->name}}</span>
+                                    <span>{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</span>
                                 </a>
 
                             </li>
@@ -226,7 +226,7 @@
 
                     <div class="row" style="border-radius:5px;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);margin-left:0px;">
                         <div class="text-left">
-                            <h5 class="mt-2" style="color: #fff;">Share Blog</h5>
+                            <h5 class="mt-2" style="color: #fff;">{{ __('translation.share_blog_txt') }}</h5>
                         </div>
                     </div>
                 </div>
