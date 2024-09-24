@@ -1,11 +1,25 @@
 @foreach($data as $key => $val)
 <tr>
   <td>{{++$key}}</td>
+  <td>
+    @if($val->country_id == '1')
+      UAE
+    @elseif($val->country_id == '2')
+      KSA
+    @endif
+  </td>
+  <td>
+    @if($val->lang == 'en')
+      English
+    @elseif($val->lang == 'ar')
+      Arabic
+    @endif
+  </td>
   <td>{{$val->slug}}</td>
   <td>{{$val->heading}}</td>
   <td>{{$val->category ? $val->category->name : ""}}</td>
   <td>{{$val->author ? $val->author->name : ""}}</td>
-  <td>{{$val->read_time ? $val->read_time : "0"}} Minutes</td>
+  <td>{{$val->read_time ? $val->read_time : "0"}} Mins</td>
   <td class="text-right"><small>{{date('d-M-Y | h:i A', strtotime($val->created_at))}}</small></td>
 
   <td class="text-right">

@@ -61,7 +61,28 @@
           <input type="text" class="form-control eblogHeading" value="{{$data->heading}}" name="heading" required>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Country</label>
+          <select class="form-control" name="country_id" required>
+            <option value="2" {{$data->country_id == '2' ? 'selected' : ''}}>Saudi Arabia</option>
+            <option value="1" {{$data->country_id == '1' ? 'selected' : ''}}>United Arab Emirates</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Lang</label>
+          <select class="form-control" name="lang" required>
+            <option value="en" {{$data->lang == 'en' ? 'selected' : ''}}>English</option>
+            <option value="ar" {{$data->lang == 'ar' ? 'selected' : ''}}>Arabic</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
         <div class="form-group slug-field">
           <label>Slug</label>
           <div class="form-control">

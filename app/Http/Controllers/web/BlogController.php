@@ -18,8 +18,8 @@ class BlogController extends Controller
         //$data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->orderBy('id', 'desc')->first();
         //$data['blogs'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->where('id', '!=', $data['featured']->id)->orderBy('id', 'desc')->paginate(9);
 
-        $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->where('status',1)->inRandomOrder()->first();
-        $data['blogs'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->where('status',1)->where('id', '!=', $data['featured']->id)->orderBy('id', 'desc')->paginate(9);
+        $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->where('country_id', config('app.country'))->where('lang', app()->getLocale())->where('status',1)->inRandomOrder()->first();
+        $data['blogs'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->where('status',1)->where('id', '!=', $data['featured']->id)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->orderBy('id', 'desc')->paginate(9);
 
         return view($this->getView('web.blogs.blogs'))->with($data);
     }

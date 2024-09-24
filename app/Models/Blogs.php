@@ -22,6 +22,8 @@ class Blogs extends Model
         $b->read_time = $data['read_time'];
         $b->short_description = $data['short_description'];
         $b->category_id = $data['category_id'];
+        $b->country_id = $data['country_id'];
+        $b->lang = $data['lang'];
         $b->author_id = $data['author_id'];
         $b->status = '1';
         $b->created_by = Auth::guard('admin')->id();
@@ -40,6 +42,8 @@ class Blogs extends Model
         $b->read_time = $data['read_time'];
         $b->short_description = $data['short_description'];
         $b->category_id = $data['category_id'];
+        $b->country_id = $data['country_id'];
+        $b->lang = $data['lang'];
         $b->author_id = $data['author_id'];
         $b->save();
 

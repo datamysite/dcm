@@ -50,12 +50,14 @@
                 <thead>
                   <tr>
                     <th width="5%">#</th>
-                    <th width="30%">Slug</th>
+                    <th width="10%">Country</th>
+                    <th width="10%">Lang</th>
+                    <th width="20%">Slug</th>
                     <th width="20%">Blog Heading</th>
-                    <th width="15%">Category</th>
+                    <th width="10%">Category</th>
                     <th width="10%">Author</th>
-                    <th width="10%">ReadTime</th>
-                    <th width="15%" class="text-right">Created at</th>
+                    <th width="5%">ReadTime</th>
+                    <th width="10%" class="text-right">Created at</th>
                     <!-- <th width="10%" class="text-right">Action</th> -->
                     <th class="text-right">Action</th>
                   </tr>
@@ -65,6 +67,8 @@
                 <tfoot>
                   <tr>
                     <th>#</th>
+                    <th>Country</th>
+                    <th>Lang</th>
                     <th>Slug</th>
                     <th>Blog Heading</th>
                     <th>Category</th>
@@ -161,7 +165,28 @@
                 <input type="text" class="form-control blogHeading" name="heading" required>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Country</label>
+                <select class="form-control" name="country_id" required>
+                  <option value="2">Saudi Arabia</option>
+                  <option value="1">United Arab Emirates</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Lang</label>
+                <select class="form-control" name="lang" required>
+                  <option value="en">English</option>
+                  <option value="ar">Arabic</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
               <div class="form-group slug-field">
                 <label>Slug</label>
                 <div class="form-control">
@@ -244,7 +269,7 @@
       }
       var url = "{{URL::to('/admin/panel/blogs/search')}}/" + val;
 
-      $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px"></td></tr>');
+      $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
       $.get(url, function(data) {
         $('#blogsTableBody').html(data);
         //$('#categoryTable').DataTable();
@@ -386,7 +411,7 @@
 
     $(document).on('click', '.editBlog', function() {
       var id = $(this).data('id');
-      $('#editBlogFormModal .modal-content').html('<img src="{{URL::to(' / public / loader.gif ')}}" height="50px" style="margin:150px auto;">');
+      $('#editBlogFormModal .modal-content').html('<img src="{{URL::to('/public/loader.gif')}}" height="50px" style="margin:150px auto;">');
       $('#editBlogFormModal').modal('show');
       $.get("{{URL::to('/admin/panel/blogs/edit')}}/" + id, function(data) {
         $('#editBlogFormModal .modal-content').html(data);
@@ -406,7 +431,7 @@
     @endphp
     var url = "{{route('admin.blog.load').$pu}}";
 
-    $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to(' / public / loader.gif ')}}" height="30px"></td></tr>');
+    $('#blogsTableBody').html('<tr class="text-center"><td colspan="4"><img src="{{URL::to('/public/loader.gif')}}" height="30px"></td></tr>');
     $.get(url, function(data) {
       $('#blogsTableBody').html(data);
       //$('#categoryTable').DataTable();

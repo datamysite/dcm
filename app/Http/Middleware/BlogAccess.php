@@ -15,10 +15,10 @@ class BlogAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(app()->getLocale() == 'en'){
             return $next($request);
+        /*if(app()->getLocale() == 'en'){
         }else{
         return redirect()->intended('/'.app()->getLocale());
-        }
+        }*/
     }
 }

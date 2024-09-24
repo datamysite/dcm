@@ -17,8 +17,8 @@
                 <!-- breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>Home</strong></a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="Blogs" style="color:#1DACE3;"><strong>Blogs</a></strong></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}" style="color: #000;"><strong>{{ __('translation.Home') }}</strong></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="Blogs" style="color:#1DACE3;"><strong>{{ __('translation.Blogs') }}</a></strong></li>
                     </ol>
                 </nav>
             </div>
@@ -38,7 +38,7 @@
                         <!-- <h3>Featured</h3> -->
                         <h6>{{$featured->heading}}</h6>
                         <p>{{ $featured->short_description }}</p>
-                        <a href="{{route('blog.details', [$featured->slug])}}" target="_blank">Read More</a>
+                        <a href="{{route('blog.details', [$featured->slug])}}" target="_blank">{{ __('translation.read_more') }}</a>
 
                     </div>
 
@@ -61,7 +61,7 @@
                 <a href="{{route('blog.details', [$val->slug])}}" target="blank" style="color:#000;">
                     <div class="post-feather">
                         <img src="{{ config('app.storage').'blogs/'.$val->banner }}" alt="{{empty($val->banner_alt) ? $val->slug : $val->banner_alt}}">
-                        <a href="{{route('blog.details', [$val->slug])}}" target="blank" class="readMorebutton">Read More</a>
+                        <a href="{{route('blog.details', [$val->slug])}}" target="blank" class="readMorebutton">{{ __('translation.read_more') }}</a>
                     </div>
                     <a href="{{route('blog.details', [$val->slug])}}" target="blank"><h5 title="{{$val->heading}}">{{$val->heading}}</h5></a>
                     <p title="{{ $val->short_description }}">{{ $val->short_description }}</p>

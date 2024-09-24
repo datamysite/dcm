@@ -8,7 +8,7 @@
                <!-- list -->
                <ul class="nav flex-column">
                   @foreach($footAbout as $val)
-                     @if(app()->getLocale() == 'ar' && $val->page_name != 'Blogs')
+                     @if(app()->getLocale() == 'ar')
                         <li class="nav-item mb-2"><a href="{{$val->page_url}}" class="nav-link">{{ __('translation.'.$val->page_name) }}</a></li>
                      @elseif(app()->getLocale() == 'en')
                         <li class="nav-item mb-2"><a href="{{$val->page_url}}" class="nav-link">{{ __('translation.'.$val->page_name) }}</a></li>
