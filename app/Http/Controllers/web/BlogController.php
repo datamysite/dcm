@@ -44,7 +44,7 @@ class BlogController extends Controller
 
         $retailersArray = [2,27,55,75,54,14,57,56];
         $data['top_stores'] = Retailers::where('status', 1)->whereIn('id', $retailersArray)->orderByRaw("FIELD(id, " . implode(",", $retailersArray) . ")")->get();
-        
+        $data['is_blog'] = '1';
         return view($this->getView('web.blogs.single-blog'), ['data' => $data]);
     }
 

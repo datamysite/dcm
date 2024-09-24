@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->getLocale()}}">
 
 <head>
    <!-- Required meta tags -->
@@ -26,9 +26,11 @@
    
    <!-- canonical -->
    <link rel="canonical" href="{{$actual_link}}" />
-   <link rel="alternate" href="{{$en_link}}" hreflang="en" />
-   <link rel="alternate" href="{{$ar_link}}" hreflang="ar" />
-   <link rel="alternate" href="{{$en_link}}" hreflang="x-default" />
+   @if(empty($is_blog))
+      <link rel="alternate" href="{{$en_link}}" hreflang="en" />
+      <link rel="alternate" href="{{$ar_link}}" hreflang="ar" />
+      <link rel="alternate" href="{{$en_link}}" hreflang="x-default" />
+   @endif
 
    @yield('amphtml')
    @yield('addImagesrc')
