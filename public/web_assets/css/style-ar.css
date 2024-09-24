@@ -1728,7 +1728,7 @@ label.errors {
     height: 200px;
     background-color: #2791CC;
     margin: 0 auto;
-    right: 250px;
+    left: -40px !important;
 }
 
 .horizontal-line {
@@ -1916,7 +1916,7 @@ label.errors {
     .MobileAuthorSection {
         display: block;
     }
-    
+
     .whatsapp-channel-btn {
         display: none;
     }
