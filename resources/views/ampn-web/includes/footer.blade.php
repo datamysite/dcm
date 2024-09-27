@@ -77,7 +77,7 @@
                             <ul class="dropdown-items">
                             	@foreach($footBrand as $val)
 	                    				<li class="dropdown-item">
-                                    		<a href="{{route('brand', [$region, $val->retailer->slug])}}">{{app()->getLocale() == 'ar' ? $val->retailer->name_ar : $val->retailer->name}}</a>
+                                    		<a href="{{URL::to('/'.app()->getLocale().'/'.$val->retailer->slug)}}">{{app()->getLocale() == 'ar' ? $val->retailer->name_ar : $val->retailer->name}}</a>
                                 		</li>
                   				@endforeach
                             </ul>
