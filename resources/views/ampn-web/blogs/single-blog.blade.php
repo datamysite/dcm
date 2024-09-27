@@ -55,7 +55,7 @@
 <section class="mt-2">
     <div class="container">
             <div class="feather-image-blog singleImg">
-                <img src="{{URL::to('/public/storage/blogs/'.$data['blog']->banner)}}" height="150px" alt="{{empty($data['blog']->banner_alt) ? $data['blog']->slug : $data['blog']->banner_alt}}">
+                <img src="{{ config('app.storage').'blogs/'.$data['blog']->banner }}" height="150px" alt="{{empty($data['blog']->banner_alt) ? $data['blog']->slug : $data['blog']->banner_alt}}">
             </div>
     </div>
 </section>
