@@ -72,7 +72,7 @@
                                  </div>
                                  <div submit-success>
                                      <template type="amp-mustache">
-                                       Success! You are successfully Logged-In. For Profile Please <a href="{{route('user.profile')}}">click here</a>
+                                       Success! You are successfully Logged-In. For Profile Please <a href="{{route('user.dashboard')}}">click here</a>
                                      </template>
                                    </div>
                                    <div submit-error>
@@ -113,7 +113,7 @@
                                  </div>
                                  <div submit-success>
                                      <template type="amp-mustache">
-                                       Success! You are successfully Signed-Up. For Profile Please <a href="{{route('user.profile')}}">click here</a>
+                                       Success! You are successfully Signed-Up. For Profile Please <a href="{{route('user.dashboard')}}">click here</a>
                                      </template>
                                    </div>
                                    <div submit-error>
