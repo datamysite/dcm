@@ -44,18 +44,6 @@ $pos = strpos($url, "/".app()->getLocale()."/");
             </div>
 
             
-            <div class="tray-item tray-emirates">
-               <div class="d-flex justify-content-between">
-                  @foreach($allstates as $val)
-                     <a href="{{route('setRegion', $val->slug)}}" class="selectEmirates {{$val->slug == $region ? 'active' : ''}}" data-id="{{base64_encode($val->id)}}">
-                        <div class="header_card">
-                           <img src="{{URL::to('/public/storage/states/'.$val->image)}}" alt="{{$val->name}}" />
-                           {{$val->shortname}}
-                        </div>
-                     </a>
-                  @endforeach
-               </div>
-            </div>
          </div>
       </div>
 
@@ -117,6 +105,27 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                 </section>
                             </amp-accordion>
                         </li>
+                        @if(config('app.retail'))
+                           <li class="nav-item nav-dropdown">
+                               <amp-accordion layout="container" disable-session-states class="dropdown">
+                                   <section>
+                                       <header style="background-color: #f0f3f2;border:none;">{{ __('translation.All_Stores') }}</header>
+                                       <ul class="dropdown-items">
+                                           <li class="dropdown-item">
+                                               <a href="{{route('stores', ['online'])}}">{{ __('translation.Online') }}</a>
+                                           </li>
+                                           <li class="dropdown-item">
+                                               <a href="{{route('stores', ['retail'])}}">{{ __('translation.Retail') }}</a>
+                                           </li>
+                                       </ul>
+                                   </section>
+                               </amp-accordion>
+                           </li>
+                        @else
+                        <li class="nav-item">
+                            <a href="{{URL::to('/'.app()->getLocale().'/stores')}}">{{ __('translation.All_Stores') }}</a>
+                        </li>
+                        @endif
                         <li class="nav-item nav-dropdown">
                             <amp-accordion layout="container" disable-session-states class="dropdown">
                                 <section>
