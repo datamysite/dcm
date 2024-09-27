@@ -96,7 +96,7 @@
                          				$slug = preg_replace('/[^a-z0-9-]/', '', $string);
                      				@endphp
 	                    				<li class="dropdown-item">
-                                    		<a href="{{route('category', [$region, $slug])}}">{{app()->getLocale() == 'ar' ? $val->category->name_ar : $val->category->name}}</a>
+                                    		<a href="{{URL::to('/'.app()->getLocale().'/'.$slug)}}">{{app()->getLocale() == 'ar' ? $val->category->name_ar : $val->category->name}}</a>
                                 		</li>
                   				@endforeach
                             </ul>
