@@ -135,12 +135,8 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                                                   <section>
                                                       <header style="background-color: #fff;border:none;">{{app()->getLocale() == 'ar' ? $val->name_ar : $val->name}}</header>
                                                       <ul class="dropdown-items">
-                                                          <li class="dropdown-item">
-                                                              <a href="{{route('category.sub', [$region, $slug, 'online'])}}">{{ __('translation.Online') }}</a>
-                                                          </li>
-                                                          <li class="dropdown-item">
-                                                              <a href="{{route('category.sub', [$region, $slug, 'retail'])}}">{{ __('translation.Retail') }}</a>
-                                                          </li>
+                                                          <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug.'/online')}}">{{ __('translation.Online') }}</a></li>
+                                                         <li><a class="dropdown-item" href="{{URL::to('/'.app()->getLocale().'/'.$slug.'/retail')}}">{{ __('translation.Retail') }}</a></li>
                                                       </ul>
                                                   </section>
                                                 </amp-accordion>     
