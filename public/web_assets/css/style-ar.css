@@ -1007,9 +1007,8 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
-#retailerBlogs {
-    display: none;
+#retailerBlogs p {
+    text-align: center !important;
 }
 
 .blogToggle {
