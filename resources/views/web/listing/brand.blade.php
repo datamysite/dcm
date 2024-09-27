@@ -176,6 +176,22 @@
                 @endforeach
             </div>
             <div class="col-lg-3">
+                @if(empty($branch))
+                    @if(count($retailer->branches) > 0)
+                        <div class="row suggested-brand">
+                            <div class="col-lg-12">
+                                @foreach($retailer->branches as $val)
+                                <a href="{{URL::to('/'.app()->getLocale().'/'.$retailer->slug.'/'.$val->name)}}">
+                                    <div class="top_stores">
+                                        {{$val->name}}
+                                    </div>
+                                </a>
+                                @endforeach
+                            </div>
+                        </div>
+                        <br>
+                    @endif
+                @endif
                 <div class="row suggested-brand">
                     <div class="col-lg-12">
                         <p>{{ __('translation.most_searched_brands_txt') }}</p>

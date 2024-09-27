@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\RetailerCountries;
 use App\Models\RetailerCategories;
 use App\Models\RetailerStates;
+use App\Models\RetailerBranch;
 use App\Models\RetailerBlogs;
 use App\Models\Coupon;
 use App\Models\Offers;
@@ -139,5 +140,10 @@ class Retailers extends Model
 
     public function offers(){
         return $this->hasMany(Offers::class, 'retailer_id', 'id')->orderBy('discount', 'desc');
+    }
+
+
+    public function branches(){
+        return $this->hasMany(RetailerBranch::class, 'retailer_id', 'id');
     }
 }
