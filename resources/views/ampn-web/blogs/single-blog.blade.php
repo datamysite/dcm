@@ -27,7 +27,7 @@
 ?>
 @endsection
 @section('addImagesrc')
-<link rel="image_src" href="{{URL::to('/public/storage/blogs/'.$blog->banner)}}" />
+<link rel="image_src" href="{{URL::to('/public/storage/blogs/'.$data['blog']->banner)}}" />
 @endsection
 @section('content')
 
@@ -43,7 +43,7 @@
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="{{route('home', [$region])}}" style="color: #000;"><strong>Home</strong></a></li>
                         <li class="breadcrumb-item"><a href="{{route('Blogs', [$region])}}" style="color: #000;"><strong>Blogs</strong></a></li>
-                        <li class="breadcrumb-item active" aria-current="page" style="color:#1DACE3;"><strong>{{$blog->heading}}</strong></li>
+                        <li class="breadcrumb-item active" aria-current="page" style="color:#1DACE3;"><strong>{{$data['blog']->heading}}</strong></li>
                     </ol>
                 </nav>
             </div>
@@ -55,7 +55,7 @@
 <section class="mt-2">
     <div class="container">
             <div class="feather-image-blog singleImg">
-                <img src="{{URL::to('/public/storage/blogs/'.$blog->banner)}}" height="150px" alt="{{empty($blog->banner_alt) ? $blog->slug : $blog->banner_alt}}">
+                <img src="{{URL::to('/public/storage/blogs/'.$data['blog']->banner)}}" height="150px" alt="{{empty($data['blog']->banner_alt) ? $data['blog']->slug : $data['blog']->banner_alt}}">
             </div>
     </div>
 </section>
@@ -71,13 +71,13 @@
                 <div class="col-12">
                     <div class="mb-8">
                         <!-- heading -->
-                        <h1 style="text-align: left;">{{$blog->heading}}</h1>
+                        <h1 style="text-align: left;">{{$data['blog']->heading}}</h1>
                     </div>
                 </div>
             </div>
             
 
-            {!! $blog->description !!}
+            {!! $data['blog']->description !!}
 
         </div>
     </section>
