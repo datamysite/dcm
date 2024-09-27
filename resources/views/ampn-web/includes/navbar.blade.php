@@ -90,21 +90,6 @@ $pos = strpos($url, "/".app()->getLocale()."/");
          <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar-default" aria-labelledby="navbar-defaultLabel">
                 <nav class="nav">
                     <ul class="label">
-                        <li class="nav-item nav-dropdown">
-                            <amp-accordion layout="container" disable-session-states class="dropdown">
-                                <section>
-                                    <header style="background-color: #f0f3f2;border:none;">{{ __('translation.All_Stores') }}</header>
-                                    <ul class="dropdown-items">
-                                        <li class="dropdown-item">
-                                            <a href="{{route('stores', [$region, 'online'])}}">{{ __('translation.Online') }}</a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                            <a href="{{route('stores', [$region, 'retail'])}}">{{ __('translation.Retail') }}</a>
-                                        </li>
-                                    </ul>
-                                </section>
-                            </amp-accordion>
-                        </li>
                         @if(config('app.retail'))
                            <li class="nav-item nav-dropdown">
                                <amp-accordion layout="container" disable-session-states class="dropdown">
