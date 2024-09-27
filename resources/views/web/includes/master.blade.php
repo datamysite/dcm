@@ -32,11 +32,12 @@
       <link rel="alternate" href="{{$en_link}}" hreflang="x-default" />
    @endif
 
-   @yield('amphtml')
+   @if(!empty($data['is_blog']))
+      @yield('amphtml')
+   @endif
    @yield('addImagesrc')
    @include('web.includes.style')
    @yield('addStyle')
-
 
 
    @foreach($headSnippet as $val)
