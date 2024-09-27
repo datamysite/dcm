@@ -71,14 +71,14 @@ $pos = strpos($url, "/".app()->getLocale()."/");
                   {{ __('translation.search_') }}
                </a>
 
-               <a href="{{route('Sell_With_DCM', [$region])}}" class="center-nav-mob" data-option="home">
+               <a href="{{route('claim_cashback')}}" class="center-nav-mob" data-option="home">
                    <amp-img src="{{URL::to('/public/web_assets/images/icons/sell.svg')}}" layout="fixed" width="46px" height="46px" style="margin-bottom: 6px;" alt="Sell_With_DCM Image"></amp-img>
-                  {{ __('translation.Sell_With_us') }}
+                  {{ __('translation.Earn_Cashback') }}
                </a>
 
-               <a href="#" class="mobile-nav-button" id="emirates_tray_btn">
+               <a href="{{route('Sell_With_DCM', [$region])}}" class="mobile-nav-button">
                    <amp-img src="{{URL::to('/public/web_assets/images/icons/emirates-a.svg')}}" layout="fixed" width="29px" height="29px" alt="Emirates Image"></amp-img>
-                  {{ __('translation.all_emirates') }}
+                  {{ __('translation.Sell_With_us') }}
                </a>
 
                @if(Auth::check())
