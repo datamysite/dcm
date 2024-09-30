@@ -8,6 +8,7 @@ use Spatie\Sitemap\Tags\Url;
 use App\Models\States;
 use App\Models\Categories;
 use App\Models\Retailers;
+use App\Models\RetailerBranch;
 use App\Models\Blogs;
 use Carbon\Carbon;
 
@@ -73,10 +74,12 @@ class GenerateSitemap extends Command
             $listingensitmap = Sitemap::create();
 
             $listingensitmap->add(Url::create("/en/stores")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-            $listingensitmap->add(Url::create("/en/stores/online")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-            
+
             if(config('app.retail')){
+            
+                $listingensitmap->add(Url::create("/en/stores/online")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
                 $listingensitmap->add(Url::create("/en/stores/retail")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            
             }
 
             Categories::get()->each(function (Categories $cat) use ($listingensitmap) {
@@ -91,9 +94,10 @@ class GenerateSitemap extends Command
                 );
 
                 if($cat->id <= 6){
-                    $listingensitmap->add(Url::create("/en/".$slug."/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-                    
                     if(config('app.retail')){
+                    
+                        $listingensitmap->add(Url::create("/en/".$slug."/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+                        
                         $listingensitmap->add(Url::create("/en/".$slug."/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())); 
                     }
 
@@ -107,6 +111,13 @@ class GenerateSitemap extends Command
                     Url::create("/en/".$ret->slug)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
                 );
 
+                RetailerBranch::where('retailer_id', $ret->id)->get()->each(function (RetailerBranch $retb) use ($listingensitmap, $ret) {
+
+                    $listingensitmap->add(
+                        Url::create("/en/".$ret->slug."/".$retb->name)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+                    );
+                });
+
             });
 
 
@@ -117,7 +128,7 @@ class GenerateSitemap extends Command
             $blogenSitemap = Sitemap::create();
 
             $blogenSitemap->add(Url::create("/en/blogs")->setPriority(0.8)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-            Blogs::where('status', '1')->get()->each(function (Blogs $b) use ($blogenSitemap) {
+            Blogs::where('status', '1')->where('country_id', config('app.country'))->where('lang', 'en')->get()->each(function (Blogs $b) use ($blogenSitemap) {
 
                 $blogenSitemap->add(
                     Url::create("/en/blogs/".$b->slug)->setPriority(0.85)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
@@ -134,10 +145,12 @@ class GenerateSitemap extends Command
             $listingarsitmap = Sitemap::create();
 
             $listingarsitmap->add(Url::create("/ar/stores")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-            $listingarsitmap->add(Url::create("/ar/stores/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-
+            
             if(config('app.retail')){
+
+                $listingarsitmap->add(Url::create("/ar/stores/online")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
                 $listingarsitmap->add(Url::create("/ar/stores/retail")->setPriority(1)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+            
             }
 
             Categories::get()->each(function (Categories $cat) use ($listingarsitmap) {
@@ -152,9 +165,10 @@ class GenerateSitemap extends Command
                 );
 
                 if($cat->id <= 6){
-                    $listingarsitmap->add(Url::create("/ar/".$slug."/online")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
 
                     if(config('app.retail')){
+                        $listingarsitmap->add(Url::create("/ar/".$slug."/online")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
+                        
                         $listingarsitmap->add(Url::create("/ar/".$slug."/retail")->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())); 
                     }
                 }
@@ -167,6 +181,13 @@ class GenerateSitemap extends Command
                     Url::create("/ar/".$ret->slug)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
                 );
 
+                RetailerBranch::where('retailer_id', $ret->id)->get()->each(function (RetailerBranch $retb) use ($listingarsitmap, $ret) {
+
+                    $listingarsitmap->add(
+                        Url::create("/ar/".$ret->slug."/".$retb->name)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+                    );
+                });
+
             });
 
 
@@ -177,7 +198,7 @@ class GenerateSitemap extends Command
             $blogarSitemap = Sitemap::create();
 
             $blogarSitemap->add(Url::create("/ar/blogs")->setPriority(0.8)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now()));
-            Blogs::where('status', '1')->get()->each(function (Blogs $b) use ($blogarSitemap) {
+            Blogs::where('status', '1')->where('country_id', config('app.country'))->where('lang', 'ar')->get()->each(function (Blogs $b) use ($blogarSitemap) {
 
                 $blogarSitemap->add(
                     Url::create("/ar/blogs/".$b->slug)->setPriority(0.85)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
