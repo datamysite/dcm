@@ -179,11 +179,14 @@
                 @if(empty($branch))
                     @if(count($retailer->branches) > 0)
                         <div class="row suggested-brand">
+                            <div class="col-lg-12" style="text-transform: capitalize;">
+                                <p>{{app()->getLocale() == 'ar' ? $retailer->name_ar : $retailer->name}} {{ __('translation.footer_section_3_text01') }}</p>
+                            </div>
                             <div class="col-lg-12">
                                 @foreach($retailer->branches as $val)
                                 <a href="{{URL::to('/'.app()->getLocale().'/'.$retailer->slug.'/'.$val->name)}}">
-                                    <div class="top_stores">
-                                        {{$val->name}}
+                                    <div class="top_stores" style="text-transform: capitalize;">
+                                        {{$retailer->name}} {{$val->name}}
                                     </div>
                                 </a>
                                 @endforeach

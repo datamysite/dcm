@@ -143,7 +143,7 @@ return [
   "footer_text02" => "Dar Alafkar Marketing L.L.C",
   "footer_section_1_text01" => "About DCM",
   "footer_section_2_text01" => "POPULAR STORES",
-  "footer_section_3_text01" => "POPULAR CATEGOIRES",
+  "footer_section_3_text01" => "Popular Categories",
   "footer_section_4_text01" => "Subscribe To Our Email",
   "footer_section_4_text02" => "For Latest News & Updates",
   //Statics Links - Section 1
