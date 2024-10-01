@@ -89,9 +89,15 @@ class GenerateSitemap extends Command
                $string = str_replace(' ', '-', $string);
                $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
-                $listingensitmap->add(
-                    Url::create("/en/".$slug)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
-                );
+                if(config('app.retail')){
+                    $listingensitmap->add(
+                        Url::create("/en/".$slug)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+                    );
+                }elseif(config('app.retail') == false && $cat->id <= 6){
+                    $listingensitmap->add(
+                        Url::create("/en/".$slug)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+                    );
+                }
 
                 if($cat->id <= 6){
                     if(config('app.retail')){
@@ -105,7 +111,9 @@ class GenerateSitemap extends Command
 
             });
 
-            Retailers::get()->each(function (Retailers $ret) use ($listingensitmap) {
+            Retailers::whereHas('countries', function ($qq){
+                    return $qq->where('country_id', config('app.country'));
+                })->get()->each(function (Retailers $ret) use ($listingensitmap) {
 
                 $listingensitmap->add(
                     Url::create("/en/".$ret->slug)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
@@ -160,9 +168,15 @@ class GenerateSitemap extends Command
                $string = str_replace(' ', '-', $string);
                $slug = preg_replace('/[^a-z0-9-]/', '', $string);
 
-                $listingarsitmap->add(
-                    Url::create("/ar/".$slug)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
-                );
+               if(config('app.retail')){
+                    $listingarsitmap->add(
+                        Url::create("/ar/".$slug)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+                    );
+                }elseif(config('app.retail') == false && $cat->id <= 6){
+                    $listingarsitmap->add(
+                        Url::create("/ar/".$slug)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
+                    );
+                }
 
                 if($cat->id <= 6){
 
@@ -175,7 +189,9 @@ class GenerateSitemap extends Command
 
             });
 
-            Retailers::get()->each(function (Retailers $ret) use ($listingarsitmap) {
+            Retailers::whereHas('countries', function ($qq) {
+                    return $qq->where('country_id', config('app.country'));
+                })->get()->each(function (Retailers $ret) use ($listingarsitmap) {
 
                 $listingarsitmap->add(
                     Url::create("/ar/".$ret->slug)->setPriority(0.9)->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)->setLastModificationDate(Carbon::now())
