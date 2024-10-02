@@ -48,16 +48,22 @@ class ViewServiceProvider extends ServiceProvider
             $actual_link = '';
             if(isset($_SERVER['HTTP_HOST']) && !empty($_SERVER['HTTP_HOST'])){
                 $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-                if($_SERVER['HTTP_HOST'] == 'localhost'){
+                if(strpos($actual_link, 'amp/') == false){
+                    if($_SERVER['HTTP_HOST'] == 'localhost'){
 
-                    $actual_link_m = substr_replace($actual_link, 'amp/', 21, 0);
+                        $actual_link_m = substr_replace($actual_link, 'amp/', 21, 0);
 
+                    }else{
+                        $actual_link_m = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]/amp$_SERVER[REQUEST_URI]";
+                    }
                 }else{
-                    $actual_link_m = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]/amp$_SERVER[REQUEST_URI]";
+                    $actual_link_m = $actual_link;
+                    $actual_link = str_replace("/amp/","/",$actual_link_m);
                 }
             }
             $data['actual_link'] = $actual_link;
             $data['actual_link_m'] = $actual_link_m;
+            //dd($data);
             $al = explode('?', $actual_link);
             $data['actual_link'] = $al[0];
             $data['metaTags'] = MetaTags::where('url', $actual_link)->first();
