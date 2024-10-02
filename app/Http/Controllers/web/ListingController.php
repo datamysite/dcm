@@ -114,38 +114,36 @@ class ListingController extends Controller
         $data['retailer'] = Retailers::whereHas('countries', function ($qq){
                     return $qq->where('country_id', config('app.country'));
                 })->where('slug', $brand_slug)->first();
-        if(!empty($data['retailer']->id)){
-            $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)->where('status', '1')->get();
-            $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
-            $data['testimonials'] = Testimonials::where('status', '1')->orderBy('created_at', 'desc')->limit(10)->get();
 
-            //Get retailer FAqs
-            $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->get();
-            $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->first();
-            $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->first();
+        $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)->where('status', '1')->get();
+        $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
+        $data['testimonials'] = Testimonials::where('status', '1')->orderBy('created_at', 'desc')->limit(10)->get();
 
-            $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
+        //Get retailer FAqs
+        $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->get();
+        $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->first();
+        $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->first();
 
-            $data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(6);
+        $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
 
-            $data['isMobile'] = Agent::isMobile();
-            //dd($data['isMobile']);
-            ClicksCounter::hitCount('1', $data['retailer']->id);
+        $data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(6);
 
-            if (Auth::check()) {
-                $sv = StoreVisits::where('user_id', Auth::id())->where('retailer_id', $data['retailer']->id)->first();
-                if (empty($sv->id)) {
-                    $s = new StoreVisits;
-                    $s->user_id = Auth::id();
-                    $s->retailer_id = $data['retailer']->id;
-                    $s->save();
-                }
+        $data['isMobile'] = Agent::isMobile();
+        //dd($data['isMobile']);
+        ClicksCounter::hitCount('1', $data['retailer']->id);
+
+        if (Auth::check()) {
+            $sv = StoreVisits::where('user_id', Auth::id())->where('retailer_id', $data['retailer']->id)->first();
+            if (empty($sv->id)) {
+                $s = new StoreVisits;
+                $s->user_id = Auth::id();
+                $s->retailer_id = $data['retailer']->id;
+                $s->save();
             }
-
-            return view($this->getView('web.listing.brand'))->with($data);
-        }else{
-            return redirect(route('not_found'));   
         }
+
+        return view($this->getView('web.listing.brand'))->with($data);
+
     }
 
 
@@ -157,33 +155,31 @@ class ListingController extends Controller
         $data['retailer'] = Retailers::whereHas('countries', function ($qq){
                     return $qq->where('country_id', config('app.country'));
                 })->where('slug', $brand_slug)->first();
-        if(!empty($data['retailer']->id)){
-            $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)
-                ->whereHas('categories', function ($q) use ($data) {
-                    return $q->where('category_id', $data['category']->id);
-                })
-                ->where('status', '1')->get();
-            $data['testimonials'] = Testimonials::where('status', '1')->orderBy('created_at', 'desc')->limit(10)->get();
-            $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
 
-            //Get retailer FAqs
-            $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->get();
-            $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->first();
-            $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->first();
+        $data['coupons'] = Coupon::where('retailer_id', $data['retailer']->id)
+            ->whereHas('categories', function ($q) use ($data) {
+                return $q->where('category_id', $data['category']->id);
+            })
+            ->where('status', '1')->get();
+        $data['testimonials'] = Testimonials::where('status', '1')->orderBy('created_at', 'desc')->limit(10)->get();
+        $data['offers'] = Offers::where('retailer_id', $data['retailer']->id)->get();
+
+        //Get retailer FAqs
+        $data['faqs'] = Faq::where('retailer_id', $data['retailer']->id)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->get();
+        $data['retailor_blog_header'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 1)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->first();
+        $data['retailor_blog_footer'] = RetailerBlogs::where('retailer_id', $data['retailer']->id)->where('section_id', 2)->where('country_id', config('app.country'))->where('lang', app()->getLocale())->first();
 
 
-            $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
+        $data['suggested'] = Retailers::where('slug', '!=', $brand_slug)->limit(16)->where('status', '1')->inRandomOrder()->get();
 
-            $data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(6);
-            
-            $data['isMobile'] = Agent::isMobile();
+        $data['top_stores'] = Retailers::where('status', 1)->get()->shuffle()->take(6);
+        
+        $data['isMobile'] = Agent::isMobile();
 
-            ClicksCounter::hitCount('1', $data['retailer']->id);
+        ClicksCounter::hitCount('1', $data['retailer']->id);
 
-            return view($this->getView('web.listing.brand'))->with($data);
-        }else{
-            return redirect(route('not_found'));   
-        }
+        return view($this->getView('web.listing.brand'))->with($data);
+        
     }
 
      public function branch_branch($branch_name, $brand_slug)
