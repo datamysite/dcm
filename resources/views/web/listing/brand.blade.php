@@ -61,7 +61,7 @@
                     <a href="{{URL::to('/'.app()->getLocale().'/'.$retailer->slug)}}">
                         <h1 class=" page-title">
                             @if(app()->getLocale() == 'ar')
-                                {{!empty($retailer->heading_ar) ? $retailer->name_ar : $retailer->heading_ar}}
+                                {{empty($retailer->heading_ar) ? $retailer->name_ar : $retailer->heading_ar}}
                             @else
                                 {{!empty($retailer->heading) ? $retailer->heading : $retailer->name}}
                             @endif
