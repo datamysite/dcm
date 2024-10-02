@@ -25,7 +25,20 @@
    <meta name="twitter:description" content="{{@$metaTags->description}}@yield('default_description')"/>
    
    <!-- canonical -->
-   <link rel="canonical" href="{{$actual_link}}" />
+   @if(!empty($type_remove) && config('app.retail') == false)
+      @php
+         $new_actual_link = '';
+         if(strpos($actual_link, '/online')){
+            $new_actual_link = str_replace('/online', '', $actual_link);
+         }elseif(strpos($actual_link, '/retail')){
+            $new_actual_link = str_replace('/retail', '', $actual_link);
+         }
+
+      @endphp
+      <link rel="canonical" href="{{$new_actual_link}}" />
+   @else
+      <link rel="canonical" href="{{$actual_link}}" />
+   @endif
    @if(empty($data['is_blog']))
       <link rel="alternate" href="{{$en_link}}" hreflang="en" />
       <link rel="alternate" href="{{$ar_link}}" hreflang="ar" />

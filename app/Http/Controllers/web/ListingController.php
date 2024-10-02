@@ -32,6 +32,7 @@ class ListingController extends Controller
     {
         $req = $request->all();
         $data['type'] = $type;
+        $data['type_remove'] = '1';
         $type = ($type == 'online' ? '1' : '2');
         //dd($region);
         //Filters -- start
@@ -234,6 +235,7 @@ class ListingController extends Controller
         $data['category_slug'] = $cat_slug;
         $req = $request;
         $data['type'] = $type;
+        $data['type_remove'] = '1';
         $type = ($type == 'online' ? '1' : '2');
         $data['category'] = Categories::where('name', ListingController::sanitizeStringForUrl($cat_slug))->first();
 
