@@ -94,7 +94,7 @@
               "on": "visible",
               "request": "pageview",
               "vars": {
-                "title": "{{$data['blog']->heading}}"
+                "title": "AMP | {{$data['blog']->heading}}"
               }
             }
           }
