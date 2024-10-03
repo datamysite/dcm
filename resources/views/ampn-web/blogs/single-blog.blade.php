@@ -93,6 +93,9 @@
             "default pageview": {
               "on": "visible",
               "request": "pageview",
+              "vars": {
+                "title": "AMP | {{$data['blog']->heading}}"
+              }
             }
           }
         }
