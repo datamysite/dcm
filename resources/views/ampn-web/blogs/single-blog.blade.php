@@ -83,5 +83,22 @@
     </section>
     <!-- Single Blog section End Here -->
 
-
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+          "vars": {
+            "account": "{{config('app.country') == '1' ? 'GTM-NJX3K7D3' : 'G-EC6612Z03T'}}"
+          },
+          "triggers": {
+            "default pageview": {
+              "on": "visible",
+              "request": "pageview",
+              "vars": {
+                "title": "{{$data['blog']->heading}}"
+              }
+            }
+          }
+        }
+        </script>
+    </amp-analytics>
 @endsection
