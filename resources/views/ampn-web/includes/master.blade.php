@@ -181,13 +181,6 @@
 
       </amp-script>
       <script id="navbarScript" type="text/plain" target="amp-script">@yield('custom-script')</script>
-      @foreach($bodySnippet as $val)
-
-         <!-- {{$val->name}} // Start -->
-            {!! $val->snippet_code !!}
-         <!-- {{$val->name}} // End -->
-
-      @endforeach
    </div>
 </body>
 
