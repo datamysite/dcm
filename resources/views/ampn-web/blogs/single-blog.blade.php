@@ -82,15 +82,14 @@
         </div>
     </section>
     <!-- Single Blog section End Here -->
-
-   <!-- Google Tag Manager -->
+    
     <amp-analytics type="googleanalytics"> 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EC6612Z03T>"></script> 
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{config('app.country') == '1' ? 'GTM-NJX3K7D3' : 'G-EC6612Z03T'}}>"></script> 
       <script> 
         window.dataLayer = window.dataLayer || []; 
         function gtag() { dataLayer.push(arguments); } 
         gtag('js', new Date()); 
-        gtag('config', 'G-EC6612Z03T'); 
+        gtag('config', "{{config('app.country') == '1' ? 'GTM-NJX3K7D3' : 'G-EC6612Z03T'}}"); 
       </script> 
     </amp-analytics>
 @endsection
