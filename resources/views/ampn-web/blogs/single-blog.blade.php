@@ -84,7 +84,19 @@
     <!-- Single Blog section End Here -->
 
    <!-- Google Tag Manager -->
-    <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-K2T2D9JV&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
-
-    
+    <amp-analytics type="googleanalytics"> 
+      <script type="application/json"> 
+        { 
+          "vars": { 
+            "account": "GTM-K2T2D9JV" 
+          }, 
+          "triggers": { 
+            "trackPageview": { 
+              "on": "visible", 
+              "request": "pageview" 
+            } 
+          } 
+        } 
+      </script> 
+    </amp-analytics> 
 @endsection
