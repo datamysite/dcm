@@ -83,6 +83,13 @@
     </section>
     <!-- Single Blog section End Here -->
 
-    <amp-analytics config="https://www.googletagmanager.com/amp.json?id={{config('app.country') == '1' ? 'GTM-NJX3K7D3' : 'G-EC6612Z03T'}}" data-credentials="include"></amp-analytics>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-EC6612Z03T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EC6612Z03T');
+    </script>
     
 @endsection
