@@ -84,7 +84,13 @@
     <!-- Single Blog section End Here -->
 
    <!-- Google Tag Manager -->
-    <amp-analytics config="https://www.googletagmanager.com/amp.json?id=G-EC6612Z03T&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
-
-
+    <amp-analytics type="googleanalytics"> 
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EC6612Z03T>"></script> 
+      <script> 
+        window.dataLayer = window.dataLayer || []; 
+        function gtag() { dataLayer.push(arguments); } 
+        gtag('js', new Date()); 
+        gtag('config', 'G-EC6612Z03T'); 
+      </script> 
+    </amp-analytics>
 @endsection
