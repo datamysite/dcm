@@ -83,22 +83,6 @@
     </section>
     <!-- Single Blog section End Here -->
 
-    <amp-analytics type="googleanalytics">
-        <script type="application/json">
-        {
-          "vars": {
-            "account": "{{config('app.country') == '1' ? 'GTM-NJX3K7D3' : 'G-EC6612Z03T'}}"
-          },
-          "triggers": {
-            "default pageview": {
-              "on": "visible",
-              "request": "pageview",
-              "vars": {
-                "title": "AMP | {{$data['blog']->heading}}"
-              }
-            }
-          }
-        }
-        </script>
-    </amp-analytics>
+    <amp-analytics config="https://www.googletagmanager.com/amp.json?id={{config('app.country') == '1' ? 'GTM-NJX3K7D3' : 'G-EC6612Z03T'}}" data-credentials="include"></amp-analytics>
+    
 @endsection
