@@ -83,13 +83,6 @@
     </section>
     <!-- Single Blog section End Here -->
 
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-EC6612Z03T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-EC6612Z03T');
-    </script>
+   
     
 @endsection
