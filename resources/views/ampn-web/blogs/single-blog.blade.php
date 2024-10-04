@@ -82,7 +82,6 @@
         </div>
     </section>
     <!-- Single Blog section End Here -->
-
-    <amp-analytics config="https://www.googletagmanager.com/amp.json?id={{config('app.country') == '1' ? 'GTM-NJX3K7D3' : 'G-EC6612Z03T'}}" data-credentials="include"></amp-analytics>
     
+    <amp-analytics config="https://www.googletagmanager.com/amp.json?id={{config('app.country') == '1' ? 'GTM-NJX3K7D3' : 'GTM-K2T2D9JV'}}" data-credentials="include"></amp-analytics>
 @endsection
