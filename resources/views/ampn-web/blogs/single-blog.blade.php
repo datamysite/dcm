@@ -83,6 +83,8 @@
     </section>
     <!-- Single Blog section End Here -->
 
-   
-    
+   <!-- Google Tag Manager -->
+    <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-K2T2D9JV&gtm.url={{$actual_link_m}}" data-credentials="include"></amp-analytics>
+
+
 @endsection
