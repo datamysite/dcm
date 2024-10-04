@@ -85,18 +85,12 @@
 
    <!-- Google Tag Manager -->
     <amp-analytics type="googleanalytics"> 
-      <script type="application/json"> 
-        { 
-          "vars": { 
-            "account": "GTM-K2T2D9JV" 
-          }, 
-          "triggers": { 
-            "trackPageview": { 
-              "on": "visible", 
-              "request": "pageview" 
-            } 
-          } 
-        } 
+      <script> 
+        window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-EC6612Z03T');
       </script> 
     </amp-analytics> 
 @endsection
