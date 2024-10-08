@@ -247,7 +247,7 @@
                 style="background: url(https://dealsandcouponsmena.ae/public/emailers/temp21.png) no-repeat; background-size: cover; border-radius: 0; background-position: center ; height: 450px;">
 
                 <div class="row mt-5" style="justify-content: center;">
-                    <div style="position: absolute;top: 120px;margin: auto;">
+                    <div style="margin-top:100px;margin: auto;">
                         <h4 class="text-center" style="color: #fff;font-size: 30px;margin-bottom: 0 !important;">Don’t Miss Out:</h4>
                         <h6 class="text-center" style="color: #fff;font-weight: normal;font-size: 17px;margin-top: 10px;">The Ultimate Diwali Gift for <br>Balance and Wellness!</h6>
                     </div>
