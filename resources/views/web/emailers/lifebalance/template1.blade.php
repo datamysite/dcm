@@ -254,13 +254,13 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
 
         <div class="content">
 
 
-                <div class="row" style="justify-content: center;">
+                <div style="justify-content: center; width: 100%;">
                         <br>
                         <p style="font-size: 16px; text-align: left;">
                             <strong>Hi Customer,</strong>
