@@ -270,7 +270,7 @@
                         </p>
                         <img src="https://dealsandcouponsmena.ae/public/emailers/temp22.png" alt="DCM" style="width: 100%;">
                         <p style="font-size: 15px;text-align: left;padding: 15px 0px 5px;">
-                            Get 10% OFF with code ‘SELF LOVE’.
+                            Get 10% OFF with code ‘DCM’.
                         </p>
                         <img src="https://dealsandcouponsmena.ae/public/emailers/temp23.png" alt="DCM" style="width: 100%;">
                         <p style="font-size: 15px;text-align: left;padding: 15px 0px 5px;line-height: 24px;">
