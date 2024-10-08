@@ -275,7 +275,7 @@
                                 <p style="font-size: 16px; text-align: left;">
                                     Life Balance is dedicated to your well-being, offering a range of holistic products designed to support your chakra system and promote overall balance. Whether you’re looking to cleanse your energy, enhance your spiritual practice, or simply take a moment to recharge, our products are here to guide you on that journey.
                                     <br><br>
-                                    <a href="https://www.lifebalance.ae/service/about/" target="_blank" style="text-decoration:none;padding: 5px 15px;background-color: #201c1c;color:#fff;border-radius:15px">Learn More</a>
+                                    <a href="https://dealsandcouponsmena.ae/en/life-balance" target="_blank" style="text-decoration:none;padding: 5px 15px;background-color: #201c1c;color:#fff;border-radius:15px">Learn More</a>
                                 </p>
                             </div>
                             <div class="column right" style="    flex-basis:35%; text-align: right;">
@@ -334,7 +334,7 @@
                         <div class="row">
                             <p style="font-size: 16px;text-align: left;padding: 15px 0px 5px;line-height: 24px;">
                                 <br>
-                                In celebration of self-love and inner balance, we’re offering you an exclusive 10% discount on all products. Use code <strong>SELF LOVE</strong> at checkout and experience the transformative power of our products.
+                                In celebration of self-love and inner balance, we’re offering you an exclusive 10% discount on all products. Use code <strong>DCM</strong> at checkout and experience the transformative power of our products.
                             </p>
                         </div>
                 </div>

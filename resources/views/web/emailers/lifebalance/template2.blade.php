@@ -276,7 +276,7 @@
                         <p style="font-size: 15px;text-align: left;padding: 15px 0px 5px;line-height: 24px;">
                             Celebrate with joy, balance, and wellness this Diwali. 
                             <br>
-                            Shop the Wellness Kit Here: <a href="https://life-balance.ae/wellness-kit/" target="_blank" style="color: #00c5ff;">https://life-balance.ae/wellness-kit/</a>
+                            Shop the Wellness Kit Here: <strong><a href="https://dealsandcouponsmena.ae/en/life-balance" target="_blank" style="color: #00c5ff;">Life Balance</a></strong>
                             <br><br><br>
                             Warm regards,
                             <br><b>Life Balance</b>
