@@ -19,7 +19,7 @@ Route::get('/newsletter-mail-1', function(){
     Mail::send('web.emailers.lifebalance.template1', array(), function($message) {
         $message->to('waseem@datamysite.com', 'Satish')->subject
             ('Test mail Life Balance 1');
-        $message->from('info@dealsandcouponsmena.com','DCM');
+        $message->from('newsletter@dealsandcouponsmena.com','DCM');
     });
 
     return true;
@@ -28,7 +28,7 @@ Route::get('/newsletter-mail-2', function(){
     Mail::send('web.emailers.lifebalance.template2', array(), function($message) {
         $message->to('waseem@datamysite.com', 'Satish')->subject
             ('Test mail Life Balance 2');
-        $message->from('info@dealsandcouponsmena.com','DCM');
+        $message->from('newsletter@dealsandcouponsmena.com','DCM');
     });
 
     return true;
