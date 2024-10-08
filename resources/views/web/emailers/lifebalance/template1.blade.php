@@ -343,52 +343,52 @@
 
                 <!-- Footer -->
 
-            <div class="row" style="padding-top:20px; width:auto; text-align: left;">
-            <div class="row" style="margin-top:30px">
+            <div style="padding-top:20px; width:auto; text-align: left; width: 100%;">
+                <div class="row" style="margin-top:30px">
 
-                <div class="column left">
-                    <img src="https://dealsandcouponsmena.ae/public/emailers/FAFA.png" style="width:60px" alt="Instagram">
-                    <div class="left-side-icons" style="margin-left: 80px; margin-top: -65px;">
-                        Help Center<br><a href="mailto:info@dealsandcouponsmena.com" target="_blank"
-                            style="color: #00c5ff; margin-left: 0;width: 100%;">info@dealsandcouponsmena.com</a>
+                    <div class="column left">
+                        <img src="https://dealsandcouponsmena.ae/public/emailers/FAFA.png" style="width:60px" alt="Instagram">
+                        <div class="left-side-icons" style="margin-left: 80px; margin-top: -65px;">
+                            Help Center<br><a href="mailto:info@dealsandcouponsmena.com" target="_blank"
+                                style="color: #00c5ff; margin-left: 0;width: 100%;">info@dealsandcouponsmena.com</a>
+                        </div>
                     </div>
+
+                    <div class="column right" style="flex-basis: 100%; margin-top: -30px;">
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/instagram.png" alt="Instagram"></a>
+                            <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/facebook.png" alt="Facebook"></a>
+                            <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/linkedin.png" alt="linkedin"></a>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="column right" style="flex-basis: 100%; margin-top: -30px;">
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/instagram.png" alt="Instagram"></a>
-                        <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/facebook.png" alt="Facebook"></a>
-                        <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/linkedin.png" alt="linkedin"></a>
-                    </div>
+                <div class="divider"></div>
+
+                <hr style="height: 1px;background-color: black;border: none;margin: 10px 0;width: 100%; margin-top: 40px;"/>
+
+                <div class="footer" style="padding-top: 10px;">
+
+                    <p>
+                        You are receiving this email as you’re registered on
+                        <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
+                            style="color: #00c5ff;text-decoration: none;">dealsandcouponsmena.com</a>
+                    </p>
+                    <p> <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
+                            style="color: #000; text-decoration: none;">Privacy Policy</a> | <a
+                            href="https://dealsandcouponsmena.com/en/dubai/terms" target="_blank" style="color: #000; text-decoration: none;">
+                            Terms & Conditions</a> | <a href="https://dealsandcouponsmena.com/en/dubai/faqs" target="_blank"
+                            style="color: #000; text-decoration: none;">FAQ</a> </p>
+                    <p style=" margin-top: -17px;">
+
+                        <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
+                            style="color: #000; text-decoration: none;">©
+                            Dealsandcouponsmena</a>
+                    </p>
+
                 </div>
-
             </div>
-
-            <div class="divider"></div>
-
-            <hr style="height: 1px;background-color: black;border: none;margin: 10px 0;width: 100%; margin-top: 40px;"/>
-
-            <div class="footer" style="padding-top: 10px;">
-
-                <p>
-                    You are receiving this email as you’re registered on
-                    <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
-                        style="color: #00c5ff;text-decoration: none;">dealsandcouponsmena.com</a>
-                </p>
-                <p> <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
-                        style="color: #000; text-decoration: none;">Privacy Policy</a> | <a
-                        href="https://dealsandcouponsmena.com/en/dubai/terms" target="_blank" style="color: #000; text-decoration: none;">
-                        Terms & Conditions</a> | <a href="https://dealsandcouponsmena.com/en/dubai/faqs" target="_blank"
-                        style="color: #000; text-decoration: none;">FAQ</a> </p>
-                <p style=" margin-top: -17px;">
-
-                    <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
-                        style="color: #000; text-decoration: none;">©
-                        Dealsandcouponsmena</a>
-                </p>
-
-            </div>
-        </div>
     </div>
 </body>
 
