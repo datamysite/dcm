@@ -263,7 +263,7 @@
                 <div style="justify-content: center; width: 100%;">
                         <br>
                         <p style="font-size: 16px; text-align: left;">
-                            <strong>Hi Customer,</strong>
+                            <strong>Hi,</strong>
                             <br><br>
                             We all need a little time to reconnect with ourselves, nurture our energy, and embrace self-love. At Life Balance, we are committed to helping you restore balance with products that bring harmony to both your body and spirit.
 
