@@ -348,14 +348,14 @@
 
                     <div class="column left" style="width: 50%;">
                         <img src="https://dealsandcouponsmena.ae/public/emailers/FAFA.png" style="width:60px;margin-bottom: -50px;" alt="Instagram">
-                        <div class="left-side-icons" style="margin-left: 80px;">
+                        <div class="left-side-icons">
                             Help Center<br><a href="mailto:info@dealsandcouponsmena.com" target="_blank"
                                 style="color: #00c5ff; margin-left: 0;width: 100%;">info@dealsandcouponsmena.com</a>
                         </div>
                     </div>
 
                     <div class="column right" style="flex-basis: 100%; width: 50%;">
-                        <div class="social-icons">
+                        <div class="social-icons" style="margin-top: 50px;">
                             <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/instagram.png" alt="Instagram"></a>
                             <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/facebook.png" alt="Facebook"></a>
                             <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/linkedin.png" alt="linkedin"></a>
