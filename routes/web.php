@@ -26,7 +26,7 @@ Route::get('/newsletter-mail-1', function(){
 });
 Route::get('/newsletter-mail-2', function(){
     Mail::send('web.emailers.lifebalance.template2', array(), function($message) {
-        $message->to('captain.wasi@gmail.com', 'Satish')->subject
+        $message->to('satish.b@datamysite.com', 'Satish')->subject
             ('Test mail Life Balance 2');
         $message->from('newsletter@dealsandcouponsmena.com','DCM');
     });
