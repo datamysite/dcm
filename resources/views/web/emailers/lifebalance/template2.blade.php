@@ -256,7 +256,7 @@
 
         <div class="content">
 
-            <div style="padding-top:20px; width:auto; text-align: left; width:100%;">
+            <div style="padding-top:20px; width:auto; text-align: left;">
 
                 <div class="row" style="justify-content: center;">
 
