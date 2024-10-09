@@ -213,7 +213,9 @@
                 opacity: 0.9;
 
             }
-
+            .dcm_banner{
+                height: 300px !important;
+            }
         }
 
         .w-15 {
