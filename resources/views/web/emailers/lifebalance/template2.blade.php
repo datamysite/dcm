@@ -254,7 +254,7 @@
 
         </div>
 
-        <div class="content" style="padding-right: 30px; padding-left: 30px;">
+        <div class="content">
 
             <div style="padding-top:20px; width:auto; text-align: left; width:100%;">
 
