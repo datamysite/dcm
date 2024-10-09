@@ -254,7 +254,7 @@
 
         </div>
 
-        <div class="content">
+        <div class="content" style="width:100%; overflow-y: hidden;">
 
             <div style="padding-top:20px; width:auto; text-align: left;">
 
