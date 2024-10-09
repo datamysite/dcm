@@ -215,9 +215,7 @@
 
             }
 
-            .dcm_banner {
-                display: none;
-            }
+            
         }
 
         .w-15 {
