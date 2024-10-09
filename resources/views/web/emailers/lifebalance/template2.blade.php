@@ -193,7 +193,7 @@
         }
 
          @media only screen and (max-width:992px) {
-            .container {
+            .container, .header {
                 width: 100%;
             }
 
@@ -254,7 +254,7 @@
 
         </div>
 
-        <div class="content">
+        <div class="content" style="padding-right: 15px; padding-left: 15px;">
 
             <div style="padding-top:20px; width:auto; text-align: left; width:100%;">
 

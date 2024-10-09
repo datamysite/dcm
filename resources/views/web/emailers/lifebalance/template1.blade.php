@@ -194,7 +194,7 @@
         }
 
          @media only screen and (max-width:992px) {
-            .container {
+            .container, .header {
                 width: 100%;
             }
 
