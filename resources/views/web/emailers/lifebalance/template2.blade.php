@@ -241,7 +241,7 @@
 
         <div class="header">
             <div class="dcm_banner"
-                style="background: url(https://dealsandcouponsmena.ae/public/emailers/temp21.png) no-repeat; background-size: cover; border-radius: 0; background-position: center ; height: 450px;">
+                style="background: url(https://dealsandcouponsmena.ae/public/emailers/temp21.png) no-repeat; background-size: cover; border-radius: 0; background-position: center ; width:100%; height: 450px;">
 
                 <div class="row mt-5" style="justify-content: center;">
                     <div style="margin-top:100px;margin: auto;">
