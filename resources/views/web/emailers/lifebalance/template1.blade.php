@@ -248,8 +248,8 @@
                 style="background: url(https://dealsandcouponsmena.ae/public/emailers/temp11.png) no-repeat; background-size: cover; border-radius: 0; background-position: center ; height: 450px;">
 
                 <div class="row mt-5" style="text-align: center;">
-                    <div style=" text-align: center;margin: auto;">
-                        <br><br><br>
+                    <div style="position: absolute;top: 130px; text-align: center;margin: auto;">
+                        <br><br>
                         <h4 class="text-center" style="color: #fff;font-size: 30px;margin-bottom: 0 !important;">Is Stress Taking You Over? <br>Rebalance Your Life</h4>
                         <h6 class="text-center" style="color: #fff;font-weight: normal;font-size: 17px;margin-top: 10px;">Get 10% OFF on All Products</h6>
                     </div>
