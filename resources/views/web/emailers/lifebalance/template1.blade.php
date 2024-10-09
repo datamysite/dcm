@@ -248,7 +248,8 @@
                 style="background: url(https://dealsandcouponsmena.ae/public/emailers/temp11.png) no-repeat; background-size: cover; border-radius: 0; background-position: center ; height: 450px;">
 
                 <div class="row mt-5" style="text-align: center;">
-                    <div style="position: absolute;top: 130px; text-align: center;margin: auto;">
+                    <div style=" text-align: center;margin: auto;">
+                        <br><br><br>
                         <h4 class="text-center" style="color: #fff;font-size: 30px;margin-bottom: 0 !important;">Is Stress Taking You Over? <br>Rebalance Your Life</h4>
                         <h6 class="text-center" style="color: #fff;font-weight: normal;font-size: 17px;margin-top: 10px;">Get 10% OFF on All Products</h6>
                     </div>
@@ -354,11 +355,17 @@
                         </div>
                     </div>
 
-                    <div class="column right" style="flex-basis: 100%; width: 50%;">
+                    <div class="column right" style="flex-basis: 100%; width: 50%; text-align: right;">
                         <div class="social-icons" style="margin-top: 50px;">
-                            <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/instagram.png" alt="Instagram"></a>
-                            <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/facebook.png" alt="Facebook"></a>
-                            <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank"><img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/linkedin.png" alt="linkedin"></a>
+                            <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank">
+                                <img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/instagram.png" alt="Instagram" height="25px" width="25px">
+                            </a>
+                            <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank">
+                                <img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/facebook.png" alt="Facebook" height="25px" width="25px">
+                            </a>
+                            <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank">
+                                <img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/linkedin.png" alt="linkedin" height="25px" width="25px">
+                            </a>
                         </div>
                     </div>
 
@@ -368,7 +375,7 @@
 
                 <hr style="height: 1px;background-color: black;border: none;margin: 10px 0;width: 100%; margin-top: 40px;"/>
 
-                <div class="footer" style="padding-top: 10px;">
+                <div class="footer" style="padding-top: 10px; text-align: center;">
 
                     <p>
                         You are receiving this email as you’re registered on
