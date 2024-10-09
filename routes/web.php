@@ -42,7 +42,10 @@ Route::get('/newsletter-mail-2', function(){
 
 //Retailer Count Increase
 Route::get('/retailer-count-increase', function(){
-    $ret = 102;
+
+    return false;
+    
+    /*$ret = 102;
 
     $dump_data = array(
         array(432, 242, 144, '2024-09-16'),
@@ -124,7 +127,7 @@ Route::get('/retailer-count-increase', function(){
             $c->save();
         }
         echo 'Total Trafic Update: '.$para[2].'<br><br>';
-    }
+    }*/
 });
 
 
