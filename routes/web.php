@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/newsletter-mail-1', function(){
     Mail::send('web.emailers.lifebalance.template1', array(), function($message) {
         $message->to('shreempooja99@gmail.com', 'Satish')->subject
-            ('Test mail Life Balance 1');
+            ('DCM | Test mail Life Balance 1');
         $message->from('newsletter@dealsandcouponsmena.com','DCM');
     });
 
@@ -27,7 +27,7 @@ Route::get('/newsletter-mail-1', function(){
 Route::get('/newsletter-mail-2', function(){
     Mail::send('web.emailers.lifebalance.template2', array(), function($message) {
         $message->to('shreempooja99@gmail.com', 'Satish')->subject
-            ('Test mail Life Balance 2');
+            ('DCM | Test mail Life Balance 2');
         $message->from('newsletter@dealsandcouponsmena.com','DCM');
     });
 
