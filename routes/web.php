@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Mail;
 //Newsletter mail
 Route::get('/newsletter-mail-1', function(){
     Mail::send('web.emailers.lifebalance.template1', array(), function($message) {
-        $message->to('captain.wasi@gmail.com', 'Satish')->subject
+        $message->to('satish.b@datamysite.com', 'Satish')->subject
             ('Test mail Life Balance 1');
         $message->from('newsletter@dealsandcouponsmena.com','DCM');
     });
