@@ -34,7 +34,7 @@
         }
 
         .content {
-            width: 800px;
+            max-width: 800px;
             margin-top: 20px;
             text-align: center;
             justify-content: center;
