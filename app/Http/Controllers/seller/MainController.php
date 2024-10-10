@@ -114,7 +114,7 @@ class MainController extends Controller
         if(Auth::guard('seller')->user()->retailer->type == '1'){
             $data['total_show_coupon'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '2')->whereBetween('created_at',[$data['start_date'], $data['end_date']] )->count();
             $data['total_grab_deal'] = ClicksCounter::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('type', '4')->whereBetween('created_at', [$data['start_date'], $data['end_date']])->count();
-            $data['active_coupons'] = Coupon::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('status', '1')->whereBetween('created_at', [$data['start_date'], $data['end_date']])->count();
+            $data['active_coupons'] = Coupon::where('retailer_id', Auth::guard('seller')->user()->retailer_id)->where('status', '1')->count();
 
             $data['coupon_analytics'] = ClicksCounter::with('coupon')
                                                     ->where('type', '2')
