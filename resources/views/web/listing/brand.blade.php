@@ -1,11 +1,11 @@
 @extends('web.includes.master')
 
 @section('default_title')
-    @if(!empty($metaTags->title))
-        {{' | '.date('M-Y')}}
-    @else
-        {{$retailer->name.' Coupons, Voucher & Promo Codes | Up To '.$retailer->discount_upto.'% OFF | '.date('M-Y')}}
-    @endif
+@if(!empty($metaTags->title))
+{{' | '.date('M-Y')}}
+@else
+{{$retailer->name.' Coupons, Voucher & Promo Codes | Up To '.$retailer->discount_upto.'% OFF | '.date('M-Y')}}
+@endif
 @endsection
 
 @section('default_description')

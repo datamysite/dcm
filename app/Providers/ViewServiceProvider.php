@@ -66,7 +66,7 @@ class ViewServiceProvider extends ServiceProvider
             //dd($data);
             $al = explode('?', $actual_link);
             $data['actual_link'] = $al[0];
-            $data['metaTags'] = MetaTags::where('url', $actual_link)->first();
+            $data['metaTags'] = MetaTags::where('url', $data['actual_link'])->first();
 
             if ((function_exists('session_status') 
               && session_status() !== PHP_SESSION_ACTIVE) || !session_id()) {

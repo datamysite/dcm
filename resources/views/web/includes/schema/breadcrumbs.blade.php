@@ -10,7 +10,7 @@
   },{
     "@type": "ListItem", 
     "position": 2, 
-    "name": "{{@$metaTags->title}}",
+    "name": "{{@$metaTags->title}}@yield('default_title')",
     "item": "{{$actual_link}}"  
   }]
 }
