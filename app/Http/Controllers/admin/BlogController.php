@@ -275,7 +275,7 @@ class BlogController extends Controller
         }
         $meta_url .= $data->lang.'/blogs/'.$data->slug;
 
-        $data['meta_tile'] = MetaTags::where('url', $meta_url)->first();
+        $data['meta_title'] = MetaTags::where('url', $meta_url)->first();
         
 
         return view('admin.blogs.edit', ['data' => $data]);
