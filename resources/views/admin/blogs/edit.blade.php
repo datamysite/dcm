@@ -96,7 +96,7 @@
       <div class="col-md-12">
         <div class="form-group">
           <label>Meta Title</label>
-          <input class="form-control" name="meta_title" value="{{$data['meta_title']}}" required>
+          <input class="form-control" name="meta_title" value="{{@$data['meta_title']->title}}" required>
         </div>
       </div>
       <div class="col-md-12">
