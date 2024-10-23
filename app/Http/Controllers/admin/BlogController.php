@@ -9,6 +9,7 @@ use App\Models\Categories;
 use App\Models\Countries;
 use App\Models\Faq;
 use App\Models\Author;
+use App\Models\MetaTags;
 use Auth;
 
 class BlogController extends Controller
@@ -61,6 +62,27 @@ class BlogController extends Controller
 
                 $id = Blogs::create($data);
 
+                //Meta Title -- Start
+
+                    $meta_url = '';
+                    if($data['country_id'] == '1'){
+                        $meta_url .= 'https://dealsandcouponsmena.ae/';
+                    }elseif($data['country_id'] == '2'){
+                        $meta_url .= 'https://dealsandcouponsmena.com/';
+                    }
+                    $meta_url .= $data['lang'].'/blogs/'.$data['slug'];
+
+                    $mt = new MetaTags;
+                    $mt->url = $meta_url;
+                    $mt->title = $data['meta_title'];
+                    $mt->description = $data['short_description'];
+                    $mt->created_by = Auth::guard('admin')->id();
+                    $mt->save();
+
+
+                //Meta Title -- End
+
+
                 if ($request->hasFile('coupon_image')) {
                     $file = $request->file('coupon_image');
                     $ext = $file->getClientOriginalExtension();
@@ -96,6 +118,31 @@ class BlogController extends Controller
         } else {
 
             $id = Blogs::blog_update(base64_decode($data['blog_id']), $data);
+
+
+                //Meta Title -- Start
+
+                    $meta_url = '';
+                    if($data['country_id'] == '1'){
+                        $meta_url .= 'https://dealsandcouponsmena.ae/';
+                    }elseif($data['country_id'] == '2'){
+                        $meta_url .= 'https://dealsandcouponsmena.com/';
+                    }
+                    $meta_url .= $data['lang'].'/blogs/'.$data['slug'];
+
+                    $mt = MetaTags::where('url', $meta_url)->first();
+                    if(empty($mt->id)){
+                        $mt = new MetaTags;
+                        $mt->url = $meta_url;
+                        $mt->created_by = Auth::guard('admin')->id();
+                    }
+                    $mt->title = $data['meta_title'];
+                    $mt->description = $data['short_description'];
+                    $mt->save();
+
+
+                //Meta Title -- End
+
 
             if ($request->hasFile('edit_mblog_image')) {
                 $file = $request->file('edit_mblog_image');
