@@ -275,8 +275,8 @@ class BlogController extends Controller
         }
         $meta_url .= $data->lang.'/blogs/'.$data->slug;
 
-        dd($meta_url);
         $mt = MetaTags::where('url', $meta_url)->first();
+        dd($mt);
 
         $data['meta_tile'] = empty($mt->title) ? '' : $mt->title;
 
