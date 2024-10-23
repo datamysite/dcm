@@ -95,6 +95,12 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
+          <label>Meta Title</label>
+          <input class="form-control" name="meta_title" value="{{$data->meta_title}}" required>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
           <label>Short Description</label>
           <textarea class="form-control" name="short_description" rows="3">{{$data->short_description}}</textarea>
         </div>
