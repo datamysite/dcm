@@ -264,18 +264,18 @@ class BlogController extends Controller
         $id = base64_decode($id);
 
         $data = Blogs::find($id);
-
         $data['categories'] = Categories::where('parent_id', 0)->where('status', 1)->get();
         $data['authors'] = Author::get();
 
         $meta_url = '';
         if($data->country_id == '1'){
-            $meta_url .= 'https://dealsandcouponsmena.ae/';
+            $meta_url = 'https://dealsandcouponsmena.ae/';
         }elseif($data->country_id == '2'){
-            $meta_url .= 'https://dealsandcouponsmena.com/';
+            $meta_url = 'https://dealsandcouponsmena.com/';
         }
         $meta_url .= $data->lang.'/blogs/'.$data->slug;
 
+        dd($meta_url);
         $mt = MetaTags::where('url', $meta_url)->first();
 
         $data['meta_tile'] = empty($mt->title) ? '' : $mt->title;
