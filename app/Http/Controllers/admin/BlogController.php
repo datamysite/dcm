@@ -278,7 +278,7 @@ class BlogController extends Controller
 
         $mt = MetaTags::where('url', $meta_url)->first();
 
-        $data['meta_tile'] = $mt->title;
+        $data['meta_tile'] = empty($mt->title) ? '' : $mt->title;
 
         return view('admin.blogs.edit', ['data' => $data]);
     }
