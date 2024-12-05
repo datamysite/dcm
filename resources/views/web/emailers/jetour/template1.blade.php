@@ -269,7 +269,7 @@
                                 </p>
                             </div>
                             <div class="column right" style="    flex-basis:50%; text-align: right;">
-                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/2.png" alt="DCM" style="width: 50%;">
+                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/2.png" alt="DCM" style="width: 65%;">
                             </div>
                         </div>
                         <div class="divider"></div>
@@ -281,7 +281,9 @@
                         <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/3.png" alt="DCM" style="width: 100%;">
 
                         <div class="row">
-                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 0;">Campaign Details:</h2><br>
+                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 0;">Campaign Details:</h2>
+                        </div>
+                        <div class="row">
                             <p style="font-size: 16px; text-align: left;">
                                 <table style="margin:auto; width: 100%;" border="0">
                                     <tr>
