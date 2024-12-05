@@ -153,6 +153,9 @@
         .res-col{
             flex-basis:50%;
         }
+        .p10{
+            padding: 10px;
+        }
 
         @media (max-width: 600px) {
             .header {
@@ -210,6 +213,9 @@
             }
             .res-col{
                 flex-basis: 100%;
+            }
+            .p10{
+                padding: 5px;
             }
             .dcm_banner_mobile {
                 display: block;
@@ -303,13 +309,13 @@
                         </div>
                         <br><br>
                         <div class="row">
-                            <div class="column right" style="    flex-basis:31%; text-align: right; padding: 10px;">
+                            <div class="column right p10" style="    flex-basis:31%; text-align: right; ">
                                 <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/4.png" alt="DCM" style="width: 100%;">
                             </div>
-                            <div class="column right" style="    flex-basis:31%; text-align: right; padding: 10px;">
+                            <div class="column right p10" style="    flex-basis:31%; text-align: right;">
                                 <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/5.png" alt="DCM" style="width: 100%;">
                             </div>
-                            <div class="column right" style="    flex-basis:31%; text-align: right; padding: 10px;">
+                            <div class="column right p10" style="    flex-basis:31%; text-align: right;">
                                 <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/6.png" alt="DCM" style="width: 100%;">
                             </div>
                         </div>
