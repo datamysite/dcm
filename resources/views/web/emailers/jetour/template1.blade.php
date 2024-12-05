@@ -256,7 +256,7 @@
                                 </p>
                             </div>
                             <div class="column right" style="    flex-basis:50%; text-align: right;">
-                                <br>
+                                <br><br>
                                 <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/2.png" alt="DCM" style="width: 65%;">
                             </div>
                         </div>
