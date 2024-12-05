@@ -241,24 +241,11 @@
 
     <div class="container">
 
-        <div class="header">
-            <div class="dcm_banner"
-                style="background: url(https://dealsandcouponsmena.ae/public/emailers/jetour/1.png) no-repeat; background-size: cover; border-radius: 0; background-position: center ; height: 450px;">
-
-                <div class="row mt-5" style="text-align: center;">
-                    <div style="position: absolute;top: 130px; text-align: center;margin: auto;">
-                        <br><br>
-                        <br><br>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
         <div class="content">
 
 
                 <div style="justify-content: center; width: 100%;">
+                    <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/1.png" alt="DCM" style="width: 100%;">
                         <br>
                         <div class="row">
                             <div class="column left" style="    flex-basis:50%">
