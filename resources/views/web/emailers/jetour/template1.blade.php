@@ -243,13 +243,12 @@
 
         <div class="header">
             <div class="dcm_banner"
-                style="background: url(https://dealsandcouponsmena.ae/public/emailers/temp11.png) no-repeat; background-size: cover; border-radius: 0; background-position: center ; height: 450px;">
+                style="background: url(https://dealsandcouponsmena.ae/public/emailers/jetour/1.png) no-repeat; background-size: cover; border-radius: 0; background-position: center ; height: 450px;">
 
                 <div class="row mt-5" style="text-align: center;">
                     <div style="position: absolute;top: 130px; text-align: center;margin: auto;">
                         <br><br>
-                        <h4 class="text-center" style="color: #fff;font-size: 30px;margin-bottom: 0 !important;">Is Stress Taking You Over? <br>Rebalance Your Life</h4>
-                        <h6 class="text-center" style="color: #fff;font-weight: normal;font-size: 17px;margin-top: 10px;">Get 10% OFF on All Products</h6>
+                        <br><br>
                     </div>
                 </div>
             </div>
@@ -261,79 +260,66 @@
 
                 <div style="justify-content: center; width: 100%;">
                         <br>
-                        <p style="font-size: 16px; text-align: left;">
-                            <strong>Hi,</strong>
-                            <br><br>
-                            We all need a little time to reconnect with ourselves, nurture our energy, and embrace self-love. At Life Balance, we are committed to helping you restore balance with products that bring harmony to both your body and spirit.
-
-                        <br><br><br>
-                        </p>
                         <div class="row">
-                            <div class="column left" style="    flex-basis:65%">
-                                <h4 style="text-align:left;">About Us</h4>
+                            <div class="column left" style="    flex-basis:50%">
+                                <h4 style="text-align:left; font-size: 24px;">We’re Excited to Announce Our Latest Campaign for Jettour!</h4>
                                 <p style="font-size: 16px; text-align: left;">
-                                    Life Balance is dedicated to your well-being, offering a range of holistic products designed to support your chakra system and promote overall balance. Whether you’re looking to cleanse your energy, enhance your spiritual practice, or simply take a moment to recharge, our products are here to guide you on that journey.
-                                    <br><br>
-                                    <a href="https://dealsandcouponsmena.ae/en/life-balance" target="_blank" style="text-decoration:none;padding: 5px 15px;background-color: #201c1c;color:#fff;border-radius:15px">Learn More</a>
+                                    We are proud to unveil our newest campaign launched for our esteemed client, Jettour. This marks a significant milestone, as Dubai Airport has permitted automobile brand advertising on its premises for the first time in four years!
+                                    <br>
                                 </p>
                             </div>
-                            <div class="column right" style="    flex-basis:35%; text-align: right;">
-                                <img src="https://dealsandcouponsmena.ae/public/emailers/lifebalance.png" alt="DCM" style="width: 70%;">
+                            <div class="column right" style="    flex-basis:50%; text-align: right;">
+                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/2.png" alt="DCM" style="width: 50%;">
                             </div>
                         </div>
                         <div class="divider"></div>
                         <hr style="height: 1px;background-color: black;border: none;margin: 10px 0;width: 100%; margin-top: 40px;"/>
                         <div class="row">
-                            <h4 style="text-align:left;">Our Signature Products:</h4>
-                            <p style="font-size: 16px; text-align: left;">
-                                <ul style="text-align:left;">
-                                    <li><strong>Chakra Salts:</strong> Perfect for cleansing your energy field, these salts promote detoxification and chakra alignment.</li>
-                                    <li><strong>Chakra Oils:</strong> Infused with natural oils, these blends help open and balance your chakras, promoting inner peace.</li>
-                                    <li><strong>Chakra Blends:</strong> Specially formulated to harmonize and enhance the energy flow through your chakras, helping you achieve balance and tranquility.</li>
-                                    <li><strong>Foot Detox:</strong> Our foot detox products are designed to pull out toxins and revitalize your energy from the ground up, perfect for deep relaxation and rejuvenation.</li>
-                                    <li><strong>Cleanser, Balancer & Enhancer Kit:</strong> A complete solution for clearing negative energy, restoring balance, and elevating your wellness practice.</li>
-                                    <li><strong>Wellness Kits:</strong> Thoughtfully curated collections to help you relax, recharge, and maintain a sense of harmony in your daily life.</li>
-
-                                </ul>
-                            </p>
+                            <h4 style="text-align:center;font-size:24px;color:#777;letter-spacing: 5px;width: 100%;margin-top: 10px;">DRIVE YOUR FUTURE</h4>
                         </div>
 
-                        <img src="https://dealsandcouponsmena.ae/public/emailers/temp12.png" alt="DCM" style="width: 100%;">
+                        <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/3.png" alt="DCM" style="width: 100%;">
 
                         <div class="row">
-                            <h4 style="text-align:left;margin-top: 50px;margin-bottom: 0;">Why Choose Life Balance?</h4>
+                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 0;">Campaign Details:</h2>
                             <p style="font-size: 16px; text-align: left;">
-                                <ul style="text-align:left;">
-                                    <li>
-                                        <strong>100% Ayurvedic:</strong> 
-                                        Our products are crafted using traditional Ayurvedic principles, harnessing the healing power of ancient wisdom for modern wellness.
-                                    </li>
-                                    <li>
-                                        <strong>Plant-Based:</strong> 
-                                        We use only the finest plant-based ingredients, ensuring that each product is natural, effective, and gentle on your body.
-                                    </li>
-                                    <li>
-                                        <strong>Cruelty-Free:</strong> 
-                                        We are committed to ethical practices, and our products are never tested on animals, reflecting our dedication to compassionate care.
-                                    </li>
-                                    <li>
-                                        <strong>Natural Ingredients:</strong> 
-                                        We use only the highest-quality natural ingredients, sourced responsibly, to ensure that every product supports your wellness goals.
-                                    </li>
-                                    <li>
-                                        <strong>Commitment to Balance:</strong> 
-                                        We don’t just focus on physical wellness—we’re here to help you create a life of balance, energy, and harmony.
-                                    </li>
+                                <table style="margin:auto; width: 100%;" border="0">
+                                    <tr>
+                                        <td style="width:50%;text-align:right;">Duration&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                        <td style="width:50%;text-align:left">2 Weeks</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;text-align:right;">Start Date&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                        <td style="width:50%;text-align:left">26<sup>th</sup> November</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;text-align:right;">End Date&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                        <td style="width:50%;text-align:left">10<sup>th</sup> December</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;text-align:right;">Location&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                        <td style="width:50%;text-align:left">Dubai Airport, Terminal 3 (Arrivals)</td>
+                                    </tr>
 
-                                </ul>
+                                </table>
                             </p>
                         </div>
-                        <img src="https://dealsandcouponsmena.ae/public/emailers/temp23.png" alt="DCM" style="width: 100%;">
-
+                        <br><br>
                         <div class="row">
-                            <p style="font-size: 16px;text-align: left;padding: 15px 0px 5px;line-height: 24px;">
-                                <br>
-                                In celebration of self-love and inner balance, we’re offering you an exclusive 10% discount on all products. Use code <strong>DCM</strong> at checkout and experience the transformative power of our products.
+                            <div class="column right" style="    flex-basis:31%; text-align: right; padding: 10px;">
+                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/4.png" alt="DCM" style="width: 100%;">
+                            </div>
+                            <div class="column right" style="    flex-basis:31%; text-align: right; padding: 10px;">
+                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/5.png" alt="DCM" style="width: 100%;">
+                            </div>
+                            <div class="column right" style="    flex-basis:31%; text-align: right; padding: 10px;">
+                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/6.png" alt="DCM" style="width: 100%;">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <p style="font-size: 16px;text-align: center;padding: 15px 0px 5px;line-height: 24px;">
+                                This achievement highlights our commitment to delivering unparalleled visibility for our clients in premium locations.
                             </p>
                         </div>
                 </div>
@@ -345,9 +331,9 @@
             <div style="padding-top:20px; width:auto; text-align: left; width: 100%;">
                 <div class="row" style="margin-top:30px">
 
-                    <div class="column left" style="width: 50%;">
+                    <div class="column left" style="width: 50%;margin-bottom: -80px;">
                         <img src="https://dealsandcouponsmena.ae/public/emailers/FAFA.png" style="width:60px;margin-bottom: -50px;" alt="Instagram">
-                        <div class="left-side-icons">
+                        <div class="left-side-icons" style="margin-left:75px">
                             Help Center<br><a href="mailto:info@dealsandcouponsmena.com" target="_blank"
                                 style="color: #00c5ff; margin-left: 0;width: 100%;">info@dealsandcouponsmena.com</a>
                         </div>
@@ -377,17 +363,17 @@
 
                     <p>
                         You are receiving this email as you’re registered on
-                        <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
+                        <a href="https://dealsandcouponsmena.com/en/privacy-policy" target="_blank"
                             style="color: #00c5ff;text-decoration: none;">dealsandcouponsmena.com</a>
                     </p>
-                    <p> <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
+                    <p> <a href="https://dealsandcouponsmena.com/en/privacy-policy" target="_blank"
                             style="color: #000; text-decoration: none;">Privacy Policy</a> | <a
                             href="https://dealsandcouponsmena.com/en/dubai/terms" target="_blank" style="color: #000; text-decoration: none;">
-                            Terms & Conditions</a> | <a href="https://dealsandcouponsmena.com/en/dubai/faqs" target="_blank"
+                            Terms & Conditions</a> | <a href="https://dealsandcouponsmena.com/en/faqs" target="_blank"
                             style="color: #000; text-decoration: none;">FAQ</a> </p>
                     <p style=" margin-top: -17px;">
 
-                        <a href="https://dealsandcouponsmena.com/en/dubai/privacy-policy" target="_blank"
+                        <a href="https://dealsandcouponsmena.com/en/privacy-policy" target="_blank"
                             style="color: #000; text-decoration: none;">©
                             Dealsandcouponsmena</a>
                     </p>

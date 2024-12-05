@@ -40,6 +40,17 @@ Route::get('/newsletter-mail-2', function(){
     return true;
 });
 
+
+Route::get('/jetour-mailer', function(){
+    Mail::send('web.emailers.jetour.template1', array(), function($message) {
+        $message->to('waseem@datamysite.com', 'Waseem')->subject
+            ('DCM | Jetour Mailer');
+        $message->from('newsletter@dealsandcouponsmena.com','DCM');
+    });
+
+    return true;
+});
+
 //Retailer Count Increase
 Route::get('/retailer-count-increase', function(){
 
