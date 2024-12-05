@@ -337,20 +337,17 @@
                     <div class="column left" style="width: 50%;">
                         <img src="https://dealsandcouponsmena.ae/public/emailers/FAFA.png" style="width:60px;margin-bottom: -50px;" alt="Instagram">
                         <div class="left-side-icons" style="">
-                            Help Center<br><a href="mailto:info@dealsandcouponsmena.com" target="_blank"
-                                style="color: #00c5ff; margin-left: 0;width: 100%;">info@dealsandcouponsmena.com</a>
+                            Help Center<br><a href="mailto:info@datamysite.com" target="_blank"
+                                style="color: #00c5ff; margin-left: 0;width: 100%;">info@datamysite.com</a>
                         </div>
                     </div>
 
                     <div class="column right" style="flex-basis: 100%; width: 50%; text-align: right;">
                         <div class="social-icons" style="margin-top: 50px;">
-                            <a href="https://www.instagram.com/dealsandcouponsmena/" target="_blank">
+                            <a href="https://www.instagram.com/datamysite/" target="_blank">
                                 <img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/instagram.png" alt="Instagram" height="25px" width="25px">
                             </a>
-                            <a href="https://www.facebook.com/people/Deals-And-Coupons-Mena/100091291623092/" target="_blank">
-                                <img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/facebook.png" alt="Facebook" height="25px" width="25px">
-                            </a>
-                            <a href="https://ae.linkedin.com/company/dealsandcouponsmena-com" target="_blank">
+                            <a href="https://www.linkedin.com/company/datamysite/" target="_blank">
                                 <img src="https://dealsandcouponsmena.ae/public/web_assets/images/emails/linkedin.png" alt="linkedin" height="25px" width="25px">
                             </a>
                         </div>
@@ -366,19 +363,19 @@
 
                     <p>
                         You are receiving this email as you’re registered on
-                        <a href="https://dealsandcouponsmena.com/en/privacy-policy" target="_blank"
-                            style="color: #00c5ff;text-decoration: none;">dealsandcouponsmena.com</a>
+                        <a href="https://datamysite.com" target="_blank"
+                            style="color: #00c5ff;text-decoration: none;">datamysite.com</a>
                     </p>
-                    <p> <a href="https://dealsandcouponsmena.com/en/privacy-policy" target="_blank"
+                    <p> <a href="https://datamysite.com/privacy-policy/" target="_blank"
                             style="color: #000; text-decoration: none;">Privacy Policy</a> | <a
                             href="https://dealsandcouponsmena.com/en/dubai/terms" target="_blank" style="color: #000; text-decoration: none;">
-                            Terms & Conditions</a> | <a href="https://dealsandcouponsmena.com/en/faqs" target="_blank"
+                            Terms & Conditions</a> | <a href="https://datamysite.com/faq/" target="_blank"
                             style="color: #000; text-decoration: none;">FAQ</a> </p>
                     <p style=" margin-top: -17px;">
 
-                        <a href="https://dealsandcouponsmena.com/en/privacy-policy" target="_blank"
+                        <a href="https://datamysite.com/" target="_blank"
                             style="color: #000; text-decoration: none;">©
-                            Dealsandcouponsmena</a>
+                            DataMySite</a>
                     </p>
 
                 </div>
