@@ -281,7 +281,7 @@
                         <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/3.png" alt="DCM" style="width: 100%;">
 
                         <div class="row">
-                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 0;">Campaign Details:</h2>
+                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 0;">Campaign Details:</h2><br>
                             <p style="font-size: 16px; text-align: left;">
                                 <table style="margin:auto; width: 100%;" border="0">
                                     <tr>
@@ -331,7 +331,7 @@
             <div style="padding-top:20px; width:auto; text-align: left; width: 100%;">
                 <div class="row" style="margin-top:30px">
 
-                    <div class="column left" style="width: 50%;margin-bottom: -80px;">
+                    <div class="column left" style="width: 50%;">
                         <img src="https://dealsandcouponsmena.ae/public/emailers/FAFA.png" style="width:60px;margin-bottom: -50px;" alt="Instagram">
                         <div class="left-side-icons" style="margin-left:75px">
                             Help Center<br><a href="mailto:info@dealsandcouponsmena.com" target="_blank"
