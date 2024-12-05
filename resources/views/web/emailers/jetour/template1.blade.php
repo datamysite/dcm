@@ -245,8 +245,8 @@
 
 
                 <div style="justify-content: center; width: 100%;">
-                    <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/1.png" alt="DCM" style="width: 100%;">
-                        <br>
+                        <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/1.png" alt="DCM" style="width: 100%;">
+                        <br><br>
                         <div class="row">
                             <div class="column left" style="    flex-basis:50%">
                                 <h4 style="text-align:left; font-size: 24px;">We’re Excited to Announce Our Latest Campaign for Jettour!</h4>
