@@ -260,7 +260,6 @@
                                 <h4 style="text-align:left; font-size: 24px;">We’re Excited to Announce Our Latest Campaign for Jettour!</h4>
                                 <p style="font-size: 16px; text-align: left;">
                                     We are proud to unveil our newest campaign launched for our esteemed client, Jettour. This marks a significant milestone, as Dubai Airport has permitted automobile brand advertising on its premises for the first time in four years!
-                                    <br>
                                 </p>
                             </div>
                             <div class="column right res-col res-img" style="text-align: right;">
@@ -277,7 +276,7 @@
                         <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/3.png" alt="DCM" style="width: 100%;">
 
                         <div class="row">
-                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 0;">Campaign Details:</h2>
+                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 5px;">Campaign Details:</h2>
                         </div>
                         <div class="row">
                             <p style="font-size: 16px; text-align: left;">
