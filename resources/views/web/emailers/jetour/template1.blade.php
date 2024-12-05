@@ -335,7 +335,7 @@
 
                     <div class="column left" style="width: 50%;">
                         <img src="https://dealsandcouponsmena.ae/public/emailers/FAFA.png" style="width:60px;margin-bottom: -50px;" alt="Instagram">
-                        <div class="left-side-icons" style="margin-left:75px">
+                        <div class="left-side-icons" style="margin-left:75px; margin-top: -55px;">
                             Help Center<br><a href="mailto:info@dealsandcouponsmena.com" target="_blank"
                                 style="color: #00c5ff; margin-left: 0;width: 100%;">info@dealsandcouponsmena.com</a>
                         </div>
