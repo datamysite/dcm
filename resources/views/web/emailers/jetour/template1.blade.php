@@ -150,6 +150,9 @@
             background-color: #fff;
             border-color: #ccc;
         }
+        .res-col{
+            flex-basis:50%;
+        }
 
         @media (max-width: 600px) {
             .header {
@@ -202,7 +205,12 @@
 
         @media (max-width: 767px) {
             /*  767px */
-
+            .res-img{
+                display: none;
+            }
+            .res-col{
+                flex-basis: 100%;
+            }
             .dcm_banner_mobile {
                 display: block;
                 width: 100%;
@@ -248,14 +256,14 @@
                         <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/1.png" alt="DCM" style="width: 100%;">
                         <br>
                         <div class="row">
-                            <div class="column left" style="    flex-basis:50%">
+                            <div class="column left res-col">
                                 <h4 style="text-align:left; font-size: 24px;">We’re Excited to Announce Our Latest Campaign for Jettour!</h4>
                                 <p style="font-size: 16px; text-align: left;">
                                     We are proud to unveil our newest campaign launched for our esteemed client, Jettour. This marks a significant milestone, as Dubai Airport has permitted automobile brand advertising on its premises for the first time in four years!
                                     <br>
                                 </p>
                             </div>
-                            <div class="column right" style="    flex-basis:50%; text-align: right;">
+                            <div class="column right res-col res-img" style="text-align: right;">
                                 <br><br>
                                 <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/2.png" alt="DCM" style="width: 65%;">
                             </div>
