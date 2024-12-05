@@ -44,7 +44,7 @@ Route::get('/newsletter-mail-2', function(){
 Route::get('/jetour-mailer', function(){
     Mail::send('web.emailers.jetour.template1', array(), function($message) {
         $message->to('waseem@datamysite.com', 'Waseem')->subject
-            ('DCM | Jetour Mailer');
+            ('DMS x JETOUR');
         $message->from('mail_sender2@dealsandcouponsmena.com','DCM');
     });
 
