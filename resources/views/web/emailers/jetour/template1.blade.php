@@ -259,18 +259,18 @@
 
 
                 <div style="justify-content: center; width: 100%;">
-                        <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/1.png" alt="DCM" style="width: 100%;">
+                        <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/new/1.png" alt="DCM" style="width: 100%;">
                         <br>
                         <div class="row">
                             <div class="column left res-col">
-                                <h4 style="text-align:left; font-size: 24px;">We’re Excited to Announce Our Latest Campaign for Jettour!</h4>
+                                <h4 style="text-align:left; font-size: 24px;">We’re Excited to Announce Our Latest Campaign for Jetour!</h4>
                                 <p style="font-size: 16px; text-align: left;">
-                                    We are proud to unveil our newest campaign launched for our esteemed client, Jettour. This marks a significant milestone, as Dubai Airport has permitted automobile brand advertising on its premises for the first time in four years!
+                                    We are proud to unveil our newest campaign launched for our esteemed client, Jetour. This marks a significant milestone, as Dubai Airport has permitted automobile brand advertising on its premises for the first time in four years!
                                 </p>
                             </div>
                             <div class="column right res-col res-img" style="text-align: right;">
                                 <br><br>
-                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/2.png" alt="DCM" style="width: 65%;">
+                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/new/2.png" alt="DCM" style="width: 65%;">
                             </div>
                         </div>
                         <div class="divider"></div>
@@ -279,44 +279,25 @@
                             <h4 style="text-align:center;font-size:24px;color:#777;letter-spacing: 5px;width: 100%;margin-top: 10px;">DRIVE YOUR FUTURE</h4>
                         </div>
 
-                        <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/3.png" alt="DCM" style="width: 100%;">
+                        <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/new/3.png" alt="DCM" style="width: 100%;">
 
                         <div class="row">
-                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 5px;">Campaign Details:</h2>
+                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 5px;">Location:</h2>
                         </div>
                         <div class="row">
-                            <p style="font-size: 16px; text-align: left;">
-                                <table style="margin:auto; width: 100%;" border="0">
-                                    <tr>
-                                        <td style="width:50%;text-align:right;">Duration&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                                        <td style="width:50%;text-align:left">2 Weeks</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width:50%;text-align:right;">Start Date&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                                        <td style="width:50%;text-align:left">26<sup>th</sup> November</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width:50%;text-align:right;">End Date&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                                        <td style="width:50%;text-align:left">10<sup>th</sup> December</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width:50%;text-align:right;">Location&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                                        <td style="width:50%;text-align:left">Dubai Airport, Terminal 3 (Arrivals)</td>
-                                    </tr>
-
-                                </table>
+                            <p style="font-size: 16px; text-align: center;">
+                                Dubai Airport, Terminal 3 (Arrivals)
                             </p>
                         </div>
                         <br><br>
+                        <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/new/4.png" alt="DCM" style="width: 100%;">
+                        <br>
                         <div class="row">
-                            <div class="column right p10" style="    flex-basis:31%; text-align: right; ">
-                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/4.png" alt="DCM" style="width: 100%;">
+                            <div class="column right p10" style="    flex-basis:48%; text-align: right; ">
+                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/new/5.png" alt="DCM" style="width: 100%;">
                             </div>
-                            <div class="column right p10" style="    flex-basis:31%; text-align: right;">
-                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/5.png" alt="DCM" style="width: 100%;">
-                            </div>
-                            <div class="column right p10" style="    flex-basis:31%; text-align: right;">
-                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/6.png" alt="DCM" style="width: 100%;">
+                            <div class="column right p10" style="    flex-basis:48%; text-align: right;">
+                                <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/new/6.png" alt="DCM" style="width: 100%;">
                             </div>
                         </div>
                         <br>
@@ -335,7 +316,7 @@
                 <div class="row" style="margin-top:30px">
 
                     <div class="column left" style="width: 50%;">
-                        <img src="https://dealsandcouponsmena.ae/public/emailers/FAFA.png" style="width:60px;margin-bottom: -50px;" alt="Instagram">
+                        <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/new/icon.png" style="width:60px;margin-bottom: -50px;" alt="Instagram">
                         <div class="left-side-icons" style="">
                             Help Center<br><a href="mailto:info@datamysite.com" target="_blank"
                                 style="color: #00c5ff; margin-left: 0;width: 100%;">info@datamysite.com</a>
