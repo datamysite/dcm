@@ -306,7 +306,7 @@
                                 This achievement highlights our commitment to delivering unparalleled visibility for our clients in premium locations.
                             </p>
                         </div>
-                        <br>
+                        <div class="divider" style="width:60%;"></div>
                         <div class="row">
                             <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 5px;">Let`s Connect</h2>
                         </div>
