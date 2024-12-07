@@ -343,7 +343,7 @@
                 <div class="footer" style="padding-top: 10px; text-align: center;">
 
                     <p>
-                        You are receiving this email because you are registered with us. if you no longer wish to receive updates, Please 
+                        You are receiving this email because you are registered with us. if you no longer wish to receive updates, <br>Please 
                         <a href="https://datamysite.com" target="_blank"
                             style="color: #00c5ff;text-decoration: none;">[click here to unsubscribe]</a>
                     </p>
