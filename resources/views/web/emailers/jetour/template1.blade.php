@@ -285,7 +285,7 @@
                             <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 5px;">Location:</h2>
                         </div>
                         <div class="row">
-                            <p style="font-size: 16px; text-align: center;">
+                            <p style="font-size: 16px; text-align: center; width: 100%;">
                                 Dubai Airport, Terminal 3 (Arrivals)
                             </p>
                         </div>
@@ -343,9 +343,9 @@
                 <div class="footer" style="padding-top: 10px; text-align: center;">
 
                     <p>
-                        You are receiving this email as you’re registered on
+                        You are receiving this email because you are registered with us. if you no longer wish to receive updates, Please 
                         <a href="https://datamysite.com" target="_blank"
-                            style="color: #00c5ff;text-decoration: none;">datamysite.com</a>
+                            style="color: #00c5ff;text-decoration: none;">[click here to unsubscribe]</a>
                     </p>
                     <p> <a href="https://datamysite.com/privacy-policy/" target="_blank"
                             style="color: #000; text-decoration: none;">Privacy Policy</a> | <a
