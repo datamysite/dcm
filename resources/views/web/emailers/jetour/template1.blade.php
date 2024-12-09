@@ -328,7 +328,7 @@
                         <img src="https://dealsandcouponsmena.ae/public/emailers/jetour/new/icon.png" style="width:60px;margin-bottom: -50px;" alt="Instagram">
                         <div class="left-side-icons" style="">
                             Help Center<br><a href="mailto:info@datamysite.com" target="_blank"
-                                style="color: #00c5ff; margin-left: 0;width: 100%; font-size:10px">info@datamysite.com</a>
+                                style="color: #00c5ff; margin-left: 0;width: 100%; font-size:13px">info@datamysite.com</a>
                         </div>
                     </div>
 
