@@ -308,7 +308,7 @@
                         </div>
                         <div class="divider" style="width:60%;"></div>
                         <div class="row">
-                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 5px;">Let`s Connect</h2>
+                            <h2 style="text-align:center; width:100%;margin-top: 30px;margin-bottom: 5px;">Let’s Connect</h2>
                         </div>
                         <div class="row">
                             <p style="font-size: 16px; text-align: center; width: 100%;">
@@ -353,13 +353,13 @@
 
                     <p>
                         You are receiving this email because you are registered with us. if you no longer wish to receive updates, <br>Please 
-                        <a href="https://datamysite.com" target="_blank"
+                        <a href="https://datamysite.com/email/unsubscribe" target="_blank"
                             style="color: #00c5ff;text-decoration: none;">[click here to unsubscribe]</a>
                     </p>
                     <p> <a href="https://datamysite.com/privacy-policy/" target="_blank"
                             style="color: #000; text-decoration: none;">Privacy Policy</a> | <a
-                            href="https://dealsandcouponsmena.com/en/dubai/terms" target="_blank" style="color: #000; text-decoration: none;">
-                            Terms & Conditions</a> | <a href="https://datamysite.com/faq/" target="_blank"
+                            href="https://datamysite.com/services/" target="_blank" style="color: #000; text-decoration: none;">
+                            Services</a> | <a href="https://datamysite.com/faq/" target="_blank"
                             style="color: #000; text-decoration: none;">FAQ</a> </p>
                     <p style=" margin-top: -17px;">
 
