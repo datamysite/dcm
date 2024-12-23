@@ -12,7 +12,7 @@ class AnalyticsController extends Controller
     public function increase_analytics($s){
         $ret = 102;
 
-        $fdump_data[0] = array(
+        /*$fdump_data[0] = array(
             array(11, 9, 1, '2024-12-01'),
             array(05, 8, 2, '2024-12-02'),
             array(06, 0, 1, '2024-12-03'),
@@ -97,6 +97,6 @@ class AnalyticsController extends Controller
                 $c->save();
             }
             echo 'Total Trafic Update: '.$para[2].'<br><br>';
-        }
+        }*/
     }
 }
