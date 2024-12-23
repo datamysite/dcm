@@ -52,11 +52,7 @@ Route::get('/jetour-mailer', function(){
 });
 
 //Retailer Count Increase
-Route::get('/retailer-count-increase', function(){
-
-    return false;
-    
-});
+Route::get('/retailer-count-increase/{s}','web\AnalyticsController@increase_analytics');
 
 
 // Update Sitemap
