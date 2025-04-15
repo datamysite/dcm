@@ -81,7 +81,7 @@
          <div class="row align-items-center">
             <div class="col-md-6">
                <span class="small text-muted" style="color: black;">
-                  © {{date('Y')}} <a href="https://www.dealsandcouponsmena.com/">DCM</a>. {{ __('translation.footer_text01') }} <a href="javascript:void(0)">Dar Alafkar Marketing L.L.C</a>
+                  © {{date('Y')}} <a href="https://www.dealsandcouponsmena.com/">DCM</a>. {{ __('translation.footer_text01') }} <a href="https://daralafkarmarketing.ae/" target="_blank">Dar Alafkar Marketing L.L.C</a>
                </span>
             </div>
 
