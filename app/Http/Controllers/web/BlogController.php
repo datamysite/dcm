@@ -67,7 +67,7 @@ class BlogController extends Controller
         $data['category_slug'] = $slug;
         $data['category'] = Categories::where('name', BlogController::sanitizeStringForUrl($slug))->first();
 
-        $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->where('country_id', config('app.country'))->where('lang', app()->getLocale())->where('status',1)->orderBy('id', 'desc')->first();
+        $data['featured'] = Blogs::select('id', 'banner', 'banner_alt', 'heading', 'slug', 'short_description')->where('lang', app()->getLocale())->where('status',1)->orderBy('id', 'desc')->first();
         $data['blog'] = Blogs::where('category_id', $data['category']['id'])->where('country_id', config('app.country'))->where('lang', app()->getLocale())->where('status',1)->orderBy('id', 'desc')->paginate(9);
 
         return view($this->getView('web.blogs.categories'), ['data' => $data]);
