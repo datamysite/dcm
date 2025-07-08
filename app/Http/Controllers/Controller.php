@@ -14,7 +14,7 @@ class Controller extends BaseController
     public function getView($viewName, $amp = false){
         $view = $viewName;
         $isMobile = Agent::isMobile();
-        if(config('app.amp')){
+       /* if(config('app.amp')){
             if(config('app.ampn')){
                 if ($_SESSION['amp'] == 'on') {
                     if (view()->exists('ampn-'.$view)) {
@@ -30,7 +30,7 @@ class Controller extends BaseController
                     }
                 }
             }
-        }
+        }*/
         return $view;
     }
 }

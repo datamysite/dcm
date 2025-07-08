@@ -1,13 +1,4 @@
 @extends('web.includes.master')
-@section('amphtml')
-<link rel="amphtml" href="{{$actual_link_m}}" />
-
-<!-- Slider Preload -->
-@foreach($slider as $key => $val)
-<link rel="preload" as="image" href="{{config('app.storage').'slider/'.$val->img_name}}">
-@endforeach
-
-@endsection
 @section('content')
 
 <div class="nav-spacing"></div>

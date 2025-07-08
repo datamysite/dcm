@@ -10,6 +10,7 @@
    <title>{{@$metaTags->title}}@yield('default_title')</title>
    <meta name="keywords" content="{{@$metaTags->keywords}}" />
    <meta name="description" content="{{@$metaTags->description}}@yield('default_description')" />
+   @yield('metaAddition')
    
    <!-- OG Tags -->
    <meta property="og:title" content="{{@$metaTags->title}}@yield('default_title')" />

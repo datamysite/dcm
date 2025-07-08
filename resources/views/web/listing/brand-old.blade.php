@@ -14,11 +14,10 @@
     @endif
 @endsection
 
-@section('amphtml')
-<link rel="amphtml" href="{{$actual_link_m}}" />
-@endsection
-@section('addImagesrc')
-<link rel="image_src" href="{{URL::to('/public/storage/retailers/')}}/{{app()->getLocale() == 'ar' ? 'ar/'.$retailer->ar_logo : $retailer->logo}}" />
+@section('metaAddition')
+@if(!empty($_GET['page']))
+<meta name="robots" content="noindex, follow">
+@endif
 @endsection
 @section('content')
 

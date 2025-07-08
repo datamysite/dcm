@@ -1,6 +1,8 @@
 @extends('web.includes.master')
-@section('amphtml')
-   <link rel="amphtml" href="{{$actual_link_m}}" />
+@section('metaAddition')
+@if(!empty($_GET['page']))
+<meta name="robots" content="noindex, follow">
+@endif
 @endsection
 @section('content')
 

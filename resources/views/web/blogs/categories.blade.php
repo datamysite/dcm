@@ -1,9 +1,8 @@
 @extends('web.includes.master')
-@section('amphtml')
-   <link rel="amphtml" href="{{$actual_link_m}}" />
-@endsection
-@section('addImagesrc')
-<link rel="image_src" href="{{ config('app.storage').'blogs/'.$data['featured']->banner }}" />
+@section('metaAddition')
+@if(!empty($_GET['page']))
+<meta name="robots" content="noindex, follow">
+@endif
 @endsection
 @section('content')
 
@@ -33,7 +32,7 @@
         <div class="hero-slider">
 
             <div class="feather-image-blog">
-                <img src="{{ config('app.storage').'blogs/8040424110844.png'}}" alt="{{empty($data['featured']->banner_alt) ? $data['featured']->slug : $data['featured']->banner_alt}}">
+                <img src="{{ config('app.storage').'blogs/'.$data['featured']->banner }}" alt="{{empty($data['featured']->banner_alt) ? $data['featured']->slug : $data['featured']->banner_alt}}">
                 <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
                     <div class="slider_div2">
                         <h3>Featured</h3>

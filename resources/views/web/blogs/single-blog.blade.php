@@ -1,10 +1,4 @@
 @extends('web.includes.master')
-@section('amphtml')
-<link rel="amphtml" href="{{$actual_link_m}}" />
-@endsection
-@section('addImagesrc')
-<link rel="image_src" href="{{ config('app.storage').'blogs/'.$data['blog']->banner }}" />
-@endsection
 @section('content')
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
