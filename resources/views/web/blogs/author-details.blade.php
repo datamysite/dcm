@@ -1,4 +1,7 @@
 @extends('web.includes.master')
+@section('metaAddition')
+<meta name="robots" content="noindex, follow">
+@endsection
 @section('content')
 
 <div class="mt-110">

@@ -11,7 +11,7 @@
    <meta name="keywords" content="{{@$metaTags->keywords}}" />
    <meta name="description" content="{{@$metaTags->description}}@yield('default_description')" />
    @yield('metaAddition')
-   
+   <meta name="google-adsense-account" content="ca-pub-2683356797993144">
    <!-- OG Tags -->
    <meta property="og:title" content="{{@$metaTags->title}}@yield('default_title')" />
    <meta property="og:description" content="{{@$metaTags->description}}@yield('default_description')" />

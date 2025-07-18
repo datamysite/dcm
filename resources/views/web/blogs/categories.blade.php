@@ -4,6 +4,8 @@
 <meta name="robots" content="noindex, follow">
 @endif
 @endsection
+@section('default_title', 'Explore Blogs About '.$data['category']->name)
+@section('default_description', $data['category']->short_description)
 @section('content')
 
 
