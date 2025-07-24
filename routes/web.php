@@ -95,7 +95,7 @@ Route::group([
     'namespace' => 'web',
     'prefix' => '{locale}',
     'where' => ['locale' => '[a-zA-Z]{2}'],
-    'middleware' => ['setLocale'],
+    'middleware' => ['setLocale', 'throttle:1000,1'],
 
 ], function () {
     //Route::get('/', 'RegionController@index');
