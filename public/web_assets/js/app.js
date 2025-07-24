@@ -139,7 +139,6 @@ function getFooter() {
 }
 
 $(document).ready(function () {
-    checkLocation();
 
     $(document).on("click", ".accordion-item button", function () {
         if ($(this).attr("aria-expanded") == "true") {

@@ -27,9 +27,9 @@ $pos = strpos($url, "/".app()->getLocale());
          </div>
          @endif
 
-         <i class="navbar-flag">
+         <!-- <i class="navbar-flag">
             <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}" width="34px" height="24.281px">
-         </i>
+         </i> -->
 
          <div class="list-inline-item d-inline-block d-lg-none">
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-label="Toggle navigation">
@@ -337,9 +337,9 @@ $pos = strpos($url, "/".app()->getLocale());
                            </div>
                         </a>
                         @endif
-                        <i class="navbar-flag" data-bs-toggle="modal" data-bs-target="#locationModal">
+                        <!-- <i class="navbar-flag" data-bs-toggle="modal" data-bs-target="#locationModal">
                            <img src="{{URL::to('/public/web_assets/images/countries/'.config('app.country').'.png')}}" width="25px" height="17.844px">
-                        </i>
+                        </i> -->
                      </ul>
                </div>
 
