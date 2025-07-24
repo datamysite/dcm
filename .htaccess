@@ -1,11 +1,6 @@
-<IfModule mod_setenvif.c>
-  SetEnvIfNoCase User-Agent "AhrefsBot" allow_bot
-</IfModule>
-
-<IfModule mod_authz_core.c>
-  <RequireAll>
-    Require all granted
-  </RequireAll>
+<IfModule mod_security.c>
+    SecRuleRemoveById 400011
+    SecRuleRemoveById 400012
 </IfModule>
 
 <IfModule mod_rewrite.c>
