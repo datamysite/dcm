@@ -38,7 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
-        'throttle' => ['throttle:100,1'], //No idea why, but this works!
+        'throttle' => ['throttle:1000,1'], //No idea why, but this works!
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
