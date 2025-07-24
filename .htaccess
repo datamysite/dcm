@@ -1,3 +1,13 @@
+<IfModule mod_setenvif.c>
+  SetEnvIfNoCase User-Agent "AhrefsBot" allow_bot
+</IfModule>
+
+<IfModule mod_authz_core.c>
+  <RequireAll>
+    Require all granted
+  </RequireAll>
+</IfModule>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
