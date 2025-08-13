@@ -1,4 +1,6 @@
 @extends('web.includes.master')
+@section('default_title'){{empty($metaTags->title) ? $data['metaTags_alt']['title'] : ''}}@endsection
+@section('default_description'){{empty($metaTags->description) ? $data['metaTags_alt']['description'] : ''}}@endsection
 @section('content')
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -138,7 +140,7 @@
 
                         <div class="row mt-5">
                             <div class="col-lg-4" style="text-align: center;">
-                                @if($val->author->image !='')
+                                @if(!empty($val->author->image) && $val->author->image !='')
                                 <a href="{{route('blog.author',$val->author->slug ) }}">
                                     <img src="{{ config('app.storage').'authors/'.$val->author->image }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
                                     <p class="mt-2" style="color:#000;font-size: 11px;font-weight: bolder;">{{$val->author->name}}</p>
@@ -167,7 +169,7 @@
                                     <div class="card bg-light border-0" style="border-radius: 10px;height: 200px !important;">
                                         <div class="d-flex align-items-center">
                                             <div style="padding-left:10px;">
-                                                <img src="{{ config('app.storage').'authors/'.$val->author->image }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
+                                                <img src="{{ config('app.storage').'authors/4170724111224.png' }}" alt="Circle Image" class="circle-image" style="margin-top:10px;width:50px;height:50px;background-color:antiquewhite;">
                                             </div>
                                             <div class="ms-3 lh-1">
                                                 <h6 class="mb-0">{{$val->author->name}}</h6>

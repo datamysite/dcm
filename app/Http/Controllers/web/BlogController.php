@@ -34,6 +34,9 @@ class BlogController extends Controller
             $category_id = $data['blog']['category_id'];
             $author_id = $data['blog']['author_id'];
 
+            $data['metaTags_alt']['title'] = $data['blog']->heading;
+            $data['metaTags_alt']['description'] = $data['blog']->short_description;
+
             $data['faq'] = Faq::where('blog_id', $id)->with('country')->get();
 
             $data['author'] = Author::where('id', $author_id)->first();
