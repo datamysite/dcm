@@ -60,9 +60,9 @@
                 <a href="{{route('blog.details', [$val->slug])}}" target="blank" style="color:#000;">
                     <div class="post-feather">
                         <img src="{{ config('app.storage').'blogs/'.$val->banner }}" alt="{{empty($val->banner_alt) ? $val->slug : $val->banner_alt}}">
-                        <a href="{{route('blog.details', [$val->slug])}}" target="blank" class="readMorebutton">{{ __('translation.read_more') }}</a>
+                        <span target="blank" class="readMorebutton">{{ __('translation.read_more') }}</span>
                     </div>
-                    <a href="{{route('blog.details', [$val->slug])}}" target="blank"><h5 title="{{$val->heading}}">{{$val->heading}}</h5></a>
+                    <h5 title="{{$val->heading}}">{{$val->heading}}</h5>
                     <p title="{{ $val->short_description }}">{{ $val->short_description }}</p>
                 </a>
             </div>
