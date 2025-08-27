@@ -1,6 +1,53 @@
 @extends('web.includes.master')
 @section('default_title'){{empty($metaTags->title) ? $data['metaTags_alt']['title'] : ''}}@endsection
 @section('default_description'){{empty($metaTags->description) ? $data['metaTags_alt']['description'] : ''}}@endsection
+@section('addStyle')
+    <style>
+        .desk-blog-banner-image img {
+            width: 104%;
+            height: 400px;
+            object-fit: cover;
+            margin-left: -2%;
+        }
+        .DesktopAuthorSection .container {
+            overflow: hidden;
+        }
+        .desk-blog-banner-image {
+            margin-bottom: -170px;
+        }
+        .DesktopAuthorSection .row {
+            background-image: linear-gradient(90deg, #195b88, #ffffff00);
+            position: relative;
+        }
+        .MwebAuthorSection {
+            overflow: hidden;
+            width: 96%;
+            margin: auto;
+            border-radius: 8px !important;
+        }
+        .MwebAuthorSection .mob-blog-banner-image {
+            margin-bottom: -215px;
+        }
+        .mob-blog-banner-image img {
+            width: 104%;
+            height: 400px;
+            object-fit: cover;
+            margin-left: -2%;
+        }
+
+        .MwebAuthorSection .row {
+            background-image: linear-gradient(90deg, #195b88, #ffffff00);
+            position: relative;
+            margin-left: -32px;
+        }
+        .MwebAuthorSection p {
+            margin: 0;
+        }
+        .MwebAuthorSection .mob-blog-heading {
+            font-size: 20px !important;
+        }
+    </style>
+@endsection
 @section('content')
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -55,30 +102,36 @@
 
     <div Class="DesktopAuthorSection">
         <div class="container" style="background-color: #1F428A;border-radius: 10px; background-image: linear-gradient(90deg, #051129, #2791CC);width:100%;height:100%;">
+            <div class="desk-blog-banner-image">
+                <img src="{{ config('app.storage').'blogs/'.$data['blog']->banner }}" alt="{{empty($data['blog']->banner_alt) ? $data['blog']->slug : $data['blog']->banner_alt}}">
+            </div>
+            
             <div class="row">
-                <div class="col-lg-12 tex-center mt-5">
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <h1 class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</h1>
-                            <p class="mt-5" style="color: #fff;">Author: <a href="{{route('blog.author',$data['author']->slug )}}" style="color: #fff;">{{ $data['author']->name }}</a>
-                                | <b>{{$data['blog']->read_time}} </b> Minute Read
-                            </p>
-                            <p class="mt-5" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</p>
-                        </div>
-                    </div>
+                <div class="col-lg-12 tex-center">
+                    <h1 class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</h1>
+                    <p class="mt-5" style="color: #fff;">Author: <a href="{{route('blog.author',$data['author']->slug )}}" style="color: #fff;">{{ $data['author']->name }}</a>
+                        | <b>{{$data['blog']->read_time}} </b> Minute Read
+                    </p>
+                    <p class="mt-5" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}
+                        <br>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="MwebAuthorSection mt-5" style="border-radius:0px;height:100%;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);">
+    <div class="MwebAuthorSection mt-5" style="height:100%;background-color: #1F428A;background-image: linear-gradient(90deg, #051129, #2791CC);">
+        <div class="mob-blog-banner-image">
+            <img src="{{ config('app.storage').'blogs/'.$data['blog']->banner }}" alt="{{empty($data['blog']->banner_alt) ? $data['blog']->slug : $data['blog']->banner_alt}}">
+        </div>
+        
         <div class="row" style="color: #fff;left: 20px;padding-left:10px;">
-            <b style="font-size:1.75rem;" class="mt-5" style="color: #fff;">{{$data['blog']->heading}}</b>
+            <b style="font-size:1.75rem;" class="mt-5 mob-blog-heading" style="color: #fff;">{{$data['blog']->heading}}</b>
             <p class="mt-3" style="color: #fff;">
                 <b>Author: </b> <a href="{{route('blog.author', $data['author']->slug )}}" style="color:#fff;">{{ $data['author']->name }}</a>
                 | <b>{{$data['blog']->read_time}} </b> Minute Read
             </p>
-            <p class="mt-0" style="color: #fff;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</p>
+            <p class="mt-0" style="color: #fff; margin-bottom: 8px;"><b>Created at: </b>{{date('d-M-Y', strtotime($data['blog']->created_at))}}</p>
         </div>
     </div>
 
